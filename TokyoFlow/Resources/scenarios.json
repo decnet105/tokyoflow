@@ -1,0 +1,695 @@
+[
+  {
+    "id": "scenario_01_morning_train",
+    "title": "Morning Yamanote Line: Ticket & Suica Commute",
+    "titleJa": "朝の山手線：切符とSuica通勤",
+    "category": "transit",
+    "district": "Shinjuku (新宿)",
+    "timeOfDay": "08:15 AM",
+    "quarter": 1,
+    "week": 1,
+    "day": 1,
+    "jfCanDoLevel": "A1-A2",
+    "jfCanDoDescription": "Can buy a train ticket, recharge an IC card, and ask station staff for platform directions in Tokyo.",
+    "context": "You arrive at Shinjuku Station during morning rush hour. You need to recharge your Suica card and find the Yamanote Line platform for Shibuya.",
+    "culturalTip": "At Tokyo ticket gates, tap your Suica/Pasmo on the right sensor. If the gate beeps and closes, step aside to the window (精算所 / 改札窓口) and say 'タッチできませんでした' (It didn't tap).",
+    "dialogue": [
+      {
+        "id": "d1_1",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "すみません、渋谷行きの山手線は何番線ですか？",
+        "furigana": "すみません、しぶや{渋谷} ゆき{行き}の やまのてせん{山手線}は なんばんせん{何番線}ですか？",
+        "romaji": "Sumimasen, Shibuya-yuki no Yamanote-sen wa nan-bansen desu ka?",
+        "english": "Excuse me, which platform is the Yamanote Line for Shibuya?",
+        "chinese": "请问，去涩谷方向的山手线在几号站台？",
+        "register": "polite",
+        "audioPrompt": "すみません、渋谷行きの山手線は何番線ですか？"
+      },
+      {
+        "id": "d1_2",
+        "speaker": "Station Staff (駅員)",
+        "role": "native",
+        "japanese": "14番線になります。階段を上がって右側です。",
+        "furigana": "じゅうよんばんせん{14番線}になります。かいだん{階段}を あ{上}がって みぎがわ{右側}です。",
+        "romaji": "Jū-yon-bansen ni narimasu. Kaidan o agatte migi-gawa desu.",
+        "english": "It is platform 14. Go up the stairs and it is on the right side.",
+        "chinese": "在14号站台。上楼梯后在右侧。",
+        "register": "polite",
+        "audioPrompt": "14番線になります。階段を上がって右側です。"
+      },
+      {
+        "id": "d1_3",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "ありがとうございます！あと、Suicaのチャージはどこでできますか？",
+        "furigana": "ありがとうございます！あと、Suicaの チャージは どこで できますか？",
+        "romaji": "Arigatō gozaimasu! Ato, Suica no chāji wa doko de dekimasu ka?",
+        "english": "Thank you! Also, where can I charge my Suica?",
+        "chinese": "非常感谢！另外，在哪里可以给Suica充值？",
+        "register": "polite",
+        "audioPrompt": "ありがとうございます！あと、Suicaのチャージはどこでできますか？"
+      },
+      {
+        "id": "d1_4",
+        "speaker": "Station Staff (駅員)",
+        "role": "native",
+        "japanese": "あちらの黒い券売機でチャージできますよ。チャージボタンを押してください。",
+        "furigana": "あちらの くろ{黒}い けんばいき{券売機}で チャージできますよ。チャージボタンを お{押}してください。",
+        "romaji": "Achira no kuroi kenbaiki de chāji dekimasu yo. Chāji botan o oshite kudasai.",
+        "english": "You can charge at that black ticket vending machine over there. Just press the 'Charge' button.",
+        "chinese": "在那边的黑色自动售票机可以充值。按一下充值（Charge）按钮即可。",
+        "register": "polite",
+        "audioPrompt": "あちらの黒い券売機でチャージできますよ。チャージボタンを押してください。"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You are at the ticket machine and need to add 2,000 yen with 10,000 yen bill and want receipt.",
+      "options": [
+        {
+          "text": "二千円チャージで、領収書をお願いします。",
+          "furigana": "にせんえん{二千円}チャージで、りょうしゅうしょ{領収書}を おねが{お願}いします。",
+          "romaji": "Ni-sen-en chāji de, ryōshūsho o onegaishimasu.",
+          "isCorrect": true,
+          "explanation": "Natural and polite: specifying the charge amount and requesting a receipt (領収書 ryōshūsho)."
+        },
+        {
+          "text": "Suicaにお金をたくさん入れるよ。",
+          "furigana": "Suicaにおかね{お金}を たくさん い{入}れるよ。",
+          "romaji": "Suica ni okane o takusan ireru yo.",
+          "isCorrect": false,
+          "explanation": "Too casual and vague, not suitable for customer service."
+        },
+        {
+          "text": "電車に乗る切符をください。",
+          "furigana": "でんしゃ{電車}に の{乗}る きっぷ{切符}を ください。",
+          "romaji": "Densha ni noru kippu o kudasai.",
+          "isCorrect": false,
+          "explanation": "This asks to buy a physical single-trip ticket, not recharge Suica."
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "何番線", "reading": "なんばんせん", "romaji": "nan-bansen", "meaning": "which platform number", "type": "noun" },
+      { "word": "行き", "reading": "ゆき / いき", "romaji": "yuki", "meaning": "bound for / heading to", "type": "suffix" },
+      { "word": "チャージ", "reading": "チャージ", "romaji": "chāji", "meaning": "top-up / recharge IC card", "type": "noun" },
+      { "word": "券売機", "reading": "けんばいき", "romaji": "kenbaiki", "meaning": "ticket vending machine", "type": "noun" },
+      { "word": "領収書", "reading": "りょうしゅうしょ", "romaji": "ryōshūsho", "meaning": "official receipt (for expense/tax)", "type": "noun" },
+      { "word": "改札口", "reading": "かいさつぐち", "romaji": "kaisatsuguchi", "meaning": "ticket barrier gate", "type": "noun" }
+    ]
+  },
+  {
+    "id": "scenario_02_kombini_morning",
+    "title": "Convenience Store: Bento, Bag & Payment Flow",
+    "titleJa": "コンビニの朝：お弁当温め・袋・決済",
+    "category": "kombini",
+    "district": "Shibuya (渋谷)",
+    "timeOfDay": "08:45 AM",
+    "quarter": 1,
+    "week": 1,
+    "day": 2,
+    "jfCanDoLevel": "A1",
+    "jfCanDoDescription": "Can smoothly buy breakfast/lunch at Japanese kombini (7-Eleven, Lawson, FamilyMart), handle heating, cutlery, and digital payments.",
+    "context": "You walk into 7-Eleven to buy an onigiri, a katsu curry bento, and hot green tea. You go to the checkout counter.",
+    "culturalTip": "Cashier dialogue in Japan is scripted: 1) Point card? 2) Warm up bento? 3) Spoon or chopsticks? 4) Plastic bag (袋 fukuro) needed? (Usually 3-5 yen).",
+    "dialogue": [
+      {
+        "id": "d2_1",
+        "speaker": "Cashier (店員)",
+        "role": "native",
+        "japanese": "いらっしゃいませ！ポイントカードはお持ちですか？",
+        "furigana": "いらっしゃいませ！ポイントカードは おも{お持}ちですか？",
+        "romaji": "Irasshaimase! Pointo kādo wa o-mochi desu ka?",
+        "english": "Welcome! Do you have a point card?",
+        "chinese": "欢迎光临！请问有积分卡吗？",
+        "register": "keigo",
+        "audioPrompt": "いらっしゃいませ！ポイントカードはお持ちですか？"
+      },
+      {
+        "id": "d2_2",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "ないです。大丈夫です。",
+        "furigana": "ないです。だいじょうぶ{大丈夫}です。",
+        "romaji": "Nai desu. Daijōbu desu.",
+        "english": "I don't have one. That's fine.",
+        "chinese": "没有，不用了。",
+        "register": "polite",
+        "audioPrompt": "ないです。大丈夫です。"
+      },
+      {
+        "id": "d2_3",
+        "speaker": "Cashier (店員)",
+        "role": "native",
+        "japanese": "お弁当、温めますか？",
+        "furigana": "おべんとう{お弁当}、あたた{温}めますか？",
+        "romaji": "O-bentō, atatamemasu ka?",
+        "english": "Would you like your bento warmed up?",
+        "chinese": "便当需要加热吗？",
+        "register": "polite",
+        "audioPrompt": "お弁当、温めますか？"
+      },
+      {
+        "id": "d2_4",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "はい、お願いします！スプーンも一本つけてもらえますか？",
+        "furigana": "はい、おねが{お願}いします！スプーンも いっぽん{一本} つけてもらえますか？",
+        "romaji": "Hai, onegaishimasu! Supūn mo ippon tsukete moraemasu ka?",
+        "english": "Yes, please! Could you also include one spoon?",
+        "chinese": "好的，麻烦加热！能再给我一把勺子吗？",
+        "register": "polite",
+        "audioPrompt": "はい、お願いします！スプーンも一本つけてもらえますか？"
+      },
+      {
+        "id": "d2_5",
+        "speaker": "Cashier (店員)",
+        "role": "native",
+        "japanese": "かしこまりました。レジ袋はご利用になりますか？",
+        "furigana": "かしこまりました。レジぶくろ{レジ袋}は ごりよう{ご利用}になりますか？",
+        "romaji": "Kashikomarimashita. Reji-bukuro wa go-riyō ni narimasu ka?",
+        "english": "Certainly. Would you like a plastic shopping bag?",
+        "chinese": "好的。请问需要塑料购物袋吗？",
+        "register": "keigo",
+        "audioPrompt": "かしこまりました。レジ袋はご利用になりますか？"
+      },
+      {
+        "id": "d2_6",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "袋は大丈夫です。Suicaで払います。",
+        "furigana": "ふくろ{袋}は だいじょうぶ{大丈夫}です。Suicaで はら{払}います。",
+        "romaji": "Fukuro wa daijōbu desu. Suica de haraimasu.",
+        "english": "No bag needed. I'll pay with Suica.",
+        "chinese": "不需要袋子。我用Suica支付。",
+        "register": "polite",
+        "audioPrompt": "袋は大丈夫です。Suicaで払います。"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You bought canned iced coffee and warm pork buns (肉まん). The clerk asks: '袋は分けますか？' (Shall I put warm and cold in separate bags?). You want them together to save bags.",
+      "options": [
+        {
+          "text": "一緒でいいです。（いっしょで いいです）",
+          "furigana": "いっしょ{一緒}で いいです。",
+          "romaji": "Issho de ii desu.",
+          "isCorrect": true,
+          "explanation": "'Issho de ii desu' is the Tokyo native shortcut meaning 'Together is fine'."
+        },
+        {
+          "text": "別々にしてください。",
+          "furigana": "べつべつ{別々}に してください。",
+          "romaji": "Betsu-betsu ni shite kudasai.",
+          "isCorrect": false,
+          "explanation": "This requests them in separate bags."
+        },
+        {
+          "text": "温めないでください。",
+          "furigana": "あたた{温}めないで ください。",
+          "romaji": "Atatamenaide kudasai.",
+          "isCorrect": false,
+          "explanation": "This means 'Do not warm it up', not answering about bag separation."
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "温める", "reading": "あたためる", "romaji": "atatameru", "meaning": "to warm up / microwave", "type": "verb" },
+      { "word": "レジ袋", "reading": "レジぶくろ", "romaji": "reji-bukuro", "meaning": "plastic shopping checkout bag", "type": "noun" },
+      { "word": "一緒でいい", "reading": "いっしょでいい", "romaji": "issho de ii", "meaning": "together is fine (combining items)", "type": "phrase" },
+      { "word": "箸", "reading": "はし", "romaji": "hashi", "meaning": "chopsticks", "type": "noun" },
+      { "word": "お手拭き", "reading": "おてふき", "romaji": "o-tefuki", "meaning": "wet wipe / hand towelette", "type": "noun" },
+      { "word": "支払い", "reading": "しはらい", "romaji": "shiharai", "meaning": "payment method", "type": "noun" }
+    ]
+  },
+  {
+    "id": "scenario_03_ramen_ticket_machine",
+    "title": "Ramen Counter: Ticket Vending Machine & Customizing Broth",
+    "titleJa": "ラーメン屋の食券機と「お好み」注文",
+    "category": "dining",
+    "district": "Ikebukuro (池袋)",
+    "timeOfDay": "12:30 PM",
+    "quarter": 1,
+    "week": 2,
+    "day": 1,
+    "jfCanDoLevel": "A2",
+    "jfCanDoDescription": "Can read food ticket machines (食券機), customize noodle firmness (硬さ), soup richness (濃さ), and oil levels (油の量).",
+    "context": "You visit a famous Iekei (家系) ramen shop in Ikebukuro. You bought a ticket from the machine and sit at the counter.",
+    "culturalTip": "In ramen bars, hand your ticket to the chef over the counter. In Tonkotsu/Iekei ramen, they will ask for your preferences: 麺の硬さ (Noodle firmness: 硬め/普通/柔らかめ), 味の濃さ (Flavor richness), 脂の量 (Oil level).",
+    "dialogue": [
+      {
+        "id": "d3_1",
+        "speaker": "Chef (店主)",
+        "role": "native",
+        "japanese": "いらっしゃい！食券をお預かりします。お好みはどうされますか？",
+        "furigana": "いらっしゃい！しょっけん{食券}を おあず{お預}かりします。おこの{お好}みは どうされますか？",
+        "romaji": "Irasshai! Shokken o o-azukari shimasu. O-konomi wa dō saremasu ka?",
+        "english": "Welcome! I'll take your meal ticket. How would you like your ramen customized?",
+        "chinese": "欢迎光临！收您的食券。请问您的口味喜好怎么调？",
+        "register": "polite",
+        "audioPrompt": "いらっしゃい！食券をお預かりします。お好みはどうされますか？"
+      },
+      {
+        "id": "d3_2",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "麺硬め、味普通、油少なめでお願いします！",
+        "furigana": "めん{麺} かた{硬}め、あじ{味} ふつう{普通}、あぶら{油} すくな{少}なめで おねが{お願}いします！",
+        "romaji": "Men katame, aji futsū, abura sukuname de onegaishimasu!",
+        "english": "Firm noodles, normal flavor richness, and less oil, please!",
+        "chinese": "面偏硬、口味普通、少油，麻烦了！",
+        "register": "polite",
+        "audioPrompt": "麺硬め、味普通、油少なめでお願いします！"
+      },
+      {
+        "id": "d3_3",
+        "speaker": "Chef (店主)",
+        "role": "native",
+        "japanese": "へい！硬め・普通・少なめね！ライスは無料で付けられますが、どうしますか？",
+        "furigana": "へい！かた{硬}め・ふつう{普通}・すくな{少}なめね！ライスは むりょう{無料}で つ{付}けられますが、どうしますか？",
+        "romaji": "Hei! Katame, futsū, sukuname ne! Raisu wa muryō de tsukeraremasu ga, dō shimasu ka?",
+        "english": "Got it! Firm, regular, less oil! Rice is free, would you like some?",
+        "chinese": "好嘞！面硬、普通、少油！米饭是免费附赠的，您要来一份吗？",
+        "register": "casual-polite",
+        "audioPrompt": "へい！硬め・普通・少なめね！ライスは無料で付けられますが、どうしますか？"
+      },
+      {
+        "id": "d3_4",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "半ライスをお願いします。あと、お冷のおかわりはセルフサービスですか？",
+        "furigana": "はん{半}ライスを おねが{お願}いします。あと、おひ{お冷}やの おかわりは セルフサービスですか？",
+        "romaji": "Han-raisu o onegaishimasu. Ato, o-hiya no o-kawari wa serufu sābisu desu ka?",
+        "english": "Half rice, please. Also, is the water refill self-service?",
+        "chinese": "请给我半份米饭。另外，添冰水是自助的吗？",
+        "register": "polite",
+        "audioPrompt": "半ライスをお願いします。あと、お冷のおかわりはセルフサービスですか？"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You finished your noodles and want an extra noodle refill (Kaedama) at a Hakata ramen restaurant.",
+      "options": [
+        {
+          "text": "すみません、替え玉をバリカタでお願いします！",
+          "furigana": "すみません、かえだま{替え玉}を バリカタで おねが{お願}いします！",
+          "romaji": "Sumimasen, kaedama o barikata de onegaishimasu!",
+          "isCorrect": true,
+          "explanation": "'Kaedama' is noodle refill; 'Barikata' (超硬) is extra firm noodles."
+        },
+        {
+          "text": "もう一杯ラーメンを新しく作ってください。",
+          "furigana": "もういっぱい{一杯}ラーメンを あたら{新}しく つく{作}ってください。",
+          "romaji": "Mō ippai rāmen o atarashiku tsukutte kudasai.",
+          "isCorrect": false,
+          "explanation": "This orders an entire second bowl of ramen at full price."
+        },
+        {
+          "text": "お会計をお願いします。",
+          "furigana": "おかいけい{お会計}を おねが{お願}いします。",
+          "romaji": "O-kaikei o onegaishimasu.",
+          "isCorrect": false,
+          "explanation": "This asks for the bill/checkout."
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "食券機", "reading": "しょっけんき", "romaji": "shokkenki", "meaning": "meal ticket vending machine", "type": "noun" },
+      { "word": "硬め", "reading": "かため", "romaji": "katame", "meaning": "firm / al dente (noodles)", "type": "adjective" },
+      { "word": "濃いめ", "reading": "こいめ", "romaji": "koime", "meaning": "rich / concentrated flavor", "type": "adjective" },
+      { "word": "替え玉", "reading": "かえだま", "romaji": "kaedama", "meaning": "noodle refill", "type": "noun" },
+      { "word": "お冷", "reading": "おひや", "romaji": "o-hiya", "meaning": "cold drinking water", "type": "noun" },
+      { "word": "バリカタ", "reading": "バリカタ", "romaji": "barikata", "meaning": "extra firm noodle texture", "type": "slang" }
+    ]
+  },
+  {
+    "id": "scenario_04_izakaya_table_booking",
+    "title": "Izakaya Night: Booking, Table Calls & Splitting Bill",
+    "titleJa": "居酒屋の夜：予約・注文・割り勘",
+    "category": "dining",
+    "district": "Shimbashi (新橋)",
+    "timeOfDay": "19:00 PM",
+    "quarter": 1,
+    "week": 3,
+    "day": 1,
+    "jfCanDoLevel": "A2-B1",
+    "jfCanDoDescription": "Can make phone reservations for a restaurant, order rounds at an Izakaya ('toriaezu nama'), handle table charge (Otoshi), and split the check (Warikan).",
+    "context": "You meet friends at a popular Yakitori Izakaya under the train tracks in Shimbashi.",
+    "culturalTip": "In Japanese izakayas, the opening ritual is ordering drinks first ('とりあえず生' - draft beer for now). An appetizer called お通し (Otōshi) is served automatically as a cover charge.",
+    "dialogue": [
+      {
+        "id": "d4_1",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "すみません！とりあえず生中３つと、ウーロン茶１つお願いします！",
+        "furigana": "すみません！とりあえず なまちゅう{生中} ３つと、ウーロンちゃ{茶} １つ おねが{お願}いします！",
+        "romaji": "Sumimasen! Toriaezu namachū mittsu to, ūron-cha hitotsu onegaishimasu!",
+        "english": "Excuse me! To start off, three medium draft beers and one oolong tea, please!",
+        "chinese": "不好意思！先来三杯中杯生啤，一杯乌龙茶！",
+        "register": "polite",
+        "audioPrompt": "すみません！とりあえず生中３つと、ウーロン茶１つお願いします！"
+      },
+      {
+        "id": "d4_2",
+        "speaker": "Staff (店員)",
+        "role": "native",
+        "japanese": "かしこまりました！本日のお通しは枝豆になります。お料理はお決まりですか？",
+        "furigana": "かしこまりました！ほんじつ{本日}の おとお{お通}しは えだまめ{枝豆}になります。おりょうり{お料理}は おき{お決}まりですか？",
+        "romaji": "Kashikomarimashita! Honjitsu no o-tōshi wa edamame ni narimasu. O-ryōri wa o-kimari desu ka?",
+        "english": "Certainly! Today's table appetizer is edamame. Have you decided on food dishes?",
+        "chinese": "好的！今天的前菜小菜是毛豆。各位决定好要点的料理了吗？",
+        "register": "polite",
+        "audioPrompt": "かしこまりました！本日のお通しは枝豆になります。お料理はお決まりですか？"
+      },
+      {
+        "id": "d4_3",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "焼き鳥の盛り合わせをタレで１皿と、唐揚げをお願いします。",
+        "furigana": "や{焼}きとり{鳥}の も{盛}りあ{合}わせを タレで ひとさら{１皿}と、からあ{唐揚}げを おねが{お願}いします。",
+        "romaji": "Yakitori no moriawase o tare de hito-sara to, karaage o onegaishimasu.",
+        "english": "One platter of assorted yakitori skewers with tare sauce, and fried chicken, please.",
+        "chinese": "一份酱烤烧鸟拼盘，再加一份日式炸鸡。",
+        "register": "polite",
+        "audioPrompt": "焼き鳥の盛り合わせをタレで１皿と、唐揚げをお願いします。"
+      },
+      {
+        "id": "d4_4",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "すみません、お会計は別々でできますか？それともまとめてですか？",
+        "furigana": "すみません、おかいけい{お会計}は べつべつ{別々}で できますか？それとも まとめてですか？",
+        "romaji": "Sumimasen, o-kaikei wa betsu-betsu de dekimasu ka? Soretomo matomete desu ka?",
+        "english": "Excuse me, can we pay separately, or should we pay all together?",
+        "chinese": "不好意思，请问可以分开结账吗？还是要一起结？",
+        "register": "polite",
+        "audioPrompt": "すみません、お会計は別々でできますか？それともまとめてですか？"
+      },
+      {
+        "id": "d4_5",
+        "speaker": "Staff (店員)",
+        "role": "native",
+        "japanese": "申し訳ありません、混雑時はテーブルごとの一括会計でお願いしております。",
+        "furigana": "もう{申}しわけ{訳}ありません、こんざつじ{混雑時}は テーブルごとの いっかつ{一括}かいけい{会計}で おねが{お願}いしております。",
+        "romaji": "Mōshiwake arimasen, konzatsu-ji wa tēburu-goto no ikkatsu kaikei de onegai shite orimasu.",
+        "english": "I'm very sorry, but during busy hours we kindly ask for a single combined payment per table.",
+        "chinese": "非常抱歉，客流高峰期我们统一按桌合并结账。",
+        "register": "keigo",
+        "audioPrompt": "申し訳ありません、混雑時はテーブルごとの一括会計でお願いしております。"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You need to ask for the bill at the end of the meal at your table.",
+      "options": [
+        {
+          "text": "すみません、お会計（お勘定）をお願いします。",
+          "furigana": "すみません、おかいけい{お会計}（おかんじょう{お勘定}）を おねが{お願}いします。",
+          "romaji": "Sumimasen, o-kaikei (o-kanjō) o onegaishimasu.",
+          "isCorrect": true,
+          "explanation": "The standard polite way to ask for the check in Japan (crossing your index fingers in an 'X' sign is also recognized)."
+        },
+        {
+          "text": "もう帰るからお金を渡すよ。",
+          "furigana": "もうかえ{帰}るから おかね{お金}を わた{渡}すよ。",
+          "romaji": "Mō kaeru kara okane o watasu yo.",
+          "isCorrect": false,
+          "explanation": "Too blunt and rude for an establishment."
+        },
+        {
+          "text": "ごちそうさまでした！お金はいりません。",
+          "furigana": "ごちそうさまでした！おかね{お金}は いりません。",
+          "romaji": "Gochisōsama deshita! Okane wa irimasen.",
+          "isCorrect": false,
+          "explanation": "This says 'I don't need money', nonsensical for paying."
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "とりあえず", "reading": "とりあえず", "romaji": "toriaezu", "meaning": "for now / to start with", "type": "adverb" },
+      { "word": "生中", "reading": "なまちゅう", "romaji": "namachū", "meaning": "medium draft beer (生ビール中ジョッキ)", "type": "noun" },
+      { "word": "お通し", "reading": "おとおし", "romaji": "o-tōshi", "meaning": "mandatory table appetizer / cover charge", "type": "noun" },
+      { "word": "盛り合わせ", "reading": "もりあわせ", "romaji": "moriawase", "meaning": "combination / platter platter", "type": "noun" },
+      { "word": "割り勘", "reading": "わりかん", "romaji": "warikan", "meaning": "splitting the bill equally", "type": "noun" },
+      { "word": "一括会計", "reading": "いっかつかいけい", "romaji": "ikkatsu kaikei", "meaning": "lump-sum / single check payment", "type": "noun" }
+    ]
+  },
+  {
+    "id": "scenario_05_docomo_bike_rental",
+    "title": "Bike & Mobility: Docomo Share Bike / LUUP Scooter Rental",
+    "titleJa": "モビリティ：赤チャリ（ドコモ・バイクシェア）とLUUPの利用",
+    "category": "services",
+    "district": "Roppongi & Akasaka (六本木・赤坂)",
+    "timeOfDay": "15:00 PM",
+    "quarter": 2,
+    "week": 5,
+    "day": 2,
+    "jfCanDoLevel": "A2",
+    "jfCanDoDescription": "Can unlock bike share / e-scooters in Tokyo, navigate parking ports, and ask locals where to return the cycle.",
+    "context": "You want to ride a red shared bicycle (ドコモ・バイクシェア / 赤チャリ) around Tokyo streets to Roppongi Hills.",
+    "culturalTip": "Tokyo has strict parking rules for bikes (放置自転車禁止). You must return shared bikes to designated 'Ports' (ポート). You cannot leave them randomly on sidewalks.",
+    "dialogue": [
+      {
+        "id": "d5_1",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "すみません、この近くにバイクシェアのポートはありますか？",
+        "furigana": "すみません、このちか{近}くに バイクシェアの ポートは ありますか？",
+        "romaji": "Sumimasen, kono chikaku ni baiku shea no pōto wa arimasu ka?",
+        "english": "Excuse me, is there a bike share port near here?",
+        "chinese": "请问这附近有共享单车的还车点（停靠点）吗？",
+        "register": "polite",
+        "audioPrompt": "すみません、この近くにバイクシェアのポートはありますか？"
+      },
+      {
+        "id": "d5_2",
+        "speaker": "Local Resident (通行人)",
+        "role": "native",
+        "japanese": "あそこのコンビニの裏に赤チャリのポートがありますよ。満車じゃなければ返せます。",
+        "furigana": "あそこの コンビニの うら{裏}に あか{赤}チャリの ポートが ありますよ。まんしゃ{満車}じゃなければ かえ{返}せます。",
+        "romaji": "Asoko no kombini no ura ni aka-chari no pōto ga arimasu yo. Mansha janakereba kaesemasu.",
+        "english": "There's a red cycle port behind that convenience store. You can return it if it's not full.",
+        "chinese": "那边便利店后面就有一个红车停靠点。如果没有停满的话就可以还车。",
+        "register": "polite",
+        "audioPrompt": "あそこのコンビニの裏に赤チャリのポートがありますよ。満車じゃなければ返せます。"
+      },
+      {
+        "id": "d5_3",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "アプリでQRコードを読み取って施錠すれば完了ですか？",
+        "furigana": "アプリで QRコードを よ{読}みと{取}って せじょう{施錠}すれば かんりょう{完了}ですか？",
+        "romaji": "Apuri de kyū-āru kōdo o yomitotte sejō sureba kanryō desu ka?",
+        "english": "Is it completed once I scan the QR code and lock it through the app?",
+        "chinese": "用App扫码并手动锁车后就完成还车了吗？",
+        "register": "polite",
+        "audioPrompt": "アプリでQRコードを読み取って施錠すれば完了ですか？"
+      },
+      {
+        "id": "d5_4",
+        "speaker": "Local Resident (通行人)",
+        "role": "native",
+        "japanese": "そうです！手動で鍵をかけてから、エンターボタンを押すのを忘れないでね。",
+        "furigana": "そうです！しゅどう{手動}で かぎ{鍵}を かけてから、エンターボタンを お{押}すのを わす{忘}れないでね。",
+        "romaji": "Sō desu! Shudō de kagi o kakete kara, entā botan o osu no o wasurenaide ne.",
+        "english": "That's right! Make sure to lock it manually and don't forget to press the Enter button.",
+        "chinese": "没错！手动上锁之后，别忘了按一下Enter键确认。",
+        "register": "casual-polite",
+        "audioPrompt": "そうです！手動で鍵をかけてから、エンターボタンを押すのを忘れないでね。"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "The bike port is full (満車) and won't accept lock return. What do you do?",
+      "options": [
+        {
+          "text": "アプリで近くの別のポートを探して、そちらに返却する。",
+          "furigana": "アプリで ちか{近}くの べつ{別}の ポートを さが{探}して、そちらに へんきゃく{返却}する。",
+          "romaji": "Apuri de chikaku no betsu no pōto o sagashite, sochira ni henkyaku suru.",
+          "isCorrect": true,
+          "explanation": "Correct procedure: find the nearest non-full port in the app to return cleanly."
+        },
+        {
+          "text": "道路の真ん中に置いてそのまま立ち去る。",
+          "furigana": "どうろ{道路}の まんなか{真ん中}に お{置}いて そのまま たちさ{立ち去}る。",
+          "romaji": "Dōro no mannaka ni oite sono mama tachisaru.",
+          "isCorrect": false,
+          "explanation": "Abandoning bikes on the road leads to impound fines and account bans."
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "赤チャリ", "reading": "あかチャリ", "romaji": "aka-chari", "meaning": "Tokyo red share-cycle nickname", "type": "slang" },
+      { "word": "返却", "reading": "へんきゃく", "romaji": "henkyaku", "meaning": "return / returning borrowed items", "type": "noun" },
+      { "word": "施錠", "reading": "せじょう", "romaji": "sejō", "meaning": "locking / locking mechanism", "type": "noun" },
+      { "word": "満車", "reading": "まんしゃ", "romaji": "mansha", "meaning": "full / no vacant slots", "type": "noun" },
+      { "word": "放置自転車", "reading": "ほうちじてんしゃ", "romaji": "hōchi jitensha", "meaning": "illegally abandoned bicycle", "type": "noun" }
+    ]
+  },
+  {
+    "id": "scenario_06_department_store_taxfree",
+    "title": "Ginza Shopping: Sizing, Fitting Room & Tax-Free Refund",
+    "titleJa": "銀座デパート：試着・サイズ確認・免税手続き",
+    "category": "shopping",
+    "district": "Ginza (銀座)",
+    "timeOfDay": "16:30 PM",
+    "quarter": 2,
+    "week": 7,
+    "day": 3,
+    "jfCanDoLevel": "A2",
+    "jfCanDoDescription": "Can ask for different sizes/colors, try clothes in fitting rooms (shoes off etiquette), and claim tax-free (免税).",
+    "context": "You are shopping at Mitsukoshi Ginza for a jacket and want to try it on, check a larger size, and get the 10% tax refund.",
+    "culturalTip": "Fitting room etiquette in Japan: Always ask '試着してもいいですか？' before entering. Take off your shoes before stepping onto the fitting room carpet, and women are often handed a face cover (フェイスカバー) to prevent makeup stains.",
+    "dialogue": [
+      {
+        "id": "d6_1",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "すみません、これをご試着してもよろしいですか？",
+        "furigana": "すみません、これを ごしちゃく{ご試着}しても よろしいですか？",
+        "romaji": "Sumimasen, kore o go-shichaku shite mo yoroshii desu ka?",
+        "english": "Excuse me, may I try this on?",
+        "chinese": "不好意思，请问我可以试穿一下这件吗？",
+        "register": "polite",
+        "audioPrompt": "すみません、これをご試着してもよろしいですか？"
+      },
+      {
+        "id": "d6_2",
+        "speaker": "Store Clerk (店員)",
+        "role": "native",
+        "japanese": "かしこまりました！試着室へご案内いたします。靴を脱いでお上がりください。",
+        "furigana": "かしこまりました！しちゃくしつ{試着室}へ ごあんない{ご案内}いたします。くつ{靴}を ぬ{脱}いで おあ{お上}がりください。",
+        "romaji": "Kashikomarimashita! Shichakushitsu e go-annai itashimasu. Kutsu o nuide o-agari kudasai.",
+        "english": "Certainly! I'll guide you to the fitting room. Please take off your shoes before stepping up.",
+        "chinese": "好的！带您去试衣间。请脱鞋后再踩上去。",
+        "register": "keigo",
+        "audioPrompt": "かしこまりました！試着室へご案内いたします。靴を脱いでお上がりください。"
+      },
+      {
+        "id": "d6_3",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "ちょっと肩がきついので、もう一つ上のサイズはありますか？",
+        "furigana": "ちょっと かた{肩}が きついので、もうひと{一}つ うえ{上}の サイズは ありますか？",
+        "romaji": "Chotto kata ga kitsui node, mō hitotsu ue no saizu wa arimasu ka?",
+        "english": "The shoulders are a bit tight, do you have one size larger?",
+        "chinese": "肩膀稍微有点紧，请问有再大一号的尺码吗？",
+        "register": "polite",
+        "audioPrompt": "ちょっと肩がきついので、もう一つ上のサイズはありますか？"
+      },
+      {
+        "id": "d6_4",
+        "speaker": "Store Clerk (店員)",
+        "role": "native",
+        "japanese": "Lサイズをお持ちしますね！少々お待ちくださいませ。",
+        "furigana": "Lサイズを おも{お持}ちしますね！しょうしょう{少々} おま{お待ち}ちくださいませ。",
+        "romaji": "Eru-saizu o o-mochi shimasu ne! Shōshō o-machi kudasaimase.",
+        "english": "I'll bring the L size! Please wait just a moment.",
+        "chinese": "我这就为您拿L号！请稍候片刻。",
+        "register": "keigo",
+        "audioPrompt": "Lサイズをお持ちしますね！少々お待ちくださいませ。"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "At checkout, you want to ask if the store offers tax-free refund with your passport.",
+      "options": [
+        {
+          "text": "免税（Tax-Free）の手続きはどこでできますか？パスポートを持っています。",
+          "furigana": "めんぜい{免税}（Tax-Free）の てつづ{手続き}きは どこで できますか？パスポートを も{持}っています。",
+          "romaji": "Menzei no tetsuzuki wa doko de dekimasu ka? Pasupōto o motte imasu.",
+          "isCorrect": true,
+          "explanation": "Natural and clear: asks where to process the tax-free counter (免税カウンター)."
+        },
+        {
+          "text": "税金を払いたくないから安くして。",
+          "furigana": "ぜいきん{税金}を はら{払}いたくないから やす{安}くして。",
+          "romaji": "Zeikin o haraitakunai kara yasuku shite.",
+          "isCorrect": false,
+          "explanation": "Rude bargaining sentence, not standard tax-free procedure."
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "試着", "reading": "しちゃく", "romaji": "shichaku", "meaning": "trying on clothes / fitting", "type": "noun" },
+      { "word": "きつい", "reading": "きつい", "romaji": "kitsui", "meaning": "tight / snug fit", "type": "adjective" },
+      { "word": "緩い", "reading": "ゆるい", "romaji": "yurui", "meaning": "loose fit", "type": "adjective" },
+      { "word": "免税", "reading": "めんぜい", "romaji": "menzei", "meaning": "duty-free / tax-free (10% consumption tax)", "type": "noun" },
+      { "word": "靴を脱ぐ", "reading": "くつをぬぐ", "romaji": "kutsu o nugu", "meaning": "take off shoes", "type": "phrase" }
+    ]
+  },
+  {
+    "id": "scenario_07_post_office_delivery",
+    "title": "Living Logistics: Japan Post & Redelivery Notice (不在票)",
+    "titleJa": "東京生活実務：不在票の再配達と郵便局窓口",
+    "category": "living_services",
+    "district": "Shimokitazawa (下北沢)",
+    "timeOfDay": "18:00 PM",
+    "quarter": 3,
+    "week": 10,
+    "day": 1,
+    "jfCanDoLevel": "B1",
+    "jfCanDoDescription": "Can read missed delivery notices (不在票 / Fuzaihyō), schedule redelivery (再配達), or pick up packages at the postal window (ゆうゆう窓口).",
+    "context": "You get home and find a missed delivery slip (不在連絡票) in your mailbox from Yamato Transport / Japan Post. You scan the QR code to set a time slot.",
+    "culturalTip": "Japanese package delivery is extremely precise. Time windows (時間帯指定) are typically: 午前中 (Morning), 14-16, 16-18, 18-20, 19-21. You must be home during the slot.",
+    "dialogue": [
+      {
+        "id": "d7_1",
+        "speaker": "You (Phone Automated / Staff)",
+        "role": "learner",
+        "japanese": "不在票が入っていたので、再配達をお願いしたいのですが。",
+        "furigana": "ふざいひょう{不在票}が はい{入}っていたので、さいはいたつ{再配達}を おねが{お願}いしたいのですが。",
+        "romaji": "Fuzaihyō ga haitte ita node, sai-haitatsu o onegai shitai no desu ga.",
+        "english": "A missed delivery slip was in my mailbox, so I'd like to request redelivery.",
+        "chinese": "信箱里收到了不在票（未妥投通知），我想申请再次配送。",
+        "register": "polite",
+        "audioPrompt": "不在票が入っていたので、再配達をお願いしたいのですが。"
+      },
+      {
+        "id": "d7_2",
+        "speaker": "Postal Operator (郵便局員)",
+        "role": "native",
+        "japanese": "追跡番号（お問い合わせ番号）とお届け希望の日時を教えていただけますか？",
+        "furigana": "ついせきばんごう{追跡番号}（おといあわ{お問合}せばんごう{番号}）と おとど{お届け}きぼう{希望}の にちじ{日時}を おし{教}えていただけますか？",
+        "romaji": "Tsuiseki bangō to o-todoke kibō no nichiji o oshiete itadakemasu ka?",
+        "english": "Could you provide your tracking number and preferred date and time slot for delivery?",
+        "chinese": "请告诉我您的快递追踪单号以及希望送达的日期时间段？",
+        "register": "keigo",
+        "audioPrompt": "追跡番号とお届け希望の日時を教えていただけますか？"
+      },
+      {
+        "id": "d7_3",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "番号は1234-5678です。明日の19時から21時の時間帯で届けてもらえますか？",
+        "furigana": "ばんごう{番号}は 1234-5678です。あした{明日}の 19じ{19時}から 21じ{21時}の じかんたい{時間帯}で とど{届}けてもらえますか？",
+        "romaji": "Bangō wa ichi-ni-san-yon go-roku-nana-hachi desu. Ashita no jū-ku-ji kara ni-jū-ichi-ji no jikantai de todokete moraemasu ka?",
+        "english": "The number is 1234-5678. Could you deliver it tomorrow between the 19:00 to 21:00 time slot?",
+        "chinese": "单号是1234-5678。明天晚上19点到21点的时间段可以送到吗？",
+        "register": "polite",
+        "audioPrompt": "番号は1234-5678です。明日の19時から21時の時間帯で届けてもらえますか？"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You missed the package again, but need it urgently tonight. Where can you pick it up directly?",
+      "options": [
+        {
+          "text": "身分証明書と不在票を持って、本局の「ゆうゆう窓口」で受け取る。",
+          "furigana": "みぶんしょうめいしょ{身分証明書}と ふざいひょう{不在票}を も{持}って、ほんきょく{本局}の「ゆうゆう まどぐち{窓口}」で う{受}けと{取}る。",
+          "romaji": "Mibun shōmeisho to fuzaihyō o motte, honkyoku no 'Yū-Yū Madoguchi' de uketoru.",
+          "isCorrect": true,
+          "explanation": "Japan Post's 24/7 or late night counter at regional main post offices is called 'ゆうゆう窓口'."
+        },
+        {
+          "text": "近所のコンビニに勝手に預けられているので取りに行く。",
+          "furigana": "きんじょ{近所}の コンビニに かって{勝手}に あず{預}けられているので と{取}りに い{行}く。",
+          "romaji": "Kinjo no kombini ni katte ni azukerarete iru node tori ni iku.",
+          "isCorrect": false,
+          "explanation": "Packages are not dropped at random convenience stores without prior agreement."
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "不在票", "reading": "ふざいひょう", "romaji": "fuzaihyō", "meaning": "missed delivery notice slip", "type": "noun" },
+      { "word": "再配達", "reading": "さいはいたつ", "romaji": "sai-haitatsu", "meaning": "redelivery request", "type": "noun" },
+      { "word": "時間帯指定", "reading": "じかんたいしてい", "romaji": "jikantai shitei", "meaning": "delivery time window designation", "type": "noun" },
+      { "word": "ゆうゆう窓口", "reading": "ゆうゆうまどぐち", "romaji": "yūyū madoguchi", "meaning": "Japan Post after-hours package counter", "type": "noun" },
+      { "word": "置き配", "reading": "おきはい", "romaji": "okihai", "meaning": "contactless doorstep drop delivery", "type": "noun" }
+    ]
+  }
+]

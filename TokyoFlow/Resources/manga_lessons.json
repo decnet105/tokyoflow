@@ -1,0 +1,229 @@
+[
+  {
+    "id": "manga_01_shonen_battle_sfx",
+    "genre": "Shōnen / Action (少年・バトル)",
+    "title": "Action Impact: SFX Sound Effects & Casual Vows",
+    "titleJa": "バトル漫画の迫力：擬音・擬態語と口語短縮形",
+    "quarter": 1,
+    "difficulty": "Beginner Manga (初級漫画)",
+    "description": "Master high-frequency battle SFX (ドンッ, バキッ, ドキドキ) and rough casual contractions (〜ちゃう, 〜ぜ, 頼むぞ).",
+    "panels": [
+      {
+        "id": "p1_1",
+        "panelNumber": 1,
+        "sceneDescription": "The hero lands on the rooftop as thunder cracks in the background.",
+        "sfx": [
+          {
+            "japanese": "ドドド…",
+            "romaji": "dododo...",
+            "meaning": "Heavy ominous rumble / intense approaching presence",
+            "category": "onomatopoeia_giseigo",
+            "visualStyle": "bold_shaking"
+          },
+          {
+            "japanese": "バチッ",
+            "romaji": "bachi!",
+            "meaning": "Electrical spark / sudden snap",
+            "category": "sound_effect",
+            "visualStyle": "sharp_electric"
+          }
+        ],
+        "balloons": [
+          {
+            "id": "b1_1",
+            "speaker": "Rival (ライバル)",
+            "bubbleType": "screaming_jagged",
+            "japanese": "へっ…やっと来やがったな！待たせやがって！",
+            "furigana": "へっ…やっと き{来}やがったな！ま{待}たせやがって！",
+            "romaji": "He'... Yatto kiyagatta na! Mataseyagatte!",
+            "english": "Heh... You finally showed up! Making me wait like that!",
+            "chinese": "哼……你这家伙总算来了！竟然让我等这么久！",
+            "nuanceNotes": "〜やがる is an aggressive, rough suffix used in manga to express contempt or heated rivalry towards another's action."
+          },
+          {
+            "id": "b1_2",
+            "speaker": "Hero (主人公)",
+            "bubbleType": "speech_oval",
+            "japanese": "悪いな、ちょっと寄り道しちまってよ。もう逃げられねぇぞ！",
+            "furigana": "わる{悪}いな、ちょっと よりみち{寄り道}しちまってよ。もう に{逃}げられねぇぞ！",
+            "romaji": "Warui na, chotto yorimichi shichimatte yo. Mō nigerarenē zo!",
+            "english": "My bad, got sidetracked a bit. You can't run away anymore!",
+            "chinese": "抱歉啦，路上耽搁绕了个道。你已经逃不掉了！",
+            "nuanceNotes": "Contraction: 'しちまって' = してしまって (casual regret/unintentional). '逃げられねぇ' = 逃げられない (rough masculine 'ai' -> 'ē' sound shift)."
+          }
+        ]
+      },
+      {
+        "id": "p1_2",
+        "panelNumber": 2,
+        "sceneDescription": "Hero unleashes a massive punch shockwave.",
+        "sfx": [
+          {
+            "japanese": "ドォォォン！！",
+            "romaji": "DOOOON!!",
+            "meaning": "Massive explosion / colossal impact roar",
+            "category": "sound_effect",
+            "visualStyle": "giant_impact"
+          },
+          {
+            "japanese": "グラッ",
+            "romaji": "gura!",
+            "meaning": "Sudden tremor / losing balance",
+            "category": "onomatopoeia_gitaigo",
+            "visualStyle": "wobbly"
+          }
+        ],
+        "balloons": [
+          {
+            "id": "b1_3",
+            "speaker": "Hero (主人公)",
+            "bubbleType": "screaming_jagged",
+            "japanese": "これで…決まりだァッ！",
+            "furigana": "これで…き{決}まりだァッ！",
+            "romaji": "Kore de... kimari daa'!",
+            "english": "This... settles it all!!",
+            "chinese": "这就……一决胜负了！！",
+            "nuanceNotes": "Small ァッ represents a guttural shout at the end of a sentence."
+          }
+        ]
+      }
+    ],
+    "grammarBreakdowns": [
+      {
+        "pattern": "〜やがる (-yagaru)",
+        "explanation": "Manga rough auxiliary verb added to verb stems (来やがった, 言いやがって) showing irritation, hostility or tough camaraderie.",
+        "example": "アイツ、また勝ちやがった！（That bastard won again!）"
+      },
+      {
+        "pattern": "〜ねぇ (-nē) vowel shift",
+        "explanation": "In casual and shōnen spoken Japanese, -ai becomes -ē: わからない -> わかんねぇ, ない -> ねぇ, 行かない -> 行かねぇ.",
+        "example": "そんなの知らねぇよ！（I don't know anything about that!）"
+      },
+      {
+        "pattern": "〜ちゃう / 〜ちまう (-chau / -chimau)",
+        "explanation": "Spoken contraction for 〜てしまう (completed action or accidental occurrence). Extremely frequent in all manga genres.",
+        "example": "宿題忘れちゃった！（I accidentally forgot my homework!）"
+      }
+    ]
+  },
+  {
+    "id": "manga_02_slice_of_life_romcom",
+    "genre": "Slice of Life / Rom-Com (日常・学園)",
+    "title": "Slice of Life & School: Heartbeat SFX & Slang",
+    "titleJa": "日常・学園ラブコメ：胸の鼓動と自然な口語表現",
+    "quarter": 1,
+    "difficulty": "Beginner-Intermediate Manga (日常系中級)",
+    "description": "Decode cute everyday onomatopoeia (ドキドキ, ぼーっと, ニヤニヤ) and casual emotional sentences with sentence particles (よ, ね, な, さ).",
+    "panels": [
+      {
+        "id": "p2_1",
+        "panelNumber": 1,
+        "sceneDescription": "After school in the classroom hallway. Two classmates bump into each other.",
+        "sfx": [
+          {
+            "japanese": "ドキドキ…",
+            "romaji": "doki doki...",
+            "meaning": "Heart throbbing / nervous excitement",
+            "category": "onomatopoeia_gitaigo",
+            "visualStyle": "cute_pulsing"
+          },
+          {
+            "japanese": "チラッ",
+            "romaji": "chira!",
+            "meaning": "Quick glance / stealing a look",
+            "category": "sound_effect",
+            "visualStyle": "subtle_dash"
+          }
+        ],
+        "balloons": [
+          {
+            "id": "b2_1",
+            "speaker": "Girl (ヒロイン)",
+            "bubbleType": "thought_cloud",
+            "japanese": "（うそ…急に目が合っちゃった…！どうしよ…）",
+            "furigana": "（うそ…きゅう{急}に め{目}が あ{合}っちゃった…！どうしよ…）",
+            "romaji": "(Uso... Kyū ni me ga atchatta...! Dō shiyo...)",
+            "english": "(No way... our eyes suddenly met...! What should I do...)",
+            "chinese": "（假的吧……突然对视上了……！怎么办……）",
+            "nuanceNotes": "合っちゃった is contraction of 合ってしまった. 'どうしよ' = conversational shortening of どうしよう."
+          },
+          {
+            "id": "b2_2",
+            "speaker": "Boy (主人公)",
+            "bubbleType": "speech_oval",
+            "japanese": "あ、ごめん！ぼーっとしててぶつかりそうになった。",
+            "furigana": "あ、ごめん！ぼーっとしてて ぶつかりそうになった。",
+            "romaji": "A, gomen! Bōtto shitete butsukarisō ni natta.",
+            "english": "Ah, sorry! I was spacing out and almost bumped into you.",
+            "chinese": "啊，抱歉！我刚才发呆走神，差点撞到你了。",
+            "nuanceNotes": "ぼーっと describes state of absent-minded daydreaming or unfocused zoning out."
+          }
+        ]
+      }
+    ],
+    "grammarBreakdowns": [
+      {
+        "pattern": "〜なきゃ (-nakya) / 〜なくちゃ (-nakucha)",
+        "explanation": "Everyday contraction for 〜なければならない (must do / have to do).",
+        "example": "もう行かなきゃ！（I've got to go now!）"
+      },
+      {
+        "pattern": "〜とく (-toku)",
+        "explanation": "Contraction for 〜ておく (to do something in preparation / advance).",
+        "example": "買っとくね！（I'll buy it in advance!）"
+      }
+    ]
+  },
+  {
+    "id": "manga_03_gourmet_tokyo_food",
+    "genre": "Gourmet / Food Culture (グルメ・食文化)",
+    "title": "Gourmet Tokyo: Food Tasting SFX & Expressive Adjectives",
+    "titleJa": "グルメ東京：食レポ擬音と美味しさの表現",
+    "quarter": 2,
+    "difficulty": "Intermediate Manga (グルメ系)",
+    "description": "Learn food texture SFX (サクサク, モチモチ, ジュワッ, トロトロ) seen in gourmet manga like Solitary Gourmet (孤独のグルメ) and Oishinbo.",
+    "panels": [
+      {
+        "id": "p3_1",
+        "panelNumber": 1,
+        "sceneDescription": "The diner takes a bite of fresh Tonkatsu pork cutlet in a Tokyo retro alley.",
+        "sfx": [
+          {
+            "japanese": "サクッ！",
+            "romaji": "saku!",
+            "meaning": "Crisp, crunchy bite into golden fried breading",
+            "category": "onomatopoeia_giseigo",
+            "visualStyle": "crisp_spark"
+          },
+          {
+            "japanese": "ジュワ〜",
+            "romaji": "juwaaa~",
+            "meaning": "Hot juicy meat juice oozing out deliciously",
+            "category": "onomatopoeia_gitaigo",
+            "visualStyle": "flowing_juice"
+          }
+        ],
+        "balloons": [
+          {
+            "id": "b3_1",
+            "speaker": "Diner (食通)",
+            "bubbleType": "thought_cloud",
+            "japanese": "（うまい…！衣はサクサクで、中から肉汁がジュワッと溢れ出してくる…！）",
+            "furigana": "（うまい…！ころも{衣}は サクサクで、なか{中}から にくじゅう{肉汁}が ジュワッと あふ{溢}れだ{出}してくる…！）",
+            "romaji": "(Umai...! Koromo wa sakusaku de, naka kara nikujū ga juwatto afuredashite kuru...!)",
+            "english": "(Delicious...! The breading is delightfully crispy, and hot rich juices burst from within...!)",
+            "chinese": "（太好吃了……！面衣酥脆爽口，肉汁瞬间从里面滋啦溢出……！）",
+            "nuanceNotes": "サクサク (crispiness) + ジュワッ (juiciness bursting) are the quintessential gourmet manga pairing."
+          }
+        ]
+      }
+    ],
+    "grammarBreakdowns": [
+      {
+        "pattern": "〜てくる (-te kuru) for sensations",
+        "explanation": "Expresses a physical or sensory feeling emerging from inside out (溢れ出してくる, 湧いてくる).",
+        "example": "お腹が空いてきた！（I'm starting to feel hungry!）"
+      }
+    ]
+  }
+]
