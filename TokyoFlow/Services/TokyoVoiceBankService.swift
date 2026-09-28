@@ -70,29 +70,34 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
     }
 
     public func findAudioFilename(for text: String) -> String? {
-        // 1. Direct match
-        if let fn = manifest[text] { return fn }
+        let clean = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if clean.isEmpty { return nil }
 
-        // 2. Normalized match
-        let norm = normalizeKey(text)
+        // 1. Direct exact match
+        if let fn = manifest[clean] { return fn }
+
+        // 2. Normalized match (stripped of punctuation/quotes)
+        let norm = normalizeKey(clean)
         if let fn = manifest[norm] { return fn }
 
-        // 3. Lowercased romaji
-        let lower = text.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        // 3. Lowercased romaji / ASCII match
+        let lower = clean.lowercased()
         if let fn = manifest[lower] { return fn }
 
-        // 4. Tokenized component match (e.g. "いぬ (犬)" -> check "いぬ", then "犬")
-        let tokens = text.components(separatedBy: CharacterSet(charactersIn: " ()（）/~〜・,、:：")).filter { !$0.isEmpty }
+        // 4. Tokenized component match (e.g. "ありがとう (Thank you)" -> "ありがとう")
+        let tokens = clean.components(separatedBy: CharacterSet(charactersIn: " ()（）[]【】/~〜・,、:：")).filter { !$0.isEmpty }
         for tok in tokens {
             if let fn = manifest[tok] ?? manifest[normalizeKey(tok)] ?? manifest[tok.lowercased()] {
                 return fn
             }
         }
 
-        // 5. Substring match for particles or compound sentences
-        for (key, fn) in manifest {
-            if !key.isEmpty && key.count >= 2 && (text.contains(key) || norm.contains(key)) {
-                return fn
+        // 5. Prefix match for full phrases (e.g. "すみません、山手線..." matching sentence key)
+        if clean.count >= 4 {
+            for (key, fn) in manifest {
+                if key.count >= 4 && (clean.hasPrefix(key) || norm.hasPrefix(key)) {
+                    return fn
+                }
             }
         }
 
