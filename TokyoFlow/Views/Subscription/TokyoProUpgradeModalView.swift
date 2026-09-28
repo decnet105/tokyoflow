@@ -2,9 +2,12 @@ import SwiftUI
 
 public struct TokyoProUpgradeModalView: View {
     @StateObject private var subService = SubscriptionService.shared
+    @ObservedObject private var gamification = GamificationService.shared
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
     @State private var isProcessing: Bool = false
     @State private var showSuccessAlert: Bool = false
+    @State private var hasClaimedYTReward: Bool = false
 
     public init() {}
 
@@ -20,21 +23,21 @@ public struct TokyoProUpgradeModalView: View {
                             ZStack {
                                 Circle()
                                     .fill(
-                                        LinearGradient(colors: [.orange, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                        LinearGradient(colors: [.red, .orange], startPoint: .topLeading, endPoint: .bottomTrailing)
                                     )
                                     .frame(width: 76, height: 76)
-                                    .shadow(color: .orange.opacity(0.4), radius: 12, y: 6)
+                                    .shadow(color: .red.opacity(0.3), radius: 12, y: 6)
 
-                                Image(systemName: "crown.fill")
-                                    .font(.system(size: 38))
+                                Image(systemName: "play.tv.fill")
+                                    .font(.system(size: 36))
                                     .foregroundColor(.white)
                             }
 
-                            Text("TokyoFlow PASS プレミアム")
-                                .font(.system(size: 24, weight: .black, design: .rounded))
+                            Text("TokyoFlow 免费全能成长计划")
+                                .font(.system(size: 22, weight: .black, design: .rounded))
                                 .foregroundColor(.primary)
 
-                            Text("解锁全套 N1-N5 必备核心词库、无限制弱点 AI 诊断与全景东京场景")
+                            Text("为了快速冲体量与服务广大日语学习者，App 内全量功能当前 100% 免费开放！关注官方 YouTube 频道即可领取早期共创福利。")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -42,20 +45,27 @@ public struct TokyoProUpgradeModalView: View {
                         }
                         .padding(.top, 16)
 
-                        // Freemium Balance Comparison Table
+                        // 100% Free Full Power Checklist
                         VStack(spacing: 12) {
-                            Text("👑 免费版 (60%) 与 PASS 会员对比")
-                                .font(.system(size: 14, weight: .bold))
-                                .foregroundColor(.accentColor)
+                            HStack {
+                                Text("✨ 当前全部核心功能 100% 免费开放")
+                                    .font(.system(size: 14, weight: .black))
+                                    .foregroundColor(.green)
+                                Spacer()
+                                Text("无限制畅学")
+                                    .font(.system(size: 10, weight: .bold))
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(Color.green.opacity(0.15))
+                                    .foregroundColor(.green)
+                                    .cornerRadius(6)
+                            }
 
                             VStack(spacing: 8) {
-                                comparisonRow(title: "五十音全图 & 7天不重复真人单词", free: "永久免费", pro: "永久免费", isHighlight: false)
-                                comparisonRow(title: "每日 NHK 新闻跟读 & 1小时广播", free: "永久免费", pro: "永久免费", isHighlight: false)
-                                comparisonRow(title: "基础生词本复习 (每日 15 词)", free: "支持", pro: "无限量", isHighlight: false)
-                                comparisonRow(title: "JLPT N1-N5 必备核心词库 & 抽认卡", free: "仅限 N5", pro: "全级别 N1-N5", isHighlight: true)
-                                comparisonRow(title: "AI 弱点诊断 (重听/停顿自动追踪)", free: "基础版", pro: "智能闭环分析", isHighlight: true)
-                                comparisonRow(title: "全东京实景场景 & 3秒忍者道场", free: "前2关体验", pro: "全量解锁", isHighlight: true)
-                                comparisonRow(title: "东京地铁 4K 壁纸 & 离线原生发音包", free: "基础壁纸", pro: "全量 4K + 离线", isHighlight: true)
+                                perkRow(icon: "checkmark.seal.fill", title: "JLPT N1-N5 词库 & 抽认卡", desc: "4,170 个原生母语发音全量免费查背")
+                                perkRow(icon: "checkmark.seal.fill", title: "NHK 慢速原声跟读 & 1小时电台", desc: "毫秒级发音同步对齐与智能滚屏")
+                                perkRow(icon: "checkmark.seal.fill", title: "次はどこへ行く？Generative UI", desc: "全东京任意目的地实战句型即时动态生成")
+                                perkRow(icon: "checkmark.seal.fill", title: "全东京实景场景 & 3秒道场", desc: "电车/便利店/居酒屋等真实生活全关卡")
                             }
                         }
                         .padding(16)
@@ -63,106 +73,109 @@ public struct TokyoProUpgradeModalView: View {
                         .cornerRadius(20)
                         .padding(.horizontal)
 
-                        // Plan Selector Cards
-                        VStack(spacing: 10) {
-                            ForEach(SubscriptionPlan.allCases) { plan in
-                                let isSelected = subService.selectedPlan == plan
-
-                                Button(action: {
-                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
-                                        subService.selectedPlan = plan
-                                    }
-                                }) {
-                                    HStack {
-                                        VStack(alignment: .leading, spacing: 2) {
-                                            HStack(spacing: 6) {
-                                                Text(plan.rawValue)
-                                                    .font(.system(size: 15, weight: .bold))
-                                                if let badge = plan.badgeText {
-                                                    Text(badge)
-                                                        .font(.system(size: 9, weight: .black))
-                                                        .foregroundColor(.white)
-                                                        .padding(.horizontal, 6)
-                                                        .padding(.vertical, 2)
-                                                        .background(Color.orange)
-                                                        .cornerRadius(6)
-                                                }
-                                            }
-                                            Text(plan.priceString)
-                                                .font(.caption)
-                                                .foregroundColor(isSelected ? .accentColor : .secondary)
-                                        }
-
-                                        Spacer()
-
-                                        Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                                            .font(.title3)
-                                            .foregroundColor(isSelected ? .accentColor : .secondary)
-                                    }
-                                    .padding(14)
-                                    .background(isSelected ? Color.accentColor.opacity(0.12) : Color(UIColor.secondarySystemBackground).opacity(0.6))
-                                    .cornerRadius(16)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 1.5)
-                                    )
+                        // YouTube Official Channel Integration Card
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack {
+                                Image(systemName: "bell.badge.fill")
+                                    .foregroundColor(.red)
+                                    .font(.title3)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("关注 YouTube 官方教学频道")
+                                        .font(.system(size: 15, weight: .bold))
+                                    Text("TokyoFlow Japanese / TokyoFlow 日语")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
                                 }
+                                Spacer()
+                                Text("+500 TP")
+                                    .font(.system(size: 11, weight: .black))
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 3)
+                                    .background(Color.red.opacity(0.15))
+                                    .foregroundColor(.red)
+                                    .cornerRadius(8)
                             }
-                        }
-                        .padding(.horizontal)
 
-                        // Subscribe Action Button
-                        VStack(spacing: 10) {
+                            Text("前往 YouTube 关注我们的官方频道，不仅能获取最新东京实景教学视频，还可以一键领取 500 Tokyo Points 与「早期共创先锋」勋章！")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+
                             Button(action: {
-                                isProcessing = true
-                                subService.purchase(plan: subService.selectedPlan) { success in
-                                    isProcessing = false
-                                    if success {
-                                        showSuccessAlert = true
-                                    }
+                                if let url = URL(string: "https://www.youtube.com") {
+                                    openURL(url)
+                                }
+                                if !hasClaimedYTReward {
+                                    gamification.addRewards(tp: 500, exp: 300)
+                                    hasClaimedYTReward = true
+                                    showSuccessAlert = true
                                 }
                             }) {
                                 HStack {
-                                    if isProcessing {
-                                        ProgressView()
-                                            .tint(.white)
-                                    } else {
-                                        Image(systemName: "sparkles")
-                                        Text(subService.selectedPlan == .annual ? "开始 7 天免费试用" : "立即升级 PASS")
-                                            .font(.headline)
-                                            .fontWeight(.bold)
-                                    }
+                                    Image(systemName: "play.rectangle.fill")
+                                    Text(hasClaimedYTReward ? "已关注并领取奖励 • 前往频道" : "立即关注并领取 500 TP 奖励")
+                                        .font(.system(size: 14, weight: .bold))
                                 }
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity)
-                                .padding(.vertical, 15)
-                                .background(
-                                    LinearGradient(colors: [.orange, .red], startPoint: .leading, endPoint: .trailing)
-                                )
-                                .cornerRadius(16)
-                                .shadow(color: .orange.opacity(0.3), radius: 10, y: 5)
+                                .padding(.vertical, 12)
+                                .background(Color.red)
+                                .cornerRadius(12)
                             }
-                            .disabled(isProcessing)
+                        }
+                        .padding(16)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(20)
+                        .padding(.horizontal)
 
-                            // Restore & Terms
-                            HStack(spacing: 16) {
-                                Button("恢复购买") {
-                                    subService.restorePurchases { _ in }
+                        // Optional Coffee / Community Supporter Card
+                        VStack(spacing: 10) {
+                            Text("💖 喜欢 TokyoFlow？支持我们持续创作")
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundColor(.secondary)
+
+                            HStack(spacing: 12) {
+                                Button(action: {
+                                    subService.purchase(plan: .monthly) { _ in }
+                                }) {
+                                    VStack(spacing: 4) {
+                                        Text("☕️ 请喝一杯咖啡")
+                                            .font(.system(size: 12, weight: .bold))
+                                        Text("¥12 / 鼓励创作")
+                                            .font(.caption2)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 10)
+                                    .background(Color(.secondarySystemGroupedBackground))
+                                    .cornerRadius(12)
                                 }
-                                Text("•")
-                                Button("隐私政策") {}
-                                Text("•")
-                                Button("使用条款") {}
+                                .buttonStyle(.plain)
+
+                                Button(action: {
+                                    subService.purchase(plan: .lifetime) { _ in }
+                                }) {
+                                    VStack(spacing: 4) {
+                                        Text("👑 成为终身共创者")
+                                            .font(.system(size: 12, weight: .bold))
+                                            .foregroundColor(.orange)
+                                        Text("专属 VIP 勋章")
+                                            .font(.caption2)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 10)
+                                    .background(Color(.secondarySystemGroupedBackground))
+                                    .cornerRadius(12)
+                                }
+                                .buttonStyle(.plain)
                             }
-                            .font(.caption2)
-                            .foregroundColor(.secondary)
                         }
                         .padding(.horizontal)
                         .padding(.bottom, 30)
                     }
                 }
             }
-            .navigationTitle("升级会员")
+            .navigationTitle("免费全能计划")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -173,29 +186,30 @@ public struct TokyoProUpgradeModalView: View {
                     }
                 }
             }
-            .alert("🎉 升级成功！", isPresented: $showSuccessAlert) {
-                Button("开启东京之旅") { dismiss() }
+            .alert("🎉 奖励已到账！", isPresented: $showSuccessAlert) {
+                Button("太棒了") { dismiss() }
             } message: {
-                Text("您已成功开通 TokyoFlow PASS，全量 JLPT 词库与高级场景已全部解锁！")
+                Text("已成功发放 500 Tokyo Points 与 300 经验值！感谢您对 TokyoFlow Japanese 官方频道的支持。")
             }
         }
     }
 
-    private func comparisonRow(title: String, free: String, pro: String, isHighlight: Bool) -> some View {
-        HStack(alignment: .center) {
-            Text(title)
-                .font(.system(size: 12, weight: isHighlight ? .bold : .regular))
-                .foregroundColor(.primary)
+    private func perkRow(icon: String, title: String, desc: String) -> some View {
+        HStack(alignment: .top, spacing: 10) {
+            Image(systemName: icon)
+                .foregroundColor(.green)
+                .font(.system(size: 16))
+                .padding(.top, 2)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundColor(.primary)
+                Text(desc)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
             Spacer()
-            Text(free)
-                .font(.system(size: 11))
-                .foregroundColor(.secondary)
-                .frame(width: 80, alignment: .trailing)
-            Text(pro)
-                .font(.system(size: 11, weight: .bold))
-                .foregroundColor(isHighlight ? .orange : .accentColor)
-                .frame(width: 80, alignment: .trailing)
         }
-        .padding(.vertical, 3)
+        .padding(.vertical, 2)
     }
 }

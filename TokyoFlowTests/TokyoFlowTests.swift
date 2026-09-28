@@ -137,19 +137,19 @@ final class TokyoFlowTests: XCTestCase {
 
     func testThemeManagerSelection() {
         let themeManager = ThemeManager.shared
-        themeManager.currentTheme = .tokyoSubway
-        XCTAssertEqual(themeManager.currentTheme, .tokyoSubway)
-        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_tokyo_subway")
+        themeManager.currentTheme = .none
+        XCTAssertEqual(themeManager.currentTheme, .none)
+        XCTAssertNil(themeManager.currentTheme.assetName)
 
         themeManager.currentTheme = .washiPaper
         XCTAssertEqual(themeManager.currentTheme, .washiPaper)
         XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_washi_paper")
 
-        themeManager.currentTheme = .readingCat
-        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_reading_cat")
+        themeManager.currentTheme = .morningMist
+        XCTAssertEqual(themeManager.currentTheme, .morningMist)
 
-        themeManager.currentTheme = .liquidGlass
-        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_liquid_glass")
+        themeManager.currentTheme = .warmSepia
+        XCTAssertEqual(themeManager.currentTheme, .warmSepia)
     }
 
     func testJapaneseWordSegmenter() {
@@ -355,17 +355,30 @@ final class TokyoFlowTests: XCTestCase {
         let sub = SubscriptionService.shared
         sub.isPro = false
 
-        // N5 is 100% free
+        // During YouTube + Free App Growth Phase, all levels N5-N1 are 100% free
         XCTAssertTrue(sub.canAccessJLPTLevel("N5"), "N5 must be free")
-        // N4-N1 requires Pro
-        XCTAssertFalse(sub.canAccessJLPTLevel("N1"), "N1 must require Pro")
+        XCTAssertTrue(sub.canAccessJLPTLevel("N1"), "N1 must be free during community growth phase")
 
-        // Free daily reviews limit
-        XCTAssertEqual(sub.maxFreeDailyReviews, 15)
+        // Free daily reviews unlimited
+        XCTAssertEqual(sub.maxFreeDailyReviews, 9999)
+        XCTAssertEqual(sub.remainingFreeReviewsToday, 9999)
 
         // Mock upgrade to Pro
         sub.isPro = true
         XCTAssertTrue(sub.canAccessJLPTLevel("N1"), "Pro user can access all levels")
         XCTAssertGreaterThan(sub.remainingFreeReviewsToday, 100)
+    }
+
+    func testTokyoGenerativeLearningEngine() {
+        let engine = TokyoGenerativeLearningEngine.shared
+        XCTAssertFalse(engine.presetDestinations.isEmpty, "Presets must not be empty")
+
+        // Test preset plan generation
+        engine.generatePlan(for: "shibuya")
+        XCTAssertEqual(engine.selectedPresetId, "shibuya")
+
+        // Test custom plan generation
+        engine.generateCustomPlan(userPrompt: "台场高达与海滨公园")
+        XCTAssertEqual(engine.selectedPresetId, "custom")
     }
 }

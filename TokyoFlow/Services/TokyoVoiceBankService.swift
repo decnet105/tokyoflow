@@ -173,6 +173,14 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
         }
     }
 
+    public func playPhraseOrFallback(key: String, fallbackText: String) {
+        if !playNativeAudio(text: key) {
+            if !playNativeAudio(text: fallbackText) {
+                AudioService.shared.speak(text: fallbackText)
+            }
+        }
+    }
+
     public func stop() {
         if let player = audioPlayer, player.isPlaying {
             player.stop()

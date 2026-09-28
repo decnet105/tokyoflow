@@ -15,13 +15,13 @@ public struct ThemePickerSheet: View {
                     VStack(spacing: 20) {
                         // Header
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("CUSTOMIZE MANGA THEME")
+                            Text("CUSTOMIZE READING ATMOSPHERE")
                                 .font(.system(size: 11, weight: .bold))
                                 .foregroundColor(.accentColor)
                                 .tracking(1.5)
-                            Text("Tokyo Anime Wallpapers")
+                            Text("极简护眼与阅读背景")
                                 .font(.system(size: 22, weight: .black, design: .rounded))
-                            Text("Select an HD anime atmosphere wallpaper to immerse yourself in Tokyo life.")
+                            Text("选择纯净无干扰或柔和护眼的阅读背景，享受沉浸式日语学习。")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }

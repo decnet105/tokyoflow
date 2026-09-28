@@ -5,8 +5,13 @@ public struct ScenarioDetailView: View {
     @EnvironmentObject var userProfile: UserProfile
     @State private var showRoleplayModal = false
     @State private var showStickmanExplainer = false
+    @State private var showYTVideoModal = false
     @State private var showTranslations = true
     @State private var playbackSpeed: Float = 0.50
+
+    private var videoLesson: TokyoScenarioVideoLesson? {
+        TokyoVideoLessonDataManager.shared.lesson(for: scenario.id) ?? TokyoVideoLessonDataManager.shared.lessons.first
+    }
 
     public var body: some View {
         ZStack {
@@ -48,21 +53,33 @@ public struct ScenarioDetailView: View {
                             .foregroundColor(.primary.opacity(0.85))
                             .padding(.top, 4)
 
-                        // Stickman 60s Explainer CTA Button
-                        Button(action: { showStickmanExplainer = true }) {
-                            HStack(spacing: 6) {
-                                Image(systemName: "figure.walk.motion")
-                                Text("Watch 60s Stickman Hack")
-                                    .font(.system(size: 12, weight: .bold))
-                                Spacer()
-                                Image(systemName: "play.fill")
-                                    .font(.system(size: 10))
+                        // Dual Video CTAs (Stickman 60s & YouTube Masterclass)
+                        HStack(spacing: 8) {
+                            Button(action: { showStickmanExplainer = true }) {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "figure.walk.motion")
+                                    Text("60s 速攻")
+                                        .font(.system(size: 11, weight: .bold))
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .background(Color.orange.opacity(0.15))
+                                .foregroundColor(.orange)
+                                .cornerRadius(10)
                             }
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 8)
-                            .background(Color.orange.opacity(0.15))
-                            .foregroundColor(.orange)
-                            .cornerRadius(10)
+
+                            Button(action: { showYTVideoModal = true }) {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "play.tv.fill")
+                                    Text("🎬 YT 场景精讲")
+                                        .font(.system(size: 11, weight: .bold))
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .background(Color.red.opacity(0.15))
+                                .foregroundColor(.red)
+                                .cornerRadius(10)
+                            }
                         }
                     }
                     .padding()
@@ -219,6 +236,11 @@ public struct ScenarioDetailView: View {
                 }
                 .navigationTitle(scenario.titleJa)
                 .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+        .sheet(isPresented: $showYTVideoModal) {
+            if let lesson = videoLesson {
+                TokyoScenarioYTPlayerView(lesson: lesson)
             }
         }
     }

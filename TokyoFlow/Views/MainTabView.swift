@@ -35,6 +35,16 @@ public struct MainTabView: View {
                     Label("Scenarios", systemImage: "map.fill")
                 }
 
+            TokyoGenerativeRouteView()
+                .tabItem {
+                    Label("Next 目的地", systemImage: "sparkles.rectangle.stack.fill")
+                }
+
+            TokyoScenarioVideoHubView()
+                .tabItem {
+                    Label("YT 场景视频", systemImage: "play.tv.fill")
+                }
+
             TokyoDojoView()
                 .tabItem {
                     Label("Dojo Battles", systemImage: "flame.fill")

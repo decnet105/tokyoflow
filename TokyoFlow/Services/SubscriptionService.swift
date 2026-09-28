@@ -38,27 +38,23 @@ public class SubscriptionService: ObservableObject {
 
     private init() {}
 
-    // MARK: - Freemium Access Control (60% Core Free + Pro Power Features)
+    // MARK: - Community Growth Mode (100% Free Unlimited Access to build volume)
     public func canAccessJLPTLevel(_ level: String) -> Bool {
-        if isPro { return true }
-        // N5 is 100% free for all users
-        return level.uppercased() == "N5"
+        // 100% Free access for all JLPT levels (N5-N1) during YouTube + Free App Growth Phase
+        return true
     }
 
     public func canAccessAdvancedScenarios(level: Int) -> Bool {
-        if isPro { return true }
-        // Levels 1-2 (JR Yamanote, Kombini, Ramen) are 100% free
-        return level <= 2
+        // 100% Free access to all Tokyo scenarios
+        return true
     }
 
     public var maxFreeDailyReviews: Int {
-        return 15
+        return 9999
     }
 
     public var remainingFreeReviewsToday: Int {
-        if isPro { return 9999 }
-        checkDailyReset()
-        return max(0, maxFreeDailyReviews - freeDailyReviewsUsed)
+        return 9999
     }
 
     public func recordReviewUsed() {
