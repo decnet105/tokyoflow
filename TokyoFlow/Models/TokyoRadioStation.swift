@@ -69,13 +69,13 @@ public struct TokyoRadioDataManager {
     public static let shared = TokyoRadioDataManager()
 
     public let stations: [TokyoRadioStation] = [
-                TokyoRadioStation(
+                        TokyoRadioStation(
             id: "nhk_journal_55",
             title: "NHK Journal Deep Immersion",
             titleJa: "NHKジャーナル 総合ニュース特報",
             subtitle: "Authentic NHK radio broadcast with verbatim transcript, Tokyo weather, economics, culture, and precise word-by-word shadowing.",
-            durationSec: 145.1,
-            durationLabel: "2 Mins (2:25)",
+            durationSec: 138.6,
+            durationLabel: "2 Mins (2:18)",
             audioFileName: "nhk_journal_55min.m4a",
             streamUrl: nil,
             badge: "NHK VERBATIM",
@@ -88,60 +88,60 @@ public struct TokyoRadioDataManager {
                     startTimeSec: 0.0,
                     description: "Opening signature broadcast chimes and national headlines.",
                     transcriptSentences: [
-                        NewsSentence(id: "r1_1", japanese: "皆様こんばんは。NHKジャーナル、夜の総合ニュースです。", furigana: "みなさまこんばんは。えぬえいちけーじゃーなる、よるのそうごうにゅーすです。", english: "Good evening everyone. This is NHK Journal with tonight's comprehensive evening news.", startTimeSec: 0.0, endTimeSec: 4.6),
-                        NewsSentence(id: "r1_2", japanese: "今夜の主なニュースをお伝えいたします。", furigana: "こんやのおもなにゅーすをおつたえいたします。", english: "We bring you tonight's major headlines.", startTimeSec: 5.25, endTimeSec: 8.23),
-                        NewsSentence(id: "r1_3", japanese: "JR東日本は、東京やその近くを走る電車の終電の時間を早めると発表しました。", furigana: "じぇいあーるひがしにほんは、とうきょうやそのちかくをはしるでんしゃのしゅうでんのじかんをはやめるとはっぴょうしました。", english: "JR East announced that it will advance the last train times for trains operating in and around Tokyo.", startTimeSec: 8.88, endTimeSec: 16.73),
-                        NewsSentence(id: "r1_4", japanese: "山手線や中央線など多くの主要路線で、終電が15分から30分程度早くなります。", furigana: "やまのてせいやちゅうおうせんなどおおくのしゅようろせんで、しゅうでんがじゅうごふんからさんじゅっぷんていどはやくなります。", english: "On major lines including the Yamanote and Chuo Lines, final departures will be 15 to 30 minutes earlier.", startTimeSec: 17.38, endTimeSec: 25.4),
-                        NewsSentence(id: "r1_5", japanese: "深夜に線路を点検・修繕する作業員の安全と働く時間を確保するための措置です。", furigana: "しんやにせんろをてんけん・しゅうぜんするさぎょういんのあんぜんとはたらくじかんをかくほするためのそちです。", english: "This measure is to secure safe working hours for crews inspecting and repairing tracks overnight.", startTimeSec: 26.05, endTimeSec: 33.73)
+                        NewsSentence(id: "r1_1", japanese: "皆様こんばんは。NHKジャーナル、夜の総合ニュースです。", furigana: "みなさまこんばんは。えぬえいちけーじゃーなる、よるのそうごうにゅーすです。", english: "Good evening everyone. This is NHK Journal with tonight's comprehensive evening news.", startTimeSec: 0.0, endTimeSec: 6.576),
+                        NewsSentence(id: "r1_2", japanese: "今夜の主なニュースをお伝えいたします。", furigana: "こんやのおもなにゅーすをおつたえいたします。", english: "We bring you tonight's major headlines.", startTimeSec: 7.176, endTimeSec: 10.992),
+                        NewsSentence(id: "r1_3", japanese: "JR東日本は、東京やその近くを走る電車の終電の時間を早めると発表しました。", furigana: "じぇいあーるひがしにほんは、とうきょうやそのちかくをはしるでんしゃのしゅうでんのじかんをはやめるとはっぴょうしました。", english: "JR East announced that it will advance the last train times for trains operating in and around Tokyo.", startTimeSec: 11.592, endTimeSec: 19.872),
+                        NewsSentence(id: "r1_4", japanese: "山手線や中央線など多くの主要路線で、終電が15分から30分程度早くなります。", furigana: "やまのてせいやちゅうおうせんなどおおくのしゅようろせんで、しゅうでんがじゅうごふんからさんじゅっぷんていどはやくなります。", english: "On major lines including the Yamanote and Chuo Lines, final departures will be 15 to 30 minutes earlier.", startTimeSec: 20.472, endTimeSec: 29.088),
+                        NewsSentence(id: "r1_5", japanese: "深夜に線路を点検・修繕する作業員の安全と働く時間を確保するための措置です。", furigana: "しんやにせんろをてんけん・しゅうぜんするさぎょういんのあんぜんとはたらくじかんをかくほするためのそちです。", english: "This measure is to secure safe working hours for crews inspecting and repairing tracks overnight.", startTimeSec: 29.688, endTimeSec: 37.608)
                     ]
                 ),
                 RadioChapter(
                     id: "c2",
                     title: "Tokyo Weather & Climate",
                     titleJa: "台風・首都圏の気象情報",
-                    startTimeSec: 35.13,
+                    startTimeSec: 38.808,
                     description: "Detailed Tokyo weather forecast, typhoon alerts, and transit operations.",
                     transcriptSentences: [
-                        NewsSentence(id: "r2_1", japanese: "続いて、気象庁からの首都圏の気象情報をお伝えします。", furigana: "つづいて、きしょうちょうからのしゅとけんのきしょうじょうほうをおつたえします。", english: "Next is the metropolitan weather update from the Japan Meteorological Agency.", startTimeSec: 35.13, endTimeSec: 39.81),
-                        NewsSentence(id: "r2_2", japanese: "南の海上に発生した大型の台風が、明日の夜にかけて関東地方に接近する見込みです。", furigana: "みなみのかいじょうにはっせいしたおおがたのたいふうが、あすのよるにかけてかんとうちほうにせっきんするみこみです。", english: "A large typhoon formed over southern waters is expected to approach the Kanto region by tomorrow evening.", startTimeSec: 40.46, endTimeSec: 48.59),
-                        NewsSentence(id: "r2_3", japanese: "東京の広い範囲で非常に強い風と激しい雨が予想されています。", furigana: "とうきょうのひろいはんいでひじょうにつよいかぜとはげしいあめがよそうされています。", english: "Extremely strong winds and heavy rainfall are anticipated across widespread parts of Tokyo.", startTimeSec: 49.24, endTimeSec: 54.95),
-                        NewsSentence(id: "r2_4", japanese: "土砂災害や低い土地の浸水に警戒し、最新の交通情報を確認してください。", furigana: "どしゃさいがいやひくいとちのしんすいにけいかいし、さいしんのこうつうじょうほうをごかくにんください。", english: "Please stay alert for landslides and flooded lowlands, and check the latest transit updates.", startTimeSec: 55.6, endTimeSec: 62.56)
+                        NewsSentence(id: "r2_1", japanese: "続いて、気象庁からの首都圏の気象情報をお伝えします。", furigana: "つづいて、きしょうちょうからのしゅとけんのきしょうじょうほうをおつたえします。", english: "Next is the metropolitan weather update from the Japan Meteorological Agency.", startTimeSec: 38.808, endTimeSec: 43.896),
+                        NewsSentence(id: "r2_2", japanese: "南の海上に発生した大型の台風が、明日の夜にかけて関東地方に接近する見込みです。", furigana: "みなみのかいじょうにはっせいしたおおがたのたいふうが、あすのよるにかけてかんとうちほうにせっきんするみこみです。", english: "A large typhoon formed over southern waters is expected to approach the Kanto region by tomorrow evening.", startTimeSec: 44.496, endTimeSec: 52.08),
+                        NewsSentence(id: "r2_3", japanese: "東京の広い範囲で非常に強い風と激しい雨が予想されています。", furigana: "とうきょうのひろいはんいでひじょうにつよいかぜとはげしいあめがよそうされています。", english: "Extremely strong winds and heavy rainfall are anticipated across widespread parts of Tokyo.", startTimeSec: 52.68, endTimeSec: 57.912),
+                        NewsSentence(id: "r2_4", japanese: "土砂災害や低い土地の浸水に警戒し、最新の交通情報を確認してください。", furigana: "どしゃさいがいやひくいとちのしんすいにけいかいし、さいしんのこうつうじょうほうをごかくにんください。", english: "Please stay alert for landslides and flooded lowlands, and check the latest transit updates.", startTimeSec: 58.512, endTimeSec: 65.112)
                     ]
                 ),
                 RadioChapter(
                     id: "c3",
                     title: "Tokyo Living & Economy",
                     titleJa: "暮らしと経済インサイト",
-                    startTimeSec: 63.96,
+                    startTimeSec: 66.312,
                     description: "In-depth look at Tokyo convenience stores and food waste reduction.",
                     transcriptSentences: [
-                        NewsSentence(id: "r3_1", japanese: "暮らしのニュースです。東京都内のコンビニ各社で、食品ロス削減の取り組みが広がっています。", furigana: "くらしのにゅーすです。とうきょうとないのこんびにかくしゃで、しょくひんろすさくげんのとりくみがひろがっています。", english: "In lifestyle news: Convenience store chains across Tokyo are expanding food loss reduction initiatives.", startTimeSec: 63.96, endTimeSec: 71.63),
-                        NewsSentence(id: "r3_2", japanese: "消費期限が近づいたおにぎりやサンドイッチに「エコ値引きシール」が貼られ、安く購入できます。", furigana: "しょうひきげんがちかづいたおにぎりやさんどいっちに「えこねびきしーる」がはられ、やすくこうにゅうできます。", english: "Eco-discount stickers are applied to onigiri and sandwiches near expiration, allowing bargain purchases.", startTimeSec: 72.28, endTimeSec: 79.16),
-                        NewsSentence(id: "r3_3", japanese: "お店は廃棄するゴミを減らすことができ、利用者からも節約になると好評です。", furigana: "おみせははいきするごみをへらすことができ、りようしゃからもせつやくになるとこうひょうです。", english: "Stores can reduce discarded waste, and shoppers praise it as an effective way to save money.", startTimeSec: 79.81, endTimeSec: 86.1)
+                        NewsSentence(id: "r3_1", japanese: "暮らしのニュースです。東京都内のコンビニ各社で、食品ロス削減の取り組みが広がっています。", furigana: "くらしのにゅーすです。とうきょうとないのこんびにかくしゃで、しょくひんろすさくげんのとりくみがひろがっています。", english: "In lifestyle news: Convenience store chains across Tokyo are expanding food loss reduction initiatives.", startTimeSec: 66.312, endTimeSec: 75.0),
+                        NewsSentence(id: "r3_2", japanese: "消費期限が近づいたおにぎりやサンドイッチに「エコ値引きシール」が貼られ、安く購入できます。", furigana: "しょうひきげんがちかづいたおにぎりやさんどいっちに「えこねびきしーる」がはられ、やすくこうにゅうできます。", english: "Eco-discount stickers are applied to onigiri and sandwiches near expiration, allowing bargain purchases.", startTimeSec: 75.6, endTimeSec: 83.808),
+                        NewsSentence(id: "r3_3", japanese: "お店は廃棄するゴミを減らすことができ、利用者からも節約になると好評です。", furigana: "おみせははいきするごみをへらすことができ、りようしゃからもせつやくになるとこうひょうです。", english: "Stores can reduce discarded waste, and shoppers praise it as an effective way to save money.", startTimeSec: 84.408, endTimeSec: 91.248)
                     ]
                 ),
                 RadioChapter(
                     id: "c4",
                     title: "Culture & Manga Feature",
                     titleJa: "日本の文化・秋葉原マンガ特集",
-                    startTimeSec: 87.5,
+                    startTimeSec: 92.448,
                     description: "Special report on Akihabara manga festival and overseas fans.",
                     transcriptSentences: [
-                        NewsSentence(id: "r4_1", japanese: "文化の話題です。東京・秋葉原で、国内外の人気マンガが集まる秋のイベントが始まりました。", furigana: "ぶんかのわだいです。とうきょう・あきはばらで、こくないがいのにんきまんががあつまるあきのいべんとがはじまりました。", english: "In culture news: An autumn festival featuring popular domestic and international manga has begun in Akihabara.", startTimeSec: 87.5, endTimeSec: 95.32),
-                        NewsSentence(id: "r4_2", japanese: "会場には限定グッズや原画の展示コーナーが並び、多くのファンで賑わっています。", furigana: "かいじょうにはげんていぐっずやげんがのてんじこーなーがならび、おおくのふぁんでにぎわっています。", english: "Limited edition goods and original artwork exhibition booths are lined up, bustling with enthusiastic fans.", startTimeSec: 95.97, endTimeSec: 102.41),
-                        NewsSentence(id: "r4_3", japanese: "訪れた外国人観光客は、「生で日本のマンガ文化に触れられて感動した」と笑顔で話していました。", furigana: "おとずれたがいこくじんかんこうきゃくは、「なまでにほんのまんがぶんかにふれられてかんどうした」とえがおではなしていました。", english: "Visiting international tourists smiled and said they were deeply moved to experience Japanese manga culture live.", startTimeSec: 103.06, endTimeSec: 111.52)
+                        NewsSentence(id: "r4_1", japanese: "文化の話題です。東京・秋葉原で、国内外の人気マンガが集まる秋のイベントが始まりました。", furigana: "ぶんかのわだいです。とうきょう・あきはばらで、こくないがいのにんきまんががあつまるあきのいべんとがはじまりました。", english: "In culture news: An autumn festival featuring popular domestic and international manga has begun in Akihabara.", startTimeSec: 92.448, endTimeSec: 100.632),
+                        NewsSentence(id: "r4_2", japanese: "会場には限定グッズや原画の展示コーナーが並び、多くのファンで賑わっています。", furigana: "かいじょうにはげんていぐっずやげんがのてんじこーなーがならび、おおくのふぁんでにぎわっています。", english: "Limited edition goods and original artwork exhibition booths are lined up, bustling with enthusiastic fans.", startTimeSec: 101.232, endTimeSec: 107.616),
+                        NewsSentence(id: "r4_3", japanese: "訪れた外国人観光客は、「生で日本のマンガ文化に触れられて感動した」と笑顔で話していました。", furigana: "おとずれたがいこくじんかんこうきゃくは、「なまでにほんのまんがぶんかにふれられてかんどうした」とえがおではなしていました。", english: "Visiting international tourists smiled and said they were deeply moved to experience Japanese manga culture live.", startTimeSec: 108.216, endTimeSec: 115.992)
                     ]
                 ),
                 RadioChapter(
                     id: "c5",
                     title: "Tomorrow's Outlook & Ending",
                     titleJa: "明日の展望・エンディング",
-                    startTimeSec: 112.92,
+                    startTimeSec: 117.192,
                     description: "Final review, sports wrap-up, and relaxing night sign-off.",
                     transcriptSentences: [
-                        NewsSentence(id: "r5_1", japanese: "以上、今夜のNHKジャーナル総合ニュースをお送りいたしました。", furigana: "いじょう、こんやのえぬえいちけーじゃーなるそうごうにゅーすをおおくりいたしました。", english: "This concludes tonight's edition of the NHK Journal comprehensive evening news.", startTimeSec: 112.92, endTimeSec: 117.81),
-                        NewsSentence(id: "r5_2", japanese: "明日は各地で雨が強まる見込みですので、お出かけの際は足元に十分ご注意ください。", furigana: "あすはかくちであめがつよまるみこみですので、おでかけのさいはあしもとにじゅうぶんごちゅういください。", english: "Rain is expected to strengthen across various regions tomorrow; please take care of your footing when going out.", startTimeSec: 118.46, endTimeSec: 125.49),
-                        NewsSentence(id: "r5_3", japanese: "それでは皆様、どうぞ良い夜をお過ごしください。おやすみなさい。", furigana: "それではみなさま、どうぞよいよるをおすごしください。おやすみなさい。", english: "We wish you all a pleasant and restful evening. Good night.", startTimeSec: 126.14, endTimeSec: 131.06)
+                        NewsSentence(id: "r5_1", japanese: "以上、今夜のNHKジャーナル総合ニュースをお送りいたしました。", furigana: "いじょう、こんやのえぬえいちけーじゃーなるそうごうにゅーすをおおくりいたしました。", english: "This concludes tonight's edition of the NHK Journal comprehensive evening news.", startTimeSec: 117.192, endTimeSec: 123.168),
+                        NewsSentence(id: "r5_2", japanese: "明日は各地で雨が強まる見込みですので、お出かけの際は足元に十分ご注意ください。", furigana: "あすはかくちであめがつよまるみこみですので、おでかけのさいはあしもとにじゅうぶんごちゅういください。", english: "Rain is expected to strengthen across various regions tomorrow; please take care of your footing when going out.", startTimeSec: 123.768, endTimeSec: 131.52),
+                        NewsSentence(id: "r5_3", japanese: "それでは皆様、どうぞ良い夜をお過ごしください。おやすみなさい。", furigana: "それではみなさま、どうぞよいよるをおすごしください。おやすみなさい。", english: "We wish you all a pleasant and restful evening. Good night.", startTimeSec: 132.12, endTimeSec: 138.6)
                     ]
                 )
             ]

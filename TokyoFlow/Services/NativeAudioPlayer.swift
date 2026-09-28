@@ -134,15 +134,18 @@ public class NativeAudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
             let current = player.currentTime
             self.currentTimeSec = current
 
-            // Match active sentence based on exact audio timestamps
-            if let matched = self.activeSentencesQueue.first(where: { current >= $0.startTimeSec && current <= $0.endTimeSec }) {
-                if self.activeSentenceId != matched.id {
-                    self.activeSentenceId = matched.id
+            // Match active sentence based on exact audio timestamps with continuous sentence boundaries
+            for (i, sent) in self.activeSentencesQueue.enumerated() {
+                let nextStart = (i + 1 < self.activeSentencesQueue.count) ? self.activeSentencesQueue[i + 1].startTimeSec : (sent.endTimeSec + 1.0)
+                if current >= sent.startTimeSec && current < nextStart {
+                    if self.activeSentenceId != sent.id {
+                        self.activeSentenceId = sent.id
+                    }
+                    return
                 }
-            } else {
-                if current > (self.activeSentencesQueue.last?.endTimeSec ?? 999.0) {
-                    self.activeSentenceId = nil
-                }
+            }
+            if current > (self.activeSentencesQueue.last?.endTimeSec ?? 999.0) {
+                self.activeSentenceId = nil
             }
         }
     }

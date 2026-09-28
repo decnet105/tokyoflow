@@ -21,7 +21,16 @@ public struct TokyoRadioPlayerModalView: View {
 
     private var activeSentence: NewsSentence? {
         let cur = radioService.currentTimeSec
-        return allSentences.first(where: { cur >= $0.startTimeSec && cur <= $0.endTimeSec })
+        guard let first = allSentences.first else { return nil }
+        if cur < first.startTimeSec { return first }
+
+        for (i, sent) in allSentences.enumerated() {
+            let nextStart = (i + 1 < allSentences.count) ? allSentences[i + 1].startTimeSec : (sent.endTimeSec + 2.0)
+            if cur >= sent.startTimeSec && cur < nextStart {
+                return sent
+            }
+        }
+        return allSentences.last
     }
 
     public var body: some View {

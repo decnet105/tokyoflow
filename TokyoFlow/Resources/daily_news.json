@@ -17,31 +17,31 @@
         "furigana": "JRひがしにほんは、とうきょうや そのちかくを はしる でんしゃの しゅうでんの じかんを はやめると はっぴょうしました。",
         "english": "JR East announced that it will advance the last train times for trains running in and around Tokyo.",
         "startTimeSec": 0.0,
-        "endTimeSec": 7.85
+        "endTimeSec": 8.28
       },
       {
         "id": "s2",
         "japanese": "山手線や中央線など、多くの路線で終電が15分から30分程度早くなります。",
         "furigana": "やまのてせいや ちゅうおうせんなど、おおくの ろせんで しゅうでんが じゅうごふんから さんじゅっぷんていど はやくなります。",
         "english": "On many lines including the Yamanote Line and Chuo Line, the last train will be about 15 to 30 minutes earlier.",
-        "startTimeSec": 8.45,
-        "endTimeSec": 16.14
+        "startTimeSec": 8.83,
+        "endTimeSec": 16.894
       },
       {
         "id": "s3",
         "japanese": "会社によると、夜の間に線路を直す作業員の働く時間を守るための措置です。",
         "furigana": "かいしゃによると、よるの あいだに せんろを なおす さぎょういんの はたらく じかんを まもるための そちです。",
         "english": "According to the company, this measure is to secure work hours for maintenance crews repairing tracks during the night.",
-        "startTimeSec": 16.74,
-        "endTimeSec": 23.4
+        "startTimeSec": 17.444,
+        "endTimeSec": 24.596
       },
       {
         "id": "s4",
         "japanese": "夜遅くまで仕事や外食をする人は、終電の乗り遅れに注意が必要です。",
         "furigana": "よるおそくまで しごとや がいしょくを するひとは、しゅうでんの のりおくれに ちゅういが ひつようです。",
         "english": "People who work or eat out late at night need to be careful not to miss the last train.",
-        "startTimeSec": 24.0,
-        "endTimeSec": 30.52
+        "startTimeSec": 25.146,
+        "endTimeSec": 32.226
       }
     ],
     "vocabulary": [
@@ -104,23 +104,23 @@
         "furigana": "とうきょうの あきはばらで、にんきの マンガや アニメが あつまる あきの イベントが はじまりました。",
         "english": "An autumn event gathering popular manga and anime has begun in Akihabara, Tokyo.",
         "startTimeSec": 0.0,
-        "endTimeSec": 6.11
+        "endTimeSec": 6.792
       },
       {
         "id": "s2",
         "japanese": "会場には、ここでしか買えない限定グッズや原画の展示コーナーが並んでいます。",
         "furigana": "かいじょうには、ここでしか かえない げんていグッズや げんがの てんじコーナーが ならんでいます。",
         "english": "At the venue, limited goods that can only be bought here and original illustration exhibitions are lined up.",
-        "startTimeSec": 6.71,
-        "endTimeSec": 12.86
+        "startTimeSec": 7.342,
+        "endTimeSec": 14.11
       },
       {
         "id": "s3",
         "japanese": "外国人観光客も多く訪れ、「生で日本のマンガ文化に触れられて感動した」と話していました。",
         "furigana": "がいこくじん かんこうきゃくも おおく おとづれ、「なまで にほんの マンガぶんかに ふれられて かんどうした」と はなしていました。",
         "english": "Many foreign tourists also visited, saying 'I was moved to experience Japanese manga culture in person.'",
-        "startTimeSec": 13.46,
-        "endTimeSec": 21.48
+        "startTimeSec": 14.66,
+        "endTimeSec": 23.252
       }
     ],
     "vocabulary": [
@@ -183,23 +183,23 @@
         "furigana": "とうきょうとないの コンビニで、しょうひきげんが ちかい しょくひんを ねびきして うるみせが ふえています。",
         "english": "At convenience stores in Tokyo, the number of shops discounting and selling food close to its expiration date is increasing.",
         "startTimeSec": 0.0,
-        "endTimeSec": 6.51
+        "endTimeSec": 7.056
       },
       {
         "id": "s2",
         "japanese": "おにぎりやサンドイッチに「エコ値引きシール」が貼られ、お得に購入できます。",
         "furigana": "おにぎりや サンドイッチに「エコねびきシール」が はられ、おとくに こうにゅうできます。",
         "english": "'Eco-discount stickers' are pasted on rice balls and sandwiches, allowing great bargains.",
-        "startTimeSec": 7.11,
-        "endTimeSec": 12.52
+        "startTimeSec": 7.606,
+        "endTimeSec": 13.894
       },
       {
         "id": "s3",
         "japanese": "店側は廃棄するゴミを減らすことができ、客にとっても節約になると好評です。",
         "furigana": "みせがわは はいきする ゴミを へらすことが でき、きゃくにとっても せつやくになると こうひょうです。",
         "english": "Store owners can reduce discarded waste, and customers praise it as a great way to save money.",
-        "startTimeSec": 13.12,
-        "endTimeSec": 19.73
+        "startTimeSec": 14.444,
+        "endTimeSec": 21.572
       }
     ],
     "vocabulary": [
