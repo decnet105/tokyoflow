@@ -15,6 +15,11 @@ public struct MainTabView: View {
                     Label("Quest Map", systemImage: "flag.2.crossed.fill")
                 }
 
+            KanaTableView()
+                .tabItem {
+                    Label("Kana 五十音", systemImage: "character.book.closed.fill")
+                }
+
             DailyNewsFeedView()
                 .tabItem {
                     Label("Daily News", systemImage: "newspaper.fill")

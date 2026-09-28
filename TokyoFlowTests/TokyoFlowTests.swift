@@ -158,4 +158,18 @@ final class TokyoFlowTests: XCTestCase {
         XCTAssertLessThan(settings.rate, 0.6)
         XCTAssertGreaterThan(settings.pitch, 0.9)
     }
+
+    func testKanaDataManager() {
+        let kana = KanaDataManager.shared
+        XCTAssertEqual(kana.seionList.count, 46, "Should contain 46 Seion kana")
+        XCTAssertGreaterThanOrEqual(kana.dakuonList.count, 20, "Should contain Dakuon kana")
+        XCTAssertFalse(kana.yoonList.isEmpty, "Should contain Yoon kana")
+
+        for item in kana.seionList {
+            XCTAssertFalse(item.hiragana.isEmpty)
+            XCTAssertFalse(item.katakana.isEmpty)
+            XCTAssertFalse(item.romaji.isEmpty)
+            XCTAssertFalse(item.exampleWordJa.isEmpty)
+        }
+    }
 }
