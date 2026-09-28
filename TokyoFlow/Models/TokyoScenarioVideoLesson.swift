@@ -252,7 +252,7 @@ public class TokyoVideoLessonDataManager: ObservableObject {
                 title: "EP. 04 • Akihabara Pilgrimage: Figures, Merch & Manga Tax-Free",
                 titleJa: "秋葉原アニメ・限定グッズ・同人誌探訪",
                 channelName: "TokyoFlow Japanese",
-                youtubeVideoId: "g4mHPeNyQKA",
+                youtubeVideoId: "5PMwDi4EWvo",
                 durationLabel: "09:50",
                 levelBadge: "JLPT N3-N2",
                 district: "Akihabara (秋葉原)",

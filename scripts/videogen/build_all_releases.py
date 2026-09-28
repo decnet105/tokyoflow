@@ -302,7 +302,7 @@ EPISODES = [
         "category": "Akihabara Shopping • Anime Protocol",
         "level": "JLPT N3-N2",
         "district": "Akihabara (秋葉原)",
-        "youtube_id": "g4mHPeNyQKA",
+        "youtube_id": "5PMwDi4EWvo",
         "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/akiba_neon_manga_1790602623116.jpg",
         "cover": {
             "hook": "AKIBA MANGA HUNT",
