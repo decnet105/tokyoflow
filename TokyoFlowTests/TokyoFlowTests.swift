@@ -282,4 +282,26 @@ final class TokyoFlowTests: XCTestCase {
         XCTAssertFalse(gamification.friendsLeaderboardUsers.isEmpty)
         XCTAssertTrue(gamification.friendsLeaderboardUsers.contains(where: { $0.isCurrentUser }))
     }
+
+    func testKana7DayNonRepeatingVocabulary() {
+        let kanaData = KanaDataManager.shared
+        XCTAssertFalse(kanaData.seionList.isEmpty)
+
+        for item in kanaData.seionList {
+            XCTAssertEqual(item.exampleWords.count, 7, "Each kana item must have 7 distinct daily example words")
+            
+            // Check uniqueness across the 7 days of the week
+            var distinctWords = Set<String>()
+            for day in 0..<7 {
+                let word = item.exampleWordForDay(dayOffset: day)
+                distinctWords.insert(word.japanese)
+            }
+            XCTAssertEqual(distinctWords.count, 7, "Kana \(item.hiragana) must have 7 unique non-repeating words for the 7 days of the week")
+            
+            // Check today's rotation word
+            XCTAssertFalse(item.dailyExampleWord.japanese.isEmpty)
+            XCTAssertFalse(item.dailyExampleWord.romaji.isEmpty)
+            XCTAssertFalse(item.dailyExampleWord.english.isEmpty)
+        }
+    }
 }

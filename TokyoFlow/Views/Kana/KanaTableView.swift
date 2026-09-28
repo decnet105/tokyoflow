@@ -229,8 +229,8 @@ public struct KanaSpeechBubbleDialogueView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
 
-                Text("💬 常用例词 (Example Word)")
-                    .font(.system(size: 12, weight: .bold))
+                Text("📅 今日例词 (7天每日轮换)")
+                    .font(.system(size: 11, weight: .bold))
                     .foregroundColor(.secondary)
 
                 Spacer()
@@ -445,50 +445,80 @@ public struct KanaDetailModal: View {
                         }
                     }
 
-                    // Tokyo Real Living Example Word
-                    VStack(alignment: .leading, spacing: 8) {
+                    // 7-Day Non-Repeating Weekly Vocabulary Schedule
+                    VStack(alignment: .leading, spacing: 10) {
                         HStack {
-                            Image(systemName: "book.fill")
+                            Image(systemName: "calendar.badge.clock")
                                 .foregroundColor(.accentColor)
-                            Text("Tokyo Real-Life Example:")
+                            Text("7-Day Daily Rotating Vocabulary (一周每日一换):")
                                 .font(.caption)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
                         }
 
-                        HStack(alignment: .firstTextBaseline) {
-                            VStack(alignment: .leading, spacing: 2) {
-                                HStack(spacing: 8) {
-                                    Text(kana.exampleWordJa)
-                                        .font(.system(size: 20, weight: .bold))
-                                    Text("[\(kana.exampleWordRomaji)]")
-                                        .font(.system(size: 15, weight: .bold, design: .monospaced))
-                                        .foregroundColor(.accentColor)
+                        let dayNames = ["周一 (Mon)", "周二 (Tue)", "周三 (Wed)", "周四 (Thu)", "周五 (Fri)", "周六 (Sat)", "周日 (Sun)"]
+                        VStack(spacing: 8) {
+                            ForEach(0..<min(7, kana.exampleWords.count), id: \.self) { idx in
+                                let word = kana.exampleWords[idx]
+                                let isToday = (idx == ((Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 1) - 1) % 7)
+
+                                HStack(spacing: 10) {
+                                    Text(dayNames[idx])
+                                        .font(.system(size: 10, weight: .bold))
+                                        .foregroundColor(isToday ? .accentColor : .secondary)
+                                        .frame(width: 62, alignment: .leading)
+
+                                    VStack(alignment: .leading, spacing: 1) {
+                                        HStack(spacing: 6) {
+                                            Text(word.japanese)
+                                                .font(.system(size: 14, weight: .bold))
+                                                .foregroundColor(.primary)
+                                            Text("[\(word.romaji)]")
+                                                .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                                                .foregroundColor(.accentColor)
+                                        }
+                                        Text(word.english)
+                                            .font(.system(size: 11))
+                                            .foregroundColor(.secondary)
+                                            .lineLimit(1)
+                                    }
+
+                                    Spacer()
+
+                                    if isToday {
+                                        Text("今日")
+                                            .font(.system(size: 9, weight: .heavy))
+                                            .foregroundColor(.white)
+                                            .padding(.horizontal, 6)
+                                            .padding(.vertical, 2)
+                                            .background(Color.accentColor)
+                                            .cornerRadius(6)
+                                    }
+
+                                    Button(action: {
+                                        audioService.speak(text: word.japanese)
+                                    }) {
+                                        Image(systemName: "speaker.wave.2.fill")
+                                            .font(.system(size: 11))
+                                            .foregroundColor(.white)
+                                            .padding(6)
+                                            .background(Color.accentColor)
+                                            .clipShape(Circle())
+                                    }
                                 }
-                                Text(kana.exampleWordEn)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-                            Spacer()
-                            Button(action: {
-                                audioService.speak(text: kana.exampleWordJa)
-                            }) {
-                                Image(systemName: "speaker.wave.2.fill")
-                                    .font(.title3)
-                                    .foregroundColor(.white)
-                                    .padding(10)
-                                    .background(Color.accentColor)
-                                    .clipShape(Circle())
+                                .padding(8)
+                                .background(isToday ? Color.accentColor.opacity(0.12) : Color.white.opacity(0.05))
+                                .cornerRadius(10)
                             }
                         }
 
                         Divider()
 
-                        Text("💡 Mnemonic Hint: \(kana.mnemonic)")
+                        Text("💡 记忆口诀: \(kana.mnemonic)")
                             .font(.footnote)
                             .foregroundColor(.secondary)
                     }
-                    .padding(16)
+                    .padding(14)
                     .background(.ultraThinMaterial)
                     .cornerRadius(18)
                     .padding(.horizontal)
