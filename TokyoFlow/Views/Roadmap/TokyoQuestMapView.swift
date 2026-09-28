@@ -1,24 +1,10 @@
 import SwiftUI
 
-public enum AppMangaTheme: String, CaseIterable, Identifiable {
-    case sunset = "Shibuya Sunset Skyline (夕暮れの渋谷)"
-    case cozyRoom = "Cozy Manga Kotatsu Room (こたつマンガ部屋)"
-    case minimalist = "Clean Tokyo Metro Minimal (ミニマル)"
-
-    public var id: String { rawValue }
-    public var icon: String {
-        switch self {
-        case .sunset: return "sun.horizon.fill"
-        case .cozyRoom: return "house.fill"
-        case .minimalist: return "sparkles"
-        }
-    }
-}
-
 public struct TokyoQuestMapView: View {
     @ObservedObject var dataManager = DataManager.shared
+    @ObservedObject var themeManager = ThemeManager.shared
+    @ObservedObject var gamification = GamificationService.shared
     @EnvironmentObject var userProfile: UserProfile
-    @State private var selectedTheme: AppMangaTheme = .sunset
     @State private var selectedStage: QuestStage? = nil
     @State private var showThemePicker = false
 
@@ -30,7 +16,7 @@ public struct TokyoQuestMapView: View {
         NavigationStack {
             ZStack {
                 // Background Layer (Theme wallpaper or soft clean gradient)
-                BackgroundThemeView(theme: selectedTheme)
+                MangaThemeBackgroundView()
 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 32) {
@@ -111,13 +97,8 @@ public struct TokyoQuestMapView: View {
             }
             .navigationTitle("Tokyo Quest")
             .navigationBarTitleDisplayMode(.inline)
-            .confirmationDialog("Choose Manga Background Theme", isPresented: $showThemePicker, titleVisibility: .visible) {
-                ForEach(AppMangaTheme.allCases) { theme in
-                    Button(theme.rawValue) {
-                        selectedTheme = theme
-                    }
-                }
-                Button("Cancel", role: .cancel) {}
+            .sheet(isPresented: $showThemePicker) {
+                ThemePickerSheet()
             }
             .sheet(item: $selectedStage) { stage in
                 StageLauncherModal(stage: stage)
@@ -366,42 +347,3 @@ public struct StageLauncherModal: View {
     }
 }
 
-// Background Theme View with cute anime wallpaper or clean gradient
-public struct BackgroundThemeView: View {
-    public let theme: AppMangaTheme
-
-    public var body: some View {
-        ZStack {
-            switch theme {
-            case .sunset:
-                // Soft gradient with warm anime sun tones
-                LinearGradient(
-                    colors: [
-                        Color(hex: "#FED7AA").opacity(0.4),
-                        Color(hex: "#FDE68A").opacity(0.3),
-                        Color(hex: "#DDD6FE").opacity(0.35)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
-
-            case .cozyRoom:
-                LinearGradient(
-                    colors: [
-                        Color(hex: "#FEF3C7").opacity(0.5),
-                        Color(hex: "#FFEDD5").opacity(0.4),
-                        Color(hex: "#F3E8FF").opacity(0.3)
-                    ],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .ignoresSafeArea()
-
-            case .minimalist:
-                Color(.systemGroupedBackground)
-                    .ignoresSafeArea()
-            }
-        }
-    }
-}

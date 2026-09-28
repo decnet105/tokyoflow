@@ -3,6 +3,8 @@ import SwiftUI
 public struct MainTabView: View {
     @StateObject private var userProfile = UserProfile()
     @StateObject private var dataManager = DataManager.shared
+    @StateObject private var gamification = GamificationService.shared
+    @StateObject private var themeManager = ThemeManager.shared
 
     public init() {}
 
@@ -11,6 +13,11 @@ public struct MainTabView: View {
             TokyoQuestMapView()
                 .tabItem {
                     Label("Quest Map", systemImage: "flag.2.crossed.fill")
+                }
+
+            DailyNewsFeedView()
+                .tabItem {
+                    Label("Daily News", systemImage: "newspaper.fill")
                 }
 
             ScenarioMapView()
@@ -28,14 +35,9 @@ public struct MainTabView: View {
                     Label("Manga Lab", systemImage: "book.pages.fill")
                 }
 
-            TokyoAudioLabView()
+            TokyoSocialHubView()
                 .tabItem {
-                    Label("Audio Lab", systemImage: "headphones")
-                }
-
-            SurvivalCheatSheetView()
-                .tabItem {
-                    Label("Survival Kit", systemImage: "bolt.shield.fill")
+                    Label("Tokyo Social", systemImage: "bubble.left.and.bubble.right.fill")
                 }
 
             TokyoPassportView()
@@ -45,6 +47,8 @@ public struct MainTabView: View {
         }
         .environmentObject(userProfile)
         .environmentObject(dataManager)
+        .environmentObject(gamification)
+        .environmentObject(themeManager)
         .tint(.accentColor)
     }
 }

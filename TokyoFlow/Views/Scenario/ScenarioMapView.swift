@@ -29,7 +29,10 @@ public struct ScenarioMapView: View {
 
     public var body: some View {
         NavigationStack {
-            ScrollView {
+            ZStack {
+                MangaThemeBackgroundView()
+
+                ScrollView {
                 VStack(spacing: 20) {
                     // Header Banner: Tokyo Use-Case Journey
                     VStack(alignment: .leading, spacing: 8) {
@@ -128,7 +131,8 @@ public struct ScenarioMapView: View {
                     .padding(.horizontal)
                 }
             }
-            .navigationTitle("Tokyo Scenarios")
+        }
+        .navigationTitle("Tokyo Scenarios")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

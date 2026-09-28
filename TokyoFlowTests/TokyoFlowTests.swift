@@ -105,4 +105,40 @@ final class TokyoFlowTests: XCTestCase {
         XCTAssertEqual(profile.bookmarkedPhrases.count, initialCount)
         XCTAssertFalse(profile.isBookmarked("テストフレーズ"))
     }
+
+    func testDailyNewsAndShadowing() {
+        let newsService = NHKNewsService.shared
+        newsService.loadBundledNews()
+
+        XCTAssertFalse(newsService.dailyNews.isEmpty, "Daily news should contain articles")
+        for news in newsService.dailyNews {
+            XCTAssertFalse(news.id.isEmpty)
+            XCTAssertFalse(news.title.isEmpty)
+            XCTAssertFalse(news.contentSentences.isEmpty)
+            XCTAssertFalse(news.vocabulary.isEmpty)
+            XCTAssertFalse(news.comprehensionQuiz.isEmpty)
+        }
+    }
+
+    func testGamificationAndQuests() {
+        let gamification = GamificationService.shared
+        gamification.setupDailyQuests()
+
+        XCTAssertFalse(gamification.dailyQuests.isEmpty, "Daily quests should be populated")
+        XCTAssertGreaterThanOrEqual(gamification.leaderboardUsers.count, 3, "Leaderboard should have users")
+
+        let initialTP = gamification.tokyoPoints
+        let initialEXP = gamification.totalEXP
+
+        gamification.addRewards(tp: 50, exp: 100)
+        XCTAssertEqual(gamification.tokyoPoints, initialTP + 50)
+        XCTAssertEqual(gamification.totalEXP, initialEXP + 100)
+    }
+
+    func testThemeManagerSelection() {
+        let themeManager = ThemeManager.shared
+        themeManager.currentTheme = .akibaNeon
+        XCTAssertEqual(themeManager.currentTheme, .akibaNeon)
+        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_akiba_neon")
+    }
 }
