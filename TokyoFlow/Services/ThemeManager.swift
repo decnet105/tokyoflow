@@ -1,6 +1,7 @@
 import SwiftUI
 
 public enum AppMangaTheme: String, CaseIterable, Identifiable {
+    case none = "Pure Clean (无背景)"
     case washiPaper = "Washi Rice Paper (米紙白)"
     case readingCat = "Cozy Reading Cat (読書子猫)"
     case liquidGlass = "Liquid Glasses (流体ガラス)"
@@ -14,6 +15,7 @@ public enum AppMangaTheme: String, CaseIterable, Identifiable {
 
     public var icon: String {
         switch self {
+        case .none: return "slash.circle"
         case .washiPaper: return "doc.plaintext.fill"
         case .readingCat: return "cat.fill"
         case .liquidGlass: return "drop.fill"
@@ -27,6 +29,7 @@ public enum AppMangaTheme: String, CaseIterable, Identifiable {
 
     public var assetName: String? {
         switch self {
+        case .none, .minimalist: return nil
         case .washiPaper: return "wallpaper_washi_paper"
         case .readingCat: return "wallpaper_reading_cat"
         case .liquidGlass: return "wallpaper_liquid_glass"
@@ -34,12 +37,12 @@ public enum AppMangaTheme: String, CaseIterable, Identifiable {
         case .cozyRoom: return "wallpaper_cozy_room"
         case .akibaNeon: return "wallpaper_akiba_neon"
         case .rainyCafe: return "wallpaper_rainy_cafe"
-        case .minimalist: return nil
         }
     }
 
     public var resourceFileName: String? {
         switch self {
+        case .none, .minimalist: return nil
         case .washiPaper: return "washi_paper.jpg"
         case .readingCat: return "reading_cat.jpg"
         case .liquidGlass: return "liquid_glass.jpg"
@@ -47,7 +50,6 @@ public enum AppMangaTheme: String, CaseIterable, Identifiable {
         case .cozyRoom: return "cozy_room.jpg"
         case .akibaNeon: return "akiba_neon.jpg"
         case .rainyCafe: return "rainy_cafe.jpg"
-        case .minimalist: return nil
         }
     }
 }
@@ -93,7 +95,7 @@ public struct MangaThemeBackgroundView: View {
 
     public var body: some View {
         ZStack {
-            if let assetName = themeManager.currentTheme.assetName,
+            if themeManager.currentTheme.assetName != nil,
                let uiImage = loadThemeImage(theme: themeManager.currentTheme) {
                 Image(uiImage: uiImage)
                     .resizable()
@@ -137,8 +139,12 @@ public struct MangaThemeBackgroundView: View {
                     Color(hex: "#FAF8F5").opacity(0.12)
                         .ignoresSafeArea()
                 }
+            } else if themeManager.currentTheme == .none {
+                // Pure Clean / No Wallpaper: Standard iOS system background
+                Color(uiColor: .systemGroupedBackground)
+                    .ignoresSafeArea()
             } else {
-                // Minimalist fallback
+                // Minimalist gradient fallback
                 LinearGradient(
                     colors: [
                         Color(hex: "#F8FAFC"),

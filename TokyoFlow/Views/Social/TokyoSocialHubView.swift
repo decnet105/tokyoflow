@@ -130,15 +130,51 @@ public struct TokyoSocialHubView: View {
             ZStack {
                 MangaThemeBackgroundView()
 
-                VStack(spacing: 0) {
-                    // Segmented Bar
-                    Picker("Social Mode", selection: $selectedTab) {
-                        Text("AI Tokyo Citizens (住民会話)").tag(0)
-                        Text("Community Board (掲示板)").tag(1)
+                VStack(spacing: 12) {
+                    // Custom Glass Pill Tab Selector (Spacious & Clean)
+                    HStack(spacing: 12) {
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
+                                selectedTab = 0
+                            }
+                        }) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "person.2.wave.2.fill")
+                                    .font(.system(size: 13, weight: .bold))
+                                Text("AI 住民会話")
+                                    .font(.system(size: 14, weight: .bold))
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
+                            .background(selectedTab == 0 ? Color.accentColor : Color.primary.opacity(0.08))
+                            .foregroundColor(selectedTab == 0 ? .white : .primary)
+                            .cornerRadius(12)
+                            .shadow(color: selectedTab == 0 ? Color.accentColor.opacity(0.3) : Color.clear, radius: 4, y: 2)
+                        }
+                        .buttonStyle(.plain)
+
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
+                                selectedTab = 1
+                            }
+                        }) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "bubble.left.and.bubble.right.fill")
+                                    .font(.system(size: 13, weight: .bold))
+                                Text("東京掲示板")
+                                    .font(.system(size: 14, weight: .bold))
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
+                            .background(selectedTab == 1 ? Color.accentColor : Color.primary.opacity(0.08))
+                            .foregroundColor(selectedTab == 1 ? .white : .primary)
+                            .cornerRadius(12)
+                            .shadow(color: selectedTab == 1 ? Color.accentColor.opacity(0.3) : Color.clear, radius: 4, y: 2)
+                        }
+                        .buttonStyle(.plain)
                     }
-                    .pickerStyle(.segmented)
                     .padding(.horizontal)
-                    .padding(.vertical, 8)
+                    .padding(.top, 8)
 
                     if selectedTab == 0 {
                         citizenPersonaListView
@@ -147,26 +183,28 @@ public struct TokyoSocialHubView: View {
                     }
                 }
             }
-            .navigationTitle("Tokyo Social & Citizens")
+            .navigationTitle("Tokyo Social")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
 
     private var citizenPersonaListView: some View {
         ScrollView {
-            VStack(spacing: 14) {
+            VStack(spacing: 16) {
                 // Info Banner
-                HStack(spacing: 12) {
-                    Image(systemName: "bubble.left.and.bubble.right.fill")
+                HStack(spacing: 14) {
+                    Image(systemName: "sparkles.rectangle.stack.fill")
                         .font(.title2)
                         .foregroundColor(.accentColor)
 
-                    VStack(alignment: .leading, spacing: 2) {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text("Practice Conversational Japanese")
                             .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(.primary)
                         Text("Chat with Tokyo native personas, hear natural voices, and build confidence.")
                             .font(.caption)
                             .foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                 }
                 .padding(14)
@@ -183,7 +221,7 @@ public struct TokyoSocialHubView: View {
                 }
             }
             .padding(.horizontal)
-            .padding(.bottom, 20)
+            .padding(.bottom, 24)
         }
     }
 
@@ -275,37 +313,50 @@ public struct PersonaCardView: View {
     public let persona: TokyoCitizenPersona
 
     public var body: some View {
-        HStack(spacing: 14) {
+        HStack(alignment: .top, spacing: 14) {
             Text(persona.avatar)
-                .font(.system(size: 40))
+                .font(.system(size: 38))
+                .padding(8)
+                .background(Color.primary.opacity(0.06))
+                .clipShape(Circle())
 
-            VStack(alignment: .leading, spacing: 4) {
-                HStack {
-                    Text(persona.name)
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(.primary)
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(alignment: .center) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(persona.name)
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundColor(.primary)
+                        Text(persona.nameJapanese)
+                            .font(.system(size: 11))
+                            .foregroundColor(.secondary)
+                    }
 
                     Spacer()
 
                     Text(persona.speechStyle)
-                        .font(.system(size: 10, weight: .semibold))
+                        .font(.system(size: 10, weight: .bold))
                         .foregroundColor(.accentColor)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(Color.accentColor.opacity(0.15))
-                        .cornerRadius(6)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.accentColor.opacity(0.12))
+                        .cornerRadius(8)
                 }
 
                 Text(persona.description)
-                    .font(.system(size: 12))
+                    .font(.system(size: 13))
                     .foregroundColor(.secondary)
-                    .lineLimit(2)
+                    .lineSpacing(2)
+                    .fixedSize(horizontal: false, vertical: true)
 
                 HStack(spacing: 6) {
                     ForEach(persona.tags, id: \.self) { tag in
                         Text("#\(tag)")
-                            .font(.system(size: 10))
-                            .foregroundColor(.secondary)
+                            .font(.system(size: 10, weight: .medium))
+                            .foregroundColor(.primary.opacity(0.7))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.primary.opacity(0.05))
+                            .cornerRadius(4)
                     }
                 }
                 .padding(.top, 2)
@@ -314,5 +365,6 @@ public struct PersonaCardView: View {
         .padding(16)
         .background(.ultraThinMaterial)
         .cornerRadius(18)
+        .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 2)
     }
 }

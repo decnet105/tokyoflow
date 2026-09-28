@@ -37,54 +37,64 @@ public struct SFXDictionaryView: View {
 
     public var body: some View {
         NavigationStack {
-            VStack(spacing: 16) {
-                // Category Filter
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach(categories, id: \.self) { cat in
-                            Button(action: { selectedCategory = cat }) {
-                                Text(cat == "all" ? "All SFX" : cat)
-                                    .font(.caption)
-                                    .fontWeight(.semibold)
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 6)
-                                    .background(selectedCategory == cat ? Color.purple : Color(.systemGray6))
-                                    .foregroundColor(selectedCategory == cat ? .white : .primary)
-                                    .cornerRadius(16)
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-                .padding(.top, 8)
+            ZStack {
+                MangaThemeBackgroundView()
 
-                // List
-                List {
-                    ForEach(filteredList) { sfx in
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                HStack(spacing: 8) {
-                                    Text(sfx.japanese)
-                                        .font(.system(size: 20, weight: .bold, design: .serif))
-                                        .foregroundColor(.purple)
-                                    Text("(\(sfx.reading))")
+                VStack(spacing: 16) {
+                    // Category Filter
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(categories, id: \.self) { cat in
+                                Button(action: { selectedCategory = cat }) {
+                                    Text(cat == "all" ? "All SFX" : cat)
                                         .font(.caption)
-                                        .foregroundColor(.secondary)
+                                        .fontWeight(.semibold)
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 6)
+                                        .background(selectedCategory == cat ? Color.purple : Color.primary.opacity(0.08))
+                                        .foregroundColor(selectedCategory == cat ? .white : .primary)
+                                        .cornerRadius(16)
                                 }
-                                Text(sfx.english)
-                                    .font(.footnote)
-                                    .foregroundColor(.primary)
-                                Text("Common in: \(sfx.exampleManga)")
-                                    .font(.caption2)
-                                    .foregroundColor(.secondary)
                             }
-                            Spacer()
-                            AudioButton(textToSpeak: sfx.japanese)
                         }
-                        .padding(.vertical, 4)
+                        .padding(.horizontal)
+                    }
+                    .padding(.top, 8)
+
+                    // List
+                    ScrollView {
+                        LazyVStack(spacing: 12) {
+                            ForEach(filteredList) { sfx in
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        HStack(spacing: 8) {
+                                            Text(sfx.japanese)
+                                                .font(.system(size: 20, weight: .bold, design: .serif))
+                                                .foregroundColor(.purple)
+                                            Text("(\(sfx.reading))")
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                        }
+                                        Text(sfx.english)
+                                            .font(.footnote)
+                                            .foregroundColor(.primary)
+                                        Text("Common in: \(sfx.exampleManga)")
+                                            .font(.caption2)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    Spacer()
+                                    AudioButton(textToSpeak: sfx.japanese)
+                                }
+                                .padding(14)
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(14)
+                                .shadow(color: Color.black.opacity(0.03), radius: 6, x: 0, y: 2)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 24)
                     }
                 }
-                .listStyle(.plain)
             }
             .navigationTitle("Manga SFX Soundboard")
             .navigationBarTitleDisplayMode(.inline)

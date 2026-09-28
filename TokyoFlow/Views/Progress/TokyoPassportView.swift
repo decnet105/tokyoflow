@@ -6,172 +6,176 @@ public struct TokyoPassportView: View {
 
     public var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Profile Passport Card
-                    VStack(alignment: .leading, spacing: 14) {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("TOKYO RESIDENCE PASSPORT")
-                                    .font(.system(size: 10, weight: .bold))
+            ZStack {
+                MangaThemeBackgroundView()
+
+                ScrollView {
+                    VStack(spacing: 20) {
+                        // Profile Passport Card
+                        VStack(alignment: .leading, spacing: 14) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("TOKYO RESIDENCE PASSPORT")
+                                        .font(.system(size: 10, weight: .bold))
+                                        .foregroundColor(.accentColor)
+                                        .tracking(2.0)
+                                    Text("Year 1 Tokyo Explorer")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                }
+                                Spacer()
+                                Image(systemName: "person.crop.circle.badge.checkmark")
+                                    .font(.system(size: 40))
                                     .foregroundColor(.accentColor)
-                                    .tracking(2.0)
-                                Text("Year 1 Tokyo Explorer")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                            }
-                            Spacer()
-                            Image(systemName: "person.crop.circle.badge.checkmark")
-                                .font(.system(size: 40))
-                                .foregroundColor(.accentColor)
-                        }
-
-                        Divider()
-
-                        HStack(spacing: 20) {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("CURRENT DAY")
-                                    .font(.system(size: 9, weight: .bold))
-                                    .foregroundColor(.secondary)
-                                Text("Day \(userProfile.currentDay) / 365")
-                                    .font(.headline)
-                                    .fontWeight(.heavy)
                             }
 
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("STREAK")
-                                    .font(.system(size: 9, weight: .bold))
-                                    .foregroundColor(.secondary)
-                                HStack(spacing: 4) {
-                                    Image(systemName: "flame.fill")
-                                        .foregroundColor(.orange)
-                                    Text("\(userProfile.streakCount) Days")
+                            Divider()
+
+                            HStack(spacing: 20) {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("CURRENT DAY")
+                                        .font(.system(size: 9, weight: .bold))
+                                        .foregroundColor(.secondary)
+                                    Text("Day \(userProfile.currentDay) / 365")
                                         .font(.headline)
                                         .fontWeight(.heavy)
                                 }
+
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("STREAK")
+                                        .font(.system(size: 9, weight: .bold))
+                                        .foregroundColor(.secondary)
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "flame.fill")
+                                            .foregroundColor(.orange)
+                                        Text("\(userProfile.streakCount) Days")
+                                            .font(.headline)
+                                            .fontWeight(.heavy)
+                                    }
+                                }
+
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("CAN-DO LEVEL")
+                                        .font(.system(size: 9, weight: .bold))
+                                        .foregroundColor(.secondary)
+                                    Text("JF A1-A2")
+                                        .font(.headline)
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.green)
+                                }
                             }
-
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("CAN-DO LEVEL")
-                                    .font(.system(size: 9, weight: .bold))
-                                    .foregroundColor(.secondary)
-                                Text("JF A1-A2")
-                                    .font(.headline)
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(.green)
-                            }
                         }
-                    }
-                    .padding(20)
-                    .background(Color(.secondarySystemGroupedBackground))
-                    .cornerRadius(18)
-                    .shadow(color: Color.black.opacity(0.04), radius: 10, x: 0, y: 2)
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-
-                    // 1-Year Roadmap Milestone Tracker
-                    VStack(alignment: .leading, spacing: 14) {
-                        Text("1-YEAR ROADMAP & QUARTERLY GOALS")
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                            .tracking(1.2)
-                            .padding(.horizontal)
-
-                        ForEach(OneYearRoadmap.quarters) { quarter in
-                            QuarterMilestoneCard(
-                                quarter: quarter,
-                                isCurrent: quarter.quarterNumber == 1
-                            )
-                            .padding(.horizontal)
-                        }
-                    }
-
-                    // Japan Foundation Can-Do Standards Checklist
-                    VStack(alignment: .leading, spacing: 14) {
-                        Text("JAPAN FOUNDATION CAN-DO COMPETENCY")
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                            .tracking(1.2)
-                            .padding(.horizontal)
-
-                        VStack(spacing: 10) {
-                            CanDoItemRow(
-                                code: "A1.1",
-                                title: "Tokyo Commute & IC Card",
-                                desc: "Can buy transit tickets and recharge Suica at ticket machines.",
-                                isDone: userProfile.completedScenarioIds.contains("scenario_01_morning_train")
-                            )
-                            CanDoItemRow(
-                                code: "A1.2",
-                                title: "Convenience Store Checkout",
-                                desc: "Can handle bento heating, utensil requests, and bag options smoothly.",
-                                isDone: userProfile.completedScenarioIds.contains("scenario_02_kombini_morning")
-                            )
-                            CanDoItemRow(
-                                code: "A2.1",
-                                title: "Ramen & Food Customization",
-                                desc: "Can read ticket vending machines and specify noodle texture/oil.",
-                                isDone: userProfile.completedScenarioIds.contains("scenario_03_ramen_ticket_machine")
-                            )
-                            CanDoItemRow(
-                                code: "A2.2",
-                                title: "Izakaya Table & Split Bills",
-                                desc: "Can order opening drinks ('toriaezu nama') and manage group bill payment.",
-                                isDone: userProfile.completedScenarioIds.contains("scenario_04_izakaya_table_booking")
-                            )
-                            CanDoItemRow(
-                                code: "B1.1",
-                                title: "Postal Redelivery Logistics",
-                                desc: "Can decode missed delivery notices (不在票) and schedule time windows.",
-                                isDone: userProfile.completedScenarioIds.contains("scenario_07_post_office_delivery")
-                            )
-                        }
-                        .padding()
-                        .background(Color(.secondarySystemGroupedBackground))
-                        .cornerRadius(16)
+                        .padding(20)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(18)
+                        .shadow(color: Color.black.opacity(0.04), radius: 10, x: 0, y: 2)
                         .padding(.horizontal)
-                    }
+                        .padding(.top, 8)
 
-                    // App Settings
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("STUDY SETTINGS")
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                            .tracking(1.2)
-                            .padding(.horizontal)
+                        // 1-Year Roadmap Milestone Tracker
+                        VStack(alignment: .leading, spacing: 14) {
+                            Text("1-YEAR ROADMAP & QUARTERLY GOALS")
+                                .font(.caption)
+                                .fontWeight(.bold)
+                                .foregroundColor(.secondary)
+                                .tracking(1.2)
+                                .padding(.horizontal)
 
-                        VStack(spacing: 12) {
-                            Toggle(isOn: $userProfile.furiganaEnabled) {
-                                Label("Ruby Furigana Reading", systemImage: "character.phonetic")
+                            ForEach(OneYearRoadmap.quarters) { quarter in
+                                QuarterMilestoneCard(
+                                    quarter: quarter,
+                                    isCurrent: quarter.quarterNumber == 1
+                                )
+                                .padding(.horizontal)
                             }
-
-                            Divider()
-
-                            Toggle(isOn: $userProfile.romajiEnabled) {
-                                Label("Show Romaji Subtitles", systemImage: "textformat")
-                            }
-
-                            Divider()
-
-                            HStack {
-                                Label("Japanese TTS Speed", systemImage: "speedometer")
-                                Spacer()
-                                Text(String(format: "%.2fx", userProfile.speechRate))
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                            }
-                            Slider(value: $userProfile.speechRate, in: 0.35...0.65, step: 0.05)
                         }
-                        .padding()
-                        .background(Color(.secondarySystemGroupedBackground))
-                        .cornerRadius(16)
-                        .padding(.horizontal)
+
+                        // Japan Foundation Can-Do Standards Checklist
+                        VStack(alignment: .leading, spacing: 14) {
+                            Text("JAPAN FOUNDATION CAN-DO COMPETENCY")
+                                .font(.caption)
+                                .fontWeight(.bold)
+                                .foregroundColor(.secondary)
+                                .tracking(1.2)
+                                .padding(.horizontal)
+
+                            VStack(spacing: 10) {
+                                CanDoItemRow(
+                                    code: "A1.1",
+                                    title: "Tokyo Commute & IC Card",
+                                    desc: "Can buy transit tickets and recharge Suica at ticket machines.",
+                                    isDone: userProfile.completedScenarioIds.contains("scenario_01_morning_train")
+                                )
+                                CanDoItemRow(
+                                    code: "A1.2",
+                                    title: "Convenience Store Checkout",
+                                    desc: "Can handle bento heating, utensil requests, and bag options smoothly.",
+                                    isDone: userProfile.completedScenarioIds.contains("scenario_02_kombini_morning")
+                                )
+                                CanDoItemRow(
+                                    code: "A2.1",
+                                    title: "Ramen & Food Customization",
+                                    desc: "Can read ticket vending machines and specify noodle texture/oil.",
+                                    isDone: userProfile.completedScenarioIds.contains("scenario_03_ramen_ticket_machine")
+                                )
+                                CanDoItemRow(
+                                    code: "A2.2",
+                                    title: "Izakaya Table & Split Bills",
+                                    desc: "Can order opening drinks ('toriaezu nama') and manage group bill payment.",
+                                    isDone: userProfile.completedScenarioIds.contains("scenario_04_izakaya_table_booking")
+                                )
+                                CanDoItemRow(
+                                    code: "B1.1",
+                                    title: "Postal Redelivery Logistics",
+                                    desc: "Can decode missed delivery notices (不在票) and schedule time windows.",
+                                    isDone: userProfile.completedScenarioIds.contains("scenario_07_post_office_delivery")
+                                )
+                            }
+                            .padding()
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(16)
+                            .padding(.horizontal)
+                        }
+
+                        // App Settings
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("STUDY SETTINGS")
+                                .font(.caption)
+                                .fontWeight(.bold)
+                                .foregroundColor(.secondary)
+                                .tracking(1.2)
+                                .padding(.horizontal)
+
+                            VStack(spacing: 12) {
+                                Toggle(isOn: $userProfile.furiganaEnabled) {
+                                    Label("Ruby Furigana Reading", systemImage: "character.phonetic")
+                                }
+
+                                Divider()
+
+                                Toggle(isOn: $userProfile.romajiEnabled) {
+                                    Label("Show Romaji Subtitles", systemImage: "textformat")
+                                }
+
+                                Divider()
+
+                                HStack {
+                                    Label("Japanese TTS Speed", systemImage: "speedometer")
+                                    Spacer()
+                                    Text(String(format: "%.2fx", userProfile.speechRate))
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
+                                }
+                                Slider(value: $userProfile.speechRate, in: 0.35...0.65, step: 0.05)
+                            }
+                            .padding()
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(16)
+                            .padding(.horizontal)
+                        }
                     }
+                    .padding(.bottom, 24)
                 }
-                .padding(.bottom, 24)
             }
             .navigationTitle("Tokyo Passport")
             .navigationBarTitleDisplayMode(.inline)

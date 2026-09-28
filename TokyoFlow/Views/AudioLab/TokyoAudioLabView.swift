@@ -9,52 +9,56 @@ public struct TokyoAudioLabView: View {
 
     public var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Banner
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("TOKYO AUDIO LAB")
-                                    .font(.system(size: 11, weight: .bold))
+            ZStack {
+                MangaThemeBackgroundView()
+
+                ScrollView {
+                    VStack(spacing: 20) {
+                        // Banner
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("TOKYO AUDIO LAB")
+                                        .font(.system(size: 11, weight: .bold))
+                                        .foregroundColor(.teal)
+                                        .tracking(1.5)
+                                    Text("Station & Store Listening")
+                                        .font(.system(size: 26, weight: .bold, design: .rounded))
+                                }
+                                Spacer()
+                                Image(systemName: "headphones.circle.fill")
+                                    .font(.system(size: 36))
                                     .foregroundColor(.teal)
-                                    .tracking(1.5)
-                                Text("Station & Store Listening")
-                                    .font(.system(size: 26, weight: .bold, design: .rounded))
                             }
-                            Spacer()
-                            Image(systemName: "headphones.circle.fill")
-                                .font(.system(size: 36))
-                                .foregroundColor(.teal)
+
+                            Text("Train your ear to high-speed native Japanese station chimes, train approaching announcements, in-store jingles, and delay apologies.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
                         }
+                        .padding(.horizontal)
+                        .padding(.top, 8)
 
-                        Text("Train your ear to high-speed native Japanese station chimes, train approaching announcements, in-store jingles, and delay apologies.")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-
-                    // Announcements List
-                    LazyVStack(spacing: 16) {
-                        ForEach(dataManager.announcements) { ann in
-                            AnnouncementCard(
-                                announcement: ann,
-                                showFurigana: userProfile.furiganaEnabled,
-                                selectedQuizAnswer: Binding(
-                                    get: { selectedQuizAnswers[ann.id] },
-                                    set: { selectedQuizAnswers[ann.id] = $0 }
-                                ),
-                                showFeedback: Binding(
-                                    get: { showQuizFeedback[ann.id] ?? false },
-                                    set: { showQuizFeedback[ann.id] = $0 }
+                        // Announcements List
+                        LazyVStack(spacing: 16) {
+                            ForEach(dataManager.announcements) { ann in
+                                AnnouncementCard(
+                                    announcement: ann,
+                                    showFurigana: userProfile.furiganaEnabled,
+                                    selectedQuizAnswer: Binding(
+                                        get: { selectedQuizAnswers[ann.id] },
+                                        set: { selectedQuizAnswers[ann.id] = $0 }
+                                    ),
+                                    showFeedback: Binding(
+                                        get: { showQuizFeedback[ann.id] ?? false },
+                                        set: { showQuizFeedback[ann.id] = $0 }
+                                    )
                                 )
-                            )
+                            }
                         }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
+                    .padding(.bottom, 24)
                 }
-                .padding(.bottom, 24)
             }
             .navigationTitle("Audio Lab")
             .navigationBarTitleDisplayMode(.inline)
@@ -162,7 +166,7 @@ public struct AnnouncementCard: View {
             }
         }
         .padding(16)
-        .background(Color(.secondarySystemGroupedBackground))
+        .background(.ultraThinMaterial)
         .cornerRadius(16)
         .shadow(color: Color.black.opacity(0.04), radius: 8, x: 0, y: 2)
     }

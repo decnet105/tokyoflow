@@ -41,123 +41,127 @@ public struct SurvivalCheatSheetView: View {
 
     public var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Header Banner
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("SURVIVAL CHEAT SHEET")
-                                    .font(.system(size: 11, weight: .bold))
+            ZStack {
+                MangaThemeBackgroundView()
+
+                ScrollView {
+                    VStack(spacing: 20) {
+                        // Header Banner
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("SURVIVAL CHEAT SHEET")
+                                        .font(.system(size: 11, weight: .bold))
+                                        .foregroundColor(.orange)
+                                        .tracking(1.5)
+                                    Text("1-Tap Tokyo Phrases")
+                                        .font(.system(size: 26, weight: .bold, design: .rounded))
+                                }
+                                Spacer()
+                                Button(action: { showSRSDeck = true }) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "rectangle.stack.fill")
+                                        Text("SRS Review (\(userProfile.bookmarkedPhrases.count))")
+                                            .font(.system(size: 12, weight: .bold))
+                                    }
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 8)
+                                    .background(Color.orange.opacity(0.12))
                                     .foregroundColor(.orange)
-                                    .tracking(1.5)
-                                Text("1-Tap Tokyo Phrases")
-                                    .font(.system(size: 26, weight: .bold, design: .rounded))
-                            }
-                            Spacer()
-                            Button(action: { showSRSDeck = true }) {
-                                HStack(spacing: 6) {
-                                    Image(systemName: "rectangle.stack.fill")
-                                    Text("SRS Review (\(userProfile.bookmarkedPhrases.count))")
-                                        .font(.system(size: 12, weight: .bold))
-                                }
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 8)
-                                .background(Color.orange.opacity(0.12))
-                                .foregroundColor(.orange)
-                                .cornerRadius(20)
-                            }
-                        }
-
-                        Text("Instant, life-tested Japanese phrases for when you're standing in front of station gates, cashiers, or ramen counters.")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-
-                    // Categories
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
-                            ForEach(categories, id: \.self) { cat in
-                                Button(action: { selectedCategory = cat }) {
-                                    Text(cat == "all" ? "All Situations" : cat)
-                                        .font(.caption)
-                                        .fontWeight(.semibold)
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 6)
-                                        .background(selectedCategory == cat ? Color.orange : Color(.systemGray6))
-                                        .foregroundColor(selectedCategory == cat ? .white : .primary)
-                                        .cornerRadius(16)
+                                    .cornerRadius(20)
                                 }
                             }
+
+                            Text("Instant, life-tested Japanese phrases for when you're standing in front of station gates, cashiers, or ramen counters.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
                         }
                         .padding(.horizontal)
-                    }
+                        .padding(.top, 8)
 
-                    // Phrases List
-                    LazyVStack(spacing: 12) {
-                        ForEach(filteredPhrases) { phrase in
-                            HStack(alignment: .top) {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    HStack {
-                                        Text(phrase.category)
-                                            .font(.caption2)
-                                            .fontWeight(.bold)
-                                            .padding(.horizontal, 6)
-                                            .padding(.vertical, 2)
-                                            .background(Color.orange.opacity(0.12))
-                                            .foregroundColor(.orange)
-                                            .cornerRadius(6)
+                        // Categories
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 8) {
+                                ForEach(categories, id: \.self) { cat in
+                                    Button(action: { selectedCategory = cat }) {
+                                        Text(cat == "all" ? "All Situations" : cat)
+                                            .font(.caption)
+                                            .fontWeight(.semibold)
+                                            .padding(.horizontal, 12)
+                                            .padding(.vertical, 6)
+                                            .background(selectedCategory == cat ? Color.orange : Color.primary.opacity(0.08))
+                                            .foregroundColor(selectedCategory == cat ? .white : .primary)
+                                            .cornerRadius(16)
+                                    }
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
 
-                                        Text("• \(phrase.scenarioContext)")
+                        // Phrases List
+                        LazyVStack(spacing: 12) {
+                            ForEach(filteredPhrases) { phrase in
+                                HStack(alignment: .top) {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        HStack {
+                                            Text(phrase.category)
+                                                .font(.caption2)
+                                                .fontWeight(.bold)
+                                                .padding(.horizontal, 6)
+                                                .padding(.vertical, 2)
+                                                .background(Color.orange.opacity(0.12))
+                                                .foregroundColor(.orange)
+                                                .cornerRadius(6)
+
+                                            Text("• \(phrase.scenarioContext)")
+                                                .font(.caption2)
+                                                .foregroundColor(.secondary)
+                                        }
+
+                                        Text(phrase.japanese)
+                                            .font(.headline)
+                                            .foregroundColor(.primary)
+
+                                        Text(phrase.reading)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+
+                                        Text(phrase.english)
+                                            .font(.footnote)
+                                            .foregroundColor(.primary.opacity(0.9))
+
+                                        Text(phrase.chinese)
                                             .font(.caption2)
                                             .foregroundColor(.secondary)
                                     }
 
-                                    Text(phrase.japanese)
-                                        .font(.headline)
-                                        .foregroundColor(.primary)
+                                    Spacer()
 
-                                    Text(phrase.reading)
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-
-                                    Text(phrase.english)
-                                        .font(.footnote)
-                                        .foregroundColor(.primary.opacity(0.9))
-
-                                    Text(phrase.chinese)
-                                        .font(.caption2)
-                                        .foregroundColor(.secondary)
-                                }
-
-                                Spacer()
-
-                                VStack(spacing: 12) {
-                                    AudioButton(textToSpeak: phrase.japanese)
-                                    Button(action: {
-                                        userProfile.toggleBookmark(
-                                            japanese: phrase.japanese,
-                                            reading: phrase.reading,
-                                            english: phrase.english,
-                                            context: phrase.scenarioContext
-                                        )
-                                    }) {
-                                        Image(systemName: userProfile.isBookmarked(phrase.japanese) ? "bookmark.fill" : "bookmark")
-                                            .foregroundColor(userProfile.isBookmarked(phrase.japanese) ? .orange : .secondary)
+                                    VStack(spacing: 12) {
+                                        AudioButton(textToSpeak: phrase.japanese)
+                                        Button(action: {
+                                            userProfile.toggleBookmark(
+                                                japanese: phrase.japanese,
+                                                reading: phrase.reading,
+                                                english: phrase.english,
+                                                context: phrase.scenarioContext
+                                            )
+                                        }) {
+                                            Image(systemName: userProfile.isBookmarked(phrase.japanese) ? "bookmark.fill" : "bookmark")
+                                                .foregroundColor(userProfile.isBookmarked(phrase.japanese) ? .orange : .secondary)
+                                        }
                                     }
                                 }
+                                .padding(14)
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(14)
+                                .shadow(color: Color.black.opacity(0.03), radius: 6, x: 0, y: 2)
                             }
-                            .padding(14)
-                            .background(Color(.secondarySystemGroupedBackground))
-                            .cornerRadius(14)
-                            .shadow(color: Color.black.opacity(0.03), radius: 6, x: 0, y: 2)
                         }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
+                    .padding(.bottom, 24)
                 }
-                .padding(.bottom, 24)
             }
             .navigationTitle("Survival Kit")
             .navigationBarTitleDisplayMode(.inline)

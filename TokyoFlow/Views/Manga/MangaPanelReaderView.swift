@@ -10,6 +10,8 @@ public struct MangaPanelReaderView: View {
 
     public var body: some View {
         ZStack {
+            MangaThemeBackgroundView()
+
             ScrollView {
                 VStack(spacing: 24) {
                     // Header & Mode Switcher
@@ -58,14 +60,14 @@ public struct MangaPanelReaderView: View {
                                 }
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 6)
-                                .background(Color(.systemGray5))
+                                .background(Color.primary.opacity(0.08))
                                 .cornerRadius(8)
                             }
                         }
                         .padding(.top, 4)
                     }
                     .padding()
-                    .background(Color(.secondarySystemGroupedBackground))
+                    .background(.ultraThinMaterial)
                     .cornerRadius(16)
                     .padding(.horizontal)
 
@@ -248,11 +250,11 @@ public struct InteractiveMangaFrame: View {
             }
         }
         .padding(16)
-        .background(Color(.secondarySystemGroupedBackground))
+        .background(.ultraThinMaterial)
         .cornerRadius(18)
         .overlay(
             RoundedRectangle(cornerRadius: 18)
-                .stroke(Color.primary.opacity(0.15), lineWidth: 2)
+                .stroke(Color.primary.opacity(0.12), lineWidth: 1.5)
         )
     }
 }

@@ -172,4 +172,21 @@ final class TokyoFlowTests: XCTestCase {
             XCTAssertFalse(item.exampleWordJa.isEmpty)
         }
     }
+
+    func testTokyoRadioDataManagerAndService() {
+        let radioData = TokyoRadioDataManager.shared
+        XCTAssertFalse(radioData.stations.isEmpty, "Radio stations should be loaded")
+
+        let primary = radioData.stations[0]
+        XCTAssertEqual(primary.id, "nhk_journal_55")
+        XCTAssertGreaterThan(primary.durationSec, 3000.0, "Should be approximately 55 minutes")
+        XCTAssertFalse(primary.chapters.isEmpty, "Should contain chapter bookmarks")
+
+        let radioService = TokyoRadioService.shared
+        radioService.setSleepTimer(minutes: 30)
+        XCTAssertEqual(radioService.remainingSleepSeconds, 1800)
+
+        radioService.setSleepTimer(minutes: nil)
+        XCTAssertNil(radioService.remainingSleepSeconds)
+    }
 }

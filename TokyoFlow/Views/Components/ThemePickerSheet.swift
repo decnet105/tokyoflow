@@ -110,12 +110,17 @@ public struct ThemeCardThumbnailView: View {
                         .cornerRadius(14)
                 } else {
                     RoundedRectangle(cornerRadius: 14)
-                        .fill(Color.gray.opacity(0.3))
+                        .fill(theme == .none ? Color(.secondarySystemGroupedBackground) : Color.gray.opacity(0.2))
                         .frame(height: 140)
                         .overlay(
-                            Image(systemName: theme.icon)
-                                .font(.largeTitle)
-                                .foregroundColor(.secondary)
+                            VStack(spacing: 6) {
+                                Image(systemName: theme.icon)
+                                    .font(.system(size: 32, weight: .semibold))
+                                    .foregroundColor(.accentColor)
+                                Text(theme == .none ? "无背景 (Clean)" : "Minimal")
+                                    .font(.system(size: 11, weight: .bold))
+                                    .foregroundColor(.secondary)
+                            }
                         )
                 }
 

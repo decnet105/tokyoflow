@@ -7,53 +7,57 @@ public struct MangaLabView: View {
 
     public var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Header Banner
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("MANGA READING LAB")
-                                    .font(.system(size: 11, weight: .bold))
-                                    .foregroundColor(.purple)
-                                    .tracking(1.5)
-                                Text("Read Raw Manga in 1 Year")
-                                    .font(.system(size: 26, weight: .bold, design: .rounded))
-                            }
-                            Spacer()
-                            Button(action: { showSFXSoundboard = true }) {
-                                HStack(spacing: 6) {
-                                    Image(systemName: "speaker.wave.3.fill")
-                                    Text("SFX Soundboard")
-                                        .font(.system(size: 12, weight: .bold))
+            ZStack {
+                MangaThemeBackgroundView()
+
+                ScrollView {
+                    VStack(spacing: 20) {
+                        // Header Banner
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("MANGA READING LAB")
+                                        .font(.system(size: 11, weight: .bold))
+                                        .foregroundColor(.purple)
+                                        .tracking(1.5)
+                                    Text("Read Raw Manga in 1 Year")
+                                        .font(.system(size: 26, weight: .bold, design: .rounded))
                                 }
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 8)
-                                .background(Color.purple.opacity(0.12))
-                                .foregroundColor(.purple)
-                                .cornerRadius(20)
+                                Spacer()
+                                Button(action: { showSFXSoundboard = true }) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "speaker.wave.3.fill")
+                                        Text("SFX Soundboard")
+                                            .font(.system(size: 12, weight: .bold))
+                                    }
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 8)
+                                    .background(Color.purple.opacity(0.12))
+                                    .foregroundColor(.purple)
+                                    .cornerRadius(20)
+                                }
+                            }
+
+                            Text("Decode authentic manga onomatopoeia (擬音・擬態語), speech bubble layouts, casual contractions (〜ちゃう, 〜なきゃ), and character speech styles.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 8)
+
+                        // Manga Lessons List
+                        LazyVStack(spacing: 16) {
+                            ForEach(dataManager.mangaLessons) { lesson in
+                                NavigationLink(destination: MangaPanelReaderView(lesson: lesson)) {
+                                    MangaLessonCard(lesson: lesson, isCompleted: userProfile.completedMangaLessonIds.contains(lesson.id))
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
-
-                        Text("Decode authentic manga onomatopoeia (擬音・擬態語), speech bubble layouts, casual contractions (〜ちゃう, 〜なきゃ), and character speech styles.")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-
-                    // Manga Lessons List
-                    LazyVStack(spacing: 16) {
-                        ForEach(dataManager.mangaLessons) { lesson in
-                            NavigationLink(destination: MangaPanelReaderView(lesson: lesson)) {
-                                MangaLessonCard(lesson: lesson, isCompleted: userProfile.completedMangaLessonIds.contains(lesson.id))
-                            }
-                            .buttonStyle(.plain)
-                        }
-                    }
-                    .padding(.horizontal)
+                    .padding(.bottom, 24)
                 }
-                .padding(.bottom, 24)
             }
             .navigationTitle("Manga Lab")
             .navigationBarTitleDisplayMode(.inline)
@@ -130,7 +134,7 @@ public struct MangaLessonCard: View {
             }
         }
         .padding(16)
-        .background(Color(.secondarySystemGroupedBackground))
+        .background(.ultraThinMaterial)
         .cornerRadius(16)
         .shadow(color: Color.black.opacity(0.04), radius: 8, x: 0, y: 2)
     }

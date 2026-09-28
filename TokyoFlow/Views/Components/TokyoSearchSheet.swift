@@ -100,52 +100,64 @@ public struct TokyoSearchSheet: View {
 
     public var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                // Search Input Bar
-                HStack(spacing: 8) {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.secondary)
-                    TextField("Search bento, ticket, platform, SFX...", text: $searchQuery)
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
-                    if !searchQuery.isEmpty {
-                        Button(action: { searchQuery = "" }) {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                }
-                .padding(12)
-                .background(Color(.systemGray6))
-                .cornerRadius(12)
-                .padding()
+            ZStack {
+                MangaThemeBackgroundView()
 
-                // Results List
-                List(filteredResults) { item in
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            HStack {
-                                Label(item.category, systemImage: item.icon)
-                                    .font(.caption2)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.accentColor)
+                VStack(spacing: 0) {
+                    // Search Input Bar
+                    HStack(spacing: 8) {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.secondary)
+                        TextField("Search bento, ticket, platform, SFX...", text: $searchQuery)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.never)
+                        if !searchQuery.isEmpty {
+                            Button(action: { searchQuery = "" }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.secondary)
                             }
-                            Text(item.japanese)
-                                .font(.headline)
-                            Text(item.reading)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                            Text(item.translation)
-                                .font(.footnote)
-                                .foregroundColor(.primary.opacity(0.85))
-                                .lineLimit(2)
                         }
-                        Spacer()
-                        AudioButton(textToSpeak: item.japanese)
                     }
-                    .padding(.vertical, 4)
+                    .padding(12)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(12)
+                    .padding()
+
+                    // Results List
+                    ScrollView {
+                        LazyVStack(spacing: 10) {
+                            ForEach(filteredResults) { item in
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        HStack {
+                                            Label(item.category, systemImage: item.icon)
+                                                .font(.caption2)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.accentColor)
+                                        }
+                                        Text(item.japanese)
+                                            .font(.headline)
+                                        Text(item.reading)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                        Text(item.translation)
+                                            .font(.footnote)
+                                            .foregroundColor(.primary.opacity(0.85))
+                                            .lineLimit(2)
+                                    }
+                                    Spacer()
+                                    AudioButton(textToSpeak: item.japanese)
+                                }
+                                .padding(12)
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(12)
+                                .shadow(color: Color.black.opacity(0.03), radius: 4, x: 0, y: 1)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 24)
+                    }
                 }
-                .listStyle(.plain)
             }
             .navigationTitle("Tokyo Finder")
             .navigationBarTitleDisplayMode(.inline)

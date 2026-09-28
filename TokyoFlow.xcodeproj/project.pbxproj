@@ -12,6 +12,7 @@
 		02EB2299F72AF229DAA224C5 /* FlashcardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAB83764925C38A795DF69A /* FlashcardDeckView.swift */; };
 		09A80B7808EF89000934DE4D /* SurvivalCheatSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65013AD4623FC47F3BD11D /* SurvivalCheatSheetView.swift */; };
 		0E5AA3383B614AB2738EE51E /* Curriculum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F17D3F4810F83B7E348998 /* Curriculum.swift */; };
+		0FF9EB9D55B576D6D8D9CF9D /* nhk_journal_55min.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 104ADEE29AD601CDDC0B03BC /* nhk_journal_55min.m4a */; };
 		17DF7383F9705DE2DE7DACA2 /* ComicBurstOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8C3B282E7EA228AD88542 /* ComicBurstOverlay.swift */; };
 		1C3BA28CC7D7F8CB46DEA31C /* DailyMissionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED318AC9AE5A77545A761447 /* DailyMissionSheet.swift */; };
 		1C749ACF3E1740472DC46579 /* NHKNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106DF667D9E5FBF53B87DD9 /* NHKNewsService.swift */; };
@@ -30,10 +31,13 @@
 		450DBA64DAA089C1B3E5D1EC /* MangaPanelReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A6AEA0914F59DAA8396BF7 /* MangaPanelReaderView.swift */; };
 		46BC9367AA5229BDAE939527 /* ScenarioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B105DCAA7D9DDF0A6AC036 /* ScenarioDetailView.swift */; };
 		4C94B28E2C562B5972655B99 /* WaveformVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EAB0F1E37C212D8F1A09B /* WaveformVisualizerView.swift */; };
+		51588C91FD76E79078AF970A /* TokyoRadioMiniPlayerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A045308FCAC8B1D0DBE145 /* TokyoRadioMiniPlayerBar.swift */; };
+		516DE64439AFE82721637DBD /* TokyoRadioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D745F560B54E5AD79DB89 /* TokyoRadioService.swift */; };
 		552A6DE4ECC9664BEA65E1C9 /* TokyoQuestMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174C9DDAD908E73AB361008 /* TokyoQuestMapView.swift */; };
 		57D3EA14E97AA5F96BC30BDF /* reading_cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33068DE465E81EFA35534246 /* reading_cat.jpg */; };
 		5ACA9D0C6E5EA1727BA37D8D /* TokyoAudioLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DA1B82E5561F865086448 /* TokyoAudioLabView.swift */; };
 		5E77FF0B5A8070DFF35AC822 /* KanaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1EB10B93447FDD3ED3B17 /* KanaItem.swift */; };
+		5F984B5C2E63CC206CA9F99F /* TokyoRadioPlayerModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2872B2A820CAE6053A88085 /* TokyoRadioPlayerModalView.swift */; };
 		62376623D426A1173EADBD06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A39FC2EE152E31100F8A1FD /* Assets.xcassets */; };
 		65379E98118EC59F2A8C8EF7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786B5DEC3AADA9ED8BBB95C4 /* DataManager.swift */; };
 		71AEC1F2D05CE82FB79A2AE1 /* KanaTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC810F74744DB5AF82F34793 /* KanaTableView.swift */; };
@@ -44,6 +48,7 @@
 		7F257D55D54C3ABD49B5A374 /* NewsShadowingLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2F7A15C92AE3581C9FFF4 /* NewsShadowingLabView.swift */; };
 		8A15A225D66E72FEC14B73DF /* SRSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD84F712EDD2CBAF7553CB8E /* SRSService.swift */; };
 		8F822CC2D60C8E960283074F /* RegisterPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6963D19311544ED0188044EF /* RegisterPill.swift */; };
+		935E6D2A4C048F35E779ED28 /* TokyoRadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6406AFD5322B4A957C02D0 /* TokyoRadioStation.swift */; };
 		A1C7BACE20D8DD5DDE299F2C /* DailyQuest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45C246C1DB7C0CFAB59A19 /* DailyQuest.swift */; };
 		A5499B895ACAEF0CD758CD6E /* ScenarioMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775FB1036A6CE18E2A9E92B /* ScenarioMapView.swift */; };
 		A61E57C27157AC75A9ED3E2F /* cozy_room.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 912EE7E8E02CBF02459C3A1D /* cozy_room.jpg */; };
@@ -91,7 +96,9 @@
 		077EAD7B765B2072157BBDE7 /* daily_news.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = daily_news.json; sourceTree = "<group>"; };
 		07B54B25A93C95EA55A0F200 /* dojo_battles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dojo_battles.json; sourceTree = "<group>"; };
 		09C0F4C5B55455E3A5B4D59D /* TokyoProsodyEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoProsodyEngine.swift; sourceTree = "<group>"; };
+		0F6406AFD5322B4A957C02D0 /* TokyoRadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoRadioStation.swift; sourceTree = "<group>"; };
 		0FB00AF60BED5893FDB069D0 /* GamificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationService.swift; sourceTree = "<group>"; };
+		104ADEE29AD601CDDC0B03BC /* nhk_journal_55min.m4a */ = {isa = PBXFileReference; path = nhk_journal_55min.m4a; sourceTree = "<group>"; };
 		11020AFD791687FF78D9EAFE /* TokyoFlow.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TokyoFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1161E7C2FDC2E50602BA756F /* TokyoSocialHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoSocialHubView.swift; sourceTree = "<group>"; };
 		133FF49CF0945BC80F867473 /* MangaLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLabView.swift; sourceTree = "<group>"; };
@@ -118,6 +125,7 @@
 		62C9773159AC77D85293BB0B /* QuestStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestStage.swift; sourceTree = "<group>"; };
 		65A64E2A9A7807DA9327A6F8 /* MangaLesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLesson.swift; sourceTree = "<group>"; };
 		6963D19311544ED0188044EF /* RegisterPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPill.swift; sourceTree = "<group>"; };
+		6B9D745F560B54E5AD79DB89 /* TokyoRadioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoRadioService.swift; sourceTree = "<group>"; };
 		74012DEB759BF88E56250AA0 /* nhk_news_001.m4a */ = {isa = PBXFileReference; path = nhk_news_001.m4a; sourceTree = "<group>"; };
 		7409853D614C4C59AD75DCC0 /* ThemePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerSheet.swift; sourceTree = "<group>"; };
 		77A6AEA0914F59DAA8396BF7 /* MangaPanelReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaPanelReaderView.swift; sourceTree = "<group>"; };
@@ -133,11 +141,13 @@
 		9A78D966DAFB04F45302EEDC /* announcements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = announcements.json; sourceTree = "<group>"; };
 		9D862B90A7511608FAD86AFF /* sunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunset.jpg; sourceTree = "<group>"; };
 		A21DA1B82E5561F865086448 /* TokyoAudioLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoAudioLabView.swift; sourceTree = "<group>"; };
+		A2872B2A820CAE6053A88085 /* TokyoRadioPlayerModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoRadioPlayerModalView.swift; sourceTree = "<group>"; };
 		A56AF97C300BB46BA0764315 /* SFXDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFXDictionaryView.swift; sourceTree = "<group>"; };
 		AAA3BA9ED0FF08BFDE1534DA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AC353CBE3D81234299BF52EC /* TokyoLeaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoLeaderboard.swift; sourceTree = "<group>"; };
 		AEA8C3B282E7EA228AD88542 /* ComicBurstOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBurstOverlay.swift; sourceTree = "<group>"; };
 		B7B105DCAA7D9DDF0A6AC036 /* ScenarioDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioDetailView.swift; sourceTree = "<group>"; };
+		B9A045308FCAC8B1D0DBE145 /* TokyoRadioMiniPlayerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoRadioMiniPlayerBar.swift; sourceTree = "<group>"; };
 		BBF24C075F04FC8E178FB536 /* NativeAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAudioPlayer.swift; sourceTree = "<group>"; };
 		BC810F74744DB5AF82F34793 /* KanaTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaTableView.swift; sourceTree = "<group>"; };
 		BD65013AD4623FC47F3BD11D /* SurvivalCheatSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivalCheatSheetView.swift; sourceTree = "<group>"; };
@@ -173,6 +183,7 @@
 		1C3545F8F72AD65A2C9E9D51 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				104ADEE29AD601CDDC0B03BC /* nhk_journal_55min.m4a */,
 				74012DEB759BF88E56250AA0 /* nhk_news_001.m4a */,
 				8FD8451E0472B961F21DE359 /* nhk_news_002.m4a */,
 				EB3948C70E651F545D8D5E64 /* nhk_news_003.m4a */,
@@ -239,6 +250,7 @@
 				CD84F712EDD2CBAF7553CB8E /* SRSService.swift */,
 				407A32D8AEC673E09FB0441D /* ThemeManager.swift */,
 				09C0F4C5B55455E3A5B4D59D /* TokyoProsodyEngine.swift */,
+				6B9D745F560B54E5AD79DB89 /* TokyoRadioService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -257,6 +269,7 @@
 				C5C3BA44A75AC4597BFC23F0 /* Scenario.swift */,
 				FE3404928E63F468F32B5E28 /* TokyoCitizenChat.swift */,
 				AC353CBE3D81234299BF52EC /* TokyoLeaderboard.swift */,
+				0F6406AFD5322B4A957C02D0 /* TokyoRadioStation.swift */,
 				4B8C2923B8DF01420FFFEAD3 /* UserProfile.swift */,
 			);
 			path = Models;
@@ -315,6 +328,8 @@
 			children = (
 				4DFA67514518B9BEBAF91A49 /* DailyNewsFeedView.swift */,
 				21A2F7A15C92AE3581C9FFF4 /* NewsShadowingLabView.swift */,
+				B9A045308FCAC8B1D0DBE145 /* TokyoRadioMiniPlayerBar.swift */,
+				A2872B2A820CAE6053A88085 /* TokyoRadioPlayerModalView.swift */,
 			);
 			path = DailyNews;
 			sourceTree = "<group>";
@@ -503,6 +518,7 @@
 				780F7DA44AA2EDB793EA6B0F /* dojo_battles.json in Resources */,
 				E36CA0CF1038B98DA0B46596 /* liquid_glass.jpg in Resources */,
 				B5BA14BE01E43EC1C2900F8D /* manga_lessons.json in Resources */,
+				0FF9EB9D55B576D6D8D9CF9D /* nhk_journal_55min.m4a in Resources */,
 				D1087B017E07A19308A4EE82 /* nhk_news_001.m4a in Resources */,
 				43655D36050CC1F3DDFDA671 /* nhk_news_002.m4a in Resources */,
 				7A4A052EFACEBF8027FDD812 /* nhk_news_003.m4a in Resources */,
@@ -575,6 +591,10 @@
 				A7FE857B0A8ABF1818C0FB85 /* TokyoPassportView.swift in Sources */,
 				026A02925CC14D3974B16FB1 /* TokyoProsodyEngine.swift in Sources */,
 				552A6DE4ECC9664BEA65E1C9 /* TokyoQuestMapView.swift in Sources */,
+				51588C91FD76E79078AF970A /* TokyoRadioMiniPlayerBar.swift in Sources */,
+				5F984B5C2E63CC206CA9F99F /* TokyoRadioPlayerModalView.swift in Sources */,
+				516DE64439AFE82721637DBD /* TokyoRadioService.swift in Sources */,
+				935E6D2A4C048F35E779ED28 /* TokyoRadioStation.swift in Sources */,
 				F0036368131BB88D16D5DA3C /* TokyoSearchSheet.swift in Sources */,
 				C12D4E069C38D695DD954E13 /* TokyoSocialHubView.swift in Sources */,
 				A673DA8A80B9E25EA13C0778 /* UserProfile.swift in Sources */,

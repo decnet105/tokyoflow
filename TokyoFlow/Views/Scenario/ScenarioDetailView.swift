@@ -9,63 +9,66 @@ public struct ScenarioDetailView: View {
     @State private var playbackSpeed: Float = 0.50
 
     public var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                // Header Details
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack {
-                        Label(scenario.district, systemImage: "mappin.circle.fill")
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundColor(.accentColor)
-                        Text("• \(scenario.timeOfDay)")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        Text("JF Can-Do: \(scenario.jfCanDoLevel)")
-                            .font(.caption2)
-                            .fontWeight(.bold)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color.green.opacity(0.15))
-                            .foregroundColor(.green)
-                            .cornerRadius(8)
-                    }
+        ZStack {
+            MangaThemeBackgroundView()
 
-                    Text(scenario.title)
-                        .font(.title2)
-                        .fontWeight(.bold)
-
-                    Text(scenario.titleJa)
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-
-                    Text(scenario.context)
-                        .font(.subheadline)
-                        .foregroundColor(.primary.opacity(0.85))
-                        .padding(.top, 4)
-
-                    // Stickman 60s Explainer CTA Button
-                    Button(action: { showStickmanExplainer = true }) {
-                        HStack(spacing: 6) {
-                            Image(systemName: "figure.walk.motion")
-                            Text("Watch 60s Stickman Hack")
-                                .font(.system(size: 12, weight: .bold))
+            ScrollView {
+                VStack(spacing: 20) {
+                    // Header Details
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Label(scenario.district, systemImage: "mappin.circle.fill")
+                                .font(.caption)
+                                .fontWeight(.bold)
+                                .foregroundColor(.accentColor)
+                            Text("• \(scenario.timeOfDay)")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
                             Spacer()
-                            Image(systemName: "play.fill")
-                                .font(.system(size: 10))
+                            Text("JF Can-Do: \(scenario.jfCanDoLevel)")
+                                .font(.caption2)
+                                .fontWeight(.bold)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.green.opacity(0.15))
+                                .foregroundColor(.green)
+                                .cornerRadius(8)
                         }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 8)
-                        .background(Color.orange.opacity(0.15))
-                        .foregroundColor(.orange)
-                        .cornerRadius(10)
+
+                        Text(scenario.title)
+                            .font(.title2)
+                            .fontWeight(.bold)
+
+                        Text(scenario.titleJa)
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+
+                        Text(scenario.context)
+                            .font(.subheadline)
+                            .foregroundColor(.primary.opacity(0.85))
+                            .padding(.top, 4)
+
+                        // Stickman 60s Explainer CTA Button
+                        Button(action: { showStickmanExplainer = true }) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "figure.walk.motion")
+                                Text("Watch 60s Stickman Hack")
+                                    .font(.system(size: 12, weight: .bold))
+                                Spacer()
+                                Image(systemName: "play.fill")
+                                    .font(.system(size: 10))
+                            }
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(Color.orange.opacity(0.15))
+                            .foregroundColor(.orange)
+                            .cornerRadius(10)
+                        }
                     }
-                }
-                .padding()
-                .background(Color(.secondarySystemGroupedBackground))
-                .cornerRadius(16)
-                .padding(.horizontal)
+                    .padding()
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(16)
+                    .padding(.horizontal)
 
                 // Cultural Tip Card (Tokyo Native Insight)
                 VStack(alignment: .leading, spacing: 8) {
@@ -197,6 +200,7 @@ public struct ScenarioDetailView: View {
             }
             .padding(.vertical)
         }
+    }
         .navigationTitle(scenario.district)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showRoleplayModal) {
@@ -321,7 +325,8 @@ public struct DialogueBubbleView: View {
                     }
                 }
                 .padding(14)
-                .background(line.isLearner ? Color.accentColor.opacity(0.12) : Color(.secondarySystemGroupedBackground))
+                .background(line.isLearner ? Color.accentColor.opacity(0.15) : Color.primary.opacity(0.06))
+                .background(.ultraThinMaterial)
                 .cornerRadius(16)
 
                 if line.isLearner {
@@ -354,7 +359,7 @@ public struct VocabularyRowView: View {
                         .font(.caption2)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 2)
-                        .background(Color(.systemGray5))
+                        .background(Color.primary.opacity(0.08))
                         .cornerRadius(4)
                 }
                 Text(vocab.meaning)
@@ -376,8 +381,9 @@ public struct VocabularyRowView: View {
             }
         }
         .padding(12)
-        .background(Color(.secondarySystemGroupedBackground))
+        .background(.ultraThinMaterial)
         .cornerRadius(12)
+        .shadow(color: Color.black.opacity(0.03), radius: 6, x: 0, y: 2)
     }
 }
 
