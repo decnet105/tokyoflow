@@ -141,7 +141,7 @@ Never freeze at a Japanese convenience store register again! Master the 3 essent
 0:18 - Review & TokyoFlow App Outro
 
 📌 KEY PHRASES COVERED:
-1. お弁当温めますか？ -> 温めてください (Please heat it up) / 大丈夫です (No thanks)
+1. お弁当温めますか？ : 温めてください (Please heat it up) / 大丈夫です (No thanks)
 2. レジ袋は大丈夫です。(No plastic bag needed, thank you.)
 3. Suicaでお願いします。(I will pay with Suica, please.)
 
