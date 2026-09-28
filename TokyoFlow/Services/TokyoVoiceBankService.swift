@@ -151,9 +151,12 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
 
             let player = try AVAudioPlayer(contentsOf: url)
             player.delegate = self
-            if let rate = rate, rate > 0 {
+            // Only adjust rate if it's explicitly within a standard playback speed range (0.75x - 2.0x)
+            if let r = rate, r >= 0.7 && r <= 2.0 {
                 player.enableRate = true
-                player.rate = rate
+                player.rate = r
+            } else {
+                player.enableRate = false
             }
             player.prepareToPlay()
 

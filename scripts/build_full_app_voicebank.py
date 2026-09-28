@@ -19,70 +19,81 @@ if os.path.exists(MANIFEST_PATH):
 
 all_phrases = set()
 
-# 1. Load from JSON files
-for fpath in glob.glob("TokyoFlow/Resources/Data/*.json"):
+def extract_japanese(obj):
+    if isinstance(obj, str):
+        s = obj.strip()
+        if any('\u3040' <= c <= '\u30ff' or '\u4e00' <= c <= '\u9fff' for c in s):
+            all_phrases.add(s)
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            extract_japanese(v)
+    elif isinstance(obj, list):
+        for v in obj:
+            extract_japanese(v)
+
+# 1. Load from all JSON files in Resources
+for fpath in glob.glob("TokyoFlow/Resources/*.json"):
+    if "voice_bank_manifest" in fpath:
+        continue
     try:
         data = json.load(open(fpath, "r", encoding="utf-8"))
-        def extract(obj):
-            if isinstance(obj, str):
-                if any('\u3040' <= c <= '\u30ff' or '\u4e00' <= c <= '\u9fff' for c in obj):
-                    all_phrases.add(obj.strip())
-            elif isinstance(obj, dict):
-                for v in obj.values(): extract(v)
-            elif isinstance(obj, list):
-                for v in obj: extract(v)
-        extract(data)
+        extract_japanese(data)
+        print(f"Loaded texts from {fpath}")
     except Exception as e:
         print(f"Error parsing {fpath}: {e}")
 
-# 2. Load from Swift files
+# 2. Load from Swift files (especially KanaItem.swift, DojoBattles, etc.)
 for fpath in glob.glob("TokyoFlow/**/*.swift", recursive=True):
     try:
         content = open(fpath, "r", encoding="utf-8").read()
-        literals = re.findall(r'\"([^\"]+)\"', content)
+        literals = re.findall(r'"([^"\n]+)"', content)
         for lit in literals:
-            if any('\u3040' <= c <= '\u30ff' or '\u4e00' <= c <= '\u9fff' for c in lit):
-                if len(lit) < 120 and not lit.startswith("http") and not lit.startswith("/"):
-                    all_phrases.add(lit.strip())
+            s = lit.strip()
+            if any('\u3040' <= c <= '\u30ff' or '\u4e00' <= c <= '\u9fff' for c in s):
+                if len(s) < 140 and not s.startswith("http") and not s.startswith("/") and not s.startswith("com."):
+                    all_phrases.add(s)
     except Exception as e:
         print(f"Error reading {fpath}: {e}")
 
-print(f"Found {len(all_phrases)} unique Japanese phrases/words to process.")
+print(f"Total unique Japanese phrases/words found across entire app: {len(all_phrases)}")
 
 def clean_for_speech(text):
-    # Remove romaji/parentheses explanation like "いぬ (犬)" -> "いぬ", "えき (駅)" -> "えき"
-    cleaned = text
-    # Extract before parentheses if Japanese is outside
-    m = re.match(r'^([\u3040-\u30ff\u4e00-\u9fffー〜]+)\s*[\(（]', text)
+    # Remove ruby markup like {渋谷} in まもなく、２ばんせん{番線}に
+    cleaned = re.sub(r'\{[^\}]+\}', '', text)
+    
+    # Check if format is "いぬ (犬)" or "ありがとう (Thank you)"
+    m = re.match(r'^([\u3040-\u30ff\u4e00-\u9fffー〜]+)\s*[\(（]', cleaned)
     if m:
         return m.group(1).strip()
     
-    # Remove UI symbols, romaji, brackets
+    # Remove English translations in parentheses
     cleaned = re.sub(r'[\(（\[【][^\)）\]】]*[\)）\]】]', '', cleaned)
     cleaned = re.sub(r'[\r\n\t]+', ' ', cleaned)
-    cleaned = re.sub(r'[・…~〜#*・✨🍜🌸🍶💼🎮⚡🔥⭐]+', '', cleaned)
-    cleaned = cleaned.strip(' "“”!！?？:：,，。')
+    cleaned = re.sub(r'[・…~〜#*・✨🍜🌸🍶💼🎮⚡🔥⭐🎌🎙️🔊✅⚠️❌]+', ' ', cleaned)
+    cleaned = cleaned.strip(' "“”!！?？:：,，。 ')
     return cleaned if cleaned else text
 
 def get_hash_filename(text):
     h = hashlib.md5(text.encode('utf-8')).hexdigest()[:10]
-    # Keep some readable chars if ASCII/Kana
     safe = re.sub(r'[^a-zA-Z0-9_]', '', text)[:8]
     if safe:
         return f"v_{safe}_{h}.m4a"
     return f"v_{h}.m4a"
 
 generated_count = 0
+existing_count = 0
+
 for raw in sorted(all_phrases):
     speech_text = clean_for_speech(raw)
     if not speech_text or not any('\u3040' <= c <= '\u30ff' or '\u4e00' <= c <= '\u9fff' for c in speech_text):
         continue
 
-    # Check if already mapped and file exists
-    existing_fn = manifest.get(raw) or manifest.get(speech_text)
-    if existing_fn and os.path.exists(os.path.join(VOICEBANK_DIR, existing_fn)):
-        manifest[raw] = existing_fn
-        manifest[speech_text] = existing_fn
+    # Check if raw or speech_text already mapped and exists on disk
+    mapped_fn = manifest.get(raw) or manifest.get(speech_text)
+    if mapped_fn and os.path.exists(os.path.join(VOICEBANK_DIR, mapped_fn)):
+        manifest[raw] = mapped_fn
+        manifest[speech_text] = mapped_fn
+        existing_count += 1
         continue
 
     filename = get_hash_filename(speech_text)
@@ -91,24 +102,21 @@ for raw in sorted(all_phrases):
 
     if not os.path.exists(out_m4a):
         try:
-            # Use Kyoko (standard Tokyo native Japanese voice) at 170 wpm for clear crisp pronunciation
+            # Kyoko (standard NHK Tokyo accent) at natural 175 wpm
             subprocess.run(["say", "-v", "Kyoko", "-r", "175", "-o", tmp_aiff, speech_text], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             subprocess.run(["afconvert", "-f", "m4af", "-d", "aac", tmp_aiff, out_m4a], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             if os.path.exists(tmp_aiff):
                 os.remove(tmp_aiff)
             generated_count += 1
         except Exception as e:
-            if os.path.exists(tmp_aiff):
-                os.remove(tmp_aiff)
+            print(f"Error generating audio for '{speech_text}': {e}")
             continue
 
     manifest[raw] = filename
     manifest[speech_text] = filename
 
-print(f"Generated {generated_count} new native voice audio files in {VOICEBANK_DIR}.")
-print(f"Total manifest mappings: {len(manifest)}")
-
+# Save updated manifest
 with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
     json.dump(manifest, f, ensure_ascii=False, indent=2)
 
-print("VoiceBank manifest successfully updated!")
+print(f"✅ VoiceBank build complete: {generated_count} newly generated, {existing_count} reused. Total manifest keys: {len(manifest)}")

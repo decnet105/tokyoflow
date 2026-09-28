@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4C5D6E7F8091A2B3C4D5E6F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4C5D6E7F8091A2B3C4D5E /* NotificationService.swift */; };
 		00C184BB211246A50ABF7A31 /* TokyoLeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EEF3A179DAEC6132A908B2 /* TokyoLeaderboardView.swift */; };
 		026A02925CC14D3974B16FB1 /* TokyoProsodyEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0F4C5B55455E3A5B4D59D /* TokyoProsodyEngine.swift */; };
 		02EB2299F72AF229DAA224C5 /* FlashcardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAB83764925C38A795DF69A /* FlashcardDeckView.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A3B4C5D6E7F8091A2B3C4D5E /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		04C4783F33F4367A34809FDD /* TokyoPassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoPassportView.swift; sourceTree = "<group>"; };
 		077EAD7B765B2072157BBDE7 /* daily_news.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = daily_news.json; sourceTree = "<group>"; };
 		07B54B25A93C95EA55A0F200 /* dojo_battles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dojo_battles.json; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				09C0F4C5B55455E3A5B4D59D /* TokyoProsodyEngine.swift */,
 				6B9D745F560B54E5AD79DB89 /* TokyoRadioService.swift */,
 				A1B2C3D4E5F60718293A4B5C /* TokyoVoiceBankService.swift */,
+				A3B4C5D6E7F8091A2B3C4D5E /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				5F984B5C2E63CC206CA9F99F /* TokyoRadioPlayerModalView.swift in Sources */,
 				516DE64439AFE82721637DBD /* TokyoRadioService.swift in Sources */,
 				B2C3D4E5F60718293A4B5C6D /* TokyoVoiceBankService.swift in Sources */,
+				B4C5D6E7F8091A2B3C4D5E6F /* NotificationService.swift in Sources */,
 				935E6D2A4C048F35E779ED28 /* TokyoRadioStation.swift in Sources */,
 				F0036368131BB88D16D5DA3C /* TokyoSearchSheet.swift in Sources */,
 				C12D4E069C38D695DD954E13 /* TokyoSocialHubView.swift in Sources */,

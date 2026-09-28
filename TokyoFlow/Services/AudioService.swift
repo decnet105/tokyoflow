@@ -89,6 +89,11 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
         self.isSpeaking = true
         startWaveformSimulation()
 
+        // 🌟 Automatic Gamification: Reward points on every pronunciation listened to
+        DispatchQueue.main.async {
+            GamificationService.shared.addRewards(tp: 1, exp: 2)
+        }
+
         // 🌟 Step 1: Check self-built Native Human Voice Bank first
         if TokyoVoiceBankService.shared.hasNativeAudio(for: cleanText) {
             let success = TokyoVoiceBankService.shared.playNativeAudio(text: cleanText, rate: rate) { [weak self] in

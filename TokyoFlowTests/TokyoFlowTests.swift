@@ -304,4 +304,10 @@ final class TokyoFlowTests: XCTestCase {
             XCTAssertFalse(item.dailyExampleWord.english.isEmpty)
         }
     }
+
+    func testNotificationServiceConfiguration() {
+        let notificationService = NotificationService.shared
+        XCTAssertEqual(notificationService.dailyReminderHour, 21, "Daily reminder must be set to 9:00 PM (21:00)")
+        XCTAssertEqual(notificationService.dailyReminderMinute, 0)
+    }
 }

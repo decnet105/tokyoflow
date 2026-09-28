@@ -147,7 +147,7 @@ public struct KanaTableView: View {
                         isKatakana: isKatakana,
                         timerToken: dialogueTimerToken,
                         onPlayKana: {
-                            audioService.speak(text: kana.hiragana, style: .dailyConversational, rate: 0.46)
+                            audioService.speak(text: kana.hiragana, style: .dailyConversational)
                         },
                         onPlayWord: {
                             audioService.speak(text: kana.exampleWordJa)
@@ -181,7 +181,7 @@ public struct KanaTableView: View {
     }
 
     private func playKana(_ item: KanaItem) {
-        audioService.speak(text: item.hiragana, style: .dailyConversational, rate: 0.46)
+        audioService.speak(text: item.hiragana, style: .dailyConversational)
         gamification.addRewards(tp: 1, exp: 2)
 
         withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
@@ -413,11 +413,11 @@ public struct KanaDetailModal: View {
                     // Audio Playback Row
                     HStack(spacing: 16) {
                         Button(action: {
-                            audioService.speak(text: kana.hiragana, style: .dailyConversational, rate: 0.38)
+                            audioService.speak(text: kana.hiragana, style: .dailyConversational, rate: 0.8)
                         }) {
                             HStack(spacing: 6) {
                                 Image(systemName: "tortoise.fill")
-                                Text("Slow Pronunciation")
+                                Text("Slow (0.8x)")
                             }
                             .font(.caption)
                             .fontWeight(.bold)
@@ -429,11 +429,11 @@ public struct KanaDetailModal: View {
                         }
 
                         Button(action: {
-                            audioService.speak(text: kana.hiragana, style: .dailyConversational, rate: 0.48)
+                            audioService.speak(text: kana.hiragana, style: .dailyConversational)
                         }) {
                             HStack(spacing: 6) {
                                 Image(systemName: "speaker.wave.2.fill")
-                                Text("Natural Voice")
+                                Text("Natural Voice (1.0x)")
                             }
                             .font(.caption)
                             .fontWeight(.bold)
@@ -587,7 +587,7 @@ public struct KanaQuizSheet: View {
                         // Audio Question Prompt
                         VStack(spacing: 12) {
                             Button(action: {
-                                audioService.speak(text: q.targetKana.hiragana, style: .dailyConversational, rate: 0.46)
+                                audioService.speak(text: q.targetKana.hiragana, style: .dailyConversational)
                             }) {
                                 ZStack {
                                     Circle()
