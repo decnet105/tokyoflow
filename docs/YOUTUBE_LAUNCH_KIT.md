@@ -205,14 +205,14 @@ izakaya japanese, how to order in japan, tokyo izakaya, japanese food phrases, l
 ## 4. 第四步：播放列表创建与分类 (Playlists Setup)
 
 > **中文操作提示**：
-> 在 **YouTube Studio** -> **「Content (内容)」** -> **「Playlists (播放列表)」** 创建以下 4 个官方分类列表，方便观众连续播放，大幅提升频道观看时长（Watch Time）。
+> 在 **YouTube Studio** -> **「Content (内容)」** -> **「Playlists (播放列表)」** 创建以下 4 个官方分类列表，并设置对应的官方高清分类封面，方便观众连续播放，大幅提升频道观看时长（Watch Time）。
 
-| 播放列表名称 (Title) | 英文简介 (Description) |
-| :--- | :--- |
-| **🚇 Tokyo Transit & Station Japanese** | Master real Tokyo train announcements, subway transfers, ticket machine navigation, and platform safety drills. |
-| **🏪 Kombini & Street Survival Japanese** | 1-second survival phrases for 7-Eleven, FamilyMart, drugstores, vending machines, and fast casual dining. |
-| **🍢 Izakaya & Tokyo Foodie Japanese** | Order ramen, yakitori, sushi, and izakaya specialties like a Tokyo local. Includes dining etiquette and cultural tips. |
-| **🎙️ NHK Daily News & Shadowing Drills** | Build authentic listening comprehension with simplified NHK Easy Japanese news audio and sentence-by-sentence shadowing. |
+| 播放列表名称 (Title) | 英文简介 (Description) | 专属高清封面文件 |
+| :--- | :--- | :--- |
+| **🚇 Tokyo Transit & Station Japanese** | Master real Tokyo train announcements, subway transfers, ticket machine navigation, and platform safety drills. | `docs/youtube_assets/playlists/pl01_transit_metro_cover.jpg` |
+| **🏪 Kombini & Street Survival Japanese** | 1-second survival phrases for 7-Eleven, FamilyMart, drugstores, vending machines, and fast casual dining. | `docs/youtube_assets/playlists/pl02_kombini_street_cover.jpg` |
+| **🍢 Izakaya & Tokyo Foodie Japanese** | Order ramen, yakitori, sushi, and izakaya specialties like a Tokyo local. Includes dining etiquette and cultural tips. | `docs/youtube_assets/playlists/pl03_izakaya_dining_cover.jpg` |
+| **🎙️ NHK Daily News & Shadowing Drills** | Build authentic listening comprehension with simplified NHK Easy Japanese news audio and sentence-by-sentence shadowing. | `docs/youtube_assets/playlists/pl04_nhk_news_shadowing_cover.jpg` |
 
 ---
 
