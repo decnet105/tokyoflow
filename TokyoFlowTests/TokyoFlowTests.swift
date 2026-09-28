@@ -310,4 +310,62 @@ final class TokyoFlowTests: XCTestCase {
         XCTAssertEqual(notificationService.dailyReminderHour, 21, "Daily reminder must be set to 9:00 PM (21:00)")
         XCTAssertEqual(notificationService.dailyReminderMinute, 0)
     }
+
+    func testJLPTDictionaryServiceAndSearch() {
+        let dict = JLPTDictionaryService.shared
+        dict.loadDictionary()
+        XCTAssertFalse(dict.allWords.isEmpty, "JLPT Dictionary should have words loaded")
+
+        // Test Level Filter
+        dict.selectedLevel = .n5
+        let n5Words = dict.filteredWords
+        XCTAssertFalse(n5Words.isEmpty)
+        for w in n5Words {
+            XCTAssertEqual(w.level, "N5")
+        }
+
+        // Test Search query
+        dict.searchQuery = "食べる"
+        let searchResults = dict.filteredWords
+        XCTAssertFalse(searchResults.isEmpty)
+        XCTAssertEqual(searchResults[0].reading, "たべる")
+
+        // Reset
+        dict.searchQuery = ""
+        dict.selectedLevel = .all
+    }
+
+    func testWeakWordTrackerImplicitCollection() {
+        let tracker = WeakWordTrackerService.shared
+        
+        // Test repeated listening trigger (>= 2 times)
+        tracker.recordListen(word: "相応しい", reading: "ふさわしい", meaning: "合适")
+        tracker.recordListen(word: "相応しい", reading: "ふさわしい", meaning: "合适")
+
+        XCTAssertTrue(tracker.activeWeakWords.contains(where: { $0.word == "相応しい" }), "Word listened to twice must be tracked as weak word")
+        
+        // Test Mastering weak word
+        let initialMastered = tracker.masteredCount
+        tracker.markMastered(word: "相応しい")
+        XCTAssertEqual(tracker.masteredCount, initialMastered + 1)
+        XCTAssertFalse(tracker.activeWeakWords.contains(where: { $0.word == "相応しい" }))
+    }
+
+    func testSubscriptionFreemiumAccessControl() {
+        let sub = SubscriptionService.shared
+        sub.isPro = false
+
+        // N5 is 100% free
+        XCTAssertTrue(sub.canAccessJLPTLevel("N5"), "N5 must be free")
+        // N4-N1 requires Pro
+        XCTAssertFalse(sub.canAccessJLPTLevel("N1"), "N1 must require Pro")
+
+        // Free daily reviews limit
+        XCTAssertEqual(sub.maxFreeDailyReviews, 15)
+
+        // Mock upgrade to Pro
+        sub.isPro = true
+        XCTAssertTrue(sub.canAccessJLPTLevel("N1"), "Pro user can access all levels")
+        XCTAssertGreaterThan(sub.remainingFreeReviewsToday, 100)
+    }
 }

@@ -20,6 +20,11 @@ public struct MainTabView: View {
                     Label("Kana 五十音", systemImage: "character.book.closed.fill")
                 }
 
+            JLPTDictionaryView()
+                .tabItem {
+                    Label("词典 / 背词", systemImage: "text.book.closed.fill")
+                }
+
             DailyNewsFeedView()
                 .tabItem {
                     Label("Daily News", systemImage: "newspaper.fill")
