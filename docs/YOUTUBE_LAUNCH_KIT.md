@@ -202,17 +202,110 @@ izakaya japanese, how to order in japan, tokyo izakaya, japanese food phrases, l
 
 ---
 
-## 4. 第四步：播放列表创建与分类 (Playlists Setup)
+## 4. 第四步：播放列表创建、详细描述与封面设置 (Playlists Setup & Thumbnail Guide)
 
-> **中文操作提示**：
-> 在 **YouTube Studio** -> **「Content (内容)」** -> **「Playlists (播放列表)」** 创建以下 4 个官方分类列表，并设置对应的官方高清分类封面，方便观众连续播放，大幅提升频道观看时长（Watch Time）。
+### 📋 4 大官方播放列表完整资料与英文描述 (Copy-and-Paste Descriptions)
 
-| 播放列表名称 (Title) | 英文简介 (Description) | 专属高清封面文件 |
-| :--- | :--- | :--- |
-| **🚇 Tokyo Transit & Station Japanese** | Master real Tokyo train announcements, subway transfers, ticket machine navigation, and platform safety drills. | `docs/youtube_assets/playlists/pl01_transit_metro_cover.jpg` |
-| **🏪 Kombini & Street Survival Japanese** | 1-second survival phrases for 7-Eleven, FamilyMart, drugstores, vending machines, and fast casual dining. | `docs/youtube_assets/playlists/pl02_kombini_street_cover.jpg` |
-| **🍢 Izakaya & Tokyo Foodie Japanese** | Order ramen, yakitori, sushi, and izakaya specialties like a Tokyo local. Includes dining etiquette and cultural tips. | `docs/youtube_assets/playlists/pl03_izakaya_dining_cover.jpg` |
-| **🎙️ NHK Daily News & Shadowing Drills** | Build authentic listening comprehension with simplified NHK Easy Japanese news audio and sentence-by-sentence shadowing. | `docs/youtube_assets/playlists/pl04_nhk_news_shadowing_cover.jpg` |
+---
+
+#### 🚇 Playlist 1: Tokyo Transit & Station Japanese
+- **Playlist Title**: `🚇 Tokyo Transit & Station Japanese`
+- **Recommended Thumbnail**: `docs/youtube_assets/playlists/pl01_transit_metro_cover.jpg` (或 `EP.01` 封面)
+- **Full English Description**:
+```text
+Master Tokyo's world-famous rail network with confidence! This playlist breaks down authentic automated train announcements, rush-hour station melodies, JR Yamanote Line broadcasts, and essential phrases to ask station clerks for transfers.
+
+✨ WHAT YOU'LL LEARN:
+• Understanding fast-paced Tokyo Metro & JR platform safety warnings
+• Deciphering Keigo (humble & polite) verbs used in automated transit audio
+• 1-second phrases to navigate Shinjuku, Shibuya & Tokyo Station hubs
+• Ticket machine, IC card (Suica/Pasmo) recharge, and lost item inquiries
+
+📱 Practice real-time voice shadowing with the free TokyoFlow iOS app: https://tokyoflow.app
+
+#TokyoMetro #YamanoteLine #JapanTravel #LearnJapanese #JapaneseTransit #JLPTListening
+```
+
+---
+
+#### 🏪 Playlist 2: Kombini & Street Survival Japanese
+- **Playlist Title**: `🏪 Kombini & Street Survival Japanese`
+- **Recommended Thumbnail**: `docs/youtube_assets/playlists/pl02_kombini_street_cover.jpg` (或 `EP.02` 封面)
+- **Full English Description**:
+```text
+Never feel nervous at a Japanese convenience store register again! Master the essential rapid-fire dialogue you hear daily across Tokyo 7-Eleven, FamilyMart, Lawson, drugstores, and street vending machines.
+
+✨ WHAT YOU'LL LEARN:
+• 1-second natural responses to "Obentō atatamemasu ka?" (bento heating)
+• Politely declining plastic bags, chopsticks, and receipts with natural intonation
+• Specifying contactless payment methods (Suica, PayPay, Credit Card)
+• Ordering hot fried chicken (Karaage-kun / Famichiki) and steamed buns at the counter
+
+📱 Download TokyoFlow on the iOS App Store for interactive practice: https://tokyoflow.app
+
+#7ElevenJapan #KombiniJapanese #TravelJapan #SpeakJapanese #JapanesePhrases #TokyoLife
+```
+
+---
+
+#### 🍢 Playlist 3: Izakaya & Tokyo Foodie Japanese
+- **Playlist Title**: `🍢 Izakaya & Tokyo Foodie Japanese`
+- **Recommended Thumbnail**: `docs/youtube_assets/playlists/pl03_izakaya_dining_cover.jpg` (或 `EP.03` 封面)
+- **Full English Description**:
+```text
+Dine like a true Tokyo local! From vibrant Omoide Yokocho izakayas to ramen counter shops and sushi bars, learn the exact phrases, dining etiquette, and drinking customs used across Tokyo nightlife.
+
+✨ WHAT YOU'LL LEARN:
+• The iconic first-drink formula ("Toriaezu nama!") and Otoshi appetizer customs
+• Ordering yakitori skewers (Shio vs Tare sauce) and customized ramen noodle texture
+• How to get your server's attention politely with "Sumimasen!"
+• Settling the bill smoothly ("O-kaikei") and asking for tax receipts ("Ryōshūsho")
+
+📱 Level up your food Japanese with the TokyoFlow iOS app: https://tokyoflow.app
+
+#Izakaya #JapaneseFood #RamenJapanese #TokyoDining #OrderInJapanese #JapaneseCulture
+```
+
+---
+
+#### 🎙️ Playlist 4: NHK Daily News & Shadowing Drills
+- **Playlist Title**: `🎙️ NHK Daily News & Shadowing Drills`
+- **Recommended Thumbnail**: `docs/youtube_assets/playlists/pl04_nhk_news_shadowing_cover.jpg`
+- **Full English Description**:
+```text
+Bridge the gap to natural native listening speed! Train your ears with simplified NHK Easy Japanese daily news broadcasts, curated vocabulary, and millisecond-accurate audio shadowing drills.
+
+✨ WHAT YOU'LL LEARN:
+• Natural Tokyo pitch accent patterns (Heiban, Atamadaka, Nakadaka)
+• High-frequency vocabulary for weather, travel trends, society, and technology
+• Sentence-by-sentence shadowing drills to eliminate awkward speaking hesitation
+• Ideal audio training for JLPT N4, N3, and N2 listening sections
+
+📱 Pair with TokyoFlow iOS App for automated pronunciation accuracy scoring: https://tokyoflow.app
+
+#NHKJapanese #JapaneseShadowing #JLPT #JapaneseListening #LearnJapanese #Nihongo
+```
+
+---
+
+### 🛠️ YouTube 官方播放列表（Playlist）封面设置实操指引
+
+> **⚠️ 必须了解的 YouTube 机制**：
+> YouTube 并不像单集视频那样提供独立的“上传图片作为 Playlist 封面”按钮，而是**通过指定播放列表中的某支视频作为整个 Playlist 的封面（Thumbnail Source）**。
+
+#### 📌 方法一：第一位视频自动继承法（最常用、最推荐）
+1. 在 **YouTube Studio** -> **「Content (内容)」** -> **「Playlists (播放列表)」**。
+2. 将对应分类的第 1 支核心视频（例如 `EP.01` 放入 Transit 列表，`EP.02` 放入 Kombini 列表，`EP.03` 放入 Izakaya 列表）。
+3. 只要该视频本身已经上传了我们在 `docs/youtube_assets/thumbnails/` 中准备好的高清封面，**YouTube 就会自动将列表第 1 支视频的高清封面提取为该 Playlist 的整体封面**！
+4. 确保在列表中将该视频**拖动到第 1 位（Top position）**即可。
+
+#### 📌 方法二：在 YouTube 播放列表详情页手动指定封面
+1. 打开 YouTube 网站（电脑浏览器），进入你的频道主页。
+2. 点击 **「Playlists (播放列表)」** 标签页，点击进入你想修改的播放列表（点击播放列表标题下方的 **「View full playlist (查看完整播放列表)」**）。
+3. 在视频列表右侧，找到你想作为封面的视频。
+4. 点击该视频右侧的 **三点菜单 `⋮` (More options)**。
+5. 在下拉菜单中点击 **「Set as playlist thumbnail (设为播放列表缩略图)」**。
+6. 刷新页面，该播放列表的外部展示封面就会瞬间固定为你指定的高清封面！
 
 ---
 
