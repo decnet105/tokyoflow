@@ -32,6 +32,7 @@ public struct VideoKeyTakeaway: Identifiable, Hashable, Codable {
 
 public struct TokyoScenarioVideoLesson: Identifiable, Hashable, Codable {
     public let id: String
+    public let episodeNumber: Int
     public let scenarioId: String
     public let title: String
     public let titleJa: String
@@ -45,6 +46,10 @@ public struct TokyoScenarioVideoLesson: Identifiable, Hashable, Codable {
     public let summary: String
     public let chapters: [VideoChapterBookmark]
     public let keyTakeaways: [VideoKeyTakeaway]
+
+    public var episodeLabel: String {
+        String(format: "EP. %02d", episodeNumber)
+    }
 
     public var youtubeWatchUrl: URL {
         URL(string: "https://www.youtube.com/watch?v=\(youtubeVideoId)") ?? URL(string: "https://www.youtube.com")!
@@ -61,8 +66,9 @@ public class TokyoVideoLessonDataManager: ObservableObject {
     public let lessons: [TokyoScenarioVideoLesson] = [
         TokyoScenarioVideoLesson(
             id: "yt_yamanote_01",
+            episodeNumber: 1,
             scenarioId: "s_yamanote_rush",
-            title: "Tokyo Train Real-Life: Yamanote Rush Hour & Platform Announcements",
+            title: "EP. 01 • Tokyo Metro & Yamanote Line Platform Broadcasts",
             titleJa: "山手線ラッシュ・乗り換えアナウンス完全攻略",
             channelName: "TokyoFlow Japanese",
             youtubeVideoId: "6dxbsPYp654",
@@ -86,8 +92,9 @@ public class TokyoVideoLessonDataManager: ObservableObject {
         ),
         TokyoScenarioVideoLesson(
             id: "yt_kombini_02",
+            episodeNumber: 2,
             scenarioId: "s_kombini_register",
-            title: "Convenience Store Survival: 7-Eleven Rapid Checkout & Bento Heating",
+            title: "EP. 02 • Convenience Store Survival: 7-Eleven Rapid Checkout",
             titleJa: "コンビニレジ連環問・お弁当温め・袋不要",
             channelName: "TokyoFlow Japanese",
             youtubeVideoId: "bOcegXJ3_Qo",
@@ -111,8 +118,9 @@ public class TokyoVideoLessonDataManager: ObservableObject {
         ),
         TokyoScenarioVideoLesson(
             id: "yt_izakaya_03",
+            episodeNumber: 3,
             scenarioId: "s_izakaya_toast",
-            title: "Izakaya Mastery: Showa Pub Ordering, Otoshi Culture & Toasting",
+            title: "EP. 03 • Izakaya Mastery: Showa Pub Ordering, Otoshi & Toasting",
             titleJa: "居酒屋注文・お通し文化・とりあえず生！",
             channelName: "TokyoFlow Japanese",
             youtubeVideoId: "M2i5zH7aWqk",
@@ -136,8 +144,9 @@ public class TokyoVideoLessonDataManager: ObservableObject {
         ),
         TokyoScenarioVideoLesson(
             id: "yt_akiba_04",
+            episodeNumber: 4,
             scenarioId: "s_akiba_manga",
-            title: "Akihabara Pilgrimage: Figure Hunting, Limited Merch & Manga Tax-Free",
+            title: "EP. 04 • Akihabara Pilgrimage: Figures, Merch & Manga Tax-Free",
             titleJa: "秋葉原アニメ・限定グッズ・同人誌探訪",
             channelName: "TokyoFlow Japanese",
             youtubeVideoId: "N1vM-N12345",
