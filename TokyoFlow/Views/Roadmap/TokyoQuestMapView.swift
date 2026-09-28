@@ -7,6 +7,8 @@ public struct TokyoQuestMapView: View {
     @EnvironmentObject var userProfile: UserProfile
     @State private var selectedStage: QuestStage? = nil
     @State private var showThemePicker = false
+    @State private var showDailyMissions = false
+    @State private var showLeaderboard = false
 
     private let worlds = QuestProgressManager.worlds
 
@@ -19,7 +21,7 @@ public struct TokyoQuestMapView: View {
                 MangaThemeBackgroundView()
 
                 ScrollView(showsIndicators: false) {
-                    VStack(spacing: 32) {
+                    VStack(spacing: 24) {
                         // Top Player Stats Ribbon
                         VStack(spacing: 12) {
                             HStack {
@@ -48,35 +50,49 @@ public struct TokyoQuestMapView: View {
                                 }
                             }
 
-                            // Level & Star Bar
-                            HStack(spacing: 16) {
+                            // Quick Action Hub (Check-in & Leaderboard & Streak)
+                            HStack(spacing: 10) {
+                                Button(action: { showDailyMissions = true }) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: gamification.isTodayCheckedIn ? "checkmark.circle.fill" : "flame.fill")
+                                            .foregroundColor(gamification.isTodayCheckedIn ? .green : .red)
+                                        Text(gamification.isTodayCheckedIn ? "\(gamification.streakDays)d 打卡" : "今日打卡")
+                                            .font(.system(size: 12, weight: .bold))
+                                            .foregroundColor(.primary)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .background(.ultraThinMaterial)
+                                    .cornerRadius(12)
+                                }
+                                .buttonStyle(.plain)
+
+                                Button(action: { showLeaderboard = true }) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "trophy.fill")
+                                            .foregroundColor(.yellow)
+                                        Text("排行榜 #3")
+                                            .font(.system(size: 12, weight: .bold))
+                                            .foregroundColor(.primary)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .background(.ultraThinMaterial)
+                                    .cornerRadius(12)
+                                }
+                                .buttonStyle(.plain)
+
                                 HStack(spacing: 6) {
                                     Image(systemName: "crown.fill")
                                         .foregroundColor(.yellow)
-                                    Text("Level \(max(1, userProfile.completedScenarioIds.count * 2))")
-                                        .font(.system(size: 13, weight: .bold))
+                                    Text("Lv.\(max(1, userProfile.completedScenarioIds.count * 2))")
+                                        .font(.system(size: 12, weight: .bold))
                                 }
-
-                                HStack(spacing: 6) {
-                                    Image(systemName: "star.fill")
-                                        .foregroundColor(.orange)
-                                    Text("\(userProfile.completedScenarioIds.count * 3) ⭐")
-                                        .font(.system(size: 13, weight: .bold))
-                                }
-
-                                Spacer()
-
-                                HStack(spacing: 4) {
-                                    Image(systemName: "flame.fill")
-                                        .foregroundColor(.red)
-                                    Text("\(userProfile.streakCount) Days")
-                                        .font(.system(size: 13, weight: .bold))
-                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(12)
                             }
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 8)
-                            .background(.ultraThinMaterial)
-                            .cornerRadius(14)
                         }
                         .padding(.horizontal)
                         .padding(.top, 8)
@@ -99,6 +115,12 @@ public struct TokyoQuestMapView: View {
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showThemePicker) {
                 ThemePickerSheet()
+            }
+            .sheet(isPresented: $showDailyMissions) {
+                DailyMissionSheet()
+            }
+            .sheet(isPresented: $showLeaderboard) {
+                TokyoLeaderboardView(isEmbedded: false)
             }
             .sheet(item: $selectedStage) { stage in
                 StageLauncherModal(stage: stage)

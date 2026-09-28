@@ -243,4 +243,43 @@ final class TokyoFlowTests: XCTestCase {
             XCTAssertNotNil(voiceBank.audioURL(for: fn))
         }
     }
+
+    func testGamificationDailyCheckInAndMicroLearning() {
+        let gamification = GamificationService.shared
+        gamification.setupDailyQuests()
+        gamification.setupLeaderboard()
+
+        // Test Weekly check-in calendar generation
+        let weeklyStatus = gamification.getWeeklyCheckInStatus()
+        XCTAssertEqual(weeklyStatus.count, 7, "Weekly check-in status must contain all 7 days (Mon-Sun)")
+        XCTAssertTrue(weeklyStatus.contains(where: { $0.isToday }), "Weekly status must highlight today")
+
+        // Test Micro-learning progress tracking
+        let initialMinutes = gamification.dailyMinutesLearned
+        gamification.recordMicroLearningTime(minutes: 5)
+        XCTAssertEqual(gamification.dailyMinutesLearned, initialMinutes + 5)
+        XCTAssertGreaterThan(gamification.microLearningProgress, 0.0)
+
+        // Test Daily Quests configuration
+        XCTAssertGreaterThanOrEqual(gamification.dailyQuests.count, 5)
+        XCTAssertTrue(gamification.dailyQuests.contains(where: { $0.id == "q_checkin" }))
+        XCTAssertTrue(gamification.dailyQuests.contains(where: { $0.id == "q_micro_time" }))
+    }
+
+    func testTokyoLeaderboardMultiTier() {
+        let gamification = GamificationService.shared
+        gamification.setupLeaderboard()
+
+        // Test Weekly League
+        XCTAssertFalse(gamification.leaderboardUsers.isEmpty)
+        XCTAssertTrue(gamification.leaderboardUsers.contains(where: { $0.isCurrentUser }))
+
+        // Test All-Time Hall of Fame
+        XCTAssertFalse(gamification.allTimeLeaderboardUsers.isEmpty)
+        XCTAssertEqual(gamification.allTimeLeaderboardUsers[0].rank, 1)
+
+        // Test Friends League
+        XCTAssertFalse(gamification.friendsLeaderboardUsers.isEmpty)
+        XCTAssertTrue(gamification.friendsLeaderboardUsers.contains(where: { $0.isCurrentUser }))
+    }
 }

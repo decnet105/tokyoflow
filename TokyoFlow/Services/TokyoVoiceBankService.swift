@@ -19,18 +19,21 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
     }
 
     private func loadManifest() {
-        // Try Bundle resources first
-        if let url = Bundle.main.url(forResource: "voice_bank_manifest", withExtension: "json", subdirectory: "VoiceBank") ??
-                     Bundle.main.url(forResource: "voice_bank_manifest", withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                if let dict = try JSONSerialization.jsonObject(with: data) as? [String: String] {
-                    self.manifest = dict
-                    print("✅ TokyoVoiceBankService: Loaded \(dict.count) native voice keys from Bundle.")
-                    return
-                }
-            } catch {
-                print("⚠️ TokyoVoiceBankService: Error parsing manifest: \(error)")
+        // 1. Check Bundle resources first
+        let possibleUrls = [
+            Bundle.main.url(forResource: "voice_bank_manifest", withExtension: "json", subdirectory: "VoiceBank"),
+            Bundle.main.url(forResource: "voice_bank_manifest", withExtension: "json"),
+            Bundle.main.resourceURL?.appendingPathComponent("VoiceBank/voice_bank_manifest.json"),
+            Bundle.main.bundleURL.appendingPathComponent("VoiceBank/voice_bank_manifest.json")
+        ].compactMap { $0 }
+
+        for url in possibleUrls {
+            if FileManager.default.fileExists(atPath: url.path),
+               let data = try? Data(contentsOf: url),
+               let dict = try? JSONSerialization.jsonObject(with: data) as? [String: String] {
+                self.manifest = dict
+                print("✅ TokyoVoiceBankService: Successfully loaded \(dict.count) native voice keys from Bundle.")
+                return
             }
         }
 
@@ -101,16 +104,23 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
     }
 
     public func audioURL(for filename: String) -> URL? {
-        if let url = Bundle.main.url(forResource: (filename as NSString).deletingPathExtension,
-                                     withExtension: (filename as NSString).pathExtension,
-                                     subdirectory: "VoiceBank") ??
-                     Bundle.main.url(forResource: filename, withExtension: nil) {
-            return url
-        }
+        let bareName = (filename as NSString).deletingPathExtension
+        let ext = (filename as NSString).pathExtension
 
-        let devPath = "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Resources/Audio/VoiceBank/\(filename)"
-        if FileManager.default.fileExists(atPath: devPath) {
-            return URL(fileURLWithPath: devPath)
+        let candidates = [
+            Bundle.main.url(forResource: bareName, withExtension: ext, subdirectory: "VoiceBank"),
+            Bundle.main.url(forResource: filename, withExtension: nil, subdirectory: "VoiceBank"),
+            Bundle.main.url(forResource: bareName, withExtension: ext),
+            Bundle.main.url(forResource: filename, withExtension: nil),
+            Bundle.main.resourceURL?.appendingPathComponent("VoiceBank/\(filename)"),
+            Bundle.main.bundleURL.appendingPathComponent("VoiceBank/\(filename)"),
+            URL(fileURLWithPath: "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Resources/Audio/VoiceBank/\(filename)")
+        ].compactMap { $0 }
+
+        for url in candidates {
+            if FileManager.default.fileExists(atPath: url.path) {
+                return url
+            }
         }
 
         return nil

@@ -13,57 +13,45 @@ public struct DailyMissionSheet: View {
 
                 ScrollView {
                     VStack(spacing: 20) {
-                        // Streak & Daily Bonus Header
-                        VStack(spacing: 12) {
-                            HStack(spacing: 12) {
-                                ZStack {
-                                    Circle()
-                                        .fill(Color.red.opacity(0.2))
-                                        .frame(width: 54, height: 54)
-                                    Image(systemName: "flame.fill")
-                                        .font(.title)
-                                        .foregroundColor(.red)
-                                }
+                        // 7-Day Streak & Daily Micro-Learning Check-in Card
+                        DailyCheckInStreakCardView()
+                            .padding(.horizontal)
+                            .padding(.top, 8)
 
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text("\(gamification.streakDays) Days Streak!")
-                                        .font(.system(size: 20, weight: .black, design: .rounded))
-                                    Text("Keep your daily Tokyo immersion streak alive.")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                }
-                                Spacer()
-                            }
-
-                            Divider()
-
-                            HStack {
+                        // Points and EXP Summary Card
+                        HStack {
+                            HStack(spacing: 6) {
+                                Image(systemName: "yensign.circle.fill")
+                                    .foregroundColor(.yellow)
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("Tokyo Points")
                                         .font(.caption2)
                                         .foregroundColor(.secondary)
                                     Text("\(gamification.tokyoPoints) TP")
-                                        .font(.system(size: 16, weight: .bold))
+                                        .font(.system(size: 15, weight: .bold))
                                         .foregroundColor(.yellow)
                                 }
+                            }
 
-                                Spacer()
+                            Spacer()
 
+                            HStack(spacing: 6) {
+                                Image(systemName: "sparkles")
+                                    .foregroundColor(.accentColor)
                                 VStack(alignment: .trailing, spacing: 2) {
                                     Text("Total Experience")
                                         .font(.caption2)
                                         .foregroundColor(.secondary)
                                     Text("\(gamification.totalEXP) EXP")
-                                        .font(.system(size: 16, weight: .bold))
+                                        .font(.system(size: 15, weight: .bold))
                                         .foregroundColor(.accentColor)
                                 }
                             }
                         }
-                        .padding(18)
+                        .padding(14)
                         .background(.ultraThinMaterial)
-                        .cornerRadius(20)
+                        .cornerRadius(16)
                         .padding(.horizontal)
-                        .padding(.top, 8)
 
                         // Daily Missions Header
                         HStack {

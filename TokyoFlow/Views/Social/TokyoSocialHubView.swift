@@ -131,21 +131,21 @@ public struct TokyoSocialHubView: View {
                 MangaThemeBackgroundView()
 
                 VStack(spacing: 12) {
-                    // Custom Glass Pill Tab Selector (Spacious & Clean)
-                    HStack(spacing: 12) {
+                    // Custom Glass Pill Tab Selector (3 Tabs: Citizens, Board, Leaderboard)
+                    HStack(spacing: 8) {
                         Button(action: {
                             withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
                                 selectedTab = 0
                             }
                         }) {
-                            HStack(spacing: 6) {
+                            HStack(spacing: 4) {
                                 Image(systemName: "person.2.wave.2.fill")
-                                    .font(.system(size: 13, weight: .bold))
-                                Text("AI 住民会話")
-                                    .font(.system(size: 14, weight: .bold))
+                                    .font(.system(size: 11, weight: .bold))
+                                Text("住民会話")
+                                    .font(.system(size: 12, weight: .bold))
                             }
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 10)
+                            .padding(.vertical, 9)
                             .background(selectedTab == 0 ? Color.accentColor : Color.primary.opacity(0.08))
                             .foregroundColor(selectedTab == 0 ? .white : .primary)
                             .cornerRadius(12)
@@ -158,18 +158,38 @@ public struct TokyoSocialHubView: View {
                                 selectedTab = 1
                             }
                         }) {
-                            HStack(spacing: 6) {
+                            HStack(spacing: 4) {
                                 Image(systemName: "bubble.left.and.bubble.right.fill")
-                                    .font(.system(size: 13, weight: .bold))
+                                    .font(.system(size: 11, weight: .bold))
                                 Text("東京掲示板")
-                                    .font(.system(size: 14, weight: .bold))
+                                    .font(.system(size: 12, weight: .bold))
                             }
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 10)
+                            .padding(.vertical, 9)
                             .background(selectedTab == 1 ? Color.accentColor : Color.primary.opacity(0.08))
                             .foregroundColor(selectedTab == 1 ? .white : .primary)
                             .cornerRadius(12)
                             .shadow(color: selectedTab == 1 ? Color.accentColor.opacity(0.3) : Color.clear, radius: 4, y: 2)
+                        }
+                        .buttonStyle(.plain)
+
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
+                                selectedTab = 2
+                            }
+                        }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "trophy.fill")
+                                    .font(.system(size: 11, weight: .bold))
+                                Text("排行榜")
+                                    .font(.system(size: 12, weight: .bold))
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 9)
+                            .background(selectedTab == 2 ? Color.yellow : Color.primary.opacity(0.08))
+                            .foregroundColor(selectedTab == 2 ? .black : .primary)
+                            .cornerRadius(12)
+                            .shadow(color: selectedTab == 2 ? Color.yellow.opacity(0.3) : Color.clear, radius: 4, y: 2)
                         }
                         .buttonStyle(.plain)
                     }
@@ -178,12 +198,14 @@ public struct TokyoSocialHubView: View {
 
                     if selectedTab == 0 {
                         citizenPersonaListView
-                    } else {
+                    } else if selectedTab == 1 {
                         communityBoardView
+                    } else {
+                        TokyoLeaderboardView(isEmbedded: true)
                     }
                 }
             }
-            .navigationTitle("Tokyo Social")
+            .navigationTitle("Tokyo Social & Ranking")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
