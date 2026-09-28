@@ -127,31 +127,61 @@ public struct DojoBattleGameView: View {
     @State private var selectedOption: DojoOption? = nil
     @State private var isShowingFeedback = false
     @State private var score = 0
+    @State private var comboCount = 0
     @State private var isBattleComplete = false
+    @State private var timeRemaining: Double = 6.0
+    @State private var timerEnabled = true
+    @State private var timer: Timer?
 
     public var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
+            VStack(spacing: 18) {
                 if !isBattleComplete {
                     let round = battle.rounds[currentRoundIndex]
 
-                    // Progress Header
-                    HStack {
-                        Text("Round \(currentRoundIndex + 1) of \(battle.rounds.count)")
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        HStack(spacing: 4) {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.orange)
-                            Text("Score: \(score)")
+                    // Progress & Combo Header
+                    VStack(spacing: 6) {
+                        HStack {
+                            Text("Round \(currentRoundIndex + 1) of \(battle.rounds.count)")
                                 .font(.caption)
-                                .fontWeight(.heavy)
+                                .fontWeight(.bold)
+                                .foregroundColor(.secondary)
+
+                            Spacer()
+
+                            if comboCount > 1 {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "flame.fill")
+                                        .foregroundColor(.orange)
+                                    Text("COMBO x\(comboCount)!")
+                                        .font(.caption)
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.orange)
+                                }
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 3)
+                                .background(Color.orange.opacity(0.15))
+                                .cornerRadius(8)
+                            }
+
+                            HStack(spacing: 4) {
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(.yellow)
+                                Text("Score: \(score)")
+                                    .font(.caption)
+                                    .fontWeight(.heavy)
+                            }
+                        }
+
+                        // Countdown Progress Bar
+                        if timerEnabled && !isShowingFeedback {
+                            ProgressView(value: timeRemaining, total: 6.0)
+                                .tint(timeRemaining > 2.5 ? .green : .red)
+                                .scaleEffect(x: 1, y: 1.5, anchor: .center)
                         }
                     }
                     .padding(.horizontal)
-                    .padding(.top, 8)
+                    .padding(.top, 4)
 
                     // Cashier / Chef Speech Bubble
                     VStack(alignment: .leading, spacing: 8) {
@@ -163,7 +193,7 @@ public struct DojoBattleGameView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.red)
                             Spacer()
-                            AudioButton(textToSpeak: round.clerkPrompt, rate: 0.55)
+                            AudioButton(textToSpeak: round.clerkPrompt, rate: 0.58)
                         }
 
                         Text(round.clerkPrompt)
@@ -188,15 +218,7 @@ public struct DojoBattleGameView: View {
                     VStack(spacing: 10) {
                         ForEach(round.options) { option in
                             Button(action: {
-                                selectedOption = option
-                                isShowingFeedback = true
-                                if option.isCorrect {
-                                    score += 100
-                                }
-                                #if os(iOS)
-                                let generator = UINotificationFeedbackGenerator()
-                                generator.notificationOccurred(option.isCorrect ? .success : .error)
-                                #endif
+                                handleAnswerSelected(option)
                             }) {
                                 HStack(alignment: .top, spacing: 10) {
                                     Image(systemName: selectedOption?.id == option.id
@@ -243,7 +265,7 @@ public struct DojoBattleGameView: View {
                             HStack {
                                 Image(systemName: option.isCorrect ? "sparkles" : "exclamationmark.triangle.fill")
                                     .foregroundColor(option.isCorrect ? .green : .orange)
-                                Text(option.isCorrect ? "Ninja Accuracy!" : "Tokyo Etiquette Note:")
+                                Text(option.isCorrect ? "Ninja Accuracy! (+ \(100 * max(1, comboCount)) pts)" : "Tokyo Etiquette Note:")
                                     .font(.headline)
                                     .foregroundColor(option.isCorrect ? .green : .orange)
                             }
@@ -281,7 +303,7 @@ public struct DojoBattleGameView: View {
                             Text("Dojo Battle Cleared!")
                                 .font(.title)
                                 .fontWeight(.heavy)
-                            Text("Final Score: \(score) / \(battle.rounds.count * 100) Points")
+                            Text("Final Score: \(score) Points (Max Combo: \(comboCount))")
                                 .font(.headline)
                                 .foregroundColor(.secondary)
                         }
@@ -333,7 +355,54 @@ public struct DojoBattleGameView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Exit") { dismiss() }
+                    Button("Exit") {
+                        timer?.invalidate()
+                        dismiss()
+                    }
+                }
+            }
+            .onAppear {
+                startRoundTimer()
+            }
+            .onDisappear {
+                timer?.invalidate()
+            }
+        }
+    }
+
+    private func handleAnswerSelected(_ option: DojoOption) {
+        timer?.invalidate()
+        selectedOption = option
+        isShowingFeedback = true
+
+        if option.isCorrect {
+            comboCount += 1
+            score += 100 * comboCount
+        } else {
+            comboCount = 0
+        }
+
+        #if os(iOS)
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(option.isCorrect ? .success : .error)
+        #endif
+    }
+
+    private func startRoundTimer() {
+        guard timerEnabled else { return }
+        timer?.invalidate()
+        timeRemaining = 6.0
+
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            if timeRemaining > 0 {
+                timeRemaining -= 0.1
+            } else {
+                timer?.invalidate()
+                if selectedOption == nil {
+                    // Timeout
+                    let round = battle.rounds[currentRoundIndex]
+                    let wrong = round.options.first(where: { !$0.isCorrect }) ?? round.options[0]
+                    handleAnswerSelected(wrong)
                 }
             }
         }
@@ -344,6 +413,7 @@ public struct DojoBattleGameView: View {
         isShowingFeedback = false
         if currentRoundIndex < battle.rounds.count - 1 {
             currentRoundIndex += 1
+            startRoundTimer()
         } else {
             isBattleComplete = true
         }

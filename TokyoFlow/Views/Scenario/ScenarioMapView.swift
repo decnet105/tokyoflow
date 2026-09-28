@@ -5,6 +5,9 @@ public struct ScenarioMapView: View {
     @EnvironmentObject var userProfile: UserProfile
     @State private var selectedCategory: String = "all"
     @State private var selectedQuarter: Int = 1
+    @State private var showSearchSheet = false
+    @State private var showAmbiencePicker = false
+    @ObservedObject private var audioService = AudioService.shared
 
     private let categories = [
         ("all", "All Places", "map.fill"),
@@ -124,10 +127,44 @@ public struct ScenarioMapView: View {
                     }
                     .padding(.horizontal)
                 }
-                .padding(.bottom, 24)
             }
             .navigationTitle("Tokyo Scenarios")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: { showAmbiencePicker = true }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: audioService.currentAmbience.icon)
+                            if audioService.currentAmbience != .none {
+                                Text("Ambience ON")
+                                    .font(.system(size: 11, weight: .bold))
+                            }
+                        }
+                        .foregroundColor(audioService.currentAmbience != .none ? .green : .secondary)
+                    }
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: { showSearchSheet = true }) {
+                        Image(systemName: "magnifyingglass.circle.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(.accentColor)
+                    }
+                }
+            }
+            .sheet(isPresented: $showSearchSheet) {
+                TokyoSearchSheet()
+            }
+            .confirmationDialog("Tokyo Ambient Soundscape", isPresented: $showAmbiencePicker, titleVisibility: .visible) {
+                ForEach(TokyoAmbienceType.allCases) { amb in
+                    Button(amb.rawValue) {
+                        audioService.setAmbience(amb)
+                    }
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("Select a background ambient soundscape to practice listening in real-world Tokyo audio environments.")
+            }
         }
     }
 

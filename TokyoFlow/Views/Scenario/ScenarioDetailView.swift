@@ -4,6 +4,7 @@ public struct ScenarioDetailView: View {
     public let scenario: Scenario
     @EnvironmentObject var userProfile: UserProfile
     @State private var showRoleplayModal = false
+    @State private var showStickmanExplainer = false
     @State private var showTranslations = true
     @State private var playbackSpeed: Float = 0.50
 
@@ -43,6 +44,23 @@ public struct ScenarioDetailView: View {
                         .font(.subheadline)
                         .foregroundColor(.primary.opacity(0.85))
                         .padding(.top, 4)
+
+                    // Stickman 60s Explainer CTA Button
+                    Button(action: { showStickmanExplainer = true }) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "figure.walk.motion")
+                            Text("Watch 60s Stickman Hack")
+                                .font(.system(size: 12, weight: .bold))
+                            Spacer()
+                            Image(systemName: "play.fill")
+                                .font(.system(size: 10))
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Color.orange.opacity(0.15))
+                        .foregroundColor(.orange)
+                        .cornerRadius(10)
+                    }
                 }
                 .padding()
                 .background(Color(.secondarySystemGroupedBackground))
@@ -186,6 +204,68 @@ public struct ScenarioDetailView: View {
                 InteractiveRoleplayView(scenario: scenario, challenge: challenge)
             }
         }
+        .sheet(isPresented: $showStickmanExplainer) {
+            NavigationStack {
+                ScrollView {
+                    StickmanPlayerView(
+                        scenarioTitle: scenario.title,
+                        frames: sampleStickmanFrames(for: scenario)
+                    )
+                    .padding()
+                }
+                .navigationTitle(scenario.titleJa)
+                .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+    }
+
+    private func sampleStickmanFrames(for s: Scenario) -> [StickmanFrame] {
+        return [
+            StickmanFrame(
+                id: 1,
+                title: "The Situation Setup",
+                sceneType: "hook",
+                characterPose: "confused",
+                dialogueBubble: "「\(s.context)」",
+                narrationJapanese: "東京の現場に到着！店員や駅員が話しかけてくる。",
+                narrationEnglish: "You arrived at the scene. Native Tokyo staff approaches.",
+                visualCue: "Tokyo background environment",
+                accentColor: .orange
+            ),
+            StickmanFrame(
+                id: 2,
+                title: "The Rapid Question",
+                sceneType: "rule",
+                characterPose: "sweating",
+                dialogueBubble: "「\(s.dialogue.first?.japanese ?? "いらっしゃいませ！")」",
+                narrationJapanese: "早口な日本語で質問される。焦らずパターンを見極めよう。",
+                narrationEnglish: "Rapid Tokyo Japanese incoming. Recognize the 1-2 key keywords.",
+                visualCue: "Incoming speech bubble analysis",
+                accentColor: .red
+            ),
+            StickmanFrame(
+                id: 3,
+                title: "The Native Tokyo Shortcut",
+                sceneType: "shortcut",
+                characterPose: "ninja_pose",
+                dialogueBubble: "「\(s.keyVocabulary.first?.word ?? "大丈夫です")」",
+                narrationJapanese: "地元民の魔法のひと言！一瞬で状況をスマートに解決。",
+                narrationEnglish: "Deliver the native 1-line shortcut response.",
+                visualCue: "Magic checkmark shines",
+                accentColor: .green
+            ),
+            StickmanFrame(
+                id: 4,
+                title: "Can-Do Mastery Stamp",
+                sceneType: "badge",
+                characterPose: "confident",
+                dialogueBubble: "「\(s.jfCanDoLevel) 達成！」",
+                narrationJapanese: "これであなたも東京ローカル！パスポートにスタンプ獲得。",
+                narrationEnglish: "Scenario cleared smoothly like a true Tokyo resident!",
+                visualCue: "Passport stamp animation",
+                accentColor: .blue
+            )
+        ]
     }
 }
 
@@ -194,6 +274,7 @@ public struct DialogueBubbleView: View {
     public let showFurigana: Bool
     public let showTranslation: Bool
     public let speed: Float
+    @ObservedObject private var audioService = AudioService.shared
 
     public var body: some View {
         HStack(alignment: .top, spacing: 10) {
@@ -209,6 +290,10 @@ public struct DialogueBubbleView: View {
                         .foregroundColor(.secondary)
 
                     RegisterPill(register: line.register)
+
+                    if audioService.isSpeaking && audioService.currentSpeakingText == line.audioPrompt {
+                        WaveformVisualizerView(height: 14, color: .accentColor)
+                    }
 
                     if !line.isLearner {
                         AudioButton(textToSpeak: line.audioPrompt, rate: speed)
