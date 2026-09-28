@@ -44,6 +44,23 @@ final class TokyoFlowTests: XCTestCase {
         }
     }
 
+    func testDojoBattlesLoadSuccessfully() {
+        let manager = DataManager.shared
+        manager.loadAllData()
+
+        XCTAssertFalse(manager.dojoBattles.isEmpty, "Dojo battles should be loaded from JSON")
+        for battle in manager.dojoBattles {
+            XCTAssertFalse(battle.id.isEmpty)
+            XCTAssertFalse(battle.rounds.isEmpty)
+            XCTAssertFalse(battle.ninjaComboPhrase.isEmpty)
+            for round in battle.rounds {
+                XCTAssertFalse(round.clerkPrompt.isEmpty)
+                XCTAssertGreaterThanOrEqual(round.options.count, 2)
+                XCTAssertTrue(round.options.contains(where: { $0.isCorrect }))
+            }
+        }
+    }
+
     func testSM2SpacedRepetitionAlgorithm() {
         var item = SRSItem(
             japanese: "領収書をお願いします",

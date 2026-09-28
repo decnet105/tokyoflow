@@ -6,6 +6,7 @@ public class DataManager: ObservableObject {
     @Published public var scenarios: [Scenario] = []
     @Published public var mangaLessons: [MangaLesson] = []
     @Published public var announcements: [Announcement] = []
+    @Published public var dojoBattles: [DojoBattle] = []
     @Published public var isLoading: Bool = false
     @Published public var errorMessage: String? = nil
 
@@ -18,6 +19,7 @@ public class DataManager: ObservableObject {
         scenarios = loadJson(filename: "scenarios") ?? []
         mangaLessons = loadJson(filename: "manga_lessons") ?? []
         announcements = loadJson(filename: "announcements") ?? []
+        dojoBattles = loadJson(filename: "dojo_battles") ?? []
         isLoading = false
     }
 

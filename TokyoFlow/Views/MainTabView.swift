@@ -13,6 +13,11 @@ public struct MainTabView: View {
                     Label("Scenarios", systemImage: "map.fill")
                 }
 
+            TokyoDojoView()
+                .tabItem {
+                    Label("Dojo Battles", systemImage: "flame.fill")
+                }
+
             MangaLabView()
                 .tabItem {
                     Label("Manga Lab", systemImage: "book.pages.fill")

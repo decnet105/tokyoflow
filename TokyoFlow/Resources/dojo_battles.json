@@ -1,0 +1,162 @@
+[
+  {
+    "id": "dojo_01_kombini_5_questions",
+    "title": "The 7-Eleven 5-Question Barrage",
+    "titleJa": "コンビニレジ連环5问：3秒忍者通关",
+    "difficulty": "★☆☆ (Beginner)",
+    "location": "7-Eleven / Lawson / FamilyMart",
+    "funTag": "Real Tokyo Daily Classic",
+    "scenarioSetup": "You placed a cold drink and a katsu-curry bento on the checkout counter. The cashier speaks at 1.5x speed. Face the 5 questions in sequence!",
+    "rounds": [
+      {
+        "roundNumber": 1,
+        "clerkPrompt": "ポイントカードはお持ちですか？",
+        "clerkRomaji": "Pointo kādo wa o-mochi desu ka?",
+        "clerkEnglish": "Do you have a store point card?",
+        "options": [
+          { "text": "ないです（大丈夫です）", "isCorrect": true, "nuance": "Perfect 1-second response. Short and natural." },
+          { "text": "私のポイントカードはどこにあるかわかりません", "isCorrect": false, "nuance": "Too long! Blocks the line." },
+          { "text": "ポイントをたくさんください", "isCorrect": false, "nuance": "Nonsensical: 'Give me lots of points'." }
+        ]
+      },
+      {
+        "roundNumber": 2,
+        "clerkPrompt": "お弁当、温めますか？",
+        "clerkRomaji": "O-bentō, atatamemasu ka?",
+        "clerkEnglish": "Shall I warm up your bento in the microwave?",
+        "options": [
+          { "text": "はい、温めてください（お願いします）", "isCorrect": true, "nuance": "Standard polite request to microwave." },
+          { "text": "熱く燃やしてください", "isCorrect": false, "nuance": "'Please burn it with fire' — dangerously wrong!" },
+          { "text": "家で食べます", "isCorrect": false, "nuance": "Doesn't answer whether you want it microwaved now." }
+        ]
+      },
+      {
+        "roundNumber": 3,
+        "clerkPrompt": "お箸かスプーンはお付けしますか？",
+        "clerkRomaji": "O-hashi ka supūn wa o-tsuke shimasu ka?",
+        "clerkEnglish": "Would you like chopsticks or a spoon?",
+        "options": [
+          { "text": "スプーンを一本お願いします", "isCorrect": true, "nuance": "Clear specification for curry/soup dishes." },
+          { "text": "手で食べますから不要です", "isCorrect": false, "nuance": "'I'll eat with bare hands' — unnecessary overshare." },
+          { "text": "フォークを10本ください", "isCorrect": false, "nuance": "Asking for 10 forks for 1 bento is hoarding." }
+        ]
+      },
+      {
+        "roundNumber": 4,
+        "clerkPrompt": "温かいものと冷たいもの、袋はお分けしますか？",
+        "clerkRomaji": "Atatakai mono to tsumetai mono, fukuro wa o-wake shimasu ka?",
+        "clerkEnglish": "Shall I put cold drink and hot bento in separate bags?",
+        "options": [
+          { "text": "一緒でいいです（袋は大丈夫です）", "isCorrect": true, "nuance": "Tokyo native shortcut: 'Together is fine' saves plastic and money." },
+          { "text": "地球温暖化を防ぐために袋を断ります", "isCorrect": false, "nuance": "Preachy environmental speech at 8:30 AM rush hour." },
+          { "text": "全部ポケットに入れます", "isCorrect": false, "nuance": "'I'll put hot curry in my pocket' — good luck!" }
+        ]
+      },
+      {
+        "roundNumber": 5,
+        "clerkPrompt": "お支払い方法はどうされますか？",
+        "clerkRomaji": "O-shiharai hōhō wa dō saremasu ka?",
+        "clerkEnglish": "How will you be paying?",
+        "options": [
+          { "text": "Suicaで！（タッチ決済で / PayPayで）", "isCorrect": true, "nuance": "Fastest contactless payment. Tap and done in 0.5s." },
+          { "text": "1万円札で1円単位まで小銭を崩したいです", "isCorrect": false, "nuance": "Paying 10,000 yen for 150 yen item with exact pennies causes dread." },
+          { "text": "お金は払いたくありません", "isCorrect": false, "nuance": "That's shoplifting!" }
+        ]
+      }
+    ],
+    "ninjaComboPhrase": "「ないです・温めで・スプーン1本・一緒で・Suicaで！」",
+    "ninjaComboExplanation": "Master this 5-word combo and cashiers will mistake you for a 10-year Tokyo resident."
+  },
+  {
+    "id": "dojo_02_ramen_cipher",
+    "title": "Ramen Counter: The 3-Step Customization Cipher",
+    "titleJa": "家系・博多ラーメン：お好み呪文と替え玉暗号",
+    "difficulty": "★★☆ (Intermediate)",
+    "location": "Ikebukuro & Shinjuku Ramen Alleys",
+    "funTag": "Foodie Survival",
+    "scenarioSetup": "You hand your ticket over the greasy ramen counter. The chef shouts: 『ヘイ！お好みは！？』 (What's your preference?!). Respond like a veteran ramen maniac.",
+    "rounds": [
+      {
+        "roundNumber": 1,
+        "clerkPrompt": "麺の硬さはどうしますか？",
+        "clerkRomaji": "Men no katasa wa dō shimasu ka?",
+        "clerkEnglish": "Noodle firmness preference?",
+        "options": [
+          { "text": "硬めで！（博多なら：バリカタで！）", "isCorrect": true, "nuance": "'Katame' (Firm) or 'Barikata' (Super Firm) gives the best texture." },
+          { "text": "ドロドロに溶けるまで茹でてください", "isCorrect": false, "nuance": "'Boil until it dissolves into mush' — the chef will cry." },
+          { "text": "生麺のまま食べます", "isCorrect": false, "nuance": "Raw flour is not recommended." }
+        ]
+      },
+      {
+        "roundNumber": 2,
+        "clerkPrompt": "味の濃さと油の量は？",
+        "clerkRomaji": "Aji no kosa to abura no ryō wa?",
+        "clerkEnglish": "Flavor concentration and chicken oil amount?",
+        "options": [
+          { "text": "味普通、油少なめで！", "isCorrect": true, "nuance": "The golden balanced ratio for Iekei ramen." },
+          { "text": "油を1リットル飲ませてください", "isCorrect": false, "nuance": "Instant heart attack." },
+          { "text": "塩分ゼロでお願いします", "isCorrect": false, "nuance": "Go to an organic vegan salad bar instead." }
+        ]
+      },
+      {
+        "roundNumber": 3,
+        "clerkPrompt": "スープが余って麺がなくなった！どうする？",
+        "clerkRomaji": "Sūpu ga amatte men ga nakunatta! Dō suru?",
+        "clerkEnglish": "Finished your noodles but still have hot soup left. What do you say?",
+        "options": [
+          { "text": "すみません、替え玉（かえだま）をバリカタで！", "isCorrect": true, "nuance": "Official way to order extra noodle refill into existing soup." },
+          { "text": "新しくラーメンをもう一杯最初から作って", "isCorrect": false, "nuance": "You will pay another 1,000 yen for a whole new bowl." },
+          { "text": "スープをお持ち帰り用の水筒に入れます", "isCorrect": false, "nuance": "Pouring hot ramen broth into your water bottle is frowned upon." }
+        ]
+      }
+    ],
+    "ninjaComboPhrase": "「硬め・普通・少なめ！あと替え玉バリカタで！」",
+    "ninjaComboExplanation": "Say this smoothly without looking at the wall menu and the chef will give you nod of supreme respect."
+  },
+  {
+    "id": "dojo_03_izakaya_table_charge",
+    "title": "Izakaya Night: The Mystery Otōshi & The 'X' Check Sign",
+    "titleJa": "居酒屋の洗礼：お通し（謎の小鉢）と「X」会計サイン",
+    "difficulty": "★★☆ (Intermediate)",
+    "location": "Shimbashi & Yurakucho Under-Track Izakayas",
+    "funTag": "Drinking Etiquette",
+    "scenarioSetup": "You sit down on beer crate stools under the train tracks. The staff rushes over with high energy before you even open the menu.",
+    "rounds": [
+      {
+        "roundNumber": 1,
+        "clerkPrompt": "いらっしゃい！お飲み物は何にしますか！？",
+        "clerkRomaji": "Irasshai! O-nomimono wa nan ni shimasu ka!?",
+        "clerkEnglish": "Welcome! What drinks can I get started for everyone!?",
+        "options": [
+          { "text": "とりあえず生（中ジョッキ）で！", "isCorrect": true, "nuance": "The undisputed Japanese opening chant: Draft beer for now!" },
+          { "text": "温かい白湯（さゆ）を一杯", "isCorrect": false, "nuance": "Ordering hot plain boiled water at an Izakaya baffles the staff." },
+          { "text": "10分間考えさせてください", "isCorrect": false, "nuance": "Leaving the staff standing during opening drink round freezes the vibe." }
+        ]
+      },
+      {
+        "roundNumber": 2,
+        "clerkPrompt": "頼んでいない小鉢（枝豆など）が置かれた！これ何？",
+        "clerkRomaji": "Tanonde inai kobachi ga okareta! Kore nani?",
+        "clerkEnglish": "A small dish of edamame/stew arrived that you didn't order. What is it?",
+        "options": [
+          { "text": "『お通し（お通し代）』として席料込みで楽しむ", "isCorrect": true, "nuance": "Otōshi is the traditional Japanese table cover charge appetizer (300-500 yen)." },
+          { "text": "警察を呼んで詐欺だと叫ぶ", "isCorrect": false, "nuance": "It's standard Japanese cultural custom, not fraud." },
+          { "text": "隣の客のテーブルに勝手に押し戻す", "isCorrect": false, "nuance": "Causes an immediate brawl." }
+        ]
+      },
+      {
+        "roundNumber": 3,
+        "clerkPrompt": "店内がガヤガヤしてて声が通らない！お会計を頼む合図は？",
+        "clerkRomaji": "Tennai ga gayagaya shitete koe ga tōranai! O-kaikei o tanomu aizu wa?",
+        "clerkEnglish": "The izakaya is noisy. How do you signal for the bill from across the room?",
+        "options": [
+          { "text": "両手の人差し指で『X（バツ）』を作って店員を見る", "isCorrect": true, "nuance": "Universal Japanese non-verbal body language for 'Check please / We are done'." },
+          { "text": "テーブルをひっくり返す", "isCorrect": false, "nuance": "Table-flipping is only for retro angry anime dads." },
+          { "text": "大声で歌を歌い始める", "isCorrect": false, "nuance": "Staff will think you are drunk, not paying." }
+        ]
+      }
+    ],
+    "ninjaComboPhrase": "「とりあえず生！」＆「指でXサイン（お会計）」",
+    "ninjaComboExplanation": "Master the opening chant and the closing X gesture, and izakaya dining becomes an effortless joy."
+  }
+]
