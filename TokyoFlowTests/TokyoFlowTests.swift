@@ -137,6 +137,10 @@ final class TokyoFlowTests: XCTestCase {
 
     func testThemeManagerSelection() {
         let themeManager = ThemeManager.shared
+        themeManager.currentTheme = .tokyoSubway
+        XCTAssertEqual(themeManager.currentTheme, .tokyoSubway)
+        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_tokyo_subway")
+
         themeManager.currentTheme = .washiPaper
         XCTAssertEqual(themeManager.currentTheme, .washiPaper)
         XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_washi_paper")
@@ -146,6 +150,16 @@ final class TokyoFlowTests: XCTestCase {
 
         themeManager.currentTheme = .liquidGlass
         XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_liquid_glass")
+    }
+
+    func testJapaneseWordSegmenter() {
+        let text = "JR東日本は東京やその近くを走る電車の終電の時間を早めると発表しました。"
+        let tokens = JapaneseWordSegmenter.shared.segment(text: text)
+        XCTAssertFalse(tokens.isEmpty, "Sentence should be split into word tokens")
+        XCTAssertGreaterThanOrEqual(tokens.count, 5, "Should have multiple words")
+
+        let tokenTexts = tokens.map { $0.text }
+        XCTAssertTrue(tokenTexts.contains("JR東日本") || tokenTexts.contains("東京") || tokenTexts.contains("電車"))
     }
 
     func testTokyoProsodyEngine() {
@@ -183,6 +197,7 @@ final class TokyoFlowTests: XCTestCase {
         XCTAssertEqual(primary.id, "nhk_journal_55")
         XCTAssertGreaterThan(primary.durationSec, 3000.0, "Should be approximately 55 minutes")
         XCTAssertFalse(primary.chapters.isEmpty, "Should contain chapter bookmarks")
+        XCTAssertFalse(primary.chapters[0].transcriptSentences.isEmpty, "Chapters should contain transcript sentences for live shadowing")
 
         let radioService = TokyoRadioService.shared
         radioService.setSleepTimer(minutes: 30)

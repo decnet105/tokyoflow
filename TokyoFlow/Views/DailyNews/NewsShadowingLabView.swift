@@ -228,22 +228,20 @@ public struct NewsShadowingLabView: View {
                                 }
                             }
 
-                            // Japanese Text with karaoke highlight
-                            Text(sentence.japanese)
-                                .font(.system(size: 17, weight: isActive ? .bold : .medium))
-                                .foregroundColor(isActive ? .accentColor : .primary)
-                                .lineSpacing(4)
-
-                            if showFurigana {
-                                Text(sentence.furigana)
-                                    .font(.system(size: 13))
-                                    .foregroundColor(isActive ? .accentColor.opacity(0.8) : .secondary)
-                            }
+                            // Word-by-Word Segmented Japanese Text with Furigana & Romaji
+                            SegmentedSentenceWordFlowView(
+                                sentenceText: sentence.japanese,
+                                furiganaText: sentence.furigana,
+                                isActive: isActive,
+                                showFurigana: showFurigana,
+                                showRomaji: true
+                            )
 
                             if showEnglishTranslation {
                                 Text(sentence.english)
                                     .font(.system(size: 13, design: .rounded))
                                     .foregroundColor(.secondary.opacity(0.85))
+                                    .padding(.top, 2)
                             }
 
                             Divider()

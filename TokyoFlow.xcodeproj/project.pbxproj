@@ -80,6 +80,9 @@
 		F0036368131BB88D16D5DA3C /* TokyoSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD599074B84698C16D05C89A /* TokyoSearchSheet.swift */; };
 		F2834D8A914B50A7C4EC184D /* akiba_neon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFB1C3D1A9879E63372E9111 /* akiba_neon.jpg */; };
 		FF989308370B32D97B185A4C /* DailyNewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA67514518B9BEBAF91A49 /* DailyNewsFeedView.swift */; };
+		C2B3C4D5E6F708192A3B4C5D /* JapaneseWordSegmenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A6B7C8D9E0F1A2 /* JapaneseWordSegmenter.swift */; };
+		D3C4B5A6F7E8D9C0B1A2F3E4 /* SegmentedSentenceWordFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5C6B7A8F9E0D1C2B3A4F5 /* SegmentedSentenceWordFlowView.swift */; };
+		F5E6D7C8B9A0F1E2D3C4B5A6 /* tokyo_subway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6B7C8D9E0F1A2B3C4D5E6F7 /* tokyo_subway.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +172,9 @@
 		F300D6636A385734958B3BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F82FB3FEED50E654564AD989 /* scenarios.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = scenarios.json; sourceTree = "<group>"; };
 		FE3404928E63F468F32B5E28 /* TokyoCitizenChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoCitizenChat.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5A6B7C8D9E0F1A2 /* JapaneseWordSegmenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseWordSegmenter.swift; sourceTree = "<group>"; };
+		E4D5C6B7A8F9E0D1C2B3A4F5 /* SegmentedSentenceWordFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedSentenceWordFlowView.swift; sourceTree = "<group>"; };
+		A6B7C8D9E0F1A2B3C4D5E6F7 /* tokyo_subway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tokyo_subway.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -247,6 +253,7 @@
 				BFFA12433CD6E060A2924615 /* AudioService.swift */,
 				786B5DEC3AADA9ED8BBB95C4 /* DataManager.swift */,
 				0FB00AF60BED5893FDB069D0 /* GamificationService.swift */,
+				B1C2D3E4F5A6B7C8D9E0F1A2 /* JapaneseWordSegmenter.swift */,
 				BBF24C075F04FC8E178FB536 /* NativeAudioPlayer.swift */,
 				4106DF667D9E5FBF53B87DD9 /* NHKNewsService.swift */,
 				CD84F712EDD2CBAF7553CB8E /* SRSService.swift */,
@@ -331,6 +338,7 @@
 			children = (
 				4DFA67514518B9BEBAF91A49 /* DailyNewsFeedView.swift */,
 				21A2F7A15C92AE3581C9FFF4 /* NewsShadowingLabView.swift */,
+				E4D5C6B7A8F9E0D1C2B3A4F5 /* SegmentedSentenceWordFlowView.swift */,
 				B9A045308FCAC8B1D0DBE145 /* TokyoRadioMiniPlayerBar.swift */,
 				A2872B2A820CAE6053A88085 /* TokyoRadioPlayerModalView.swift */,
 			);
@@ -346,6 +354,7 @@
 				329FD1E91AF5D75C60B806C3 /* rainy_cafe.jpg */,
 				33068DE465E81EFA35534246 /* reading_cat.jpg */,
 				9D862B90A7511608FAD86AFF /* sunset.jpg */,
+				A6B7C8D9E0F1A2B3C4D5E6F7 /* tokyo_subway.jpg */,
 				807D192206E730C626685F41 /* washi_paper.jpg */,
 			);
 			path = Wallpapers;
@@ -529,6 +538,7 @@
 				57D3EA14E97AA5F96BC30BDF /* reading_cat.jpg in Resources */,
 				20BDAC78F2108A6CB53CC473 /* scenarios.json in Resources */,
 				3371EBCA48A65A66E4D94444 /* sunset.jpg in Resources */,
+				F5E6D7C8B9A0F1E2D3C4B5A6 /* tokyo_subway.jpg in Resources */,
 				3BD65A7DBAF51742C2F9CBA9 /* washi_paper.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,6 +573,7 @@
 				C3E066EB2E671AC145508D74 /* FuriganaText.swift in Sources */,
 				26BA575D4AFB80FDA333502C /* GamificationService.swift in Sources */,
 				CE68FA7AF95FD71BF446BF37 /* InteractiveRoleplayView.swift in Sources */,
+				C2B3C4D5E6F708192A3B4C5D /* JapaneseWordSegmenter.swift in Sources */,
 				5E77FF0B5A8070DFF35AC822 /* KanaItem.swift in Sources */,
 				71AEC1F2D05CE82FB79A2AE1 /* KanaTableView.swift in Sources */,
 				C6008AE106CE2C1624D512BD /* MainTabView.swift in Sources */,
@@ -575,6 +586,7 @@
 				E3BB39B0896F94ECCEFA27ED /* PitchAccentBadge.swift in Sources */,
 				BD07C1A87DB7161D334425AA /* QuestStage.swift in Sources */,
 				8F822CC2D60C8E960283074F /* RegisterPill.swift in Sources */,
+				D3C4B5A6F7E8D9C0B1A2F3E4 /* SegmentedSentenceWordFlowView.swift in Sources */,
 				C1DB8D618165651096762BA8 /* SFXDictionaryView.swift in Sources */,
 				8A15A225D66E72FEC14B73DF /* SRSService.swift in Sources */,
 				3BEBB99EE18CBD01690BA7FA /* Scenario.swift in Sources */,

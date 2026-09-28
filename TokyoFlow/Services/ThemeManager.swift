@@ -2,6 +2,7 @@ import SwiftUI
 
 public enum AppMangaTheme: String, CaseIterable, Identifiable {
     case none = "Pure Clean (无背景)"
+    case tokyoSubway = "Tokyo Metro (东京地铁站)"
     case washiPaper = "Washi Rice Paper (米紙白)"
     case readingCat = "Cozy Reading Cat (読書子猫)"
     case liquidGlass = "Liquid Glasses (流体ガラス)"
@@ -16,6 +17,7 @@ public enum AppMangaTheme: String, CaseIterable, Identifiable {
     public var icon: String {
         switch self {
         case .none: return "slash.circle"
+        case .tokyoSubway: return "tram.fill"
         case .washiPaper: return "doc.plaintext.fill"
         case .readingCat: return "cat.fill"
         case .liquidGlass: return "drop.fill"
@@ -30,6 +32,7 @@ public enum AppMangaTheme: String, CaseIterable, Identifiable {
     public var assetName: String? {
         switch self {
         case .none, .minimalist: return nil
+        case .tokyoSubway: return "wallpaper_tokyo_subway"
         case .washiPaper: return "wallpaper_washi_paper"
         case .readingCat: return "wallpaper_reading_cat"
         case .liquidGlass: return "wallpaper_liquid_glass"
@@ -43,6 +46,7 @@ public enum AppMangaTheme: String, CaseIterable, Identifiable {
     public var resourceFileName: String? {
         switch self {
         case .none, .minimalist: return nil
+        case .tokyoSubway: return "tokyo_subway.jpg"
         case .washiPaper: return "washi_paper.jpg"
         case .readingCat: return "reading_cat.jpg"
         case .liquidGlass: return "liquid_glass.jpg"
@@ -133,6 +137,17 @@ public struct MangaThemeBackgroundView: View {
                     )
                     .ignoresSafeArea()
                     .animation(.easeInOut(duration: 4.0).repeatForever(autoreverses: true), value: animateGlow)
+                    .onAppear { animateGlow = true }
+                } else if themeManager.currentTheme == .tokyoSubway {
+                    // Soft warm train lamp ambient glow
+                    RadialGradient(
+                        colors: [Color.orange.opacity(animateGlow ? 0.12 : 0.04), Color.clear],
+                        center: .topLeading,
+                        startRadius: 40,
+                        endRadius: 450
+                    )
+                    .ignoresSafeArea()
+                    .animation(.easeInOut(duration: 4.5).repeatForever(autoreverses: true), value: animateGlow)
                     .onAppear { animateGlow = true }
                 } else if themeManager.currentTheme == .washiPaper {
                     // Subtle warm rice paper tint
