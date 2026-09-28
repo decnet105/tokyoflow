@@ -40,16 +40,69 @@ KANA_LIST = [
 ]
 
 KANA_WORDS = [
-    ("arigatou", "ありがとう"), ("iie", "いいえ"), ("udon", "うどん"), ("eki", "えき"), ("ocha", "お茶"),
-    ("kasa", "かさ"), ("kitte", "切符"), ("kuruma", "くるま"), ("keitai", "携帯"), ("kouen", "公園"),
-    ("sakura", "さくら"), ("shinkansen", "新幹線"), ("sushi", "寿司"), ("sensei", "先生"), ("sora", "空"),
-    ("takoyaki", "たこ焼き"), ("chikatetsu", "地下鉄"), ("tsuki", "月"), ("tempura", "天ぷら"), ("tomodachi", "友達"),
-    ("nattou", "納豆"), ("nihon", "日本"), ("numa", "沼"), ("neko", "猫"), ("nori", "海苔"),
-    ("hanabi", "花火"), ("hikari", "光"), ("fujisan", "富士山"), ("heya", "部屋"), ("hon", "本"),
-    ("matsuri", "祭り"), ("mizu", "水"), ("mushi", "虫"), ("megane", "眼鏡"), ("mori", "森"),
-    ("yama", "山"), ("yuki", "雪"), ("yoru", "夜"),
-    ("raamen", "ラーメン"), ("ringo", "りんご"), ("rusu", "留守"), ("remon", "レモン"), ("rousoku", "蝋燭"),
-    ("wasabi", "わさび"), ("wo", "を"), ("n_word", "日本")
+    # Seion words
+    ("arigatou", "ありがとう"), ("inu", "いぬ"), ("inu_kanji", "犬"), ("udon", "うどん"), 
+    ("eki", "えき"), ("eki_kanji", "駅"), ("onigiri", "おにぎり"),
+    ("kawaii", "かわいい"), ("kippu", "きっぷ"), ("kippu_kanji", "切符"), 
+    ("kuruma", "くるま"), ("kuruma_kanji", "車"), ("keitai", "けいたい"), ("keitai_kanji", "携帯"),
+    ("konbini", "コンビニ"),
+    ("sakura", "さくら"), ("sakura_kanji", "桜"), ("shinjuku", "しんじゅく"), ("shinjuku_kanji", "新宿"),
+    ("suika", "すいか"), ("suika_eng", "Suica"), ("sensei", "せんせい"), ("sensei_kanji", "先生"),
+    ("soba", "そば"),
+    ("takoyaki", "たこやき"), ("chikatetsu", "ちかてつ"), ("chikatetsu_kanji", "地下鉄"),
+    ("tsuki", "つき"), ("tsuki_kanji", "月"), ("tenpura", "てんぷら"),
+    ("toukyou", "とうきょう"), ("toukyou_kanji", "東京"),
+    ("natsu", "なつ"), ("natsu_kanji", "夏"), ("nihon", "にほん"), ("nihon_kanji", "日本"),
+    ("nuigurumi", "ぬいぐるみ"), ("neko", "ねこ"), ("neko_kanji", "猫"),
+    ("nomimono", "のみもの"), ("nomimono_kanji", "飲み物"),
+    ("hanabi", "はなび"), ("hanabi_kanji", "花火"), ("hikari", "ひかり"), ("hikari_kanji", "光"),
+    ("fujisan", "ふじさん"), ("fujisan_kanji", "富士山"), ("heya", "へや"), ("heya_kanji", "部屋"),
+    ("hon", "ほん"), ("hon_kanji", "本"),
+    ("manga", "まんが"), ("manga_kanji", "漫画"), ("mizu", "みず"), ("mizu_kanji", "水"),
+    ("muryou", "むりょう"), ("muryou_kanji", "無料"), ("megane", "めがね"), ("megane_kanji", "眼鏡"),
+    ("mouichido", "もういちど"),
+    ("yama", "やま"), ("yama_kanji", "山"), ("yume", "ゆめ"), ("yume_kanji", "夢"),
+    ("yoru", "よる"), ("yoru_kanji", "夜"),
+    ("raamen", "ラーメン"), ("ringo", "りんご"), ("ringo_kanji", "林檎"),
+    ("rusuban", "るすばん"), ("rusuban_kanji", "留守番"),
+    ("ressha", "れっしゃ"), ("ressha_kanji", "列車"), ("rousoku", "ろうそく"),
+    ("wasabi", "わさび"), ("okudasai", "をください"),
+    # Dakuon & Handakuon words
+    ("gakkou", "がっこう"), ("gakkou_kanji", "学校"),
+    ("gyuudon", "ぎゅうどん"), ("gyuudon_kanji", "牛丼"),
+    ("gunma", "ぐんま"), ("gunma_kanji", "群馬"),
+    ("genki", "げんき"), ("genki_kanji", "元気"),
+    ("gohan", "ごはん"), ("gohan_kanji", "ご飯"),
+    ("zasshi", "ざっし"), ("zasshi_kanji", "雑誌"),
+    ("jikan", "じかん"), ("jikan_kanji", "時間"),
+    ("zutto", "ずっと"),
+    ("zenbu", "ぜんぶ"), ("zenbu_kanji", "全部"),
+    ("zou", "ぞう"), ("zou_kanji", "象"),
+    ("daijoubu", "だいじょうぶ"), ("daijoubu_kanji", "大丈夫"),
+    ("densha", "でんしゃ"), ("densha_kanji", "電車"),
+    ("doko", "どこ"),
+    ("basho", "ばしょ"), ("basho_kanji", "場所"),
+    ("biiru", "ビール"),
+    ("bunka", "ぶんか"), ("bunka_kanji", "文化"),
+    ("benri", "べんり"), ("benri_kanji", "便利"),
+    ("boku", "ぼく"), ("boku_kanji", "僕"),
+    ("pan", "パン"),
+    ("pinku", "ピンク"),
+    ("purin", "プリン"),
+    ("pen", "ペン"),
+    ("posuto", "ポスト"),
+    # Yoon words
+    ("kyaku", "きゃく"), ("kyaku_kanji", "客"),
+    ("kyuukou", "きゅうこう"), ("kyuukou_kanji", "急行"),
+    ("kyou", "きょう"), ("kyou_kanji", "今日"),
+    ("shashin", "しゃしん"), ("shashin_kanji", "写真"),
+    ("shuuden", "しゅうでん"), ("shuuden_kanji", "終電"),
+    ("shouhin", "しょうひん"), ("shouhin_kanji", "商品"),
+    ("ocha", "おちゃ"), ("ocha_kanji", "お茶"),
+    ("chuumon", "ちゅうもん"), ("chuumon_kanji", "注文"),
+    ("chotto", "ちょっと"),
+    ("nyanko", "にゃんこ"),
+    ("ryoushuusho", "りょうしゅうしょ"), ("ryoushuusho_kanji", "領収書")
 ]
 
 PHRASES_AND_VOCAB = [
@@ -162,6 +215,8 @@ def sanitize_key(text):
 
 def generate_voice_file(file_id, text, voice="Kyoko"):
     out_m4a = os.path.join(OUTPUT_DIR, f"{file_id}.m4a")
+    if os.path.exists(out_m4a) and os.path.getsize(out_m4a) > 0:
+        return f"{file_id}.m4a"
     tmp_aiff = f"/tmp/{file_id}.aiff"
     
     # Generate high fidelity master AIFF

@@ -5,6 +5,9 @@ public struct KanaTableView: View {
     @State private var selectedCategory: KanaCategory = .seion
     @State private var selectedKana: KanaItem? = nil
     @State private var showQuizSheet: Bool = false
+    @State private var activeDialogueKana: KanaItem? = nil
+    @State private var dialogueTimerToken: UUID = UUID()
+
     @ObservedObject var audioService = AudioService.shared
     @ObservedObject var gamification = GamificationService.shared
 
@@ -30,7 +33,7 @@ public struct KanaTableView: View {
 
     public var body: some View {
         NavigationStack {
-            ZStack {
+            ZStack(alignment: .bottom) {
                 MangaThemeBackgroundView()
 
                 ScrollView {
@@ -90,6 +93,7 @@ public struct KanaTableView: View {
                                 KanaCellView(
                                     item: item,
                                     isKatakana: isKatakana,
+                                    isSelected: activeDialogueKana?.id == item.id,
                                     onTap: {
                                         playKana(item)
                                     },
@@ -132,8 +136,37 @@ public struct KanaTableView: View {
                         .background(.ultraThinMaterial)
                         .cornerRadius(20)
                         .padding(.horizontal)
-                        .padding(.bottom, 30)
+                        .padding(.bottom, activeDialogueKana != nil ? 140 : 30)
                     }
+                }
+
+                // 5-Second Auto-Dismissing Manga Dialogue Box Toast
+                if let kana = activeDialogueKana {
+                    KanaSpeechBubbleDialogueView(
+                        kana: kana,
+                        isKatakana: isKatakana,
+                        timerToken: dialogueTimerToken,
+                        onPlayKana: {
+                            audioService.speak(text: kana.hiragana, style: .dailyConversational, rate: 0.46)
+                        },
+                        onPlayWord: {
+                            audioService.speak(text: kana.exampleWordJa)
+                        },
+                        onClose: {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                                activeDialogueKana = nil
+                            }
+                        }
+                    )
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 12)
+                    .transition(
+                        .asymmetric(
+                            insertion: .move(edge: .bottom).combined(with: .scale(scale: 0.92)).combined(with: .opacity),
+                            removal: .opacity.combined(with: .scale(scale: 0.95))
+                        )
+                    )
+                    .zIndex(100)
                 }
             }
             .navigationTitle("五十音图 (Kana Table)")
@@ -150,12 +183,174 @@ public struct KanaTableView: View {
     private func playKana(_ item: KanaItem) {
         audioService.speak(text: item.hiragana, style: .dailyConversational, rate: 0.46)
         gamification.addRewards(tp: 1, exp: 2)
+
+        withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
+            activeDialogueKana = item
+            dialogueTimerToken = UUID()
+        }
+    }
+}
+
+// MARK: - 5-Second Comic Dialogue Speech Balloon Toast
+public struct KanaSpeechBubbleDialogueView: View {
+    public let kana: KanaItem
+    public let isKatakana: Bool
+    public let timerToken: UUID
+    public let onPlayKana: () -> Void
+    public let onPlayWord: () -> Void
+    public let onClose: () -> Void
+
+    @State private var timeRemaining: Double = 5.0
+    private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+
+    public var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            // Dialogue Bubble Top Bar
+            HStack(alignment: .center, spacing: 10) {
+                // Kana Character Badge
+                Button(action: onPlayKana) {
+                    HStack(spacing: 5) {
+                        Text(isKatakana ? kana.katakana : kana.hiragana)
+                            .font(.system(size: 22, weight: .black, design: .rounded))
+                            .foregroundColor(.accentColor)
+
+                        Text("[\(kana.romaji)]")
+                            .font(.system(size: 13, weight: .bold, design: .monospaced))
+                            .foregroundColor(.secondary)
+
+                        Image(systemName: "speaker.wave.1.fill")
+                            .font(.system(size: 11))
+                            .foregroundColor(.accentColor)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
+                    .background(Color.accentColor.opacity(0.12))
+                    .cornerRadius(10)
+                }
+                .buttonStyle(PlainButtonStyle())
+
+                Text("💬 常用例词 (Example Word)")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundColor(.secondary)
+
+                Spacer()
+
+                // 5s Countdown Badge
+                HStack(spacing: 4) {
+                    Image(systemName: "timer")
+                        .font(.system(size: 10))
+                    Text(String(format: "%.1fs", max(0, timeRemaining)))
+                        .font(.system(size: 11, weight: .bold, design: .monospaced))
+                }
+                .foregroundColor(.secondary)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 3)
+                .background(Color.primary.opacity(0.06))
+                .cornerRadius(8)
+
+                // Close Button
+                Button(action: onClose) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 18))
+                        .foregroundColor(.secondary.opacity(0.8))
+                }
+            }
+
+            Divider()
+                .opacity(0.35)
+
+            // Word, Romaji, Meaning, and Audio Button
+            HStack(alignment: .center, spacing: 12) {
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        Text(kana.exampleWordJa)
+                            .font(.system(size: 20, weight: .black, design: .rounded))
+                            .foregroundColor(.primary)
+
+                        Text(kana.exampleWordRomaji)
+                            .font(.system(size: 14, weight: .bold, design: .monospaced))
+                            .foregroundColor(.accentColor)
+                    }
+
+                    Text(kana.exampleWordEn)
+                        .font(.system(size: 13, weight: .medium))
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+
+                Spacer()
+
+                // Listen to Native Audio Button
+                Button(action: onPlayWord) {
+                    HStack(spacing: 5) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 13, weight: .bold))
+                        Text("原音")
+                            .font(.system(size: 13, weight: .bold))
+                    }
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 8)
+                    .background(
+                        LinearGradient(
+                            colors: [Color.accentColor, Color.accentColor.opacity(0.85)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .cornerRadius(12)
+                    .shadow(color: Color.accentColor.opacity(0.3), radius: 4, x: 0, y: 2)
+                }
+            }
+
+            // 5s Animated Linear Progress Bar
+            GeometryReader { geo in
+                ZStack(alignment: .leading) {
+                    Capsule()
+                        .fill(Color.primary.opacity(0.08))
+                        .frame(height: 3.5)
+
+                    Capsule()
+                        .fill(
+                            LinearGradient(
+                                colors: [Color.accentColor, Color.orange],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .frame(width: geo.size.width * CGFloat(max(0, timeRemaining / 5.0)), height: 3.5)
+                }
+            }
+            .frame(height: 3.5)
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 18)
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18)
+                        .stroke(Color.accentColor.opacity(0.35), lineWidth: 1.5)
+                )
+                .shadow(color: Color.black.opacity(0.2), radius: 14, x: 0, y: 6)
+        )
+        .id(timerToken)
+        .onAppear {
+            timeRemaining = 5.0
+        }
+        .onReceive(timer) { _ in
+            if timeRemaining > 0.1 {
+                timeRemaining -= 0.1
+            } else {
+                onClose()
+            }
+        }
     }
 }
 
 public struct KanaCellView: View {
     public let item: KanaItem
     public let isKatakana: Bool
+    public var isSelected: Bool = false
     public let onTap: () -> Void
     public let onLongPress: () -> Void
 
@@ -164,19 +359,20 @@ public struct KanaCellView: View {
             VStack(spacing: 2) {
                 Text(isKatakana ? item.katakana : item.hiragana)
                     .font(.system(size: 26, weight: .bold, design: .rounded))
-                    .foregroundColor(.primary)
+                    .foregroundColor(isSelected ? .accentColor : .primary)
 
                 Text(item.romaji)
                     .font(.system(size: 11, weight: .semibold, design: .monospaced))
-                    .foregroundColor(.secondary)
+                    .foregroundColor(isSelected ? .accentColor : .secondary)
             }
             .frame(maxWidth: .infinity)
             .frame(height: 68)
+            .background(isSelected ? Color.accentColor.opacity(0.15) : Color.clear)
             .background(.ultraThinMaterial)
             .cornerRadius(14)
             .overlay(
                 RoundedRectangle(cornerRadius: 14)
-                    .stroke(Color.accentColor.opacity(0.15), lineWidth: 1)
+                    .stroke(isSelected ? Color.accentColor : Color.accentColor.opacity(0.15), lineWidth: isSelected ? 2 : 1)
             )
         }
         .buttonStyle(PlainButtonStyle())
@@ -260,18 +456,29 @@ public struct KanaDetailModal: View {
                                 .foregroundColor(.secondary)
                         }
 
-                        HStack {
-                            Text(kana.exampleWordJa)
-                                .font(.system(size: 20, weight: .bold))
+                        HStack(alignment: .firstTextBaseline) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                HStack(spacing: 8) {
+                                    Text(kana.exampleWordJa)
+                                        .font(.system(size: 20, weight: .bold))
+                                    Text("[\(kana.exampleWordRomaji)]")
+                                        .font(.system(size: 15, weight: .bold, design: .monospaced))
+                                        .foregroundColor(.accentColor)
+                                }
+                                Text(kana.exampleWordEn)
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
                             Spacer()
-                            Text(kana.exampleWordEn)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
                             Button(action: {
                                 audioService.speak(text: kana.exampleWordJa)
                             }) {
                                 Image(systemName: "speaker.wave.2.fill")
-                                    .foregroundColor(.accentColor)
+                                    .font(.title3)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .background(Color.accentColor)
+                                    .clipShape(Circle())
                             }
                         }
 

@@ -78,9 +78,17 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
         let lower = text.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         if let fn = manifest[lower] { return fn }
 
-        // 4. Substring prefix match for particles (e.g., "袋は大丈夫です" -> "大丈夫です")
+        // 4. Tokenized component match (e.g. "いぬ (犬)" -> check "いぬ", then "犬")
+        let tokens = text.components(separatedBy: CharacterSet(charactersIn: " ()（）/~〜・,、:：")).filter { !$0.isEmpty }
+        for tok in tokens {
+            if let fn = manifest[tok] ?? manifest[normalizeKey(tok)] ?? manifest[tok.lowercased()] {
+                return fn
+            }
+        }
+
+        // 5. Substring match for particles or compound sentences
         for (key, fn) in manifest {
-            if !key.isEmpty && (text.contains(key) || norm.contains(key)) && key.count >= 2 {
+            if !key.isEmpty && key.count >= 2 && (text.contains(key) || norm.contains(key)) {
                 return fn
             }
         }

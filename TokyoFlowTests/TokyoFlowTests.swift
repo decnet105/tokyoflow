@@ -165,11 +165,13 @@ final class TokyoFlowTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(kana.dakuonList.count, 20, "Should contain Dakuon kana")
         XCTAssertFalse(kana.yoonList.isEmpty, "Should contain Yoon kana")
 
-        for item in kana.seionList {
+        for item in kana.seionList + kana.dakuonList + kana.yoonList {
             XCTAssertFalse(item.hiragana.isEmpty)
             XCTAssertFalse(item.katakana.isEmpty)
             XCTAssertFalse(item.romaji.isEmpty)
             XCTAssertFalse(item.exampleWordJa.isEmpty)
+            XCTAssertFalse(item.exampleWordRomaji.isEmpty, "Every kana must have an example word romaji")
+            XCTAssertFalse(item.exampleWordEn.isEmpty)
         }
     }
 
@@ -199,6 +201,14 @@ final class TokyoFlowTests: XCTestCase {
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "サ"))
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "きゃ"))
 
+        // Test Kana Example Word matching
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "ありがとう"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "いぬ (犬)"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "さくら (桜)"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "すいか (Suica)"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "とうきょう (東京)"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "ラーメン"))
+
         // Test High-frequency survival phrases
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "温めてください"))
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "大丈夫です"))
@@ -208,7 +218,6 @@ final class TokyoFlowTests: XCTestCase {
 
         // Test Tokyo Vocabulary & SFX
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "Suica"))
-        XCTAssertTrue(voiceBank.hasNativeAudio(for: "ラーメン"))
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "居酒屋"))
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "ドキドキ"))
 
