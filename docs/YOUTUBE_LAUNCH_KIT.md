@@ -1,173 +1,294 @@
-# TokyoFlow Japanese • YouTube 官方频道开号与发布物料包 (Launch Kit)
+# 🚀 TokyoFlow Japanese • YouTube Channel Launch Kit
+*(官方 YouTube 创作者上线与发布实操手册)*
 
 ---
 
-## 一、 频道基本信息 (Channel Basic Info)
+## 📌 目录与快速导航
+1. [第一步：YouTube 频道基础资料设置 (Channel Profile Setup)](#1-第一步youtube-频道基础资料设置)
+2. [第二步：频道视觉资产配置 (Visual Assets Setup)](#2-第二步频道视觉资产配置)
+3. [第三步：首发 3 支精选视频发布包 (First 3 Launch Videos)](#3-第三步首发-3-支精选视频发布包)
+4. [第四步：播放列表创建与分类 (Playlists Setup)](#4-第四步播放列表创建与分类)
+5. [第五步：社区首帖与置顶互动 (Community & Pinned Comments)](#5-第五步社区首帖与置顶互动)
+6. [第六步：全流程上传操作步骤 (Step-by-Step Upload Walkthrough)](#6-第六步全流程上传操作步骤)
 
-### 1. 频道名称 (Channel Name)
-```
-TokyoFlow Japanese / TokyoFlow 日语
+---
+
+## 1. 第一步：YouTube 频道基础资料设置
+
+> **中文操作提示**：
+> 1. 打开 [YouTube Studio (studio.youtube.com)](https://studio.youtube.com/)。
+> 2. 点击左侧菜单的 **「Customization (自定义)」** -> **「Basic info (基本信息)」**。
+> 3. 复制并填入以下英文内容。
+
+### 🏷️ Channel Name (频道名称)
+```text
+TokyoFlow Japanese
 ```
 
-### 2. 用户名 / 频道后缀 (Handle)
-```
+### 🆔 Handle (唯一用户名 / 网址短链)
+```text
 @TokyoFlowJapanese
 ```
+*(备选：`@TokyoFlowJP` 或 `@TokyoFlowLanguage`)*
 
-### 3. 频道简介 / 关于 (Channel Description)
-*直接复制粘贴至 YouTube Studio「自定义 -> 基本信息 -> 说明」：*
+### 📝 Channel Bio / Description (频道完整简介)
+```text
+Welcome to TokyoFlow Japanese 🎌 — Master real-life Tokyo Japanese through authentic scenarios, native train announcements, kombini survival drills, and NHK news shadowing.
 
-```
-🌸 欢迎来到 TokyoFlow Japanese（东京实景沉浸式日语）！
+💡 WHY TOKYOFLOW?
+Traditional textbooks teach stiff, formal Japanese you rarely hear on Tokyo streets. TokyoFlow bridges the gap between textbook theory and real-life Tokyo fluency:
+• 🚄 Authentic Metro & Yamanote Line announcements with furigana breakdowns.
+• 🏪 1-second survival response phrases for 7-Eleven, FamilyMart & Lawson.
+• 🍢 Izakaya ordering etiquette, sake culture & casual slang.
+• 🎙️ NHK Easy Japanese news shadowing with pitch accent guidance.
+• 🎯 JLPT N5 to N1 core vocabulary in context.
 
-我们致力于用最地道、最真实的「东京实景用例（Tokyo Use-Cases）」，帮你彻底告别死记硬背与机械语法，带你像东京本地人一样自然开口说日语。
+📱 COMPANION iOS APP:
+Download 'TokyoFlow' on the Apple App Store for free interactive voice scoring, Kana drills, and intelligent SRS flashcards.
 
-🎯 频道核心内容：
-⚡️【东京实景短视频】电车换乘、便利店微波炉结账、居酒屋点菜等 1 秒救命日常口语。
-🎬【场景深度精讲】逐句拆解 JR 站台广播、店员连环问潜规则、敬语与声调走向（Shadowing 跟读）。
-📻【NHK 慢速电台】纯正东京音沉浸式磨耳朵与睡眠伴读，突破 JLPT 听力瓶颈。
-
-📱 配套 iOS App「TokyoFlow」现已在 App Store 免费开放下载：
-全量收录 N1-N5 核心词库、4,170 个真人母语音频、毫秒级跟读评分与「次はどこへ行く？」动态路线生成。
-
-📩 商务合作 & 反馈: contact@tokyoflow.app
-🌐 官网: https://tokyoflow.app
-
-#日语学习 #日本旅游 #JLPT #日语听力 #东京生活 #日语口语 #JapaneseLearning
+🔔 Subscribe for weekly Tokyo immersion lessons and level up your Japanese confidence!
+#Japanese #LearnJapanese #Tokyo #JLPT #JapaneseListening #StudyJapanese
 ```
 
-### 4. 频道核心标签 / SEO 关键字 (Channel Tags)
-*直接复制粘贴至 YouTube Studio「设置 -> 频道 -> 关键字」：*
+### 🌐 Links & Socials (频道外链配置)
+- **Link Title 1**: `📱 Download Free iOS App (TokyoFlow)`
+- **Link URL 1**: `https://apps.apple.com/app/tokyoflow` *(上线后填入 App Store 真实链接)*
+- **Link Title 2**: `🎌 Official Website`
+- **Link URL 2**: `https://tokyoflow.app`
 
+---
+
+## 2. 第二步：频道视觉资产配置
+
+> **中文操作提示**：
+> 1. 在 **YouTube Studio** -> **「Customization (自定义)」** -> **「Branding (品牌)」** 页面。
+> 2. 上传头像（Profile picture）、横幅（Banner image）和视频水印（Video watermark）。
+> 3. 本地资产文件位于项目的 `docs/youtube_assets/` 目录下。
+
+| 资产类型 | 推荐尺寸 | 本地文件路径 | 效果说明 |
+| :--- | :--- | :--- | :--- |
+| **Profile Picture (头像)** | 800 x 800 px | `docs/youtube_assets/tokyoflow_official_app_icon.jpg` | 极简东京红白黑鸟居流动水滴设计，高辨识度 |
+| **Banner Image (频道横幅)** | 2560 x 1440 px | `docs/youtube_assets/tokyoflow_channel_banner.jpg` | 东京天际线 + 鸟居 + 英文清晰标语，全端自适应居中 |
+| **Video Watermark (视频右下角水印)** | 150 x 150 px | `docs/youtube_assets/tokyoflow_official_app_icon.jpg` | 设置为 "Entire video (整个视频)" 显示 |
+
+---
+
+## 3. 第三步：首发 3 支精选视频发布包
+
+已渲染完成的 1080p 视频文件位于项目目录：[`output/videos/`](file:///Users/kilvonwu/Documents/UseCaseDrivenJapanese/output/videos)。
+
+---
+
+### 🎬 Video 1: 山手线与东京地铁广播
+- **本地视频文件**: `output/videos/tokyoflow_v01_yamanote_transit.mp4`
+- **时长**: 34秒 (精讲版) / 可切入 Shorts / Long-form
+
+#### Title (视频标题)
+```text
+Tokyo Metro & Yamanote Line Platform Broadcasts | Real-Life Japanese Listening Drill
 ```
-TokyoFlow, TokyoFlow Japanese, 日语学习, 日语自学, 日本旅游日语, 便利店日语, 电车日语, 居酒屋日语, JLPT N5, JLPT N4, JLPT N3, JLPT N2, JLPT N1, NHK新闻听力, 日语跟读, Shadowing, 日语发音, 五十音图, 日本生活口语, Learn Japanese, Japanese immersion, Tokyo Japanese
+
+#### Description (视频简介)
+```text
+Decode authentic Tokyo train station announcements! In this lesson, we break down real Yamanote Line platform audio, polite safety warnings, and the #1 phrase to ask station staff for transfers.
+
+⏱️ TIMESTAMPS:
+0:00 - Approaching Train Announcement (まもなく、2番線に...)
+0:10 - Platform Safety Warning (黄色い点字ブロックの内側まで...)
+0:18 - Transfer Assistance Phrase (中央線への乗り換えは...)
+0:24 - Shadowing Practice & iOS App Download
+
+📌 KEY PHRASES COVERED:
+1. まもなく、2番線に山手線内回りがまいります。
+(The Yamanote Line inner loop train will arrive on Platform 2.)
+2. 黄色い点字ブロックの内側までお下がりください。
+(Please stand behind the yellow tactile warning blocks.)
+3. すみません、中央線への乗り換えはどのホームですか？
+(Excuse me, which platform is the transfer for the Chuo Line?)
+
+📱 LEVEL UP WITH THE TOKYOFLOW APP:
+Practice instant voice recognition & pitch accent on the TokyoFlow iOS app: https://tokyoflow.app
+
+🔔 Subscribe to @TokyoFlowJapanese for weekly real Tokyo scenarios!
+
+#LearnJapanese #TokyoMetro #YamanoteLine #JapaneseListening #JapanesePhrases #JLPT
+```
+
+#### Tags (视频标签)
+```text
+japanese listening, learn japanese, tokyo metro, yamanote line, japanese train announcements, tokyo transit, japanese phrases, jlpt n5 listening, shadowing japanese, japanese pronunciation
 ```
 
 ---
 
-## 二、 首发 3 部视频上传配置物料 (Video Upload Kits)
+### 🎬 Video 2: 日本便利店结账与微波炉加热
+- **本地视频文件**: `output/videos/tokyoflow_v02_kombini_checkout.mp4`
+- **时长**: 25秒
 
----
-
-### 📹 视频 1：【东京电车现场】山手线高峰换乘与站台广播彻底解密
-*本地文件路径*: `output/videos/tokyoflow_v01_yamanote_transit.mp4`
-
-#### 1. 视频标题 (Title)
-```
-【东京电车现场】山手线高峰换乘与站台广播彻底解密！日本电车听力与1秒问路金句 | TokyoFlow Japanese
+#### Title (视频标题)
+```text
+Japanese 7-Eleven & FamilyMart Checkout Mastery | 1-Second Kombini Survival Phrases
 ```
 
-#### 2. 视频简介 (Description)
-```
-在东京坐电车，站台广播说的「まもなく、2番線に山手線内回りがまいります」究竟是什么意思？面对早高峰的新宿、涩谷站台迷宫，如何向站务员 1 秒问出正确换乘站台？
+#### Description (视频简介)
+```text
+Never freeze at a Japanese convenience store register again! Master the 3 essential questions Tokyo 7-Eleven, FamilyMart, and Lawson cashiers ask you every single time.
 
-本期实景精讲带你拆解 JR 山手线进站广播、盲道警示与高频换乘问路金句！
+⏱️ TIMESTAMPS:
+0:00 - Bento Heating Question (お弁当温めますか？)
+0:06 - Declining Plastic Bags (レジ袋は大丈夫です)
+0:12 - Contactless Payment Selection (Suicaでお願いします)
+0:18 - Review & TokyoFlow App Outro
 
-⏰ 章节时间轴 (Timestamps):
-00:00 现场实景还原 • 山手线进站广播
-00:10 站台警示与安全 • 黄色点字盲道
-00:18 换乘求助金句 • 中央线换乘
-00:23 频道订阅与免费 App 配套资源
+📌 KEY PHRASES COVERED:
+1. お弁当温めますか？ -> 温めてください (Please heat it up) / 大丈夫です (No thanks)
+2. レジ袋は大丈夫です。(No plastic bag needed, thank you.)
+3. Suicaでお願いします。(I will pay with Suica, please.)
 
-📱【本期配套免费学习资源】
-本期视频中出现的全部句型、声调走向与真人音频，已同步收录至【TokyoFlow】iOS App。
-完全免费、支持一键毫秒级跟读评分，App Store 搜索「TokyoFlow」即可下载！
+💡 PRO-TIP:
+Pairing "大丈夫です (daijoubu desu)" with a subtle head nod is the most natural way to politely decline in Tokyo.
 
-#日语学习 #日本电车 #山手线 #东京旅游 #JLPT听力 #日本自由行
-```
+📱 Download TokyoFlow for free iOS practice: https://tokyoflow.app
 
-#### 3. 置顶评论 (Pinned Comment)
-```
-📌【本期配套练习福利】
-想练习本期电车广播的逐句跟读与声调测试吗？
-👉 免费下载 iOS App【TokyoFlow】：App Store 搜索 TokyoFlow
-完全免费收录 4,170 个东京母语音频与全景实战演练！大家下期想看哪个车站的解密？欢迎在评论区留言！👇
+#JapaneseConvenienceStore #7ElevenJapan #KombiniJapanese #StudyJapanese #JapaneseForTravel
 ```
 
-#### 4. 视频标签 (Video Tags)
-```
-东京电车, 山手线, 日本电车广播, 日语听力, 新宿站换乘, 日本自由行, 日语发音, TokyoFlow, Learn Japanese, Yamanote line, Tokyo transit
+#### Tags (视频标签)
+```text
+kombini japanese, 7 eleven japan, japanese checkout phrases, convenient store japanese, learn japanese for travel, tokyo 711, speak japanese, jlpt vocabulary, basic japanese
 ```
 
 ---
 
-### 📹 视频 2：【便利店攻防战】日本7-11结账连环问与微波炉加热全攻略
-*本地文件路径*: `output/videos/tokyoflow_v02_kombini_checkout.mp4`
+### 🎬 Video 3: 居酒屋地道点单与干杯礼仪
+- **本地视频文件**: `output/videos/tokyoflow_v03_izakaya_night.mp4`
+- **时长**: 26秒
 
-#### 1. 视频标题 (Title)
-```
-【便利店攻防战】日本7-11结账连环问与微波炉加热全攻略！店员必问3大日常口语 | TokyoFlow Japanese
-```
-
-#### 2. 视频简介 (Description)
-```
-在日本 7-11、全家、罗森便利店结账时，店员机关枪语速连环问「お弁当温めますか？」「レジ袋はご利用ですか？」，到底该如何自然回复？为什么不能只说「はい」？
-
-本期拆解日本便利店最实用的 3 个结账场景与 1 秒无痛回复法！
-
-⏰ 章节时间轴 (Timestamps):
-00:00 便当加热连环问 • 温めてください
-00:06 塑料袋与环保 • 大丈夫です
-00:12 移动支付指定 • Suicaでお願いします
-00:18 频道订阅与配套 App
-
-📱【本期配套免费学习资源】
-前往 App Store 搜索下载【TokyoFlow】App，免费练习便利店全部收银实战演练！
-
-#便利店日语 #日本711 #日本旅游 #日本便利店 #日语口语 #TokyoFlow
+#### Title (视频标题)
+```text
+Authentic Tokyo Izakaya Ordering & Etiquette | Japanese Dining Survival Guide
 ```
 
-#### 3. 置顶评论 (Pinned Comment)
-```
-📌【便利店实战口诀】
-加热便当说：「温めてください（あたためてください）」
-不要塑料袋说：「大丈夫です（だいじょうぶです）」
-用西瓜卡结账说：「Suicaでお願いします」
-👉 更多便利店点心、炸鸡排与咖啡机点单实战，都在【TokyoFlow】App 免费提供！欢迎订阅频道获取更多东京干货！🌸
+#### Description (视频简介)
+```text
+How to order like a Tokyo local at traditional Izakayas! Master the magic first-round beer phrase, yakitori seasoning choices, and getting your bill and receipt smoothly.
+
+⏱️ TIMESTAMPS:
+0:00 - The Golden First Drink Order (とりあえず生ビール二つ！)
+0:06 - Yakitori Shio vs Tare (焼き鳥盛り合わせを塩で)
+0:12 - The Check & Formal Receipt (お会計と領収書をお願いします)
+0:18 - Practice & Community Challenge
+
+📌 KEY PHRASES COVERED:
+1. とりあえず生ビール二つお願いします！
+(To start, two draft beers please!)
+2. 焼き鳥盛り合わせを塩でお願いします。
+(Assorted yakitori platter with salt seasoning, please.)
+3. お会計と領収書をお願いします。
+(The bill and formal receipt, please.)
+
+🍻 CULTURAL NOTE:
+"とりあえず (toriaezu)" means "for now / to start" — ordering drinks before food allows izakaya staff to serve your table quickly.
+
+📱 Free TokyoFlow iOS App: https://tokyoflow.app
+
+#Izakaya #JapaneseFood #OrderInJapanese #TravelJapan #JapaneseCulture #SpeakJapanese
 ```
 
-#### 4. 视频标签 (Video Tags)
-```
-便利店日语, 日本便利店, 711便利店, お弁当温めますか, レジ袋, Suica支付, 日本旅游实用日语, 日语口语, TokyoFlow
+#### Tags (视频标签)
+```text
+izakaya japanese, how to order in japan, tokyo izakaya, japanese food phrases, learn japanese, japanese dining etiquette, jlpt listening, nihongo
 ```
 
 ---
 
-### 📹 视频 3：【居酒屋江湖】日本昭和居酒屋点菜、开胃菜与干杯礼仪
-*本地文件路径*: `output/videos/tokyoflow_v03_izakaya_night.mp4`
+## 4. 第四步：播放列表创建与分类 (Playlists Setup)
 
-#### 1. 视频标题 (Title)
-```
-【居酒屋江湖】日本昭和居酒屋点单、开胃菜与干杯礼仪！「とりあえず生」的黄金法则 | TokyoFlow Japanese
-```
+> **中文操作提示**：
+> 在 **YouTube Studio** -> **「Content (内容)」** -> **「Playlists (播放列表)」** 创建以下 4 个官方分类列表，方便观众连续播放，大幅提升频道观看时长（Watch Time）。
 
-#### 2. 视频简介 (Description)
-```
-走进新宿思出横丁或涩谷的昭和风居酒屋，为什么大家一坐下就要先喊「とりあえず生」？什么是「お通し（Otoshi）」开胃菜文化？烤鸡肉串的「塩（盐烤）」和「タレ（酱烤）」该怎么选？
+| 播放列表名称 (Title) | 英文简介 (Description) |
+| :--- | :--- |
+| **🚇 Tokyo Transit & Station Japanese** | Master real Tokyo train announcements, subway transfers, ticket machine navigation, and platform safety drills. |
+| **🏪 Kombini & Street Survival Japanese** | 1-second survival phrases for 7-Eleven, FamilyMart, drugstores, vending machines, and fast casual dining. |
+| **🍢 Izakaya & Tokyo Foodie Japanese** | Order ramen, yakitori, sushi, and izakaya specialties like a Tokyo local. Includes dining etiquette and cultural tips. |
+| **🎙️ NHK Daily News & Shadowing Drills** | Build authentic listening comprehension with simplified NHK Easy Japanese news audio and sentence-by-sentence shadowing. |
 
-本期为你揭秘日本居酒屋的点酒、点单、干杯与结账开发票全流程！
+---
 
-⏰ 章节时间轴 (Timestamps):
-00:00 入座第一杯酒 • とりあえず生ビール
-00:06 烤串盐与酱汁 • 盛り合わせを塩で
-00:12 结账与开收据 • お会計と領収書
-00:18 频道订阅与配套 App
+## 5. 第五步：社区首帖与置顶互动 (Community & Pinned Comments)
 
-📱【本期配套免费学习资源】
-前往 App Store 搜索下载【TokyoFlow】iOS App，解锁居酒屋酒水、刺身、烤串全套点单发音！
+### 📌 Pinned Comment Template (所有视频首条置顶评论模板)
+在每个视频发布后，自己在评论区发送并**点击三点菜单选择「Pin (置顶)」**：
 
-#居酒屋日语 #日本美食 #日本旅游 #居酒屋文化 #日语口语 #とりあえず生 #TokyoFlow
-```
+```text
+🎌 What Tokyo scenario do you want us to cover next?
+A) Ordering at Ichiran Ramen (オーダー用紙 paper customizer)
+B) Akihabara Anime & Figure hunting phrases
+C) Japanese Drugstore (Matsumoto Kiyoshi) shopping hacks
+D) Tokyo Taxi & Airport Limousine Bus
 
-#### 3. 置顶评论 (Pinned Comment)
-```
-📌【居酒屋点单秘籍】
-入座第一句话：「とりあえず生ビール二つお願いします！（先来两杯生啤！）」
-结账开发票：「お会計と領収書をお願いします！」
-👉 在【TokyoFlow】App 中可直接模拟居酒屋老板对话与听音点单，完全免费！下期想看拉面点餐机还是寿喜烧？留言告诉我们！🍻
+Drop your vote in the comments below! 👇
+And don't forget to practice today's audio drill in our free iOS companion app: https://tokyoflow.app
 ```
 
-#### 4. 视频标签 (Video Tags)
+---
+
+### 💬 Community Post 1 (频道发布第一条图文社区动态)
+当频道具备社区功能或首周发布时使用：
+
+```text
+Konnichiwa everyone! 🌸 Welcome to the official TokyoFlow Japanese channel! 🎌
+
+Our mission is to help you speak natural, authentic Tokyo Japanese with zero awkwardness. Whether you are prepping for your Tokyo trip, grinding for the JLPT, or mastering native listening, we've got you covered.
+
+✨ What we are bringing you every week:
+• Real-life scenario audio breakdowns (Train, Kombini, Izakaya, Anime shops)
+• 1-second rapid survival phrases
+• NHK News shadowing drills with native pitch accents
+
+📱 Download our companion iOS App "TokyoFlow" on the App Store for interactive practice.
+
+Hit subscribe, turn on notifications, and let us know: Where in Tokyo do you want to visit first? 🗼🚄
 ```
-居酒屋日语, とりあえず生, 居酒屋点单, 烤鸡肉串日语, 日本居酒屋文化, 领收书发票, 日本自由行美食, 日语口语, TokyoFlow
+
+---
+
+## 6. 第六步：全流程上传操作步骤
+
+### 🛠️ 详细上传实操指引（图文对应）
+
+```mermaid
+flowchart TD
+    A["登录 YouTube Studio"] --> B["右上角点击 CREATE -> Upload videos"]
+    B --> C["选择 output/videos/ 下的 MP4 文件"]
+    C --> D["复制填入 Title / Description / Tags"]
+    D --> E["选择 Thumbnail (可使用视频第 1 帧或定制封面)"]
+    E --> F["添加到对应 Playlist 播放列表"]
+    F --> G["受众选择: No, it's not made for kids"]
+    G --> H["Visibility 选择: Public (公开) 或 Schedule (定时发布)"]
+    H --> I["发布后在评论区发送并 Pin 置顶引导评论"]
+    I --> J["在 iOS App 和社交媒体同步分享"]
 ```
+
+#### 具体操作清单：
+1. **上传视频文件**：
+   - 打开 [studio.youtube.com](https://studio.youtube.com/)。
+   - 点击右上角 **「CREATE (创建)」** -> **「Upload videos (上传视频)」**。
+   - 拖拽 `output/videos/tokyoflow_v01_yamanote_transit.mp4` 开始上传。
+2. **填写元数据 (Metadata)**：
+   - 将上面第三部分准备好的 **Title** 和 **Description** 直接粘贴进去。
+   - **Thumbnail (缩略图)**：选择视频自动生成的精美卡片帧，或上传定制封面。
+   - **Playlists**：勾选对应的播放列表（例如 `Tokyo Transit & Station Japanese`）。
+   - **Audience**：必须勾选 **「No, it's not made for kids」**（符合 COPPA 法规，以便开启评论区和通知铃铛）。
+3. **Show More (高级设置)**：
+   - 展开 **「Show more」**，将 **Tags** 标签粘贴到 Tags 框中。
+   - **Video language** 选择 `Japanese`，**Title and description language** 选择 `English`。
+4. **Visibility (发布可见性)**：
+   - 选择 **Public (公开)**，或者建议选择 **Schedule (定时发布)**（例如设定在美东时间早 8 点 / 晚 8 点的流量高峰期）。
+5. **置顶评论**：
+   - 视频发布成功后，打开视频观看页，粘贴第五部分的 **Pinned Comment**，点击右侧三点菜单选择 **「Pin (置顶)」**。
+
+---
+
+*TokyoFlow Japanese — Created for global Japanese learners.* 🎌
