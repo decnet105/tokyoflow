@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum WordChipState {
+public enum WordChipState: Equatable {
     case upcoming
     case active
     case past
@@ -13,16 +13,14 @@ public struct SegmentedSentenceWordFlowView: View {
     public var sentenceProgress: Double = 0.0 // 0.0 to 1.0 (relative to sentence duration)
     public var manualActiveWordIndex: Int? = nil
     public var showFurigana: Bool = true
-    public var showRomaji: Bool = true
+    public var showRomaji: Bool = false
     public var onSelectWordToShadow: ((WordToken) -> Void)? = nil
 
+    @State private var words: [WordToken] = []
     @State private var selectedToken: WordToken? = nil
     @State private var showWordPopup: Bool = false
     @ObservedObject var audioService = AudioService.shared
-
-    private var words: [WordToken] {
-        JapaneseWordSegmenter.shared.segment(text: sentenceText, furiganaReference: furiganaText)
-    }
+    @ObservedObject var weakTracker = WeakWordTrackerService.shared
 
     public init(
         sentenceText: String,
@@ -31,7 +29,7 @@ public struct SegmentedSentenceWordFlowView: View {
         sentenceProgress: Double = 0.0,
         manualActiveWordIndex: Int? = nil,
         showFurigana: Bool = true,
-        showRomaji: Bool = true,
+        showRomaji: Bool = false,
         onSelectWordToShadow: ((WordToken) -> Void)? = nil
     ) {
         self.sentenceText = sentenceText
@@ -44,9 +42,9 @@ public struct SegmentedSentenceWordFlowView: View {
         self.onSelectWordToShadow = onSelectWordToShadow
     }
 
-    private var computedActiveWordIndex: Int? {
+    private var activeWordIndex: Int? {
         if let manual = manualActiveWordIndex { return manual }
-        guard isActiveSentence && sentenceProgress > 0.0 else { return nil }
+        guard isActiveSentence && sentenceProgress > 0.0 && !words.isEmpty else { return nil }
 
         let totalWeight = words.reduce(0) { $0 + $1.moraWeight }
         guard totalWeight > 0 else { return 0 }
@@ -63,184 +61,135 @@ public struct SegmentedSentenceWordFlowView: View {
     }
 
     public var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            // Dynamic Word-by-Word Flow Layout
-            FlowLayout(spacing: 6) {
+        VStack(alignment: .leading, spacing: 6) {
+            // Elegant NHK Easy Japanese Flow Layout (Natural Text with Ruby Furigana)
+            FlowLayout(spacing: 3) {
                 ForEach(words) { token in
-                    let state: WordChipState = {
-                        guard let activeIdx = computedActiveWordIndex else {
-                            return .upcoming
-                        }
-                        if token.index == activeIdx {
-                            return .active
-                        } else if token.index < activeIdx {
-                            return .past
-                        } else {
-                            return .upcoming
-                        }
-                    }()
+                    let isWordActive = (activeWordIndex == token.index)
+                    let isWordPast = (activeWordIndex != nil && token.index < (activeWordIndex ?? 0))
 
-                    WordChipView(
+                    NHKWordTokenView(
                         token: token,
-                        state: state,
+                        isActive: isWordActive,
+                        isPast: isWordPast,
                         showFurigana: showFurigana,
                         showRomaji: showRomaji,
                         onTap: {
                             selectedToken = token
                             showWordPopup = true
                             audioService.speak(text: token.text)
+                            weakTracker.recordListen(word: token.text, reading: token.furigana, meaning: token.meaning)
                         }
                     )
                 }
             }
 
-            // Word Gloss Popup Drawer
+            // Inline Word Dictionary Tooltip
             if showWordPopup, let tok = selectedToken {
                 HStack(spacing: 10) {
                     Image(systemName: "character.bubble.fill")
-                        .font(.title3)
+                        .font(.body)
                         .foregroundColor(.accentColor)
 
                     VStack(alignment: .leading, spacing: 2) {
                         HStack(spacing: 6) {
                             Text(tok.text)
-                                .font(.system(size: 16, weight: .black, design: .rounded))
+                                .font(.system(size: 15, weight: .bold))
                             if !tok.furigana.isEmpty {
                                 Text("[\(tok.furigana)]")
-                                    .font(.system(size: 13, weight: .bold))
+                                    .font(.system(size: 12, weight: .semibold))
                                     .foregroundColor(.accentColor)
                             }
                             if !tok.romaji.isEmpty {
                                 Text("(\(tok.romaji))")
-                                    .font(.system(size: 11, design: .monospaced))
+                                    .font(.system(size: 10, design: .monospaced))
                                     .foregroundColor(.secondary)
                             }
                         }
 
                         if !tok.meaning.isEmpty {
                             Text(tok.meaning)
-                                .font(.system(size: 12))
+                                .font(.system(size: 11))
                                 .foregroundColor(.primary)
                         }
                     }
 
                     Spacer()
 
-                    // Play Word Native Pronunciation
                     Button(action: {
                         audioService.speak(text: tok.text)
                     }) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "speaker.wave.2.fill")
-                            Text("发音")
-                        }
-                        .font(.system(size: 11, weight: .bold))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 6)
-                        .background(Color.accentColor)
-                        .cornerRadius(10)
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.caption2)
+                            .foregroundColor(.white)
+                            .padding(6)
+                            .background(Color.accentColor)
+                            .clipShape(Circle())
                     }
 
-                    // Dismiss Button
                     Button(action: { showWordPopup = false }) {
                         Image(systemName: "xmark.circle.fill")
-                            .font(.title3)
+                            .font(.caption)
                             .foregroundColor(.secondary)
                     }
                 }
-                .padding(12)
-                .background(.ultraThinMaterial)
-                .cornerRadius(14)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 14)
-                        .stroke(Color.accentColor.opacity(0.3), lineWidth: 1)
-                )
-                .transition(.opacity.combined(with: .scale(scale: 0.95)))
+                .padding(8)
+                .background(Color(UIColor.secondarySystemBackground).opacity(0.85))
+                .cornerRadius(10)
+                .transition(.opacity)
             }
         }
-        .animation(.spring(response: 0.28, dampingFraction: 0.72), value: computedActiveWordIndex)
+        .onAppear {
+            if words.isEmpty {
+                words = JapaneseWordSegmenter.shared.segment(text: sentenceText, furiganaReference: furiganaText)
+            }
+        }
     }
 }
 
-// MARK: - Interactive Word Chip with Karaoke States
-public struct WordChipView: View {
+// MARK: - NHK Standard Ruby Text Word View (Stable Geometry, Zero Flashing)
+public struct NHKWordTokenView: View {
     public let token: WordToken
-    public let state: WordChipState
+    public let isActive: Bool
+    public let isPast: Bool
     public let showFurigana: Bool
     public let showRomaji: Bool
     public let onTap: () -> Void
 
     public var body: some View {
         Button(action: onTap) {
-            VStack(spacing: 1) {
-                // Ruby Furigana
+            VStack(spacing: 0) {
+                // Ruby Furigana Floating Above Kanji
                 if showFurigana && !token.furigana.isEmpty {
                     Text(token.furigana)
-                        .font(.system(size: 10, weight: state == .active ? .bold : .regular))
-                        .foregroundColor(
-                            state == .active
-                                ? .white.opacity(0.95)
-                                : (state == .past ? Color.accentColor.opacity(0.8) : .secondary)
-                        )
+                        .font(.system(size: 10, weight: isActive ? .bold : .regular))
+                        .foregroundColor(isActive ? .orange : (isPast ? Color.accentColor.opacity(0.8) : .secondary))
                         .lineLimit(1)
+                        .frame(height: 12)
+                } else if showFurigana {
+                    // Transparent spacer for uniform baseline alignment
+                    Text(" ")
+                        .font(.system(size: 10))
+                        .frame(height: 12)
                 }
 
                 // Main Kanji / Kana Text
                 Text(token.text)
-                    .font(.system(size: 16, weight: state == .active ? .black : (state == .past ? .bold : .semibold), design: .rounded))
+                    .font(.system(size: 16, weight: isActive ? .black : (isPast ? .semibold : .medium), design: .default))
                     .foregroundColor(
-                        state == .active
-                            ? .white
-                            : (state == .past ? Color.accentColor : .primary)
+                        isActive
+                            ? .orange
+                            : (isPast ? Color.accentColor : .primary)
                     )
-
-                // Romaji Subtitle
-                if showRomaji && !token.romaji.isEmpty {
-                    Text(token.romaji)
-                        .font(.system(size: 9, weight: .regular, design: .monospaced))
-                        .foregroundColor(
-                            state == .active
-                                ? .white.opacity(0.85)
-                                : (state == .past ? Color.accentColor.opacity(0.7) : .secondary.opacity(0.8))
-                        )
-                        .lineLimit(1)
-                }
+                    .padding(.horizontal, 2)
+                    .background(
+                        isActive
+                            ? Color.orange.opacity(0.18)
+                            : (isPast ? Color.accentColor.opacity(0.08) : Color.clear)
+                    )
+                    .cornerRadius(4)
             }
-            .padding(.horizontal, 7)
-            .padding(.vertical, 5)
-            .background(
-                Group {
-                    switch state {
-                    case .active:
-                        LinearGradient(
-                            colors: [Color.accentColor, Color.orange.opacity(0.9)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    case .past:
-                        Color.accentColor.opacity(0.16)
-                    case .upcoming:
-                        Color.primary.opacity(0.05)
-                    }
-                }
-            )
-            .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(
-                        state == .active
-                            ? Color.white.opacity(0.6)
-                            : (state == .past ? Color.accentColor.opacity(0.4) : Color.clear),
-                        lineWidth: state == .active ? 1.5 : 1
-                    )
-            )
-            .scaleEffect(state == .active ? 1.08 : 1.0)
-            .shadow(
-                color: state == .active ? Color.accentColor.opacity(0.4) : Color.clear,
-                radius: 5,
-                y: 2
-            )
+            .contentShape(Rectangle())
         }
         .buttonStyle(PlainButtonStyle())
     }
@@ -248,9 +197,9 @@ public struct WordChipView: View {
 
 // MARK: - Flow Layout for Wrapped Word Chips
 public struct FlowLayout: Layout {
-    public var spacing: CGFloat = 6
+    public var spacing: CGFloat = 3
 
-    public init(spacing: CGFloat = 6) {
+    public init(spacing: CGFloat = 3) {
         self.spacing = spacing
     }
 
