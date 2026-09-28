@@ -137,8 +137,25 @@ final class TokyoFlowTests: XCTestCase {
 
     func testThemeManagerSelection() {
         let themeManager = ThemeManager.shared
-        themeManager.currentTheme = .akibaNeon
-        XCTAssertEqual(themeManager.currentTheme, .akibaNeon)
-        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_akiba_neon")
+        themeManager.currentTheme = .washiPaper
+        XCTAssertEqual(themeManager.currentTheme, .washiPaper)
+        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_washi_paper")
+
+        themeManager.currentTheme = .readingCat
+        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_reading_cat")
+
+        themeManager.currentTheme = .liquidGlass
+        XCTAssertEqual(themeManager.currentTheme.assetName, "wallpaper_liquid_glass")
+    }
+
+    func testTokyoProsodyEngine() {
+        let raw = "JR東日本は東京やその近くを走る電車の終電の時間を早めると発表しました。"
+        let formatted = TokyoProsodyEngine.formatProsodyText(raw, style: .newsBroadcast)
+        XCTAssertFalse(formatted.isEmpty)
+
+        let settings = TokyoProsodyEngine.prosodySettings(for: .newsBroadcast)
+        XCTAssertGreaterThan(settings.rate, 0.4)
+        XCTAssertLessThan(settings.rate, 0.6)
+        XCTAssertGreaterThan(settings.pitch, 0.9)
     }
 }

@@ -50,7 +50,7 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
         speechQueue.async {
             do {
                 let session = AVAudioSession.sharedInstance()
-                try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+                try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers, .defaultToSpeaker])
                 try session.setActive(true, options: .notifyOthersOnDeactivation)
             } catch {
                 print("AudioSession setup warning: \(error)")
@@ -60,22 +60,11 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
 
     private func prewarmJapaneseVoice() {
         speechQueue.async {
-            // Priority: Enhanced quality Japanese voices (Kyoko / Otoya / Siri)
-            let allVoices = AVSpeechSynthesisVoice.speechVoices()
-            let jpVoices = allVoices.filter { $0.language.hasPrefix("ja") }
-
-            // Look for enhanced or premium voice first
-            if let enhanced = jpVoices.first(where: { $0.quality == .enhanced || $0.identifier.contains("enhanced") || $0.identifier.contains("premium") }) {
-                self.cachedJapaneseVoice = enhanced
-            } else if let kyoko = jpVoices.first(where: { $0.name.contains("Kyoko") || $0.name.contains("Otoya") }) {
-                self.cachedJapaneseVoice = kyoko
-            } else {
-                self.cachedJapaneseVoice = AVSpeechSynthesisVoice(language: "ja-JP") ?? AVSpeechSynthesisVoice(language: "ja")
-            }
+            self.cachedJapaneseVoice = TokyoProsodyEngine.findOptimalJapaneseNeuralVoice()
         }
     }
 
-    public func speak(text: String, rate: Float = 0.51, pitch: Float = 1.02) {
+    public func speak(text: String, style: JapaneseVoiceStyle = .dailyConversational, rate: Float? = nil, pitch: Float? = nil) {
         let cleanText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !cleanText.isEmpty else { return }
 
@@ -91,13 +80,17 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
         speechQueue.async { [weak self] in
             guard let self = self else { return }
 
-            let utterance = AVSpeechUtterance(string: cleanText)
-            utterance.voice = self.cachedJapaneseVoice ?? AVSpeechSynthesisVoice(language: "ja-JP")
-            utterance.rate = rate
-            utterance.pitchMultiplier = pitch
+            // Apply Tokyo Prosody Segmentation
+            let prosodyText = TokyoProsodyEngine.formatProsodyText(cleanText, style: style)
+            let settings = TokyoProsodyEngine.prosodySettings(for: style)
+
+            let utterance = AVSpeechUtterance(string: prosodyText)
+            utterance.voice = self.cachedJapaneseVoice ?? TokyoProsodyEngine.findOptimalJapaneseNeuralVoice()
+            utterance.rate = rate ?? settings.rate
+            utterance.pitchMultiplier = pitch ?? settings.pitch
             utterance.volume = 1.0
-            utterance.preUtteranceDelay = 0.0
-            utterance.postUtteranceDelay = 0.05
+            utterance.preUtteranceDelay = settings.preDelay
+            utterance.postUtteranceDelay = settings.postDelay
 
             DispatchQueue.main.async {
                 self.synthesizer.speak(utterance)
