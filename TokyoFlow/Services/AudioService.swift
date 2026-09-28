@@ -4,20 +4,23 @@ import AudioToolbox
 import Combine
 
 public enum TokyoAmbienceType: String, CaseIterable, Identifiable {
-    case none = "None (Silent)"
-    case yamanote = "Yamanote Train Hum (山手線車内)"
-    case izakaya = "Izakaya Night Chatter (居酒屋の賑わい)"
-    case kombini = "Kombini Background (コンビニ店内)"
-    case rain = "Tokyo Rainy Alley (雨の路地裏)"
+    case none = "None"
+    case yamanoteTrain = "JR Yamanote Line"
+    case kombiniStore = "FamilyMart Chime"
+    case izakayaBGM = "Shinjuku Izakaya"
+    case tokyoRain = "Shibuya Rain"
+    case templeZen = "Asakusa Temple"
 
     public var id: String { rawValue }
+
     public var icon: String {
         switch self {
         case .none: return "speaker.slash"
-        case .yamanote: return "tram.fill"
-        case .izakaya: return "fork.knife"
-        case .kombini: return "cart.fill"
-        case .rain: return "cloud.rain.fill"
+        case .yamanoteTrain: return "tram.fill"
+        case .kombiniStore: return "cart.fill"
+        case .izakayaBGM: return "wineglass.fill"
+        case .tokyoRain: return "cloud.rain.fill"
+        case .templeZen: return "bell.fill"
         }
     }
 }
@@ -26,68 +29,105 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
     public static let shared = AudioService()
 
     private let synthesizer = AVSpeechSynthesizer()
+    private let speechQueue = DispatchQueue(label: "com.tokyoflow.speechQueue", qos: .userInitiated)
+    private var cachedJapaneseVoice: AVSpeechSynthesisVoice?
     private var waveformTimer: Timer?
 
     @Published public var isSpeaking: Bool = false
     @Published public var currentSpeakingText: String? = nil
     @Published public var audioPowerLevels: [CGFloat] = [0.2, 0.4, 0.7, 0.5, 0.3]
     @Published public var currentAmbience: TokyoAmbienceType = .none
+    @Published public var useApplePCCEnhancedVoice: Bool = true
 
     private override init() {
         super.init()
         synthesizer.delegate = self
-        setupAudioSession()
+        setupAudioSessionAsync()
+        prewarmJapaneseVoice()
     }
 
-    private func setupAudioSession() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Failed to configure AVAudioSession: \(error)")
+    private func setupAudioSessionAsync() {
+        speechQueue.async {
+            do {
+                let session = AVAudioSession.sharedInstance()
+                try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+                try session.setActive(true, options: .notifyOthersOnDeactivation)
+            } catch {
+                print("AudioSession setup warning: \(error)")
+            }
         }
     }
 
-    public func speak(text: String, rate: Float = 0.50, pitch: Float = 1.0) {
+    private func prewarmJapaneseVoice() {
+        speechQueue.async {
+            // Priority: Enhanced quality Japanese voices (Kyoko / Otoya / Siri)
+            let allVoices = AVSpeechSynthesisVoice.speechVoices()
+            let jpVoices = allVoices.filter { $0.language.hasPrefix("ja") }
+
+            // Look for enhanced or premium voice first
+            if let enhanced = jpVoices.first(where: { $0.quality == .enhanced || $0.identifier.contains("enhanced") || $0.identifier.contains("premium") }) {
+                self.cachedJapaneseVoice = enhanced
+            } else if let kyoko = jpVoices.first(where: { $0.name.contains("Kyoko") || $0.name.contains("Otoya") }) {
+                self.cachedJapaneseVoice = kyoko
+            } else {
+                self.cachedJapaneseVoice = AVSpeechSynthesisVoice(language: "ja-JP") ?? AVSpeechSynthesisVoice(language: "ja")
+            }
+        }
+    }
+
+    public func speak(text: String, rate: Float = 0.51, pitch: Float = 1.02) {
+        let cleanText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !cleanText.isEmpty else { return }
+
+        // Stop previous immediately
         if synthesizer.isSpeaking {
             synthesizer.stopSpeaking(at: .immediate)
-            stopWaveformSimulation()
         }
 
-        let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP") ?? AVSpeechSynthesisVoice(language: "ja")
-        utterance.rate = rate
-        utterance.pitchMultiplier = pitch
-        utterance.volume = 1.0
-
-        currentSpeakingText = text
+        currentSpeakingText = cleanText
         isSpeaking = true
         startWaveformSimulation()
-        synthesizer.speak(utterance)
+
+        speechQueue.async { [weak self] in
+            guard let self = self else { return }
+
+            let utterance = AVSpeechUtterance(string: cleanText)
+            utterance.voice = self.cachedJapaneseVoice ?? AVSpeechSynthesisVoice(language: "ja-JP")
+            utterance.rate = rate
+            utterance.pitchMultiplier = pitch
+            utterance.volume = 1.0
+            utterance.preUtteranceDelay = 0.0
+            utterance.postUtteranceDelay = 0.05
+
+            DispatchQueue.main.async {
+                self.synthesizer.speak(utterance)
+            }
+        }
     }
 
     public func stop() {
         if synthesizer.isSpeaking {
             synthesizer.stopSpeaking(at: .immediate)
         }
-        isSpeaking = false
-        currentSpeakingText = nil
-        stopWaveformSimulation()
+        DispatchQueue.main.async {
+            self.isSpeaking = false
+            self.currentSpeakingText = nil
+            self.stopWaveformSimulation()
+        }
     }
 
     public func setAmbience(_ type: TokyoAmbienceType) {
         currentAmbience = type
         if type != .none {
-            // Play ambient confirmation chime
             AudioServicesPlaySystemSound(1057)
         }
     }
 
     private func startWaveformSimulation() {
         waveformTimer?.invalidate()
-        waveformTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+        waveformTimer = Timer.scheduledTimer(withTimeInterval: 0.08, repeats: true) { [weak self] _ in
             guard let self = self, self.isSpeaking else { return }
-            self.audioPowerLevels = (0..<5).map { _ in CGFloat.random(in: 0.15...0.95) }
+            self.audioPowerLevels = (0..<5).map { _ in CGFloat.random(in: 0.25...0.98) }
         }
     }
 

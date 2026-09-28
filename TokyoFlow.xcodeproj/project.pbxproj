@@ -13,22 +13,27 @@
 		17DF7383F9705DE2DE7DACA2 /* ComicBurstOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8C3B282E7EA228AD88542 /* ComicBurstOverlay.swift */; };
 		1E37BE6CC5356DFC715FE001 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189DC5206980A564B7AD0B04 /* Announcement.swift */; };
 		20BDAC78F2108A6CB53CC473 /* scenarios.json in Resources */ = {isa = PBXBuildFile; fileRef = F82FB3FEED50E654564AD989 /* scenarios.json */; };
+		3371EBCA48A65A66E4D94444 /* sunset.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D862B90A7511608FAD86AFF /* sunset.jpg */; };
 		33EFC1A132E26F082FAB34EC /* DojoChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7F9531C0C40882CBDC957 /* DojoChallenge.swift */; };
 		3BEBB99EE18CBD01690BA7FA /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C3BA44A75AC4597BFC23F0 /* Scenario.swift */; };
 		450DBA64DAA089C1B3E5D1EC /* MangaPanelReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A6AEA0914F59DAA8396BF7 /* MangaPanelReaderView.swift */; };
 		46BC9367AA5229BDAE939527 /* ScenarioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B105DCAA7D9DDF0A6AC036 /* ScenarioDetailView.swift */; };
 		4C94B28E2C562B5972655B99 /* WaveformVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EAB0F1E37C212D8F1A09B /* WaveformVisualizerView.swift */; };
+		552A6DE4ECC9664BEA65E1C9 /* TokyoQuestMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174C9DDAD908E73AB361008 /* TokyoQuestMapView.swift */; };
 		5ACA9D0C6E5EA1727BA37D8D /* TokyoAudioLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DA1B82E5561F865086448 /* TokyoAudioLabView.swift */; };
+		62376623D426A1173EADBD06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A39FC2EE152E31100F8A1FD /* Assets.xcassets */; };
 		65379E98118EC59F2A8C8EF7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786B5DEC3AADA9ED8BBB95C4 /* DataManager.swift */; };
 		780F7DA44AA2EDB793EA6B0F /* dojo_battles.json in Resources */ = {isa = PBXBuildFile; fileRef = 07B54B25A93C95EA55A0F200 /* dojo_battles.json */; };
 		7A581EB71DCB8BF31455C45B /* TokyoDojoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230528F947EC6F40F0D6E59 /* TokyoDojoView.swift */; };
 		8A15A225D66E72FEC14B73DF /* SRSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD84F712EDD2CBAF7553CB8E /* SRSService.swift */; };
 		8F822CC2D60C8E960283074F /* RegisterPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6963D19311544ED0188044EF /* RegisterPill.swift */; };
 		A5499B895ACAEF0CD758CD6E /* ScenarioMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775FB1036A6CE18E2A9E92B /* ScenarioMapView.swift */; };
+		A61E57C27157AC75A9ED3E2F /* cozy_room.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 912EE7E8E02CBF02459C3A1D /* cozy_room.jpg */; };
 		A673DA8A80B9E25EA13C0778 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C2923B8DF01420FFFEAD3 /* UserProfile.swift */; };
 		A7FE857B0A8ABF1818C0FB85 /* TokyoPassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4783F33F4367A34809FDD /* TokyoPassportView.swift */; };
 		B4843225C192B5E3CF902E9E /* TokyoFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E907287E1951E27C44D20306 /* TokyoFlowApp.swift */; };
 		B5BA14BE01E43EC1C2900F8D /* manga_lessons.json in Resources */ = {isa = PBXBuildFile; fileRef = 47BD454FA4D8F043AA7AC680 /* manga_lessons.json */; };
+		BD07C1A87DB7161D334425AA /* QuestStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9773159AC77D85293BB0B /* QuestStage.swift */; };
 		BFEE2193DD6C93865B6A9E91 /* MangaLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A64E2A9A7807DA9327A6F8 /* MangaLesson.swift */; };
 		C0001108849A121D0AD15A0C /* announcements.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A78D966DAFB04F45302EEDC /* announcements.json */; };
 		C1DB8D618165651096762BA8 /* SFXDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56AF97C300BB46BA0764315 /* SFXDictionaryView.swift */; };
@@ -70,13 +75,17 @@
 		4B8C2923B8DF01420FFFEAD3 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		4ED698EED024D647DD79BB54 /* AudioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioButton.swift; sourceTree = "<group>"; };
 		580DEDEFF07CB0EFA56BF14C /* TokyoFlowTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TokyoFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A39FC2EE152E31100F8A1FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62C9773159AC77D85293BB0B /* QuestStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestStage.swift; sourceTree = "<group>"; };
 		65A64E2A9A7807DA9327A6F8 /* MangaLesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLesson.swift; sourceTree = "<group>"; };
 		6963D19311544ED0188044EF /* RegisterPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPill.swift; sourceTree = "<group>"; };
 		77A6AEA0914F59DAA8396BF7 /* MangaPanelReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaPanelReaderView.swift; sourceTree = "<group>"; };
 		786B5DEC3AADA9ED8BBB95C4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		7FCF8749A37C8562EA96AAA8 /* InteractiveRoleplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveRoleplayView.swift; sourceTree = "<group>"; };
 		8BC7F9531C0C40882CBDC957 /* DojoChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoChallenge.swift; sourceTree = "<group>"; };
+		912EE7E8E02CBF02459C3A1D /* cozy_room.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cozy_room.jpg; sourceTree = "<group>"; };
 		9A78D966DAFB04F45302EEDC /* announcements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = announcements.json; sourceTree = "<group>"; };
+		9D862B90A7511608FAD86AFF /* sunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunset.jpg; sourceTree = "<group>"; };
 		A21DA1B82E5561F865086448 /* TokyoAudioLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoAudioLabView.swift; sourceTree = "<group>"; };
 		A56AF97C300BB46BA0764315 /* SFXDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFXDictionaryView.swift; sourceTree = "<group>"; };
 		AAA3BA9ED0FF08BFDE1534DA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -91,6 +100,7 @@
 		E37BA44E8AF9DC30DD0F5B9D /* StickmanPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickmanPlayerView.swift; sourceTree = "<group>"; };
 		E907287E1951E27C44D20306 /* TokyoFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoFlowApp.swift; sourceTree = "<group>"; };
 		EAAB83764925C38A795DF69A /* FlashcardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardDeckView.swift; sourceTree = "<group>"; };
+		F174C9DDAD908E73AB361008 /* TokyoQuestMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoQuestMapView.swift; sourceTree = "<group>"; };
 		F300D6636A385734958B3BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F82FB3FEED50E654564AD989 /* scenarios.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = scenarios.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,9 +152,11 @@
 			isa = PBXGroup;
 			children = (
 				9A78D966DAFB04F45302EEDC /* announcements.json */,
+				5A39FC2EE152E31100F8A1FD /* Assets.xcassets */,
 				07B54B25A93C95EA55A0F200 /* dojo_battles.json */,
 				47BD454FA4D8F043AA7AC680 /* manga_lessons.json */,
 				F82FB3FEED50E654564AD989 /* scenarios.json */,
+				9E27D58E202486435AF74928 /* Wallpapers */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -166,6 +178,7 @@
 				20F17D3F4810F83B7E348998 /* Curriculum.swift */,
 				8BC7F9531C0C40882CBDC957 /* DojoChallenge.swift */,
 				65A64E2A9A7807DA9327A6F8 /* MangaLesson.swift */,
+				62C9773159AC77D85293BB0B /* QuestStage.swift */,
 				C5C3BA44A75AC4597BFC23F0 /* Scenario.swift */,
 				4B8C2923B8DF01420FFFEAD3 /* UserProfile.swift */,
 			);
@@ -212,6 +225,15 @@
 			path = Progress;
 			sourceTree = "<group>";
 		};
+		9E27D58E202486435AF74928 /* Wallpapers */ = {
+			isa = PBXGroup;
+			children = (
+				912EE7E8E02CBF02459C3A1D /* cozy_room.jpg */,
+				9D862B90A7511608FAD86AFF /* sunset.jpg */,
+			);
+			path = Wallpapers;
+			sourceTree = "<group>";
+		};
 		A3C8B25D44361050F8C78D0E /* Dojo */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +250,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		DA14487DDC84BD6B6E518798 /* Roadmap */ = {
+			isa = PBXGroup;
+			children = (
+				F174C9DDAD908E73AB361008 /* TokyoQuestMapView.swift */,
+			);
+			path = Roadmap;
+			sourceTree = "<group>";
+		};
 		E2DF4F9455DDA36471C40981 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +267,7 @@
 				A3C8B25D44361050F8C78D0E /* Dojo */,
 				14F04284C0459C8D3FB5DD5F /* Manga */,
 				830EF9AC305284FF08C4F098 /* Progress */,
+				DA14487DDC84BD6B6E518798 /* Roadmap */,
 				73422C6D96324890903E075A /* Scenario */,
 				F0DE9E52CB44E9F8009C2EF8 /* SurvivalKit */,
 			);
@@ -308,6 +339,14 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					02B175BAE3AA806D4048E170 = {
+						DevelopmentTeam = X5L4GA7WZP;
+						ProvisioningStyle = Automatic;
+					};
+					89B83E617BD5EB68B67BF919 = {
+						DevelopmentTeam = X5L4GA7WZP;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 07DBD26A1AA2FC9C199AAF41 /* Build configuration list for PBXProject "TokyoFlow" */;
@@ -335,10 +374,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62376623D426A1173EADBD06 /* Assets.xcassets in Resources */,
 				C0001108849A121D0AD15A0C /* announcements.json in Resources */,
+				A61E57C27157AC75A9ED3E2F /* cozy_room.jpg in Resources */,
 				780F7DA44AA2EDB793EA6B0F /* dojo_battles.json in Resources */,
 				B5BA14BE01E43EC1C2900F8D /* manga_lessons.json in Resources */,
 				20BDAC78F2108A6CB53CC473 /* scenarios.json in Resources */,
+				3371EBCA48A65A66E4D94444 /* sunset.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +414,7 @@
 				BFEE2193DD6C93865B6A9E91 /* MangaLesson.swift in Sources */,
 				450DBA64DAA089C1B3E5D1EC /* MangaPanelReaderView.swift in Sources */,
 				E3BB39B0896F94ECCEFA27ED /* PitchAccentBadge.swift in Sources */,
+				BD07C1A87DB7161D334425AA /* QuestStage.swift in Sources */,
 				8F822CC2D60C8E960283074F /* RegisterPill.swift in Sources */,
 				C1DB8D618165651096762BA8 /* SFXDictionaryView.swift in Sources */,
 				8A15A225D66E72FEC14B73DF /* SRSService.swift in Sources */,
@@ -384,6 +427,7 @@
 				7A581EB71DCB8BF31455C45B /* TokyoDojoView.swift in Sources */,
 				B4843225C192B5E3CF902E9E /* TokyoFlowApp.swift in Sources */,
 				A7FE857B0A8ABF1818C0FB85 /* TokyoPassportView.swift in Sources */,
+				552A6DE4ECC9664BEA65E1C9 /* TokyoQuestMapView.swift in Sources */,
 				F0036368131BB88D16D5DA3C /* TokyoSearchSheet.swift in Sources */,
 				A673DA8A80B9E25EA13C0778 /* UserProfile.swift in Sources */,
 				4C94B28E2C562B5972655B99 /* WaveformVisualizerView.swift in Sources */,
@@ -469,7 +513,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X5L4GA7WZP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TokyoFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -544,6 +591,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5L4GA7WZP;
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,6 +612,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5L4GA7WZP;
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,7 +634,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X5L4GA7WZP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TokyoFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

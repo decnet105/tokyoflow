@@ -691,5 +691,271 @@
       { "word": "ゆうゆう窓口", "reading": "ゆうゆうまどぐち", "romaji": "yūyū madoguchi", "meaning": "Japan Post after-hours package counter", "type": "noun" },
       { "word": "置き配", "reading": "おきはい", "romaji": "okihai", "meaning": "contactless doorstep drop delivery", "type": "noun" }
     ]
+  },
+  {
+    "id": "scenario_08_gyudon_fastfood",
+    "title": "Gyudon Bar: Yoshinoya/Matsuya Customization & Sets",
+    "titleJa": "牛丼屋の呪文：つゆだく・ねぎだくと生卵セット",
+    "category": "dining",
+    "district": "Kanda (神田)",
+    "timeOfDay": "12:15 PM",
+    "quarter": 1,
+    "week": 2,
+    "day": 3,
+    "jfCanDoLevel": "A1-A2",
+    "jfCanDoDescription": "Can order beef bowls with custom sauce/onion ratio (つゆだく), set side dishes, and handle table payment in 15 seconds.",
+    "context": "You rush into a fast-paced Yoshinoya/Matsuya counter for a quick lunch.",
+    "culturalTip": "Gyudon ciphers: 'つゆだく' (Extra broth juice), 'ねぎだく' (Extra stewed onions), 'つゆぬき' (Dry, less broth). Served in 10 seconds flat!",
+    "dialogue": [
+      {
+        "id": "d8_1",
+        "speaker": "Staff (店員)",
+        "role": "native",
+        "japanese": "いらっしゃいませ！ご注文はお決まりですか？",
+        "furigana": "いらっしゃいませ！ごちゅうもん{ご注文}は おき{お決}まりですか？",
+        "romaji": "Irasshaimase! Go-chūmon wa o-kimari desu ka?",
+        "english": "Welcome! Are you ready to order?",
+        "chinese": "欢迎光临！请问您决定好点什么了吗？",
+        "register": "keigo",
+        "audioPrompt": "いらっしゃいませ！ご注文はお決まりですか？"
+      },
+      {
+        "id": "d8_2",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "牛丼の並盛を、つゆだくで！あと生卵と味噌汁のセットをつけてください。",
+        "furigana": "ぎゅうどん{牛丼}の なみもり{並盛}を、つゆだくで！あと なまたまご{生卵}と みそしる{味噌汁}の セットを つけてください。",
+        "romaji": "Gyūdon no namimori o, tsuyudaku de! Ato namatamago to misoshiru no setto o tsukete kudasai.",
+        "english": "Regular beef bowl with extra sauce broth! Also add the raw egg and miso soup combo set, please.",
+        "chinese": "一份中碗牛丼，多加汤汁（汁多）！再加一份生鸡蛋和味噌汤套餐。",
+        "register": "polite",
+        "audioPrompt": "牛丼の並盛を、つゆだくで！あと生卵と味噌汁のセットをつけてください。"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You want your beef bowl with less rice and more onions.",
+      "options": [
+        {
+          "text": "ご飯少なめ、ねぎだくでお願いします！",
+          "furigana": "ごはん{ご飯} すくな{少}なめ、ねぎだくで おねが{お願}いします！",
+          "romaji": "Gohan sukuname, negidaku de onegaishimasu!",
+          "isCorrect": true,
+          "explanation": "'Gohan sukuname' = less rice; 'Negidaku' = extra simmered onions."
+        },
+        {
+          "text": "お肉を全部捨ててください。",
+          "furigana": "おにく{お肉}を ぜんぶ{全部} す{捨}ててください。",
+          "romaji": "O-niku o zembu sutete kudasai.",
+          "isCorrect": false,
+          "explanation": "Tells them to throw away the meat!"
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "並盛", "reading": "なみもり", "romaji": "namimori", "meaning": "regular size portion", "type": "noun" },
+      { "word": "大盛", "reading": "おおもり", "romaji": "ōmori", "meaning": "large size portion", "type": "noun" },
+      { "word": "つゆだく", "reading": "つゆだく", "romaji": "tsuyudaku", "meaning": "extra beef broth / sauce on rice", "type": "slang" },
+      { "word": "ねぎだく", "reading": "ねぎだく", "romaji": "negidaku", "meaning": "extra stewed onions", "type": "slang" },
+      { "word": "お冷", "reading": "おひや", "romaji": "o-hiya", "meaning": "cold water", "type": "noun" }
+    ]
+  },
+  {
+    "id": "scenario_09_supermarket_halfprice",
+    "title": "Supermarket Clearance: The 8 PM Half-Price (半額) Rush",
+    "titleJa": "スーパーの夜：半額シール争奪戦と見切り品",
+    "category": "shopping",
+    "district": "Koenji (高円寺)",
+    "timeOfDay": "20:00 PM",
+    "quarter": 1,
+    "week": 4,
+    "day": 2,
+    "jfCanDoLevel": "A1-A2",
+    "jfCanDoDescription": "Can read supermarket discount stickers (半額 / 20%引 / 見切り品) and navigate self-checkout registers (セルフレジ).",
+    "context": "At 8 PM, the supermarket clerk walks out with the yellow discount sticker gun. Fresh sashimi and bento get discounted.",
+    "culturalTip": "Yellow stickers: '20%引' (20% off), '半額' (Half Price / 50% off!), '見切り品' (Clearance item near expiration date). Great for saving living costs!",
+    "dialogue": [
+      {
+        "id": "d9_1",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "すみません、このお刺身の盛り合わせも半額シール貼ってもらえますか？",
+        "furigana": "すみません、この おさしみ{お刺身}の も{盛}りあ{合}わせも はんがく{半額}シール は{貼}ってもらえますか？",
+        "romaji": "Sumimasen, kono o-sashimi no moriawase mo hangaku shīru hattemoraemasu ka?",
+        "english": "Excuse me, could you put a half-price sticker on this assorted sashimi platter as well?",
+        "chinese": "不好意思，请问这份刺身拼盘也可以帮我贴上五折（半价）贴纸吗？",
+        "register": "polite",
+        "audioPrompt": "すみません、このお刺身の盛り合わせも半額シール貼ってもらえますか？"
+      },
+      {
+        "id": "d9_2",
+        "speaker": "Supermarket Staff (店員)",
+        "role": "native",
+        "japanese": "はい、どうぞ！本日中にお召し上がりくださいね。",
+        "furigana": "はい、どうぞ！ほんじつちゅう{本日中}に おめ{お召}しあ{上}がりくださいね。",
+        "romaji": "Hai, dōzo! Honjitsu-chū ni o-meshiagari kudasai ne.",
+        "english": "Sure, here you go! Please consume it within today.",
+        "chinese": "好的给您！请务必在今天内食用完毕哦。",
+        "register": "polite",
+        "audioPrompt": "はい、どうぞ！本日中にお召し上がりくださいね。"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You are at the self-checkout register and need to scan your point card first.",
+      "options": [
+        {
+          "text": "画面の『ポイントカードを読み取る』を押してバーコードをかざす。",
+          "furigana": "がめん{画面}の『ポイントカードを よ{読}みと{取}る』を お{押}して バーコードを かざす。",
+          "romaji": "Gamen no 'Pointo kādo o yomitoru' o oshite bākōdo o kDirectionasu.",
+          "isCorrect": true,
+          "explanation": "Standard Japanese self-checkout screen procedure."
+        },
+        {
+          "text": "レジを叩いてお金を投げ入れる。",
+          "furigana": "レジを たた{叩}いて おかね{お金}を な{投}げい{入}れる。",
+          "romaji": "Reji o tataite okane o nageireru.",
+          "isCorrect": false,
+          "explanation": "Damages the machine!"
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "半額", "reading": "はんがく", "romaji": "hangaku", "meaning": "half price (50% discount)", "type": "noun" },
+      { "word": "割引", "reading": "わりびき", "romaji": "waribiki", "meaning": "discount", "type": "noun" },
+      { "word": "見切り品", "reading": "みきりひん", "romaji": "mikirihin", "meaning": "clearance / reduced price item", "type": "noun" },
+      { "word": "消費期限", "reading": "しょうひきげん", "romaji": "shōhi kigen", "meaning": "use-by expiration date (perishable)", "type": "noun" }
+    ]
+  },
+  {
+    "id": "scenario_10_drugstore_medicine",
+    "title": "Tokyo Drugstore: Buying Painkillers (EVE) & Explaining Symptoms",
+    "titleJa": "ドラッグストア：頭痛薬・胃腸薬の購入と症状説明",
+    "category": "living_services",
+    "district": "Shinjuku East (新宿東口)",
+    "timeOfDay": "14:00 PM",
+    "quarter": 2,
+    "week": 6,
+    "day": 1,
+    "jfCanDoLevel": "A2",
+    "jfCanDoDescription": "Can ask pharmacists (薬剤師) for OTC medicine recommendations, explain symptoms (headache, fever, stomach ache), and check dosage.",
+    "context": "You caught a sudden headache in Tokyo and visit Matsumoto Kiyoshi / Sundrug for pain relief medicine.",
+    "culturalTip": "Japanese drugstores require checking with a licensed pharmacist (薬剤師 / 登録販売者) for Class 1 OTC drugs. Popular brands: EVE (headaches), Bufferin, Pabron (cold), Ohta Isan (stomach).",
+    "dialogue": [
+      {
+        "id": "d10_1",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "すみません、朝から頭痛と熱があるので、よく効く頭痛薬を探しているのですが。",
+        "furigana": "すみません、あさ{朝}から ずつう{頭痛}と ねつ{熱}が あるので、よく き{効}く ずつうやく{頭痛薬}を さが{探}しているのですが。",
+        "romaji": "Sumimasen, asa kara zutsū to netsu ga aru node, yoku kiku zutsūyaku o sagashite iru no desu ga.",
+        "english": "Excuse me, I've had a headache and mild fever since morning, so I'm looking for an effective painkiller.",
+        "chinese": "不好意思，我从早上开始就头痛而且有点发烧，想找一款见效快的头痛药。",
+        "register": "polite",
+        "audioPrompt": "すみません、朝から頭痛と熱があるので、よく効く頭痛薬を探しているのですが。"
+      },
+      {
+        "id": "d10_2",
+        "speaker": "Pharmacist (薬剤師)",
+        "role": "native",
+        "japanese": "こちらのEVE（イブクイックDX）がおすすめです。1回2錠、食後にぬるま湯でお飲みください。",
+        "furigana": "こちらの EVE（イブクイックDX）が おすすめです。1かい{回} 2じょう{錠}、しょくご{食後}に ぬるまゆ{ぬるま湯}で おの{お飲}みください。",
+        "romaji": "Kochira no Ibu Kuikku Derakkusu ga osusume desu. Ikkai ni-jō, shokugo ni nurumayu de o-nomi kudasai.",
+        "english": "I recommend this EVE Quick DX. Take 2 tablets per dose after meals with lukewarm water.",
+        "chinese": "推荐这款EVE Quick DX。一次服用2片，饭后用温水送服。",
+        "register": "keigo",
+        "audioPrompt": "こちらのEVE（イブクイックDX）がおすすめです。1回2錠、食後にぬるま湯でお飲みください。"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You also need to ask if the medicine will make you drowsy (眠気).",
+      "options": [
+        {
+          "text": "この薬を飲むと眠くなりますか？（眠気は出ますか？）",
+          "furigana": "この くすり{薬}を の{飲}むと ねむ{眠}くなりますか？（ねむけ{眠気}は で{出}ますか？）",
+          "romaji": "Kono kusuri o nomu to nemuku narimasu ka?",
+          "isCorrect": true,
+          "explanation": "Natural way to ask if an OTC medication has drowsiness side effects."
+        },
+        {
+          "text": "飲むとすぐに気絶しますか？",
+          "furigana": "の{飲}むと すぐに きぜつ{気絶}しますか？",
+          "romaji": "Nomu to sugu ni kizetsu shimasu ka?",
+          "isCorrect": false,
+          "explanation": "'Will I immediately faint into a coma?' — overly dramatic."
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "頭痛薬", "reading": "ずつうやく", "romaji": "zutsūyaku", "meaning": "headache medicine / painkiller", "type": "noun" },
+      { "word": "食後", "reading": "しょくご", "romaji": "shokugo", "meaning": "after meals", "type": "noun" },
+      { "word": "ぬるま湯", "reading": "ぬるまゆ", "romaji": "nurumayu", "meaning": "lukewarm water", "type": "noun" },
+      { "word": "眠気", "reading": "ねむけ", "romaji": "nemuke", "meaning": "drowsiness / sleepiness", "type": "noun" }
+    ]
+  },
+  {
+    "id": "scenario_11_onsen_sento_etiquette",
+    "title": "Onsen & Sento: Public Bath Etiquette & Washing Rules",
+    "titleJa": "銭湯・温泉の極意：かけ湯・洗い場マナーとタオル湯船NG",
+    "category": "services",
+    "district": "Asakusa (浅草)",
+    "timeOfDay": "21:00 PM",
+    "quarter": 2,
+    "week": 8,
+    "day": 2,
+    "jfCanDoLevel": "A2",
+    "jfCanDoDescription": "Can navigate Tokyo public sento baths, understand wash station etiquette (洗い場), and buy entrance tickets.",
+    "context": "You visit a historic sento bathhouse in Asakusa near Sensoji Temple after a long day of walking.",
+    "culturalTip": "Sento iron rules: 1) Wash body thoroughly at washing stalls (洗い場) BEFORE entering the hot bath. 2) Never put towels inside the communal bath water (rest towel on head!). 3) Dry off before stepping back into changing locker area.",
+    "dialogue": [
+      {
+        "id": "d11_1",
+        "speaker": "You (あなた)",
+        "role": "learner",
+        "japanese": "すみません、入浴券と貸しタオルセットをお願いします。",
+        "furigana": "すみません、にゅうよくけん{入浴券}と か{貸}しタオルセットを おねが{お願}いします。",
+        "romaji": "Sumimasen, nyūyokuken to kashi-taoru setto o onegaishimasu.",
+        "english": "Excuse me, one bath entrance ticket and a rental towel set, please.",
+        "chinese": "不好意思，请给我一张入浴门票和一套租用毛巾套装。",
+        "register": "polite",
+        "audioPrompt": "すみません、入浴券と貸しタオルセットをお願いします。"
+      },
+      {
+        "id": "d11_2",
+        "speaker": "Banya Master (番頭)",
+        "role": "native",
+        "japanese": "はいよ！男湯は右側ね。湯船に入る前に必ず体を洗ってね！",
+        "furigana": "はいよ！おとこゆ{男湯}は みぎがわ{右側}ね。ゆぶね{湯船}に はい{入}る まえ{前}に かなら{必}ず からだ{体}を あら{洗}ってね！",
+        "romaji": "Haiyo! Otoko-yu wa migi-gawa ne. Yubune ni hairu mae ni kanarazu karada o aratte ne!",
+        "english": "Here you go! Men's bath on the right. Make sure to wash your body before getting in the hot bath!",
+        "chinese": "好嘞！男汤在右侧。进汤池之前请务必先洗净身体哦！",
+        "register": "casual-polite",
+        "audioPrompt": "はいよ！男湯は右側ね。湯船に入る前に必ず体を洗ってね！"
+      }
+    ],
+    "interactiveChallenge": {
+      "prompt": "You are sitting in the hot bath and have a small modesty towel. Where should it go?",
+      "options": [
+        {
+          "text": "頭の上に畳んで乗せるか、湯船の外の縁に置く。",
+          "furigana": "あたま{頭}の うえ{上}に たた{畳}んで の{乗}せるか、ゆぶね{湯船}の そと{外}の ふち{縁}に お{置}く。",
+          "romaji": "Atama no ue ni tatande noseru ka, yubune no soto no fuchi ni oku.",
+          "isCorrect": true,
+          "explanation": "Strict Japanese hygiene rule: towels must never touch communal bath water."
+        },
+        {
+          "text": "お湯の中でタオルを石鹸で洗う。",
+          "furigana": "おゆ{お湯}の なか{中}で タオルを せっけん{石鹸}で あら{洗}う。",
+          "romaji": "O-yu no naka de taoru o sekken de arau.",
+          "isCorrect": false,
+          "explanation": "Severe violation of public bath rules!"
+        }
+      ]
+    },
+    "keyVocabulary": [
+      { "word": "男湯 / 女湯", "reading": "おとこゆ / おんなゆ", "romaji": "otokoyu / onnayu", "meaning": "men's bath / women's bath", "type": "noun" },
+      { "word": "湯船", "reading": "ゆぶね", "romaji": "yubune", "meaning": "communal hot bath tub", "type": "noun" },
+      { "word": "かけ湯", "reading": "かけゆ", "romaji": "kakeyu", "meaning": "rinsing body with hot water before entering bath", "type": "noun" },
+      { "word": "番頭", "reading": "ばんとう", "romaji": "bantō", "meaning": "sento bathhouse counter master", "type": "noun" }
+    ]
   }
 ]
+

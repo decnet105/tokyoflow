@@ -8,6 +8,11 @@ public struct MainTabView: View {
 
     public var body: some View {
         TabView {
+            TokyoQuestMapView()
+                .tabItem {
+                    Label("Quest Map", systemImage: "flag.2.crossed.fill")
+                }
+
             ScenarioMapView()
                 .tabItem {
                     Label("Scenarios", systemImage: "map.fill")
