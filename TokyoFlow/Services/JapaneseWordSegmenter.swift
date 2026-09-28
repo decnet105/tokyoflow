@@ -3,17 +3,29 @@ import NaturalLanguage
 
 public struct WordToken: Identifiable, Hashable {
     public let id: String
+    public let index: Int
     public let text: String
     public let furigana: String
     public let romaji: String
     public let meaning: String
+    public let moraWeight: Int
 
-    public init(id: String = UUID().uuidString, text: String, furigana: String = "", romaji: String = "", meaning: String = "") {
+    public init(
+        id: String = UUID().uuidString,
+        index: Int = 0,
+        text: String,
+        furigana: String = "",
+        romaji: String = "",
+        meaning: String = "",
+        moraWeight: Int = 1
+    ) {
         self.id = id
+        self.index = index
         self.text = text
         self.furigana = furigana
         self.romaji = romaji
         self.meaning = meaning
+        self.moraWeight = max(1, moraWeight)
     }
 }
 
@@ -76,7 +88,7 @@ public class JapaneseWordSegmenter {
 
     private init() {}
 
-    /// Segments Japanese text into grammatical word tokens with furigana, romaji, and contextual gloss
+    /// Segments Japanese text into grammatical word tokens with furigana, romaji, contextual gloss, and mora duration weights
     public func segment(text: String, furiganaReference: String = "") -> [WordToken] {
         if text.isEmpty { return [] }
 
@@ -86,22 +98,25 @@ public class JapaneseWordSegmenter {
         tokenizer.setLanguage(.japanese)
 
         let range = text.startIndex..<text.endIndex
+        var currentIndex = 0
         tokenizer.enumerateTokens(in: range) { tokenRange, _ in
             let word = String(text[tokenRange]).trimmingCharacters(in: .whitespacesAndNewlines)
             if !word.isEmpty && word != " " && word != "　" {
+                let weight = max(1, word.count)
                 if let dictEntry = self.commonVocabDict[word] {
-                    tokens.append(WordToken(text: word, furigana: dictEntry.furigana, romaji: dictEntry.romaji, meaning: dictEntry.meaning))
+                    tokens.append(WordToken(index: currentIndex, text: word, furigana: dictEntry.furigana, romaji: dictEntry.romaji, meaning: dictEntry.meaning, moraWeight: weight))
                 } else {
                     let transliterated = self.transliterateToRomaji(word)
-                    tokens.append(WordToken(text: word, furigana: "", romaji: transliterated, meaning: ""))
+                    tokens.append(WordToken(index: currentIndex, text: word, furigana: "", romaji: transliterated, meaning: "", moraWeight: weight))
                 }
+                currentIndex += 1
             }
             return true
         }
 
         // Fallback if tokenizer returned empty
         if tokens.isEmpty {
-            tokens.append(WordToken(text: text, furigana: furiganaReference, romaji: transliterateToRomaji(text), meaning: ""))
+            tokens.append(WordToken(index: 0, text: text, furigana: furiganaReference, romaji: transliterateToRomaji(text), meaning: "", moraWeight: max(1, text.count)))
         }
 
         return tokens

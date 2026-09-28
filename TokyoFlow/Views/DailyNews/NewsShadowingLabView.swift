@@ -179,6 +179,9 @@ public struct NewsShadowingLabView: View {
                 VStack(spacing: 14) {
                     ForEach(newsItem.contentSentences) { sentence in
                         let isActive = (nativeAudio.activeSentenceId == sentence.id)
+                        let sentenceDuration = max(0.1, sentence.endTimeSec - sentence.startTimeSec)
+                        let sentenceElapsed = max(0.0, nativeAudio.currentTimeSec - sentence.startTimeSec)
+                        let sentenceProgress = isActive ? min(1.0, max(0.0, sentenceElapsed / sentenceDuration)) : 0.0
 
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
@@ -228,11 +231,12 @@ public struct NewsShadowingLabView: View {
                                 }
                             }
 
-                            // Word-by-Word Segmented Japanese Text with Furigana & Romaji
+                            // Dynamic Word-by-Word Segmented Japanese Text with Karaoke Highlighting
                             SegmentedSentenceWordFlowView(
                                 sentenceText: sentence.japanese,
                                 furiganaText: sentence.furigana,
                                 isActive: isActive,
+                                sentenceProgress: sentenceProgress,
                                 showFurigana: showFurigana,
                                 showRomaji: true
                             )

@@ -292,6 +292,9 @@ public struct TokyoRadioPlayerModalView: View {
                                                 // Sentence cards
                                                 ForEach(chapter.transcriptSentences) { sent in
                                                     let isCur = (activeSentence?.id == sent.id)
+                                                    let sentDuration = max(0.1, sent.endTimeSec - sent.startTimeSec)
+                                                    let sentElapsed = max(0.0, radioService.currentTimeSec - sent.startTimeSec)
+                                                    let sentProgress = isCur ? min(1.0, max(0.0, sentElapsed / sentDuration)) : 0.0
 
                                                     VStack(alignment: .leading, spacing: 8) {
                                                         HStack {
@@ -327,11 +330,12 @@ public struct TokyoRadioPlayerModalView: View {
                                                             }
                                                         }
 
-                                                        // Word-by-Word Flow
+                                                        // Dynamic Word-by-Word Flow with Real-time Karaoke Highlighting
                                                         SegmentedSentenceWordFlowView(
                                                             sentenceText: sent.japanese,
                                                             furiganaText: sent.furigana,
                                                             isActive: isCur,
+                                                            sentenceProgress: sentProgress,
                                                             showFurigana: showFurigana,
                                                             showRomaji: showRomaji
                                                         )
