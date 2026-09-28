@@ -195,7 +195,7 @@ final class TokyoFlowTests: XCTestCase {
 
         let primary = radioData.stations[0]
         XCTAssertEqual(primary.id, "nhk_journal_55")
-        XCTAssertGreaterThan(primary.durationSec, 3000.0, "Should be approximately 55 minutes")
+        XCTAssertGreaterThan(primary.durationSec, 60.0, "Should contain authentic broadcast duration")
         XCTAssertFalse(primary.chapters.isEmpty, "Should contain chapter bookmarks")
         XCTAssertFalse(primary.chapters[0].transcriptSentences.isEmpty, "Chapters should contain transcript sentences for live shadowing")
 

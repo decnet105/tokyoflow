@@ -119,7 +119,7 @@ public struct JLPTDictionaryView: View {
                     }
                 }
             }
-            .navigationTitle("JLPT 绿宝书词典")
+            .navigationTitle("JLPT 核心词典 (JLPT Lexicon)")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

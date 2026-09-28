@@ -34,7 +34,7 @@ public struct TokyoProUpgradeModalView: View {
                                 .font(.system(size: 24, weight: .black, design: .rounded))
                                 .foregroundColor(.primary)
 
-                            Text("解锁全套 N1-N5 绿宝书词典、无限制弱点 AI 诊断与全景东京场景")
+                            Text("解锁全套 N1-N5 必备核心词库、无限制弱点 AI 诊断与全景东京场景")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -52,7 +52,7 @@ public struct TokyoProUpgradeModalView: View {
                                 comparisonRow(title: "五十音全图 & 7天不重复真人单词", free: "永久免费", pro: "永久免费", isHighlight: false)
                                 comparisonRow(title: "每日 NHK 新闻跟读 & 1小时广播", free: "永久免费", pro: "永久免费", isHighlight: false)
                                 comparisonRow(title: "基础生词本复习 (每日 15 词)", free: "支持", pro: "无限量", isHighlight: false)
-                                comparisonRow(title: "JLPT N1-N5 绿宝书词库 & 抽认卡", free: "仅限 N5", pro: "全级别 N1-N5", isHighlight: true)
+                                comparisonRow(title: "JLPT N1-N5 必备核心词库 & 抽认卡", free: "仅限 N5", pro: "全级别 N1-N5", isHighlight: true)
                                 comparisonRow(title: "AI 弱点诊断 (重听/停顿自动追踪)", free: "基础版", pro: "智能闭环分析", isHighlight: true)
                                 comparisonRow(title: "全东京实景场景 & 3秒忍者道场", free: "前2关体验", pro: "全量解锁", isHighlight: true)
                                 comparisonRow(title: "东京地铁 4K 壁纸 & 离线原生发音包", free: "基础壁纸", pro: "全量 4K + 离线", isHighlight: true)
