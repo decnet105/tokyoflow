@@ -7,7 +7,7 @@
     "category": "Tokyo Transit (交通)",
     "categoryIcon": "tram.fill",
     "summary": "JR東日本は、山手線など東京の主要路線で終電の時刻を約15分〜30分早めると発表しました。夜間の線路工事の作業時間を確保するためです。",
-    "audioUrl": "https://www3.nhk.or.jp/news/easy/k10014285121000/k10014285121000.mp3",
+    "audioUrl": "nhk_news_001.m4a",
     "videoUrl": "https://www.youtube.com/watch?v=real_tokyo_news_sample",
     "sourceName": "NHK News Web Easy",
     "contentSentences": [
@@ -17,31 +17,31 @@
         "furigana": "JRひがしにほんは、とうきょうや そのちかくを はしる でんしゃの しゅうでんの じかんを はやめると はっぴょうしました。",
         "english": "JR East announced that it will advance the last train times for trains running in and around Tokyo.",
         "startTimeSec": 0.0,
-        "endTimeSec": 5.8
+        "endTimeSec": 7.85
       },
       {
         "id": "s2",
         "japanese": "山手線や中央線など、多くの路線で終電が15分から30分程度早くなります。",
         "furigana": "やまのてせいや ちゅうおうせんなど、おおくの ろせんで しゅうでんが じゅうごふんから さんじゅっぷんていど はやくなります。",
         "english": "On many lines including the Yamanote Line and Chuo Line, the last train will be about 15 to 30 minutes earlier.",
-        "startTimeSec": 5.9,
-        "endTimeSec": 12.4
+        "startTimeSec": 8.45,
+        "endTimeSec": 16.14
       },
       {
         "id": "s3",
         "japanese": "会社によると、夜の間に線路を直す作業員の働く時間を守るための措置です。",
         "furigana": "かいしゃによると、よるの あいだに せんろを なおす さぎょういんの はたらく じかんを まもるための そちです。",
         "english": "According to the company, this measure is to secure work hours for maintenance crews repairing tracks during the night.",
-        "startTimeSec": 12.5,
-        "endTimeSec": 19.2
+        "startTimeSec": 16.74,
+        "endTimeSec": 23.4
       },
       {
         "id": "s4",
         "japanese": "夜遅くまで仕事や外食をする人は、終電の乗り遅れに注意が必要です。",
         "furigana": "よるおそくまで しごとや がいしょくを するひとは、しゅうでんの のりおくれに ちゅういが ひつようです。",
         "english": "People who work or eat out late at night need to be careful not to miss the last train.",
-        "startTimeSec": 19.3,
-        "endTimeSec": 26.0
+        "startTimeSec": 24.0,
+        "endTimeSec": 30.52
       }
     ],
     "vocabulary": [
@@ -83,7 +83,8 @@
         "correctIndex": 1,
         "explanation": "記事によると「夜の間に線路を直す作業員の働く時間を守るため」と書かれています。"
       }
-    ]
+    ],
+    "audioFileName": "nhk_news_001.m4a"
   },
   {
     "id": "nhk_news_002",
@@ -93,7 +94,7 @@
     "category": "Manga & Culture (文化)",
     "categoryIcon": "sparkles.tv.fill",
     "summary": "東京・秋葉原で、国内外の人気マンガや新作アニメを紹介する大規模なイベントが始まりました。限定同人誌や限定フィギュアを求める多くのファンで賑わっています。",
-    "audioUrl": "https://www3.nhk.or.jp/news/easy/k10014285122000/k10014285122000.mp3",
+    "audioUrl": "nhk_news_002.m4a",
     "videoUrl": "https://www.youtube.com/watch?v=real_akiba_fest_sample",
     "sourceName": "NHK News Web Easy",
     "contentSentences": [
@@ -103,23 +104,23 @@
         "furigana": "とうきょうの あきはばらで、にんきの マンガや アニメが あつまる あきの イベントが はじまりました。",
         "english": "An autumn event gathering popular manga and anime has begun in Akihabara, Tokyo.",
         "startTimeSec": 0.0,
-        "endTimeSec": 6.2
+        "endTimeSec": 6.11
       },
       {
         "id": "s2",
         "japanese": "会場には、ここでしか買えない限定グッズや原画の展示コーナーが並んでいます。",
         "furigana": "かいじょうには、ここでしか かえない げんていグッズや げんがの てんじコーナーが ならんでいます。",
         "english": "At the venue, limited goods that can only be bought here and original illustration exhibitions are lined up.",
-        "startTimeSec": 6.3,
-        "endTimeSec": 13.0
+        "startTimeSec": 6.71,
+        "endTimeSec": 12.86
       },
       {
         "id": "s3",
         "japanese": "外国人観光客も多く訪れ、「生で日本のマンガ文化に触れられて感動した」と話していました。",
         "furigana": "がいこくじん かんこうきゃくも おおく おとづれ、「なまで にほんの マンガぶんかに ふれられて かんどうした」と はなしていました。",
         "english": "Many foreign tourists also visited, saying 'I was moved to experience Japanese manga culture in person.'",
-        "startTimeSec": 13.1,
-        "endTimeSec": 21.0
+        "startTimeSec": 13.46,
+        "endTimeSec": 21.48
       }
     ],
     "vocabulary": [
@@ -161,7 +162,8 @@
         "correctIndex": 1,
         "explanation": "記事中に「ここでしか買えない限定グッズや原画の展示コーナー」とあります。"
       }
-    ]
+    ],
+    "audioFileName": "nhk_news_002.m4a"
   },
   {
     "id": "nhk_news_003",
@@ -171,7 +173,7 @@
     "category": "Tokyo Life (暮らし)",
     "categoryIcon": "cart.fill",
     "summary": "東京都内のコンビニ各社は、賞味期限が近いおにぎりや弁当を20円〜50円引きで販売する取り組みを広げています。食品ロスを減らすのが狙いです。",
-    "audioUrl": "https://www3.nhk.or.jp/news/easy/k10014285123000/k10014285123000.mp3",
+    "audioUrl": "nhk_news_003.m4a",
     "videoUrl": "https://www.youtube.com/watch?v=real_kombini_news_sample",
     "sourceName": "NHK News Web Easy",
     "contentSentences": [
@@ -181,23 +183,23 @@
         "furigana": "とうきょうとないの コンビニで、しょうひきげんが ちかい しょくひんを ねびきして うるみせが ふえています。",
         "english": "At convenience stores in Tokyo, the number of shops discounting and selling food close to its expiration date is increasing.",
         "startTimeSec": 0.0,
-        "endTimeSec": 6.5
+        "endTimeSec": 6.51
       },
       {
         "id": "s2",
         "japanese": "おにぎりやサンドイッチに「エコ値引きシール」が貼られ、お得に購入できます。",
         "furigana": "おにぎりや サンドイッチに「エコねびきシール」が はられ、おとくに こうにゅうできます。",
         "english": "'Eco-discount stickers' are pasted on rice balls and sandwiches, allowing great bargains.",
-        "startTimeSec": 6.6,
-        "endTimeSec": 13.5
+        "startTimeSec": 7.11,
+        "endTimeSec": 12.52
       },
       {
         "id": "s3",
         "japanese": "店側は廃棄するゴミを減らすことができ、客にとっても節約になると好評です。",
         "furigana": "みせがわは はいきする ゴミを へらすことが でき、きゃくにとっても せつやくになると こうひょうです。",
         "english": "Store owners can reduce discarded waste, and customers praise it as a great way to save money.",
-        "startTimeSec": 13.6,
-        "endTimeSec": 21.0
+        "startTimeSec": 13.12,
+        "endTimeSec": 19.73
       }
     ],
     "vocabulary": [
@@ -239,6 +241,7 @@
         "correctIndex": 1,
         "explanation": "消費期限が近くなった食品に値引きシールが貼られます。"
       }
-    ]
+    ],
+    "audioFileName": "nhk_news_003.m4a"
   }
 ]

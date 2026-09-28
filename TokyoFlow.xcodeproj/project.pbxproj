@@ -25,6 +25,7 @@
 		3BD65A7DBAF51742C2F9CBA9 /* washi_paper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 807D192206E730C626685F41 /* washi_paper.jpg */; };
 		3BEBB99EE18CBD01690BA7FA /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C3BA44A75AC4597BFC23F0 /* Scenario.swift */; };
 		428BDD4E9C9FCBE8B90D4279 /* TokyoLeaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC353CBE3D81234299BF52EC /* TokyoLeaderboard.swift */; };
+		43655D36050CC1F3DDFDA671 /* nhk_news_002.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8451E0472B961F21DE359 /* nhk_news_002.m4a */; };
 		44F7F525AAD81FD0361EFB3C /* NativeAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF24C075F04FC8E178FB536 /* NativeAudioPlayer.swift */; };
 		450DBA64DAA089C1B3E5D1EC /* MangaPanelReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A6AEA0914F59DAA8396BF7 /* MangaPanelReaderView.swift */; };
 		46BC9367AA5229BDAE939527 /* ScenarioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B105DCAA7D9DDF0A6AC036 /* ScenarioDetailView.swift */; };
@@ -36,6 +37,7 @@
 		65379E98118EC59F2A8C8EF7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786B5DEC3AADA9ED8BBB95C4 /* DataManager.swift */; };
 		770F6B12AE1A8B058B2A934F /* TokyoCitizenChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3404928E63F468F32B5E28 /* TokyoCitizenChat.swift */; };
 		780F7DA44AA2EDB793EA6B0F /* dojo_battles.json in Resources */ = {isa = PBXBuildFile; fileRef = 07B54B25A93C95EA55A0F200 /* dojo_battles.json */; };
+		7A4A052EFACEBF8027FDD812 /* nhk_news_003.m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB3948C70E651F545D8D5E64 /* nhk_news_003.m4a */; };
 		7A581EB71DCB8BF31455C45B /* TokyoDojoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230528F947EC6F40F0D6E59 /* TokyoDojoView.swift */; };
 		7F257D55D54C3ABD49B5A374 /* NewsShadowingLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A2F7A15C92AE3581C9FFF4 /* NewsShadowingLabView.swift */; };
 		8A15A225D66E72FEC14B73DF /* SRSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD84F712EDD2CBAF7553CB8E /* SRSService.swift */; };
@@ -59,6 +61,7 @@
 		C3E066EB2E671AC145508D74 /* FuriganaText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADBF66F7B8F697FA22E579B /* FuriganaText.swift */; };
 		C6008AE106CE2C1624D512BD /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3BA9ED0FF08BFDE1534DA /* MainTabView.swift */; };
 		CE68FA7AF95FD71BF446BF37 /* InteractiveRoleplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF8749A37C8562EA96AAA8 /* InteractiveRoleplayView.swift */; };
+		D1087B017E07A19308A4EE82 /* nhk_news_001.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 74012DEB759BF88E56250AA0 /* nhk_news_001.m4a */; };
 		D7AE1AC385ACCB82B66D0943 /* StickmanPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BA44E8AF9DC30DD0F5B9D /* StickmanPlayerView.swift */; };
 		DE02659BA15D406FEA83C0D4 /* AudioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED698EED024D647DD79BB54 /* AudioButton.swift */; };
 		E09B735D375AFDE30B9450BA /* TokyoFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE97679048B6E0DFD9B4640 /* TokyoFlowTests.swift */; };
@@ -113,6 +116,7 @@
 		62C9773159AC77D85293BB0B /* QuestStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestStage.swift; sourceTree = "<group>"; };
 		65A64E2A9A7807DA9327A6F8 /* MangaLesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLesson.swift; sourceTree = "<group>"; };
 		6963D19311544ED0188044EF /* RegisterPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPill.swift; sourceTree = "<group>"; };
+		74012DEB759BF88E56250AA0 /* nhk_news_001.m4a */ = {isa = PBXFileReference; path = nhk_news_001.m4a; sourceTree = "<group>"; };
 		7409853D614C4C59AD75DCC0 /* ThemePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerSheet.swift; sourceTree = "<group>"; };
 		77A6AEA0914F59DAA8396BF7 /* MangaPanelReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaPanelReaderView.swift; sourceTree = "<group>"; };
 		786B5DEC3AADA9ED8BBB95C4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		7FCF8749A37C8562EA96AAA8 /* InteractiveRoleplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveRoleplayView.swift; sourceTree = "<group>"; };
 		807D192206E730C626685F41 /* washi_paper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = washi_paper.jpg; sourceTree = "<group>"; };
 		8BC7F9531C0C40882CBDC957 /* DojoChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoChallenge.swift; sourceTree = "<group>"; };
+		8FD8451E0472B961F21DE359 /* nhk_news_002.m4a */ = {isa = PBXFileReference; path = nhk_news_002.m4a; sourceTree = "<group>"; };
 		912EE7E8E02CBF02459C3A1D /* cozy_room.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cozy_room.jpg; sourceTree = "<group>"; };
 		94EEF3A179DAEC6132A908B2 /* TokyoLeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoLeaderboardView.swift; sourceTree = "<group>"; };
 		9A78D966DAFB04F45302EEDC /* announcements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = announcements.json; sourceTree = "<group>"; };
@@ -142,6 +147,7 @@
 		E37BA44E8AF9DC30DD0F5B9D /* StickmanPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickmanPlayerView.swift; sourceTree = "<group>"; };
 		E907287E1951E27C44D20306 /* TokyoFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoFlowApp.swift; sourceTree = "<group>"; };
 		EAAB83764925C38A795DF69A /* FlashcardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardDeckView.swift; sourceTree = "<group>"; };
+		EB3948C70E651F545D8D5E64 /* nhk_news_003.m4a */ = {isa = PBXFileReference; path = nhk_news_003.m4a; sourceTree = "<group>"; };
 		ED318AC9AE5A77545A761447 /* DailyMissionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionSheet.swift; sourceTree = "<group>"; };
 		F174C9DDAD908E73AB361008 /* TokyoQuestMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoQuestMapView.swift; sourceTree = "<group>"; };
 		F300D6636A385734958B3BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -158,6 +164,16 @@
 				A56AF97C300BB46BA0764315 /* SFXDictionaryView.swift */,
 			);
 			path = Manga;
+			sourceTree = "<group>";
+		};
+		1C3545F8F72AD65A2C9E9D51 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				74012DEB759BF88E56250AA0 /* nhk_news_001.m4a */,
+				8FD8451E0472B961F21DE359 /* nhk_news_002.m4a */,
+				EB3948C70E651F545D8D5E64 /* nhk_news_003.m4a */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		2064F8CEFB2DCCB7E5058DEA /* Products */ = {
@@ -202,6 +218,7 @@
 				07B54B25A93C95EA55A0F200 /* dojo_battles.json */,
 				47BD454FA4D8F043AA7AC680 /* manga_lessons.json */,
 				F82FB3FEED50E654564AD989 /* scenarios.json */,
+				1C3545F8F72AD65A2C9E9D51 /* Audio */,
 				9E27D58E202486435AF74928 /* Wallpapers */,
 			);
 			path = Resources;
@@ -472,6 +489,9 @@
 				780F7DA44AA2EDB793EA6B0F /* dojo_battles.json in Resources */,
 				E36CA0CF1038B98DA0B46596 /* liquid_glass.jpg in Resources */,
 				B5BA14BE01E43EC1C2900F8D /* manga_lessons.json in Resources */,
+				D1087B017E07A19308A4EE82 /* nhk_news_001.m4a in Resources */,
+				43655D36050CC1F3DDFDA671 /* nhk_news_002.m4a in Resources */,
+				7A4A052EFACEBF8027FDD812 /* nhk_news_003.m4a in Resources */,
 				B143370B56C9819959357965 /* rainy_cafe.jpg in Resources */,
 				57D3EA14E97AA5F96BC30BDF /* reading_cat.jpg in Resources */,
 				20BDAC78F2108A6CB53CC473 /* scenarios.json in Resources */,

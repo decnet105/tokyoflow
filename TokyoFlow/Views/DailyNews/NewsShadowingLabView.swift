@@ -54,64 +54,89 @@ public struct NewsShadowingLabView: View {
                     }
 
                     // Audio Controls Bar
-                    HStack(spacing: 14) {
-                        Button(action: {
-                            if nativeAudio.isPlayingRemoteAudio {
-                                nativeAudio.stopAll()
-                            } else {
-                                nativeAudio.playAudioUrl(newsItem.audioUrl ?? "", sentences: newsItem.contentSentences)
-                                gamification.incrementQuestProgress(id: "q_listen_news")
+                    VStack(spacing: 8) {
+                        HStack(spacing: 14) {
+                            Button(action: {
+                                if nativeAudio.isPlayingRemoteAudio {
+                                    nativeAudio.stopAll()
+                                } else {
+                                    nativeAudio.playAudioUrl(newsItem.audioUrl ?? "", sentences: newsItem.contentSentences)
+                                    gamification.incrementQuestProgress(id: "q_listen_news")
+                                }
+                            }) {
+                                HStack(spacing: 6) {
+                                    Image(systemName: nativeAudio.isPlayingRemoteAudio ? "pause.fill" : "play.fill")
+                                    Text(nativeAudio.isPlayingRemoteAudio ? "Pause" : "Native Audio")
+                                        .font(.system(size: 13, weight: .bold))
+                                }
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 8)
+                                .background(Color.accentColor)
+                                .cornerRadius(12)
                             }
-                        }) {
-                            HStack(spacing: 6) {
-                                Image(systemName: nativeAudio.isPlayingRemoteAudio ? "pause.fill" : "play.fill")
-                                Text(nativeAudio.isPlayingRemoteAudio ? "Pause" : "Native Audio")
-                                    .font(.system(size: 13, weight: .bold))
+
+                            // Speed selector
+                            Menu {
+                                Button("0.75x (Slow)") { nativeAudio.setSpeed(0.75) }
+                                Button("1.0x (Normal)") { nativeAudio.setSpeed(1.0) }
+                                Button("1.25x (Fast)") { nativeAudio.setSpeed(1.25) }
+                            } label: {
+                                HStack(spacing: 2) {
+                                    Text("\(String(format: "%.2fx", nativeAudio.playbackRate))")
+                                        .font(.system(size: 12, weight: .bold))
+                                    Image(systemName: "chevron.down")
+                                        .font(.system(size: 9))
+                                }
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 8)
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(10)
                             }
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 8)
-                            .background(Color.accentColor)
-                            .cornerRadius(12)
+
+                            Spacer()
+
+                            // Furigana & Translation Toggles
+                            Button(action: { showFurigana.toggle() }) {
+                                Text("ふりがな")
+                                    .font(.system(size: 11, weight: .bold))
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 6)
+                                    .background(showFurigana ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
+                                    .cornerRadius(8)
+                            }
+
+                            Button(action: { showEnglishTranslation.toggle() }) {
+                                Text("EN")
+                                    .font(.system(size: 11, weight: .bold))
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 6)
+                                    .background(showEnglishTranslation ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
+                                    .cornerRadius(8)
+                            }
                         }
 
-                        // Speed selector
-                        Menu {
-                            Button("0.75x (Slow)") { nativeAudio.setSpeed(0.75) }
-                            Button("1.0x (Normal)") { nativeAudio.setSpeed(1.0) }
-                            Button("1.25x (Fast)") { nativeAudio.setSpeed(1.25) }
-                        } label: {
-                            HStack(spacing: 2) {
-                                Text("\(String(format: "%.2fx", nativeAudio.playbackRate))")
-                                    .font(.system(size: 12, weight: .bold))
-                                Image(systemName: "chevron.down")
-                                    .font(.system(size: 9))
+                        // Live Karaoke Audio Progress Bar
+                        if nativeAudio.isPlayingRemoteAudio && nativeAudio.durationSec > 0 {
+                            VStack(spacing: 2) {
+                                ProgressView(value: nativeAudio.currentTimeSec, total: nativeAudio.durationSec)
+                                    .tint(.accentColor)
+                                    .scaleEffect(x: 1, y: 1.2, anchor: .center)
+
+                                HStack {
+                                    Text(String(format: "%02d:%02d", Int(nativeAudio.currentTimeSec) / 60, Int(nativeAudio.currentTimeSec) % 60))
+                                    Spacer()
+                                    if let activeId = nativeAudio.activeSentenceId {
+                                        Text("Reading \(activeId.uppercased())")
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.accentColor)
+                                    }
+                                    Spacer()
+                                    Text(String(format: "%02d:%02d", Int(nativeAudio.durationSec) / 60, Int(nativeAudio.durationSec) % 60))
+                                }
+                                .font(.system(size: 9, weight: .semibold, design: .monospaced))
+                                .foregroundColor(.secondary)
                             }
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 8)
-                            .background(.ultraThinMaterial)
-                            .cornerRadius(10)
-                        }
-
-                        Spacer()
-
-                        // Furigana & Translation Toggles
-                        Button(action: { showFurigana.toggle() }) {
-                            Text("ふりがな")
-                                .font(.system(size: 11, weight: .bold))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 6)
-                                .background(showFurigana ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
-                                .cornerRadius(8)
-                        }
-
-                        Button(action: { showEnglishTranslation.toggle() }) {
-                            Text("EN")
-                                .font(.system(size: 11, weight: .bold))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 6)
-                                .background(showEnglishTranslation ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
-                                .cornerRadius(8)
                         }
                     }
                 }
@@ -149,144 +174,173 @@ public struct NewsShadowingLabView: View {
     }
 
     private var shadowingSentenceListView: some View {
-        ScrollView {
-            VStack(spacing: 14) {
-                ForEach(newsItem.contentSentences) { sentence in
-                    let isActive = (nativeAudio.activeSentenceId == sentence.id)
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(spacing: 14) {
+                    ForEach(newsItem.contentSentences) { sentence in
+                        let isActive = (nativeAudio.activeSentenceId == sentence.id)
 
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            Text(sentence.id.uppercased())
-                                .font(.system(size: 10, weight: .bold))
-                                .foregroundColor(isActive ? .accentColor : .secondary)
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(isActive ? Color.accentColor.opacity(0.2) : Color.gray.opacity(0.15))
-                                .cornerRadius(6)
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                HStack(spacing: 6) {
+                                    Text(sentence.id.uppercased())
+                                        .font(.system(size: 10, weight: .bold))
+                                        .foregroundColor(isActive ? .accentColor : .secondary)
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(isActive ? Color.accentColor.opacity(0.2) : Color.gray.opacity(0.15))
+                                        .cornerRadius(6)
 
-                            Spacer()
-
-                            // Individual Sentence Audio Play
-                            Button(action: {
-                                if let url = newsItem.audioUrl {
-                                    nativeAudio.playSentence(sentence, audioUrl: url)
+                                    if isActive {
+                                        HStack(spacing: 2) {
+                                            ForEach(0..<4) { _ in
+                                                Circle()
+                                                    .fill(Color.accentColor)
+                                                    .frame(width: 4, height: 4)
+                                            }
+                                        }
+                                        Text("NOW PLAYING")
+                                            .font(.system(size: 9, weight: .heavy))
+                                            .foregroundColor(.accentColor)
+                                            .tracking(1.0)
+                                    }
                                 }
-                            }) {
-                                HStack(spacing: 4) {
-                                    Image(systemName: isActive ? "waveform" : "speaker.wave.2.fill")
-                                    Text("Listen")
-                                        .font(.caption2)
-                                }
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(isActive ? Color.accentColor : Color.gray.opacity(0.2))
-                                .foregroundColor(isActive ? .white : .primary)
-                                .cornerRadius(8)
-                            }
-                        }
 
-                        // Japanese Text with highlight
-                        Text(sentence.japanese)
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(isActive ? .accentColor : .primary)
-                            .lineSpacing(4)
+                                Spacer()
 
-                        if showFurigana {
-                            Text(sentence.furigana)
-                                .font(.system(size: 13))
-                                .foregroundColor(.secondary)
-                        }
-
-                        if showEnglishTranslation {
-                            Text(sentence.english)
-                                .font(.system(size: 13, design: .rounded))
-                                .foregroundColor(.secondary.opacity(0.85))
-                        }
-
-                        Divider()
-
-                        // Shadowing Voice Recording Actions
-                        HStack(spacing: 12) {
-                            if nativeAudio.isRecordingShadowing && selectedSentenceForRecording?.id == sentence.id {
+                                // Individual Sentence Audio Play
                                 Button(action: {
-                                    nativeAudio.stopRecording()
-                                    gamification.incrementQuestProgress(id: "q_shadowing")
+                                    if let url = newsItem.audioUrl {
+                                        nativeAudio.playSentence(sentence, audioUrl: url)
+                                    }
                                 }) {
-                                    HStack(spacing: 6) {
-                                        Image(systemName: "stop.circle.fill")
-                                            .foregroundColor(.red)
-                                        Text("Stop Recording")
-                                            .font(.caption)
+                                    HStack(spacing: 4) {
+                                        Image(systemName: isActive ? "waveform" : "speaker.wave.2.fill")
+                                        Text("Listen")
+                                            .font(.caption2)
                                             .fontWeight(.bold)
-                                            .foregroundColor(.red)
                                     }
                                     .padding(.horizontal, 10)
-                                    .padding(.vertical, 6)
-                                    .background(Color.red.opacity(0.15))
-                                    .cornerRadius(10)
-                                }
-
-                                // Waveform
-                                HStack(spacing: 3) {
-                                    ForEach(0..<5) { idx in
-                                        RoundedRectangle(cornerRadius: 2)
-                                            .fill(Color.red)
-                                            .frame(width: 3, height: 16 * nativeAudio.recordingPowerLevels[idx])
-                                    }
-                                }
-                            } else {
-                                Button(action: {
-                                    selectedSentenceForRecording = sentence
-                                    nativeAudio.startRecordingSentence(id: sentence.id)
-                                }) {
-                                    HStack(spacing: 4) {
-                                        Image(systemName: "mic.fill")
-                                        Text("Record Shadowing")
-                                            .font(.caption)
-                                    }
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 6)
-                                    .background(Color.accentColor.opacity(0.15))
-                                    .foregroundColor(.accentColor)
-                                    .cornerRadius(10)
+                                    .padding(.vertical, 5)
+                                    .background(isActive ? Color.accentColor : Color.gray.opacity(0.2))
+                                    .foregroundColor(isActive ? .white : .primary)
+                                    .cornerRadius(8)
                                 }
                             }
 
-                            if selectedSentenceForRecording?.id == sentence.id && nativeAudio.userAudioRecordingUrl != nil && !nativeAudio.isRecordingShadowing {
-                                Button(action: {
-                                    if nativeAudio.isPlayingUserRecording {
-                                        nativeAudio.stopUserPlayback()
-                                    } else {
-                                        nativeAudio.playUserRecording()
-                                    }
-                                }) {
-                                    HStack(spacing: 4) {
-                                        Image(systemName: nativeAudio.isPlayingUserRecording ? "stop.fill" : "play.circle.fill")
-                                        Text(nativeAudio.isPlayingUserRecording ? "Stop" : "My Voice")
-                                            .font(.caption)
-                                    }
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 6)
-                                    .background(Color.green.opacity(0.15))
-                                    .foregroundColor(.green)
-                                    .cornerRadius(10)
-                                }
+                            // Japanese Text with karaoke highlight
+                            Text(sentence.japanese)
+                                .font(.system(size: 17, weight: isActive ? .bold : .medium))
+                                .foregroundColor(isActive ? .accentColor : .primary)
+                                .lineSpacing(4)
+
+                            if showFurigana {
+                                Text(sentence.furigana)
+                                    .font(.system(size: 13))
+                                    .foregroundColor(isActive ? .accentColor.opacity(0.8) : .secondary)
                             }
 
-                            Spacer()
+                            if showEnglishTranslation {
+                                Text(sentence.english)
+                                    .font(.system(size: 13, design: .rounded))
+                                    .foregroundColor(.secondary.opacity(0.85))
+                            }
+
+                            Divider()
+
+                            // Shadowing Voice Recording Actions
+                            HStack(spacing: 12) {
+                                if nativeAudio.isRecordingShadowing && selectedSentenceForRecording?.id == sentence.id {
+                                    Button(action: {
+                                        nativeAudio.stopRecording()
+                                        gamification.incrementQuestProgress(id: "q_shadowing")
+                                    }) {
+                                        HStack(spacing: 6) {
+                                            Image(systemName: "stop.circle.fill")
+                                                .foregroundColor(.red)
+                                            Text("Stop Recording")
+                                                .font(.caption)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.red)
+                                        }
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 6)
+                                        .background(Color.red.opacity(0.15))
+                                        .cornerRadius(10)
+                                    }
+
+                                    // Waveform
+                                    HStack(spacing: 3) {
+                                        ForEach(0..<5) { idx in
+                                            RoundedRectangle(cornerRadius: 2)
+                                                .fill(Color.red)
+                                                .frame(width: 3, height: 16 * nativeAudio.recordingPowerLevels[idx])
+                                        }
+                                    }
+                                } else {
+                                    Button(action: {
+                                        selectedSentenceForRecording = sentence
+                                        nativeAudio.startRecordingSentence(id: sentence.id)
+                                    }) {
+                                        HStack(spacing: 4) {
+                                            Image(systemName: "mic.fill")
+                                            Text("Record Shadowing")
+                                                .font(.caption)
+                                                .fontWeight(.semibold)
+                                        }
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 6)
+                                        .background(Color.accentColor.opacity(0.15))
+                                        .foregroundColor(.accentColor)
+                                        .cornerRadius(10)
+                                    }
+                                }
+
+                                if selectedSentenceForRecording?.id == sentence.id && nativeAudio.userAudioRecordingUrl != nil && !nativeAudio.isRecordingShadowing {
+                                    Button(action: {
+                                        if nativeAudio.isPlayingUserRecording {
+                                            nativeAudio.stopUserPlayback()
+                                        } else {
+                                            nativeAudio.playUserRecording()
+                                        }
+                                    }) {
+                                        HStack(spacing: 4) {
+                                            Image(systemName: nativeAudio.isPlayingUserRecording ? "stop.fill" : "play.circle.fill")
+                                            Text(nativeAudio.isPlayingUserRecording ? "Stop" : "My Voice")
+                                                .font(.caption)
+                                                .fontWeight(.semibold)
+                                        }
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 6)
+                                        .background(Color.green.opacity(0.15))
+                                        .foregroundColor(.green)
+                                        .cornerRadius(10)
+                                    }
+                                }
+
+                                Spacer()
+                            }
                         }
+                        .padding(14)
+                        .background(.ultraThinMaterial)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(isActive ? Color.accentColor : Color.clear, lineWidth: 2.5)
+                        )
+                        .cornerRadius(16)
+                        .id(sentence.id)
                     }
-                    .padding(14)
-                    .background(.ultraThinMaterial)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 16)
-                            .stroke(isActive ? Color.accentColor : Color.clear, lineWidth: 2)
-                    )
-                    .cornerRadius(16)
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 12)
+            }
+            .onChange(of: nativeAudio.activeSentenceId) { activeId in
+                if let activeId = activeId {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        proxy.scrollTo(activeId, anchor: .center)
+                    }
                 }
             }
-            .padding(.horizontal)
-            .padding(.vertical, 12)
         }
     }
 
