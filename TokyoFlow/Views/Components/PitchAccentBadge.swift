@@ -1,10 +1,10 @@
 import SwiftUI
 
 public enum PitchAccentType: String, Codable, CaseIterable {
-    case heiban = "0 (平板 / Flat)"
-    case atamadaka = "1 (頭高 / Initial Drop)"
-    case nakadaka = "2 (中高 / Mid Peak)"
-    case odaka = "3 (尾高 / Final Drop)"
+    case heiban = "0 (Flat / Heiban)"
+    case atamadaka = "1 (Head-High / Atamadaka)"
+    case nakadaka = "2 (Mid-High / Nakadaka)"
+    case odaka = "3 (Tail-High / Odaka)"
 
     public var code: String {
         switch self {
@@ -12,6 +12,15 @@ public enum PitchAccentType: String, Codable, CaseIterable {
         case .atamadaka: return "①"
         case .nakadaka: return "②"
         case .odaka: return "③"
+        }
+    }
+
+    public var label: String {
+        switch self {
+        case .heiban: return "Flat"
+        case .atamadaka: return "Head-High"
+        case .nakadaka: return "Mid-Peak"
+        case .odaka: return "Tail-High"
         }
     }
 
@@ -45,7 +54,7 @@ public struct PitchAccentBadge: View {
         HStack(spacing: 3) {
             Text(type.code)
                 .font(.system(size: 11, weight: .heavy, design: .rounded))
-            Text(type.rawValue.split(separator: " ")[1])
+            Text(type.label)
                 .font(.system(size: 10, weight: .semibold))
         }
         .padding(.horizontal, 6)

@@ -10,7 +10,7 @@ public struct DailyNewsFeedView: View {
     @State private var selectedRadioStation: TokyoRadioStation? = nil
 
     private let radioData = TokyoRadioDataManager.shared
-    let categories = ["All", "Tokyo Transit (交通)", "Manga & Culture (文化)", "Tokyo Life (暮らし)"]
+    let categories = ["All", "Tokyo Transit", "Manga & Culture", "Tokyo Life"]
 
     public init() {}
 

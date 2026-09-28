@@ -210,40 +210,83 @@ public class NativeAudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
     public func startRecordingSentence(id: String) {
         stopAll()
 
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth])
-            try audioSession.setActive(true)
+        let requestPermission: (@escaping (Bool) -> Void) -> Void = { handler in
+            if #available(iOS 17.0, *) {
+                AVAudioApplication.requestRecordPermission { granted in
+                    DispatchQueue.main.async { handler(granted) }
+                }
+            } else {
+                AVAudioSession.sharedInstance().requestRecordPermission { granted in
+                    DispatchQueue.main.async { handler(granted) }
+                }
+            }
+        }
 
-            let docPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let recordUrl = docPath.appendingPathComponent("shadowing_\(id).m4a")
-            self.userAudioRecordingUrl = recordUrl
+        requestPermission { [weak self] granted in
+            guard let self = self, granted else {
+                print("⚠️ Microphone permission denied or unavailable.")
+                return
+            }
+            self.performStartRecording(id: id)
+        }
+    }
 
-            let settings: [String: Any] = [
-                AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                AVSampleRateKey: 44100.0,
-                AVNumberOfChannelsKey: 1,
-                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-            ]
+    private func performStartRecording(id: String) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
 
-            audioRecorder = try AVAudioRecorder(url: recordUrl, settings: settings)
-            audioRecorder?.delegate = self
-            audioRecorder?.isMeteringEnabled = true
-            audioRecorder?.record()
-            isRecordingShadowing = true
+            let audioSession = AVAudioSession.sharedInstance()
+            do {
+                try audioSession.setCategory(.playAndRecord, mode: .spokenAudio, options: [.defaultToSpeaker, .allowBluetooth])
+                try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
 
-            startMeterTimer()
-        } catch {
-            print("Failed to start voice recording: \(error)")
+                let docPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let recordUrl = docPath.appendingPathComponent("shadowing_\(id).m4a")
+
+                let settings: [String: Any] = [
+                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                    AVSampleRateKey: 44100.0,
+                    AVNumberOfChannelsKey: 1,
+                    AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+                ]
+
+                let recorder = try AVAudioRecorder(url: recordUrl, settings: settings)
+                recorder.delegate = self
+                recorder.isMeteringEnabled = true
+                recorder.prepareToRecord()
+                recorder.record()
+
+                DispatchQueue.main.async {
+                    self.userAudioRecordingUrl = recordUrl
+                    self.audioRecorder = recorder
+                    self.isRecordingShadowing = true
+                    self.startMeterTimer()
+                }
+            } catch {
+                print("❌ Failed to start voice recording: \(error)")
+                DispatchQueue.main.async {
+                    self.isRecordingShadowing = false
+                }
+            }
         }
     }
 
     public func stopRecording() {
-        guard isRecordingShadowing else { return }
+        guard isRecordingShadowing || audioRecorder != nil else { return }
+        stopMeterTimer()
         audioRecorder?.stop()
         audioRecorder = nil
         isRecordingShadowing = false
-        stopMeterTimer()
+
+        DispatchQueue.global(qos: .utility).async {
+            do {
+                let session = AVAudioSession.sharedInstance()
+                try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+                try session.setActive(true)
+            } catch {
+                print("Audio session restore error: \(error)")
+            }
+        }
     }
 
     public func playUserRecording() {

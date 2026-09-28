@@ -6,9 +6,14 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
     public static let shared = TokyoVoiceBankService()
 
     private var manifest: [String: String] = [:]
+    private var normalizedIndex: [String: String] = [:]
+    private var queryCache = NSCache<NSString, NSString>()
+    private var audioUrlCache = NSCache<NSString, NSURL>()
+    
     private var audioPlayer: AVAudioPlayer?
     private var onAudioFinished: (() -> Void)?
     private let queue = DispatchQueue(label: "com.tokyoflow.voicebank", qos: .userInitiated)
+    private var isAudioSessionConfigured: Bool = false
 
     @Published public var isPlayingNativeAudio: Bool = false
     @Published public var currentPlayingKey: String? = nil
@@ -16,10 +21,23 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
     private override init() {
         super.init()
         loadManifest()
+        prewarmAudioSessionAsync()
+    }
+
+    private func prewarmAudioSessionAsync() {
+        queue.async {
+            do {
+                let session = AVAudioSession.sharedInstance()
+                try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+                try session.setActive(true)
+                self.isAudioSessionConfigured = true
+            } catch {
+                print("ℹ️ TokyoVoiceBankService: AudioSession prewarm notice: \(error)")
+            }
+        }
     }
 
     private func loadManifest() {
-        // 1. Check Bundle resources first
         let possibleUrls = [
             Bundle.main.url(forResource: "voice_bank_manifest", withExtension: "json", subdirectory: "VoiceBank"),
             Bundle.main.url(forResource: "voice_bank_manifest", withExtension: "json"),
@@ -32,6 +50,7 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
                let data = try? Data(contentsOf: url),
                let dict = try? JSONSerialization.jsonObject(with: data) as? [String: String] {
                 self.manifest = dict
+                buildFastIndex(from: dict)
                 print("✅ TokyoVoiceBankService: Successfully loaded \(dict.count) native voice keys from Bundle.")
                 return
             }
@@ -43,12 +62,46 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
            let data = try? Data(contentsOf: URL(fileURLWithPath: devPath)),
            let dict = try? JSONSerialization.jsonObject(with: data) as? [String: String] {
             self.manifest = dict
+            buildFastIndex(from: dict)
             print("✅ TokyoVoiceBankService: Loaded \(dict.count) native voice keys from DevPath.")
         }
     }
 
+    private func buildFastIndex(from dict: [String: String]) {
+        var fastMap: [String: String] = Dictionary(minimumCapacity: dict.count * 3)
+        for (k, v) in dict {
+            fastMap[k] = v
+            let norm = normalizeKey(k)
+            if fastMap[norm] == nil { fastMap[norm] = v }
+            let lower = k.lowercased()
+            if fastMap[lower] == nil { fastMap[lower] = v }
+            let normLower = norm.lowercased()
+            if fastMap[normLower] == nil { fastMap[normLower] = v }
+        }
+        self.normalizedIndex = fastMap
+        self.queryCache.removeAllObjects()
+    }
+
+    public func cleanFuriganaKanji(_ text: String) -> String {
+        var result = text
+        let regex = try? NSRegularExpression(pattern: "[^{}]+{([^{}]+)}")
+        if let regex = regex {
+            result = regex.stringByReplacingMatches(in: text, range: NSRange(text.startIndex..., in: text), withTemplate: "$1")
+        }
+        return result
+    }
+
+    public func cleanFuriganaReading(_ text: String) -> String {
+        var result = text
+        let regex = try? NSRegularExpression(pattern: "([^{}]+){[^{}]+}")
+        if let regex = regex {
+            result = regex.stringByReplacingMatches(in: text, range: NSRange(text.startIndex..., in: text), withTemplate: "$1")
+        }
+        return result
+    }
+
     public func normalizeKey(_ text: String) -> String {
-        let stripped = text
+        return text
             .replacingOccurrences(of: "？", with: "")
             .replacingOccurrences(of: "?", with: "")
             .replacingOccurrences(of: "！", with: "")
@@ -64,43 +117,80 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
             .replacingOccurrences(of: ")", with: "")
             .replacingOccurrences(of: "（", with: "")
             .replacingOccurrences(of: "）", with: "")
+            .replacingOccurrences(of: "[", with: "")
+            .replacingOccurrences(of: "]", with: "")
+            .replacingOccurrences(of: "【", with: "")
+            .replacingOccurrences(of: "】", with: "")
             .replacingOccurrences(of: "#", with: "")
+            .replacingOccurrences(of: "　", with: "")
             .trimmingCharacters(in: .whitespacesAndNewlines)
-        return stripped
     }
 
     public func findAudioFilename(for text: String) -> String? {
         let clean = text.trimmingCharacters(in: .whitespacesAndNewlines)
         if clean.isEmpty { return nil }
 
-        // 1. Direct exact match
-        if let fn = manifest[clean] { return fn }
-
-        // 2. Normalized match (stripped of punctuation/quotes)
-        let norm = normalizeKey(clean)
-        if let fn = manifest[norm] { return fn }
-
-        // 3. Lowercased romaji / ASCII match
-        let lower = clean.lowercased()
-        if let fn = manifest[lower] { return fn }
-
-        // 4. Tokenized component match (e.g. "ありがとう (Thank you)" -> "ありがとう")
-        let tokens = clean.components(separatedBy: CharacterSet(charactersIn: " ()（）[]【】/~〜・,、:：")).filter { !$0.isEmpty }
-        for tok in tokens {
-            if let fn = manifest[tok] ?? manifest[normalizeKey(tok)] ?? manifest[tok.lowercased()] {
-                return fn
-            }
+        let nsKey = clean as NSString
+        if let cached = queryCache.object(forKey: nsKey) {
+            return (cached as String).isEmpty ? nil : (cached as String)
         }
 
-        // 5. Prefix match for full phrases (e.g. "すみません、山手線..." matching sentence key)
-        if clean.count >= 4 {
-            for (key, fn) in manifest {
-                if key.count >= 4 && (clean.hasPrefix(key) || norm.hasPrefix(key)) {
+        // 1. Direct O(1) exact match
+        if let fn = manifest[clean] ?? normalizedIndex[clean] {
+            queryCache.setObject(fn as NSString, forKey: nsKey)
+            return fn
+        }
+
+        // 2. Normalized O(1) match
+        let norm = normalizeKey(clean)
+        if let fn = normalizedIndex[norm] {
+            queryCache.setObject(fn as NSString, forKey: nsKey)
+            return fn
+        }
+
+        // 3. Furigana kanji-extracted O(1) match
+        let fk = normalizeKey(cleanFuriganaKanji(clean))
+        if let fn = normalizedIndex[fk] {
+            queryCache.setObject(fn as NSString, forKey: nsKey)
+            return fn
+        }
+
+        // 4. Furigana kana-reading O(1) match
+        let fr = normalizeKey(cleanFuriganaReading(clean))
+        if let fn = normalizedIndex[fr] {
+            queryCache.setObject(fn as NSString, forKey: nsKey)
+            return fn
+        }
+
+        // 5. Lowercased O(1) match
+        let lower = clean.lowercased()
+        if let fn = normalizedIndex[lower] {
+            queryCache.setObject(fn as NSString, forKey: nsKey)
+            return fn
+        }
+
+        // 6. Slash-delimited composite expression match
+        if clean.contains("/") {
+            for part in clean.split(separator: "/") {
+                let pStr = String(part).trimmingCharacters(in: .whitespacesAndNewlines)
+                if let fn = normalizedIndex[pStr] ?? normalizedIndex[normalizeKey(pStr)] {
+                    queryCache.setObject(fn as NSString, forKey: nsKey)
                     return fn
                 }
             }
         }
 
+        // 7. Tokenized component match
+        let tokens = clean.components(separatedBy: CharacterSet(charactersIn: " ()（）[]【】/~〜・,、:：\n\t　 ")).filter { !$0.isEmpty }
+        for tok in tokens {
+            if let fn = normalizedIndex[tok] ?? normalizedIndex[normalizeKey(tok)] {
+                queryCache.setObject(fn as NSString, forKey: nsKey)
+                return fn
+            }
+        }
+
+        // Cache negative result
+        queryCache.setObject("" as NSString, forKey: nsKey)
         return nil
     }
 
@@ -109,6 +199,11 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
     }
 
     public func audioURL(for filename: String) -> URL? {
+        let nsKey = filename as NSString
+        if let cached = audioUrlCache.object(forKey: nsKey) {
+            return cached as URL
+        }
+
         let bareName = (filename as NSString).deletingPathExtension
         let ext = (filename as NSString).pathExtension
 
@@ -124,6 +219,7 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
 
         for url in candidates {
             if FileManager.default.fileExists(atPath: url.path) {
+                audioUrlCache.setObject(url as NSURL, forKey: nsKey)
                 return url
             }
         }
@@ -145,13 +241,15 @@ public class TokyoVoiceBankService: NSObject, ObservableObject, AVAudioPlayerDel
         stop()
 
         do {
-            let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
-            try session.setActive(true)
+            if !isAudioSessionConfigured {
+                let session = AVAudioSession.sharedInstance()
+                try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+                try session.setActive(true)
+                self.isAudioSessionConfigured = true
+            }
 
             let player = try AVAudioPlayer(contentsOf: url)
             player.delegate = self
-            // Only adjust rate if it's explicitly within a standard playback speed range (0.75x - 2.0x)
             if let r = rate, r >= 0.7 && r <= 2.0 {
                 player.enableRate = true
                 player.rate = r

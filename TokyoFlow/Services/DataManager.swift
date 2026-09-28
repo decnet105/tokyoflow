@@ -10,6 +10,9 @@ public class DataManager: ObservableObject {
     @Published public var isLoading: Bool = false
     @Published public var errorMessage: String? = nil
 
+    private var scenarioMap: [String: Scenario] = [:]
+    private var mangaMap: [String: MangaLesson] = [:]
+
     private init() {
         loadAllData()
     }
@@ -20,6 +23,15 @@ public class DataManager: ObservableObject {
         mangaLessons = loadJson(filename: "manga_lessons") ?? []
         announcements = loadJson(filename: "announcements") ?? []
         dojoBattles = loadJson(filename: "dojo_battles") ?? []
+        
+        var sMap: [String: Scenario] = [:]
+        for s in scenarios { sMap[s.id] = s }
+        self.scenarioMap = sMap
+
+        var mMap: [String: MangaLesson] = [:]
+        for m in mangaLessons { mMap[m.id] = m }
+        self.mangaMap = mMap
+
         isLoading = false
     }
 
@@ -55,10 +67,10 @@ public class DataManager: ObservableObject {
     }
 
     public func scenario(for id: String) -> Scenario? {
-        return scenarios.first { $0.id == id }
+        return scenarioMap[id] ?? scenarios.first { $0.id == id }
     }
 
     public func mangaLesson(for id: String) -> MangaLesson? {
-        return mangaLessons.first { $0.id == id }
+        return mangaMap[id] ?? mangaLessons.first { $0.id == id }
     }
 }

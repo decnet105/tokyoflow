@@ -31,6 +31,8 @@ public struct WordToken: Identifiable, Hashable {
 
 public class JapaneseWordSegmenter {
     public static let shared = JapaneseWordSegmenter()
+    
+    private let tokenCache = NSCache<NSString, NSArray>()
 
     private let commonVocabDict: [String: (furigana: String, romaji: String, meaning: String)] = [
         "JR東日本": ("じぇいあーるひがしにほん", "JR Higashi-Nihon", "JR East (East Japan Railway)"),
@@ -92,6 +94,11 @@ public class JapaneseWordSegmenter {
     public func segment(text: String, furiganaReference: String = "") -> [WordToken] {
         if text.isEmpty { return [] }
 
+        let nsKey = text as NSString
+        if let cached = tokenCache.object(forKey: nsKey) as? [WordToken] {
+            return cached
+        }
+
         var tokens: [WordToken] = []
         let tokenizer = NLTokenizer(unit: .word)
         tokenizer.string = text
@@ -119,6 +126,7 @@ public class JapaneseWordSegmenter {
             tokens.append(WordToken(index: 0, text: text, furigana: furiganaReference, romaji: transliterateToRomaji(text), meaning: "", moraWeight: max(1, text.count)))
         }
 
+        tokenCache.setObject(tokens as NSArray, forKey: nsKey)
         return tokens
     }
 

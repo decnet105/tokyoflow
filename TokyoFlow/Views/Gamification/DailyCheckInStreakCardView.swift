@@ -25,10 +25,10 @@ public struct DailyCheckInStreakCardView: View {
 
                     VStack(alignment: .leading, spacing: 2) {
                         HStack(spacing: 6) {
-                            Text("\(gamification.streakDays) 天连续打卡")
+                            Text("\(gamification.streakDays)-Day Streak")
                                 .font(.system(size: 17, weight: .black, design: .rounded))
                             if gamification.streakDays >= 3 {
-                                Text("🔥 x\(min(5, gamification.streakDays / 3 + 1)) 倍奖励")
+                                Text("🔥 x\(min(5, gamification.streakDays / 3 + 1)) Multiplier")
                                     .font(.system(size: 10, weight: .bold))
                                     .foregroundColor(.orange)
                                     .padding(.horizontal, 6)
@@ -38,7 +38,7 @@ public struct DailyCheckInStreakCardView: View {
                             }
                         }
 
-                        Text("碎片时间日积月累 · 征服东京生活日语")
+                        Text("Master Tokyo Japanese in 5-minute daily bites")
                             .font(.system(size: 11))
                             .foregroundColor(.secondary)
                     }
@@ -51,7 +51,7 @@ public struct DailyCheckInStreakCardView: View {
                     HStack(spacing: 4) {
                         Image(systemName: "checkmark.seal.fill")
                             .foregroundColor(.green)
-                        Text("今日已打卡")
+                        Text("Checked In Today")
                             .font(.system(size: 12, weight: .bold))
                             .foregroundColor(.green)
                     }
@@ -63,7 +63,7 @@ public struct DailyCheckInStreakCardView: View {
                     Button(action: handlePunchIn) {
                         HStack(spacing: 4) {
                             Image(systemName: "hand.tap.fill")
-                            Text("今日打卡")
+                            Text("Check In")
                                 .fontWeight(.black)
                         }
                         .font(.system(size: 13))
@@ -141,13 +141,13 @@ public struct DailyCheckInStreakCardView: View {
                         Image(systemName: "hourglass.circle.fill")
                             .foregroundColor(.accentColor)
                             .font(.system(size: 14))
-                        Text("今日碎片学习目标")
+                        Text("Daily Learning Goal")
                             .font(.system(size: 13, weight: .bold))
                     }
 
                     Spacer()
 
-                    Text("\(gamification.dailyMinutesLearned) / \(gamification.dailyGoalMinutes) 分钟")
+                    Text("\(gamification.dailyMinutesLearned) / \(gamification.dailyGoalMinutes) min")
                         .font(.system(size: 13, weight: .black, design: .monospaced))
                         .foregroundColor(gamification.dailyMinutesLearned >= gamification.dailyGoalMinutes ? .green : .primary)
                 }
@@ -177,16 +177,16 @@ public struct DailyCheckInStreakCardView: View {
 
                 // Micro-Learning Quick Actions (4 Quick 3-5min bites)
                 HStack(spacing: 8) {
-                    MicroLearningPill(icon: "character.book.closed.fill", label: "五十音 2分", color: .purple) {
+                    MicroLearningPill(icon: "character.book.closed.fill", label: "Kana 2m", color: .purple) {
                         gamification.recordMicroLearningTime(minutes: 2)
                     }
-                    MicroLearningPill(icon: "headphones", label: "NHK听力 5分", color: .blue) {
+                    MicroLearningPill(icon: "headphones", label: "Radio 5m", color: .blue) {
                         gamification.recordMicroLearningTime(minutes: 5)
                     }
-                    MicroLearningPill(icon: "storefront.fill", label: "场景实战 5分", color: .orange) {
+                    MicroLearningPill(icon: "storefront.fill", label: "Scenario 5m", color: .orange) {
                         gamification.recordMicroLearningTime(minutes: 5)
                     }
-                    MicroLearningPill(icon: "mic.fill", label: "跟读录音 3分", color: .red) {
+                    MicroLearningPill(icon: "mic.fill", label: "Shadowing 3m", color: .red) {
                         gamification.recordMicroLearningTime(minutes: 3)
                     }
                 }
@@ -226,7 +226,7 @@ public struct DailyCheckInStreakCardView: View {
     private func handlePunchIn() {
         let success = gamification.punchInToday()
         if success {
-            celebrationText = "🎉 打卡成功！\n连续打卡 \(gamification.streakDays) 天\n+50 TP  +60 EXP"
+            celebrationText = "🎉 Checked In!\n\(gamification.streakDays)-Day Streak\n+50 TP  +60 EXP"
             withAnimation(.spring()) {
                 showCheckInCelebration = true
             }

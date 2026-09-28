@@ -23,146 +23,166 @@ public struct NewsShadowingLabView: View {
         ZStack {
             MangaThemeBackgroundView()
 
-            VStack(spacing: 0) {
-                // Top Header Card
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack {
-                        Label(newsItem.category, systemImage: newsItem.categoryIcon)
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundColor(.accentColor)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color.accentColor.opacity(0.15))
-                            .cornerRadius(8)
-
-                        Spacer()
-
-                        Text(newsItem.publishDate)
-                            .font(.caption2)
-                            .foregroundColor(.secondary)
-                    }
-
-                    Text(newsItem.title)
-                        .font(.system(size: 18, weight: .black, design: .rounded))
-                        .foregroundColor(.primary)
-
-                    if showFurigana {
-                        Text(newsItem.titleFurigana)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-
-                    // Audio Controls Bar
-                    VStack(spacing: 8) {
-                        HStack(spacing: 14) {
-                            Button(action: {
-                                if nativeAudio.isPlayingRemoteAudio {
-                                    nativeAudio.stopAll()
-                                } else {
-                                    nativeAudio.playAudioUrl(newsItem.audioUrl ?? "", sentences: newsItem.contentSentences)
-                                    gamification.incrementQuestProgress(id: "q_listen_news")
-                                }
-                            }) {
-                                HStack(spacing: 6) {
-                                    Image(systemName: nativeAudio.isPlayingRemoteAudio ? "pause.fill" : "play.fill")
-                                    Text(nativeAudio.isPlayingRemoteAudio ? "Pause" : "Native Audio")
-                                        .font(.system(size: 13, weight: .bold))
-                                }
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 8)
-                                .background(Color.accentColor)
-                                .cornerRadius(12)
-                            }
-
-                            // Speed selector
-                            Menu {
-                                Button("0.75x (Slow)") { nativeAudio.setSpeed(0.75) }
-                                Button("1.0x (Normal)") { nativeAudio.setSpeed(1.0) }
-                                Button("1.25x (Fast)") { nativeAudio.setSpeed(1.25) }
-                            } label: {
-                                HStack(spacing: 2) {
-                                    Text("\(String(format: "%.2fx", nativeAudio.playbackRate))")
-                                        .font(.system(size: 12, weight: .bold))
-                                    Image(systemName: "chevron.down")
-                                        .font(.system(size: 9))
-                                }
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 8)
-                                .background(.ultraThinMaterial)
-                                .cornerRadius(10)
-                            }
+            TokyoDuoAdaptiveLayout(duoSplitRatio: 0.42) {
+                // Left Screen: News Broadcast Header & Audio Controls
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 14) {
+                        HStack {
+                            Label(newsItem.category, systemImage: newsItem.categoryIcon)
+                                .font(.caption)
+                                .fontWeight(.bold)
+                                .foregroundColor(.accentColor)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.accentColor.opacity(0.15))
+                                .cornerRadius(8)
 
                             Spacer()
 
-                            // Furigana & Translation Toggles
-                            Button(action: { showFurigana.toggle() }) {
-                                Text("ふりがな")
-                                    .font(.system(size: 11, weight: .bold))
-                                    .padding(.horizontal, 8)
-                                    .padding(.vertical, 6)
-                                    .background(showFurigana ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
-                                    .cornerRadius(8)
-                            }
-
-                            Button(action: { showEnglishTranslation.toggle() }) {
-                                Text("EN")
-                                    .font(.system(size: 11, weight: .bold))
-                                    .padding(.horizontal, 8)
-                                    .padding(.vertical, 6)
-                                    .background(showEnglishTranslation ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
-                                    .cornerRadius(8)
-                            }
-                        }
-
-                        // Live Karaoke Audio Progress Bar
-                        if nativeAudio.isPlayingRemoteAudio && nativeAudio.durationSec > 0 {
-                            VStack(spacing: 2) {
-                                ProgressView(value: nativeAudio.currentTimeSec, total: nativeAudio.durationSec)
-                                    .tint(.accentColor)
-                                    .scaleEffect(x: 1, y: 1.2, anchor: .center)
-
-                                HStack {
-                                    Text(String(format: "%02d:%02d", Int(nativeAudio.currentTimeSec) / 60, Int(nativeAudio.currentTimeSec) % 60))
-                                    Spacer()
-                                    if let activeId = nativeAudio.activeSentenceId {
-                                        Text("Reading \(activeId.uppercased())")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.accentColor)
-                                    }
-                                    Spacer()
-                                    Text(String(format: "%02d:%02d", Int(nativeAudio.durationSec) / 60, Int(nativeAudio.durationSec) % 60))
-                                }
-                                .font(.system(size: 9, weight: .semibold, design: .monospaced))
+                            Text(newsItem.publishDate)
+                                .font(.caption2)
                                 .foregroundColor(.secondary)
+                        }
+
+                        Text(newsItem.title)
+                            .font(.system(size: 20, weight: .black, design: .rounded))
+                            .foregroundColor(.primary)
+
+                        if showFurigana {
+                            Text(newsItem.titleFurigana)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+
+                        Divider()
+
+                        // Audio Controls Bar
+                        VStack(spacing: 12) {
+                            HStack(spacing: 14) {
+                                Button(action: {
+                                    if nativeAudio.isPlayingRemoteAudio {
+                                        nativeAudio.stopAll()
+                                    } else {
+                                        nativeAudio.playAudioUrl(newsItem.audioUrl ?? "", sentences: newsItem.contentSentences)
+                                        gamification.incrementQuestProgress(id: "q_listen_news")
+                                    }
+                                }) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: nativeAudio.isPlayingRemoteAudio ? "pause.fill" : "play.fill")
+                                        Text(nativeAudio.isPlayingRemoteAudio ? "Pause" : "Native Audio")
+                                            .font(.system(size: 14, weight: .bold))
+                                    }
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 10)
+                                    .background(Color.accentColor)
+                                    .cornerRadius(12)
+                                }
+
+                                // Speed selector
+                                Menu {
+                                    Button("0.75x (Slow)") { nativeAudio.setSpeed(0.75) }
+                                    Button("1.0x (Normal)") { nativeAudio.setSpeed(1.0) }
+                                    Button("1.25x (Fast)") { nativeAudio.setSpeed(1.25) }
+                                } label: {
+                                    HStack(spacing: 2) {
+                                        Text("\(String(format: "%.2fx", nativeAudio.playbackRate))")
+                                            .font(.system(size: 13, weight: .bold))
+                                        Image(systemName: "chevron.down")
+                                            .font(.system(size: 9))
+                                    }
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 10)
+                                    .background(.ultraThinMaterial)
+                                    .cornerRadius(10)
+                                }
+
+                                Spacer()
+
+                                // Furigana & Translation Toggles
+                                Button(action: { showFurigana.toggle() }) {
+                                    Text("ふりがな")
+                                        .font(.system(size: 11, weight: .bold))
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 8)
+                                        .background(showFurigana ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
+                                        .cornerRadius(8)
+                                }
+
+                                Button(action: { showEnglishTranslation.toggle() }) {
+                                    Text("EN")
+                                        .font(.system(size: 11, weight: .bold))
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 8)
+                                        .background(showEnglishTranslation ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
+                                        .cornerRadius(8)
+                                }
+                            }
+
+                            // Live Karaoke Audio Progress Bar
+                            if nativeAudio.isPlayingRemoteAudio && nativeAudio.durationSec > 0 {
+                                VStack(spacing: 4) {
+                                    ProgressView(value: nativeAudio.currentTimeSec, total: nativeAudio.durationSec)
+                                        .tint(.accentColor)
+                                        .scaleEffect(x: 1, y: 1.4, anchor: .center)
+
+                                    HStack {
+                                        Text(String(format: "%02d:%02d", Int(nativeAudio.currentTimeSec) / 60, Int(nativeAudio.currentTimeSec) % 60))
+                                        Spacer()
+                                        if let activeId = nativeAudio.activeSentenceId {
+                                            Text("Reading \(activeId.uppercased())")
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.accentColor)
+                                        }
+                                        Spacer()
+                                        Text(String(format: "%02d:%02d", Int(nativeAudio.durationSec) / 60, Int(nativeAudio.durationSec) % 60))
+                                    }
+                                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
+                                    .foregroundColor(.secondary)
+                                }
                             }
                         }
+
+                        // Summary & Context Card
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Broadcast Overview")
+                                .font(.system(size: 12, weight: .heavy))
+                                .foregroundColor(.secondary)
+                                .textCase(.uppercase)
+
+                            Text("Authentic NHK Easy Japanese broadcast with real native cadence. Follow the synchronized karaoke flow on the right screen and record your shadowing to master spoken intonation.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                                .lineSpacing(3)
+                        }
+                        .padding(12)
+                        .background(Color.primary.opacity(0.04))
+                        .cornerRadius(12)
                     }
+                    .padding(16)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(20)
+                    .padding(12)
                 }
-                .padding()
-                .background(.ultraThinMaterial)
-                .cornerRadius(20)
-                .padding(.horizontal)
-                .padding(.top, 8)
+            } secondaryContent: {
+                // Right Screen: Shadowing, Vocabulary, Quiz interactive Lab
+                VStack(spacing: 0) {
+                    Picker("Tab", selection: $selectedTab) {
+                        Text("Shadowing").tag(0)
+                        Text("Vocabulary (\(newsItem.vocabulary.count))").tag(1)
+                        Text("Quiz").tag(2)
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
 
-                // Segmented Tab Picker
-                Picker("Tab", selection: $selectedTab) {
-                    Text("Shadowing 跟读").tag(0)
-                    Text("Words 词汇 (\(newsItem.vocabulary.count))").tag(1)
-                    Text("Quiz 测验").tag(2)
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-                .padding(.top, 12)
-
-                // Tab Content
-                if selectedTab == 0 {
-                    shadowingSentenceListView
-                } else if selectedTab == 1 {
-                    vocabularyListView
-                } else {
-                    quizView
+                    if selectedTab == 0 {
+                        shadowingSentenceListView
+                    } else if selectedTab == 1 {
+                        vocabularyListView
+                    } else {
+                        quizView
+                    }
                 }
             }
         }
@@ -179,9 +199,10 @@ public struct NewsShadowingLabView: View {
                 VStack(spacing: 14) {
                     ForEach(newsItem.contentSentences) { sentence in
                         let isActive = (nativeAudio.activeSentenceId == sentence.id)
-                        let sentenceDuration = max(0.1, sentence.endTimeSec - sentence.startTimeSec)
+                        let rawDuration = max(0.1, sentence.endTimeSec - sentence.startTimeSec)
+                        let effectiveDuration = max(0.1, rawDuration - 0.45)
                         let sentenceElapsed = max(0.0, nativeAudio.currentTimeSec - sentence.startTimeSec)
-                        let sentenceProgress = isActive ? min(1.0, max(0.0, sentenceElapsed / sentenceDuration)) : 0.0
+                        let sentenceProgress = isActive ? min(1.0, max(0.0, sentenceElapsed / effectiveDuration)) : 0.0
 
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {

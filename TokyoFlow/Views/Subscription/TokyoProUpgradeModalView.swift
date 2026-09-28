@@ -33,11 +33,11 @@ public struct TokyoProUpgradeModalView: View {
                                     .foregroundColor(.white)
                             }
 
-                            Text("TokyoFlow 免费全能成长计划")
+                            Text("TokyoFlow Full Access Plan")
                                 .font(.system(size: 22, weight: .black, design: .rounded))
                                 .foregroundColor(.primary)
 
-                            Text("为了快速冲体量与服务广大日语学习者，App 内全量功能当前 100% 免费开放！关注官方 YouTube 频道即可领取早期共创福利。")
+                            Text("To empower Japanese learners worldwide, all core features are currently 100% free! Subscribe to our official YouTube channel to claim your early co-creator rewards.")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -48,11 +48,11 @@ public struct TokyoProUpgradeModalView: View {
                         // 100% Free Full Power Checklist
                         VStack(spacing: 12) {
                             HStack {
-                                Text("✨ 当前全部核心功能 100% 免费开放")
+                                Text("✨ All Core Features 100% Free")
                                     .font(.system(size: 14, weight: .black))
                                     .foregroundColor(.green)
                                 Spacer()
-                                Text("无限制畅学")
+                                Text("UNLIMITED")
                                     .font(.system(size: 10, weight: .bold))
                                     .padding(.horizontal, 6)
                                     .padding(.vertical, 2)
@@ -62,10 +62,10 @@ public struct TokyoProUpgradeModalView: View {
                             }
 
                             VStack(spacing: 8) {
-                                perkRow(icon: "checkmark.seal.fill", title: "JLPT N1-N5 词库 & 抽认卡", desc: "4,170 个原生母语发音全量免费查背")
-                                perkRow(icon: "checkmark.seal.fill", title: "NHK 慢速原声跟读 & 1小时电台", desc: "毫秒级发音同步对齐与智能滚屏")
-                                perkRow(icon: "checkmark.seal.fill", title: "次はどこへ行く？Generative UI", desc: "全东京任意目的地实战句型即时动态生成")
-                                perkRow(icon: "checkmark.seal.fill", title: "全东京实景场景 & 3秒道场", desc: "电车/便利店/居酒屋等真实生活全关卡")
+                                perkRow(icon: "checkmark.seal.fill", title: "JLPT N1-N5 Lexicon & Flashcards", desc: "4,170 native audio pronunciations with pitch accent")
+                                perkRow(icon: "checkmark.seal.fill", title: "NHK News Shadowing & 1-Hour Radio", desc: "Millisecond-precise audio sync with continuous flow")
+                                perkRow(icon: "checkmark.seal.fill", title: "Next Destination? Generative UI", desc: "Dynamic survival Japanese generator for any Tokyo spot")
+                                perkRow(icon: "checkmark.seal.fill", title: "Real-world Tokyo Scenarios & 3s Dojo", desc: "Transit, convenience stores, izakaya & emergency drills")
                             }
                         }
                         .padding(16)
@@ -80,9 +80,9 @@ public struct TokyoProUpgradeModalView: View {
                                     .foregroundColor(.red)
                                     .font(.title3)
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text("关注 YouTube 官方教学频道")
+                                    Text("Official YouTube Channel")
                                         .font(.system(size: 15, weight: .bold))
-                                    Text("TokyoFlow Japanese / TokyoFlow 日语")
+                                    Text("@TokyoFlowJapanese")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
@@ -96,12 +96,12 @@ public struct TokyoProUpgradeModalView: View {
                                     .cornerRadius(8)
                             }
 
-                            Text("前往 YouTube 关注我们的官方频道，不仅能获取最新东京实景教学视频，还可以一键领取 500 Tokyo Points 与「早期共创先锋」勋章！")
+                            Text("Subscribe to our YouTube channel for immersive Tokyo video lessons and instantly receive 500 Tokyo Points + Early Pioneer Badge!")
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
 
                             Button(action: {
-                                if let url = URL(string: "https://www.youtube.com") {
+                                if let url = URL(string: "https://www.youtube.com/@TokyoFlowJapanese") {
                                     openURL(url)
                                 }
                                 if !hasClaimedYTReward {
@@ -112,7 +112,7 @@ public struct TokyoProUpgradeModalView: View {
                             }) {
                                 HStack {
                                     Image(systemName: "play.rectangle.fill")
-                                    Text(hasClaimedYTReward ? "已关注并领取奖励 • 前往频道" : "立即关注并领取 500 TP 奖励")
+                                    Text(hasClaimedYTReward ? "Subscribed • Visit Channel" : "Subscribe & Claim 500 TP")
                                         .font(.system(size: 14, weight: .bold))
                                 }
                                 .foregroundColor(.white)
@@ -129,7 +129,7 @@ public struct TokyoProUpgradeModalView: View {
 
                         // Optional Coffee / Community Supporter Card
                         VStack(spacing: 10) {
-                            Text("💖 喜欢 TokyoFlow？支持我们持续创作")
+                            Text("💖 Enjoying TokyoFlow? Support our creation")
                                 .font(.system(size: 13, weight: .bold))
                                 .foregroundColor(.secondary)
 
@@ -138,9 +138,9 @@ public struct TokyoProUpgradeModalView: View {
                                     subService.purchase(plan: .monthly) { _ in }
                                 }) {
                                     VStack(spacing: 4) {
-                                        Text("☕️ 请喝一杯咖啡")
+                                        Text("☕️ Buy Us a Coffee")
                                             .font(.system(size: 12, weight: .bold))
-                                        Text("¥12 / 鼓励创作")
+                                        Text("$1.99 / Support")
                                             .font(.caption2)
                                             .foregroundColor(.secondary)
                                     }
@@ -155,10 +155,10 @@ public struct TokyoProUpgradeModalView: View {
                                     subService.purchase(plan: .lifetime) { _ in }
                                 }) {
                                     VStack(spacing: 4) {
-                                        Text("👑 成为终身共创者")
+                                        Text("👑 Lifetime Supporter")
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(.orange)
-                                        Text("专属 VIP 勋章")
+                                        Text("VIP Badge")
                                             .font(.caption2)
                                             .foregroundColor(.secondary)
                                     }
@@ -175,7 +175,7 @@ public struct TokyoProUpgradeModalView: View {
                     }
                 }
             }
-            .navigationTitle("免费全能计划")
+            .navigationTitle("TokyoFlow Growth Pass")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -186,10 +186,10 @@ public struct TokyoProUpgradeModalView: View {
                     }
                 }
             }
-            .alert("🎉 奖励已到账！", isPresented: $showSuccessAlert) {
-                Button("太棒了") { dismiss() }
+            .alert("🎉 Rewards Claimed!", isPresented: $showSuccessAlert) {
+                Button("Awesome") { dismiss() }
             } message: {
-                Text("已成功发放 500 Tokyo Points 与 300 经验值！感谢您对 TokyoFlow Japanese 官方频道的支持。")
+                Text("Successfully granted 500 Tokyo Points and 300 EXP! Thank you for supporting TokyoFlow.")
             }
         }
     }

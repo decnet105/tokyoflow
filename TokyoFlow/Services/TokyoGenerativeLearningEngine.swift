@@ -55,7 +55,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Excuse me, where is this place?",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "Fastest phrase to get orientation when lost in Tokyo.",
-                        audioKey: "すみません"
+                        audioKey: "すみません、ここはどこですか？"
                     ),
                     GenerativePhrase(
                         japanese: "これをお願いします。",
@@ -64,7 +64,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "This one, please. / I'd like this.",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "Universal phrase when pointing at menus, goods, or ticket screens.",
-                        audioKey: "お願いします"
+                        audioKey: "これをお願いします。"
                     ),
                     GenerativePhrase(
                         japanese: "クレジットカードは使えますか？",
@@ -73,7 +73,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Do you accept credit cards?",
                         pitchAccent: "③ Tail-high (Odaka)",
                         situationNote: "Confirm payment methods before checkout.",
-                        audioKey: "ありがとうございます"
+                        audioKey: "クレジットカードは使えますか？"
                     )
                 ],
                 scenarioDialogue: [
@@ -112,7 +112,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Which way is the Hachiko Exit?",
                         pitchAccent: "② Nakadaka",
                         situationNote: "Crucial question when navigating the vast Shibuya underground labyrinth.",
-                        audioKey: "こんにちは"
+                        audioKey: "ハチ公口はどちらですか？"
                     ),
                     GenerativePhrase(
                         japanese: "写真を撮っていただけますか？",
@@ -121,7 +121,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Could you take a photo for us, please?",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "Polite natural way to ask a passerby for a photo at landmarks.",
-                        audioKey: "お願いします"
+                        audioKey: "写真を撮っていただけますか？"
                     ),
                     GenerativePhrase(
                         japanese: "スクランブルスクエアへはどう行けばいいですか？",
@@ -130,7 +130,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "How can I get to Shibuya Scramble Square?",
                         pitchAccent: "① Atamadaka",
                         situationNote: "Ask directions to the observation deck skyscraper.",
-                        audioKey: "すみません"
+                        audioKey: "スクランブルスクエアへはどう行けばいいですか？"
                     )
                 ],
                 scenarioDialogue: [
@@ -162,7 +162,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Do you still have stock of this item in the back?",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "Ask if they have brand new unopened stock of a display item.",
-                        audioKey: "あります"
+                        audioKey: "これの在庫はまだありますか？"
                     ),
                     GenerativePhrase(
                         japanese: "限定特典は付きますか？",
@@ -171,7 +171,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Does this come with the limited edition bonus perk?",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "Check for pre-order or purchase illustration postcards / acrylic stands.",
-                        audioKey: "こんにちは"
+                        audioKey: "限定特典は付きますか？"
                     ),
                     GenerativePhrase(
                         japanese: "箱を開けて中を確認してもいいですか？",
@@ -180,7 +180,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "May I open the box to check the condition inside?",
                         pitchAccent: "① Atamadaka",
                         situationNote: "Crucial inspection permission at second-hand / hobby shops.",
-                        audioKey: "いいですよ"
+                        audioKey: "箱を開けて中を確認してもいいですか？"
                     )
                 ],
                 scenarioDialogue: [
@@ -212,7 +212,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Two draft beers to start, please!",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "The universal golden opening line immediately upon sitting down at an Izakaya.",
-                        audioKey: "乾杯"
+                        audioKey: "とりあえず生ビール二つ！"
                     ),
                     GenerativePhrase(
                         japanese: "焼き鳥盛り合わせを塩でお願いします。",
@@ -221,7 +221,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Assorted grilled chicken skewers, seasoned with salt, please.",
                         pitchAccent: "③ Odaka",
                         situationNote: "Salt (shio) lets you savor the authentic taste of grilled yakitori.",
-                        audioKey: "お願いします"
+                        audioKey: "焼き鳥盛り合わせを塩でお願いします。"
                     ),
                     GenerativePhrase(
                         japanese: "お会計をお願いします。",
@@ -230,7 +230,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Check / Bill, please.",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "Raise your hand gently at your seat to request the final bill.",
-                        audioKey: "ありがとうございます"
+                        audioKey: "お会計をお願いします。"
                     )
                 ],
                 scenarioDialogue: [
@@ -262,7 +262,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "Where can I draw a fortune slip (Omikuji)?",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "Look for the ¥100 honor-system coin box in the temple courtyard.",
-                        audioKey: "こんにちは"
+                        audioKey: "おみくじはどこで引けますか？"
                     ),
                     GenerativePhrase(
                         japanese: "焼きたての人形焼をひとつください。",
@@ -271,7 +271,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "One freshly baked Ningyo-yaki cake, please.",
                         pitchAccent: "⓪ Flat (Heiban)",
                         situationNote: "Order traditional doll-shaped red bean sponge cakes along Nakamise street.",
-                        audioKey: "お願いします"
+                        audioKey: "焼きたての人形焼をひとつください。"
                     ),
                     GenerativePhrase(
                         japanese: "このお守りのご利益は何ですか？",
@@ -280,7 +280,7 @@ public class TokyoGenerativeLearningEngine: ObservableObject {
                         english: "What blessing is this amulet (Omamori) for?",
                         pitchAccent: "② Nakadaka",
                         situationNote: "Inquire about protective charms for health, romance, or academic success.",
-                        audioKey: "ありがとうございます"
+                        audioKey: "このお守りのご利益は何ですか？"
                     )
                 ],
                 scenarioDialogue: [

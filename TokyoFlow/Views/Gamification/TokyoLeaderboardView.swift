@@ -28,11 +28,11 @@ public struct TokyoLeaderboardView: View {
                     MangaThemeBackgroundView()
                     mainLeaderboardContent
                 }
-                .navigationTitle("Tokyo League (排行榜)")
+                .navigationTitle("Tokyo League")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("关闭") { dismiss() }
+                        Button("Close") { dismiss() }
                     }
                 }
             }
@@ -44,9 +44,9 @@ public struct TokyoLeaderboardView: View {
             VStack(spacing: 20) {
                         // Leaderboard Scope Segmented Selector
                         Picker("Leaderboard Scope", selection: $selectedLeaderboardType) {
-                            Text("🏆 本周联赛").tag(0)
-                            Text("🌟 全服殿堂").tag(1)
-                            Text("👥 好友圈").tag(2)
+                            Text("🏆 Weekly League").tag(0)
+                            Text("🌟 Hall of Fame").tag(1)
+                            Text("👥 Friends").tag(2)
                         }
                         .pickerStyle(.segmented)
                         .padding(.horizontal)
@@ -69,7 +69,7 @@ public struct TokyoLeaderboardView: View {
                                     HStack(spacing: 6) {
                                         Text(gamification.currentLeague.rawValue)
                                             .font(.system(size: 16, weight: .black))
-                                        Text("Top 3 晋级")
+                                        Text("Top 3 Promoted")
                                             .font(.system(size: 10, weight: .bold))
                                             .foregroundColor(.green)
                                             .padding(.horizontal, 6)
@@ -78,7 +78,7 @@ public struct TokyoLeaderboardView: View {
                                             .cornerRadius(6)
                                     }
 
-                                    Text("每周日 24:00 结算 · 前三名晋升更高联赛并获 500TP")
+                                    Text("Resets every Sun 24:00 · Top 3 promote & earn 500 TP")
                                         .font(.system(size: 11))
                                         .foregroundColor(.secondary)
                                 }
@@ -91,7 +91,7 @@ public struct TokyoLeaderboardView: View {
                                 HStack(spacing: 4) {
                                     Image(systemName: "clock.badge.exclamationmark")
                                         .foregroundColor(.orange)
-                                    Text("距离结算还有: 2天 14小时")
+                                    Text("Ends in: 2d 14h")
                                         .font(.system(size: 11, weight: .semibold))
                                         .foregroundColor(.secondary)
                                 }
@@ -101,7 +101,7 @@ public struct TokyoLeaderboardView: View {
                                 HStack(spacing: 4) {
                                     Image(systemName: "person.crop.circle.fill")
                                         .foregroundColor(.accentColor)
-                                    Text("我的排名: #3 (晋级区)")
+                                    Text("Your Rank: #3 (Promotion Zone)")
                                         .font(.system(size: 11, weight: .bold))
                                         .foregroundColor(.accentColor)
                                 }
@@ -133,7 +133,7 @@ public struct TokyoLeaderboardView: View {
                             Circle()
                                 .fill(Color.green)
                                 .frame(width: 8, height: 8)
-                            Text("前 3 名进入【新宿白金联赛】(Promotion Zone)")
+                            Text("Top 3 advance to Shinjuku Platinum League (Promotion Zone)")
                                 .font(.system(size: 11, weight: .bold))
                                 .foregroundColor(.green)
                             Spacer()

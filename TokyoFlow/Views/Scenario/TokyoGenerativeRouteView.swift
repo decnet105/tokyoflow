@@ -351,7 +351,7 @@ public struct GenerativeDialogueBubble: View {
                 .background(turn.isUser ? Color.accentColor : Color(.secondarySystemGroupedBackground))
                 .cornerRadius(14)
                 .onTapGesture {
-                    voiceBank.playPhraseOrFallback(key: turn.speaker, fallbackText: turn.japanese)
+                    voiceBank.playPhraseOrFallback(key: turn.japanese, fallbackText: turn.japanese)
                 }
             }
 

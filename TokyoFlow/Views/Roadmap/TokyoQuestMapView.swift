@@ -56,7 +56,7 @@ public struct TokyoQuestMapView: View {
                                     HStack(spacing: 6) {
                                         Image(systemName: gamification.isTodayCheckedIn ? "checkmark.circle.fill" : "flame.fill")
                                             .foregroundColor(gamification.isTodayCheckedIn ? .green : .red)
-                                        Text(gamification.isTodayCheckedIn ? "\(gamification.streakDays)d 打卡" : "今日打卡")
+                                        Text(gamification.isTodayCheckedIn ? "\(gamification.streakDays)d Streak" : "Check In")
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(.primary)
                                     }
@@ -71,7 +71,7 @@ public struct TokyoQuestMapView: View {
                                     HStack(spacing: 6) {
                                         Image(systemName: "trophy.fill")
                                             .foregroundColor(.yellow)
-                                        Text("排行榜 #3")
+                                        Text("Rank #3")
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(.primary)
                                     }
@@ -96,6 +96,10 @@ public struct TokyoQuestMapView: View {
                         }
                         .padding(.horizontal)
                         .padding(.top, 8)
+
+                        // 🌟 Real-World Adaptive Scene Learning Hub Card
+                        TokyoContextHubCardView()
+                            .padding(.horizontal)
 
                         // Quest Worlds Path
                         ForEach(worlds) { world in

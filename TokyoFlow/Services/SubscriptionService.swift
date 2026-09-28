@@ -11,16 +11,16 @@ public enum SubscriptionPlan: String, CaseIterable, Identifiable {
 
     public var priceString: String {
         switch self {
-        case .monthly: return "¥38 / 月 ($4.99/mo)"
-        case .annual: return "¥238 / 年 ($2.49/mo, 省 50%)"
-        case .lifetime: return "¥498 (终身买断)"
+        case .monthly: return "$4.99 / mo"
+        case .annual: return "$29.99 / yr ($2.49/mo, Save 50%)"
+        case .lifetime: return "$59.99 (Lifetime Access)"
         }
     }
 
     public var badgeText: String? {
         switch self {
-        case .annual: return "7天免费试用"
-        case .lifetime: return "永久有效"
+        case .annual: return "7-Day Free Trial"
+        case .lifetime: return "Forever Access"
         default: return nil
         }
     }

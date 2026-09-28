@@ -7,7 +7,7 @@ public struct WeakWordItem: Identifiable, Codable, Hashable {
     public let reading: String
     public let romaji: String
     public let meaning: String
-    public var reason: String // "🎧 连续重听 3 次", "⏱️ 停留思考 5.4s", "❌ 测验失误"
+    public var reason: String // "🎧 Replayed 3 times", "⏱️ Hesitated 5.4s", "❌ Quiz mistake"
     public var listenCount: Int
     public var dwellSeconds: Double
     public var mistakeCount: Int

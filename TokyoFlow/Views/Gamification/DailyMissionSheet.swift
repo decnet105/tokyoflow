@@ -55,7 +55,7 @@ public struct DailyMissionSheet: View {
 
                         // Daily Missions Header
                         HStack {
-                            Text("DAILY MISSIONS (デイリー任務)")
+                            Text("DAILY MISSIONS")
                                 .font(.system(size: 13, weight: .black))
                                 .foregroundColor(.secondary)
                                 .tracking(1.0)

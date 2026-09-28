@@ -231,6 +231,21 @@ final class TokyoFlowTests: XCTestCase {
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "お会計お願いします"))
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "袋は大丈夫です"))
 
+        // Test Grammar Formulas & Sentences
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "〜てください / 〜ないでください"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "白線の内側までお下がりください。"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "〜たら / 〜なら / 〜ば / 〜と (四大条件假定)"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "〜を踏まえて / 〜に基づいて"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "〜ざるを得ない"))
+
+        // Test Essential Core Vocabulary & Pairs
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "開ける"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "閉める"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "相応しい"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "相席"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "相容れない"))
+
+
         // Test Tokyo Vocabulary & SFX
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "Suica"))
         XCTAssertTrue(voiceBank.hasNativeAudio(for: "居酒屋"))
@@ -243,6 +258,7 @@ final class TokyoFlowTests: XCTestCase {
             XCTAssertNotNil(voiceBank.audioURL(for: fn))
         }
     }
+
 
     func testGamificationDailyCheckInAndMicroLearning() {
         let gamification = GamificationService.shared
@@ -381,4 +397,103 @@ final class TokyoFlowTests: XCTestCase {
         engine.generateCustomPlan(userPrompt: "台场高达与海滨公园")
         XCTAssertEqual(engine.selectedPresetId, "custom")
     }
+
+    func testTokyoLearningPackageEngineAllModes() {
+        let engine = TokyoLearningPackageEngine.shared
+
+        // Test Scenario Context Track
+        for mode in LearningContextMode.allCases {
+            let package = engine.generatePackage(for: mode, focus: .practicalFluency)
+            XCTAssertEqual(package.mode, mode)
+            XCTAssertGreaterThan(package.estimatedMinutes, 0)
+            XCTAssertFalse(package.items.isEmpty, "Package for \(mode.rawValue) must have items")
+            XCTAssertGreaterThanOrEqual(package.items.count, 2, "Context package should have at least 2 grain items")
+
+            for item in package.items {
+                XCTAssertFalse(item.id.isEmpty)
+                XCTAssertFalse(item.title.isEmpty)
+                XCTAssertFalse(item.japaneseText.isEmpty)
+                XCTAssertFalse(item.englishMeaning.isEmpty)
+            }
+        }
+
+        // Test JLPT Level Track (N5 ~ N1) with Exam Focus
+        for lvl in JLPTLevelTrack.allCases {
+            let pkg = engine.generateLevelPackage(for: lvl, focus: .examSprint)
+            XCTAssertEqual(pkg.levelTrack, lvl)
+            XCTAssertEqual(pkg.focusMode, .examSprint)
+            XCTAssertFalse(pkg.items.isEmpty, "Level package for \(lvl.shortLabel) must have items")
+            XCTAssertGreaterThanOrEqual(pkg.items.count, 3)
+
+            for item in pkg.items {
+                XCTAssertFalse(item.id.isEmpty)
+                XCTAssertFalse(item.japaneseText.isEmpty)
+            }
+        }
+    }
+
+    func testJLPTGrammarServiceAndFormulas() {
+        let grammarService = JLPTGrammarService.shared
+        grammarService.loadGrammarData()
+
+        XCTAssertFalse(grammarService.allGrammar.isEmpty, "Grammar data should be loaded")
+
+        // Test Level Filter
+        grammarService.selectedLevel = .n5
+        let n5Grammar = grammarService.filteredGrammar
+        XCTAssertFalse(n5Grammar.isEmpty)
+        for g in n5Grammar {
+            XCTAssertEqual(g.level.uppercased(), "N5")
+            XCTAssertFalse(g.connectionRule.isEmpty)
+            XCTAssertFalse(g.nuanceExplanation.isEmpty)
+        }
+
+        // Test Quiz Present
+        let sample = grammarService.allGrammar.first(where: { $0.quiz != nil })
+        XCTAssertNotNil(sample)
+        if let quiz = sample?.quiz {
+            XCTAssertFalse(quiz.question.isEmpty)
+            XCTAssertGreaterThanOrEqual(quiz.options.count, 2)
+            XCTAssertTrue(quiz.correctIndex >= 0 && quiz.correctIndex < quiz.options.count)
+        }
+
+        // Reset
+        grammarService.selectedLevel = .all
+    }
+
+    func testTokyoLearningPackageAudioKeySynchronization() {
+        let engine = TokyoLearningPackageEngine.shared
+        let voiceBank = TokyoVoiceBankService.shared
+
+        // Verify Coffee Break drill specifically (Screenshot regression test)
+        let coffeePackage = engine.generatePackage(for: .coffeeBreak, focus: .practicalFluency)
+        let microwaveDrill = coffeePackage.items.first(where: { $0.japaneseText.contains("温めますか") })
+        XCTAssertNotNil(microwaveDrill, "Microwave prompt item must exist in coffee break")
+        XCTAssertEqual(microwaveDrill?.japaneseText, "お弁当温めますか？")
+        XCTAssertEqual(microwaveDrill?.audioKey, "お弁当温めますか？", "AudioKey must match displayed Japanese text exactly")
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: microwaveDrill!.audioKey), "VoiceBank must contain native voice for microwave drill")
+
+        // Verify All Scenario Tracks have native voice bank entries
+        for mode in LearningContextMode.allCases {
+            let pkg = engine.generatePackage(for: mode, focus: .practicalFluency)
+            for item in pkg.items {
+                XCTAssertFalse(item.audioKey.isEmpty, "Item audioKey cannot be empty")
+                XCTAssertTrue(voiceBank.hasNativeAudio(for: item.audioKey), "VoiceBank must have native audio for \(item.audioKey)")
+            }
+        }
+
+        // Verify All JLPT Level Tracks have native voice bank entries
+        for lvl in JLPTLevelTrack.allCases {
+            let pkg = engine.generateLevelPackage(for: lvl, focus: .examSprint)
+            for item in pkg.items {
+                XCTAssertFalse(item.audioKey.isEmpty, "Item audioKey cannot be empty")
+                XCTAssertTrue(voiceBank.hasNativeAudio(for: item.audioKey), "VoiceBank must have native audio for \(item.audioKey)")
+            }
+        }
+    }
 }
+
+
+
+
+

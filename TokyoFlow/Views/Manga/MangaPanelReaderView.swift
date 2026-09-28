@@ -40,7 +40,7 @@ public struct MangaPanelReaderView: View {
                             Button(action: { isRTLReadingMode.toggle() }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: isRTLReadingMode ? "arrow.left.and.right.righttriangle.left.righttriangle.right.fill" : "arrow.up.and.down.circle")
-                                    Text(isRTLReadingMode ? "Tankobon RTL (右開き)" : "Vertical Scroll")
+                                    Text(isRTLReadingMode ? "Tankobon RTL" : "Vertical Scroll")
                                         .font(.caption)
                                         .fontWeight(.bold)
                                 }

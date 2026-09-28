@@ -112,7 +112,7 @@ public struct KanaTableView: View {
                                 .foregroundColor(.orange)
 
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("Kana Speed Quiz (五十音特训)")
+                                Text("Kana Speed Quiz")
                                     .font(.system(size: 15, weight: .bold))
                                 Text("Test your ear and recognition speed to earn Tokyo Points!")
                                     .font(.caption)
@@ -169,7 +169,7 @@ public struct KanaTableView: View {
                     .zIndex(100)
                 }
             }
-            .navigationTitle("五十音图 (Kana Table)")
+            .navigationTitle("Kana Table")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(item: $selectedKana) { kana in
                 KanaDetailModal(kana: kana, isKatakana: isKatakana)
@@ -229,7 +229,7 @@ public struct KanaSpeechBubbleDialogueView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
 
-                Text("📅 今日例词 (7天每日轮换)")
+                Text("📅 Today's Word (7-Day Rotation)")
                     .font(.system(size: 11, weight: .bold))
                     .foregroundColor(.secondary)
 
@@ -285,7 +285,7 @@ public struct KanaSpeechBubbleDialogueView: View {
                     HStack(spacing: 5) {
                         Image(systemName: "speaker.wave.2.fill")
                             .font(.system(size: 13, weight: .bold))
-                        Text("原音")
+                        Text("Gojuon")
                             .font(.system(size: 13, weight: .bold))
                     }
                     .foregroundColor(.white)
@@ -450,13 +450,13 @@ public struct KanaDetailModal: View {
                         HStack {
                             Image(systemName: "calendar.badge.clock")
                                 .foregroundColor(.accentColor)
-                            Text("7-Day Daily Rotating Vocabulary (一周每日一换):")
+                            Text("7-Day Daily Rotating Vocabulary:")
                                 .font(.caption)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
                         }
 
-                        let dayNames = ["周一 (Mon)", "周二 (Tue)", "周三 (Wed)", "周四 (Thu)", "周五 (Fri)", "周六 (Sat)", "周日 (Sun)"]
+                        let dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
                         VStack(spacing: 8) {
                             ForEach(0..<min(7, kana.exampleWords.count), id: \.self) { idx in
                                 let word = kana.exampleWords[idx]
@@ -486,7 +486,7 @@ public struct KanaDetailModal: View {
                                     Spacer()
 
                                     if isToday {
-                                        Text("今日")
+                                        Text("Today")
                                             .font(.system(size: 9, weight: .heavy))
                                             .foregroundColor(.white)
                                             .padding(.horizontal, 6)
@@ -514,7 +514,7 @@ public struct KanaDetailModal: View {
 
                         Divider()
 
-                        Text("💡 记忆口诀: \(kana.mnemonic)")
+                        Text("💡 Mnemonic: \(kana.mnemonic)")
                             .font(.footnote)
                             .foregroundColor(.secondary)
                     }

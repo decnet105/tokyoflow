@@ -78,6 +78,22 @@ Every episode MUST contain 4 distinct chapters/slides:
 
 ---
 
+## 📁 Standardized Episode Release Directory Architecture
+
+Every episode produced must be packaged into a single standardized, self-contained directory under `docs/youtube_releases/epXX_<slug>/`:
+
+```
+docs/youtube_releases/ep01_yamanote_transit/
+├── video.mp4       # 1080p Full HD MP4 Video with EdgeTTS narration
+├── thumbnail.jpg   # 1920x1080 High-CTR Serialized YouTube Cover
+├── metadata.md     # YouTube Studio Copy-Paste Kit (Title, Description, Chapters, Tags, Pinned Comment)
+└── script.json     # Machine-readable bilingual slide transcript & metadata
+```
+
+All four files (`video.mp4`, `thumbnail.jpg`, `metadata.md`, `script.json`) are mandatory for every episode release.
+
+---
+
 ## 📱 iOS App & YouTube Long-Term Synchronization
 
 Every YouTube video must have a 1:1 corresponding entry in the iOS App's [`TokyoScenarioVideoLesson.swift`](file:///Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Models/TokyoScenarioVideoLesson.swift):
@@ -91,15 +107,15 @@ Every YouTube video must have a 1:1 corresponding entry in the iOS App's [`Tokyo
 
 ## 🚀 Execution Pipeline
 
-To produce a new episode, execute:
+To produce and package all episodes according to standard:
 ```bash
-# 1. Run the video generation engine
-python3 scripts/videogen/pipeline.py --episode 4
+# 1. Run the unified video & release packaging engine
+python3 scripts/videogen/build_all_releases.py
 
-# 2. Verify generated assets
-# Video: output/videos/tokyoflow_v04_xxx.mp4
-# Cover: docs/youtube_assets/thumbnails/ep04_xxx_thumb.jpg
+# 2. Verify all package directories under docs/youtube_releases/
+ls -la docs/youtube_releases/ep*
 
-# 3. Test & deploy iOS App updates
+# 3. Test & verify iOS App synchronization
 xcodebuild test -project TokyoFlow.xcodeproj -scheme TokyoFlow -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
 ```
+

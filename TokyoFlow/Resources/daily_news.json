@@ -4,7 +4,7 @@
     "title": "JR東日本 終電の時間を早めるダイヤ改正を発表",
     "titleFurigana": "JRひがしにほん しゅうでんの じかんを はやめる ダイヤかいせいを はっぴょう",
     "publishDate": "2026-09-28",
-    "category": "Tokyo Transit (交通)",
+    "category": "Tokyo Transit",
     "categoryIcon": "tram.fill",
     "summary": "JR東日本は、山手線など東京の主要路線で終電の時刻を約15分〜30分早めると発表しました。夜間の線路工事の作業時間を確保するためです。",
     "audioUrl": "nhk_news_001.m4a",
@@ -49,7 +49,7 @@
         "id": "v1",
         "word": "終電",
         "reading": "しゅうでん",
-        "pitchAccent": "⓪ (平板)",
+        "pitchAccent": "⓪ (Flat)",
         "meaning": "Last train of the day",
         "example": "終電を逃してマンガ喫茶に泊まった。(Missed the last train and stayed at a manga cafe.)"
       },
@@ -57,7 +57,7 @@
         "id": "v2",
         "word": "ダイヤ改正",
         "reading": "だいやかいせい",
-        "pitchAccent": "④ (中高)",
+        "pitchAccent": "④ (Mid-High)",
         "meaning": "Timetable revision / schedule change",
         "example": "春のダイヤ改正で快速が増えた。(Rapid trains increased in the spring timetable change.)"
       },
@@ -65,7 +65,7 @@
         "id": "v3",
         "word": "乗り遅れ",
         "reading": "のりおくれ",
-        "pitchAccent": "⓪ (平板)",
+        "pitchAccent": "⓪ (Flat)",
         "meaning": "Missing a ride / failing to catch a train",
         "example": "電車の乗り遅れに気をつけてください。(Please take care not to miss the train.)"
       }
@@ -91,7 +91,7 @@
     "title": "秋葉原で秋のマンガ・アニメフェスティバル開幕",
     "titleFurigana": "あきはばらで あきの マンガ・アニメフェスティバル かいまく",
     "publishDate": "2026-09-27",
-    "category": "Manga & Culture (文化)",
+    "category": "Manga & Culture",
     "categoryIcon": "sparkles.tv.fill",
     "summary": "東京・秋葉原で、国内外の人気マンガや新作アニメを紹介する大規模なイベントが始まりました。限定同人誌や限定フィギュアを求める多くのファンで賑わっています。",
     "audioUrl": "nhk_news_002.m4a",
@@ -128,7 +128,7 @@
         "id": "v1",
         "word": "限定グッズ",
         "reading": "げんていグッズ",
-        "pitchAccent": "⑤ (中高)",
+        "pitchAccent": "⑤ (Mid-High)",
         "meaning": "Limited edition merchandise",
         "example": "イベント限定グッズを手に入れた！(Got my hands on the event-limited goods!)"
       },
@@ -136,7 +136,7 @@
         "id": "v2",
         "word": "原画",
         "reading": "げんが",
-        "pitchAccent": "⓪ (平板)",
+        "pitchAccent": "⓪ (Flat)",
         "meaning": "Original artwork / manga manuscript drawing",
         "example": "作者直筆の原画が展示されている。(The author's original hand-drawn artwork is on display.)"
       },
@@ -144,7 +144,7 @@
         "id": "v3",
         "word": "生で",
         "reading": "なまで",
-        "pitchAccent": "① (頭高)",
+        "pitchAccent": "① (Head-High)",
         "meaning": "In person / live",
         "example": "生で声優さんの声を聞けた！(Heard the voice actor's voice live!)"
       }
@@ -170,7 +170,7 @@
     "title": "東京都のコンビニ フードロス削減で「見切り品」値引きを拡大",
     "titleFurigana": "とうきょうとの コンビニ フードロスさくげんで「みきりひん」ねびきを かくだい",
     "publishDate": "2026-09-26",
-    "category": "Tokyo Life (暮らし)",
+    "category": "Tokyo Life",
     "categoryIcon": "cart.fill",
     "summary": "東京都内のコンビニ各社は、賞味期限が近いおにぎりや弁当を20円〜50円引きで販売する取り組みを広げています。食品ロスを減らすのが狙いです。",
     "audioUrl": "nhk_news_003.m4a",
@@ -207,7 +207,7 @@
         "id": "v1",
         "word": "見切り品",
         "reading": "みきりひん",
-        "pitchAccent": "⓪ (平板)",
+        "pitchAccent": "⓪ (Flat)",
         "meaning": "Bargain / clearance item close to expiry",
         "example": "スーパーで見切り品の刺身を買った。(Bought discounted clearance sashimi at the supermarket.)"
       },
@@ -215,7 +215,7 @@
         "id": "v2",
         "word": "消費期限",
         "reading": "しょうひきげん",
-        "pitchAccent": "④ (中高)",
+        "pitchAccent": "④ (Mid-High)",
         "meaning": "Expiration date (use-by date for fresh foods)",
         "example": "消費期限が今日中だからすぐ食べよう。(The use-by date is today, let's eat it right away.)"
       },
@@ -223,7 +223,7 @@
         "id": "v3",
         "word": "値引きシール",
         "reading": "ねびきシール",
-        "pitchAccent": "④ (中高)",
+        "pitchAccent": "④ (Mid-High)",
         "meaning": "Discount sticker (e.g. 半額 50% off or 30円引き)",
         "example": "夜8時になると店員さんが値引きシールを貼る。(At 8 PM, the clerk sticks discount stickers on items.)"
       }

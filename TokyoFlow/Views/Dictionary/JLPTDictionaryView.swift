@@ -6,6 +6,7 @@ public struct JLPTDictionaryView: View {
     @StateObject private var audioService = AudioService.shared
     @StateObject private var weakTracker = WeakWordTrackerService.shared
 
+    @State private var selectedLexiconTab: Int = 0 // 0: Vocabulary, 1: Grammar Lab
     @State private var isFlashcardMode: Bool = false
     @State private var currentFlashcardIndex: Int = 0
     @State private var isFlashcardFlipped: Bool = false
@@ -20,106 +21,24 @@ public struct JLPTDictionaryView: View {
                 MangaThemeBackgroundView()
 
                 VStack(spacing: 0) {
-                    // Top Search & Mode Switcher Bar
-                    VStack(spacing: 12) {
-                        HStack(spacing: 10) {
-                            // Search Field
-                            HStack(spacing: 8) {
-                                Image(systemName: "magnifyingglass")
-                                    .foregroundColor(.secondary)
-                                TextField("Search Kanji / Kana / Romaji / Meaning...", text: $dictService.searchQuery)
-                                    .font(.system(size: 14))
-                                    .autocapitalization(.none)
-                                    .disableAutocorrection(true)
-
-                                if !dictService.searchQuery.isEmpty {
-                                    Button(action: { dictService.searchQuery = "" }) {
-                                        Image(systemName: "xmark.circle.fill")
-                                            .foregroundColor(.secondary)
-                                            .font(.caption)
-                                    }
-                                }
-                            }
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 10)
-                            .background(Color(UIColor.secondarySystemBackground).opacity(0.85))
-                            .cornerRadius(14)
-
-                            // Mode Toggle (Search vs Flashcard)
-                            Button(action: {
-                                withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
-                                    isFlashcardMode.toggle()
-                                    isFlashcardFlipped = false
-                                }
-                            }) {
-                                HStack(spacing: 4) {
-                                    Image(systemName: isFlashcardMode ? "text.book.closed.fill" : "rectangle.stack.fill")
-                                    Text(isFlashcardMode ? "List" : "Cards")
-                                        .font(.caption)
-                                        .fontWeight(.bold)
-                                }
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 10)
-                                .background(Color.accentColor)
-                                .cornerRadius(14)
-                            }
-                        }
-
-                        // JLPT Level Selector Chips
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 8) {
-                                ForEach(JLPTLevelFilter.allCases) { lvl in
-                                    let isSelected = dictService.selectedLevel == lvl
-                                    let isLocked = !subService.canAccessJLPTLevel(lvl.shortName) && lvl != .all
-
-                                    Button(action: {
-                                        if isLocked {
-                                            showUpgradeSheet = true
-                                        } else {
-                                            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                                                dictService.selectedLevel = lvl
-                                                currentFlashcardIndex = 0
-                                                isFlashcardFlipped = false
-                                            }
-                                        }
-                                    }) {
-                                        HStack(spacing: 4) {
-                                            Text(lvl.rawValue)
-                                                .font(.caption)
-                                                .fontWeight(.bold)
-                                            if isLocked {
-                                                Image(systemName: "lock.fill")
-                                                    .font(.system(size: 9))
-                                                    .foregroundColor(.orange)
-                                            }
-                                        }
-                                        .foregroundColor(isSelected ? .white : .primary)
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 7)
-                                        .background(isSelected ? Color.accentColor : Color(UIColor.secondarySystemBackground).opacity(0.7))
-                                        .cornerRadius(12)
-                                    }
-                                }
-                            }
-                            .padding(.horizontal, 2)
-                        }
+                    // Segment Tab Picker: Vocabulary vs Grammar Lab
+                    Picker("Lexicon Type", selection: $selectedLexiconTab) {
+                        Text("Vocabulary").tag(0)
+                        Text("Grammar Lab").tag(1)
                     }
-                    .padding(14)
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(20)
-                    .padding(.horizontal)
-                    .padding(.top, 4)
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 8)
 
-                    // Content Area
-                    if isFlashcardMode {
-                        flashcardDeckView
+                    if selectedLexiconTab == 1 {
+                        JLPTGrammarLabView()
                     } else {
-                        wordListView
+                        vocabLexiconBody
                     }
                 }
             }
-            .navigationTitle("JLPT Core Lexicon")
+            .navigationTitle(selectedLexiconTab == 0 ? "JLPT Core Lexicon" : "Grammar Blueprint Lab")
+
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -150,13 +69,116 @@ public struct JLPTDictionaryView: View {
         }
     }
 
+    private var vocabLexiconBody: some View {
+        TokyoDuoAdaptiveLayout(duoSplitRatio: 0.48) {
+            // Left Screen: Search Bar, Level Chips & Word List
+            VStack(spacing: 0) {
+                VStack(spacing: 12) {
+                    HStack(spacing: 10) {
+                        // Search Field
+                        HStack(spacing: 8) {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.secondary)
+                            TextField("Search Kanji / Kana / Romaji / Meaning...", text: $dictService.searchQuery)
+                                .font(.system(size: 14))
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+
+                            if !dictService.searchQuery.isEmpty {
+                                Button(action: { dictService.searchQuery = "" }) {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundColor(.secondary)
+                                        .font(.caption)
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 10)
+                        .background(Color(UIColor.secondarySystemBackground).opacity(0.85))
+                        .cornerRadius(14)
+
+                        // Mode Toggle (Search vs Flashcard)
+                        Button(action: {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
+                                isFlashcardMode.toggle()
+                                isFlashcardFlipped = false
+                            }
+                        }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: isFlashcardMode ? "text.book.closed.fill" : "rectangle.stack.fill")
+                                Text(isFlashcardMode ? "List" : "Cards")
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                            }
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 10)
+                            .background(Color.accentColor)
+                            .cornerRadius(14)
+                        }
+                    }
+
+                    // JLPT Level Selector Chips
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(JLPTLevelFilter.allCases) { lvl in
+                                let isSelected = dictService.selectedLevel == lvl
+                                let isLocked = !subService.canAccessJLPTLevel(lvl.shortName) && lvl != .all
+
+                                Button(action: {
+                                    if isLocked {
+                                        showUpgradeSheet = true
+                                    } else {
+                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                            dictService.selectedLevel = lvl
+                                            currentFlashcardIndex = 0
+                                            isFlashcardFlipped = false
+                                        }
+                                    }
+                                }) {
+                                    HStack(spacing: 4) {
+                                        Text(lvl.rawValue)
+                                            .font(.caption)
+                                            .fontWeight(.bold)
+                                        if isLocked {
+                                            Image(systemName: "lock.fill")
+                                                .font(.system(size: 9))
+                                                .foregroundColor(.orange)
+                                        }
+                                    }
+                                    .foregroundColor(isSelected ? .white : .primary)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 7)
+                                    .background(isSelected ? Color.accentColor : Color(UIColor.secondarySystemBackground).opacity(0.7))
+                                    .cornerRadius(12)
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 2)
+                    }
+                }
+                .padding(14)
+                .background(.ultraThinMaterial)
+                .cornerRadius(20)
+                .padding(.horizontal)
+                .padding(.top, 4)
+
+                wordListView
+            }
+        } secondaryContent: {
+            // Right Screen: Flashcard Memorization Deck & Active Drill
+            flashcardDeckView
+        }
+    }
+
     // MARK: - Word List Mode
+
     private var wordListView: some View {
-        let words = dictService.filteredWords
+        let words = dictService.displayedWords
 
         return ScrollView {
             LazyVStack(spacing: 12) {
-                if words.isEmpty {
+                if dictService.cachedFilteredWords.isEmpty {
                     VStack(spacing: 12) {
                         Image(systemName: "character.book.closed")
                             .font(.system(size: 48))
@@ -185,10 +207,22 @@ public struct JLPTDictionaryView: View {
                             }
                         )
                         .onAppear {
-                            weakTracker.startDwell(word: word.kanji.isEmpty ? word.reading : word.kanji)
+                            if word == words.last && dictService.hasMoreWords {
+                                dictService.loadMoreWords()
+                            }
                         }
-                        .onDisappear {
-                            weakTracker.endDwell(word: word.kanji.isEmpty ? word.reading : word.kanji, reading: word.reading, meaning: word.meaning)
+                    }
+
+                    if dictService.hasMoreWords {
+                        Button(action: { dictService.loadMoreWords() }) {
+                            HStack(spacing: 6) {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                                Text("Showing \(words.count) of \(dictService.cachedFilteredWords.count) words • Tap to load more")
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.vertical, 8)
                         }
                     }
                 }
@@ -290,7 +324,7 @@ public struct JLPTDictionaryView: View {
                                     Text(currentWord.exampleFurigana)
                                         .font(.caption)
                                         .foregroundColor(.secondary)
-                                    Text(currentWord.exampleZh)
+                                    Text(currentWord.exampleEn.isEmpty ? currentWord.exampleZh : currentWord.exampleEn)
                                         .font(.caption)
                                         .foregroundColor(.primary)
                                 }
@@ -445,7 +479,7 @@ public struct JLPTWordCardView: View {
                     Text(word.exampleFurigana)
                         .font(.system(size: 12))
                         .foregroundColor(.secondary)
-                    Text(word.exampleZh)
+                    Text(word.exampleEn.isEmpty ? word.exampleZh : word.exampleEn)
                         .font(.system(size: 12, weight: .medium))
                         .foregroundColor(.primary)
                 }

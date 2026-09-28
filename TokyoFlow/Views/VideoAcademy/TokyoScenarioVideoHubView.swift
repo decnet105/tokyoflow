@@ -112,100 +112,9 @@ public struct TokyoScenarioVideoHubView: View {
                         // Video Lessons Grid / List
                         VStack(spacing: 14) {
                             ForEach(filteredLessons) { lesson in
-                                Button(action: {
+                                TokyoVideoHubCardView(lesson: lesson) {
                                     selectedLesson = lesson
-                                }) {
-                                    VStack(alignment: .leading, spacing: 0) {
-                                        // Fake Thumbnail / Video Card Header
-                                        ZStack(alignment: .bottomTrailing) {
-                                            RoundedRectangle(cornerRadius: 14)
-                                                .fill(
-                                                    LinearGradient(
-                                                        colors: [Color(hex: "#1E293B"), Color(hex: "#0F172A")],
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing
-                                                    )
-                                                )
-                                                .frame(height: 140)
-
-                                            // Central Play Icon & District
-                                            HStack {
-                                                VStack(alignment: .leading, spacing: 4) {
-                                                    HStack {
-                                                        Image(systemName: lesson.thumbnailIcon)
-                                                            .font(.caption)
-                                                        Text(lesson.district)
-                                                            .font(.system(size: 11, weight: .bold))
-                                                    }
-                                                    .foregroundColor(.white.opacity(0.8))
-
-                                                    Text(lesson.titleJa)
-                                                        .font(.system(size: 15, weight: .bold))
-                                                        .foregroundColor(.white)
-                                                        .lineLimit(1)
-                                                }
-                                                Spacer()
-
-                                                ZStack {
-                                                    Circle()
-                                                        .fill(Color.red)
-                                                        .frame(width: 44, height: 44)
-                                                        .shadow(color: Color.red.opacity(0.4), radius: 6, x: 0, y: 3)
-                                                    Image(systemName: "play.fill")
-                                                        .font(.system(size: 16, weight: .bold))
-                                                        .foregroundColor(.white)
-                                                }
-                                            }
-                                            .padding(14)
-
-                                            // Duration Badge
-                                            Text(lesson.durationLabel)
-                                                .font(.system(size: 10, weight: .bold, design: .monospaced))
-                                                .padding(.horizontal, 6)
-                                                .padding(.vertical, 3)
-                                                .background(Color.black.opacity(0.75))
-                                                .foregroundColor(.white)
-                                                .cornerRadius(4)
-                                                .padding(10)
-                                        }
-
-                                        // Card Footer
-                                        VStack(alignment: .leading, spacing: 6) {
-                                            HStack {
-                                                Text(lesson.levelBadge)
-                                                    .font(.system(size: 9, weight: .bold))
-                                                    .padding(.horizontal, 6)
-                                                    .padding(.vertical, 2)
-                                                    .background(Color.orange.opacity(0.2))
-                                                    .foregroundColor(.orange)
-                                                    .cornerRadius(4)
-
-                                                Spacer()
-
-                                                Text("\(lesson.chapters.count) Chapters")
-                                                    .font(.caption2)
-                                                    .foregroundColor(.secondary)
-                                            }
-
-                                            Text(lesson.title)
-                                                .font(.system(size: 14, weight: .bold))
-                                                .foregroundColor(.primary)
-                                                .multilineTextAlignment(.leading)
-                                                .lineLimit(2)
-
-                                            Text(lesson.summary)
-                                                .font(.caption)
-                                                .foregroundColor(.secondary)
-                                                .lineLimit(2)
-                                                .multilineTextAlignment(.leading)
-                                        }
-                                        .padding(12)
-                                    }
-                                    .background(.ultraThinMaterial)
-                                    .cornerRadius(16)
-                                    .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 2)
                                 }
-                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                         .padding(.horizontal)
@@ -232,5 +141,122 @@ public struct TokyoScenarioVideoHubView: View {
                 .foregroundColor(isSelected ? .white : .primary)
                 .cornerRadius(12)
         }
+    }
+}
+
+// MARK: - Video Card Row Component
+struct TokyoVideoHubCardView: View {
+    let lesson: TokyoScenarioVideoLesson
+    let onSelect: () -> Void
+
+    var body: some View {
+        Button(action: onSelect) {
+            VStack(alignment: .leading, spacing: 0) {
+                // Real YouTube HD Thumbnail & Video Card Header
+                ZStack(alignment: .bottomTrailing) {
+                    AsyncImage(url: lesson.hqThumbnailUrl) { phase in
+                        if let img = phase.image {
+                            img.resizable()
+                               .aspectRatio(16/9, contentMode: .fill)
+                        } else {
+                            LinearGradient(
+                                colors: [Color(hex: "#1E293B"), Color(hex: "#0F172A")],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        }
+                    }
+                    .frame(height: 160)
+                    .clipped()
+                    .cornerRadius(14)
+
+                    // Vignette Gradient Overlay
+                    LinearGradient(
+                        colors: [Color.black.opacity(0.1), Color.black.opacity(0.75)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .frame(height: 160)
+                    .cornerRadius(14)
+
+                    // Central Play Icon & District
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            HStack {
+                                Image(systemName: lesson.thumbnailIcon)
+                                    .font(.caption)
+                                Text(lesson.district)
+                                    .font(.system(size: 11, weight: .bold))
+                            }
+                            .foregroundColor(.white.opacity(0.9))
+
+                            Text(lesson.titleJa)
+                                .font(.system(size: 15, weight: .bold))
+                                .foregroundColor(.white)
+                                .lineLimit(1)
+                        }
+                        Spacer()
+
+                        ZStack {
+                            Circle()
+                                .fill(Color.red)
+                                .frame(width: 44, height: 44)
+                                .shadow(color: Color.red.opacity(0.6), radius: 8, x: 0, y: 3)
+                            Image(systemName: "play.fill")
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundColor(.white)
+                                .offset(x: 1)
+                        }
+                    }
+                    .padding(14)
+
+                    // Duration Badge
+                    Text(lesson.durationLabel)
+                        .font(.system(size: 10, weight: .bold, design: .monospaced))
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 3)
+                        .background(Color.black.opacity(0.75))
+                        .foregroundColor(.white)
+                        .cornerRadius(4)
+                        .padding(10)
+                }
+
+                // Card Footer
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack {
+                        Text(lesson.levelBadge)
+                            .font(.system(size: 9, weight: .bold))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.orange.opacity(0.2))
+                            .foregroundColor(.orange)
+                            .cornerRadius(4)
+
+                        Spacer()
+
+                        Text("\(lesson.chapters.count) Chapters")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Text(lesson.title)
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(.primary)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
+
+                    Text(lesson.summary)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                }
+                .padding(12)
+            }
+            .background(.ultraThinMaterial)
+            .cornerRadius(16)
+            .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 2)
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }

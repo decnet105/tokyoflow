@@ -2,12 +2,12 @@ import Foundation
 import Combine
 
 public enum JLPTLevelFilter: String, CaseIterable, Identifiable {
-    case all = "All (全部)"
-    case n5 = "N5 (初级)"
-    case n4 = "N4 (基础)"
-    case n3 = "N3 (进阶)"
-    case n2 = "N2 (商务)"
-    case n1 = "N1 (高级)"
+    case all = "All"
+    case n5 = "N5 (Beginner)"
+    case n4 = "N4 (Elementary)"
+    case n3 = "N3 (Intermediate)"
+    case n2 = "N2 (Business)"
+    case n1 = "N1 (Advanced)"
 
     public var id: String { rawValue }
 
@@ -26,10 +26,57 @@ public enum JLPTLevelFilter: String, CaseIterable, Identifiable {
 public class JLPTDictionaryService: ObservableObject {
     public static let shared = JLPTDictionaryService()
 
-    @Published public var allWords: [JLPTWord] = []
-    @Published public var searchQuery: String = ""
-    @Published public var selectedLevel: JLPTLevelFilter = .all
+    @Published public var allWords: [JLPTWord] = [] {
+        didSet {
+            rebuildIndexes()
+            updateFilteredCache()
+        }
+    }
+    
+    @Published public var searchQuery: String = "" {
+        didSet {
+            updateFilteredCache()
+        }
+    }
+    
+    @Published public var selectedLevel: JLPTLevelFilter = .all {
+        didSet {
+            updateFilteredCache()
+        }
+    }
+    
     @Published public var bookmarkedWordIds: Set<String> = []
+    
+    // High-performance caching & indexing
+    private var levelBuckets: [String: [JLPTWord]] = [:]
+    private var searchCache = NSCache<NSString, NSArray>()
+    
+    // Cached filtered results for instantaneous O(1) view access
+    @Published public private(set) var cachedFilteredWords: [JLPTWord] = []
+    
+    // Pagination for ultra-smooth 120fps scrolling
+    public let pageSize: Int = 40
+    @Published public private(set) var displayedPageCount: Int = 1
+    
+    public var displayedWords: [JLPTWord] {
+        let total = cachedFilteredWords.count
+        let limit = min(total, displayedPageCount * pageSize)
+        return Array(cachedFilteredWords.prefix(limit))
+    }
+    
+    public var hasMoreWords: Bool {
+        return displayedPageCount * pageSize < cachedFilteredWords.count
+    }
+    
+    public func loadMoreWords() {
+        if hasMoreWords {
+            displayedPageCount += 1
+        }
+    }
+    
+    public func resetPagination() {
+        displayedPageCount = 1
+    }
 
     private init() {
         loadDictionary()
@@ -53,31 +100,55 @@ public class JLPTDictionaryService: ObservableObject {
         }
     }
 
-    public var filteredWords: [JLPTWord] {
-        return allWords.filter { word in
-            // Filter by level
-            let levelMatch: Bool = {
-                switch selectedLevel {
-                case .all: return true
-                case .n5: return word.level == "N5"
-                case .n4: return word.level == "N4"
-                case .n3: return word.level == "N3"
-                case .n2: return word.level == "N2"
-                case .n1: return word.level == "N1"
-                }
-            }()
-
-            guard levelMatch else { return false }
-
-            let q = searchQuery.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-            if q.isEmpty { return true }
-
-            return word.kanji.lowercased().contains(q) ||
-                   word.reading.lowercased().contains(q) ||
-                   word.romaji.lowercased().contains(q) ||
-                   word.meaning.lowercased().contains(q) ||
-                   word.exampleJa.lowercased().contains(q)
+    private func rebuildIndexes() {
+        var buckets: [String: [JLPTWord]] = [
+            "N5": [], "N4": [], "N3": [], "N2": [], "N1": []
+        ]
+        for word in allWords {
+            buckets[word.level, default: []].append(word)
         }
+        self.levelBuckets = buckets
+        self.searchCache.removeAllObjects()
+    }
+
+    private func updateFilteredCache() {
+        resetPagination()
+        let q = searchQuery.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let levelKey = selectedLevel.shortName
+        let cacheKey = "\(levelKey)_\(q)" as NSString
+
+        if let cached = searchCache.object(forKey: cacheKey) as? [JLPTWord] {
+            self.cachedFilteredWords = cached
+            return
+        }
+
+        // Determine candidate pool from partitioned bucket
+        let candidates: [JLPTWord]
+        if selectedLevel == .all {
+            candidates = allWords
+        } else {
+            candidates = levelBuckets[levelKey] ?? []
+        }
+
+        let results: [JLPTWord]
+        if q.isEmpty {
+            results = candidates
+        } else {
+            results = candidates.filter { word in
+                word.kanji.lowercased().contains(q) ||
+                word.reading.lowercased().contains(q) ||
+                word.romaji.lowercased().contains(q) ||
+                word.meaning.lowercased().contains(q) ||
+                word.exampleJa.lowercased().contains(q)
+            }
+        }
+
+        searchCache.setObject(results as NSArray, forKey: cacheKey)
+        self.cachedFilteredWords = results
+    }
+
+    public var filteredWords: [JLPTWord] {
+        return cachedFilteredWords
     }
 
     public func toggleBookmark(id: String) {

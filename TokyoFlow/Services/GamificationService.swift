@@ -74,7 +74,7 @@ public class GamificationService: ObservableObject {
         }
 
         let recordedDates = getCheckedInDatesSet()
-        let dayNames = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+        let dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         let dayNamesShort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         let todayStr = getTodayString()
 

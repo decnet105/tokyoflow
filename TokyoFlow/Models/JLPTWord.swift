@@ -13,6 +13,10 @@ public struct JLPTWord: Identifiable, Hashable, Codable {
     public let exampleFurigana: String
     public let exampleZh: String
     public let exampleEn: String
+    public let transitivePair: String?
+    public let collocation: String?
+    public let examYearNote: String?
+    public let scenarioTag: String?
 
     public init(
         id: String,
@@ -26,7 +30,11 @@ public struct JLPTWord: Identifiable, Hashable, Codable {
         exampleJa: String,
         exampleFurigana: String,
         exampleZh: String,
-        exampleEn: String
+        exampleEn: String,
+        transitivePair: String? = nil,
+        collocation: String? = nil,
+        examYearNote: String? = nil,
+        scenarioTag: String? = nil
     ) {
         self.id = id
         self.kanji = kanji
@@ -40,6 +48,10 @@ public struct JLPTWord: Identifiable, Hashable, Codable {
         self.exampleFurigana = exampleFurigana
         self.exampleZh = exampleZh
         self.exampleEn = exampleEn
+        self.transitivePair = transitivePair
+        self.collocation = collocation
+        self.examYearNote = examYearNote
+        self.scenarioTag = scenarioTag
     }
 
     public var displayTitle: String {

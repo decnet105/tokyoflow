@@ -261,8 +261,8 @@ public struct TokyoRadioPlayerModalView: View {
 
                             // Segmented View Mode Picker
                             Picker("View Mode", selection: $selectedViewMode) {
-                                Text("🗣 Live Word Shadowing (逐词跟读)").tag(1)
-                                Text("📻 Chapters (章节列表)").tag(0)
+                                Text("🗣 Live Word Shadowing").tag(1)
+                                Text("📻 Radio Chapters").tag(0)
                             }
                             .pickerStyle(.segmented)
                             .padding(.horizontal)
@@ -301,9 +301,10 @@ public struct TokyoRadioPlayerModalView: View {
                                                 // Sentence cards
                                                 ForEach(chapter.transcriptSentences) { sent in
                                                     let isCur = (activeSentence?.id == sent.id)
-                                                    let sentDuration = max(0.1, sent.endTimeSec - sent.startTimeSec)
+                                                    let rawDuration = max(0.1, sent.endTimeSec - sent.startTimeSec)
+                                                    let effectiveDuration = max(0.1, rawDuration - 0.45)
                                                     let sentElapsed = max(0.0, radioService.currentTimeSec - sent.startTimeSec)
-                                                    let sentProgress = isCur ? min(1.0, max(0.0, sentElapsed / sentDuration)) : 0.0
+                                                    let sentProgress = isCur ? min(1.0, max(0.0, sentElapsed / effectiveDuration)) : 0.0
 
                                                     VStack(alignment: .leading, spacing: 8) {
                                                         HStack {
