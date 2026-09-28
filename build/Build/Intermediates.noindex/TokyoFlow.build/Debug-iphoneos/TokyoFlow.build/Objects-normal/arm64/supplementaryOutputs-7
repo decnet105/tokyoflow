@@ -1,0 +1,37 @@
+{
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Models/QuestStage.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/QuestStage.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/QuestStage.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/QuestStage.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/QuestStage.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/QuestStage.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/Components/PitchAccentBadge.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/PitchAccentBadge.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/PitchAccentBadge.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/PitchAccentBadge.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/PitchAccentBadge.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/PitchAccentBadge.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/Components/RegisterPill.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/RegisterPill.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/RegisterPill.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/RegisterPill.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/RegisterPill.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/RegisterPill.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/DailyNews/SegmentedSentenceWordFlowView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SegmentedSentenceWordFlowView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SegmentedSentenceWordFlowView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SegmentedSentenceWordFlowView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SegmentedSentenceWordFlowView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SegmentedSentenceWordFlowView.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/Manga/SFXDictionaryView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SFXDictionaryView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SFXDictionaryView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SFXDictionaryView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SFXDictionaryView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SFXDictionaryView.swiftdeps"
+  }
+}

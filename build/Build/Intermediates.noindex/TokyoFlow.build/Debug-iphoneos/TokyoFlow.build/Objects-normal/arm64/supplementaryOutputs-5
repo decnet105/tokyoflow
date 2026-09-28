@@ -1,0 +1,37 @@
+{
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Models/KanaItem.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaItem.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaItem.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaItem.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaItem.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaItem.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Services/JapaneseWordSegmenter.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JapaneseWordSegmenter.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JapaneseWordSegmenter.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JapaneseWordSegmenter.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JapaneseWordSegmenter.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JapaneseWordSegmenter.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/Kana/KanaTableView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaTableView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaTableView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaTableView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaTableView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/KanaTableView.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/MainTabView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MainTabView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MainTabView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MainTabView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MainTabView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MainTabView.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/Manga/MangaLabView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MangaLabView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MangaLabView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MangaLabView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MangaLabView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/MangaLabView.swiftdeps"
+  }
+}

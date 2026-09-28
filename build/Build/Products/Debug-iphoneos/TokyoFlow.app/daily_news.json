@@ -1,0 +1,247 @@
+[
+  {
+    "id": "nhk_news_001",
+    "title": "JR東日本 終電の時間を早めるダイヤ改正を発表",
+    "titleFurigana": "JRひがしにほん しゅうでんの じかんを はやめる ダイヤかいせいを はっぴょう",
+    "publishDate": "2026-09-28",
+    "category": "Tokyo Transit (交通)",
+    "categoryIcon": "tram.fill",
+    "summary": "JR東日本は、山手線など東京の主要路線で終電の時刻を約15分〜30分早めると発表しました。夜間の線路工事の作業時間を確保するためです。",
+    "audioUrl": "nhk_news_001.m4a",
+    "videoUrl": "https://www.youtube.com/watch?v=real_tokyo_news_sample",
+    "sourceName": "NHK News Web Easy",
+    "contentSentences": [
+      {
+        "id": "s1",
+        "japanese": "JR東日本は、東京やその近くを走る電車の終電の時間を早めると発表しました。",
+        "furigana": "JRひがしにほんは、とうきょうや そのちかくを はしる でんしゃの しゅうでんの じかんを はやめると はっぴょうしました。",
+        "english": "JR East announced that it will advance the last train times for trains running in and around Tokyo.",
+        "startTimeSec": 0.0,
+        "endTimeSec": 9.408
+      },
+      {
+        "id": "s2",
+        "japanese": "山手線や中央線など、多くの路線で終電が15分から30分程度早くなります。",
+        "furigana": "やまのてせいや ちゅうおうせんなど、おおくの ろせんで しゅうでんが じゅうごふんから さんじゅっぷんていど はやくなります。",
+        "english": "On many lines including the Yamanote Line and Chuo Line, the last train will be about 15 to 30 minutes earlier.",
+        "startTimeSec": 10.008,
+        "endTimeSec": 19.176
+      },
+      {
+        "id": "s3",
+        "japanese": "会社によると、夜の間に線路を直す作業員の働く時間を守るための措置です。",
+        "furigana": "かいしゃによると、よるの あいだに せんろを なおす さぎょういんの はたらく じかんを まもるための そちです。",
+        "english": "According to the company, this measure is to secure work hours for maintenance crews repairing tracks during the night.",
+        "startTimeSec": 19.776,
+        "endTimeSec": 27.912
+      },
+      {
+        "id": "s4",
+        "japanese": "夜遅くまで仕事や外食をする人は、終電の乗り遅れに注意が必要です。",
+        "furigana": "よるおそくまで しごとや がいしょくを するひとは、しゅうでんの のりおくれに ちゅういが ひつようです。",
+        "english": "People who work or eat out late at night need to be careful not to miss the last train.",
+        "startTimeSec": 28.512,
+        "endTimeSec": 36.552
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v1",
+        "word": "終電",
+        "reading": "しゅうでん",
+        "pitchAccent": "⓪ (平板)",
+        "meaning": "Last train of the day",
+        "example": "終電を逃してマンガ喫茶に泊まった。(Missed the last train and stayed at a manga cafe.)"
+      },
+      {
+        "id": "v2",
+        "word": "ダイヤ改正",
+        "reading": "だいやかいせい",
+        "pitchAccent": "④ (中高)",
+        "meaning": "Timetable revision / schedule change",
+        "example": "春のダイヤ改正で快速が増えた。(Rapid trains increased in the spring timetable change.)"
+      },
+      {
+        "id": "v3",
+        "word": "乗り遅れ",
+        "reading": "のりおくれ",
+        "pitchAccent": "⓪ (平板)",
+        "meaning": "Missing a ride / failing to catch a train",
+        "example": "電車の乗り遅れに気をつけてください。(Please take care not to miss the train.)"
+      }
+    ],
+    "comprehensionQuiz": [
+      {
+        "id": "q1",
+        "question": "JR東日本が終電を早める理由は何ですか？",
+        "options": [
+          "乗客が減ったから",
+          "夜間の線路工事作業員の時間を確保するため",
+          "電気代を節約するため",
+          "運転士が不足しているから"
+        ],
+        "correctIndex": 1,
+        "explanation": "記事によると「夜の間に線路を直す作業員の働く時間を守るため」と書かれています。"
+      }
+    ],
+    "audioFileName": "nhk_news_001.m4a"
+  },
+  {
+    "id": "nhk_news_002",
+    "title": "秋葉原で秋のマンガ・アニメフェスティバル開幕",
+    "titleFurigana": "あきはばらで あきの マンガ・アニメフェスティバル かいまく",
+    "publishDate": "2026-09-27",
+    "category": "Manga & Culture (文化)",
+    "categoryIcon": "sparkles.tv.fill",
+    "summary": "東京・秋葉原で、国内外の人気マンガや新作アニメを紹介する大規模なイベントが始まりました。限定同人誌や限定フィギュアを求める多くのファンで賑わっています。",
+    "audioUrl": "nhk_news_002.m4a",
+    "videoUrl": "https://www.youtube.com/watch?v=real_akiba_fest_sample",
+    "sourceName": "NHK News Web Easy",
+    "contentSentences": [
+      {
+        "id": "s1",
+        "japanese": "東京の秋葉原で、人気のマンガやアニメが集まる秋のイベントが始まりました。",
+        "furigana": "とうきょうの あきはばらで、にんきの マンガや アニメが あつまる あきの イベントが はじまりました。",
+        "english": "An autumn event gathering popular manga and anime has begun in Akihabara, Tokyo.",
+        "startTimeSec": 0.0,
+        "endTimeSec": 7.704
+      },
+      {
+        "id": "s2",
+        "japanese": "会場には、ここでしか買えない限定グッズや原画の展示コーナーが並んでいます。",
+        "furigana": "かいじょうには、ここでしか かえない げんていグッズや げんがの てんじコーナーが ならんでいます。",
+        "english": "At the venue, limited goods that can only be bought here and original illustration exhibitions are lined up.",
+        "startTimeSec": 8.304,
+        "endTimeSec": 15.984
+      },
+      {
+        "id": "s3",
+        "japanese": "外国人観光客も多く訪れ、「生で日本のマンガ文化に触れられて感動した」と話していました。",
+        "furigana": "がいこくじん かんこうきゃくも おおく おとづれ、「なまで にほんの マンガぶんかに ふれられて かんどうした」と はなしていました。",
+        "english": "Many foreign tourists also visited, saying 'I was moved to experience Japanese manga culture in person.'",
+        "startTimeSec": 16.584,
+        "endTimeSec": 26.328
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v1",
+        "word": "限定グッズ",
+        "reading": "げんていグッズ",
+        "pitchAccent": "⑤ (中高)",
+        "meaning": "Limited edition merchandise",
+        "example": "イベント限定グッズを手に入れた！(Got my hands on the event-limited goods!)"
+      },
+      {
+        "id": "v2",
+        "word": "原画",
+        "reading": "げんが",
+        "pitchAccent": "⓪ (平板)",
+        "meaning": "Original artwork / manga manuscript drawing",
+        "example": "作者直筆の原画が展示されている。(The author's original hand-drawn artwork is on display.)"
+      },
+      {
+        "id": "v3",
+        "word": "生で",
+        "reading": "なまで",
+        "pitchAccent": "① (頭高)",
+        "meaning": "In person / live",
+        "example": "生で声優さんの声を聞けた！(Heard the voice actor's voice live!)"
+      }
+    ],
+    "comprehensionQuiz": [
+      {
+        "id": "q1",
+        "question": "秋葉原の会場で展示されているものは何ですか？",
+        "options": [
+          "昔の電化製品",
+          "限定グッズや原画の展示",
+          "最新の電車模型",
+          "日本庭園の盆栽"
+        ],
+        "correctIndex": 1,
+        "explanation": "記事中に「ここでしか買えない限定グッズや原画の展示コーナー」とあります。"
+      }
+    ],
+    "audioFileName": "nhk_news_002.m4a"
+  },
+  {
+    "id": "nhk_news_003",
+    "title": "東京都のコンビニ フードロス削減で「見切り品」値引きを拡大",
+    "titleFurigana": "とうきょうとの コンビニ フードロスさくげんで「みきりひん」ねびきを かくだい",
+    "publishDate": "2026-09-26",
+    "category": "Tokyo Life (暮らし)",
+    "categoryIcon": "cart.fill",
+    "summary": "東京都内のコンビニ各社は、賞味期限が近いおにぎりや弁当を20円〜50円引きで販売する取り組みを広げています。食品ロスを減らすのが狙いです。",
+    "audioUrl": "nhk_news_003.m4a",
+    "videoUrl": "https://www.youtube.com/watch?v=real_kombini_news_sample",
+    "sourceName": "NHK News Web Easy",
+    "contentSentences": [
+      {
+        "id": "s1",
+        "japanese": "東京都内のコンビニで、消費期限が近い食品を値引きして売る店が増えています。",
+        "furigana": "とうきょうとないの コンビニで、しょうひきげんが ちかい しょくひんを ねびきして うるみせが ふえています。",
+        "english": "At convenience stores in Tokyo, the number of shops discounting and selling food close to its expiration date is increasing.",
+        "startTimeSec": 0.0,
+        "endTimeSec": 7.992
+      },
+      {
+        "id": "s2",
+        "japanese": "おにぎりやサンドイッチに「エコ値引きシール」が貼られ、お得に購入できます。",
+        "furigana": "おにぎりや サンドイッチに「エコねびきシール」が はられ、おとくに こうにゅうできます。",
+        "english": "'Eco-discount stickers' are pasted on rice balls and sandwiches, allowing great bargains.",
+        "startTimeSec": 8.592,
+        "endTimeSec": 15.744
+      },
+      {
+        "id": "s3",
+        "japanese": "店側は廃棄するゴミを減らすことができ、客にとっても節約になると好評です。",
+        "furigana": "みせがわは はいきする ゴミを へらすことが でき、きゃくにとっても せつやくになると こうひょうです。",
+        "english": "Store owners can reduce discarded waste, and customers praise it as a great way to save money.",
+        "startTimeSec": 16.344,
+        "endTimeSec": 24.456
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v1",
+        "word": "見切り品",
+        "reading": "みきりひん",
+        "pitchAccent": "⓪ (平板)",
+        "meaning": "Bargain / clearance item close to expiry",
+        "example": "スーパーで見切り品の刺身を買った。(Bought discounted clearance sashimi at the supermarket.)"
+      },
+      {
+        "id": "v2",
+        "word": "消費期限",
+        "reading": "しょうひきげん",
+        "pitchAccent": "④ (中高)",
+        "meaning": "Expiration date (use-by date for fresh foods)",
+        "example": "消費期限が今日中だからすぐ食べよう。(The use-by date is today, let's eat it right away.)"
+      },
+      {
+        "id": "v3",
+        "word": "値引きシール",
+        "reading": "ねびきシール",
+        "pitchAccent": "④ (中高)",
+        "meaning": "Discount sticker (e.g. 半額 50% off or 30円引き)",
+        "example": "夜8時になると店員さんが値引きシールを貼る。(At 8 PM, the clerk sticks discount stickers on items.)"
+      }
+    ],
+    "comprehensionQuiz": [
+      {
+        "id": "q1",
+        "question": "「エコ値引きシール」が貼られるのはどんな商品ですか？",
+        "options": [
+          "発売されたばかりの新商品",
+          "消費期限が近いおにぎりや弁当",
+          "海外から輸入されたお菓子",
+          "店員のおすすめ商品"
+        ],
+        "correctIndex": 1,
+        "explanation": "消費期限が近くなった食品に値引きシールが貼られます。"
+      }
+    ],
+    "audioFileName": "nhk_news_003.m4a"
+  }
+]

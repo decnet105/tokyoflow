@@ -1,0 +1,141 @@
+[
+  {
+    "id": "announcement_01_yamanote_arrival",
+    "location": "JR Yamanote Line (山手線ホーム)",
+    "soundType": "train_chime_and_voice",
+    "title": "Train Approaching Platform Announcement",
+    "titleJa": "まもなく電車がまいります（接近放送）",
+    "chimeType": "shinjuku_melody",
+    "japanese": "まもなく、２番線に、内回り、渋谷・品川方面行きの電車がまいります。危ないですから、黄色い点字ブロックの後ろまでお下がりください。",
+    "furigana": "まもなく、２ばんせん{番線}に、うちまわ{内回}り、しぶや{渋谷}・しながわ{品川}ほうめん{方面}ゆ{行}きの でんしゃ{電車}が まいります。あぶ{危}ないですから、きいろ{黄色}い てんじ{点字}ブロックの うし{後}ろまで おさ{お下}がりください。",
+    "romaji": "Mamonaku, ni-bansen ni, uchi-mawari, Shibuya Shinagawa hōmen-yuki no densha ga mairimasu. Abunai desu kara, kiiroi tenji burokku no ushiro made o-sagari kudasai.",
+    "english": "Attention please: The train on track 2 bound for Shibuya and Shinagawa (Inner Loop) is arriving shortly. For your safety, please stand behind the yellow tactile braille blocks.",
+    "chinese": "即将有列车进站。2号站台，内环线，开往涩谷、品川方向的列车即将到达。危险，请退至黄色盲道提示线后方等候。",
+    "audioPrompt": "まもなく、２番線に、内回り、渋谷・品川方面行きの電車がまいります。危ないですから、黄色い点字ブロックの後ろまでお下がりください。",
+    "listeningQuiz": {
+      "question": "Where should passengers stand according to the announcement?",
+      "options": [
+        "Behind the yellow braille/tactile block (黄色い点字ブロックの後ろ)",
+        "Inside the ticket barrier (改札口の中)",
+        "Right at the edge of track 2 (２番線のすぐそば)"
+      ],
+      "correctIndex": 0
+    }
+  },
+  {
+    "id": "announcement_02_train_door_closing",
+    "location": "Tokyo Metro Ginza Line (東京メトロ銀座線)",
+    "soundType": "door_chime_and_voice",
+    "title": "Door Closing & Departure Chime",
+    "titleJa": "ドアが閉まります・発車メロディ",
+    "chimeType": "metro_chime",
+    "japanese": "ドアが閉まります。手荷物をお引きください。無理なご乗車はおやめください。",
+    "furigana": "ドアが し{閉}まります。てにもつ{手荷物}を おひ{お引}きください。むり{無理}な ごじょうしゃ{ご乗車}は おやめください。",
+    "romaji": "Doa ga shimarimasu. Te-nimotsu o o-hiki kudasai. Muri na go-jōsha wa o-yame kudasai.",
+    "english": "The doors are closing. Please keep your belongings clear of the doors. Please do not rush onto the train.",
+    "chinese": "车门即将关闭。请收回您的随身行李。请勿强行冲门上车。",
+    "audioPrompt": "ドアが閉まります。手荷物をお引きください。無理なご乗車はおやめください。",
+    "listeningQuiz": {
+      "question": "What behavior does the announcement strictly advise against?",
+      "options": [
+        "Rushing into the closing train doors (無理なご乗車)",
+        "Standing behind the yellow line (黄色い線の後ろに立つこと)",
+        "Holding baggage with both hands (手荷物を持つこと)"
+      ],
+      "correctIndex": 0
+    }
+  },
+  {
+    "id": "announcement_03_familymart_chime",
+    "location": "Convenience Store Entry (ファミリーマート入店音)",
+    "soundType": "store_door_chime",
+    "title": "FamilyMart Entry Jingle & Staff Greeting",
+    "titleJa": "ファミマ入店チャイムと店員挨拶",
+    "chimeType": "famima_jingle",
+    "japanese": "ピンポンパンポン♪ …いらっしゃいませー！どうぞご覧くださいませ！",
+    "furigana": "ピンポンパンポン♪ …いらっしゃいませー！どうぞ ごらん{ご覧}くださいませ！",
+    "romaji": "Pin-pon-pan-pon♪ ... Irasshaimaseee! Dōzo goran kudasaimase!",
+    "english": "[Iconic FamilyMart entry tune melody] ... Welcome! Please feel free to take a look!",
+    "chinese": "[经典全家进门铃声旋律] ……欢迎光临！请随意选购！",
+    "audioPrompt": "いらっしゃいませー！どうぞご覧くださいませ！",
+    "listeningQuiz": {
+      "question": "What is the primary Japanese phrase heard upon walking into any Japanese store?",
+      "options": [
+        "いらっしゃいませ (Welcome / Irasshaimase)",
+        "さようなら (Goodbye / Sayōnara)",
+        "お疲れ様です (Good work / Otsukaresama desu)"
+      ],
+      "correctIndex": 0
+    }
+  },
+  {
+    "id": "announcement_04_train_delay_apology",
+    "location": "JR Chūō Line (JR中央線 快速)",
+    "soundType": "conductor_voice",
+    "title": "Train Delay & Transfer Information",
+    "titleJa": "遅延・お詫び放送と振替案内",
+    "chimeType": "conductor_chime",
+    "japanese": "お客様にお知らせいたします。ただいま、新宿駅におきまして急病人の救護を行いましたため、電車に約10分の遅れが発生しております。ご迷惑をおかけいたしますことをお詫び申し上げます。",
+    "furigana": "おきゃくさま{お客様}に おし{お知}らせいたします。ただいま、しんじゅくえき{新宿駅}におきまして きゅうびょうにん{急病人}の きゅうご{救護}を おこな{行}いましたため、でんしゃ{電車}に やく{約}10ぷん{10分}の おく{遅}れが はっせい{発生}しております。ごめいわく{ご迷惑}を おかけいたしますことを おわ{お詫}びもう{申}しあ{上}げます。",
+    "romaji": "O-kyakusama ni o-shirase itashimasu. Tadaima, Shinjuku-eki ni okimashite kyūbyōnin no kyūgo o okonaimashita tame, densha ni yaku juppun no okure ga hassei shite orimasu. Go-meiwaku o okake itashimasu koto o owabi mōshiagemasu.",
+    "english": "Notice to passengers: Due to attending to a sick passenger at Shinjuku Station, trains are currently delayed by approximately 10 minutes. We deeply apologize for the inconvenience.",
+    "chinese": "旅客通知：目前由于在新宿站对突发急症旅客进行医疗救护，列车发生约10分钟延误。给您出行带来不便，我们深表歉意。",
+    "audioPrompt": "お客様にお知らせいたします。ただいま、新宿駅におきまして急病人の救護を行いましたため、電車に約10分の遅れが発生しております。ご迷惑をおかけいたしますことをお詫び申し上げます。",
+    "listeningQuiz": {
+      "question": "Why is the train delayed by 10 minutes?",
+      "options": [
+        "Medical aid to an ill passenger at Shinjuku (急病人の救護)",
+        "Heavy rainstorm on tracks (大雨)",
+        "Signal failure at Tokyo station (信号故障)"
+      ],
+      "correctIndex": 0
+    }
+  },
+  {
+    "id": "announcement_05_shinjuku_departure",
+    "location": "JR Shinjuku Platform 15 (新宿駅発車メロディ)",
+    "soundType": "train_chime_and_voice",
+    "title": "Shinjuku Station Departure Melody & Warning",
+    "titleJa": "新宿駅発車メロディ「せせらぎ」と発車案内",
+    "chimeType": "seseragi_jingle",
+    "japanese": "１５番線、ドアが閉まります。ご注意ください。次の電車をご利用ください。",
+    "furigana": "１５ばんせん{番線}、ドアが し{閉}まります。ごちゅうい{ご注意}ください。つぎ{次}の でんしゃ{電車}を ごりよう{ご利用}ください。",
+    "romaji": "Jū-go-bansen, doa ga shimarimasu. Go-chūi kudasai. Tsugi no densha o go-riyō kudasai.",
+    "english": "[Iconic 'Seseragi' station chime plays] ... Track 15, the doors are closing. Please stand clear. Please wait for the next train.",
+    "chinese": "[经典新宿站'潺潺流水'发车铃声] ……15号站台，车门即将关闭。请注意安全，请搭乘下一班列车。",
+    "audioPrompt": "１５番線、ドアが閉まります。ご注意ください。次の電車をご利用ください。",
+    "listeningQuiz": {
+      "question": "What should passengers do if they missed the closing doors on track 15?",
+      "options": [
+        "Wait for the next train (次の電車をご利用ください)",
+        "Pry the train door open by hand (手でドアを開ける)",
+        "Run along the platform to catch the conductor (車掌を追いかける)"
+      ],
+      "correctIndex": 0
+    }
+  },
+  {
+    "id": "announcement_06_shinkansen_tokyo",
+    "location": "Tōkaidō Shinkansen Tokyo Terminal (東海道新幹線・東京駅)",
+    "soundType": "shinkansen_chime",
+    "title": "Tōkaidō Shinkansen Boarding Melody ('Ai ni Ikou')",
+    "titleJa": "新幹線発車チャイム「会いにいこう」と指定席案内",
+    "chimeType": "ainiikou_jingle",
+    "japanese": "本日も東海道新幹線をご利用いただきまして、ありがとうございます。この電車は、のぞみ号、新大阪行きです。全席指定席となっております。",
+    "furigana": "ほんじつ{本日}も とうかいどうしんかんせん{東海道新幹線}を ごりよう{ご利用}いただきまして、ありがとうございます。この でんしゃ{電車}は、のぞみごう{号}、しんおおさか{新大阪}ゆ{行}きです。ぜんせき{全席} していせき{指定席}となっております。",
+    "romaji": "Honjitsu mo Tōkaidō Shinkansen o go-riyō itadakimashite, arigatō gozaimasu. Kono densha wa, Nozomi-gō, Shin-Ōsaka-yuki desu. Zenseki shiteiseki to natte orimasu.",
+    "english": "[Tōkaidō Shinkansen jingle 'Ai ni Ikō'] ... Welcome to the Tōkaidō Shinkansen. This is the Nozomi super express bound for Shin-Osaka. All seats on this train are reserved seats.",
+    "chinese": "[经典东海道新干线'去相见吧'出发铃声] ……感谢您今天搭乘东海道新干线。本趟列车为希望号（Nozomi），开往新大阪方向。全车均为对号入座的指定席。",
+    "audioPrompt": "本日も東海道新幹線をご利用いただきまして、ありがとうございます。この電車は、のぞみ号、新大阪行きです。全席指定席となっております。",
+    "listeningQuiz": {
+      "question": "What seating rule applies to this Nozomi Shinkansen train?",
+      "options": [
+        "All seats are reserved seats (全席指定席)",
+        "Free seating anywhere without tickets (自由席のみ)",
+        "Smoking allowed in all cars (全席喫煙可)"
+      ],
+      "correctIndex": 0
+    }
+  }
+]
+

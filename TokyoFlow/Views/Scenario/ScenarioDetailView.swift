@@ -58,7 +58,7 @@ public struct ScenarioDetailView: View {
                             Button(action: { showStickmanExplainer = true }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: "figure.walk.motion")
-                                    Text("60s 速攻")
+                                    Text("60s Drill")
                                         .font(.system(size: 11, weight: .bold))
                                 }
                                 .frame(maxWidth: .infinity)
@@ -71,7 +71,7 @@ public struct ScenarioDetailView: View {
                             Button(action: { showYTVideoModal = true }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: "play.tv.fill")
-                                    Text("🎬 YT 场景精讲")
+                                    Text("🎬 YT Masterclass")
                                         .font(.system(size: 11, weight: .bold))
                                 }
                                 .frame(maxWidth: .infinity)

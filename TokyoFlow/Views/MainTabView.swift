@@ -17,12 +17,12 @@ public struct MainTabView: View {
 
             KanaTableView()
                 .tabItem {
-                    Label("Kana 五十音", systemImage: "character.book.closed.fill")
+                    Label("Kana Tables", systemImage: "character.book.closed.fill")
                 }
 
             JLPTDictionaryView()
                 .tabItem {
-                    Label("词典 / 背词", systemImage: "text.book.closed.fill")
+                    Label("Dictionary", systemImage: "text.book.closed.fill")
                 }
 
             DailyNewsFeedView()
@@ -37,12 +37,12 @@ public struct MainTabView: View {
 
             TokyoGenerativeRouteView()
                 .tabItem {
-                    Label("Next 目的地", systemImage: "sparkles.rectangle.stack.fill")
+                    Label("Next Destination", systemImage: "sparkles.rectangle.stack.fill")
                 }
 
             TokyoScenarioVideoHubView()
                 .tabItem {
-                    Label("YT 场景视频", systemImage: "play.tv.fill")
+                    Label("Video Academy", systemImage: "play.tv.fill")
                 }
 
             TokyoDojoView()

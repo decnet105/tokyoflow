@@ -27,7 +27,7 @@ public struct JLPTDictionaryView: View {
                             HStack(spacing: 8) {
                                 Image(systemName: "magnifyingglass")
                                     .foregroundColor(.secondary)
-                                TextField("搜索汉字 / 假名 / 罗马音 / 含义...", text: $dictService.searchQuery)
+                                TextField("Search Kanji / Kana / Romaji / Meaning...", text: $dictService.searchQuery)
                                     .font(.system(size: 14))
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
@@ -54,7 +54,7 @@ public struct JLPTDictionaryView: View {
                             }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: isFlashcardMode ? "text.book.closed.fill" : "rectangle.stack.fill")
-                                    Text(isFlashcardMode ? "列表" : "背词")
+                                    Text(isFlashcardMode ? "List" : "Cards")
                                         .font(.caption)
                                         .fontWeight(.bold)
                                 }
@@ -119,7 +119,7 @@ public struct JLPTDictionaryView: View {
                     }
                 }
             }
-            .navigationTitle("JLPT 核心词典 (JLPT Lexicon)")
+            .navigationTitle("JLPT Core Lexicon")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -161,9 +161,9 @@ public struct JLPTDictionaryView: View {
                         Image(systemName: "character.book.closed")
                             .font(.system(size: 48))
                             .foregroundColor(.secondary)
-                        Text("未找到相关单词")
+                        Text("No matching vocabulary")
                             .font(.headline)
-                        Text("请尝试输入日语汉字、平假名或中文释义搜索")
+                        Text("Try searching by Japanese Kanji, Hiragana, Romaji, or English meaning.")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -206,7 +206,7 @@ public struct JLPTDictionaryView: View {
         return VStack(spacing: 20) {
             if words.isEmpty {
                 Spacer()
-                Text("当前分类暂无词卡")
+                Text("No cards available in this level")
                     .foregroundColor(.secondary)
                 Spacer()
             } else {
@@ -214,12 +214,12 @@ public struct JLPTDictionaryView: View {
 
                 // Card Progress
                 HStack {
-                    Text("第 \(currentFlashcardIndex + 1) / \(words.count) 词")
+                    Text("Card \(currentFlashcardIndex + 1) / \(words.count)")
                         .font(.caption)
                         .fontWeight(.bold)
                         .foregroundColor(.secondary)
                     Spacer()
-                    Text("点击卡片翻转查看释义与例句")
+                    Text("Tap card to flip & reveal meaning")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }
@@ -310,7 +310,7 @@ public struct JLPTDictionaryView: View {
                         }) {
                             HStack(spacing: 6) {
                                 Image(systemName: "speaker.wave.2.fill")
-                                Text("真人发音")
+                                Text("Listen")
                             }
                             .font(.caption)
                             .fontWeight(.bold)
@@ -343,7 +343,7 @@ public struct JLPTDictionaryView: View {
                     }) {
                         HStack {
                             Image(systemName: "arrow.left")
-                            Text("上一个")
+                            Text("Previous")
                         }
                         .font(.subheadline)
                         .fontWeight(.bold)
@@ -365,7 +365,7 @@ public struct JLPTDictionaryView: View {
                         }
                     }) {
                         HStack {
-                            Text("下一个 (+2TP)")
+                            Text("Next (+2TP)")
                             Image(systemName: "arrow.right")
                         }
                         .font(.subheadline)

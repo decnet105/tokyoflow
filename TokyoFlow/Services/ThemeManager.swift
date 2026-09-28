@@ -1,11 +1,11 @@
 import SwiftUI
 
 public enum AppMangaTheme: String, CaseIterable, Identifiable {
-    case none = "Pure Clean (极简纯白 / 最优对比度)"
-    case washiPaper = "Washi Rice Paper (日式和纸 / 柔和护眼)"
-    case readingCat = "Cozy Bookroom (暖白书房 / 舒适阅读)"
-    case morningMist = "Morning Mist (晨雾浅蓝 / 清新护眼)"
-    case warmSepia = "Bookish Sepia (复古暖页 / 柔光阅读)"
+    case none = "Pure Clean (Minimal White / Maximum Contrast)"
+    case washiPaper = "Washi Rice Paper (Japanese Texture / Eye Care)"
+    case readingCat = "Cozy Bookroom (Warm White / Comfortable Reading)"
+    case morningMist = "Morning Mist (Subtle Blue / Fresh Focus)"
+    case warmSepia = "Bookish Sepia (Classic Warm Pages / Soft Glow)"
 
     public var id: String { rawValue }
 

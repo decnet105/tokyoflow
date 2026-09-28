@@ -1,0 +1,37 @@
+{
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Models/DailyNewsItem.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsItem.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsItem.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsItem.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsItem.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsItem.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Models/DailyQuest.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyQuest.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyQuest.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyQuest.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyQuest.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyQuest.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Services/DataManager.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DataManager.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DataManager.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DataManager.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DataManager.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DataManager.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/DailyNews/DailyNewsFeedView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsFeedView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsFeedView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsFeedView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsFeedView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyNewsFeedView.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/Gamification/DailyCheckInStreakCardView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyCheckInStreakCardView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyCheckInStreakCardView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyCheckInStreakCardView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyCheckInStreakCardView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/DailyCheckInStreakCardView.swiftdeps"
+  }
+}

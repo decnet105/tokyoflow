@@ -1,0 +1,37 @@
+{
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Models/TokyoCitizenChat.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoCitizenChat.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoCitizenChat.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoCitizenChat.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoCitizenChat.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoCitizenChat.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Services/ThemeManager.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemeManager.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemeManager.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemeManager.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemeManager.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemeManager.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/AudioLab/TokyoAudioLabView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoAudioLabView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoAudioLabView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoAudioLabView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoAudioLabView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoAudioLabView.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/Components/ThemePickerSheet.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemePickerSheet.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemePickerSheet.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemePickerSheet.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemePickerSheet.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/ThemePickerSheet.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/SurvivalKit/SurvivalCheatSheetView.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SurvivalCheatSheetView.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SurvivalCheatSheetView.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SurvivalCheatSheetView.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SurvivalCheatSheetView.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/SurvivalCheatSheetView.swiftdeps"
+  }
+}

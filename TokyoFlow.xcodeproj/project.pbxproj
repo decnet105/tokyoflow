@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BL_DEST_PLAN_01 /* TokyoDestinationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_DEST_PLAN_01 /* TokyoDestinationPlan.swift */; };
+		BL_GEN_ENGINE_02 /* TokyoGenerativeLearningEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_GEN_ENGINE_02 /* TokyoGenerativeLearningEngine.swift */; };
+		BL_GEN_ROUTE_03 /* TokyoGenerativeRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_GEN_ROUTE_03 /* TokyoGenerativeRouteView.swift */; };
+
+		BL_5B90E4FE438C4ECAB3B8 /* TokyoScenarioVideoLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_5B90E4FE438C4ECAB3B8 /* TokyoScenarioVideoLesson.swift */; };
+		BL_6941599F123A4D97B3D0 /* TokyoYouTubeWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_6941599F123A4D97B3D0 /* TokyoYouTubeWebView.swift */; };
+		BL_014B52C37D09422AB8FF /* TokyoScenarioYTPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_014B52C37D09422AB8FF /* TokyoScenarioYTPlayerView.swift */; };
+		BL_602AC8AE05E145419285 /* TokyoScenarioVideoHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_602AC8AE05E145419285 /* TokyoScenarioVideoHubView.swift */; };
 		BL_07DD25B1E5E3F5DF1E86 /* TokyoProUpgradeModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_07DD25B1E5E3F5DF1E86 /* TokyoProUpgradeModalView.swift */; };
 		BL_ACEB422C519653B973F7 /* WeakWordsLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_ACEB422C519653B973F7 /* WeakWordsLabView.swift */; };
 		BL_96BD16AA826F4C922EE6 /* JLPTDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_96BD16AA826F4C922EE6 /* JLPTDictionaryView.swift */; };
@@ -107,6 +115,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FR_DEST_PLAN_01 /* TokyoDestinationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoDestinationPlan.swift; sourceTree = "<group>"; };
+		FR_GEN_ENGINE_02 /* TokyoGenerativeLearningEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoGenerativeLearningEngine.swift; sourceTree = "<group>"; };
+		FR_GEN_ROUTE_03 /* TokyoGenerativeRouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoGenerativeRouteView.swift; sourceTree = "<group>"; };
+
+		FR_5B90E4FE438C4ECAB3B8 /* TokyoScenarioVideoLesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoScenarioVideoLesson.swift; sourceTree = "<group>"; };
+		FR_6941599F123A4D97B3D0 /* TokyoYouTubeWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoYouTubeWebView.swift; sourceTree = "<group>"; };
+		FR_014B52C37D09422AB8FF /* TokyoScenarioYTPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoScenarioYTPlayerView.swift; sourceTree = "<group>"; };
+		FR_602AC8AE05E145419285 /* TokyoScenarioVideoHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoScenarioVideoHubView.swift; sourceTree = "<group>"; };
 		FR_07DD25B1E5E3F5DF1E86 /* TokyoProUpgradeModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ../Views/Subscription/TokyoProUpgradeModalView.swift; sourceTree = "<group>"; };
 		FR_ACEB422C519653B973F7 /* WeakWordsLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ../Views/Dictionary/WeakWordsLabView.swift; sourceTree = "<group>"; };
 		FR_96BD16AA826F4C922EE6 /* JLPTDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ../Views/Dictionary/JLPTDictionaryView.swift; sourceTree = "<group>"; };
@@ -274,6 +290,7 @@
 		4CF388E5D9D04FCD944CC21C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FR_GEN_ENGINE_02 /* TokyoGenerativeLearningEngine.swift */,
 				BFFA12433CD6E060A2924615 /* AudioService.swift */,
 				786B5DEC3AADA9ED8BBB95C4 /* DataManager.swift */,
 				0FB00AF60BED5893FDB069D0 /* GamificationService.swift */,
@@ -300,6 +317,8 @@
 		5CA98EC579F4BFD0AC43D3EF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FR_DEST_PLAN_01 /* TokyoDestinationPlan.swift */,
+				FR_5B90E4FE438C4ECAB3B8 /* TokyoScenarioVideoLesson.swift */,
 				189DC5206980A564B7AD0B04 /* Announcement.swift */,
 				20F17D3F4810F83B7E348998 /* Curriculum.swift */,
 				28F3306B69A377CBCB057070 /* DailyNewsItem.swift */,
@@ -333,6 +352,7 @@
 		73422C6D96324890903E075A /* Scenario */ = {
 			isa = PBXGroup;
 			children = (
+				FR_GEN_ROUTE_03 /* TokyoGenerativeRouteView.swift */,
 				7FCF8749A37C8562EA96AAA8 /* InteractiveRoleplayView.swift */,
 				B7B105DCAA7D9DDF0A6AC036 /* ScenarioDetailView.swift */,
 				3775FB1036A6CE18E2A9E92B /* ScenarioMapView.swift */,
@@ -435,10 +455,21 @@
 			path = Roadmap;
 			sourceTree = "<group>";
 		};
+		E8F1A2B3C4D5E6F7A8B9C0D1 /* VideoAcademy */ = {
+			isa = PBXGroup;
+			children = (
+				FR_6941599F123A4D97B3D0 /* TokyoYouTubeWebView.swift */,
+				FR_014B52C37D09422AB8FF /* TokyoScenarioYTPlayerView.swift */,
+				FR_602AC8AE05E145419285 /* TokyoScenarioVideoHubView.swift */,
+			);
+			path = VideoAcademy;
+			sourceTree = "<group>";
+		};
 		E2DF4F9455DDA36471C40981 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				AAA3BA9ED0FF08BFDE1534DA /* MainTabView.swift */,
+				E8F1A2B3C4D5E6F7A8B9C0D1 /* VideoAcademy */,
 				2FE64395BE7F48978EE31151 /* AudioLab */,
 				2C10A8EC0883F9FDBCD760D4 /* Components */,
 				930A6220514F2ED50D046727 /* DailyNews */,
@@ -593,6 +624,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BL_DEST_PLAN_01 /* TokyoDestinationPlan.swift in Sources */,
+				BL_GEN_ENGINE_02 /* TokyoGenerativeLearningEngine.swift in Sources */,
+				BL_GEN_ROUTE_03 /* TokyoGenerativeRouteView.swift in Sources */,
+				BL_5B90E4FE438C4ECAB3B8 /* TokyoScenarioVideoLesson.swift in Sources */,
+				BL_6941599F123A4D97B3D0 /* TokyoYouTubeWebView.swift in Sources */,
+				BL_014B52C37D09422AB8FF /* TokyoScenarioYTPlayerView.swift in Sources */,
+				BL_602AC8AE05E145419285 /* TokyoScenarioVideoHubView.swift in Sources */,
 				1E37BE6CC5356DFC715FE001 /* Announcement.swift in Sources */,
 				DE02659BA15D406FEA83C0D4 /* AudioButton.swift in Sources */,
 				E4C6DFC7C35B29F56F497423 /* AudioService.swift in Sources */,

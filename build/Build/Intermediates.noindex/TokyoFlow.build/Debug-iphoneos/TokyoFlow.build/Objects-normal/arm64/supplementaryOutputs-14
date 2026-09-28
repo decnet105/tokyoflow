@@ -1,0 +1,30 @@
+{
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Models/JLPTWord.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JLPTWord.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JLPTWord.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JLPTWord.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JLPTWord.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/JLPTWord.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Models/TokyoRadioStation.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoRadioStation.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoRadioStation.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoRadioStation.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoRadioStation.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoRadioStation.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Services/NotificationService.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/NotificationService.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/NotificationService.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/NotificationService.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/NotificationService.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/NotificationService.swiftdeps"
+  },
+  "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Views/Components/TokyoSearchSheet.swift" : {
+    "const-values" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoSearchSheet.swiftconstvalues",
+    "dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoSearchSheet.d",
+    "diagnostics" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoSearchSheet.dia",
+    "object" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoSearchSheet.o",
+    "swift-dependencies" : "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/build/Build/Intermediates.noindex/TokyoFlow.build/Debug-iphoneos/TokyoFlow.build/Objects-normal/arm64/TokyoSearchSheet.swiftdeps"
+  }
+}

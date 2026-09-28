@@ -144,8 +144,8 @@ public class GamificationService: ObservableObject {
         self.dailyQuests = [
             DailyQuest(
                 id: "q_checkin",
-                title: "今日签到 (Daily Check-in)",
-                subtitle: "连续打卡第 \(streakDays) 天，领取每日东京点数与经验",
+                title: "Daily Check-in & Streak",
+                subtitle: "Day \(streakDays) streak! Claim your daily Tokyo Points & EXP",
                 icon: "calendar.badge.checkmark",
                 rewardTP: 50,
                 rewardEXP: 60,
@@ -155,8 +155,8 @@ public class GamificationService: ObservableObject {
             ),
             DailyQuest(
                 id: "q_micro_time",
-                title: "每日碎片化学习 20 分钟",
-                subtitle: "今日已完成 \(dailyMinutesLearned) / \(dailyGoalMinutes) 分钟碎片沉浸",
+                title: "20-Min Micro-Immersion",
+                subtitle: "\(dailyMinutesLearned) / \(dailyGoalMinutes) minutes completed today",
                 icon: "timer",
                 rewardTP: 80,
                 rewardEXP: 100,
@@ -166,8 +166,8 @@ public class GamificationService: ObservableObject {
             ),
             DailyQuest(
                 id: "q_listen_news",
-                title: "NHK 原音新闻 (Daily Real News)",
-                subtitle: "完整收听 1 篇 NHK やさしい日本語真实新闻",
+                title: "Daily NHK Real News",
+                subtitle: "Listen through 1 NHK Easy Japanese broadcast",
                 icon: "headphones",
                 rewardTP: 100,
                 rewardEXP: 120,
@@ -177,8 +177,8 @@ public class GamificationService: ObservableObject {
             ),
             DailyQuest(
                 id: "q_dojo_battle",
-                title: "道场秒答实战 (Speed Dojo Battle)",
-                subtitle: "通关 1 次便利店或居酒屋连环问对决",
+                title: "Speed Dojo Battle",
+                subtitle: "Clear 1 Kombini or Izakaya rapid-fire drill",
                 icon: "bolt.shield.fill",
                 rewardTP: 80,
                 rewardEXP: 100,
@@ -188,8 +188,8 @@ public class GamificationService: ObservableObject {
             ),
             DailyQuest(
                 id: "q_shadowing",
-                title: "原文录音跟读 (Native Shadowing)",
-                subtitle: "使用麦克风录音跟读 3 个真实东京生活句子",
+                title: "Native Shadowing Drill",
+                subtitle: "Record and shadow 3 authentic Tokyo sentences",
                 icon: "mic.fill",
                 rewardTP: 120,
                 rewardEXP: 150,
@@ -199,8 +199,8 @@ public class GamificationService: ObservableObject {
             ),
             DailyQuest(
                 id: "q_manga_sfx",
-                title: "漫画拟声词特训 (Manga SFX Lab)",
-                subtitle: "学习并测试 5 个少年热血/日常拟声词",
+                title: "Manga Onomatopoeia Lab",
+                subtitle: "Master 5 shonen & daily life SFX terms",
                 icon: "sparkles",
                 rewardTP: 60,
                 rewardEXP: 80,

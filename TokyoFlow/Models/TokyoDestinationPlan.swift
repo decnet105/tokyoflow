@@ -5,38 +5,48 @@ public struct GenerativePhrase: Identifiable, Hashable, Codable {
     public let japanese: String
     public let furigana: String
     public let romaji: String
-    public let chinese: String
-    public let pitchAccent: String // e.g., "① 头高型", "⓪ 平板型"
+    public let english: String
+    public var chinese: String { english }
+    public let pitchAccent: String // e.g., "① Atamadaka", "⓪ Heiban"
     public let situationNote: String
     public let audioKey: String
 
-    public init(japanese: String, furigana: String, romaji: String, chinese: String, pitchAccent: String, situationNote: String, audioKey: String) {
+    public init(japanese: String, furigana: String, romaji: String, english: String, pitchAccent: String, situationNote: String, audioKey: String) {
         self.japanese = japanese
         self.furigana = furigana
         self.romaji = romaji
-        self.chinese = chinese
+        self.english = english
         self.pitchAccent = pitchAccent
         self.situationNote = situationNote
         self.audioKey = audioKey
+    }
+
+    public init(japanese: String, furigana: String, romaji: String, chinese: String, pitchAccent: String, situationNote: String, audioKey: String) {
+        self.init(japanese: japanese, furigana: furigana, romaji: romaji, english: chinese, pitchAccent: pitchAccent, situationNote: situationNote, audioKey: audioKey)
     }
 }
 
 public struct GenerativeDialogueTurn: Identifiable, Hashable, Codable {
     public var id: String { "\(speaker)_\(japanese)" }
     public let speaker: String
-    public let speakerRole: String // "店员", "站务员", "你 (学习者)"
+    public let speakerRole: String // "Staff", "Station Clerk", "You (Learner)"
     public let japanese: String
     public let furigana: String
-    public let chinese: String
+    public let english: String
+    public var chinese: String { english }
     public let isUser: Bool
 
-    public init(speaker: String, speakerRole: String, japanese: String, furigana: String, chinese: String, isUser: Bool) {
+    public init(speaker: String, speakerRole: String, japanese: String, furigana: String, english: String, isUser: Bool) {
         self.speaker = speaker
         self.speakerRole = speakerRole
         self.japanese = japanese
         self.furigana = furigana
-        self.chinese = chinese
+        self.english = english
         self.isUser = isUser
+    }
+
+    public init(speaker: String, speakerRole: String, japanese: String, furigana: String, chinese: String, isUser: Bool) {
+        self.init(speaker: speaker, speakerRole: speakerRole, japanese: japanese, furigana: furigana, english: chinese, isUser: isUser)
     }
 }
 

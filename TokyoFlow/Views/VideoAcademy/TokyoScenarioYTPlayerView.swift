@@ -85,7 +85,7 @@ public struct TokyoScenarioYTPlayerView: View {
                                     VStack(alignment: .leading, spacing: 1) {
                                         Text(lesson.channelName)
                                             .font(.system(size: 12, weight: .bold))
-                                        Text("YouTube 官方认证教学频道")
+                                        Text("Official YouTube Channel")
                                             .font(.system(size: 10))
                                             .foregroundColor(.secondary)
                                     }
@@ -105,7 +105,7 @@ public struct TokyoScenarioYTPlayerView: View {
                                     HStack(spacing: 4) {
                                         Image(systemName: "play.rectangle.fill")
                                             .foregroundColor(.red)
-                                        Text("在 YouTube 播放")
+                                        Text("Play on YouTube")
                                             .font(.system(size: 11, weight: .bold))
                                             .foregroundColor(.primary)
                                     }
@@ -124,9 +124,9 @@ public struct TokyoScenarioYTPlayerView: View {
 
                         // Segmented Picker for Lesson Tabs
                         Picker("Lesson Mode", selection: $selectedTab) {
-                            Text("📑 重点句型 (\(lesson.keyTakeaways.count))").tag(0)
-                            Text("⏱ 章节时间轴 (\(lesson.chapters.count))").tag(1)
-                            Text("💡 教学大纲").tag(2)
+                            Text("📑 Key Phrases (\(lesson.keyTakeaways.count))").tag(0)
+                            Text("⏱ Chapters (\(lesson.chapters.count))").tag(1)
+                            Text("💡 Syllabus").tag(2)
                         }
                         .pickerStyle(.segmented)
                         .padding(.horizontal)
@@ -208,7 +208,7 @@ public struct TokyoScenarioYTPlayerView: View {
                         } else {
                             // Tab 2: Lesson Syllabus & Method
                             VStack(alignment: .leading, spacing: 12) {
-                                Text("🎥 频道教学法（借鉴 YouTube Top3 日语教学精华）")
+                                Text("🎥 TokyoFlow Method: Learn In Context")
                                     .font(.system(size: 14, weight: .bold))
                                     .foregroundColor(.accentColor)
 
@@ -218,18 +218,18 @@ public struct TokyoScenarioYTPlayerView: View {
 
                                 Divider()
 
-                                Text("💡 3 步高效学习法：")
+                                Text("💡 3-Step High-Efficiency Learning Flow:")
                                     .font(.system(size: 13, weight: .bold))
 
-                                Text("1. 沉浸视听：观看 YouTube 原汁原味真实东京场景。")
+                                Text("1. Immersive Listening: Watch genuine Tokyo native video with native pacing.")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
 
-                                Text("2. 重点破译：研读本页下方提炼的 1 秒回答关键句型。")
+                                Text("2. Core Phrase Mastery: Study 1-second survival response phrases with instant pronunciation.")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
 
-                                Text("3. 实战角色扮演：进入对应 Scenario 场景完成互动过关。")
+                                Text("3. Scenario Roleplay: Jump into the interactive Scenario drill to test your instincts.")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -242,11 +242,11 @@ public struct TokyoScenarioYTPlayerView: View {
                     .padding(.bottom, 30)
                 }
             }
-            .navigationTitle("YouTube 场景精讲")
+            .navigationTitle("Scenario Masterclass")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("完成") { dismiss() }
+                    Button("Done") { dismiss() }
                 }
             }
         }

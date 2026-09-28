@@ -67,7 +67,7 @@ public class WeakWordTrackerService: ObservableObject {
                 word: clean,
                 reading: reading,
                 meaning: meaning,
-                reason: "🎧 反复收听 \(count) 次",
+                reason: "🎧 Replayed \(count) times",
                 incrementListen: true
             )
         }
@@ -92,7 +92,7 @@ public class WeakWordTrackerService: ObservableObject {
                 word: clean,
                 reading: reading,
                 meaning: meaning,
-                reason: String(format: "⏱️ 停留思考 %.1fs", duration),
+                reason: String(format: "⏱️ Hesitated %.1fs", duration),
                 dwellSec: duration
             )
         }
@@ -107,7 +107,7 @@ public class WeakWordTrackerService: ObservableObject {
             word: clean,
             reading: reading,
             meaning: meaning,
-            reason: "❌ 练习失误，需重点巩固",
+            reason: "❌ Quiz mistake, needs review",
             incrementMistake: true
         )
     }

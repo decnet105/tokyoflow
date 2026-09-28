@@ -20,10 +20,10 @@ public struct WeakWordsLabView: View {
                                 Image(systemName: "bolt.heart.fill")
                                     .font(.title2)
                                     .foregroundColor(.red)
-                                Text("AI 弱点生词闭环库")
+                                Text("AI Weakness & Word Recovery Lab")
                                     .font(.system(size: 18, weight: .black, design: .rounded))
                                 Spacer()
-                                Text("已掌握 \(tracker.masteredCount) 词")
+                                Text("\(tracker.masteredCount) Mastered")
                                     .font(.caption)
                                     .fontWeight(.bold)
                                     .foregroundColor(.green)
@@ -33,7 +33,7 @@ public struct WeakWordsLabView: View {
                                     .cornerRadius(8)
                             }
 
-                            Text("系统通过您的停留时间、反复收听次数及测验失误自动捕获不熟悉词汇，形成复习闭环。")
+                            Text("Automatically captures hesitated terms, replayed audio, and quiz mistakes across Kana, Scenarios, and NHK News for targeted spaced repetition.")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -48,9 +48,9 @@ public struct WeakWordsLabView: View {
                                 Image(systemName: "sparkles")
                                     .font(.system(size: 48))
                                     .foregroundColor(.orange)
-                                Text("暂无生词与弱点！")
+                                Text("No weak words yet!")
                                     .font(.headline)
-                                Text("在五十音、场景会话或新闻跟读中多探索，遇到困难词汇系统会自动为您归纳于此。")
+                                Text("As you practice Kana, scenario dialogues, and news shadowing, unfamiliar words will automatically appear here for review.")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                     .multilineTextAlignment(.center)
@@ -85,11 +85,11 @@ public struct WeakWordsLabView: View {
                     }
                 }
             }
-            .navigationTitle("错词与弱点特训")
+            .navigationTitle("Weakness Drill Lab")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("完成") {
+                    Button("Done") {
                         dismiss()
                     }
                     .fontWeight(.bold)
@@ -150,7 +150,7 @@ public struct WeakWordCardRow: View {
             Button(action: onMastered) {
                 HStack(spacing: 2) {
                     Image(systemName: "checkmark")
-                    Text("掌握")
+                    Text("Mastered")
                 }
                 .font(.caption2)
                 .fontWeight(.bold)

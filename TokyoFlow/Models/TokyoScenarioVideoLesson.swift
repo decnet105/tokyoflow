@@ -62,100 +62,100 @@ public class TokyoVideoLessonDataManager: ObservableObject {
         TokyoScenarioVideoLesson(
             id: "yt_yamanote_01",
             scenarioId: "s_yamanote_rush",
-            title: "【东京电车现场】山手线高峰换乘与站台广播彻底解密",
+            title: "Tokyo Train Real-Life: Yamanote Rush Hour & Platform Announcements",
             titleJa: "山手線ラッシュ・乗り換えアナウンス完全攻略",
-            channelName: "TokyoFlow Japanese / TokyoFlow 日语",
+            channelName: "TokyoFlow Japanese",
             youtubeVideoId: "6dxbsPYp654",
             durationLabel: "10:45",
             levelBadge: "JLPT N4-N3",
-            district: "新宿・Shinjuku",
+            district: "Shinjuku (新宿)",
             category: "transit",
             thumbnailIcon: "tram.fill",
-            summary: "实景拆解新宿站早高峰发车音乐、点字盲道警示广播、内环外环路线辨析，以及面对列车延误时的地道问路短语。",
+            summary: "Deconstruct Shinjuku Station morning rush departure melodies, tactile yellow paving warnings, inner/outer loop announcements, and natural wayfinding phrases.",
             chapters: [
-                VideoChapterBookmark(timeString: "00:00", timeSeconds: 0, title: "现场还原", summary: "新宿站山手线2号站台实景广播声效还原"),
-                VideoChapterBookmark(timeString: "02:30", timeSeconds: 150, title: "核心语法", summary: "「〜がまいります」尊他语与敬语动词拆解"),
-                VideoChapterBookmark(timeString: "05:40", timeSeconds: 340, title: "站台地道口语", summary: "问路与换乘中央线的1秒金句"),
-                VideoChapterBookmark(timeString: "08:15", timeSeconds: 495, title: "跟读与角色扮演", summary: "母语声调逐句Shadowing跟读训练")
+                VideoChapterBookmark(timeString: "00:00", timeSeconds: 0, title: "Real-Life Audio Immersion", summary: "Shinjuku Station Platform 2 Yamanote Loop live transit announcement breakdown"),
+                VideoChapterBookmark(timeString: "02:30", timeSeconds: 150, title: "Core Grammar & Keigo", summary: "Deconstruct '~ga mairimasu' humble & polite verb mechanics in JR announcements"),
+                VideoChapterBookmark(timeString: "05:40", timeSeconds: 340, title: "1-Second Wayfinding", summary: "Instant golden phrases to ask station staff for Chuo Line / Sobu Line transfers"),
+                VideoChapterBookmark(timeString: "08:15", timeSeconds: 495, title: "Shadowing & Roleplay", summary: "Sample-accurate native pitch accent repetition drill")
             ],
             keyTakeaways: [
-                VideoKeyTakeaway(phrase: "まもなく、2番線に山手線内回りがまいります。", furigana: "まもなく、にばんせんに やまのてせん うちまわりが まいります。", meaning: "2号站台内环山手线即将进站。", explanation: "「まいります」是「来ます」的谦逊语/郑重语表达，JR电车广播标准句。"),
-                VideoKeyTakeaway(phrase: "黄色い点字ブロックの内側までお下がりください。", furigana: "きいろい てんじぶろっくの うちがわまで おさがりください。", meaning: "请退到黄色盲道线内侧候车。", explanation: "「お下がりください」为极其礼貌的劝告要求。"),
-                VideoKeyTakeaway(phrase: "中央線への乗り換えはどのホームですか？", furigana: "ちゅうおうせんへの のりかえは どのほーむですか？", meaning: "请问换乘中央线在哪个站台？", explanation: "快速向站务员求助的高频口语句型。")
+                VideoKeyTakeaway(phrase: "まもなく、2番線に山手線内回りがまいります。", furigana: "まもなく、にばんせんに やまのてせん うちまわりが まいります。", meaning: "The Yamanote Line inner loop will soon arrive at track 2.", explanation: "'Mairimasu' is the humble form of 'kimasu' (to come), standard JR automated announcement grammar."),
+                VideoKeyTakeaway(phrase: "黄色い点字ブロックの内側までお下がりください。", furigana: "きいろい てんじぶろっくの うちがわまで おさがりください。", meaning: "Please stand back behind the yellow tactile braille blocks.", explanation: "'O-sagari kudasai' is a polite public safety request."),
+                VideoKeyTakeaway(phrase: "中央線への乗り換えはどのホームですか？", furigana: "ちゅうおうせんへの のりかえは どのほーむですか？", meaning: "Which platform is the transfer for the Chuo Line?", explanation: "Essential formula when lost inside massive transit hubs.")
             ]
         ),
         TokyoScenarioVideoLesson(
             id: "yt_kombini_02",
             scenarioId: "s_kombini_register",
-            title: "【便利店攻防战】日本7-11结账连环问与微波炉加热全攻略",
+            title: "Convenience Store Survival: 7-Eleven Rapid Checkout & Bento Heating",
             titleJa: "コンビニレジ連環問・お弁当温め・袋不要",
-            channelName: "TokyoFlow Japanese / TokyoFlow 日语",
+            channelName: "TokyoFlow Japanese",
             youtubeVideoId: "bOcegXJ3_Qo",
             durationLabel: "08:20",
             levelBadge: "JLPT N5-N4",
-            district: "涩谷・Shibuya",
+            district: "Shibuya (渋谷)",
             category: "kombini",
             thumbnailIcon: "cart.fill",
-            summary: "从「お弁当温めますか？」到「レジ袋はご利用ですか？」，拆解日本便利店收银台所有高频选项与1秒自然回复方案。",
+            summary: "From 'Obentō atatamemasu ka?' to 'Reji-bukuro wa go-riyō desu ka?', decode all rapid-fire Japanese convenience store register questions and 1-second natural responses.",
             chapters: [
-                VideoChapterBookmark(timeString: "00:00", timeSeconds: 0, title: "收银实景连环问", summary: "便利店员快速语速四连问实录"),
-                VideoChapterBookmark(timeString: "02:10", timeSeconds: 130, title: "加热与塑料袋", summary: "「温めてください」「大丈夫です」的正确语感"),
-                VideoChapterBookmark(timeString: "04:50", timeSeconds: 290, title: "电子支付与积分", summary: "Suica与PayPay刷卡礼仪"),
-                VideoChapterBookmark(timeString: "06:40", timeSeconds: 400, title: "结账角色实战", summary: "沉浸式结账跟读演练")
+                VideoChapterBookmark(timeString: "00:00", timeSeconds: 0, title: "Register Rapid-Fire Questions", summary: "Live recording of the 4 rapid checkout questions at Japanese 7-Eleven/FamilyMart"),
+                VideoChapterBookmark(timeString: "02:10", timeSeconds: 130, title: "Microwave Heating & Bags", summary: "Proper register nuances of 'Atatamete kudasai' vs 'Daijōbu desu'"),
+                VideoChapterBookmark(timeString: "04:50", timeSeconds: 290, title: "Digital Payment & Points", summary: "Suica, PayPay, and credit card checkout formulas"),
+                VideoChapterBookmark(timeString: "06:40", timeSeconds: 400, title: "Checkout Roleplay Drill", summary: "Immersive checkout dialogue practice")
             ],
             keyTakeaways: [
-                VideoKeyTakeaway(phrase: "お弁当温めますか？", furigana: "おべんとう あたためますか？", meaning: "便当需要加热吗？", explanation: "便利店标准服务用语。回复「温めてください」或「そのままで大丈夫です」。"),
-                VideoKeyTakeaway(phrase: "レジ袋は大丈夫です。", furigana: "れじぶくろは だいじょうぶです。", meaning: "不用塑料袋了（我有自带）。", explanation: "「大丈夫です」在口语中表示委婉拒绝。"),
-                VideoKeyTakeaway(phrase: "Suicaでお願いします。", furigana: "すいかで おねがいします。", meaning: "请用Suica西瓜卡结账。", explanation: "指定付款方式的万能句型。")
+                VideoKeyTakeaway(phrase: "お弁当温めますか？", furigana: "おべんとう あたためますか？", meaning: "Would you like your bento heated up in the microwave?", explanation: "Standard staff question. Reply 'Atatamete kudasai' (Please heat it) or 'Sono mama de daijōbu desu' (As-is is fine)."),
+                VideoKeyTakeaway(phrase: "レジ袋は大丈夫です。", furigana: "れじぶくろは だいじょうぶです。", meaning: "I'm fine without a plastic bag (I have my own).", explanation: "'Daijōbu desu' with a gentle nod is the polite, natural way to decline."),
+                VideoKeyTakeaway(phrase: "Suicaでお願いします。", furigana: "すいかで おねがいします。", meaning: "With Suica (IC card), please.", explanation: "Universal payment designation formula.")
             ]
         ),
         TokyoScenarioVideoLesson(
             id: "yt_izakaya_03",
             scenarioId: "s_izakaya_toast",
-            title: "【居酒屋江湖】日本昭和居酒屋点菜点单、开胃菜与干杯礼仪",
+            title: "Izakaya Mastery: Showa Pub Ordering, Otoshi Culture & Toasting",
             titleJa: "居酒屋注文・お通し文化・とりあえず生！",
-            channelName: "TokyoFlow Japanese / TokyoFlow 日语",
+            channelName: "TokyoFlow Japanese",
             youtubeVideoId: "M2i5zH7aWqk",
             durationLabel: "12:15",
             levelBadge: "JLPT N4-N3",
-            district: "新宿・Shinjuku Omoide Yokocho",
+            district: "Shinjuku Omoide Yokocho (思い出横丁)",
             category: "dining",
             thumbnailIcon: "wineglass.fill",
-            summary: "入座先点「とりあえず生！」的黄金法则、Otoshi开胃菜文化、加单刺身烤串与最后结账开发票的完整流程。",
+            summary: "The golden rule of ordering 'Toriaezu nama!' first, Otoshi appetizer customs, salt vs tare sauce for yakitori skewers, and asking for the final bill.",
             chapters: [
-                VideoChapterBookmark(timeString: "00:00", timeSeconds: 0, title: "居酒屋入座", summary: "毛巾（おしぼり）与第一轮酒水"),
-                VideoChapterBookmark(timeString: "03:15", timeSeconds: 195, title: "热门菜品点单", summary: "烤鸡肉串盐烤（塩）与酱烤（タレ）的区分"),
-                VideoChapterBookmark(timeString: "07:00", timeSeconds: 420, title: "酒席互动干杯", summary: "杯沿位置与「お疲れ様でした！」"),
-                VideoChapterBookmark(timeString: "09:45", timeSeconds: 585, title: "结账与发票", summary: "「お会計」与「領収書」地道说法")
+                VideoChapterBookmark(timeString: "00:00", timeSeconds: 0, title: "Entering the Izakaya", summary: "Hot towels (Oshibori) and the first mandatory round of drinks"),
+                VideoChapterBookmark(timeString: "03:15", timeSeconds: 195, title: "Yakitori Flavor Nuance", summary: "Choosing between Shio (Salt) and Tare (Sweet Soy Sauce)"),
+                VideoChapterBookmark(timeString: "07:00", timeSeconds: 420, title: "The Art of Kanpai!", summary: "Glass rim etiquette and saying 'Otsukaresama desu!'"),
+                VideoChapterBookmark(timeString: "09:45", timeSeconds: 585, title: "Bill & Official Receipt", summary: "Mastering 'O-kaikei' and 'Ryōshūsho' phrases")
             ],
             keyTakeaways: [
-                VideoKeyTakeaway(phrase: "とりあえず生ビール二つお願いします！", furigana: "とりあえず なまびーる ふたつ おねがいします！", meaning: "先来两杯生啤！", explanation: "居酒屋最地道的开场点酒句型。"),
-                VideoKeyTakeaway(phrase: "焼き鳥は塩とタレ、どちらにしますか？", furigana: "やきとりは しおと たれ、どちらにしますか？", meaning: "烤鸡肉串要盐烤还是酱汁烤？", explanation: "店员必问搭配问题。"),
-                VideoKeyTakeaway(phrase: "お会計と領収書をお願いします。", furigana: "おかいけいと りょうしゅうしょを おねがいします。", meaning: "请买单并开具发票。", explanation: "正式买单与公司报销凭证请求。")
+                VideoKeyTakeaway(phrase: "とりあえず生ビール二つお願いします！", furigana: "とりあえず なまびーる ふたつ おねがいします！", meaning: "Two draft beers to start, please!", explanation: "The iconic opening order phrase at every Japanese izakaya pub."),
+                VideoKeyTakeaway(phrase: "焼き鳥は塩とタレ、どちらにしますか？", furigana: "やきとりは しおと たれ、どちらにしますか？", meaning: "Would you like your yakitori skewers with salt or sweet tare sauce?", explanation: "Standard server question. Shio highlights ingredient freshness."),
+                VideoKeyTakeaway(phrase: "お会計と領収書をお願いします。", furigana: "おかいけいと りょうしゅうしょを おねがいします。", meaning: "The check and an official receipt, please.", explanation: "Polite phrase to settle the bill and request a company receipt.")
             ]
         ),
         TokyoScenarioVideoLesson(
             id: "yt_akiba_04",
             scenarioId: "s_akiba_manga",
-            title: "【秋叶原朝圣】动漫周边淘货、限定手办问询与同人展会实战",
+            title: "Akihabara Pilgrimage: Figure Hunting, Limited Merch & Manga Tax-Free",
             titleJa: "秋葉原アニメ・限定グッズ・同人誌探訪",
-            channelName: "TokyoFlow Japanese / TokyoFlow 日语",
+            channelName: "TokyoFlow Japanese",
             youtubeVideoId: "N1vM-N12345",
             durationLabel: "09:50",
             levelBadge: "JLPT N3-N2",
-            district: "秋叶原・Akihabara",
+            district: "Akihabara (秋葉原)",
             category: "shopping",
             thumbnailIcon: "sparkles.tv.fill",
-            summary: "深入秋叶原各大动漫店铺，向店员询问「这季新番原著漫画在几楼？」、「是否有会场限定特典？」。",
+            summary: "Explore multi-story Akihabara hobby towers, ask clerks for new anime original light novels, pre-order bonuses, and rental box figure inspections.",
             chapters: [
-                VideoChapterBookmark(timeString: "00:00", timeSeconds: 0, title: "秋叶原探店", summary: "动漫大厦楼层索引阅读"),
-                VideoChapterBookmark(timeString: "02:40", timeSeconds: 160, title: "寻找新番原作", summary: "原作漫画与轻小说所在分区询问"),
-                VideoChapterBookmark(timeString: "05:30", timeSeconds: 330, title: "限定特典与预订", summary: "预约特典与盲盒手办用语"),
-                VideoChapterBookmark(timeString: "08:00", timeSeconds: 480, title: "粉丝交流演练", summary: "与同好交流喜好作品的自然短语")
+                VideoChapterBookmark(timeString: "00:00", timeSeconds: 0, title: "Akiba Tower Exploration", summary: "Reading hobby building floor directories"),
+                VideoChapterBookmark(timeString: "02:40", timeSeconds: 160, title: "Locating Manga & Light Novels", summary: "Asking for current season anime original books"),
+                VideoChapterBookmark(timeString: "05:30", timeSeconds: 330, title: "Pre-order Perks & Blind Boxes", summary: "Clarifying limited edition bonus postcards & badges"),
+                VideoChapterBookmark(timeString: "08:00", timeSeconds: 480, title: "Fan Dialogue Practice", summary: "Natural conversational phrases with fellow collectors")
             ],
             keyTakeaways: [
-                VideoKeyTakeaway(phrase: "今期の新作アニメの原作はどこにありますか？", furigana: "こんきの しんさくあにめの げんさくは どこに ありますか？", meaning: "请问这季度新作动画的原作在哪里？", explanation: "动漫书店最实用的寻书句型。"),
-                VideoKeyTakeaway(phrase: "購入特典はまだ付きますか？", furigana: "こうにゅうとくてんは まだ つきますか？", meaning: "请问现在买还附送购买特典吗？", explanation: "确认限定赠品的标准问法。")
+                VideoKeyTakeaway(phrase: "今期の新作アニメの原作はどこにありますか？", furigana: "こんきの しんさくあにめの げんさくは どこに ありますか？", meaning: "Where are the original manga/novels for this season's new anime?", explanation: "The most useful book-finding phrase in anime specialty bookstores."),
+                VideoKeyTakeaway(phrase: "購入特典はまだ付きますか？", furigana: "こうにゅうとくてんは まだ つきますか？", meaning: "Does this still come with the purchase bonus perk?", explanation: "Essential phrase to confirm remaining exclusive merchandise gifts.")
             ]
         )
     ]

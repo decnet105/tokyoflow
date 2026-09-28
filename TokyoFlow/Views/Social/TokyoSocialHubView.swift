@@ -89,11 +89,11 @@ public struct TokyoSocialHubView: View {
             id: "p1",
             authorName: "TokyoExplorer",
             authorAvatar: "⚡",
-            authorTier: "下町常連 (Lv.45)",
+            authorTier: "Tokyo Local (Lv.45)",
             timestampText: "2h ago",
             tag: "Food Tip 🍜",
-            title: "一蘭 (Ichiran) 怎么点单最像当地人？",
-            content: "在填写口味定制纸（オーダー用紙）时：味の濃さ选「基本」、こってり度选「あっさり」、麺のかたさ选「超かため」最推荐！",
+            title: "How to order at Ichiran Ramen like a Tokyo pro?",
+            content: "When filling out the custom order sheet (オーダー用紙): Richness -> 'Medium', Richness -> 'Light', Noodle Texture -> 'Extra Firm (超かため)'. Highly recommended!",
             likesCount: 24,
             commentsCount: 8
         ),
@@ -101,11 +101,11 @@ public struct TokyoSocialHubView: View {
             id: "p2",
             authorName: "MangaLover_JP",
             authorAvatar: "🌸",
-            authorTier: "留学生 (Lv.18)",
+            authorTier: "Tokyo Scholar (Lv.18)",
             timestampText: "5h ago",
             tag: "Manga 📖",
-            title: "今天在 NHK 原音新闻跟读打卡成功！",
-            content: "听完「JRダイヤ改正」的新闻，把『終電』和『乗り遅れ』的录音对比练了3遍，发音终于达到90分以上了！🔥",
+            title: "Crushed today's NHK Real Audio shadowing session!",
+            content: "After listening to the 'JR Timetable Update' news, I practiced shadowing '終電' (last train) and '乗り遅れ' (missed train) 3 times. Pronunciation score hit 94%! 🔥",
             likesCount: 19,
             commentsCount: 4
         ),
@@ -113,11 +113,11 @@ public struct TokyoSocialHubView: View {
             id: "p3",
             authorName: "AkibaWalker",
             authorAvatar: "🎮",
-            authorTier: "ワーホリ滞在者 (Lv.8)",
+            authorTier: "Tokyo Resident (Lv.8)",
             timestampText: "1d ago",
             tag: "Living 💡",
-            title: "便利店加热的终极一句话",
-            content: "店员问『温めますか？』直接回『あ、お願いします（hai, onegaishimasu）』就可以，超简单自然！",
+            title: "The Ultimate 1-Second Kombini Bento Phrase",
+            content: "When the cashier asks '温めますか？' (Would you like this heated?), just reply 'あ、お願いします (Hai, onegaishimasu)'. Simple, natural, and friendly!",
             likesCount: 42,
             commentsCount: 12
         )
@@ -141,7 +141,7 @@ public struct TokyoSocialHubView: View {
                             HStack(spacing: 4) {
                                 Image(systemName: "person.2.wave.2.fill")
                                     .font(.system(size: 11, weight: .bold))
-                                Text("住民会話")
+                                Text("Citizens")
                                     .font(.system(size: 12, weight: .bold))
                             }
                             .frame(maxWidth: .infinity)
@@ -161,7 +161,7 @@ public struct TokyoSocialHubView: View {
                             HStack(spacing: 4) {
                                 Image(systemName: "bubble.left.and.bubble.right.fill")
                                     .font(.system(size: 11, weight: .bold))
-                                Text("東京掲示板")
+                                Text("Tokyo Board")
                                     .font(.system(size: 12, weight: .bold))
                             }
                             .frame(maxWidth: .infinity)
@@ -181,7 +181,7 @@ public struct TokyoSocialHubView: View {
                             HStack(spacing: 4) {
                                 Image(systemName: "trophy.fill")
                                     .font(.system(size: 11, weight: .bold))
-                                Text("排行榜")
+                                Text("Leaderboard")
                                     .font(.system(size: 12, weight: .bold))
                             }
                             .frame(maxWidth: .infinity)

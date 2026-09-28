@@ -19,9 +19,9 @@ public struct ThemePickerSheet: View {
                                 .font(.system(size: 11, weight: .bold))
                                 .foregroundColor(.accentColor)
                                 .tracking(1.5)
-                            Text("极简护眼与阅读背景")
+                            Text("Eye-Care & Reading Backgrounds")
                                 .font(.system(size: 22, weight: .black, design: .rounded))
-                            Text("选择纯净无干扰或柔和护眼的阅读背景，享受沉浸式日语学习。")
+                            Text("Choose a distraction-free, soft eye-care background for immersive Japanese learning.")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -117,7 +117,7 @@ public struct ThemeCardThumbnailView: View {
                                 Image(systemName: theme.icon)
                                     .font(.system(size: 32, weight: .semibold))
                                     .foregroundColor(.accentColor)
-                                Text(theme == .none ? "无背景 (Clean)" : "Minimal")
+                                Text(theme == .none ? "Clean White" : "Minimal")
                                     .font(.system(size: 11, weight: .bold))
                                     .foregroundColor(.secondary)
                             }

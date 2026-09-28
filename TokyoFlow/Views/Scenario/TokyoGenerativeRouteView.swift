@@ -26,7 +26,7 @@ public struct TokyoGenerativeRouteView: View {
                                     .foregroundColor(.accentColor)
                                     .tracking(1.5)
                                 Spacer()
-                                Text("AI 动态定制")
+                                Text("AI Dynamic")
                                     .font(.system(size: 10, weight: .bold))
                                     .padding(.horizontal, 6)
                                     .padding(.vertical, 2)
@@ -35,10 +35,10 @@ public struct TokyoGenerativeRouteView: View {
                                     .cornerRadius(6)
                             }
 
-                            Text("次はどこへ行く？（下一站去哪？）")
+                            Text("Next Tokyo Destination?")
                                 .font(.system(size: 22, weight: .black, design: .rounded))
 
-                            Text("选择你接下来想去的东京目的地或输入自定义场景，实时动态生成实战必备句型、母语原声、现场对话与避坑礼仪。")
+                            Text("Select a popular Tokyo hotspot or enter a custom destination to dynamically generate survival phrases, native audio, situational dialogues, and etiquette tips.")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -48,13 +48,13 @@ public struct TokyoGenerativeRouteView: View {
                         // Preset Destination Horizontal Carousel
                         VStack(alignment: .leading, spacing: 10) {
                             HStack {
-                                Text("热门东京目的地")
+                                Text("Popular Tokyo Spots")
                                     .font(.system(size: 13, weight: .bold))
                                 Spacer()
                                 Button(action: { showCustomInput.toggle() }) {
                                     HStack(spacing: 4) {
                                         Image(systemName: showCustomInput ? "xmark.circle.fill" : "plus.circle.fill")
-                                        Text(showCustomInput ? "收起自定义" : "自定义地点")
+                                        Text(showCustomInput ? "Close Custom" : "Custom Spot")
                                     }
                                     .font(.system(size: 12, weight: .bold))
                                     .foregroundColor(.accentColor)
@@ -73,7 +73,7 @@ public struct TokyoGenerativeRouteView: View {
                                                 Image(systemName: dest.icon)
                                                     .font(.system(size: 13))
                                                 VStack(alignment: .leading, spacing: 1) {
-                                                    Text(dest.name.components(separatedBy: "与").first ?? dest.name)
+                                                    Text(dest.name)
                                                         .font(.system(size: 12, weight: .bold))
                                                     Text(dest.district)
                                                         .font(.system(size: 9))
@@ -97,17 +97,17 @@ public struct TokyoGenerativeRouteView: View {
                         // Custom Prompt Input Bar
                         if showCustomInput {
                             VStack(alignment: .leading, spacing: 8) {
-                                Text("输入你想去的地点或场景：")
+                                Text("Enter your desired spot or situation:")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
 
                                 HStack {
                                     Image(systemName: "magnifyingglass")
                                         .foregroundColor(.secondary)
-                                    TextField("例如：台场高达、原宿可丽饼、东京塔夜景...", text: $customPrompt)
+                                    TextField("e.g., Odaiba Gundam, Harajuku Crepe, Tokyo Tower night view...", text: $customPrompt)
                                         .textFieldStyle(.plain)
                                     if !customPrompt.isEmpty {
-                                        Button("生成") {
+                                        Button("Generate") {
                                             engine.generateCustomPlan(userPrompt: customPrompt)
                                             gamification.addRewards(tp: 10, exp: 15)
                                         }
@@ -132,7 +132,7 @@ public struct TokyoGenerativeRouteView: View {
                             VStack(spacing: 12) {
                                 ProgressView()
                                     .scaleEffect(1.2)
-                                Text("正在为你实时生成东京场景学习清单...")
+                                Text("Generating real-time Tokyo learning roadmap...")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -173,7 +173,7 @@ public struct TokyoGenerativeRouteView: View {
                                         Image(systemName: "flag.fill")
                                             .foregroundColor(.orange)
                                             .font(.caption)
-                                        Text("现场任务：\(plan.challengeMission)")
+                                        Text("Field Mission: \(plan.challengeMission)")
                                             .font(.system(size: 11, weight: .medium))
                                             .foregroundColor(.primary)
                                     }
@@ -189,11 +189,11 @@ public struct TokyoGenerativeRouteView: View {
                                 // Section 1: Must-Know Survival Phrases
                                 VStack(alignment: .leading, spacing: 12) {
                                     HStack {
-                                        Label("现场必备 1 秒高频金句", systemImage: "sparkles")
+                                        Label("1-Second Survival Phrases", systemImage: "sparkles")
                                             .font(.system(size: 14, weight: .bold))
                                         Spacer()
                                         Button(action: { showFurigana.toggle() }) {
-                                            Text(showFurigana ? "隐藏注音" : "显示假名")
+                                            Text(showFurigana ? "Hide Furigana" : "Show Furigana")
                                                 .font(.caption2)
                                                 .foregroundColor(.accentColor)
                                         }
@@ -206,7 +206,7 @@ public struct TokyoGenerativeRouteView: View {
 
                                 // Section 2: Real Situational Dialogue
                                 VStack(alignment: .leading, spacing: 12) {
-                                    Label("真实实景演练对话", systemImage: "bubble.left.and.bubble.right.fill")
+                                    Label("Situational Roleplay Dialogue", systemImage: "bubble.left.and.bubble.right.fill")
                                         .font(.system(size: 14, weight: .bold))
 
                                     VStack(spacing: 8) {
@@ -218,7 +218,7 @@ public struct TokyoGenerativeRouteView: View {
 
                                 // Section 3: Cultural Do's & Don'ts
                                 VStack(alignment: .leading, spacing: 8) {
-                                    Label("东京现场避坑指南", systemImage: "exclamationmark.shield.fill")
+                                    Label("Tokyo Field Etiquette & Pro-Tips", systemImage: "exclamationmark.shield.fill")
                                         .font(.system(size: 14, weight: .bold))
                                         .foregroundColor(.primary)
 
@@ -273,7 +273,7 @@ public struct GenerativePhraseCard: View {
                         .font(.system(size: 16, weight: .bold))
                         .foregroundColor(.primary)
 
-                    Text(phrase.chinese)
+                    Text(phrase.english)
                         .font(.system(size: 13))
                         .foregroundColor(.secondary)
                 }
@@ -284,7 +284,7 @@ public struct GenerativePhraseCard: View {
                 Button(action: {
                     voiceBank.playPhraseOrFallback(key: phrase.audioKey, fallbackText: phrase.japanese)
                     gamification.addRewards(tp: 2, exp: 5)
-                    WeakWordTrackerService.shared.recordListen(word: phrase.japanese, reading: phrase.furigana, meaning: phrase.chinese)
+                    WeakWordTrackerService.shared.recordListen(word: phrase.japanese, reading: phrase.furigana, meaning: phrase.english)
                 }) {
                     ZStack {
                         Circle()
@@ -342,7 +342,7 @@ public struct GenerativeDialogueBubble: View {
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(turn.isUser ? .white : .primary)
 
-                    Text(turn.chinese)
+                    Text(turn.english)
                         .font(.system(size: 11))
                         .foregroundColor(turn.isUser ? Color.white.opacity(0.85) : .secondary)
                 }
