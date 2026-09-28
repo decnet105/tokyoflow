@@ -5,11 +5,8 @@ import Combine
 public class NativeAudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     public static let shared = NativeAudioPlayer()
 
-    private var avPlayer: AVPlayer?
-    private var timeObserverToken: Any?
     private var audioRecorder: AVAudioRecorder?
     private var userRecordingPlayer: AVAudioPlayer?
-    private var fallbackTimer: Timer?
     private var activeSentencesQueue: [NewsSentence] = []
     private var currentSentenceIndex: Int = 0
 
@@ -31,74 +28,38 @@ public class NativeAudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
         super.init()
     }
 
-    private func ensureAudioSession() {
-        do {
-            let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers, .defaultToSpeaker])
-            try session.setActive(true)
-        } catch {
-            print("Audio session error: \(error)")
-        }
-    }
-
-    // MARK: - Remote Human Audio Stream + Resilient Fallback
+    // MARK: - Native News Audio Playback & Auto-Advance
     public func playAudioUrl(_ urlString: String, sentences: [NewsSentence] = []) {
         stopAll()
-        ensureAudioSession()
+        AudioService.shared.setupAudioSession()
 
         self.activeSentencesQueue = sentences
-        guard let url = URL(string: urlString) else {
-            startSynthesizedSentenceFlow(sentences: sentences)
-            return
-        }
+        guard !sentences.isEmpty else { return }
 
-        let playerItem = AVPlayerItem(url: url)
-        avPlayer = AVPlayer(playerItem: playerItem)
-        avPlayer?.rate = playbackRate
-        isPlayingRemoteAudio = true
-
-        setupTimeObserver(sentences: sentences)
-        avPlayer?.play()
-
-        // Resilient fallback monitor: If remote audio fails or stalls after 1.5s, switch to local prosody engine
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            guard let self = self, self.isPlayingRemoteAudio else { return }
-            if self.currentTimeSec == 0.0 && self.avPlayer?.status != .readyToPlay {
-                // Fallback to sentence-by-sentence broadcast
-                self.startSynthesizedSentenceFlow(sentences: sentences)
-            }
-        }
+        self.isPlayingRemoteAudio = true
+        self.currentSentenceIndex = 0
+        self.playNextSentenceInSequence()
     }
 
     public func playSentence(_ sentence: NewsSentence, audioUrl: String) {
         stopAll()
-        ensureAudioSession()
-        activeSentenceId = sentence.id
-        isPlayingRemoteAudio = true
+        AudioService.shared.setupAudioSession()
 
-        // Play individual sentence via TokyoProsodyEngine news broadcast style
-        AudioService.shared.speak(text: sentence.japanese, style: .newsBroadcast, rate: playbackRate * 0.49)
+        self.activeSentenceId = sentence.id
+        self.isPlayingRemoteAudio = true
 
-        // Automatically clear active state after sentence duration
-        let duration = max(2.5, sentence.endTimeSec - sentence.startTimeSec) / Double(playbackRate)
-        fallbackTimer?.invalidate()
-        fallbackTimer = Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { [weak self] _ in
+        AudioService.shared.speak(
+            text: sentence.japanese,
+            style: .newsBroadcast,
+            rate: playbackRate * 0.49
+        ) { [weak self] in
             guard let self = self else { return }
             self.isPlayingRemoteAudio = false
+            self.activeSentenceId = nil
         }
     }
 
-    private func startSynthesizedSentenceFlow(sentences: [NewsSentence]) {
-        guard !sentences.isEmpty else { return }
-        stopAll()
-        ensureAudioSession()
-
-        isPlayingRemoteAudio = true
-        currentSentenceIndex = 0
-        playCurrentSentenceInQueue()
-    }
-
-    private func playCurrentSentenceInQueue() {
+    private func playNextSentenceInSequence() {
         guard isPlayingRemoteAudio, currentSentenceIndex < activeSentencesQueue.count else {
             isPlayingRemoteAudio = false
             activeSentenceId = nil
@@ -110,65 +71,31 @@ public class NativeAudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
         currentTimeSec = sentence.startTimeSec
         durationSec = activeSentencesQueue.last?.endTimeSec ?? 20.0
 
-        AudioService.shared.speak(text: sentence.japanese, style: .newsBroadcast, rate: playbackRate * 0.49)
-
-        let duration = max(3.0, (sentence.endTimeSec - sentence.startTimeSec)) / Double(playbackRate)
-        fallbackTimer?.invalidate()
-        fallbackTimer = Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { [weak self] _ in
+        AudioService.shared.speak(
+            text: sentence.japanese,
+            style: .newsBroadcast,
+            rate: playbackRate * 0.49
+        ) { [weak self] in
             guard let self = self, self.isPlayingRemoteAudio else { return }
             self.currentSentenceIndex += 1
-            self.playCurrentSentenceInQueue()
+            self.playNextSentenceInSequence()
         }
     }
 
-    private func setupTimeObserver(sentences: [NewsSentence]) {
-        let interval = CMTime(seconds: 0.1, preferredTimescale: 600)
-        timeObserverToken = avPlayer?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
-            guard let self = self else { return }
-            let currentSec = CMTimeGetSeconds(time)
-            self.currentTimeSec = currentSec
-
-            if let duration = self.avPlayer?.currentItem?.duration {
-                let dSec = CMTimeGetSeconds(duration)
-                if !dSec.isNaN && dSec > 0 {
-                    self.durationSec = dSec
-                }
-            }
-
-            // Sync active sentence
-            if let matched = sentences.first(where: { currentSec >= $0.startTimeSec && currentSec <= $0.endTimeSec }) {
-                self.activeSentenceId = matched.id
-            }
-        }
-    }
-
-    public func togglePlayPause() {
+    public func togglePlayPause(sentences: [NewsSentence] = []) {
         if isPlayingRemoteAudio {
             stopAll()
         } else {
-            if !activeSentencesQueue.isEmpty {
-                startSynthesizedSentenceFlow(sentences: activeSentencesQueue)
-            }
+            let list = sentences.isEmpty ? activeSentencesQueue : sentences
+            playAudioUrl("", sentences: list)
         }
     }
 
     public func setSpeed(_ rate: Float) {
         playbackRate = rate
-        if isPlayingRemoteAudio {
-            avPlayer?.rate = rate
-        }
     }
 
     public func stopAll() {
-        fallbackTimer?.invalidate()
-        fallbackTimer = nil
-
-        if let token = timeObserverToken {
-            avPlayer?.removeTimeObserver(token)
-            timeObserverToken = nil
-        }
-        avPlayer?.pause()
-        avPlayer = nil
         AudioService.shared.stop()
         isPlayingRemoteAudio = false
         currentTimeSec = 0.0

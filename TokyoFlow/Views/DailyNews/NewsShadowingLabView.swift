@@ -56,13 +56,11 @@ public struct NewsShadowingLabView: View {
                     // Audio Controls Bar
                     HStack(spacing: 14) {
                         Button(action: {
-                            if let audioUrl = newsItem.audioUrl {
-                                if nativeAudio.isPlayingRemoteAudio {
-                                    nativeAudio.togglePlayPause()
-                                } else {
-                                    nativeAudio.playAudioUrl(audioUrl, sentences: newsItem.contentSentences)
-                                    gamification.incrementQuestProgress(id: "q_listen_news")
-                                }
+                            if nativeAudio.isPlayingRemoteAudio {
+                                nativeAudio.stopAll()
+                            } else {
+                                nativeAudio.playAudioUrl(newsItem.audioUrl ?? "", sentences: newsItem.contentSentences)
+                                gamification.incrementQuestProgress(id: "q_listen_news")
                             }
                         }) {
                             HStack(spacing: 6) {

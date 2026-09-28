@@ -32,6 +32,7 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
     private let speechQueue = DispatchQueue(label: "com.tokyoflow.speechQueue", qos: .userInitiated)
     private var cachedJapaneseVoice: AVSpeechSynthesisVoice?
     private var waveformTimer: Timer?
+    public var onSpeechFinished: (() -> Void)?
 
     @Published public var isSpeaking: Bool = false
     @Published public var currentSpeakingText: String? = nil
@@ -42,19 +43,17 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
     private override init() {
         super.init()
         synthesizer.delegate = self
-        setupAudioSessionAsync()
+        setupAudioSession()
         prewarmJapaneseVoice()
     }
 
-    private func setupAudioSessionAsync() {
-        speechQueue.async {
-            do {
-                let session = AVAudioSession.sharedInstance()
-                try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers, .defaultToSpeaker])
-                try session.setActive(true, options: .notifyOthersOnDeactivation)
-            } catch {
-                print("AudioSession setup warning: \(error)")
-            }
+    public func setupAudioSession() {
+        do {
+            let session = AVAudioSession.sharedInstance()
+            try session.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+            try session.setActive(true)
+        } catch {
+            print("AudioSession setup warning: \(error)")
         }
     }
 
@@ -64,17 +63,29 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
         }
     }
 
-    public func speak(text: String, style: JapaneseVoiceStyle = .dailyConversational, rate: Float? = nil, pitch: Float? = nil) {
+    public func speak(
+        text: String,
+        style: JapaneseVoiceStyle = .dailyConversational,
+        rate: Float? = nil,
+        pitch: Float? = nil,
+        onFinished: (() -> Void)? = nil
+    ) {
         let cleanText = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !cleanText.isEmpty else { return }
+        guard !cleanText.isEmpty else {
+            onFinished?()
+            return
+        }
+
+        setupAudioSession()
 
         // Stop previous immediately
         if synthesizer.isSpeaking {
             synthesizer.stopSpeaking(at: .immediate)
         }
 
-        currentSpeakingText = cleanText
-        isSpeaking = true
+        self.onSpeechFinished = onFinished
+        self.currentSpeakingText = cleanText
+        self.isSpeaking = true
         startWaveformSimulation()
 
         speechQueue.async { [weak self] in
@@ -106,6 +117,9 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
             self.isSpeaking = false
             self.currentSpeakingText = nil
             self.stopWaveformSimulation()
+            let callback = self.onSpeechFinished
+            self.onSpeechFinished = nil
+            callback?()
         }
     }
 
@@ -135,6 +149,9 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
             self.isSpeaking = false
             self.currentSpeakingText = nil
             self.stopWaveformSimulation()
+            let callback = self.onSpeechFinished
+            self.onSpeechFinished = nil
+            callback?()
         }
     }
 
@@ -143,6 +160,9 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
             self.isSpeaking = false
             self.currentSpeakingText = nil
             self.stopWaveformSimulation()
+            let callback = self.onSpeechFinished
+            self.onSpeechFinished = nil
+            callback?()
         }
     }
 }
