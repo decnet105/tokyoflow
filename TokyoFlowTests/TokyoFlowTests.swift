@@ -189,4 +189,34 @@ final class TokyoFlowTests: XCTestCase {
         radioService.setSleepTimer(minutes: nil)
         XCTAssertNil(radioService.remainingSleepSeconds)
     }
+
+    func testTokyoVoiceBankService() {
+        let voiceBank = TokyoVoiceBankService.shared
+
+        // Test Kana Pronunciation mapping
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "あ"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "か"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "サ"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "きゃ"))
+
+        // Test High-frequency survival phrases
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "温めてください"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "大丈夫です"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "とりあえず生で！"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "お会計お願いします"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "袋は大丈夫です"))
+
+        // Test Tokyo Vocabulary & SFX
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "Suica"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "ラーメン"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "居酒屋"))
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: "ドキドキ"))
+
+        // Test audio file URL resolution
+        let filename = voiceBank.findAudioFilename(for: "温めてください")
+        XCTAssertNotNil(filename)
+        if let fn = filename {
+            XCTAssertNotNil(voiceBank.audioURL(for: fn))
+        }
+    }
 }

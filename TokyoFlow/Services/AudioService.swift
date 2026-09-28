@@ -82,16 +82,35 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
         if synthesizer.isSpeaking {
             synthesizer.stopSpeaking(at: .immediate)
         }
+        TokyoVoiceBankService.shared.stop()
 
         self.onSpeechFinished = onFinished
         self.currentSpeakingText = cleanText
         self.isSpeaking = true
         startWaveformSimulation()
 
+        // 🌟 Step 1: Check self-built Native Human Voice Bank first
+        if TokyoVoiceBankService.shared.hasNativeAudio(for: cleanText) {
+            let success = TokyoVoiceBankService.shared.playNativeAudio(text: cleanText, rate: rate) { [weak self] in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    self.isSpeaking = false
+                    self.currentSpeakingText = nil
+                    self.stopWaveformSimulation()
+                    let callback = self.onSpeechFinished
+                    self.onSpeechFinished = nil
+                    callback?()
+                }
+            }
+            if success {
+                return
+            }
+        }
+
+        // 🌟 Step 2: Fallback to Tokyo Prosody Neural Synthesizer
         speechQueue.async { [weak self] in
             guard let self = self else { return }
 
-            // Apply Tokyo Prosody Segmentation
             let prosodyText = TokyoProsodyEngine.formatProsodyText(cleanText, style: style)
             let settings = TokyoProsodyEngine.prosodySettings(for: style)
 
@@ -113,6 +132,7 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
         if synthesizer.isSpeaking {
             synthesizer.stopSpeaking(at: .immediate)
         }
+        TokyoVoiceBankService.shared.stop()
         DispatchQueue.main.async {
             self.isSpeaking = false
             self.currentSpeakingText = nil
