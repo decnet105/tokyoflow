@@ -1375,7 +1375,7 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (MOBILE FIRST & EDITORIAL PERFECTION)
    ========================================================================== */
 @media (max-width: 1140px) {
   .tokyo-live-badge {
@@ -1395,8 +1395,8 @@ body {
 @media (max-width: 1024px) {
   .showcase-wrapper {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 2.5rem;
+    gap: 2.5rem;
+    padding: 2.25rem;
   }
   
   .pillars-grid {
@@ -1409,43 +1409,453 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .navbar {
+    background: rgba(250, 248, 244, 0.95);
+  }
+  
+  .nav-inner {
+    height: 64px;
+    gap: 0.5rem;
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  .brand-kanji {
+    font-size: 0.6rem;
+  }
+
+  .nav-actions {
+    gap: 0.4rem;
+  }
+
+  .lang-switch-btn {
+    height: 34px;
+    padding: 0 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  .btn-nav-primary {
+    height: 34px;
+    padding: 0 0.85rem;
+    font-size: 0.76rem;
+    gap: 0.25rem;
   }
   
   .hero {
-    padding-top: 120px;
+    padding-top: 96px;
+    padding-bottom: 45px;
+  }
+
+  .hero-header {
+    margin-bottom: 2rem;
+  }
+
+  .hero-kicker-pill {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-title-jp {
+    font-size: clamp(2.2rem, 7.5vw, 3.2rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-title-en {
+    font-size: 1.15rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-cta-group {
+    gap: 0.85rem;
+    margin-bottom: 2.5rem;
   }
 
   .hero-metrics-bar {
     grid-template-columns: repeat(2, 1fr);
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
+
+  .metric-num {
+    font-size: 1.45rem;
+  }
+
+  .metric-label {
+    font-size: 0.72rem;
+  }
+
+  .showcase-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px -8px rgba(18, 54, 94, 0.08);
+  }
+
+  .showcase-info {
+    gap: 1rem;
+  }
+
+  .showcase-title {
+    font-size: 1.55rem;
+    line-height: 1.3;
+  }
+
+  .showcase-desc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .scenario-selector {
+    gap: 0.6rem;
+  }
+
+  .scenario-tab {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .tab-left {
+    gap: 0.65rem;
+  }
+
+  .tab-icon-box {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+
+  .tab-title {
+    font-size: 0.9rem;
+  }
+
+  .tab-subtitle {
+    font-size: 0.72rem;
+  }
+
+  .tab-tag {
+    width: 82px;
+    min-width: 82px;
+    height: 26px;
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+  }
+
+  .iphone-frame {
+    width: 100%;
+    max-width: 324px;
+    height: auto;
+    min-height: 560px;
+    border-radius: 40px;
+    border-width: 3px;
+  }
+
+  .phone-screen {
+    padding: 38px 14px 18px;
+  }
+
+  .app-scenario-card {
+    padding: 14px 12px;
+  }
+
+  .app-japanese-phrase {
+    font-size: 0.96rem;
+    line-height: 1.5;
+  }
+
+  .app-romaji-phrase {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+  }
+
+  .app-english-phrase {
+    font-size: 0.74rem;
+    line-height: 1.45;
+  }
+
+  .pitch-accent-box {
+    padding: 8px 10px;
+    margin-top: 8px;
+  }
+
+  .pitch-curve-svg {
+    height: 24px;
+  }
+
+  .app-waveform-bar {
+    height: 28px;
+    margin: 8px 0;
+  }
+
+  .app-play-button {
+    padding: 10px;
+    font-size: 0.82rem;
+  }
+
+  .editorial-section {
+    padding: 45px 0;
+  }
+
+  .editorial-header {
+    margin-bottom: 1.8rem;
+  }
+
+  .editorial-heading {
+    font-size: 1.6rem;
   }
 
   .editorial-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .editorial-col {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .point-item {
+    gap: 0.85rem;
+  }
+
+  .point-content h4 {
+    font-size: 0.95rem;
+  }
+
+  .point-content p {
+    font-size: 0.85rem;
+  }
+
+  .pillars-section {
+    padding: 45px 0;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pillar-card {
+    padding: 1.4rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .pillar-title-jp {
+    font-size: 1.15rem;
+  }
+
+  .pillar-title-en {
+    font-size: 0.78rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .pillar-tags {
+    gap: 0.4rem;
+  }
+
+  .pillar-tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .academy-section {
+    padding: 45px 0;
   }
 
   .academy-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .video-editorial-card {
+    border-radius: var(--radius-lg);
+  }
+
+  .video-meta-body {
+    padding: 1.25rem;
+  }
+
+  .video-card-title {
+    font-size: 1.05rem;
+  }
+
+  .video-card-desc {
+    font-size: 0.85rem;
+  }
+
+  .roadmap-section {
+    padding: 45px 0;
   }
 
   .roadmap-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .roadmap-card {
+    padding: 1.4rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .roadmap-level-title {
+    font-size: 1.15rem;
+  }
+
+  .roadmap-list li {
+    font-size: 0.85rem;
+  }
+
+  .download-section {
+    padding: 45px 0 60px;
   }
 
   .download-box {
-    padding: 3rem 1.5rem;
+    padding: 2.2rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .download-box-title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .download-box-p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+  }
+
+  .download-actions-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+  }
+
+  .site-footer {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .footer-links-group {
+    flex-wrap: wrap;
+    gap: 0.85rem 1.25rem;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+
+  .brand-kanji {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-mark {
+    gap: 0.45rem;
+  }
+
+  .nav-actions {
+    gap: 0.35rem;
+  }
+
+  .lang-switch-btn {
+    padding: 0 0.45rem;
+    font-size: 0.68rem;
+    height: 32px;
+  }
+
+  .btn-nav-primary {
+    padding: 0 0.7rem;
+    font-size: 0.72rem;
+    height: 32px;
+  }
+
   .hero-cta-group, .download-actions-wrap {
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
+
   .btn-hero-appstore, .btn-hero-yt {
     width: 100%;
+    min-width: 0;
     max-width: 280px;
+  }
+
+  .showcase-wrapper {
+    padding: 1.1rem 0.75rem;
+    border-radius: var(--radius-md);
+  }
+
+  .scenario-tab {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .tab-left {
+    gap: 0.5rem;
+  }
+
+  .tab-icon-box {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .tab-title {
+    font-size: 0.84rem;
+  }
+
+  .tab-subtitle {
+    font-size: 0.68rem;
+  }
+
+  .tab-tag {
+    width: 74px;
+    min-width: 74px;
+    height: 24px;
+    font-size: 0.64rem;
+    padding: 0 0.25rem;
+    margin-left: 0.3rem;
   }
 }
