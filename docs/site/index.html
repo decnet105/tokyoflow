@@ -1,27 +1,97 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TokyoFlow — 東京を、生きる日本語。</title>
-  <meta name="description" content="打破生硬的教科书教学。在4,170+真实东京真人原声、山手线站台广播、便利店极速收银、居酒屋点单与漫画拟声词中，掌握真正鲜活的日语。">
-  <meta name="keywords" content="TokyoFlow, 拾得, 日语学习, 东京日语, 山手线, 声调曲线, 日本生活, 日语口语, 日语听力, JLPT">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>TokyoFlow — 東京を、生きる日本語。| 真实东京高语境日语学习系统</title>
+  <meta name="description" content="打破生硬脱节的语法教科书。TokyoFlow 是专为日本生活与深度文化探索打造的场景驱动日语学习系统。内置 4,170+ 本地真人原声、山手线站台广播、便利店极速收银、居酒屋点单与漫画拟声词。">
+  <meta name="keywords" content="TokyoFlow, 拾得, 日语学习, 东京日语, 山手线广播, 声调走向图, 日本生活日语, 日语口语影子跟读, 漫画拟声词, JLPT, Shide App, Japanese Fluency">
+  <meta name="author" content="TokyoFlow Team">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#F8F6F0">
   <link rel="canonical" href="https://tokyoflow.app/">
 
-  <!-- Open Graph / Social Meta -->
+  <!-- GEO & Multi-Language Hreflang Tags -->
+  <link rel="alternate" hreflang="zh-Hans" href="https://tokyoflow.app/">
+  <link rel="alternate" hreflang="zh-CN" href="https://tokyoflow.app/">
+  <link rel="alternate" hreflang="en" href="https://tokyoflow.app/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tokyoflow.app/">
+
+  <!-- Open Graph / Facebook / WeChat -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TokyoFlow">
   <meta property="og:url" content="https://tokyoflow.app/">
   <meta property="og:title" content="TokyoFlow · 東京を、生きる日本語。">
-  <meta property="og:description" content="在4,170+真实东京真人原声与生活场景中，掌握真正鲜活的高语境日语。">
+  <meta property="og:description" content="在 4,170+ 真实东京真人原声与生活场景中，掌握真正鲜活的高语境日语。">
   <meta property="og:image" content="https://tokyoflow.app/assets/app_icon.jpg">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
 
-  <!-- Favicon & Fonts -->
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TokyoFlow — Master Real-World Tokyo Japanese">
+  <meta name="twitter:description" content="Immerse in authentic Tokyo situations. 4,170+ native human voices, pitch accent curves, and scenario drills.">
+  <meta name="twitter:image" content="https://tokyoflow.app/assets/app_icon.jpg">
+
+  <!-- Favicon & Typography -->
   <link rel="icon" href="/assets/app_icon.jpg">
+  <link rel="apple-touch-icon" href="/assets/app_icon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Shippori+Mincho:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/styles.css">
+
+  <!-- JSON-LD Structured Data for Google SEO & GEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://tokyoflow.app/#organization",
+        "name": "TokyoFlow",
+        "url": "https://tokyoflow.app/",
+        "logo": "https://tokyoflow.app/assets/app_icon.jpg",
+        "sameAs": [
+          "https://www.youtube.com/@TokyoFlowJapan"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tokyoflow.app/#website",
+        "url": "https://tokyoflow.app/",
+        "name": "TokyoFlow",
+        "publisher": { "@id": "https://tokyoflow.app/#organization" },
+        "inLanguage": ["zh-Hans", "en"]
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://tokyoflow.app/#app",
+        "name": "TokyoFlow",
+        "alternateName": ["TokyoFlow Japanese", "東京フロウ"],
+        "url": "https://tokyoflow.app/",
+        "operatingSystem": "iOS 17.0 or later",
+        "applicationCategory": "EducationalApplication",
+        "publisher": { "@id": "https://tokyoflow.app/#organization" },
+        "image": "https://tokyoflow.app/assets/app_icon.jpg",
+        "description": "Tokyo context-driven Japanese mastery system featuring 4,170+ native audio tracks, pitch accent visualization, and high-context scenario simulations.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "Course",
+        "@id": "https://tokyoflow.app/#course",
+        "name": "Tokyo Situational Japanese Mastery",
+        "description": "Comprehensive Japan Foundation (CEFR-J A1 to B1) contextual Japanese living course.",
+        "provider": { "@id": "https://tokyoflow.app/#organization" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -45,6 +115,11 @@
       </ul>
 
       <div class="nav-actions">
+        <!-- Language Switcher -->
+        <a href="/en/" class="lang-switch-btn" title="Switch to English">
+          <span>🌐 EN</span>
+        </a>
+
         <div class="tokyo-live-badge">
           <span class="pulse-dot"></span>
           <span id="tokyo-clock">TOKYO --:-- JST</span>
@@ -257,7 +332,7 @@
     <div class="container">
       <div class="editorial-header">
         <div class="mono-tag">[ PEDAGOGICAL BLUEPRINT ]</div>
-        <h2 class="editorial-heading">教科书を越えて、现场の空気へ。</h2>
+        <h2 class="editorial-heading">教科書を越えて、現場の空気へ。</h2>
         <p class="hero-description">
           传统翻译背诵往往让人在真实的东京街头不知所措，而高语境生活驱动能直接重塑你的听说反射。
         </p>
@@ -597,6 +672,7 @@
           <a href="/privacy/">隐私政策</a>
           <a href="/terms/">服务条款</a>
           <a href="/support/">技术支持</a>
+          <a href="/en/">English</a>
           <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank">YouTube 频道</a>
           <a href="mailto:support@tokyoflow.app">联系我们</a>
         </div>
