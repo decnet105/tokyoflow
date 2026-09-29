@@ -27,7 +27,7 @@ TokyoFlow Japanese
 
 ### 🆔 Handle (唯一用户名 / 网址短链)
 ```text
-@TokyoFlowJapanese
+@TokyoFlowJapan
 ```
 *(备选：`@TokyoFlowJP` 或 `@TokyoFlowLanguage`)*
 
@@ -109,7 +109,7 @@ Decode authentic Tokyo train station announcements! In this lesson, we break dow
 📱 LEVEL UP WITH THE TOKYOFLOW APP:
 Practice instant voice recognition & pitch accent on the TokyoFlow iOS app: https://tokyoflow.app
 
-🔔 Subscribe to @TokyoFlowJapanese for weekly real Tokyo scenarios!
+🔔 Subscribe to @TokyoFlowJapan for weekly real Tokyo scenarios!
 
 #LearnJapanese #TokyoMetro #YamanoteLine #JapaneseListening #JapanesePhrases #JLPT
 ```

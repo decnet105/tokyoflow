@@ -63,7 +63,7 @@ public struct TokyoProUpgradeModalView: View {
 
                             VStack(spacing: 8) {
                                 perkRow(icon: "checkmark.seal.fill", title: "JLPT N1-N5 Lexicon & Flashcards", desc: "4,170 native audio pronunciations with pitch accent")
-                                perkRow(icon: "checkmark.seal.fill", title: "NHK News Shadowing & 1-Hour Radio", desc: "Millisecond-precise audio sync with continuous flow")
+                                perkRow(icon: "checkmark.seal.fill", title: "NHK News Shadowing & Radio Stream", desc: "Millisecond-precise audio sync with continuous flow")
                                 perkRow(icon: "checkmark.seal.fill", title: "Next Destination? Generative UI", desc: "Dynamic survival Japanese generator for any Tokyo spot")
                                 perkRow(icon: "checkmark.seal.fill", title: "Real-world Tokyo Scenarios & 3s Dojo", desc: "Transit, convenience stores, izakaya & emergency drills")
                             }
@@ -82,7 +82,7 @@ public struct TokyoProUpgradeModalView: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("Official YouTube Channel")
                                         .font(.system(size: 15, weight: .bold))
-                                    Text("@TokyoFlowJapanese")
+                                    Text("@TokyoFlowJapan")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
@@ -101,7 +101,7 @@ public struct TokyoProUpgradeModalView: View {
                                 .foregroundColor(.secondary)
 
                             Button(action: {
-                                if let url = URL(string: "https://www.youtube.com/@TokyoFlowJapanese") {
+                                if let url = URL(string: "https://www.youtube.com/@TokyoFlowJapan") {
                                     openURL(url)
                                 }
                                 if !hasClaimedYTReward {
