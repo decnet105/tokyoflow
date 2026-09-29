@@ -346,65 +346,59 @@ body {
   margin-bottom: 3.5rem;
 }
 
-.btn-hero-appstore {
+.btn-hero-appstore, .btn-hero-yt {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.85rem 1.9rem;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0 1.65rem;
+  height: 48px;
+  font-size: 0.92rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.btn-hero-appstore {
   background: var(--cinnabar);
   border: 1px solid rgba(188, 56, 44, 0.4);
   color: #FFFFFF;
-  text-decoration: none;
-  border-radius: var(--radius-full);
-  box-shadow: 0 10px 25px rgba(188, 56, 44, 0.25);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(188, 56, 44, 0.25);
 }
 
 .btn-hero-appstore:hover {
   background: var(--cinnabar-glow);
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(188, 56, 44, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(188, 56, 44, 0.35);
 }
 
 .btn-hero-appstore svg {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
 }
 
-.btn-hero-appstore .btn-text {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.btn-hero-appstore .btn-text small {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  opacity: 0.9;
-}
-
-.btn-hero-appstore .btn-text span {
-  font-size: 1.02rem;
-  font-weight: 700;
-}
-
 .btn-hero-yt {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1.8rem;
   background: #FFFFFF;
   border: 1px solid var(--border-gold);
   color: var(--navy);
-  text-decoration: none;
-  border-radius: var(--radius-full);
-  font-size: 0.92rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
   box-shadow: 0 4px 15px rgba(18, 54, 94, 0.05);
-  transition: all 0.25s ease;
+}
+
+.btn-hero-yt:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(18, 54, 94, 0.08);
+}
+
+.btn-hero-yt svg {
+  width: 20px;
+  height: 20px;
+  fill: #CC0000;
 }
 
 .btn-hero-yt:hover {
