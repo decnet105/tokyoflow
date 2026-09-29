@@ -565,6 +565,8 @@ body {
   display: flex;
   align-items: center;
   gap: 0.85rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .tab-icon-box {
@@ -577,6 +579,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
+  flex-shrink: 0;
 }
 
 .scenario-tab.active .tab-icon-box {
@@ -588,6 +591,7 @@ body {
 .tab-title-wrap {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .tab-title {
@@ -595,21 +599,44 @@ body {
   font-size: 1rem;
   font-weight: 700;
   color: var(--navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tab-subtitle {
   font-size: 0.78rem;
   color: var(--ink-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tab-tag {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+  width: 96px;
+  min-width: 96px;
+  height: 28px;
+  border-radius: 6px;
   background: var(--bg-paper-tint);
+  border: 1px solid var(--border-gold-subtle);
   color: var(--ink-sub);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.scenario-tab.active .tab-tag {
+  background: rgba(188, 56, 44, 0.08);
+  border-color: rgba(188, 56, 44, 0.3);
+  color: var(--cinnabar);
 }
 
 /* ==========================================================================
