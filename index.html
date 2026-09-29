@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TokyoFlow — Master Real-Life Japanese with Native Shadowing & Dojo</title>
+  <meta name="description" content="Speak natural Tokyo Japanese with 100% authentic native voice audio, millisecond karaoke shadowing, scenario-driven immersion, and rapid Dojo battles.">
+  <meta name="keywords" content="Japanese learning app, speak Japanese, Japanese shadowing, JLPT, Tokyo Japanese, Japanese listening, learn Japanese">
+  <link rel="canonical" href="https://tokyoflow.app/">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="TokyoFlow — Real-Life Japanese Speaking & Dojo">
+  <meta property="og:description" content="Master natural spoken Japanese with millisecond karaoke shadowing and authentic native audio.">
+  <meta property="og:url" content="https://tokyoflow.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tokyoflow.app/assets/banner.jpg">
+  
+  <style>
+    :root {
+      --bg: #0b0d13;
+      --card-bg: rgba(22, 27, 38, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #ff477e;
+      --accent-hover: #ff2a66;
+      --accent-cyan: #00f2fe;
+      --grad-primary: linear-gradient(135deg, #ff477e 0%, #ff8058 100%);
+      --grad-glow: radial-gradient(circle at 50% 20%, rgba(255, 71, 126, 0.15), transparent 70%);
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      background-image: var(--grad-glow);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 13, 19, 0.85);
+    }
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    .brand span {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #fff; }
+
+    /* Hero */
+    .hero {
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 71, 126, 0.12);
+      border: 1px solid rgba(255, 71, 126, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ff80a5;
+      margin-bottom: 1.75rem;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .grad-text {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: #cbd5e1;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--grad-primary);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(255, 71, 126, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(255, 71, 126, 0.5);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 0.9rem 1.75rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Live Preview Karaoke Card */
+    .karaoke-demo {
+      max-width: 650px;
+      margin: 0 auto 5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .karaoke-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .japanese-line {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .highlight-word {
+      background: rgba(255, 71, 126, 0.25);
+      color: #ff6b95;
+      padding: 0.1em 0.3em;
+      border-radius: 6px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .english-meaning {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Features Grid */
+    .features {
+      padding: 3rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 3rem;
+      letter-spacing: -0.02em;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 71, 126, 0.3);
+    }
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #fff;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* Scenarios Preview */
+    .scenarios-section {
+      background: rgba(22, 27, 38, 0.4);
+      border-radius: 24px;
+      border: 1px solid var(--card-border);
+      padding: 3rem 2rem;
+      margin: 3rem 0 5rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin: 0 0.75rem;
+    }
+    footer a:hover { color: #fff; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TokyoFlow",
+    "operatingSystem": "iOS",
+    "applicationCategory": "EducationalApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "description": "Scenario-driven Japanese speaking and shadowing app with authentic native voice recordings and millisecond karaoke pitch accent synchronization."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="/" class="brand">
+        <span>TokyoFlow</span>
+      </a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#scenarios">Scenarios</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="badge">
+      🎙️ 100% Studio-Recorded Native Japanese Audio
+    </div>
+    <h1>Speak Real Tokyo Japanese.<br><span class="grad-text">No Robotic Voices. Just Flow.</span></h1>
+    <p>Master real-life Japanese with millisecond-precision karaoke shadowing, scenario-driven immersion (Konbini, Subway, Izakaya), and rapid-fire Dojo battles.</p>
+
+    <div class="cta-group">
+      <a href="https://apps.apple.com/app/tokyoflow" class="btn-primary">
+         Download on App Store
+      </a>
+      <a href="#features" class="btn-secondary">
+        Explore Features ↓
+      </a>
+    </div>
+
+    <!-- Live Preview Karaoke Box -->
+    <div class="karaoke-demo">
+      <div class="karaoke-tag">⚡ Live Karaoke Pitch-Accent Highlight</div>
+      <div class="japanese-line">
+        温かい<span class="highlight-word">お茶</span>を ください。
+      </div>
+      <div style="font-size: 0.9rem; color: #ff80a5; margin-bottom: 0.4rem;">atsui ocha o kudasai</div>
+      <div class="english-meaning">"Hot green tea, please."</div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="container features" id="features">
+    <h2 class="section-title">Built for Real-World Fluency</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">🎙️</div>
+        <h3>100% Authentic Native Audio</h3>
+        <p>Every word, conversation, and nuance is recorded by native Tokyo speakers with natural conversational speed and intonation.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⏱️</div>
+        <h3>Millisecond Karaoke Shadowing</h3>
+        <p>Synchronized word-by-word visual highlighting trains your ears and tongue to master authentic Japanese rhythm and pitch accent.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🥋</div>
+        <h3>Rapid Dojo Battle Lab</h3>
+        <p>Speed drills and nuance comparisons (Keigo vs Casual) sharpen your immediate reflexes under timed pressure.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🏪</div>
+        <h3>Use-Case Scenario Hubs</h3>
+        <p>Zero fluff. Learn what you actually say at 7-Eleven counters, subway ticket barriers, izakayas, and hotel check-ins.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Instant Dual-Language Toggle</h3>
+        <p>Seamlessly switch between English and Chinese explanations with one tap. 100% clean isolation with zero mixed jargon.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h3>100% Private & Offline Ready</h3>
+        <p>No mandatory account creation. Your shadowing audio and learning streaks remain safely stored on your device.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenario Hubs -->
+  <section class="container scenarios-section" id="scenarios">
+    <h2 class="section-title" style="margin-bottom: 1.5rem;">Daily Life in Tokyo — Handled in 5 Minutes</h2>
+    <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem;">Experience practical, scenario-based speaking micro-lessons crafted for travelers and serious Japanese learners alike.</p>
+    
+    <div class="grid-3" style="margin-bottom: 0;">
+      <div class="card">
+        <div class="card-icon">🍱</div>
+        <h3>Convenience Store (Konbini)</h3>
+        <p>Master bag requests, point cards, microwaving bento, and receipt etiquette with natural ease.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🚇</div>
+        <h3>Tokyo Transit & Metro</h3>
+        <p>Navigate Yamanote line transfers, platform directions, IC card recharge, and train delays seamlessly.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🍶</div>
+        <h3>Izakaya & Dining</h3>
+        <p>Order recommendations, split bills, request water refills, and handle seating etiquette like a local.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 1rem;">© 2026 TokyoFlow. All rights reserved.</p>
+      <p>
+        <a href="/">Home</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
