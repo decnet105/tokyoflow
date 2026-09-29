@@ -106,24 +106,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 78px;
+  height: 76px;
+  gap: 1rem;
 }
 
 .brand-mark {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   text-decoration: none;
   color: var(--navy);
+  flex-shrink: 0;
 }
 
 .brand-icon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   object-fit: cover;
   border: 1px solid var(--border-gold);
   box-shadow: 0 4px 12px rgba(18, 54, 94, 0.08);
+  flex-shrink: 0;
 }
 
 .brand-text-group {
@@ -133,13 +136,14 @@ body {
 
 .brand-title {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: var(--navy);
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  white-space: nowrap;
 }
 
 .brand-title span {
@@ -148,27 +152,30 @@ body {
 
 .brand-kanji {
   font-family: var(--font-serif);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--ink-sub);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  gap: 1.5rem;
   list-style: none;
+  white-space: nowrap;
 }
 
 .nav-links a {
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-family: var(--font-mono);
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--ink-sub);
   transition: color 0.2s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -193,22 +200,27 @@ body {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.65rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .tokyo-live-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.85rem;
+  gap: 0.45rem;
+  height: 38px;
+  padding: 0 0.85rem;
   border-radius: var(--radius-full);
   background: #FFFFFF;
   border: 1px solid var(--border-gold);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-family: var(--font-mono);
   font-weight: 600;
   color: var(--navy);
   box-shadow: 0 2px 8px rgba(18, 54, 94, 0.04);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pulse-dot {
@@ -218,6 +230,7 @@ body {
   background: var(--cinnabar);
   box-shadow: 0 0 6px var(--cinnabar);
   animation: pulseAnim 2s infinite ease-in-out;
+  flex-shrink: 0;
 }
 
 @keyframes pulseAnim {
@@ -228,8 +241,9 @@ body {
 .lang-switch-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.85rem;
+  gap: 0.3rem;
+  height: 38px;
+  padding: 0 0.8rem;
   border-radius: var(--radius-full);
   background: #FFFFFF;
   border: 1px solid var(--border-gold);
@@ -240,6 +254,8 @@ body {
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(18, 54, 94, 0.04);
   transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .lang-switch-btn:hover {
@@ -251,23 +267,27 @@ body {
 .btn-nav-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.3rem;
+  justify-content: center;
+  gap: 0.35rem;
+  height: 38px;
+  padding: 0 1.25rem;
   background: var(--cinnabar);
   color: #FFFFFF;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-family: var(--font-mono);
   font-weight: 700;
   border-radius: var(--radius-full);
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(188, 56, 44, 0.25);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-nav-primary:hover {
   background: var(--cinnabar-glow);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(188, 56, 44, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(188, 56, 44, 0.35);
 }
 
 /* ==========================================================================
@@ -1327,6 +1347,21 @@ body {
 /* ==========================================================================
    RESPONSIVE DESIGN
    ========================================================================== */
+@media (max-width: 1140px) {
+  .tokyo-live-badge {
+    display: none;
+  }
+  .nav-links {
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-links {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .showcase-wrapper {
     grid-template-columns: 1fr;
