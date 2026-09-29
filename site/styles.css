@@ -290,6 +290,14 @@ body {
   box-shadow: 0 6px 18px rgba(188, 56, 44, 0.35);
 }
 
+.btn-nav-primary svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: -1px;
+}
+
 /* ==========================================================================
    HERO SECTION (WARM EDITORIAL)
    ========================================================================== */
