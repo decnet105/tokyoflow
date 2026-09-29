@@ -3,191 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support & Help - TokyoFlow</title>
-  <meta name="description" content="Help Center & Support for TokyoFlow - The scenario-driven Japanese speaking and shadowing app.">
-  <link rel="canonical" href="https://tokyoflow.app/support/">
+  <title>Support & Help — TokyoFlow</title>
+  <link rel="icon" href="/assets/app_icon.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <style>
-    :root {
-      --bg: #0d0f14;
-      --card-bg: rgba(25, 29, 39, 0.7);
-      --text: #f0f2f5;
-      --text-muted: #9ba1ad;
-      --accent: #ff477e;
-      --accent-grad: linear-gradient(135deg, #ff477e 0%, #ff8058 100%);
-      --border: rgba(255, 255, 255, 0.08);
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      line-height: 1.7;
-      padding: 0 1.5rem 4rem;
-    }
-    header {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2.5rem 0 1.5rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .logo span {
-      background: var(--accent-grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: #fff; }
-    main {
-      max-width: 800px;
-      margin: 2.5rem auto 0;
-    }
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-    }
-    .date-tag {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-    }
-    h2 {
-      font-size: 1.35rem;
-      margin: 2rem 0 0.8rem;
-      color: #fff;
-      border-left: 3px solid var(--accent);
-      padding-left: 0.75rem;
-    }
-    p, ul {
-      color: #d1d5db;
-      margin-bottom: 1.2rem;
-      font-size: 1.05rem;
-    }
-    ul { padding-left: 1.5rem; }
-    li { margin-bottom: 0.5rem; }
-    .faq-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.2rem;
-    }
-    .faq-question {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-    .contact-box {
-      background: linear-gradient(135deg, rgba(255, 71, 126, 0.1) 0%, rgba(255, 128, 88, 0.1) 100%);
-      border: 1px solid rgba(255, 71, 126, 0.3);
-      border-radius: 12px;
-      padding: 1.75rem;
-      margin: 2rem 0;
-      text-align: center;
-    }
-    .contact-btn {
-      display: inline-block;
-      background: var(--accent-grad);
-      color: #fff;
-      padding: 0.75rem 1.75rem;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: 1rem;
-      box-shadow: 0 4px 15px rgba(255, 71, 126, 0.3);
-    }
-    footer {
-      max-width: 800px;
-      margin: 4rem auto 0;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      text-align: center;
-    }
-    footer a { color: var(--text-muted); text-decoration: none; }
-    footer a:hover { color: #fff; }
+    .legal-wrapper { max-width: 820px; margin: 0 auto; padding: 160px 2rem 80px; }
+    .legal-wrapper h1 { font-family: var(--font-jp-serif); font-size: 2.6rem; margin-bottom: 0.5rem; color: var(--text-washi); }
+    .legal-wrapper .date-tag { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 2.5rem; display: block; }
+    .legal-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem 2.5rem; margin-bottom: 1.5rem; }
+    .legal-card h2 { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+    .legal-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.5rem; }
   </style>
 </head>
 <body>
-  <header>
-    <a href="/" class="logo">🇯🇵 Tokyo<span>Flow</span></a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/support/" style="color: #fff;">Support</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-    </nav>
+  <div class="tokyo-grid-overlay"></div>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand-mark">
+        <img src="/assets/app_icon.jpg" alt="TokyoFlow Icon" class="brand-icon">
+        <div class="brand-text-group">
+          <div class="brand-title">Tokyo<span>Flow</span></div>
+          <span class="brand-kanji">東京・文脈主導の日本語</span>
+        </div>
+      </a>
+      <a href="/" class="btn-nav-primary">← Return Home</a>
+    </div>
   </header>
 
-  <main>
-    <h1>TokyoFlow Support & Help Center</h1>
-    <div class="date-tag">We're here to help you achieve natural Japanese fluency.</div>
+  <main class="legal-wrapper">
+    <h1>Support & Help Center</h1>
+    <span class="date-tag">OFFICIAL TECHNICAL SUPPORT • TOKYOFLOW iOS & ACADEMY</span>
 
-    <div class="contact-box">
-      <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 0.5rem;">Need Assistance or Have Feedback?</h3>
-      <p style="color: #cbd5e1; margin-bottom: 0.5rem;">Our support team is always ready to assist you with curriculum questions, app features, or technical inquiries.</p>
-      <a href="mailto:support@tokyoflow.app" class="contact-btn">Contact Support (support@tokyoflow.app)</a>
+    <div class="legal-card">
+      <h2>How do I restore my purchases?</h2>
+      <p>In TokyoFlow iOS, tap <strong>Settings (設定)</strong> → <strong>Restore Purchases</strong>. Your App Store receipt will be validated instantly without extra charges.</p>
     </div>
 
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-card">
-      <div class="faq-question">1. How does the Karaoke Shadowing feature work?</div>
-      <p>TokyoFlow uses millisecond-level word timing synchronized with native audio. As the audio plays, each word or phrase highlights in real-time, helping you match authentic Japanese rhythm and pitch accent.</p>
+    <div class="legal-card">
+      <h2>Why is there no sound during shadowing?</h2>
+      <p>Ensure your iPhone physical Silent/Mute switch is turned off or check volume controls in Control Center. You can also test speech playback in the in-app audio settings.</p>
     </div>
 
-    <div class="faq-card">
-      <div class="faq-question">2. How do I switch between English and Chinese?</div>
-      <p>You can toggle between English and Chinese anytime by tapping the language button (🇺🇸 EN / 🇨🇳 中文) located in the top navigation bar or inside your Profile / Passport settings.</p>
+    <div class="legal-card">
+      <h2>Where is my study data stored?</h2>
+      <p>TokyoFlow stores all bookmarks, diagnostic review schedules, and Tokyo Points locally on your device in secure sandbox storage for 100% privacy.</p>
     </div>
 
-    <div class="faq-card">
-      <div class="faq-question">3. Can I practice with Romaji (romanized phonetic guide)?</div>
-      <p>Yes! Romaji can be toggled on or off at any time directly above Kanji words across all scenarios, dialogues, and vocabulary cards.</p>
+    <div class="legal-card">
+      <h2>Contact Technical Support</h2>
+      <p>Need further help? Email our engineering team directly at: <a href="mailto:support@tokyoflow.app" style="color: var(--accent-vermilion); font-weight: 600;">support@tokyoflow.app</a>. We typically respond within 24 hours.</p>
     </div>
-
-    <div class="faq-card">
-      <div class="faq-question">4. How does the Weakness Drill Lab work?</div>
-      <p>The Dojo and scenario tests automatically identify words or grammatical nuances you hesitate on. They are placed in your Weakness Drill Lab and dynamically graduate to "Mastered" as your recall speed and accuracy improve.</p>
-    </div>
-
-    <div class="faq-card">
-      <div class="faq-question">5. Is an internet connection required to study?</div>
-      <p>All core scenarios, dojo quizzes, audio assets, and shadowing tools are bundled locally in TokyoFlow for instant, reliable offline learning anytime, anywhere.</p>
-    </div>
-
-    <h2>Contact Information</h2>
-    <ul>
-      <li><strong>Support Email:</strong> <a href="mailto:support@tokyoflow.app" style="color: var(--accent); text-decoration: none;">support@tokyoflow.app</a></li>
-      <li><strong>Developer Contact:</strong> <a href="mailto:kilvon_wu@hotmail.com" style="color: var(--accent); text-decoration: none;">kilvon_wu@hotmail.com</a></li>
-      <li><strong>Response Time:</strong> We usually reply within 24 hours.</li>
-    </ul>
   </main>
-
-  <footer>
-    <p>© 2026 TokyoFlow. All rights reserved. · <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Service</a> · <a href="/support/">Support</a></p>
-  </footer>
 </body>
 </html>

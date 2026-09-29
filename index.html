@@ -3,424 +3,623 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TokyoFlow — Master Real-Life Japanese with Native Shadowing & Dojo</title>
-  <meta name="description" content="Speak natural Tokyo Japanese with 100% authentic native voice audio, millisecond karaoke shadowing, scenario-driven immersion, and rapid Dojo battles.">
-  <meta name="keywords" content="Japanese learning app, speak Japanese, Japanese shadowing, JLPT, Tokyo Japanese, Japanese listening, learn Japanese">
+  <title>TokyoFlow — Master Real-World Tokyo Japanese in Context</title>
+  <meta name="description" content="Immerse in authentic Tokyo situations. 4,170+ native audio voice keys, real Yamanote transit broadcasts, 7-Eleven rapid checkout, NHK news shadowing, and full JLPT N5-N1 lexicon.">
+  <meta name="keywords" content="TokyoFlow, Learn Japanese, Tokyo Japanese, Yamanote Line, JLPT, Japanese Audio, Japanese Shadowing, App Store, Shide App, Japanese Fluency">
   <link rel="canonical" href="https://tokyoflow.app/">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="TokyoFlow — Real-Life Japanese Speaking & Dojo">
-  <meta property="og:description" content="Master natural spoken Japanese with millisecond karaoke shadowing and authentic native audio.">
-  <meta property="og:url" content="https://tokyoflow.app/">
+
+  <!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://tokyoflow.app/assets/banner.jpg">
+  <meta property="og:url" content="https://tokyoflow.app/">
+  <meta property="og:title" content="TokyoFlow — 東京を、生きる日本語。">
+  <meta property="og:description" content="Move beyond artificial textbooks. Master high-context situational Japanese, pitch accent curves, and real-world audio.">
+  <meta property="og:image" content="https://tokyoflow.app/assets/og_image.jpg">
+
+  <!-- Favicon & Fonts -->
+  <link rel="icon" href="/assets/app_icon.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <style>
-    :root {
-      --bg: #0b0d13;
-      --card-bg: rgba(22, 27, 38, 0.75);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-      --accent: #ff477e;
-      --accent-hover: #ff2a66;
-      --accent-cyan: #00f2fe;
-      --grad-primary: linear-gradient(135deg, #ff477e 0%, #ff8058 100%);
-      --grad-glow: radial-gradient(circle at 50% 20%, rgba(255, 71, 126, 0.15), transparent 70%);
-      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg);
-      background-image: var(--grad-glow);
-      color: var(--text);
-      font-family: var(--font);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Header */
-    header {
-      padding: 2rem 0 1.5rem;
-      border-bottom: 1px solid var(--card-border);
-      backdrop-filter: blur(20px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(11, 13, 19, 0.85);
-    }
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      letter-spacing: -0.02em;
-    }
-    .brand-logo-img {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-    }
-    .brand span {
-      background: var(--grad-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      margin-left: 1.75rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: #fff; }
-
-    /* Hero */
-    .hero {
-      padding: 5rem 0 4rem;
-      text-align: center;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 71, 126, 0.12);
-      border: 1px solid rgba(255, 71, 126, 0.3);
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #ff80a5;
-      margin-bottom: 1.75rem;
-    }
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-    }
-    .grad-text {
-      background: var(--grad-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-      color: #cbd5e1;
-      max-width: 720px;
-      margin: 0 auto 2.5rem;
-      font-weight: 400;
-    }
-
-    .cta-group {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 3.5rem;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--grad-primary);
-      color: #fff;
-      padding: 0.9rem 2rem;
-      border-radius: 999px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(255, 71, 126, 0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(255, 71, 126, 0.5);
-    }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--card-border);
-      color: #fff;
-      padding: 0.9rem 1.75rem;
-      border-radius: 999px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Live Preview Karaoke Card */
-    .karaoke-demo {
-      max-width: 650px;
-      margin: 0 auto 5rem;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      position: relative;
-    }
-    .karaoke-tag {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .japanese-line {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-    }
-    .highlight-word {
-      background: rgba(255, 71, 126, 0.25);
-      color: #ff6b95;
-      padding: 0.1em 0.3em;
-      border-radius: 6px;
-      border-bottom: 2px solid var(--accent);
-    }
-    .english-meaning {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-    }
-
-    /* Features Grid */
-    .features {
-      padding: 3rem 0;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 3rem;
-      letter-spacing: -0.02em;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 71, 126, 0.3);
-    }
-    .card-icon {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
-    .card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      color: #fff;
-    }
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-    }
-
-    /* Scenarios Preview */
-    .scenarios-section {
-      background: rgba(22, 27, 38, 0.4);
-      border-radius: 24px;
-      border: 1px solid var(--card-border);
-      padding: 3rem 2rem;
-      margin: 3rem 0 5rem;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--card-border);
-      padding: 3rem 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-      margin: 0 0.75rem;
-    }
-    footer a:hover { color: #fff; }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TokyoFlow",
-    "operatingSystem": "iOS",
-    "applicationCategory": "EducationalApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD"
-    },
-    "description": "Scenario-driven Japanese speaking and shadowing app with authentic native voice recordings and millisecond karaoke pitch accent synchronization."
-  }
-  </script>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header>
-    <div class="container nav-wrap">
-      <a href="/" class="brand">
-        <span>TokyoFlow</span>
+  <!-- Subtle Tokyo Atmospheric Grid -->
+  <div class="tokyo-grid-overlay"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand-mark">
+        <img src="/assets/app_icon.jpg" alt="TokyoFlow Icon" class="brand-icon">
+        <div class="brand-text-group">
+          <div class="brand-title">Tokyo<span>Flow</span></div>
+          <span class="brand-kanji">東京・文脈主導の日本語</span>
+        </div>
       </a>
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#scenarios">Scenarios</a>
-        <a href="/support/">Support</a>
-        <a href="/privacy/">Privacy</a>
-      </nav>
+
+      <ul class="nav-links">
+        <li><a href="#showcase">Situations</a></li>
+        <li><a href="#philosophy">Pedagogy</a></li>
+        <li><a href="#pillars">Core System</a></li>
+        <li><a href="#academy">Video Academy</a></li>
+        <li><a href="#curriculum">Roadmap</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="tokyo-live-badge">
+          <span class="pulse-dot"></span>
+          <span id="tokyo-clock">TOKYO --:-- JST</span>
+        </div>
+        <a href="#download" class="btn-nav-primary">Get App</a>
+      </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero container">
-    <div class="badge">
-      🎙️ 100% Studio-Recorded Native Japanese Audio
-    </div>
-    <h1>Speak Real Tokyo Japanese.<br><span class="grad-text">No Robotic Voices. Just Flow.</span></h1>
-    <p>Master real-life Japanese with millisecond-precision karaoke shadowing, scenario-driven immersion (Konbini, Subway, Izakaya), and rapid-fire Dojo battles.</p>
-
-    <div class="cta-group">
-      <a href="https://apps.apple.com/app/tokyoflow" class="btn-primary">
-         Download on App Store
-      </a>
-      <a href="#features" class="btn-secondary">
-        Explore Features ↓
-      </a>
-    </div>
-
-    <!-- Live Preview Karaoke Box -->
-    <div class="karaoke-demo">
-      <div class="karaoke-tag">⚡ Live Karaoke Pitch-Accent Highlight</div>
-      <div class="japanese-line">
-        温かい<span class="highlight-word">お茶</span>を ください。
-      </div>
-      <div style="font-size: 0.9rem; color: #ff80a5; margin-bottom: 0.4rem;">atsui ocha o kudasai</div>
-      <div class="english-meaning">"Hot green tea, please."</div>
-    </div>
-  </section>
-
-  <!-- Features Grid -->
-  <section class="container features" id="features">
-    <h2 class="section-title">Built for Real-World Fluency</h2>
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-icon">🎙️</div>
-        <h3>100% Authentic Native Audio</h3>
-        <p>Every word, conversation, and nuance is recorded by native Tokyo speakers with natural conversational speed and intonation.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">⏱️</div>
-        <h3>Millisecond Karaoke Shadowing</h3>
-        <p>Synchronized word-by-word visual highlighting trains your ears and tongue to master authentic Japanese rhythm and pitch accent.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🥋</div>
-        <h3>Rapid Dojo Battle Lab</h3>
-        <p>Speed drills and nuance comparisons (Keigo vs Casual) sharpen your immediate reflexes under timed pressure.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🏪</div>
-        <h3>Use-Case Scenario Hubs</h3>
-        <p>Zero fluff. Learn what you actually say at 7-Eleven counters, subway ticket barriers, izakayas, and hotel check-ins.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <h3>Instant Dual-Language Toggle</h3>
-        <p>Seamlessly switch between English and Chinese explanations with one tap. 100% clean isolation with zero mixed jargon.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🔒</div>
-        <h3>100% Private & Offline Ready</h3>
-        <p>No mandatory account creation. Your shadowing audio and learning streaks remain safely stored on your device.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Scenario Hubs -->
-  <section class="container scenarios-section" id="scenarios">
-    <h2 class="section-title" style="margin-bottom: 1.5rem;">Daily Life in Tokyo — Handled in 5 Minutes</h2>
-    <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem;">Experience practical, scenario-based speaking micro-lessons crafted for travelers and serious Japanese learners alike.</p>
-    
-    <div class="grid-3" style="margin-bottom: 0;">
-      <div class="card">
-        <div class="card-icon">🍱</div>
-        <h3>Convenience Store (Konbini)</h3>
-        <p>Master bag requests, point cards, microwaving bento, and receipt etiquette with natural ease.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🚇</div>
-        <h3>Tokyo Transit & Metro</h3>
-        <p>Navigate Yamanote line transfers, platform directions, IC card recharge, and train delays seamlessly.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🍶</div>
-        <h3>Izakaya & Dining</h3>
-        <p>Order recommendations, split bills, request water refills, and handle seating etiquette like a local.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
+  <section class="hero">
     <div class="container">
-      <p style="margin-bottom: 1rem;">© 2026 TokyoFlow. All rights reserved.</p>
-      <p>
-        <a href="/">Home</a>
-        <a href="/support/">Support</a>
-        <a href="/privacy/">Privacy Policy</a>
-        <a href="/terms/">Terms of Service</a>
-      </p>
+      <div class="hero-header">
+        <div class="hero-kicker-pill">
+          <span class="mono-tag" style="color: inherit;">EDITION 2026</span> • ON-DEVICE PRIVACY & NATIVE AUDIO
+        </div>
+
+        <h1 class="hero-title-jp">東京を、生きる日本語。</h1>
+        
+        <h2 class="hero-title-en">
+          Master Authentic Japanese in Its <strong>Living Context</strong>.
+        </h2>
+
+        <p class="hero-description">
+          Move beyond sterile textbook scripts. Train your ears and speech on 4,170+ native human voices, Yamanote Line station melodies, 7-Eleven register speed drills, and visual pitch accent curves.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#download" class="btn-hero-appstore">
+            <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.58.67-1.08 1.74-.95 2.78 1.07.08 2.14-.58 2.73-1.34z"/></svg>
+            <div class="btn-text">
+              <small>Download for iOS</small>
+              <span>Apple App Store</span>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/@TokyoFlowJapanese" target="_blank" class="btn-hero-yt">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>YouTube Academy</span>
+          </a>
+        </div>
+
+        <!-- Metrics Overview -->
+        <div class="hero-metrics-bar">
+          <div class="metric-item">
+            <span class="metric-num">4,170+</span>
+            <span class="metric-label">Native Audio Tracks</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-num">20+</span>
+            <span class="metric-label">Tokyo Real Scenarios</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-num">N5 → N1</span>
+            <span class="metric-label">Complete JLPT Lexicon</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-num">100%</span>
+            <span class="metric-label">Private & Local Storage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Phone & Soundboard Showcase -->
+  <section id="showcase" class="showcase-section">
+    <div class="container">
+      <div class="showcase-wrapper">
+        
+        <!-- Left: Scenario Selector & Narrative -->
+        <div class="showcase-info">
+          <div class="section-label-group">
+            <span class="section-stamp">現場</span>
+            <span class="mono-tag">INTERACTIVE AUDIO SIMULATOR</span>
+          </div>
+
+          <h3 class="showcase-title">
+            Step Straight Into the Atmosphere of Tokyo.
+          </h3>
+          <p class="showcase-desc">
+            Select a live scenario below to load real phonetic waveforms, standard pitch accent high/low curves, and natural conversational cadence inside the interactive iPhone preview.
+          </p>
+
+          <div class="scenario-selector">
+            <div class="scenario-tab active" data-scenario="densha" onclick="switchScenario('densha')">
+              <div class="tab-left">
+                <div class="tab-icon-box">🚇</div>
+                <div class="tab-title-wrap">
+                  <div class="tab-title">Yamanote Line Platform</div>
+                  <div class="tab-subtitle">Shinjuku Station • Broadcast & Warning</div>
+                </div>
+              </div>
+              <span class="tab-tag">[敬語・館内]</span>
+            </div>
+
+            <div class="scenario-tab" data-scenario="kombini" onclick="switchScenario('kombini')">
+              <div class="tab-left">
+                <div class="tab-icon-box">🍱</div>
+                <div class="tab-title-wrap">
+                  <div class="tab-title">7-Eleven Rapid Checkout</div>
+                  <div class="tab-subtitle">Shibuya Center-Gai • Bento & Bag Options</div>
+                </div>
+              </div>
+              <span class="tab-tag">[接客・丁寧]</span>
+            </div>
+
+            <div class="scenario-tab" data-scenario="izakaya" onclick="switchScenario('izakaya')">
+              <div class="tab-left">
+                <div class="tab-icon-box">🍺</div>
+                <div class="tab-title-wrap">
+                  <div class="tab-title">Omoide Yokocho Izakaya</div>
+                  <div class="tab-subtitle">Showa Alley • Ordering & Toasting</div>
+                </div>
+              </div>
+              <span class="tab-tag">[日常・タメ口]</span>
+            </div>
+
+            <div class="scenario-tab" data-scenario="akiba" onclick="switchScenario('akiba')">
+              <div class="tab-left">
+                <div class="tab-icon-box">🎮</div>
+                <div class="tab-title-wrap">
+                  <div class="tab-title">Akihabara Hobby & Manga Lab</div>
+                  <div class="tab-subtitle">Radio Kaikan • SFX & Collector Inquiries</div>
+                </div>
+              </div>
+              <span class="tab-tag">[趣味・俗語]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive iPhone 16 Pro Mockup -->
+        <div class="phone-mockup-wrapper">
+          <div class="iphone-frame">
+            <div class="dynamic-island">
+              <div class="camera-lens"></div>
+              <div class="island-mic"></div>
+            </div>
+
+            <div class="phone-screen" id="phoneScreen">
+              <!-- Top App Status -->
+              <div class="app-top-header">
+                <span class="app-badge-level" id="appLevel">JLPT A2 • SCENARIO</span>
+                <span class="app-register-tag" id="appRegister">敬語 (Keigo)</span>
+              </div>
+
+              <!-- Main Scenario Dialogue Card -->
+              <div class="app-scenario-card">
+                <div class="app-district-row">
+                  <span id="appDistrictIcon">📍</span>
+                  <span id="appDistrictName">Shinjuku • Track 2</span>
+                </div>
+
+                <div class="app-japanese-phrase" id="appJpText">
+                  まもなく、2番線に山手線がまいります。
+                </div>
+
+                <div class="app-romaji-phrase" id="appRomajiText">
+                  Mamonaku, ni-ban-sen ni Yamanote-sen ga mairimasu.
+                </div>
+
+                <div class="app-english-phrase" id="appEnText">
+                  The Yamanote Line train will soon arrive at Track 2.
+                </div>
+
+                <!-- Live Pitch Accent SVG Graph -->
+                <div class="pitch-accent-box">
+                  <div class="pitch-label">
+                    <span>Pitch Accent Contour</span>
+                    <span id="pitchPatternName">中高型 (Nakadaka)</span>
+                  </div>
+                  <svg class="pitch-curve-svg" viewBox="0 0 200 30" preserveAspectRatio="none">
+                    <path id="pitchPath" d="M 10 20 Q 50 5 100 8 T 190 22" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle id="pitchDot1" cx="20" cy="18" r="3.5" fill="#fff" stroke="#f43f5e" stroke-width="1.5"/>
+                    <circle id="pitchDot2" cx="70" cy="8" r="3.5" fill="#f43f5e"/>
+                    <circle id="pitchDot3" cx="130" cy="12" r="3.5" fill="#f43f5e"/>
+                    <circle id="pitchDot4" cx="180" cy="22" r="3.5" fill="#fff" stroke="#f43f5e" stroke-width="1.5"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Audio Waveform Visualizer -->
+              <div class="app-waveform-bar" id="waveformContainer">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+              </div>
+
+              <!-- Interactive Trigger Button -->
+              <button class="app-play-button" id="appPlayBtn" onclick="playActiveScenarioAudio()">
+                <span id="appPlayIcon">▶</span>
+                <span id="appPlayLabel">Play Native Audio</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: The Pedagogical Paradigm Shift -->
+  <section id="philosophy" class="editorial-section">
+    <div class="container">
+      <div class="editorial-header">
+        <div class="mono-tag">[ PEDAGOGICAL BLUEPRINT ]</div>
+        <h2 class="editorial-heading">教科書を越えて、現場の空気へ。</h2>
+        <p class="hero-description">
+          Why traditional grammar drills leave foreigners paralyzed in Tokyo, and how context-driven simulation rewires your linguistic reflexes.
+        </p>
+      </div>
+
+      <div class="editorial-grid">
+        <!-- The Conventional Failure -->
+        <div class="editorial-col fail">
+          <span class="editorial-badge">THE TEXTBOOK ILLUSION</span>
+          <div class="editorial-points">
+            <div class="point-item">
+              <span class="point-num">01</span>
+              <div class="point-content">
+                <h4>Decontextualized European Models</h4>
+                <p>Translating arbitrary sentences ("The apple eats the lawyer") fails completely in high-context Japanese culture (場 - Ba).</p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <span class="point-num">02</span>
+              <div class="point-content">
+                <h4>Ignored Linguistic Registers</h4>
+                <p>Mixing honorifics (敬語), polite form (丁寧語), and peer slang without context leads to severe social awkwardness in Japan.</p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <span class="point-num">03</span>
+              <div class="point-content">
+                <h4>Flat, Robotic Synthesizers</h4>
+                <p>Learning without pitch accent leaves learners with a flat foreign cadence that native Tokyoites struggle to decipher.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- The TokyoFlow Solution -->
+        <div class="editorial-col solution">
+          <span class="editorial-badge">THE TOKYOFLOW ARCHITECTURE</span>
+          <div class="editorial-points">
+            <div class="point-item">
+              <span class="point-num">01</span>
+              <div class="point-content">
+                <h4>Situational Script Engine</h4>
+                <p>Real-life task mastery: Buying tickets, asking for bento microwave reheating, negotiating bills at Yakitori bars, reading manga dialogue balloons.</p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <span class="point-num">02</span>
+              <div class="point-content">
+                <h4>Explicit Register Taxonomy</h4>
+                <p>Clear labeling and dynamic switching between Keigo, Teineigo, Tameguchi, and Manga colloquial contractions.</p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <span class="point-num">03</span>
+              <div class="point-content">
+                <h4>Visual Pitch Accent Graphs</h4>
+                <p>Exact phonetic high/low contour graphs (頭高, 中高, 尾高, 平板) paired with 4,170+ native human acoustic tracks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Core Pillars -->
+  <section id="pillars" class="pillars-section">
+    <div class="container">
+      <div class="editorial-header" style="margin-bottom: 2rem;">
+        <div class="mono-tag">[ SYSTEM ARCHITECTURE ]</div>
+        <h2 class="editorial-heading">TokyoFlow 四大学习体系</h2>
+        <p class="hero-description">Four foundational pillars engineered for total practical fluency in Japan.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-number">PILLAR 01</span>
+            <span class="pillar-icon-symbol">🎙️</span>
+          </div>
+          <div>
+            <div class="pillar-title-jp">4,170+ 収録ネイティブ音源</div>
+            <div class="pillar-title-en">High-Fidelity Native Voice Bank</div>
+            <p class="pillar-desc">
+              Every lexical word and situational dialogue line is voiced by Tokyo native speakers, backed by syllable-by-syllable pitch accent wave visualization.
+            </p>
+          </div>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Pitch Accent Curves</span>
+            <span class="pillar-tag">Tokyo Standard Dialect</span>
+            <span class="pillar-tag">Zero Cloud Lag</span>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-number">PILLAR 02</span>
+            <span class="pillar-icon-symbol">📻</span>
+          </div>
+          <div>
+            <div class="pillar-title-jp">NHKニュース＆1時間ラジオ</div>
+            <div class="pillar-title-en">Continuous Radio Flow & Shadowing</div>
+            <p class="pillar-desc">
+              Immerse in unscripted news broadcasts and radio streams. Millisecond-aligned furigana subtitles, tap-to-translate lexicons, and comprehension checks.
+            </p>
+          </div>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Speed Control (0.8x - 1.5x)</span>
+            <span class="pillar-tag">Active Shadowing</span>
+            <span class="pillar-tag">Daily Updates</span>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-number">PILLAR 03</span>
+            <span class="pillar-icon-symbol">💥</span>
+          </div>
+          <div>
+            <div class="pillar-title-jp">漫画オノマトペ・擬音語ラボ</div>
+            <div class="pillar-title-en">Manga SFX & Onomatopoeia Soundboard</div>
+            <p class="pillar-desc">
+              Decode over 500+ manga sound effects and psychological states (ドキドキ, ざわ…, ドドド). Master raw comic reading with zero furigana panic.
+            </p>
+          </div>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Media Arts DB</span>
+            <span class="pillar-tag">Giseigo & Gitaigo</span>
+            <span class="pillar-tag">Interactive SFX Board</span>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-number">PILLAR 04</span>
+            <span class="pillar-icon-symbol">🗂️</span>
+          </div>
+          <div>
+            <div class="pillar-title-jp">JLPT N5〜N1 語彙記憶エンジン</div>
+            <div class="pillar-title-en">SM-2 Spaced Repetition Core</div>
+            <p class="pillar-desc">
+              Scientific flashcard retention powered by SuperMemo SM-2. Contextual sentence integration, error diagnosis, and automatic weak-spot review cycles.
+            </p>
+          </div>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Core N5-N1 Lexicon</span>
+            <span class="pillar-tag">Kanji Stroke Order</span>
+            <span class="pillar-tag">Tactile Haptics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Academy Gallery -->
+  <section id="academy" class="academy-section">
+    <div class="container">
+      <div class="editorial-header">
+        <div class="mono-tag">[ CINEMATIC LESSONS ]</div>
+        <h2 class="editorial-heading">TokyoFlow 映像アカデミー</h2>
+        <p class="hero-description">
+          Serialized high-definition video episodes breaking down authentic Tokyo street footage, station broadcasts, and everyday dialogues.
+        </p>
+      </div>
+
+      <div class="academy-grid">
+        <!-- Episode 1 -->
+        <a href="https://youtu.be/kFhcEWNNkkc" target="_blank" class="video-editorial-card">
+          <div class="video-thumb-container">
+            <img src="/assets/ep01_yamanote_transit_thumb.jpg" alt="Episode 1 Thumbnail" class="video-thumb-img">
+            <span class="video-badge-overlay">EP. 01 • 12 MIN</span>
+            <div class="video-play-btn-circle">▶</div>
+          </div>
+          <div class="video-meta-body">
+            <div class="video-district-tag">Shinjuku • Yamanote Line</div>
+            <h3 class="video-card-title">Tokyo Metro & Train Station Platform Broadcasts</h3>
+            <p class="video-card-desc">
+              Deconstruct yellow braille warnings, door chime notifications, transfer announcements, and swift wayfinding inquiries.
+            </p>
+            <div class="video-card-action">Watch on YouTube <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- Episode 2 -->
+        <a href="https://youtu.be/BTKvaO25MUI" target="_blank" class="video-editorial-card">
+          <div class="video-thumb-container">
+            <img src="/assets/ep02_kombini_checkout_thumb.jpg" alt="Episode 2 Thumbnail" class="video-thumb-img">
+            <span class="video-badge-overlay">EP. 02 • 10 MIN</span>
+            <div class="video-play-btn-circle">▶</div>
+          </div>
+          <div class="video-meta-body">
+            <div class="video-district-tag">Shibuya • Kombini</div>
+            <h3 class="video-card-title">Convenience Store Survival: 3-Second Rapid Checkout</h3>
+            <p class="video-card-desc">
+              Decode cashier questions on microwave heating, chopsticks, plastic bag choices, loyalty cards, and contactless Suica taps.
+            </p>
+            <div class="video-card-action">Watch on YouTube <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- Episode 3 -->
+        <a href="https://youtu.be/q6P6i7nkIhU" target="_blank" class="video-editorial-card">
+          <div class="video-thumb-container">
+            <img src="/assets/ep03_izakaya_night_thumb.jpg" alt="Episode 3 Thumbnail" class="video-thumb-img">
+            <span class="video-badge-overlay">EP. 03 • 14 MIN</span>
+            <div class="video-play-btn-circle">▶</div>
+          </div>
+          <div class="video-meta-body">
+            <div class="video-district-tag">Omoide Yokocho • Izakaya</div>
+            <h3 class="video-card-title">Izakaya Mastery: Showa Pub Ordering & Toasting</h3>
+            <p class="video-card-desc">
+              The golden rule of 'Toriaezu nama!', Otoshi table customs, yakitori salt vs tare seasoning, and settling the bill smoothly.
+            </p>
+            <div class="video-card-action">Watch on YouTube <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- Episode 4 -->
+        <a href="https://www.youtube.com/@TokyoFlowJapanese" target="_blank" class="video-editorial-card">
+          <div class="video-thumb-container">
+            <img src="/assets/ep04_akiba_pilgrimage_thumb.jpg" alt="Episode 4 Thumbnail" class="video-thumb-img">
+            <span class="video-badge-overlay">EP. 04 • 15 MIN</span>
+            <div class="video-play-btn-circle">▶</div>
+          </div>
+          <div class="video-meta-body">
+            <div class="video-district-tag">Akihabara • Pop Culture</div>
+            <h3 class="video-card-title">Akihabara Pilgrimage: Otaku Subculture & Manga SFX</h3>
+            <p class="video-card-desc">
+              Navigate retro figure shops, ask clerks for unopened merchandise in showcase cabinets, and master shonen manga exclamation lines.
+            </p>
+            <div class="video-card-action">Watch on YouTube <span>→</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1-Year Curriculum Roadmap -->
+  <section id="curriculum" class="roadmap-section">
+    <div class="container">
+      <div class="editorial-header">
+        <div class="mono-tag">[ 365-DAY LIVING PROGRESSION ]</div>
+        <h2 class="editorial-heading">Japan Foundation (CEFR-J) 年间ロードマップ</h2>
+        <p class="hero-description">A structured, milestone-based curriculum designed for independent life in Tokyo.</p>
+      </div>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-card">
+          <span class="roadmap-q-badge">QUARTER 01 • DAYS 1–90</span>
+          <div class="roadmap-level-title">JF A1 : Starter</div>
+          <div class="roadmap-level-sub">Essential Tokyo Survival</div>
+          <ul class="roadmap-list">
+            <li>Transit: Suica, recharge & ticket gates</li>
+            <li>Kombini: Bento heating & bag options</li>
+            <li>Food: Ticket machines & Ramen custom orders</li>
+            <li>Manga: Basic battle SFX & onomatopoeia</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-card">
+          <span class="roadmap-q-badge">QUARTER 02 • DAYS 91–180</span>
+          <div class="roadmap-level-title">JF A2 : Waystage</div>
+          <div class="roadmap-level-sub">Urban Exploration & Lifestyle</div>
+          <ul class="roadmap-list">
+            <li>Department store tax-free & size fitting</li>
+            <li>LUUP electric scooter & bike rental</li>
+            <li>Cafe reservations & dietary customization</li>
+            <li>Manga: Rom-com & slice-of-life balloons</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-card">
+          <span class="roadmap-q-badge">QUARTER 03 • DAYS 181–270</span>
+          <div class="roadmap-level-title">JF A2-B1 : Threshold</div>
+          <div class="roadmap-level-sub">City Logistics & Work Culture</div>
+          <ul class="roadmap-list">
+            <li>Ward office registration & paperwork</li>
+            <li>Postal redelivery notices (不在票)</li>
+            <li>Office greetings & Keigo distance</li>
+            <li>Manga: Seinen, mystery & nuanced slang</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-card">
+          <span class="roadmap-q-badge">QUARTER 04 • DAYS 271–365</span>
+          <div class="roadmap-level-title">JF B1 : Independent</div>
+          <div class="roadmap-level-sub">Complete Fluency & Culture</div>
+          <ul class="roadmap-list">
+            <li>Medical clinics & emergency calls (119)</li>
+            <li>Apartment lease & utility contracts</li>
+            <li>Community matsuri & natural banter</li>
+            <li>Manga: Raw Tankobon volumes without furigana</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA Section -->
+  <section id="download" class="download-section">
+    <div class="container">
+      <div class="download-box">
+        <div class="download-box-inner">
+          <div class="section-stamp" style="display: inline-block; margin-bottom: 1.5rem;">TOKYOFLOW iOS</div>
+          <h2 class="download-box-title">東京の息遣いを、あなたの手の中に。</h2>
+          <p class="download-box-p">
+            Download TokyoFlow on the Apple App Store. Experience 100% on-device local storage, zero advertisements, 4,170+ native audio tracks, and JLPT mastery.
+          </p>
+
+          <div class="download-actions-wrap">
+            <a href="#" class="btn-hero-appstore">
+              <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.58.67-1.08 1.74-.95 2.78 1.07.08 2.14-.58 2.73-1.34z"/></svg>
+              <div class="btn-text">
+                <small>Download for iOS</small>
+                <span>Apple App Store</span>
+              </div>
+            </a>
+
+            <a href="https://www.youtube.com/@TokyoFlowJapanese" target="_blank" class="btn-hero-yt">
+              <svg width="20" height="20" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span>Subscribe on YouTube</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand-info">
+          <div class="footer-brand-title">TokyoFlow • 東京フロウ</div>
+          <div class="footer-brand-tagline">Tokyo Context-Driven Japanese Mastery System & Academy</div>
+        </div>
+
+        <div class="footer-links-group">
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+          <a href="/support/">Support</a>
+          <a href="https://www.youtube.com/@TokyoFlowJapanese" target="_blank">YouTube Channel</a>
+          <a href="mailto:support@tokyoflow.app">Contact Support</a>
+        </div>
+
+        <div class="footer-copyright">
+          <span>© 2026 TokyoFlow App. Crafted with precision for Tokyo explorers.</span>
+          <span class="mono-tag">SWIFTUI • ON-DEVICE PRIVACY</span>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <script src="/app.js"></script>
 </body>
 </html>

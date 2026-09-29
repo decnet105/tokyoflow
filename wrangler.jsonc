@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tokyoflow-site",
+  "compatibility_date": "2026-09-26",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "tokyoflow.app",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.tokyoflow.app",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "."
+  }
+}
