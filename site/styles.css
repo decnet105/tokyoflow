@@ -379,8 +379,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  padding: 0 1.65rem;
-  height: 48px;
+  width: 224px;
+  min-width: 224px;
+  height: 50px;
+  box-sizing: border-box;
   font-size: 0.92rem;
   font-family: var(--font-mono);
   font-weight: 700;
@@ -388,6 +390,7 @@ body {
   text-decoration: none;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  text-align: center;
 }
 
 .btn-hero-appstore {
@@ -407,6 +410,7 @@ body {
   width: 18px;
   height: 18px;
   fill: currentColor;
+  flex-shrink: 0;
 }
 
 .btn-hero-yt {
@@ -427,16 +431,7 @@ body {
   width: 20px;
   height: 20px;
   fill: #CC0000;
-}
-
-.btn-hero-yt:hover {
-  border-color: var(--cinnabar);
-  color: var(--cinnabar);
-  transform: translateY(-2px);
-}
-
-.btn-hero-yt svg {
-  fill: #CC0000;
+  flex-shrink: 0;
 }
 
 /* Metrics Overview Bar */
@@ -1413,5 +1408,17 @@ body {
 
   .download-box {
     padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta-group, .download-actions-wrap {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .btn-hero-appstore, .btn-hero-yt {
+    width: 100%;
+    max-width: 280px;
   }
 }
