@@ -9,12 +9,37 @@ description: >
 ---
 
 # TokyoFlow Japanese: Video Production Factory Pipeline Standard
+## 0. Golden Master Sample Standard (黄金样本标准: EP.10)
 
-This document defines the mandatory end-to-end production workflow, visual contracts, typography rules, audio architecture, thumbnail standard, YouTube Studio title/description rules, and packaging specifications for every video produced under the TokyoFlow Japanese brand. Every future episode must strictly follow this skill pipeline.
+> [!IMPORTANT]
+> **Approved Master Reference Package**: `docs/youtube_releases/E10-ayase_haruka_tennen-v1.0/`
+> This episode represents the locked-in, approved Golden Master Standard for all subsequent episodes produced across TokyoFlow Japanese. Every automated and manual video run must strictly replicate the craft, audiovisual timing, dual-voice role separation, and thumbnail layout embodied in this package.
+
+## The 4 Core Pillars: Production Bible & Director Contract (制作圣经与导演合同)
+
+Every single video and release package produced by TokyoFlow Japanese must strictly satisfy the **4 Core Pillars of Competitive Moat**:
+
+```
++----------------------------------------------------------------------------------------------------+
+|                               TOKYOFLOW 4 CORE PILLARS PRODUCTION BIBLE                           |
++------------------------------------+---------------------------------------------------------------+
+| 1. ⚡ Rapid Trend Velocity & GEO   | 24h Japanese Trend Radar indexing (Yahoo/NHK/X/Google Trends) |
+|    (热点反应速度快 + 本地GEO定位)    | Dynamic Tokyo GEO tags (Shinjuku, Shibuya, Akiba, Ginza, etc.)|
++------------------------------------+---------------------------------------------------------------+
+| 2. 🎭 Viral Entertainment & News   | Intriguing, humorous, culturally authentic pop culture topics |
+|    (话题好玩 + 真实新闻原声镜头)     | Live News Broadcast TV HUD + authentic Japanese anchor voice  |
++------------------------------------+---------------------------------------------------------------+
+| 3. 🎯 Strict JLPT Level Alignment  | 70% JLPT N5 (zero prerequisite) / 20% N4-N3 / 10% N2-N1       |
+|    (能学到对应级别JLPT内容)          | Downscale complex news jargon into accessible SOV patterns    |
++------------------------------------+---------------------------------------------------------------+
+| 4. 🧠 Frictionless Learning Ease   | Slowed-down native Tokyo speech (-10% ~ -12%) for beginners   |
+|    (容易学 + 毫秒发光卡拉OK)         | 30fps true frame-by-frame word-by-word glowing yellow karaoke  |
++------------------------------------+---------------------------------------------------------------+
+```
 
 ---
 
-## 1. Target Audience and Pedagogical Formula
+## 1. Target Audience, Pedagogical Formula & SEO/GEO Contract
 
 1. Target Audience: Global English speakers learning practical Japanese (N5 Beginner to N1 Advanced, travelers, anime fans, and Tokyo expats/commuters).
 2. Audience Difficulty Distribution (70% N5 Mandatory):
@@ -25,24 +50,37 @@ This document defines the mandatory end-to-end production workflow, visual contr
    - Long-form video titles MUST strictly start with: `[JLPT N5] EP.XX <High-CTR English Title> | Real Japanese Breakdown`.
    - Shorts video titles MUST strictly start with: `[JLPT N5] SH.XX <High-Impact English Hook>! #Shorts #LearnJapanese`.
    - Video slides MUST render a prominent JLPT difficulty badge (e.g. `[ JLPT N5 ] Essential Foundation`).
-4. Language and Speaker Contract:
-   - Japanese Voice: `ja-JP-NanamiNeural` (`rate="-6%"`, `pitch="+3Hz"`), pristine Tokyo native cadence for dialogues, vocabulary cards, and grammar spotlight examples.
-   - English Voice: `en-US-AndrewNeural` (`rate="+2%"`), natural American male voice for grammatical breakdowns, parts of speech, and cultural nuances. English speaker speaks only English, never mispronounces Japanese words.
-5. Authentic Japanese Cultural Insight Mandate:
-   - In every long-form video (and metadata), when the topic relates to a genuine Japanese cultural phenomenon (e.g. sauna boom / 'Totono'u' ととのう, anime production collaboration, izakaya otoshi customs, train melody history, kombini seasonal shifts, etiquette), Andrew must provide a concise, engaging cultural insight in English during the breakdown section.
-   - Strict Authenticity Rule: Only share genuine, verifiable Japanese cultural facts. Never fabricate or hallucinate cultural trivia. If there is no specific cultural lore, gracefully focus on practical daily conversational nuances.
-6. Strict Typography Safety:
+4. High-Efficiency SEO & GEO Design (SEO/GEO 战略设计):
+   - GEO Precision: Target specific Tokyo districts and landmarks (e.g., `SHINJUKU STATION`, `SHIBUYA 7-ELEVEN`, `AKIHABARA ANIME TOWN`, `GINZA SHOPPING`, `ROPPONGI`).
+   - Trending Entity Harvesting: Exploit real-time Japanese trending keywords, celebrity names, anime titles, and JLPT search volume.
+   - Zero-URL Clean SEO Description: High-density keyword placement in timestamps, key phrase lists, and pinned interactive poll comments.
+5. Strict Zero-Crossover Dual-Voice Contract (纯净双语角色分离铁律):
+   - Female Voice (`ja-JP-NanamiNeural`, `rate="-12%"`, `pitch="+2Hz"`): 100% Native Tokyo Japanese ONLY (dialogues, vocabulary readings, example sentences). Strictly NEVER reads English translations or definitions.
+   - Male Voice (`en-US-AndrewNeural`, `rate="+2%"`): 100% Natural American English ONLY (immediate English translations after each Japanese phrase/word, grammatical breakdowns, and cultural explanations). Strictly NEVER reads Japanese characters.
+   - Priority 1 (Authentic Native Event Audio / 原音原声优先): When real press/news event soundbite is available (`source_audio.mp3`), use it for the opening 3-5s immersion!
+   - Priority 2 (Studio Broadcast Delivery): When synthesized, use `ja-JP-KeitaNeural` at standard un-rushed broadcast cadence (`rate="+0%"`, `pitch="+1Hz"` with TV broadcast chime).
+6. Mandatory Deep Japanese Cultural Insight by Andrew (男声必带日本本土文化深度解说):
+   - In every episode's breakdown section, Andrew MUST deliver a dedicated 1-2 sentence English cultural insight explaining the unique Japanese social/cultural context of the topic (e.g. why '天然/tennen' is beloved as cute airhead charm in Japanese pop culture, omotenashi hospitality, seasonal kombini culture).
+   - Strict Authenticity: Grounded strictly in authentic Japanese society, zero hallucination.
+7. High-Definition Artist/Scene Photo as Master Thumbnail Base (艺人高清大图作为封面底图法则):
+   - Whenever an authentic high-definition photo/scene of the artist, celebrity, or news subject is obtained (from YT/news media/4K scene synthesis), it MUST serve directly as the base background image (`bg_image_path`) for both 16:9 Master Thumbnail (`thumbnail.jpg`) and 9:16 Shorts Cover (`short_thumbnail.jpg`), overlaying the 3D yellow hook stack and pure white glowing Japanese soul phrase.
+8. Strict Typography Safety:
    - Dynamic multi-line wrapping with minimum 80px side margins. NEVER truncate or clip text horizontally. All glyphs must render with clean typography without placeholder boxes.
 
 ---
 
-## 2. Standard 6-Step Episode Architecture
+## 2. Standard 7-Step Episode Architecture (with Live News Immersion)
 
-Every TokyoFlow YouTube episode follows a structured 6-step chapter sequence:
+Every TokyoFlow YouTube episode follows a structured 7-step sequence:
 
 ```
+[Chapter 0: Live Breaking News Broadcast Immersion & Authentic Event Voice]
+   -> (3-6s, Live TV News HUD, Flashing 【LIVE ニュース速報】, Authentic Event Soundbite / Natural News Anchor Audio + Chime)
+   -> Background Mandate: Strictly use authentic, photorealistic topic press conference / Tokyo event scenes (e.g. news_bg.jpg).
+   -> Audio Mandate: Prioritize real event soundbites (原音); if using studio anchor, keep natural un-rushed speed (rate=+0%).
+   -> Strict Zero Cartoon Fallback Rule: NEVER use cartoon manga illustrations (e.g. akiba_neon.jpg) or generic placeholder drawings. If no topic image is available locally, the pipeline must search YT/web or dynamically synthesize a 16:9 4K photorealistic press event/street scene matching the topic.
 [Chapter 1: Real-Life Dialogue Immersion & Follow-Along]
-   -> (4-6s, 3-Tier Ruby typography with 80ms Anticipatory Millisecond Karaoke Highlighting)
+   -> (4-6s, 3-Tier Ruby typography with 80ms Anticipatory Millisecond Karaoke Highlighting at -12% Speed)
 [Chapter 2: Sentence 1 Bilingual Teamwork Breakdown Micro-Lesson]
    -> (30-38s, Nanami reads JA tokens & examples + Andrew explains grammar & nuances in English)
 [Chapter 3: Situational Response / Platform Drill Follow-Along]

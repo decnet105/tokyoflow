@@ -139,39 +139,71 @@ SHORTS_CONFIG = [
 
 def create_shorts_cover(item: dict) -> Image.Image:
     W, H = 1080, 1920
-    img = Image.new("RGB", (W, H), (10, 14, 24)) # Deep Tokyo Night
+    accent = item.get("accent_color", (236, 72, 153))
+    sec = item.get("secondary_color", (250, 204, 21))
+    bg_image_path = item.get("bg_image_path", "")
+
+    # 1. Background Setup: Real Photo or Cyber Navy Base
+    if bg_image_path and os.path.exists(bg_image_path):
+        base_img = Image.open(bg_image_path).convert("RGB")
+        src_w, src_h = base_img.size
+        target_ratio = W / H
+        src_ratio = src_w / src_h
+
+        if src_ratio > target_ratio:
+            new_w = int(src_h * target_ratio)
+            # Center slightly biased towards right/hero subject if wide
+            center_x = int(src_w * 0.58)
+            left = max(0, min(src_w - new_w, center_x - new_w // 2))
+            base_img = base_img.crop((left, 0, left + new_w, src_h))
+        else:
+            new_h = int(src_w / target_ratio)
+            top = (src_h - new_h) // 2
+            base_img = base_img.crop((0, top, src_w, top + new_h))
+
+        base_img = base_img.resize((W, H), Image.Resampling.LANCZOS)
+        from PIL import ImageEnhance
+        base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
+        base_img = ImageEnhance.Color(base_img).enhance(1.20)
+
+        # Multi-stop dark overlays: Top vignette for badges, Mid/Bottom dark glass for card
+        overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        draw_ov = ImageDraw.Draw(overlay)
+        # Top gradient (0 to 320px)
+        for y in range(320):
+            alpha = int(220 * (1.0 - (y / 320.0) ** 1.2))
+            draw_ov.line([(0, y), (W, y)], fill=(8, 12, 24, alpha))
+        # Mid-Bottom gradient (from 420px to 1920px)
+        for y in range(420, H):
+            rel = (y - 420) / (H - 420.0)
+            alpha = int(235 * (rel ** 0.8))
+            draw_ov.line([(0, y), (W, y)], fill=(6, 10, 20, min(240, alpha)))
+        
+        img = Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+    else:
+        img = Image.new("RGB", (W, H), (10, 14, 24)) # Deep Tokyo Night
+        # Background ambient circular radial lights
+        glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        glow_draw = ImageDraw.Draw(glow)
+        glow_draw.ellipse([W//2 - 400, 100, W//2 + 400, 900], fill=(accent[0], accent[1], accent[2], 40))
+        glow_draw.ellipse([W//2 - 450, 800, W//2 + 450, 1700], fill=(sec[0], sec[1], sec[2], 30))
+        glow = glow.filter(ImageFilter.GaussianBlur(120))
+        img.paste(glow, (0, 0), glow)
+
     draw = ImageDraw.Draw(img)
-
-    # 1. Subtle Aesthetic Background Gradient & Glow Orbs
-    accent = item["accent_color"]
-    sec = item["secondary_color"]
-
-    # Background ambient circular radial lights
-    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    glow_draw = ImageDraw.Draw(glow)
-    
-    # Top Orb
-    glow_draw.ellipse([W//2 - 400, 100, W//2 + 400, 900], fill=(accent[0], accent[1], accent[2], 40))
-    # Mid-lower Orb
-    glow_draw.ellipse([W//2 - 450, 800, W//2 + 450, 1700], fill=(sec[0], sec[1], sec[2], 30))
-    glow = glow.filter(ImageFilter.GaussianBlur(120))
-    img.paste(glow, (0, 0), glow)
 
     # 2. Typography Setup
     font_brand = ImageFont.truetype(FONT_EN_HEAVY, 36)
     font_sh_badge = ImageFont.truetype(FONT_EN_HEAVY, 42)
     font_hook_giant = ImageFont.truetype(FONT_EN_HEAVY, 110)
     font_hook_sub = ImageFont.truetype(FONT_EN_HEAVY, 40)
-    font_jp_phrase = ImageFont.truetype(FONT_JP_BOLD, 86)
-    font_romaji = ImageFont.truetype(FONT_EN_HEAVY, 44)
-    font_meaning = ImageFont.truetype(FONT_EN_HEAVY, 46)
     font_tag = ImageFont.truetype(FONT_EN_HEAVY, 30)
 
     # 3. Top Header: TokyoFlow Brand Capsule + JLPT Level Badge + SH Code Badge
     pill_h = 64
     pill_y = 90
 
-    # Brand Pill (Solid white pill, bold crimson red text, auto-sized to fit text perfectly)
+    # Brand Pill (Solid white pill, bold crimson red text)
     brand_text = "TokyoFlow"
     font_brand_bold = ImageFont.truetype(FONT_EN_HEAVY, 36)
     bbox_b = draw.textbbox((0, 0), brand_text, font=font_brand_bold)
@@ -183,7 +215,7 @@ def create_shorts_cover(item: dict) -> Image.Image:
     ty_b = pill_y + (pill_h - bh) // 2 - bbox_b[1]
     draw.text((tx_b, ty_b), brand_text, font=font_brand_bold, fill=(220, 38, 38))
 
-    # JLPT Level Badge (Prominent dark glassmorphic badge with golden yellow level text)
+    # JLPT Level Badge
     level_text = item.get("jlpt_level", "JLPT N5")
     font_level = ImageFont.truetype(FONT_EN_HEAVY, 32)
     bbox_l = draw.textbbox((0, 0), level_text, font=font_level)
@@ -196,7 +228,7 @@ def create_shorts_cover(item: dict) -> Image.Image:
     ty_l = pill_y + (pill_h - lh) // 2 - bbox_l[1]
     draw.text((tx_l, ty_l), level_text, font=font_level, fill=(250, 204, 21))
 
-    # SH Code Badge (High-Contrast Theme Accent Pill)
+    # SH Code Badge
     sh_text = item["sh_code"]
     bbox_s = draw.textbbox((0, 0), sh_text, font=font_sh_badge)
     sw = bbox_s[2] - bbox_s[0]
@@ -208,20 +240,27 @@ def create_shorts_cover(item: dict) -> Image.Image:
     draw.text((tx_s, ty_s), sh_text, font=font_sh_badge, fill=(10, 14, 24))
 
     # Location Subtitle Pill
-    draw.text((75, 185), item["location"], font=font_tag, fill=(148, 163, 184))
+    draw.text((75, 185), item.get("location", "TOKYO POP CULTURE • JLPT"), font=font_tag, fill=(203, 213, 225))
 
     # 4. Hero Section: Minimalist 1-2 Words Punchy Hook
     hook_main = item["hook_main"]
     hook_sub = item["hook_sub"]
     
     # 3D Drop Shadow on Main Hook
-    draw.text((75, 275), hook_main, font=font_hook_giant, fill=(0, 0, 0, 180))
-    draw.text((70, 270), hook_main, font=font_hook_giant, fill=sec)
+    for off in range(6, 0, -1):
+        for dx in range(-off, off + 1):
+            for dy in range(-off, off + 1):
+                draw.text((70 + dx, 265 + dy), hook_main, font=font_hook_giant, fill=(0, 0, 0, 255))
+    draw.text((70, 265), hook_main, font=font_hook_giant, fill=sec)
     
-    draw.text((75, 405), hook_sub, font=font_hook_sub, fill=(226, 232, 240))
+    for off in range(4, 0, -1):
+        for dx in range(-off, off + 1):
+            for dy in range(-off, off + 1):
+                draw.text((75 + dx, 400 + dy), hook_sub, font=font_hook_sub, fill=(0, 0, 0, 220))
+    draw.text((75, 400), hook_sub, font=font_hook_sub, fill=(241, 245, 249))
 
     # Decorative Accent Line
-    draw.rectangle([70, 475, 300, 483], fill=accent)
+    draw.rectangle([70, 475, 320, 483], fill=accent)
 
     # 5. Center Human Feature: Glassmorphic Japanese Hero Card
     card_top = 530
@@ -229,7 +268,7 @@ def create_shorts_cover(item: dict) -> Image.Image:
     card_w = W - 140
     
     # Card Background with Glow Border
-    draw.rounded_rectangle([70, card_top, 70 + card_w, card_top + card_h], radius=40, fill=(15, 23, 42, 230), outline=accent, width=4)
+    draw.rounded_rectangle([70, card_top, 70 + card_w, card_top + card_h], radius=40, fill=(15, 23, 42, 235), outline=accent, width=4)
     
     # Inner Tag "SURVIVAL JAPANESE"
     draw.rounded_rectangle([110, card_top + 45, 470, card_top + 105], radius=24, fill=(30, 41, 59), outline=(51, 65, 85), width=2)
@@ -264,12 +303,60 @@ def create_shorts_cover(item: dict) -> Image.Image:
     # Divider line
     draw.line([(110, card_top + 430), (W - 110, card_top + 430)], fill=(51, 65, 85), width=2)
 
-    # English Translation Box
-    draw.text((110, card_top + 470), "ENGLISH MEANING:", font=font_tag, fill=(100, 116, 139))
-    draw.text((110, card_top + 520), f'"{item["en_meaning"]}"', font=font_meaning, fill=(241, 245, 249))
+    # English Translation Box with Multi-line Wrapping
+    draw.text((110, card_top + 470), "ENGLISH MEANING:", font=font_tag, fill=(148, 163, 184))
+    
+    en_raw = f'"{item["en_meaning"]}"'
+    words = en_raw.split(" ")
+    lines = []
+    cur_line = []
+    max_line_w = card_w - 80
+    meaning_font_size = 42
+    font_meaning = ImageFont.truetype(FONT_EN_HEAVY, meaning_font_size)
+
+    for word in words:
+        test_line = " ".join(cur_line + [word])
+        bbox_t = draw.textbbox((0, 0), test_line, font=font_meaning)
+        if bbox_t[2] - bbox_t[0] <= max_line_w:
+            cur_line.append(word)
+        else:
+            if cur_line:
+                lines.append(" ".join(cur_line))
+                cur_line = [word]
+            else:
+                lines.append(word)
+                cur_line = []
+    if cur_line:
+        lines.append(" ".join(cur_line))
+
+    # If more than 2 lines, scale font down
+    if len(lines) > 2:
+        meaning_font_size = 34
+        font_meaning = ImageFont.truetype(FONT_EN_HEAVY, meaning_font_size)
+        lines = []
+        cur_line = []
+        for word in words:
+            test_line = " ".join(cur_line + [word])
+            bbox_t = draw.textbbox((0, 0), test_line, font=font_meaning)
+            if bbox_t[2] - bbox_t[0] <= max_line_w:
+                cur_line.append(word)
+            else:
+                if cur_line:
+                    lines.append(" ".join(cur_line))
+                    cur_line = [word]
+                else:
+                    lines.append(word)
+                    cur_line = []
+        if cur_line:
+            lines.append(" ".join(cur_line))
+
+    m_y = card_top + 520
+    for l in lines:
+        draw.text((110, m_y), l, font=font_meaning, fill=(241, 245, 249))
+        m_y += int(meaning_font_size * 1.3)
 
     # Audio Shadowing Status Badge inside Card
-    draw.rounded_rectangle([110, card_top + 680, W - 110, card_top + 840], radius=28, fill=(30, 41, 59, 180), outline=(71, 85, 105), width=2)
+    draw.rounded_rectangle([110, card_top + 680, W - 110, card_top + 840], radius=28, fill=(30, 41, 59, 200), outline=(71, 85, 105), width=2)
     draw.text((145, card_top + 720), "3-STEP INTERACTIVE SHADOWING", font=font_brand, fill=accent)
     draw.text((145, card_top + 775), "Listen • Break Down • Speak With AI Pitch", font=font_tag, fill=(203, 213, 225))
 

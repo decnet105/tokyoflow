@@ -52,7 +52,8 @@ from slide_designer import (
     render_follow_along_video_clip,
     render_breakdown_video_clip,
     render_static_video_clip,
-    render_outro_frame
+    render_outro_frame,
+    render_news_broadcast_video_clip
 )
 from generate_thumbnails import generate_serialized_thumbnail
 from generate_shorts_thumbnails import create_shorts_cover
@@ -60,6 +61,7 @@ from generate_shorts_thumbnails import create_shorts_cover
 FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 VOICE_MALE_EN = "en-US-AndrewNeural"
 VOICE_FEMALE_JA = "ja-JP-NanamiNeural"
+VOICE_NEWS_ANCHOR_JA = "ja-JP-KeitaNeural"
 
 def get_font(size: int):
     try:
@@ -129,8 +131,8 @@ async def build_teamwork_breakdown_audio(cues: list, out_final_path: str, tmp_di
         fn = os.path.join(tmp_dir, f"cue_{i:02d}.mp3")
         
         voice = VOICE_FEMALE_JA if speaker == "ja" else VOICE_MALE_EN
-        rate = "-6%" if speaker == "ja" else "+2%"
-        pitch = "+3Hz" if speaker == "ja" else "+0Hz"
+        rate = "-12%" if speaker == "ja" else "+2%"
+        pitch = "+2Hz" if speaker == "ja" else "+0Hz"
         
         await synth_audio(text, voice, fn, rate=rate, pitch=pitch)
         dur = get_audio_duration(fn)
@@ -532,7 +534,7 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
     await synth_audio(conf["hook_audio_en"], VOICE_MALE_EN, hook_audio, rate="+4%")
 
     jp_audio_norm = os.path.join(tmp_dir, "02_jp_norm.mp3")
-    await synth_audio(conf["jp_sentence"], VOICE_FEMALE_JA, jp_audio_norm, rate="-4%", pitch="+2Hz")
+    await synth_audio(conf["jp_sentence"], VOICE_FEMALE_JA, jp_audio_norm, rate="-10%", pitch="+2Hz")
 
     tip_audio = os.path.join(tmp_dir, "03_tip.mp3")
     await synth_audio(conf["pro_tip_audio_en"], VOICE_MALE_EN, tip_audio, rate="+4%")
@@ -702,21 +704,69 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
 # LLM Editorial Curator (Enforcing 70% JLPT N5 + Pure English Explanations)
 # -------------------------------------------------------------------------
 def get_covered_topics() -> list:
-    """Reads existing release packages to identify all already covered topics and slugs."""
+    """Reads existing release packages and publish ledger to identify all already covered topics and slugs."""
     releases_dir = os.path.join(PROJECT_ROOT, "docs", "youtube_releases")
     covered = []
     if os.path.exists(releases_dir):
         for item in os.listdir(releases_dir):
             if item.startswith("E") and "-" in item:
                 covered.append(item)
-    return covered
+    ledger_path = os.path.join(releases_dir, "publish_ledger.json")
+    if os.path.exists(ledger_path):
+        try:
+            with open(ledger_path, "r", encoding="utf-8") as f:
+                ledger = json.load(f)
+                for key, val in ledger.get("published", {}).items():
+                    title = val.get("title", "")
+                    if title:
+                        covered.append(title)
+        except Exception:
+            pass
+    return list(set(covered))
+
+def filter_uncovered_candidates(candidates: list, covered_topics: list) -> list:
+    """Proactively drops any candidate that overlaps with previously covered episodes."""
+    covered_words = set()
+    for item in covered_topics:
+        cleaned = re.sub(r"[^\w\s]", " ", item.lower())
+        for w in cleaned.split():
+            if len(w) > 3 and w not in {"japan", "japanese", "tokyo", "tokyoflow", "jlpt", "video", "short", "shorts", "learnjapanese", "breakdown", "trend", "daily"}:
+                covered_words.add(w)
+                
+    filtered = []
+    for cand in candidates:
+        cand_str = (cand.get("title", "") + " " + cand.get("summary", "") + " " + " ".join(cand.get("entities", []))).lower()
+        is_dup = False
+        for cw in covered_words:
+            if cw in cand_str:
+                is_dup = True
+                break
+        if not is_dup:
+            filtered.append(cand)
+            
+    return filtered if filtered else candidates
 
 def curate_single_best_topic(top_candidates: list, date_str: str, next_ep_num: int) -> dict:
     covered_episodes = get_covered_topics()
     covered_str = "\n".join([f"- {ep}" for ep in covered_episodes])
+    fresh_candidates = filter_uncovered_candidates(top_candidates, covered_episodes)
     
     system_prompt = f"""You are the Senior Executive Producer and Pedagogical Director of 'TokyoFlow Japanese'.
 Your mission is to pick THE SINGLE BEST DAILY TRENDING TOPIC from today's fresh candidate events, prioritizing Playlist 1 (Anime, Manga, Film, TV, Pop Culture, Entertainment & Netizen Buzz), and construct a linked Long-Form Video and Shorts Funnel package.
+
+### THE 4 CORE PILLARS PRODUCTION BIBLE & DIRECTOR CONTRACT (制作圣经与导演合同 - 核心竞争力):
+1. ⚡ RAPID TREND VELOCITY & GEO PRECISION (热点反应速度快 + 本地GEO定位):
+   - Fast reaction to today's trending Japanese entertainment / anime / netizen buzz.
+   - Embed specific Tokyo GEO locations (e.g. `Shinjuku`, `Shibuya`, `Akihabara`, `Ginza`, `Roppongi`, `Harajuku`, `Tokyo Dome`) and trending entity keywords in metadata, title, and tags.
+2. 🎭 VIRAL ENTERTAINMENT & LIVE NEWS IMMERSION (话题好玩 + 真实新闻镜头与原声速报):
+   - Make topics culturally intriguing, funny, relatable, or dramatic (e.g., natural airhead reactions '天然呆', anime bathhouse collabs, bizarre kombini foods, train manners).
+   - Generate an authentic Japanese breaking news anchor opening (`news_broadcast`) for Live TV broadcast immersion.
+3. 🎯 STRICT JLPT LEVEL ALIGNMENT (能学到对应级别JLPT内容):
+   - Strictly 70% JLPT N5 (zero prerequisite) / 20% N4-N3 / 10% N2-N1.
+   - Downscale complex news headlines into crystal-clear Subject-Object-Verb spoken sentences.
+4. 🧠 FRICTIONLESS LEARNING EASE (容易学 + 慢速发音 + 30fps逐词发光卡拉OK):
+   - Synthesize slowed-down native Japanese audio for easy phoneme recognition.
+   - 100% English explanations by Andrew, 100% Tokyo Japanese by Nanami/Keita.
 
 ### PREVIOUSLY COVERED EPISODES (STRICT ANTI-DUPLICATION RULE):
 The following episodes and topics have ALREADY been produced. You MUST NOT select or repeat any of these topics:
@@ -771,6 +821,11 @@ Return strict, valid JSON with this exact schema:
   "target_jlpt_level": "JLPT N5",
   "district": "Tokyo Pop Culture",
   "dramatic_hook": "<1 sentence hook on why fans or viewers are talking about this>",
+  "news_broadcast": {{
+    "headline_ja": "【速報】<Realistic Japanese TV news headline>",
+    "anchor_speech_ja": "<Authentic fast Japanese news broadcast anchor speech, 1-2 sentences>",
+    "location_tag": "TOKYO POP CULTURE"
+  }},
   "long_form": {{
     "yt_title": "[JLPT N5] EP.{next_ep_num:02d} <High-CTR English Title> | Real Japanese Breakdown",
     "english_hook": "<2-3 WORDS PUNCHY UPPERCASE HOOK>",
@@ -849,7 +904,7 @@ Return strict, valid JSON with this exact schema:
   }}
 }}
 """
-    user_prompt = f"Date: {date_str}\nNext Episode Number: {next_ep_num}\n\nTop Scored Candidates for Today:\n{json.dumps(top_candidates[:12], ensure_ascii=False, indent=2)}\n\nPlease pick the best trending entertainment/pop culture candidate from today's list (excluding already covered topics), and output the complete JSON specification."
+    user_prompt = f"Date: {date_str}\nNext Episode Number: {next_ep_num}\n\nTop Scored Candidates for Today:\n{json.dumps(fresh_candidates[:12], ensure_ascii=False, indent=2)}\n\nPlease pick the best trending entertainment/pop culture candidate from today's list (excluding already covered topics), and output the complete JSON specification."
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt}
@@ -905,56 +960,197 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
         json.dump(spec, f, ensure_ascii=False, indent=2)
         
     # 4. Render Long-Form 16:9 Video (Frame-by-Frame True Karaoke Follow-Along & Teamwork Breakdown)
-    print(f"🎬 [3/5] Rendering 1080p 16:9 Long-Form Video (Frame-by-Frame Karaoke & Breakdown)...")
+    print(f"🎬 [3/5] Rendering 1080p 16:9 Long-Form Video (Live News Immersion + Frame-by-Frame Karaoke)...")
     long_spec = spec["long_form"]
     ep_label = f"[{jlpt_level}] EP.{next_ep_num:02d}"
     
+    wallpapers = {
+        "transit": os.path.join(PROJECT_ROOT, "TokyoFlow", "Resources", "Wallpapers", "tokyo_subway.jpg"),
+        "kombini": os.path.join(PROJECT_ROOT, "TokyoFlow", "Resources", "Wallpapers", "rainy_cafe.jpg"),
+        "izakaya": os.path.join(PROJECT_ROOT, "TokyoFlow", "Resources", "Wallpapers", "cozy_room.jpg"),
+        "shopping": os.path.join(PROJECT_ROOT, "TokyoFlow", "Resources", "Wallpapers", "liquid_glass.jpg")
+    }
+
+    if "2" in playlist_badge or "便利店" in playlist_badge or "Kombini" in playlist_badge:
+        default_bg = wallpapers["kombini"]
+    elif "3" in playlist_badge or "交通" in playlist_badge or "Transit" in playlist_badge:
+        default_bg = wallpapers["transit"]
+    elif "居酒屋" in playlist_badge or "Izakaya" in playlist_badge or "美食" in playlist_badge:
+        default_bg = wallpapers["izakaya"]
+    else:
+        default_bg = wallpapers["shopping"]
+
+    # Retrieve dedicated topic scene background (YouTube/News Press Scene/Generated 4K)
+    # Zero fallback to cartoon/manga illustration
+    news_bg_candidate = os.path.join(official_release_dir, "news_bg.jpg")
+    scene_bg_dir = os.path.join(PROJECT_ROOT, "docs", "youtube_assets", "scene_backgrounds")
+    if not os.path.exists(news_bg_candidate) and os.path.exists(scene_bg_dir):
+        for f in os.listdir(scene_bg_dir):
+            if f.startswith(f"E{next_ep_num:02d}"):
+                news_bg_candidate = os.path.join(scene_bg_dir, f)
+                shutil.copyfile(news_bg_candidate, os.path.join(official_release_dir, "news_bg.jpg"))
+                break
+                
+    bg_image_path = news_bg_candidate if os.path.exists(news_bg_candidate) else default_bg
+    news_bg_image = bg_image_path
+
     rendered_clips = []
+
+    # Guarantee authentic Japanese news headline (never English title)
+    headline_jp = long_spec.get("japanese_key_phrase") or spec.get("jp_sentence") or topic_title
+    news_headline = f"【芸能速報】{headline_jp}" if ("1" in playlist_badge or "芸能" in playlist_badge or "流行" in playlist_badge) else f"【速報】{headline_jp}"
+    
+    news_speech = f"ニュース速報です。{headline_jp}に関する最新情報をお伝えします。"
+    first_slide_text = long_spec.get("slides", [{}])[0].get("spoken_text", "")
+    if first_slide_text:
+        news_speech = f"ニュース速報です。{first_slide_text}"
+        
+    # Audio Priority:
+    # 1. Real source audio soundbite from event (source_audio.mp3 in release dir or spec)
+    # 2. Studio anchor (Keita) at crisp, natural broadcast pace (rate="+0%", pitch="+1Hz") with TV Chime
+    source_audio_file = os.path.join(official_release_dir, "source_audio.mp3")
+    if os.path.exists(source_audio_file) and os.path.getsize(source_audio_file) > 10000:
+        news_audio_path = source_audio_file
+        print(f"✓ Using Authentic Original Event Soundbite (原音): {source_audio_file}")
+    else:
+        raw_anchor_path = os.path.join(temp_dir, "raw_anchor.mp3")
+        await synth_audio(news_speech, VOICE_NEWS_ANCHOR_JA, raw_anchor_path, rate="+0%", pitch="+1Hz")
+        
+        # Generate 0.8s broadcast chime (two-tone gentle chime)
+        chime_path = os.path.join(temp_dir, "news_chime.mp3")
+        chime_cmd = [
+            "ffmpeg", "-y",
+            "-f", "lavfi",
+            "-i", "aevalsrc=0.25*sin(880*2*PI*t)*exp(-4*t)+0.35*sin(1320*2*PI*t)*exp(-3*t)+0.25*sin(1760*2*PI*t)*exp(-4*t):d=0.8",
+            "-c:a", "libmp3lame",
+            "-ar", "44100",
+            "-ac", "2",
+            chime_path
+        ]
+        subprocess.run(chime_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+        
+        news_audio_path = os.path.join(temp_dir, "news_anchor_live.mp3")
+        concat_audio_cmd = [
+            "ffmpeg", "-y",
+            "-i", chime_path,
+            "-i", raw_anchor_path,
+            "-filter_complex", "[0:a][1:a]concat=n=2:v=0:a=1[out]",
+            "-map", "[out]",
+            "-c:a", "libmp3lame",
+            "-b:a", "192k",
+            news_audio_path
+        ]
+        subprocess.run(concat_audio_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+    dur_news = get_audio_duration(news_audio_path)
+    
+    news_clip_mp4 = os.path.join(temp_dir, "clip_00_news_broadcast.mp4")
+    render_news_broadcast_video_clip(
+        bg_image_path=news_bg_image,
+        headline_ja=news_headline,
+        location_tag=spec.get("district", "TOKYO POP CULTURE"),
+        audio_path=news_audio_path,
+        duration=dur_news,
+        out_mp4_path=news_clip_mp4,
+        ep_label=f"EP.{next_ep_num:02d}",
+        fps=30
+    )
+    rendered_clips.append(news_clip_mp4)
+    print(f"✓ Live News Broadcast Clip Rendered with Authentic Chime & Scene ({dur_news:.1f}s)")
     
     for idx, sl in enumerate(long_spec["slides"]):
         sl_type = sl.get("type", "follow_along")
-        clip_mp4 = os.path.join(temp_dir, f"clip_{idx:02d}_{sl_type}.mp4")
+        clip_mp4 = os.path.join(temp_dir, f"clip_{idx+1:02d}_{sl_type}.mp4")
         
         if sl_type == "follow_along":
             spoken_text = sl["spoken_text"]
-            audio_ja_path = os.path.join(temp_dir, f"slide_{idx:02d}_nanami.mp3")
-            await synth_audio(spoken_text, VOICE_FEMALE_JA, audio_ja_path, rate="-6%", pitch="+3Hz")
-            dur = get_audio_duration(audio_ja_path)
+            english_meaning = sl.get("en", "")
+            fa_tmp = os.path.join(temp_dir, f"fa_{idx+1:02d}")
+            audio_fa_path = os.path.join(temp_dir, f"slide_{idx+1:02d}_dual_track.mp3")
+            
+            # Synthesize Nanami JA -> 0.3s pause -> Andrew EN Translation
+            os.makedirs(fa_tmp, exist_ok=True)
+            fn_ja = os.path.join(fa_tmp, "nanami_ja.mp3")
+            await synth_audio(spoken_text, VOICE_FEMALE_JA, fn_ja, rate="-12%", pitch="+2Hz")
+            dur_ja = get_audio_duration(fn_ja)
+            
+            fn_sil = os.path.join(fa_tmp, "sil.mp3")
+            generate_silence(0.3, fn_sil)
+            
+            fn_en = os.path.join(fa_tmp, "andrew_en.mp3")
+            await synth_audio(english_meaning, VOICE_MALE_EN, fn_en, rate="+2%", pitch="+0Hz")
+            dur_en = get_audio_duration(fn_en)
+            
+            concat_txt = os.path.join(fa_tmp, "concat.txt")
+            with open(concat_txt, "w") as f:
+                f.write(f"file '{os.path.abspath(fn_ja)}'\n")
+                f.write(f"file '{os.path.abspath(fn_sil)}'\n")
+                f.write(f"file '{os.path.abspath(fn_en)}'\n")
+                
+            cmd = [
+                "ffmpeg", "-y",
+                "-f", "concat", "-safe", "0",
+                "-i", concat_txt,
+                "-c:a", "libmp3lame",
+                "-b:a", "192k",
+                "-ar", "44100",
+                "-ac", "2",
+                audio_fa_path
+            ]
+            subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+            total_dur = get_audio_duration(audio_fa_path)
             
             tokens = sl.get("tokens", [])
             if not tokens:
                 tokens = extract_tokens_from_text(spoken_text)
-            aligned_toks = align_sentence_tokens_with_audio(audio_ja_path, tokens)
+            aligned_toks = align_sentence_tokens_with_audio(fn_ja, tokens)
             
             render_follow_along_video_clip(
                 tokens=aligned_toks,
                 category_label=f"[{jlpt_level}]  {playlist_badge.split(' ')[-1]}",
                 title_label=f"{sl.get('chapter', '01. Follow Along')} • {topic_title}",
-                english_meaning=sl.get("en", ""),
+                english_meaning=english_meaning,
                 pro_tip=sl.get("tip", ""),
                 chapter_label=sl.get("chapter", "01. Follow Along"),
                 ep_label=ep_label,
-                audio_path=audio_ja_path,
-                duration=dur,
+                audio_path=audio_fa_path,
+                duration=total_dur,
                 out_mp4_path=clip_mp4,
-                fps=30
+                fps=30,
+                en_window=(dur_ja + 0.3, total_dur)
             )
             rendered_clips.append(clip_mp4)
+            print(f"✓ Dual-Voice Follow-Along Clip Rendered ({total_dur:.1f}s: Nanami JA + Andrew EN)")
             
-        elif sl_type == "breakdown":
-            breakdown_tmp = os.path.join(temp_dir, f"bd_{idx:02d}")
-            audio_bd_path = os.path.join(temp_dir, f"slide_{idx:02d}_bd_teamwork.mp3")
+        elif "breakdown" in sl_type:
+            breakdown_tmp = os.path.join(temp_dir, f"bd_{idx+1:02d}")
+            audio_bd_path = os.path.join(temp_dir, f"slide_{idx+1:02d}_bd_teamwork.mp3")
             
-            cues = sl.get("teamwork_cues", [])
+            cues = sl.get("teamwork_cues") or sl.get("audio_cues") or []
+            if not cues:
+                cues = [
+                    {"speaker": "en", "text": "Let us break down today's key words and grammar."},
+                    {"speaker": "ja", "text": sl.get("sentence_ja", topic_title)},
+                    {"speaker": "en", "text": "Practice this sentence to speak natural Japanese in Tokyo."}
+                ]
             bd_res = await build_teamwork_breakdown_audio(cues, audio_bd_path, breakdown_tmp)
             dur = bd_res["total_duration"]
             timings = bd_res["timings"]
             
+            sentence_ja = sl.get("sentence_ja") or sl.get("spoken_text") or (long_spec["slides"][0]["spoken_text"] if long_spec.get("slides") else topic_title)
+            vocab_list = sl.get("words") or sl.get("vocab") or []
+            
+            if isinstance(sl.get("grammar"), dict):
+                grammar_title = sl["grammar"].get("title", "Grammar & Cultural Spotlight")
+                grammar_bullets = sl["grammar"].get("bullets", [])
+            else:
+                grammar_title = sl.get("grammar_title", "Grammar & Cultural Spotlight")
+                grammar_bullets = sl.get("grammar_bullets", [])
+                
             render_breakdown_video_clip(
-                sentence_ja=sl.get("sentence_ja", ""),
-                vocab_list=sl.get("vocab", []),
-                grammar_title=sl.get("grammar_title", "Grammar Spotlight"),
-                grammar_bullets=sl.get("grammar_bullets", []),
+                sentence_ja=sentence_ja,
+                vocab_list=vocab_list,
+                grammar_title=grammar_title,
+                grammar_bullets=grammar_bullets,
                 category_label=f"[{jlpt_level}]  Sentence Structure & Nuance",
                 chapter_label=sl.get("chapter", "02. Breakdown"),
                 ep_label=ep_label,
@@ -965,6 +1161,7 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
                 fps=30
             )
             rendered_clips.append(clip_mp4)
+            print(f"✓ Bilingual Breakdown Clip Rendered ({dur:.1f}s)")
             
     # Add Standard 3.4s Outro Clip
     outro_audio = os.path.join(temp_dir, "outro_speech.mp3")
@@ -982,26 +1179,21 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
     
     # Generate 16:9 Thumbnail per EP.01 standard (tokyoflow-thumbnail-factory)
     thumb_path_official = os.path.join(official_release_dir, "thumbnail.jpg")
+    master_asset_thumb = os.path.join(PROJECT_ROOT, "docs", "youtube_assets", "thumbnails", f"{folder_name}_thumb.jpg")
     
-    bg_image_path = None
-    if "2" in playlist_badge or "便利店" in playlist_badge or "Kombini" in playlist_badge:
-        bg_image_path = os.path.join(PROJECT_ROOT, "docs", "youtube_assets", "playlists", "pl02_kombini_street_cover.jpg")
-    elif "3" in playlist_badge or "交通" in playlist_badge or "Transit" in playlist_badge:
-        bg_image_path = os.path.join(PROJECT_ROOT, "docs", "youtube_assets", "playlists", "pl01_transit_metro_cover.jpg")
-    elif "居酒屋" in playlist_badge or "Izakaya" in playlist_badge or "美食" in playlist_badge:
-        bg_image_path = os.path.join(PROJECT_ROOT, "docs", "youtube_assets", "playlists", "pl03_izakaya_dining_cover.jpg")
+    if os.path.exists(master_asset_thumb):
+        shutil.copyfile(master_asset_thumb, thumb_path_official)
+        print(f"✓ Preserved Master 4K AI Landscape Thumbnail: {thumb_path_official}")
     else:
-        bg_image_path = os.path.join(PROJECT_ROOT, "docs", "youtube_assets", "playlists", "pl04_nhk_news_shadowing_cover.jpg")
-        
-    generate_serialized_thumbnail(
-        ep_num=next_ep_num,
-        english_hook=long_spec.get("english_hook", "JAPAN TREND"),
-        japanese_key_phrase=long_spec.get("japanese_key_phrase", topic_title),
-        bottom_tag=f"[{jlpt_level}]  {long_spec.get('bottom_tag', 'Native Pop Culture • Shadowing')}",
-        bg_image_path=bg_image_path,
-        output_path=thumb_path_official,
-        jlpt_level=jlpt_level
-    )
+        generate_serialized_thumbnail(
+            ep_num=next_ep_num,
+            english_hook=long_spec.get("english_hook", "JAPAN TREND"),
+            japanese_key_phrase=long_spec.get("japanese_key_phrase", topic_title),
+            bottom_tag=f"[{jlpt_level}]  {long_spec.get('bottom_tag', 'Native Pop Culture • Shadowing')}",
+            bg_image_path=bg_image_path,
+            output_path=thumb_path_official,
+            jlpt_level=jlpt_level
+        )
     
     # 5. Render 9:16 Shorts Video (4-Stage Progressive Shadowing Engine)
     print(f"⚡ [4/5] Rendering 9:16 Shorts Funnel Video (4-Stage Interactive Shadowing)...")
@@ -1027,10 +1219,10 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
         accent_col = (234, 179, 8)      # Amber Beer Gold
         sec_col = (249, 115, 22)        # Warm Glow
     else: # Anime / Pop culture / News
-        accent_col = (168, 85, 247)     # Cyberpunk Purple
-        sec_col = (236, 72, 153)        # Neon Pink
+        accent_col = (236, 72, 153)     # Neon Pink
+        sec_col = (250, 204, 21)        # Solar Yellow
 
-    hook_title_parts = shorts_spec.get("hook_title", "ANIME SAUNA\nREAL TOKYO").split("\n")
+    hook_title_parts = shorts_spec.get("hook_title", "JAPAN TREND\nREAL TOKYO").split("\n")
     hook_main = hook_title_parts[0]
     hook_sub = hook_title_parts[1] if len(hook_title_parts) > 1 else "JAPAN TRENDING"
 
@@ -1045,7 +1237,8 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
         "en_meaning": shorts_spec.get("en_translation", ""),
         "accent_color": accent_col,
         "secondary_color": sec_col,
-        "location": f"TOKYO POP CULTURE • {jlpt_level}"
+        "location": f"TOKYO POP CULTURE • {jlpt_level}",
+        "jlpt_level": jlpt_level
     }
     cover_img = create_shorts_cover(shorts_cover_dict)
     cover_img.save(short_thumb_official, "JPEG", quality=95)

@@ -50,7 +50,8 @@ def render_follow_along_frame(
     pro_tip: str,
     current_time: float,
     chapter_label: str,
-    ep_label: str
+    ep_label: str,
+    en_window: tuple = (0.0, 0.0)
 ) -> Image.Image:
     width, height = 1920, 1080
     img = Image.new("RGB", (width, height), color=(248, 250, 252))
@@ -129,9 +130,15 @@ def render_follow_along_frame(
     # Divider Line
     draw.line([(card_x + 50, card_y + 265), (card_x + card_w - 50, card_y + 265)], fill=(241, 245, 249), width=2)
 
-    # 4. English Meaning
+    # 4. English Meaning (with active voice follow-along glow)
+    is_en_active = (en_window[0] <= current_time <= en_window[1]) and (en_window[1] > 0)
     font_en = get_font(32)
-    draw.text((card_x + 50, card_y + 295), f"Meaning:  {english_meaning}", fill=(30, 41, 59), font=font_en)
+    if is_en_active:
+        draw.rounded_rectangle([(card_x + 35, card_y + 280), (card_x + card_w - 35, card_y + 350)], radius=14, fill=(238, 242, 255), outline=(99, 102, 241), width=2)
+        draw.ellipse([(card_x + 50, card_y + 305), (card_x + 64, card_y + 319)], fill=(99, 102, 241))
+        draw.text((card_x + 78, card_y + 295), f"Meaning:  {english_meaning}", fill=(67, 56, 202), font=font_en)
+    else:
+        draw.text((card_x + 50, card_y + 295), f"Meaning:  {english_meaning}", fill=(30, 41, 59), font=font_en)
 
     # 5. Pro-Tip
     if pro_tip:
@@ -140,8 +147,12 @@ def render_follow_along_frame(
 
     # 6. Bottom Shadowing Drill Banner
     draw.rounded_rectangle([(120, 735), (width - 120, 885)], radius=20, fill=(241, 245, 249), outline=(226, 232, 240), width=2)
-    draw.text((160, 770), "[ SHADOWING DRILL ]  Repeat aloud with native timing & pitch accent", fill=(51, 65, 85), font=get_font(28))
-    draw.text((160, 825), "Native Audio: Nanami (Tokyo Standard) • Millisecond Follow-Along Highlighting", fill=(100, 116, 139), font=get_font(22))
+    if is_en_active:
+        draw.text((160, 770), "[ ENGLISH EXPLANATION ACTIVE ]  Andrew explaining English meaning & nuance", fill=(67, 56, 202), font=get_font(28))
+        draw.text((160, 825), "Next: Shadowing Drill • Repeat aloud in Japanese with native timing", fill=(100, 116, 139), font=get_font(22))
+    else:
+        draw.text((160, 770), "[ SHADOWING DRILL ]  Repeat aloud with native timing & pitch accent", fill=(51, 65, 85), font=get_font(28))
+        draw.text((160, 825), "Native Audio: Nanami (Tokyo Standard) • Millisecond Follow-Along Highlighting", fill=(100, 116, 139), font=get_font(22))
 
     return img
 
@@ -165,8 +176,7 @@ def render_breakdown_frame(
 
     # Category Pill & Title (Pixel-locked at y=115 and y=180)
     draw_category_pill(draw, "[ BREAKDOWN ]  Sentence Structure & Nuance", x=120, y=115)
-    draw.text((120, 180), f"Sentence:  {sentence_ja}", fill=(15, 23, 42), font=get_font(34))
-
+    
     # Vocab Grid Cards (Top Half)
     grid_x = 120
     grid_y = 240
@@ -187,6 +197,13 @@ def render_breakdown_frame(
         if sp_start <= current_time <= sp_end:
             spotlight_active = True
 
+    # Sentence Bar (with active highlight during full sentence repeat)
+    if spotlight_active and active_vocab_idx is None:
+        draw.rounded_rectangle([(110, 168), (width - 110, 222)], radius=12, fill=(238, 242, 255), outline=(99, 102, 241), width=2)
+        draw.text((124, 178), f"Sentence:  {sentence_ja}", fill=(67, 56, 202), font=get_font(34))
+    else:
+        draw.text((120, 180), f"Sentence:  {sentence_ja}", fill=(15, 23, 42), font=get_font(34))
+
     for i in range(num_cards):
         v = vocab_list[i]
         x = grid_x + i * (card_w + gap)
@@ -196,8 +213,8 @@ def render_breakdown_frame(
         if is_active:
             # Active highlighted card (Warm Gold / Blue Glow)
             draw.rounded_rectangle([(x, y), (x + card_w, y + card_h)], radius=18, fill=(254, 249, 195), outline=(245, 158, 11), width=3)
-            # Active Indicator Dot
-            draw.ellipse([(x + card_w // 2 - 6, y - 18), (x + card_w // 2 + 6, y - 6)], fill=(220, 38, 38))
+            # Active Indicator Dot (Pinned cleanly to top edge)
+            draw.ellipse([(x + card_w // 2 - 7, y - 7), (x + card_w // 2 + 7, y + 7)], fill=(220, 38, 38))
             pos_fill = (254, 240, 138)
             pos_color = (180, 83, 9)
             kana_color = (180, 83, 9)
@@ -237,7 +254,14 @@ def render_breakdown_frame(
         draw.text((spot_x + 30, spot_y + 16), f"[ GRAMMAR SPOTLIGHT ]  {grammar_title}", fill=(67, 56, 202), font=get_font(26))
 
     b_y = spot_y + 80
-    for title, desc in grammar_bullets:
+    for bullet in grammar_bullets:
+        if isinstance(bullet, (list, tuple)) and len(bullet) >= 2:
+            title, desc = bullet[0], bullet[1]
+        elif isinstance(bullet, str) and ":" in bullet:
+            parts = bullet.split(":", 1)
+            title, desc = parts[0].strip(), parts[1].strip()
+        else:
+            title, desc = "• Rule", str(bullet)
         bullet_title_color = (220, 38, 38) if spotlight_active else (185, 28, 28)
         draw.text((spot_x + 30, b_y), title, fill=bullet_title_color, font=get_font(22))
         draw.text((spot_x + 330, b_y), desc, fill=(30, 41, 59), font=get_font(22))
@@ -286,7 +310,8 @@ def render_follow_along_video_clip(
     audio_path: str,
     duration: float,
     out_mp4_path: str,
-    fps: int = 30
+    fps: int = 30,
+    en_window: tuple = (0.0, 0.0)
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
@@ -324,7 +349,8 @@ def render_follow_along_video_clip(
                 pro_tip=pro_tip,
                 current_time=t,
                 chapter_label=chapter_label,
-                ep_label=ep_label
+                ep_label=ep_label,
+                en_window=en_window
             )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
@@ -433,6 +459,142 @@ def render_static_video_clip(
     try:
         for _ in range(total_frames):
             proc.stdin.write(frame_bytes)
+    except (BrokenPipeError, IOError):
+        pass
+    finally:
+        try:
+            proc.stdin.close()
+        except Exception:
+            pass
+        proc.wait()
+
+def render_news_broadcast_frame(
+    bg_image_path: str,
+    headline_ja: str,
+    location_tag: str,
+    current_time: float,
+    ep_label: str = "EP.10"
+) -> Image.Image:
+    width, height = 1920, 1080
+    if bg_image_path and os.path.exists(bg_image_path):
+        base_img = Image.open(bg_image_path).convert("RGB").resize((width, height), Image.Resampling.LANCZOS)
+    else:
+        base_img = Image.new("RGB", (width, height), (15, 23, 42))
+
+    # Add cinematic dark overlays
+    overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_ov = ImageDraw.Draw(overlay)
+    
+    # Top banner vignette
+    for y in range(140):
+        alpha = int(180 * (1.0 - (y / 140.0)))
+        draw_ov.line([(0, y), (width, y)], fill=(5, 8, 16, alpha))
+        
+    # Bottom lower-third vignette
+    for y in range(700, height):
+        rel = (y - 700) / 380.0
+        alpha = int(220 * (rel ** 1.1))
+        draw_ov.line([(0, y), (width, y)], fill=(3, 6, 14, alpha))
+
+    img = Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGBA")
+    draw = ImageDraw.Draw(img)
+
+    # 1. Top-Left Live Breaking News Capsule
+    live_w, live_h = 360, 68
+    live_x, live_y = 70, 45
+    draw.rounded_rectangle([(live_x, live_y), (live_x + live_w, live_y + live_h)], radius=18, fill=(220, 38, 38), outline=(255, 255, 255), width=2)
+    
+    # Blinking Live Red Dot
+    dot_color = (255, 255, 255) if int(current_time * 2) % 2 == 0 else (254, 202, 202)
+    draw.ellipse([(live_x + 22, live_y + 24), (live_x + 42, live_y + 44)], fill=dot_color)
+    
+    font_live = get_font(30)
+    draw.text((live_x + 56, live_y + 16), "LIVE ニュース速報", fill=(255, 255, 255), font=font_live)
+
+    # 2. Top-Right Channel Bug
+    font_bug = get_font(24)
+    bug_str = f"TOKYO NEWS 24  |  {ep_label} LIVE"
+    bbox_bug = draw.textbbox((0, 0), bug_str, font=font_bug)
+    bw = bbox_bug[2] - bbox_bug[0]
+    draw.rounded_rectangle([(width - bw - 110, live_y), (width - 70, live_y + live_h)], radius=18, fill=(15, 23, 42, 220), outline=(56, 189, 248), width=2)
+    draw.text((width - bw - 90, live_y + 18), bug_str, fill=(255, 255, 255), font=font_bug)
+
+    # 3. TV Broadcast Lower-Third Banner
+    bar_x, bar_y, bar_w, bar_h = 70, 830, width - 140, 180
+    draw.rounded_rectangle([(bar_x, bar_y), (bar_x + bar_w, bar_y + bar_h)], radius=24, fill=(10, 15, 28, 235), outline=(51, 65, 85), width=3)
+    
+    # Red Accent "速報" Badge on the left
+    badge_bw, badge_bh = 140, bar_h - 24
+    draw.rounded_rectangle([(bar_x + 12, bar_y + 12), (bar_x + 12 + badge_bw, bar_y + 12 + badge_bh)], radius=16, fill=(225, 29, 72))
+    font_soku = get_font(44)
+    draw.text((bar_x + 36, bar_y + 52), "速報", fill=(255, 255, 255), font=font_soku)
+
+    # Headline Text
+    font_head = get_font(46)
+    head_text = headline_ja
+    bbox_h = draw.textbbox((0, 0), head_text, font=font_head)
+    if (bbox_h[2] - bbox_h[0]) > (bar_w - 200):
+        font_head = get_font(38)
+    
+    # Drop shadow
+    for dx, dy in [(-2, 2), (2, 2), (0, 3)]:
+        draw.text((bar_x + badge_bw + 35 + dx, bar_y + 35 + dy), head_text, fill=(0, 0, 0, 220), font=font_head)
+    draw.text((bar_x + badge_bw + 35, bar_y + 35), head_text, fill=(255, 255, 255), font=font_head)
+
+    # Sub-Ticker Line
+    font_sub = get_font(24)
+    tri_x = bar_x + badge_bw + 35
+    tri_y = bar_y + 120
+    draw.polygon([(tri_x, tri_y), (tri_x + 12, tri_y + 8), (tri_x, tri_y + 16)], fill=(56, 189, 248))
+    ticker_text = f"{location_tag.upper()}  |  AUTHENTIC BROADCAST AUDIO & REAL NEWS IMMERSION"
+    draw.text((tri_x + 22, bar_y + 115), ticker_text, fill=(56, 189, 248), font=font_sub)
+
+    return img.convert("RGB")
+
+def render_news_broadcast_video_clip(
+    bg_image_path: str,
+    headline_ja: str,
+    location_tag: str,
+    audio_path: str,
+    duration: float,
+    out_mp4_path: str,
+    ep_label: str = "EP.10",
+    fps: int = 30
+):
+    total_duration = duration + 0.2
+    total_frames = int(total_duration * fps)
+
+    cmd = [
+        "ffmpeg", "-y",
+        "-f", "rawvideo",
+        "-vcodec", "rawvideo",
+        "-s", "1920x1080",
+        "-pix_fmt", "rgb24",
+        "-r", str(fps),
+        "-i", "-",
+        "-i", audio_path,
+        "-c:v", "libx264",
+        "-pix_fmt", "yuv420p",
+        "-r", str(fps),
+        "-c:a", "aac",
+        "-b:a", "192k",
+        "-ar", "44100",
+        "-ac", "2",
+        "-t", str(total_duration),
+        out_mp4_path
+    ]
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    try:
+        for f_idx in range(total_frames):
+            t = f_idx / fps
+            frame = render_news_broadcast_frame(
+                bg_image_path=bg_image_path,
+                headline_ja=headline_ja,
+                location_tag=location_tag,
+                current_time=t,
+                ep_label=ep_label
+            )
+            proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
         pass
     finally:
