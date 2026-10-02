@@ -26,163 +26,61 @@ public struct NewsShadowingLabView: View {
             TokyoDuoAdaptiveLayout(duoSplitRatio: 0.42) {
                 // Left Screen: News Broadcast Header & Audio Controls
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 14) {
-                        HStack {
-                            Label(newsItem.category, systemImage: newsItem.categoryIcon)
-                                .font(.caption)
-                                .fontWeight(.bold)
-                                .foregroundColor(.accentColor)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color.accentColor.opacity(0.15))
-                                .cornerRadius(8)
-
-                            Spacer()
-
-                            Text(newsItem.publishDate)
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
-                        }
-
-                        Text(newsItem.title)
-                            .font(.system(size: 20, weight: .black, design: .rounded))
-                            .foregroundColor(.primary)
-
-                        if showFurigana {
-                            Text(newsItem.titleFurigana)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-
-                        Divider()
-
-                        // Audio Controls Bar
-                        VStack(spacing: 12) {
-                            HStack(spacing: 14) {
-                                Button(action: {
-                                    if nativeAudio.isPlayingRemoteAudio {
-                                        nativeAudio.stopAll()
-                                    } else {
-                                        nativeAudio.playAudioUrl(newsItem.audioUrl ?? "", sentences: newsItem.contentSentences)
-                                        gamification.incrementQuestProgress(id: "q_listen_news")
-                                    }
-                                }) {
-                                    HStack(spacing: 6) {
-                                        Image(systemName: nativeAudio.isPlayingRemoteAudio ? "pause.fill" : "play.fill")
-                                        Text(nativeAudio.isPlayingRemoteAudio ? "Pause" : "Native Audio")
-                                            .font(.system(size: 14, weight: .bold))
-                                    }
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 10)
-                                    .background(Color.accentColor)
-                                    .cornerRadius(12)
-                                }
-
-                                // Speed selector
-                                Menu {
-                                    Button("0.75x (Slow)") { nativeAudio.setSpeed(0.75) }
-                                    Button("1.0x (Normal)") { nativeAudio.setSpeed(1.0) }
-                                    Button("1.25x (Fast)") { nativeAudio.setSpeed(1.25) }
-                                } label: {
-                                    HStack(spacing: 2) {
-                                        Text("\(String(format: "%.2fx", nativeAudio.playbackRate))")
-                                            .font(.system(size: 13, weight: .bold))
-                                        Image(systemName: "chevron.down")
-                                            .font(.system(size: 9))
-                                    }
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 10)
-                                    .background(.ultraThinMaterial)
-                                    .cornerRadius(10)
-                                }
-
-                                Spacer()
-
-                                // Furigana & Translation Toggles
-                                Button(action: { showFurigana.toggle() }) {
-                                    Text("ふりがな")
-                                        .font(.system(size: 11, weight: .bold))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 8)
-                                        .background(showFurigana ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
-                                        .cornerRadius(8)
-                                }
-
-                                Button(action: { showEnglishTranslation.toggle() }) {
-                                    Text("EN")
-                                        .font(.system(size: 11, weight: .bold))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 8)
-                                        .background(showEnglishTranslation ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
-                                        .cornerRadius(8)
-                                }
-                            }
-
-                            // Live Karaoke Audio Progress Bar
-                            if nativeAudio.isPlayingRemoteAudio && nativeAudio.durationSec > 0 {
-                                VStack(spacing: 4) {
-                                    ProgressView(value: nativeAudio.currentTimeSec, total: nativeAudio.durationSec)
-                                        .tint(.accentColor)
-                                        .scaleEffect(x: 1, y: 1.4, anchor: .center)
-
-                                    HStack {
-                                        Text(String(format: "%02d:%02d", Int(nativeAudio.currentTimeSec) / 60, Int(nativeAudio.currentTimeSec) % 60))
-                                        Spacer()
-                                        if let activeId = nativeAudio.activeSentenceId {
-                                            Text("Reading \(activeId.uppercased())")
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.accentColor)
-                                        }
-                                        Spacer()
-                                        Text(String(format: "%02d:%02d", Int(nativeAudio.durationSec) / 60, Int(nativeAudio.durationSec) % 60))
-                                    }
-                                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
-                                    .foregroundColor(.secondary)
-                                }
-                            }
-                        }
-
-                        // Summary & Context Card
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("Broadcast Overview")
-                                .font(.system(size: 12, weight: .heavy))
-                                .foregroundColor(.secondary)
-                                .textCase(.uppercase)
-
-                            Text("Authentic NHK Easy Japanese broadcast with real native cadence. Follow the synchronized karaoke flow on the right screen and record your shadowing to master spoken intonation.")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                                .lineSpacing(3)
-                        }
-                        .padding(12)
-                        .background(Color.primary.opacity(0.04))
-                        .cornerRadius(12)
-                    }
-                    .padding(16)
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(20)
-                    .padding(12)
+                    newsHeaderAndControlsPane
                 }
             } secondaryContent: {
                 // Right Screen: Shadowing, Vocabulary, Quiz interactive Lab
+                newsInteractiveContentPane
+            } singleContent: {
+                //  iPhone Single Screen: Unified vertical flow
                 VStack(spacing: 0) {
-                    Picker("Tab", selection: $selectedTab) {
-                        Text("Shadowing").tag(0)
-                        Text("Vocabulary (\(newsItem.vocabulary.count))").tag(1)
-                        Text("Quiz").tag(2)
-                    }
-                    .pickerStyle(.segmented)
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
+                    ScrollView {
+                        VStack(spacing: 12) {
+                            newsHeaderAndControlsPane
+                            
+                            Picker("Tab", selection: $selectedTab) {
+                                Text("Shadowing").tag(0)
+                                Text("Vocab (\(newsItem.vocabulary.count))").tag(1)
+                                Text("Quiz").tag(2)
+                            }
+                            .pickerStyle(.segmented)
+                            .padding(.horizontal)
+                            .padding(.top, 4)
 
-                    if selectedTab == 0 {
-                        shadowingSentenceListView
-                    } else if selectedTab == 1 {
-                        vocabularyListView
-                    } else {
-                        quizView
+                            if selectedTab == 0 {
+                                shadowingSentenceListView
+                            } else if selectedTab == 1 {
+                                vocabularyListView
+                            } else {
+                                quizView
+                            }
+                        }
                     }
+
+                    // Sticky Bottom Action Bar
+                    HStack {
+                        Button(action: {
+                            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                            gamification.addRewards(tp: 30, exp: 40)
+                            dismiss()
+                        }) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "checkmark.seal.fill")
+                                Text("Complete News Shadowing (+30 TP)")
+                                    .fontWeight(.heavy)
+                            }
+                            .font(.system(size: 15))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 14)
+                            .background(Color.accentColor)
+                            .cornerRadius(14)
+                            .shadow(color: Color.accentColor.opacity(0.3), radius: 6, x: 0, y: 3)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(.ultraThinMaterial)
                 }
             }
         }
@@ -190,6 +88,167 @@ public struct NewsShadowingLabView: View {
         .navigationBarTitleDisplayMode(.inline)
         .onDisappear {
             nativeAudio.stopAll()
+        }
+    }
+
+    private var newsHeaderAndControlsPane: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                Label(newsItem.category, systemImage: newsItem.categoryIcon)
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .foregroundColor(.accentColor)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Color.accentColor.opacity(0.15))
+                    .cornerRadius(8)
+
+                Spacer()
+
+                Text(newsItem.publishDate)
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+
+            Text(newsItem.title)
+                .font(.system(size: 20, weight: .black, design: .rounded))
+                .foregroundColor(.primary)
+
+            if showFurigana {
+                Text(newsItem.titleFurigana)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+
+            Divider()
+
+            // Audio Controls Bar
+            VStack(spacing: 12) {
+                HStack(spacing: 14) {
+                    Button(action: {
+                        if nativeAudio.isPlayingRemoteAudio {
+                            nativeAudio.stopAll()
+                        } else {
+                            nativeAudio.playAudioUrl(newsItem.audioUrl ?? "", sentences: newsItem.contentSentences)
+                            gamification.incrementQuestProgress(id: "q_listen_news")
+                        }
+                    }) {
+                        HStack(spacing: 6) {
+                            Image(systemName: nativeAudio.isPlayingRemoteAudio ? "pause.fill" : "play.fill")
+                            Text(nativeAudio.isPlayingRemoteAudio ? "Pause" : "Native Audio")
+                                .font(.system(size: 14, weight: .bold))
+                        }
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(Color.accentColor)
+                        .cornerRadius(12)
+                    }
+
+                    // Speed selector
+                    Menu {
+                        Button("0.75x (Slow)") { nativeAudio.setSpeed(0.75) }
+                        Button("1.0x (Normal)") { nativeAudio.setSpeed(1.0) }
+                        Button("1.25x (Fast)") { nativeAudio.setSpeed(1.25) }
+                    } label: {
+                        HStack(spacing: 2) {
+                            Text("\(String(format: "%.2fx", nativeAudio.playbackRate))")
+                                .font(.system(size: 13, weight: .bold))
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 9))
+                        }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 10)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(10)
+                    }
+
+                    Spacer()
+
+                    // Furigana & Translation Toggles
+                    Button(action: { showFurigana.toggle() }) {
+                        Text("ふりがな")
+                            .font(.system(size: 11, weight: .bold))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 8)
+                            .background(showFurigana ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
+                            .cornerRadius(8)
+                    }
+
+                    Button(action: { showEnglishTranslation.toggle() }) {
+                        Text("EN")
+                            .font(.system(size: 11, weight: .bold))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 8)
+                            .background(showEnglishTranslation ? Color.accentColor.opacity(0.25) : Color.gray.opacity(0.2))
+                            .cornerRadius(8)
+                    }
+                }
+
+                // Live Karaoke Audio Progress Bar
+                if nativeAudio.isPlayingRemoteAudio && nativeAudio.durationSec > 0 {
+                    VStack(spacing: 4) {
+                        ProgressView(value: nativeAudio.currentTimeSec, total: nativeAudio.durationSec)
+                            .tint(.accentColor)
+                            .scaleEffect(x: 1, y: 1.4, anchor: .center)
+
+                        HStack {
+                            Text(String(format: "%02d:%02d", Int(nativeAudio.currentTimeSec) / 60, Int(nativeAudio.currentTimeSec) % 60))
+                            Spacer()
+                            if let activeId = nativeAudio.activeSentenceId {
+                                Text("Reading \(activeId.uppercased())")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.accentColor)
+                            }
+                            Spacer()
+                            Text(String(format: "%02d:%02d", Int(nativeAudio.durationSec) / 60, Int(nativeAudio.durationSec) % 60))
+                        }
+                        .font(.system(size: 10, weight: .semibold, design: .monospaced))
+                        .foregroundColor(.secondary)
+                    }
+                }
+            }
+
+            // Summary & Context Card
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Broadcast Overview")
+                    .font(.system(size: 12, weight: .heavy))
+                    .foregroundColor(.secondary)
+                    .textCase(.uppercase)
+
+                Text("Authentic NHK Easy Japanese broadcast with real native cadence. Follow the synchronized karaoke flow and record your shadowing to master spoken intonation.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .lineSpacing(3)
+            }
+            .padding(12)
+            .background(Color.primary.opacity(0.04))
+            .cornerRadius(12)
+        }
+        .padding(16)
+        .background(.ultraThinMaterial)
+        .cornerRadius(20)
+        .padding(12)
+    }
+
+    private var newsInteractiveContentPane: some View {
+        VStack(spacing: 0) {
+            Picker("Tab", selection: $selectedTab) {
+                Text("Shadowing").tag(0)
+                Text("Vocabulary (\(newsItem.vocabulary.count))").tag(1)
+                Text("Quiz").tag(2)
+            }
+            .pickerStyle(.segmented)
+            .padding(.horizontal)
+            .padding(.vertical, 8)
+
+            if selectedTab == 0 {
+                shadowingSentenceListView
+            } else if selectedTab == 1 {
+                vocabularyListView
+            } else {
+                quizView
+            }
         }
     }
 

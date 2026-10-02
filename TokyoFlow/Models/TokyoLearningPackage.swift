@@ -9,6 +9,16 @@ public enum LearningContextMode: String, CaseIterable, Identifiable, Codable {
 
     public var id: String { rawValue }
 
+    public func localizedName(isEnglish: Bool) -> String {
+        switch self {
+        case .commute: return isEnglish ? "Morning Commute" : "早高峰通勤"
+        case .coffeeBreak: return isEnglish ? "5-Min Coffee Break" : "5分钟咖啡休息"
+        case .deepEvening: return isEnglish ? "Evening Deep Study" : "晚间深度精进"
+        case .travelSurvival: return isEnglish ? "Travel & Survival Sprint" : "赴日出行速通"
+        case .bedtimeImmersion: return isEnglish ? "Bedtime Radio Flow" : "睡前电台伴学"
+        }
+    }
+
     public var icon: String {
         switch self {
         case .commute: return "tram.fill"
@@ -48,6 +58,16 @@ public enum LearningContextMode: String, CaseIterable, Identifiable, Codable {
         case .bedtimeImmersion: return "Gentle ambient city audio & passive radio flow"
         }
     }
+
+    public func localizedTagline(isEnglish: Bool) -> String {
+        switch self {
+        case .commute: return isEnglish ? "Audio & reading flow for trains, buses & walking" : "针对电车、公交及步行场景的听读流"
+        case .coffeeBreak: return isEnglish ? "3-second reaction drills & rapid spaced recall" : "3秒极速反应训练与高频抗遗忘复习"
+        case .deepEvening: return isEnglish ? "Full video breakdown, grammar nuances & manga" : "微课视频深度拆解、语法辨析与漫画精读"
+        case .travelSurvival: return isEnglish ? "Golden phrases for kombini, izakaya & tax-free" : "便利店、居酒屋、免税退税黄金必备句"
+        case .bedtimeImmersion: return isEnglish ? "Gentle ambient city audio & passive radio flow" : "沉浸式都市原声与电台慢速伴读"
+        }
+    }
 }
 
 public enum JLPTLevelTrack: String, CaseIterable, Identifiable, Codable {
@@ -66,6 +86,16 @@ public enum JLPTLevelTrack: String, CaseIterable, Identifiable, Codable {
         case .n3: return "N3"
         case .n2: return "N2"
         case .n1: return "N1"
+        }
+    }
+
+    public func localizedLabel(isEnglish: Bool) -> String {
+        switch self {
+        case .n5: return isEnglish ? "N5 Foundation" : "N5 初级基石"
+        case .n4: return isEnglish ? "N4 Elementary" : "N4 进阶巩固"
+        case .n3: return isEnglish ? "N3 Intermediate" : "N3 中级过桥"
+        case .n2: return isEnglish ? "N2 Business" : "N2 商务流利"
+        case .n1: return isEnglish ? "N1 Nuance" : "N1 母语细微"
         }
     }
 
@@ -90,6 +120,13 @@ public enum LearningFocusMode: String, CaseIterable, Identifiable, Codable {
     case examSprint = "JLPT Exam & Trap Mastery"
 
     public var id: String { rawValue }
+
+    public func localizedName(isEnglish: Bool) -> String {
+        switch self {
+        case .practicalFluency: return isEnglish ? "Tokyo Living Fluency" : "东京实战流利"
+        case .examSprint: return isEnglish ? "JLPT Exam Mastery" : "JLPT 考点速通"
+        }
+    }
     
     public var icon: String {
         switch self {
@@ -108,6 +145,19 @@ public enum PackageStepType: String, Codable {
     case newsShadowing = "News Broadcast"
     case dojoReaction = "3-Second Reaction Dojo"
     case examTrapQuiz = "JLPT Exam Trap Drill"
+
+    public func localizedName(isEnglish: Bool) -> String {
+        switch self {
+        case .kanaAccent: return isEnglish ? "Kana & Tone" : "假名与声调"
+        case .spacedVocab: return isEnglish ? "Spaced Vocab" : "抗遗忘词汇"
+        case .grammarFormula: return isEnglish ? "Grammar Formula" : "句型文法"
+        case .goldenSentence: return isEnglish ? "Tokyo Phrase" : "地道金句"
+        case .scenarioVideo: return isEnglish ? "Video Lesson" : "情景微课"
+        case .newsShadowing: return isEnglish ? "News Broadcast" : "新闻跟读"
+        case .dojoReaction: return isEnglish ? "Reaction Dojo" : "极速反应"
+        case .examTrapQuiz: return isEnglish ? "Trap Drill" : "避坑测验"
+        }
+    }
 }
 
 

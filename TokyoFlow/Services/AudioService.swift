@@ -36,6 +36,7 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
 
     @Published public var isSpeaking: Bool = false
     @Published public var currentSpeakingText: String? = nil
+    @Published public var playbackProgress: Double = 0.0
     @Published public var audioPowerLevels: [CGFloat] = [0.2, 0.4, 0.7, 0.5, 0.3]
     @Published public var currentAmbience: TokyoAmbienceType = .none
     @Published public var useApplePCCEnhancedVoice: Bool = true
@@ -65,6 +66,7 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
 
     public func speak(
         text: String,
+        reading: String? = nil,
         style: JapaneseVoiceStyle = .dailyConversational,
         rate: Float? = nil,
         pitch: Float? = nil,
@@ -86,6 +88,7 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
 
         self.onSpeechFinished = onFinished
         self.currentSpeakingText = cleanText
+        self.playbackProgress = 0.0
         self.isSpeaking = true
         startWaveformSimulation()
 
@@ -94,13 +97,15 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
             GamificationService.shared.addRewards(tp: 1, exp: 2)
         }
 
-        // 🌟 Step 1: Check self-built Native Human Voice Bank first
-        if TokyoVoiceBankService.shared.hasNativeAudio(for: cleanText) {
-            let success = TokyoVoiceBankService.shared.playNativeAudio(text: cleanText, rate: rate) { [weak self] in
+        // 🌟 Step 1: Check self-built Native Human Voice Bank first (with reading alias support)
+        if TokyoVoiceBankService.shared.hasNativeAudio(for: cleanText, reading: reading) {
+            self.isSpeaking = false // Delegate isPlaying to TokyoVoiceBankService
+            let success = TokyoVoiceBankService.shared.playNativeAudio(text: cleanText, reading: reading, rate: rate) { [weak self] in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     self.isSpeaking = false
                     self.currentSpeakingText = nil
+                    self.playbackProgress = 0.0
                     self.stopWaveformSimulation()
                     let callback = self.onSpeechFinished
                     self.onSpeechFinished = nil
@@ -128,6 +133,7 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
             utterance.postUtteranceDelay = settings.postDelay
 
             DispatchQueue.main.async {
+                self.playbackProgress = 0.0
                 self.synthesizer.speak(utterance)
             }
         }
@@ -141,6 +147,7 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
         DispatchQueue.main.async {
             self.isSpeaking = false
             self.currentSpeakingText = nil
+            self.playbackProgress = 0.0
             self.stopWaveformSimulation()
             let callback = self.onSpeechFinished
             self.onSpeechFinished = nil
@@ -169,10 +176,19 @@ public class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelega
         audioPowerLevels = [0.2, 0.2, 0.2, 0.2, 0.2]
     }
 
+    public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
+        let total = max(1, utterance.speechString.count)
+        let prog = Double(characterRange.location) / Double(total)
+        DispatchQueue.main.async {
+            self.playbackProgress = min(1.0, max(0.0, prog))
+        }
+    }
+
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         DispatchQueue.main.async {
             self.isSpeaking = false
             self.currentSpeakingText = nil
+            self.playbackProgress = 0.0
             self.stopWaveformSimulation()
             let callback = self.onSpeechFinished
             self.onSpeechFinished = nil

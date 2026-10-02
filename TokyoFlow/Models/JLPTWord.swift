@@ -9,6 +9,7 @@ public struct JLPTWord: Identifiable, Hashable, Codable {
     public let level: String // "N5", "N4", "N3", "N2", "N1"
     public let partOfSpeech: String
     public let meaning: String
+    public let meaningZh: String?
     public let exampleJa: String
     public let exampleFurigana: String
     public let exampleZh: String
@@ -27,6 +28,7 @@ public struct JLPTWord: Identifiable, Hashable, Codable {
         level: String,
         partOfSpeech: String,
         meaning: String,
+        meaningZh: String? = nil,
         exampleJa: String,
         exampleFurigana: String,
         exampleZh: String,
@@ -44,6 +46,7 @@ public struct JLPTWord: Identifiable, Hashable, Codable {
         self.level = level
         self.partOfSpeech = partOfSpeech
         self.meaning = meaning
+        self.meaningZh = meaningZh
         self.exampleJa = exampleJa
         self.exampleFurigana = exampleFurigana
         self.exampleZh = exampleZh
@@ -57,4 +60,21 @@ public struct JLPTWord: Identifiable, Hashable, Codable {
     public var displayTitle: String {
         return kanji.isEmpty ? reading : kanji
     }
+
+    public func localizedMeaning(isEnglish: Bool) -> String {
+        if isEnglish {
+            return meaning.isEmpty ? (meaningZh ?? "") : meaning
+        } else {
+            return (meaningZh?.isEmpty == false) ? meaningZh! : meaning
+        }
+    }
+
+    public func localizedExample(isEnglish: Bool) -> String {
+        if isEnglish {
+            return exampleEn.isEmpty ? exampleZh : exampleEn
+        } else {
+            return exampleZh.isEmpty ? exampleEn : exampleZh
+        }
+    }
 }
+

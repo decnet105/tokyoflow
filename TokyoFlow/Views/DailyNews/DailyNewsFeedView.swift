@@ -33,7 +33,7 @@ public struct DailyNewsFeedView: View {
                             VStack(spacing: 12) {
                                 HStack {
                                     HStack(spacing: 8) {
-                                        Text(gamification.currentTier.badgeIcon.contains(".") ? "🏆" : "🌸")
+                                        Text(gamification.currentTier.badgeIcon.contains(".") ? "star.fill" : "leaf.fill")
                                             .font(.title2)
                                         VStack(alignment: .leading, spacing: 2) {
                                             Text(gamification.currentTier.titleJapanese)
@@ -149,7 +149,7 @@ public struct DailyNewsFeedView: View {
                                                     .font(.title2)
                                                     .foregroundColor(.accentColor)
 
-                                                Text(radioService.isPlaying && radioService.currentStation?.id == primaryStation.id ? "Now Playing • Tap to Open" : "Start 1-Hour Radio Immersion")
+                                                Text(radioService.isPlaying && radioService.currentStation?.id == primaryStation.id ? "Now Playing • Tap to Open" : "Start Tokyo Radio Immersion")
                                                     .font(.caption)
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.accentColor)
@@ -203,7 +203,7 @@ public struct DailyNewsFeedView: View {
                             // News Article Feed
                             VStack(spacing: 14) {
                                 ForEach(filteredNews) { item in
-                                    NavigationLink(destination: NewsShadowingLabView(newsItem: item)) {
+                                    NavigationLink(destination: LazyView(NewsShadowingLabView(newsItem: item))) {
                                         DailyNewsCardView(item: item)
                                     }
                                     .buttonStyle(PlainButtonStyle())

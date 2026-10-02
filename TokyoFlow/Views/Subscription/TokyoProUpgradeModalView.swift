@@ -48,7 +48,7 @@ public struct TokyoProUpgradeModalView: View {
                         // 100% Free Full Power Checklist
                         VStack(spacing: 12) {
                             HStack {
-                                Text("✨ All Core Features 100% Free")
+                                Text("All Core Features 100% Free")
                                     .font(.system(size: 14, weight: .black))
                                     .foregroundColor(.green)
                                 Spacer()
@@ -129,7 +129,7 @@ public struct TokyoProUpgradeModalView: View {
 
                         // Optional Coffee / Community Supporter Card
                         VStack(spacing: 10) {
-                            Text("💖 Enjoying TokyoFlow? Support our creation")
+                            Text("Enjoying TokyoFlow? Support our creation")
                                 .font(.system(size: 13, weight: .bold))
                                 .foregroundColor(.secondary)
 
@@ -138,7 +138,7 @@ public struct TokyoProUpgradeModalView: View {
                                     subService.purchase(plan: .monthly) { _ in }
                                 }) {
                                     VStack(spacing: 4) {
-                                        Text("☕️ Buy Us a Coffee")
+                                        Text("Buy Us a Coffee")
                                             .font(.system(size: 12, weight: .bold))
                                         Text("$1.99 / Support")
                                             .font(.caption2)
@@ -155,7 +155,7 @@ public struct TokyoProUpgradeModalView: View {
                                     subService.purchase(plan: .lifetime) { _ in }
                                 }) {
                                     VStack(spacing: 4) {
-                                        Text("👑 Lifetime Supporter")
+                                        Text("Lifetime Supporter")
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(.orange)
                                         Text("VIP Badge")
@@ -186,7 +186,7 @@ public struct TokyoProUpgradeModalView: View {
                     }
                 }
             }
-            .alert("🎉 Rewards Claimed!", isPresented: $showSuccessAlert) {
+            .alert("Rewards Claimed!", isPresented: $showSuccessAlert) {
                 Button("Awesome") { dismiss() }
             } message: {
                 Text("Successfully granted 500 Tokyo Points and 300 EXP! Thank you for supporting TokyoFlow.")

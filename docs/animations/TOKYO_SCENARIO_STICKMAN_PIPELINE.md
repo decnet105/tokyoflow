@@ -41,12 +41,12 @@ By utilizing the **Stickman Explainer Skill** (`skills/stickman-explainer/`):
 
 | Scene | Duration | Visual Action | Spoken Narration (JP + EN Subtitles) |
 | :--- | :--- | :--- | :--- |
-| **01** | 0-10s | Stickman places bento on counter. Cashier fires 5 question speech bubbles in 2 seconds. Stickman sweats. | 「コンビニのレジで店員さんが早口で話しかけてくる…何を言ってるの？」 *(At Japanese convenience store checkouts, cashiers fire rapid-fire questions... what are they asking?)* |
-| **02** | 10-20s | Split-screen checklist popups: 1. Point Card 2. Bento Heating 3. Spoon/Chopsticks 4. Plastic Bag 5. Payment. | 「実は順番はいつも同じ！ポイントカード、お弁当温め、スプーン、レジ袋、そして支払い。」 *(It's always the same 5-step script! Point card, microwave, cutlery, bag, payment.)* |
-| **03** | 20-30s | Stickman tries to explain in complex textbook Japanese, causing a long queue behind him. | 「教科書の長い日本語で返すと、後ろに行列ができて焦っちゃうよね。」 *(Trying to reply with long textbook sentences holds up the entire rush hour line.)* |
-| **04** | 30-40s | Stickman delivers the 3 Tokyo magic shortcuts with glowing checkmarks: 「大丈夫です」(No thanks), 「温めてください」(Warm it up), 「Suicaで」(With Suica). | 「覚えるのは3つだけ！『大丈夫です』『温めてください』『Suicaで』！」 *(You only need 3 magic phrases! "Daijobu desu", "Atatamete kudasai", "Suica de".)* |
-| **05** | 40-50s | Cashier hands warm bento with quick bow: 「ありがとうございました！」. Stickman walks out smoothly. | 「これだけで一瞬で会計完了！今日からあなたも東京ローカル。」 *(Checkout complete in 3 seconds! Now you operate like a Tokyo local.)* |
-| **06** | 50-60s | Tokyo Residence Passport stamps the "A1 Kombini Checkout" Can-Do badge. | 「TokyoFlowで、東京のリアルな1日をマスターしよう！」 *(Master real Tokyo daily life with TokyoFlow!)* |
+| **01** | 0-10s | Stickman places bento on counter. Cashier fires 5 question speech bubbles in 2 seconds. Stickman sweats. | … *(At Japanese convenience store checkouts, cashiers fire rapid-fire questions... what are they asking?)* |
+| **02** | 10-20s | Split-screen checklist popups: 1. Point Card 2. Bento Heating 3. Spoon/Chopsticks 4. Plastic Bag 5. Payment. |  *(It's always the same 5-step script! Point card, microwave, cutlery, bag, payment.)* |
+| **03** | 20-30s | Stickman tries to explain in complex textbook Japanese, causing a long queue behind him. |  *(Trying to reply with long textbook sentences holds up the entire rush hour line.)* |
+| **04** | 30-40s | Stickman delivers the 3 Tokyo magic shortcuts with glowing checkmarks: (No thanks), (Warm it up), Suica(With Suica). | 3Suica *(You only need 3 magic phrases! "Daijobu desu", "Atatamete kudasai", "Suica de".)* |
+| **05** | 40-50s | Cashier hands warm bento with quick bow: . Stickman walks out smoothly. |  *(Checkout complete in 3 seconds! Now you operate like a Tokyo local.)* |
+| **06** | 50-60s | Tokyo Residence Passport stamps the "A1 Kombini Checkout" Can-Do badge. | TokyoFlow1 *(Master real Tokyo daily life with TokyoFlow!)* |
 
 ---
 

@@ -52,11 +52,29 @@ public struct InteractiveOption: Identifiable, Codable {
     public let romaji: String
     public let isCorrect: Bool
     public let explanation: String
+    public let explanationZh: String?
+
+    public var localizedExplanation: String {
+        if LanguageManager.shared.isEnglish {
+            return explanation
+        } else {
+            return explanationZh ?? explanation
+        }
+    }
 }
 
 public struct InteractiveChallenge: Codable {
     public let prompt: String
+    public let promptZh: String?
     public let options: [InteractiveOption]
+
+    public var localizedPrompt: String {
+        if LanguageManager.shared.isEnglish {
+            return prompt
+        } else {
+            return promptZh ?? prompt
+        }
+    }
 }
 
 public struct KeyVocabulary: Identifiable, Codable {
@@ -65,13 +83,23 @@ public struct KeyVocabulary: Identifiable, Codable {
     public let reading: String
     public let romaji: String
     public let meaning: String
+    public let meaningZh: String?
     public let type: String
+
+    public var localizedMeaning: String {
+        if LanguageManager.shared.isEnglish {
+            return meaning
+        } else {
+            return meaningZh ?? meaning
+        }
+    }
 }
 
 public struct Scenario: Identifiable, Codable {
     public let id: String
     public let title: String
     public let titleJa: String
+    public let titleZh: String?
     public let category: String // transit, kombini, dining, services, shopping, living_services, office
     public let district: String // Shinjuku, Shibuya, Ginza, etc.
     public let timeOfDay: String
@@ -80,11 +108,46 @@ public struct Scenario: Identifiable, Codable {
     public let day: Int
     public let jfCanDoLevel: String // A1, A2, B1
     public let jfCanDoDescription: String
+    public let jfCanDoDescriptionZh: String?
     public let context: String
+    public let contextZh: String?
     public let culturalTip: String
+    public let culturalTipZh: String?
     public let dialogue: [DialogueLine]
     public let interactiveChallenge: InteractiveChallenge?
     public let keyVocabulary: [KeyVocabulary]
+
+    public var localizedTitle: String {
+        if LanguageManager.shared.isEnglish {
+            return title
+        } else {
+            return titleZh ?? title
+        }
+    }
+
+    public var localizedContext: String {
+        if LanguageManager.shared.isEnglish {
+            return context
+        } else {
+            return contextZh ?? context
+        }
+    }
+
+    public var localizedCulturalTip: String {
+        if LanguageManager.shared.isEnglish {
+            return culturalTip
+        } else {
+            return culturalTipZh ?? culturalTip
+        }
+    }
+
+    public var localizedJfCanDoDescription: String {
+        if LanguageManager.shared.isEnglish {
+            return jfCanDoDescription
+        } else {
+            return jfCanDoDescriptionZh ?? jfCanDoDescription
+        }
+    }
 
     public var categoryIcon: String {
         switch category {
@@ -99,3 +162,4 @@ public struct Scenario: Identifiable, Codable {
         }
     }
 }
+

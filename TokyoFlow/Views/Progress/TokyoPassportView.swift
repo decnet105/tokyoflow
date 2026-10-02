@@ -3,6 +3,9 @@ import SwiftUI
 public struct TokyoPassportView: View {
     @EnvironmentObject var userProfile: UserProfile
     @ObservedObject var dataManager = DataManager.shared
+    @ObservedObject var notificationService = NotificationService.shared
+    @ObservedObject var languageManager = LanguageManager.shared
+    @State private var showMessageCenter: Bool = false
 
     public var body: some View {
         NavigationStack {
@@ -15,11 +18,11 @@ public struct TokyoPassportView: View {
                         VStack(alignment: .leading, spacing: 14) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text("TOKYO RESIDENCE PASSPORT")
+                                    Text(languageManager.isEnglish ? "TOKYO RESIDENCE PASSPORT" : "东京定居学习护照")
                                         .font(.system(size: 10, weight: .bold))
                                         .foregroundColor(.accentColor)
                                         .tracking(2.0)
-                                    Text("Year 1 Tokyo Explorer")
+                                    Text(languageManager.isEnglish ? "Year 1 Tokyo Explorer" : "第1年 • 东京探索者")
                                         .font(.title2)
                                         .fontWeight(.bold)
                                 }
@@ -33,29 +36,29 @@ public struct TokyoPassportView: View {
 
                             HStack(spacing: 20) {
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text("CURRENT DAY")
+                                    Text(languageManager.isEnglish ? "CURRENT DAY" : "当前天数")
                                         .font(.system(size: 9, weight: .bold))
                                         .foregroundColor(.secondary)
-                                    Text("Day \(userProfile.currentDay) / 365")
+                                    Text(languageManager.isEnglish ? "Day \(userProfile.currentDay) / 365" : "第 \(userProfile.currentDay) / 365 天")
                                         .font(.headline)
                                         .fontWeight(.heavy)
                                 }
 
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text("STREAK")
+                                    Text(languageManager.isEnglish ? "STREAK" : "连续打卡")
                                         .font(.system(size: 9, weight: .bold))
                                         .foregroundColor(.secondary)
                                     HStack(spacing: 4) {
                                         Image(systemName: "flame.fill")
                                             .foregroundColor(.orange)
-                                        Text("\(userProfile.streakCount) Days")
+                                        Text("\(userProfile.streakCount) " + (languageManager.isEnglish ? "Days" : "天"))
                                             .font(.headline)
                                             .fontWeight(.heavy)
                                     }
                                 }
 
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text("CAN-DO LEVEL")
+                                    Text(languageManager.isEnglish ? "CAN-DO LEVEL" : "标准等级")
                                         .font(.system(size: 9, weight: .bold))
                                         .foregroundColor(.secondary)
                                     Text("JF A1-A2")
@@ -72,9 +75,57 @@ public struct TokyoPassportView: View {
                         .padding(.horizontal)
                         .padding(.top, 8)
 
+                        // Message & 21:00 Nightly Summary Center Quick Tile
+                        Button(action: { showMessageCenter = true }) {
+                            HStack(spacing: 14) {
+                                ZStack {
+                                    Circle()
+                                        .fill(LinearGradient(colors: [.purple, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .frame(width: 44, height: 44)
+                                    Image(systemName: "moon.stars.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.yellow)
+                                }
+
+                                VStack(alignment: .leading, spacing: 3) {
+                                    HStack {
+                                        Text(languageManager.isEnglish ? "Inbox & 21:00 Daily Summary" : "消息与 21:00 晚报中心")
+                                            .font(.subheadline)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.primary)
+
+                                        if notificationService.unreadCount > 0 {
+                                            Text("\(notificationService.unreadCount) " + (languageManager.isEnglish ? "Unread" : "未读"))
+                                                .font(.system(size: 10, weight: .heavy))
+                                                .foregroundColor(.white)
+                                                .padding(.horizontal, 6)
+                                                .padding(.vertical, 2)
+                                                .background(Capsule().fill(Color.red))
+                                        }
+                                    }
+
+                                    Text(languageManager.isEnglish ? "Check nightly reports, bonus TP, and spaced recall reminders" : "每晚的个性化学习报告、奖励TP与复习提醒")
+                                        .font(.caption2)
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(1)
+                                }
+
+                                Spacer()
+
+                                Image(systemName: "chevron.right")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(14)
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(16)
+                            .padding(.horizontal)
+                        }
+                        .buttonStyle(.plain)
+
                         // 1-Year Roadmap Milestone Tracker
                         VStack(alignment: .leading, spacing: 14) {
-                            Text("1-YEAR ROADMAP & QUARTERLY GOALS")
+                            Text(languageManager.isEnglish ? "1-YEAR ROADMAP & QUARTERLY GOALS" : "年度路线图与季度目标")
                                 .font(.caption)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
@@ -92,7 +143,7 @@ public struct TokyoPassportView: View {
 
                         // Japan Foundation Can-Do Standards Checklist
                         VStack(alignment: .leading, spacing: 14) {
-                            Text("JAPAN FOUNDATION CAN-DO COMPETENCY")
+                            Text(languageManager.isEnglish ? "JAPAN FOUNDATION CAN-DO COMPETENCY" : "国际日本语能力标准 (JF CAN-DO)")
                                 .font(.caption)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
@@ -102,32 +153,32 @@ public struct TokyoPassportView: View {
                             VStack(spacing: 10) {
                                 CanDoItemRow(
                                     code: "A1.1",
-                                    title: "Tokyo Commute & IC Card",
-                                    desc: "Can buy transit tickets and recharge Suica at ticket machines.",
+                                    title: languageManager.isEnglish ? "Tokyo Commute & IC Card" : "东京通勤与IC卡充值",
+                                    desc: languageManager.isEnglish ? "Can buy transit tickets and recharge Suica at ticket machines." : "能够熟练在自动售票机购票并为Suica/西瓜卡充值。",
                                     isDone: userProfile.completedScenarioIds.contains("scenario_01_morning_train")
                                 )
                                 CanDoItemRow(
                                     code: "A1.2",
-                                    title: "Convenience Store Checkout",
-                                    desc: "Can handle bento heating, utensil requests, and bag options smoothly.",
+                                    title: languageManager.isEnglish ? "Convenience Store Checkout" : "便利店顺畅结账",
+                                    desc: languageManager.isEnglish ? "Can handle bento heating, utensil requests, and bag options smoothly." : "能够从容应对便当加热、餐具需求与塑料袋确认。",
                                     isDone: userProfile.completedScenarioIds.contains("scenario_02_kombini_morning")
                                 )
                                 CanDoItemRow(
                                     code: "A2.1",
-                                    title: "Ramen & Food Customization",
-                                    desc: "Can read ticket vending machines and specify noodle texture/oil.",
+                                    title: languageManager.isEnglish ? "Ramen & Food Customization" : "拉面食券与定制暗号",
+                                    desc: languageManager.isEnglish ? "Can read ticket vending machines and specify noodle texture/oil." : "能够看懂食券机并准确告知店主面条软硬、汤底咸度与油脂量。",
                                     isDone: userProfile.completedScenarioIds.contains("scenario_03_ramen_ticket_machine")
                                 )
                                 CanDoItemRow(
                                     code: "A2.2",
-                                    title: "Izakaya Table & Split Bills",
-                                    desc: "Can order opening drinks ('toriaezu nama') and manage group bill payment.",
+                                    title: languageManager.isEnglish ? "Izakaya Table & Split Bills" : "居酒屋点单与结账礼仪",
+                                    desc: languageManager.isEnglish ? "Can order opening drinks ('toriaezu nama') and manage group bill payment." : "能够熟练点先发饮品、理解前菜小菜机制并应对AA制结账。",
                                     isDone: userProfile.completedScenarioIds.contains("scenario_04_izakaya_table_booking")
                                 )
                                 CanDoItemRow(
                                     code: "B1.1",
-                                    title: "Postal Redelivery Logistics",
-                                    desc: "Can decode missed delivery notices (不在票) and schedule time windows.",
+                                    title: languageManager.isEnglish ? "Postal Redelivery Logistics" : "快递不在票与再配送实操",
+                                    desc: languageManager.isEnglish ? "Can decode missed delivery notices (不在票) and schedule time windows." : "能够读懂快递不在票并成功通过电话/网页预约指定派送时段。",
                                     isDone: userProfile.completedScenarioIds.contains("scenario_07_post_office_delivery")
                                 )
                             }
@@ -139,7 +190,7 @@ public struct TokyoPassportView: View {
 
                         // App Settings
                         VStack(alignment: .leading, spacing: 12) {
-                            Text("STUDY SETTINGS")
+                            Text(languageManager.isEnglish ? "STUDY SETTINGS" : "学习偏好设置")
                                 .font(.caption)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
@@ -148,19 +199,19 @@ public struct TokyoPassportView: View {
 
                             VStack(spacing: 12) {
                                 Toggle(isOn: $userProfile.furiganaEnabled) {
-                                    Label("Ruby Furigana Reading", systemImage: "character.phonetic")
+                                    Label(languageManager.isEnglish ? "Ruby Furigana Reading" : "显示假名注音 (振假名)", systemImage: "character.phonetic")
                                 }
 
                                 Divider()
 
                                 Toggle(isOn: $userProfile.romajiEnabled) {
-                                    Label("Show Romaji Subtitles", systemImage: "textformat")
+                                    Label(languageManager.isEnglish ? "Show Romaji Subtitles" : "显示罗马音字幕 (Romaji)", systemImage: "textformat")
                                 }
 
                                 Divider()
 
                                 HStack {
-                                    Label("Japanese TTS Speed", systemImage: "speedometer")
+                                    Label(languageManager.isEnglish ? "Voice Playback Speed" : "语音播放语速", systemImage: "speedometer")
                                     Spacer()
                                     Text(String(format: "%.2fx", userProfile.speechRate))
                                         .font(.footnote)
@@ -177,8 +228,30 @@ public struct TokyoPassportView: View {
                     .padding(.bottom, 24)
                 }
             }
-            .navigationTitle("Tokyo Passport")
+            .navigationTitle(languageManager.isEnglish ? "Tokyo Passport" : "东京学习档案与护照")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        languageManager.toggleEnglishChinese()
+                    }) {
+                        HStack(spacing: 4) {
+                            Text(languageManager.isEnglish ? "EN" : "中文")
+                                .font(.caption2)
+                                .fontWeight(.heavy)
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.accentColor.opacity(0.15))
+                        .foregroundColor(.accentColor)
+                        .cornerRadius(8)
+                    }
+                }
+            }
+            .sheet(isPresented: $showMessageCenter) {
+                TokyoMessageCenterView()
+            }
         }
     }
 }
@@ -186,6 +259,7 @@ public struct TokyoPassportView: View {
 public struct QuarterMilestoneCard: View {
     public let quarter: QuarterMilestone
     public let isCurrent: Bool
+    @ObservedObject var languageManager = LanguageManager.shared
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -200,7 +274,7 @@ public struct QuarterMilestoneCard: View {
                 }
 
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(quarter.name)
+                    Text(quarter.localizedName(isEnglish: languageManager.isEnglish))
                         .font(.headline)
                     Text(quarter.nameJa)
                         .font(.caption)
@@ -224,7 +298,7 @@ public struct QuarterMilestoneCard: View {
                     Image(systemName: "house.fill")
                         .font(.caption2)
                         .foregroundColor(.accentColor)
-                    Text("Living: \(quarter.livingSkillsGoal)")
+                    Text(languageManager.isEnglish ? "Living: \(quarter.livingSkillsGoal)" : "生活实务：\(quarter.livingSkillsGoalZh)")
                         .font(.caption)
                         .foregroundColor(.primary.opacity(0.9))
                 }
@@ -233,7 +307,7 @@ public struct QuarterMilestoneCard: View {
                     Image(systemName: "book.fill")
                         .font(.caption2)
                         .foregroundColor(.purple)
-                    Text("Manga: \(quarter.mangaGoal)")
+                    Text(languageManager.isEnglish ? "Manga: \(quarter.mangaGoal)" : "漫画理解：\(quarter.mangaGoalZh)")
                         .font(.caption)
                         .foregroundColor(.primary.opacity(0.9))
                 }

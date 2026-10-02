@@ -7,7 +7,7 @@ public struct WeakWordItem: Identifiable, Codable, Hashable {
     public let reading: String
     public let romaji: String
     public let meaning: String
-    public var reason: String // "🎧 Replayed 3 times", "⏱️ Hesitated 5.4s", "❌ Quiz mistake"
+    public var reason: String // " Replayed 3 times", "⏱️ Hesitated 5.4s", " Quiz mistake"
     public var listenCount: Int
     public var dwellSeconds: Double
     public var mistakeCount: Int
@@ -67,7 +67,7 @@ public class WeakWordTrackerService: ObservableObject {
                 word: clean,
                 reading: reading,
                 meaning: meaning,
-                reason: "🎧 Replayed \(count) times",
+                reason: "Replayed \(count) times",
                 incrementListen: true
             )
         }
@@ -92,7 +92,7 @@ public class WeakWordTrackerService: ObservableObject {
                 word: clean,
                 reading: reading,
                 meaning: meaning,
-                reason: String(format: "⏱️ Hesitated %.1fs", duration),
+                reason: String(format: "Hesitated %.1fs", duration),
                 dwellSec: duration
             )
         }
@@ -107,7 +107,7 @@ public class WeakWordTrackerService: ObservableObject {
             word: clean,
             reading: reading,
             meaning: meaning,
-            reason: "❌ Quiz mistake, needs review",
+            reason: "Quiz mistake, needs review",
             incrementMistake: true
         )
     }
@@ -143,9 +143,11 @@ public class WeakWordTrackerService: ObservableObject {
             item.isMastered = false // Re-activate for review
             weakWords[idx] = item
         } else {
+            let romaji = JapaneseWordSegmenter.shared.transliterateToRomaji(reading.isEmpty ? word : reading)
             let newItem = WeakWordItem(
                 word: word,
                 reading: reading,
+                romaji: romaji,
                 meaning: meaning,
                 reason: reason,
                 listenCount: incrementListen ? 2 : 1,

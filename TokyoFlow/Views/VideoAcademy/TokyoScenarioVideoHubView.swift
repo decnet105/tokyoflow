@@ -2,6 +2,7 @@ import SwiftUI
 
 public struct TokyoScenarioVideoHubView: View {
     @StateObject private var videoManager = TokyoVideoLessonDataManager.shared
+    @ObservedObject private var languageManager = LanguageManager.shared
     @State private var selectedLesson: TokyoScenarioVideoLesson? = nil
     @State private var filterCategory: String = "all"
     @State private var searchQuery: String = ""
@@ -16,6 +17,7 @@ public struct TokyoScenarioVideoHubView: View {
             if q.isEmpty { return catMatch }
             return catMatch && (
                 lesson.title.lowercased().contains(q) ||
+                (lesson.titleZh?.lowercased().contains(q) ?? false) ||
                 lesson.titleJa.lowercased().contains(q) ||
                 lesson.district.lowercased().contains(q)
             )
@@ -32,12 +34,12 @@ public struct TokyoScenarioVideoHubView: View {
                         // Hero Header Card
                         VStack(alignment: .leading, spacing: 10) {
                             HStack {
-                                Label("YOUTUBE SCENARIO ACADEMY", systemImage: "play.tv.fill")
+                                Label(languageManager.isEnglish ? "YOUTUBE SCENARIO ACADEMY" : "场景实战视频学院", systemImage: "play.tv.fill")
                                     .font(.system(size: 11, weight: .black))
                                     .foregroundColor(.red)
                                     .tracking(1.0)
                                 Spacer()
-                                Text("In-App View • YouTube Flow")
+                                Text(languageManager.isEnglish ? "In-App View • YouTube Flow" : "应用内无缝播放 • YouTube 沉浸流")
                                     .font(.system(size: 9, weight: .bold))
                                     .padding(.horizontal, 6)
                                     .padding(.vertical, 3)
@@ -46,10 +48,10 @@ public struct TokyoScenarioVideoHubView: View {
                                     .cornerRadius(6)
                             }
 
-                            Text("Tokyo Scenario Native Video Lessons")
+                            Text(languageManager.isEnglish ? "Tokyo Scenario Native Video Lessons" : "东京实战场景原声视频课")
                                 .font(.system(size: 20, weight: .black, design: .rounded))
 
-                            Text("Master 20+ authentic Tokyo situations (train announcements, kombini checkout, izakaya ordering, Akiba anime hunting) with natural Japanese audio & English breakdowns.")
+                            Text(languageManager.isEnglish ? "Master 20+ authentic Tokyo situations (train announcements, kombini checkout, izakaya ordering, Akiba anime hunting) with natural Japanese audio & English breakdowns." : "掌握东京电车广播、便利店极速结账、居酒屋点餐AA制、秋叶原手办免税等20+地道场景，纯正真人原声与精讲拆解。")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
 
@@ -62,7 +64,7 @@ public struct TokyoScenarioVideoHubView: View {
                                 HStack(spacing: 8) {
                                     Image(systemName: "bell.fill")
                                         .foregroundColor(.red)
-                                    Text("Subscribe to TokyoFlow Official YouTube")
+                                    Text(languageManager.isEnglish ? "Subscribe to TokyoFlow Official YouTube" : "订阅 TokyoFlow 官方 YouTube 频道")
                                         .font(.system(size: 12, weight: .bold))
                                         .foregroundColor(.primary)
                                     Spacer()
@@ -84,7 +86,7 @@ public struct TokyoScenarioVideoHubView: View {
                         HStack {
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(.secondary)
-                            TextField("Search scenario video lessons...", text: $searchQuery)
+                            TextField(languageManager.isEnglish ? "Search scenario video lessons..." : "搜索场景视频课程...", text: $searchQuery)
                             if !searchQuery.isEmpty {
                                 Button(action: { searchQuery = "" }) {
                                     Image(systemName: "xmark.circle.fill")
@@ -100,11 +102,11 @@ public struct TokyoScenarioVideoHubView: View {
                         // Category Filter Chips
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 8) {
-                                categoryFilterButton("All Scenarios", category: "all")
-                                categoryFilterButton("Train & Subway", category: "transit")
-                                categoryFilterButton("Kombini", category: "kombini")
-                                categoryFilterButton("Izakaya & Dining", category: "dining")
-                                categoryFilterButton("Shopping & Anime", category: "shopping")
+                                categoryFilterButton(languageManager.isEnglish ? "All Scenarios" : "全部场景", category: "all")
+                                categoryFilterButton(languageManager.isEnglish ? "Train & Subway" : "电车与地铁", category: "transit")
+                                categoryFilterButton(languageManager.isEnglish ? "Kombini" : "便利店", category: "kombini")
+                                categoryFilterButton(languageManager.isEnglish ? "Izakaya & Dining" : "居酒屋与餐饮", category: "dining")
+                                categoryFilterButton(languageManager.isEnglish ? "Shopping & Anime" : "购物与动漫", category: "shopping")
                             }
                             .padding(.horizontal)
                         }
@@ -122,7 +124,7 @@ public struct TokyoScenarioVideoHubView: View {
                     }
                 }
             }
-            .navigationTitle("Video Academy")
+            .navigationTitle(languageManager.isEnglish ? "Video Academy" : "视频学院")
             .sheet(item: $selectedLesson) { lesson in
                 TokyoScenarioYTPlayerView(lesson: lesson)
             }
@@ -234,18 +236,18 @@ struct TokyoVideoHubCardView: View {
 
                         Spacer()
 
-                        Text("\(lesson.chapters.count) Chapters")
+                        Text(LanguageManager.shared.isEnglish ? "\(lesson.chapters.count) Chapters" : "\(lesson.chapters.count) 个精讲章节")
                             .font(.caption2)
                             .foregroundColor(.secondary)
                     }
 
-                    Text(lesson.title)
+                    Text(lesson.localizedTitle)
                         .font(.system(size: 14, weight: .bold))
                         .foregroundColor(.primary)
                         .multilineTextAlignment(.leading)
                         .lineLimit(2)
 
-                    Text(lesson.summary)
+                    Text(lesson.localizedSummary)
                         .font(.caption)
                         .foregroundColor(.secondary)
                         .lineLimit(2)

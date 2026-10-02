@@ -72,14 +72,14 @@ def create_slide_image(
         draw.text((220, 320), "Learn Natural Tokyo Japanese Through Real-Life Scenarios", fill=(30, 41, 59), font=font_sub)
         
         font_bullets = get_font(28)
-        draw.text((220, 420), "✓ 20+ Real Tokyo Life Scenarios (Transit, Kombini, Izakaya, Akiba)", fill=(71, 85, 105), font=font_bullets)
-        draw.text((220, 490), "✓ NHK Real Audio Shadowing • Pitch Accent & Intonation Guides", fill=(71, 85, 105), font=font_bullets)
-        draw.text((220, 560), "✓ JLPT N5-N1 Core Vocabulary & Japanese Cultural Nuances", fill=(71, 85, 105), font=font_bullets)
+        draw.text((220, 420), " 20+ Real Tokyo Life Scenarios (Transit, Kombini, Izakaya, Akiba)", fill=(71, 85, 105), font=font_bullets)
+        draw.text((220, 490), " NHK Real Audio Shadowing • Pitch Accent & Intonation Guides", fill=(71, 85, 105), font=font_bullets)
+        draw.text((220, 560), " JLPT N5-N1 Core Vocabulary & Japanese Cultural Nuances", fill=(71, 85, 105), font=font_bullets)
         
         # App CTA Box
         draw.rectangle([(220, 660), (width - 220, 840)], fill=(239, 246, 255), outline=(191, 219, 254), width=3)
         font_app = get_font(34)
-        draw.text((260, 695), "📱 Download 'TokyoFlow' Free on the iOS App Store", fill=(37, 99, 235), font=font_app)
+        draw.text((260, 695), " Download 'TokyoFlow' Free on the iOS App Store", fill=(37, 99, 235), font=font_app)
         font_app_sub = get_font(24)
         draw.text((260, 760), "Pair with iOS App for Voice Shadowing Scoring, Kana Practice & SRS Flashcards", fill=(100, 116, 139), font=font_app_sub)
 
@@ -114,12 +114,12 @@ def create_slide_image(
 
         # Bottom Tip & Tone
         font_tip = get_font(26)
-        draw.text((180, 595), f"💡 Pro-Tip:  {tip_text}", fill=(16, 185, 129), font=font_tip)
+        draw.text((180, 595), f" Pro-Tip:  {tip_text}", fill=(16, 185, 129), font=font_tip)
 
         # Bottom Call-to-action
         draw.rectangle([(120, 770), (width - 120, 920)], fill=(241, 245, 249), outline=(226, 232, 240), width=2)
         font_shadow = get_font(28)
-        draw.text((160, 805), "🗣️  Shadowing Drill: Repeat aloud with native timing and pitch accent", fill=(51, 65, 85), font=font_shadow)
+        draw.text((160, 805), "  Shadowing Drill: Repeat aloud with native timing and pitch accent", fill=(51, 65, 85), font=font_shadow)
         font_shadow_sub = get_font(22)
         draw.text((160, 860), "Native Audio: Nanami (Tokyo Standard) • Real-life context breakdown", fill=(100, 116, 139), font=font_shadow_sub)
 
@@ -156,7 +156,7 @@ def concat_videos(video_list: list, final_output_path: str):
 
 async def build_video_package(spec: dict):
     video_id = spec["id"]
-    print(f"🎬 Starting production for Video: {spec['title']} ({video_id})...")
+    print(f" Starting production for Video: {spec['title']} ({video_id})...")
     
     workdir = f"tmp/videogen/{video_id}"
     os.makedirs(workdir, exist_ok=True)
@@ -195,12 +195,12 @@ async def build_video_package(spec: dict):
         # 3. Assemble Segment Video
         render_scene_video(img_path, audio_path, duration, video_path)
         segment_videos.append(video_path)
-        print(f"  ✓ Segment {idx+1}/{len(spec['slides'])} rendered ({duration:.1f}s)")
+        print(f"   Segment {idx+1}/{len(spec['slides'])} rendered ({duration:.1f}s)")
         
     final_output = f"output/videos/{video_id}.mp4"
     concat_videos(segment_videos, final_output)
     total_duration = sum(get_audio_duration(f"{workdir}/seg_{i:02d}.mp3") for i in range(len(spec["slides"])))
-    print(f"🎉 Successfully produced full HD video: {final_output} (Total Length: {total_duration:.1f}s)\n")
+    print(f" Successfully produced full HD video: {final_output} (Total Length: {total_duration:.1f}s)\n")
 
 async def main():
     videos = [
@@ -211,31 +211,31 @@ async def main():
             "slides": [
                 {
                     "chapter": "01. Approaching Train Announcement",
-                    "spoken_text": "まもなく、2番線に山手線内回りがまいります。黄色い点字ブロックの内側までお下がりください。",
-                    "ja": "まもなく、2番線に山手線内回りがまいります。",
-                    "furi": "まもなく、にばんせんに やまのてせん うちまわりが まいります。",
+                    "spoken_text": "2",
+                    "ja": "2",
+                    "furi": "   ",
                     "en": "The Yamanote Line inner loop train will arrive on Platform 2.",
-                    "tip": "'まいります' is humble form (Kenjougo), standard JR platform phrasing."
+                    "tip": "'' is humble form (Kenjougo), standard JR platform phrasing."
                 },
                 {
                     "chapter": "02. Safety & Tactile Paving",
-                    "spoken_text": "黄色い点字ブロックの内側までお下がりください。危ないですから、ご注意ください。",
-                    "ja": "黄色い点字ブロックの内側までお下がりください。",
-                    "furi": "きいろい てんじぶろっくの うちがわまで おさがりください。",
+                    "spoken_text": "",
+                    "ja": "",
+                    "furi": "   ",
                     "en": "Please stand behind the yellow tactile warning blocks.",
-                    "tip": "'お下がりください' is a polite instructional form used across all train stations."
+                    "tip": "'' is a polite instructional form used across all train stations."
                 },
                 {
                     "chapter": "03. Transfer Assistance Phrase",
-                    "spoken_text": "すみません、中央線への乗り換えはどのホームですか？",
-                    "ja": "中央線への乗り換えはどのホームですか？",
-                    "furi": "ちゅうおうせんへの のりかえは どのほーむですか？",
+                    "spoken_text": "",
+                    "ja": "",
+                    "furi": "  ",
                     "en": "Excuse me, which platform is the transfer for the Chuo Line?",
-                    "tip": "Essential phrase when asking station staff. Replace '中央線' with any line."
+                    "tip": "Essential phrase when asking station staff. Replace '' with any line."
                 },
                 {
                     "chapter": "04. Subscribe & Download",
-                    "spoken_text": "ご視聴ありがとうございました！チャンネル登録と高評価をお願いします。TokyoFlowアプリでさらに深く学びましょう！",
+                    "spoken_text": "TokyoFlow",
                     "is_outro": True
                 }
             ]
@@ -247,31 +247,31 @@ async def main():
             "slides": [
                 {
                     "chapter": "01. Bento Heating Question",
-                    "spoken_text": "お弁当温めますか？少々お待ちください。",
-                    "ja": "お弁当温めますか？",
-                    "furi": "おべんとう あたためますか？",
+                    "spoken_text": "",
+                    "ja": "",
+                    "furi": " ",
                     "en": "Would you like your bento heated up?",
-                    "tip": "Reply with '温めてください (Please heat it)' or '大丈夫です (No thanks)'."
+                    "tip": "Reply with ' (Please heat it)' or ' (No thanks)'."
                 },
                 {
                     "chapter": "02. Declining Plastic Bags",
-                    "spoken_text": "レジ袋はご利用ですか？レジ袋は大丈夫です。",
-                    "ja": "レジ袋は大丈夫です。",
-                    "furi": "れじぶくろは だいじょうぶです。",
+                    "spoken_text": "",
+                    "ja": "",
+                    "furi": " ",
                     "en": "No plastic bag needed, thank you.",
-                    "tip": "'大丈夫です' paired with a gentle nod is the natural way to politely decline."
+                    "tip": "'' paired with a gentle nod is the natural way to politely decline."
                 },
                 {
                     "chapter": "03. Contactless Payment",
-                    "spoken_text": "Suicaでお願いします。ポイントカードはお持ちですか？",
-                    "ja": "Suicaでお願いします。",
-                    "furi": "すいかで おねがいします。",
+                    "spoken_text": "Suica",
+                    "ja": "Suica",
+                    "furi": " ",
                     "en": "I will pay with Suica, please.",
-                    "tip": "'[Payment method] でお願いします' works for Suica, PayPay, or Credit Card."
+                    "tip": "'[Payment method] ' works for Suica, PayPay, or Credit Card."
                 },
                 {
                     "chapter": "04. Subscribe & Download",
-                    "spoken_text": "TokyoFlow Japanese 公式チャンネルを登録して、毎日の生きた日本語をマスターしましょう！",
+                    "spoken_text": "TokyoFlow Japanese ",
                     "is_outro": True
                 }
             ]
@@ -283,31 +283,31 @@ async def main():
             "slides": [
                 {
                     "chapter": "01. The First Drink Order",
-                    "spoken_text": "いらっしゃい！とりあえず生ビール二つお願いします！",
-                    "ja": "とりあえず生ビール二つお願いします！",
-                    "furi": "とりあえず なまびーる ふたつ おねがいします！",
+                    "spoken_text": "",
+                    "ja": "",
+                    "furi": "   ",
                     "en": "To start, two draft beers please!",
-                    "tip": "'とりあえず〜' (for starters) is the quintessential Japanese izakaya opener."
+                    "tip": "'' (for starters) is the quintessential Japanese izakaya opener."
                 },
                 {
                     "chapter": "02. Yakitori Seasoning",
-                    "spoken_text": "焼き鳥盛り合わせを塩でお願いします。お待たせいたしました！",
-                    "ja": "焼き鳥盛り合わせを塩でお願いします。",
-                    "furi": "やきとり もりあわせを しおで おねがいします。",
+                    "spoken_text": "",
+                    "ja": "",
+                    "furi": "   ",
                     "en": "Assorted yakitori platter with salt seasoning, please.",
-                    "tip": "Staff will ask '塩かタレか' (salt or sweet tare sauce). '塩 (shio)' highlights the chicken flavor."
+                    "tip": "Staff will ask '' (salt or sweet tare sauce). ' (shio)' highlights the chicken flavor."
                 },
                 {
                     "chapter": "03. The Check & Receipt",
-                    "spoken_text": "お会計と領収書をお願いします。毎度ありがとうございました！",
-                    "ja": "お会計と領収書をお願いします。",
-                    "furi": "おかいけいと りょうしゅうしょを おねがいします。",
+                    "spoken_text": "",
+                    "ja": "",
+                    "furi": "  ",
                     "en": "The bill and formal receipt, please.",
-                    "tip": "'お会計 (okaikei)' means bill, while '領収書 (ryoushuusho)' is an itemized receipt."
+                    "tip": "' (okaikei)' means bill, while ' (ryoushuusho)' is an itemized receipt."
                 },
                 {
                     "chapter": "04. Subscribe & Download",
-                    "spoken_text": "TokyoFlow Japanese チャンネルを登録して、リアルな東京の日常会話を体験しましょう！",
+                    "spoken_text": "TokyoFlow Japanese ",
                     "is_outro": True
                 }
             ]

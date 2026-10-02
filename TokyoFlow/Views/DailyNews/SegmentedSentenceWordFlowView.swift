@@ -46,14 +46,14 @@ public struct SegmentedSentenceWordFlowView: View {
         if let manual = manualActiveWordIndex { return manual }
         guard isActiveSentence && sentenceProgress > 0.0 && !words.isEmpty else { return nil }
 
-        let totalWeight = words.reduce(0) { $0 + $1.moraWeight }
+        let totalWeight = words.reduce(0.0) { $0 + $1.moraWeight }
         guard totalWeight > 0 else { return 0 }
 
-        var cumulative = 0
-        let target = Double(totalWeight) * min(0.999, max(0.0, sentenceProgress))
+        var cumulative = 0.0
+        let target = totalWeight * min(0.999, max(0.0, sentenceProgress))
         for (idx, w) in words.enumerated() {
             cumulative += w.moraWeight
-            if Double(cumulative) >= target {
+            if cumulative >= target {
                 return idx
             }
         }

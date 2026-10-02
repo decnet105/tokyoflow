@@ -1,0 +1,156 @@
+{
+  "published": {
+    "E01-Yamanote_Transit-v1.0_video": {
+      "video_id": "yN6dTC-LBz8",
+      "video_url": "https://youtu.be/yN6dTC-LBz8",
+      "title": "[JLPT N4] EP.01 Tokyo Train Station Announcements Decoded! Yamanote Line Immersion",
+      "status": "public_manual"
+    },
+    "E02-Kombini_Checkout-v1.0_video": {
+      "video_id": "6er1tWAH_oQ",
+      "video_url": "https://youtu.be/6er1tWAH_oQ",
+      "title": "[JLPT N5] EP.02 Survive Tokyo 7-Eleven Checkout! Rapid Register Japanese Decoded",
+      "status": "public_manual"
+    },
+    "E03-Izakaya_Night-v1.0_video": {
+      "video_id": "B4sN_BkLcOw",
+      "video_url": "https://youtu.be/B4sN_BkLcOw",
+      "title": "[JLPT N5] EP.03 Order Like a Tokyo Local at an Izakaya! Toriaezu Nama Explained",
+      "status": "public_manual"
+    },
+    "E04-Akiba_Pilgrimage-v1.0_video": {
+      "video_id": "iaGo6ey75Ws",
+      "video_url": "https://youtu.be/iaGo6ey75Ws",
+      "title": "[JLPT N5] EP.04 Akihabara Anime and Manga Shopping Japanese! Tax-Free and Rare Merch",
+      "status": "public_manual"
+    },
+    "E01-Yamanote_Transit-v1.0_short": {
+      "video_id": "luY_kYPz5Bo",
+      "video_url": "https://youtu.be/luY_kYPz5Bo",
+      "title": "[JLPT N4] SH.01 What Tokyo Train Stations ACTUALLY Announce! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-09-30T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:30:39.501261-04:00",
+      "is_short": true
+    },
+    "E02-Kombini_Checkout-v1.0_short": {
+      "video_id": "npUV2_Ilid8",
+      "video_url": "https://youtu.be/npUV2_Ilid8",
+      "title": "[JLPT N5] SH.02 How to Survive Tokyo 7-Eleven Checkout in 30s #Shorts #LearnJapanese",
+      "publish_at_est": "2026-09-30T09:30:00-04:00",
+      "uploaded_at": "2026-09-29T21:30:45.659216-04:00",
+      "is_short": true
+    },
+    "E03-Izakaya_Night-v1.0_short": {
+      "video_id": "9gMYd5lRwtI",
+      "video_url": "https://youtu.be/9gMYd5lRwtI",
+      "title": "[JLPT N5] SH.03 How Locals Order at a Tokyo Izakaya #Shorts #LearnJapanese",
+      "publish_at_est": "2026-09-30T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:30:50.773003-04:00",
+      "is_short": true
+    },
+    "E04-Akiba_Pilgrimage-v1.0_short": {
+      "video_id": "GerQ2oL84o8",
+      "video_url": "https://youtu.be/GerQ2oL84o8",
+      "title": "[JLPT N5] SH.04 How to Buy Anime Figures in Akihabara Tax-Free! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-09-30T18:30:00-04:00",
+      "uploaded_at": "2026-09-29T21:30:58.224620-04:00",
+      "is_short": true
+    },
+    "E05-Tokyo_Subway_Rush-v1.0_video": {
+      "video_id": "71K0XIHNZLs",
+      "video_url": "https://youtu.be/71K0XIHNZLs",
+      "title": "[JLPT N4] EP.05 Survive the Tokyo Subway! Rapid vs Local and Fare Adjustment",
+      "publish_at_est": "2026-10-01T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:03.898108-04:00",
+      "is_short": false
+    },
+    "E05-Tokyo_Subway_Rush-v1.0_short": {
+      "video_id": "K8E-XXJFu3I",
+      "video_url": "https://youtu.be/K8E-XXJFu3I",
+      "title": "[JLPT N4] SH.05 Never Get Lost on the Tokyo Subway! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-01T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:08.571678-04:00",
+      "is_short": true
+    },
+    "E06-Kombini_Coffee_ATM-v1.0_video": {
+      "video_id": "kPXKS2r3o8w",
+      "video_url": "https://youtu.be/kPXKS2r3o8w",
+      "title": "[JLPT N5] EP.06 Order Coffee Like a Tokyo Local! Kombini Machine and ATM Hacks",
+      "publish_at_est": "2026-10-01T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:12.787619-04:00",
+      "is_short": false
+    },
+    "E06-Kombini_Coffee_ATM-v1.0_short": {
+      "video_id": "fj-Yto1FF3U",
+      "video_url": "https://youtu.be/fj-Yto1FF3U",
+      "title": "[JLPT N5] SH.06 How to Order Coffee at Japanese Convenience Stores #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-01T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:17.720561-04:00",
+      "is_short": true
+    },
+    "E07-Ramen_Ticket_Vending-v1.0_video": {
+      "video_id": "jB4I3CicHrs",
+      "video_url": "https://youtu.be/jB4I3CicHrs",
+      "title": "[JLPT N5] EP.07 Order Ramen Like a Pro in Tokyo! Ticket Machine and Broth Hacks",
+      "publish_at_est": "2026-10-02T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:22.964788-04:00",
+      "is_short": false
+    },
+    "E07-Ramen_Ticket_Vending-v1.0_short": {
+      "video_id": "4nH8UUKeEDA",
+      "video_url": "https://youtu.be/4nH8UUKeEDA",
+      "title": "[JLPT N5] SH.07 How to Order Ramen Like a Tokyo Master #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-02T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:27.472500-04:00",
+      "is_short": true
+    },
+    "E08-Ginza_TaxFree_Shopping-v1.0_video": {
+      "video_id": "9GOBcaATRjE",
+      "video_url": "https://youtu.be/9GOBcaATRjE",
+      "title": "[JLPT N5] EP.08 Shop Like a Tokyo Stylist! Fitting Room and Tax-Free Hacks",
+      "publish_at_est": "2026-10-02T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:32.400528-04:00",
+      "is_short": false
+    },
+    "E08-Ginza_TaxFree_Shopping-v1.0_short": {
+      "video_id": "O2FjmMOFWgM",
+      "video_url": "https://youtu.be/O2FjmMOFWgM",
+      "title": "[JLPT N5] SH.08 How to Shop Clothes in Tokyo Ginza! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-02T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:39.745079-04:00",
+      "is_short": true
+    },
+    "E09-anime_sauna_trend-v1.0_video": {
+      "video_id": "fXJMz9_CGCs",
+      "video_url": "https://youtu.be/fXJMz9_CGCs",
+      "title": "[JLPT N5] EP.09 Anime Company Made a Real Sauna in Tokyo! | Real Japanese Breakdown",
+      "publish_at_est": "2026-10-05T08:00:00-04:00",
+      "uploaded_at": "2026-10-01T22:40:17.734800-04:00",
+      "is_short": false
+    },
+    "E09-anime_sauna_trend-v1.0_short": {
+      "video_id": "nLSoKy3DFFI",
+      "video_url": "https://youtu.be/nLSoKy3DFFI",
+      "title": "[JLPT N5] SH.09 Anime Studio Made a SAUNA in Tokyo?! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-05T17:00:00-04:00",
+      "uploaded_at": "2026-10-01T22:40:22.394080-04:00",
+      "is_short": true
+    },
+    "E10-anime_sauna_trend-v1.0_video": {
+      "video_id": "9XnVQhEZlDs",
+      "video_url": "https://youtu.be/9XnVQhEZlDs",
+      "title": "[JLPT N5] EP.10 Anime Company Made a Real Sauna in Tokyo! | Real Japanese Breakdown",
+      "publish_at_est": "2026-10-06T08:00:00-04:00",
+      "uploaded_at": "2026-10-02T08:02:15.192273-04:00",
+      "is_short": false
+    },
+    "E10-anime_sauna_trend-v1.0_short": {
+      "video_id": "AbyRnnMPWnE",
+      "video_url": "https://youtu.be/AbyRnnMPWnE",
+      "title": "[JLPT N5] SH.10 Anime Studio Made a SAUNA in Tokyo?! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-06T17:00:00-04:00",
+      "uploaded_at": "2026-10-02T08:02:21.332370-04:00",
+      "is_short": true
+    }
+  }
+}

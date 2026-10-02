@@ -71,23 +71,27 @@
           "furigana": "にせんえん{二千円}チャージで、りょうしゅうしょ{領収書}を おねが{お願}いします。",
           "romaji": "Ni-sen-en chāji de, ryōshūsho o onegaishimasu.",
           "isCorrect": true,
-          "explanation": "Natural and polite: specifying the charge amount and requesting a receipt (領収書 ryōshūsho)."
+          "explanation": "Natural and polite: specifying the charge amount and requesting a receipt (領収書 ryōshūsho).",
+          "explanationZh": "自然且礼貌：明确充值金额并请求开具收据（領収書 ryōshūsho）。"
         },
         {
           "text": "Suicaにお金をたくさん入れるよ。",
           "furigana": "Suicaにおかね{お金}を たくさん い{入}れるよ。",
           "romaji": "Suica ni okane o takusan ireru yo.",
           "isCorrect": false,
-          "explanation": "Too casual and vague, not suitable for customer service."
+          "explanation": "Too casual and vague, not suitable for customer service.",
+          "explanationZh": "过于随意且表达模糊，不适用于对客服人员或正式场合。"
         },
         {
           "text": "電車に乗る切符をください。",
           "furigana": "でんしゃ{電車}に の{乗}る きっぷ{切符}を ください。",
           "romaji": "Densha ni noru kippu o kudasai.",
           "isCorrect": false,
-          "explanation": "This asks to buy a physical single-trip ticket, not recharge Suica."
+          "explanation": "This asks to buy a physical single-trip ticket, not recharge Suica.",
+          "explanationZh": "这是在要求购买单程实体车票，而非为Suica充值。"
         }
-      ]
+      ],
+      "promptZh": "你在自动售票机前，想用10,000日元纸币充值2,000日元，并需要打印收据。"
     },
     "keyVocabulary": [
       {
@@ -95,35 +99,40 @@
         "reading": "なんばんせん",
         "romaji": "nan-bansen",
         "meaning": "which platform number",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "几号站台"
       },
       {
         "word": "行き",
         "reading": "ゆき / いき",
         "romaji": "yuki",
         "meaning": "bound for / heading to",
-        "type": "suffix"
+        "type": "suffix",
+        "meaningZh": "上（楼梯/台阶）"
       },
       {
         "word": "チャージ",
         "reading": "チャージ",
         "romaji": "chāji",
         "meaning": "top-up / recharge IC card",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "充值（给IC交通卡充钱）"
       },
       {
         "word": "券売機",
         "reading": "けんばいき",
         "romaji": "kenbaiki",
         "meaning": "ticket vending machine",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "自动售票机"
       },
       {
         "word": "領収書",
         "reading": "りょうしゅうしょ",
         "romaji": "ryōshūsho",
         "meaning": "official receipt (for expense/tax)",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "按下（按钮）"
       },
       {
         "word": "改札口",
@@ -132,7 +141,11 @@
         "meaning": "ticket barrier gate",
         "type": "noun"
       }
-    ]
+    ],
+    "titleZh": "早高峰山手线：车票与Suica西瓜卡通勤",
+    "jfCanDoDescriptionZh": "能够购买电车车票、为IC交通卡充值，并向车站站务员询问站台方向。",
+    "contextZh": "你在早高峰时段抵达新宿站。你需要为Suica卡充值，并找到前往涩谷方向的山手线站台。",
+    "culturalTipZh": "在东京检票闸机，请将Suica/Pasmo轻触右侧感应区。若闸机发出蜂鸣并关闸，请移步至人工窗口（精算所 / 改札窓口）说明「タッチできませんでした」（刚才没刷上）。"
   },
   {
     "id": "scenario_02_kombini_morning",
@@ -230,23 +243,27 @@
           "furigana": "いっしょ{一緒}で いいです。",
           "romaji": "Issho de ii desu.",
           "isCorrect": true,
-          "explanation": "'Issho de ii desu' is the Tokyo native shortcut meaning 'Together is fine'."
+          "explanation": "'Issho de ii desu' is the Tokyo native shortcut meaning 'Together is fine'.",
+          "explanationZh": "完美回答：简洁明确地请求加热并礼貌拒绝塑料袋。"
         },
         {
           "text": "別々にしてください。",
           "furigana": "べつべつ{別々}に してください。",
           "romaji": "Betsu-betsu ni shite kudasai.",
           "isCorrect": false,
-          "explanation": "This requests them in separate bags."
+          "explanation": "This requests them in separate bags.",
+          "explanationZh": "语法生硬且意思不明确，店员可能无法确认是否要加热。"
         },
         {
           "text": "温めないでください。",
           "furigana": "あたた{温}めないで ください。",
           "romaji": "Atatamenaide kudasai.",
           "isCorrect": false,
-          "explanation": "This means 'Do not warm it up', not answering about bag separation."
+          "explanation": "This means 'Do not warm it up', not answering about bag separation.",
+          "explanationZh": "表达过于粗鲁，不符合便利店对话礼仪。"
         }
-      ]
+      ],
+      "promptZh": "店员询问你便当是否需要加热，以及是否需要塑料袋，你希望加热便当但不需要袋子。"
     },
     "keyVocabulary": [
       {
@@ -254,35 +271,40 @@
         "reading": "あたためる",
         "romaji": "atatameru",
         "meaning": "to warm up / microwave",
-        "type": "verb"
+        "type": "verb",
+        "meaningZh": "加热（微波炉加热）"
       },
       {
         "word": "レジ袋",
         "reading": "レジぶくろ",
         "romaji": "reji-bukuro",
         "meaning": "plastic shopping checkout bag",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "购物塑料袋"
       },
       {
         "word": "一緒でいい",
         "reading": "いっしょでいい",
         "romaji": "issho de ii",
         "meaning": "together is fine (combining items)",
-        "type": "phrase"
+        "type": "phrase",
+        "meaningZh": "没关系 / 不需要"
       },
       {
         "word": "箸",
         "reading": "はし",
         "romaji": "hashi",
         "meaning": "chopsticks",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "收银台 / 结账"
       },
       {
         "word": "お手拭き",
         "reading": "おてふき",
         "romaji": "o-tefuki",
         "meaning": "wet wipe / hand towelette",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "积分卡"
       },
       {
         "word": "支払い",
@@ -291,7 +313,11 @@
         "meaning": "payment method",
         "type": "noun"
       }
-    ]
+    ],
+    "titleZh": "便利店清晨：便当加热、购物袋与支付全流程",
+    "jfCanDoDescriptionZh": "能够应对日本便利店结账时的连环提问（便当加热、袋子、积分卡），并完成无现金或现金支付。",
+    "contextZh": "早上在涉谷的7-Eleven购买便当、饮料和咖啡。店员语速极快地提出一系列结账问题。",
+    "culturalTipZh": "日本便利店塑料袋收费。如不需要袋子，微笑并点头说「大丈夫です」或「このままでいいです」即可；若需要袋子则说「袋（ふくろ）お願いします」。"
   },
   {
     "id": "scenario_03_ramen_ticket_machine",
@@ -365,23 +391,27 @@
           "furigana": "すみません、かえだま{替え玉}を バリカタで おねが{お願}いします！",
           "romaji": "Sumimasen, kaedama o barikata de onegaishimasu!",
           "isCorrect": true,
-          "explanation": "'Kaedama' is noodle refill; 'Barikata' (超硬) is extra firm noodles."
+          "explanation": "'Kaedama' is noodle refill; 'Barikata' (超硬) is extra firm noodles.",
+          "explanationZh": "地道且专业：精准使用拉面定制术语「麺硬め、味濃いめ」。"
         },
         {
           "text": "もう一杯ラーメンを新しく作ってください。",
           "furigana": "もういっぱい{一杯}ラーメンを あたら{新}しく つく{作}ってください。",
           "romaji": "Mō ippai rāmen o atarashiku tsukutte kudasai.",
           "isCorrect": false,
-          "explanation": "This orders an entire second bowl of ramen at full price."
+          "explanation": "This orders an entire second bowl of ramen at full price.",
+          "explanationZh": "表达不符合拉面店惯用术语，容易引起误解。"
         },
         {
           "text": "お会計をお願いします。",
           "furigana": "おかいけい{お会計}を おねが{お願}いします。",
           "romaji": "O-kaikei o onegaishimasu.",
           "isCorrect": false,
-          "explanation": "This asks for the bill/checkout."
+          "explanation": "This asks for the bill/checkout.",
+          "explanationZh": "没有表达出定制要求，只是泛泛要求做拉面。"
         }
-      ]
+      ],
+      "promptZh": "店员询问你的面条喜好，你希望面条偏硬（硬め）、味道偏浓（濃いめ）。"
     },
     "keyVocabulary": [
       {
@@ -389,35 +419,40 @@
         "reading": "しょっけんき",
         "romaji": "shokkenki",
         "meaning": "meal ticket vending machine",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "食券机"
       },
       {
         "word": "硬め",
         "reading": "かため",
         "romaji": "katame",
         "meaning": "firm / al dente (noodles)",
-        "type": "adjective"
+        "type": "adjective",
+        "meaningZh": "硬度（面条）"
       },
       {
         "word": "濃いめ",
         "reading": "こいめ",
         "romaji": "koime",
         "meaning": "rich / concentrated flavor",
-        "type": "adjective"
+        "type": "adjective",
+        "meaningZh": "浓郁（汤头）"
       },
       {
         "word": "替え玉",
         "reading": "かえだま",
         "romaji": "kaedama",
         "meaning": "noodle refill",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "大份（加量）"
       },
       {
         "word": "お冷",
         "reading": "おひや",
         "romaji": "o-hiya",
         "meaning": "cold drinking water",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "替玉（加面）"
       },
       {
         "word": "バリカタ",
@@ -426,7 +461,11 @@
         "meaning": "extra firm noodle texture",
         "type": "slang"
       }
-    ]
+    ],
+    "titleZh": "拉面店食券机与“面条硬度/汤头浓度”定制",
+    "jfCanDoDescriptionZh": "能够使用拉面店自动食券机选餐，并向店员准确表达面条硬度、汤头浓度和配料需求。",
+    "contextZh": "来到新宿歌舞伎町附近的人气拉面店。进门先在食券机购买食券，入座后店员询问你的口味偏好（お好み）。",
+    "culturalTipZh": "吃拉面时发出吸溜声在日本被视作是对厨师厨艺的赞赏与享受；在吧台就座后，将食券放在抬高的台面上（カウンター上）即可。"
   },
   {
     "id": "scenario_04_izakaya_table_booking",
@@ -512,23 +551,27 @@
           "furigana": "すみません、おかいけい{お会計}（おかんじょう{お勘定}）を おねが{お願}いします。",
           "romaji": "Sumimasen, o-kaikei (o-kanjō) o onegaishimasu.",
           "isCorrect": true,
-          "explanation": "The standard polite way to ask for the check in Japan (crossing your index fingers in an 'X' sign is also recognized)."
+          "explanation": "The standard polite way to ask for the check in Japan (crossing your index fingers in an 'X' sign is also recognized).",
+          "explanationZh": "地道居酒屋开场句：先点两杯生啤并咨询招牌推荐。"
         },
         {
           "text": "もう帰るからお金を渡すよ。",
           "furigana": "もうかえ{帰}るから おかね{お金}を わた{渡}すよ。",
           "romaji": "Mō kaeru kara okane o watasu yo.",
           "isCorrect": false,
-          "explanation": "Too blunt and rude for an establishment."
+          "explanation": "Too blunt and rude for an establishment.",
+          "explanationZh": "用词不自然，居酒屋一般不这么点单。"
         },
         {
           "text": "ごちそうさまでした！お金はいりません。",
           "furigana": "ごちそうさまでした！おかね{お金}は いりません。",
           "romaji": "Gochisōsama deshita! Okane wa irimasen.",
           "isCorrect": false,
-          "explanation": "This says 'I don't need money', nonsensical for paying."
+          "explanation": "This says 'I don't need money', nonsensical for paying.",
+          "explanationZh": "缺少对推荐菜品的询问，且表达不够自然。"
         }
-      ]
+      ],
+      "promptZh": "入座后你想先为两个人各点一杯生啤酒，并询问推荐烤串。"
     },
     "keyVocabulary": [
       {
@@ -536,35 +579,40 @@
         "reading": "とりあえず",
         "romaji": "toriaezu",
         "meaning": "for now / to start with",
-        "type": "adverb"
+        "type": "adverb",
+        "meaningZh": "先来…（居酒屋惯用语）"
       },
       {
         "word": "生中",
         "reading": "なまちゅう",
         "romaji": "namachū",
         "meaning": "medium draft beer (生ビール中ジョッキ)",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "生啤酒"
       },
       {
         "word": "お通し",
         "reading": "おとおし",
         "romaji": "o-tōshi",
         "meaning": "mandatory table appetizer / cover charge",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "小菜 / 座位费前菜"
       },
       {
         "word": "盛り合わせ",
         "reading": "もりあわせ",
         "romaji": "moriawase",
         "meaning": "combination / platter platter",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "结账 / 买单"
       },
       {
         "word": "割り勘",
         "reading": "わりかん",
         "romaji": "warikan",
         "meaning": "splitting the bill equally",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "AA制 / 各自平摊"
       },
       {
         "word": "一括会計",
@@ -573,7 +621,11 @@
         "meaning": "lump-sum / single check payment",
         "type": "noun"
       }
-    ]
+    ],
+    "titleZh": "居酒屋之夜：入座点餐、先来杯生啤与AA制结账",
+    "jfCanDoDescriptionZh": "能够在居酒屋完成点单（「先来杯生啤！」）、理解前菜（お通し）文化并要求分开结账。",
+    "contextZh": "周五晚与朋友前往新宿回忆横丁的居酒屋。你需要入座、先点饮品、随后加点烤串，并在最后结账。",
+    "culturalTipZh": "在日本居酒屋，入座第一件事通常是先点酒水饮料（通常是「とりあえず生」先来杯生啤酒）；随后端上来的小菜叫「お通し」（收取座位费）。"
   },
   {
     "id": "scenario_05_docomo_bike_rental",
@@ -647,16 +699,19 @@
           "furigana": "アプリで ちか{近}くの べつ{別}の ポートを さが{探}して、そちらに へんきゃく{返却}する。",
           "romaji": "Apuri de chikaku no betsu no pōto o sagashite, sochira ni henkyaku suru.",
           "isCorrect": true,
-          "explanation": "Correct procedure: find the nearest non-full port in the app to return cleanly."
+          "explanation": "Correct procedure: find the nearest non-full port in the app to return cleanly.",
+          "explanationZh": "地道礼貌：使用「ポート（Port）」询问最近的还车站桩位置。"
         },
         {
           "text": "道路の真ん中に置いてそのまま立ち去る。",
           "furigana": "どうろ{道路}の まんなか{真ん中}に お{置}いて そのまま たちさ{立ち去}る。",
           "romaji": "Dōro no mannaka ni oite sono mama tachisaru.",
           "isCorrect": false,
-          "explanation": "Abandoning bikes on the road leads to impound fines and account bans."
+          "explanation": "Abandoning bikes on the road leads to impound fines and account bans.",
+          "explanationZh": "「自転車の家」不是地道日语表达，容易让人困惑。"
         }
-      ]
+      ],
+      "promptZh": "你想询问路人附近哪里有可还车的Docomo共享单车站桩。"
     },
     "keyVocabulary": [
       {
@@ -664,37 +719,46 @@
         "reading": "あかチャリ",
         "romaji": "aka-chari",
         "meaning": "Tokyo red share-cycle nickname",
-        "type": "slang"
+        "type": "slang",
+        "meaningZh": "共享单车"
       },
       {
         "word": "返却",
         "reading": "へんきゃく",
         "romaji": "henkyaku",
         "meaning": "return / returning borrowed items",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "驻轮场 / 还车站桩"
       },
       {
         "word": "施錠",
         "reading": "せじょう",
         "romaji": "sejō",
         "meaning": "locking / locking mechanism",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "解锁 / 密码输入"
       },
       {
         "word": "満車",
         "reading": "まんしゃ",
         "romaji": "mansha",
         "meaning": "full / no vacant slots",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "电量剩余"
       },
       {
         "word": "放置自転車",
         "reading": "ほうちじてんしゃ",
         "romaji": "hōchi jitensha",
         "meaning": "illegally abandoned bicycle",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "返还 / 还车"
       }
-    ]
+    ],
+    "titleZh": "东京城市出行：Docomo小红车与LUUP滑板车租赁",
+    "jfCanDoDescriptionZh": "能够理解共享单车/滑板车解锁说明、按键操作并向客服或附近路人询问还车点。",
+    "contextZh": "在六本木准备骑乘Docomo红色共享单车前往表参道，需要确认密码锁解锁流程与还车桩位置。",
+    "culturalTipZh": "东京自行车不能随意随地停放，必须停在指定的Port（驻轮场），违规停放会被拖走并面临罚款。"
   },
   {
     "id": "scenario_06_department_store_taxfree",
@@ -768,16 +832,19 @@
           "furigana": "めんぜい{免税}（Tax-Free）の てつづ{手続き}きは どこで できますか？パスポートを も{持}っています。",
           "romaji": "Menzei no tetsuzuki wa doko de dekimasu ka? Pasupōto o motte imasu.",
           "isCorrect": true,
-          "explanation": "Natural and clear: asks where to process the tax-free counter (免税カウンター)."
+          "explanation": "Natural and clear: asks where to process the tax-free counter (免税カウンター).",
+          "explanationZh": "标准且地道的专柜表达：「ワンサイズ上（大一号）はありますか？」。"
         },
         {
           "text": "税金を払いたくないから安くして。",
           "furigana": "ぜいきん{税金}を はら{払}いたくないから やす{安}くして。",
           "romaji": "Zeikin o haraitakunai kara yasuku shite.",
           "isCorrect": false,
-          "explanation": "Rude bargaining sentence, not standard tax-free procedure."
+          "explanation": "Rude bargaining sentence, not standard tax-free procedure.",
+          "explanationZh": "表达生硬，非地道服装店习惯用语。"
         }
-      ]
+      ],
+      "promptZh": "你试穿后觉得稍微有点小，想询问店员有没有大一号的尺码。"
     },
     "keyVocabulary": [
       {
@@ -785,37 +852,46 @@
         "reading": "しちゃく",
         "romaji": "shichaku",
         "meaning": "trying on clothes / fitting",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "试穿（可以试穿吗）"
       },
       {
         "word": "きつい",
         "reading": "きつい",
         "romaji": "kitsui",
         "meaning": "tight / snug fit",
-        "type": "adjective"
+        "type": "adjective",
+        "meaningZh": "大一号尺寸"
       },
       {
         "word": "緩い",
         "reading": "ゆるい",
         "romaji": "yurui",
         "meaning": "loose fit",
-        "type": "adjective"
+        "type": "adjective",
+        "meaningZh": "试衣间"
       },
       {
         "word": "免税",
         "reading": "めんぜい",
         "romaji": "menzei",
         "meaning": "duty-free / tax-free (10% consumption tax)",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "免税（Tax-Free）"
       },
       {
         "word": "靴を脱ぐ",
         "reading": "くつをぬぐ",
         "romaji": "kutsu o nugu",
         "meaning": "take off shoes",
-        "type": "phrase"
+        "type": "phrase",
+        "meaningZh": "退税柜台"
       }
-    ]
+    ],
+    "titleZh": "银座百货：试穿、尺寸确认与退税柜台办理",
+    "jfCanDoDescriptionZh": "能够在商场专柜提出试穿需求、询问其他尺码与颜色，并前往退税柜台办理免税。",
+    "contextZh": "在银座百货商店挑选衣服，需要试穿并向店员询问大一号的尺码，最后办理Tax-Free免税。",
+    "culturalTipZh": "在日本服装店进入试衣间前必须脱鞋；女士试穿套头衣物时，店员会提供面罩（Face Cover）以防粉底沾染衣物。"
   },
   {
     "id": "scenario_07_post_office_delivery",
@@ -877,16 +953,19 @@
           "furigana": "みぶんしょうめいしょ{身分証明書}と ふざいひょう{不在票}を も{持}って、ほんきょく{本局}の「ゆうゆう まどぐち{窓口}」で う{受}けと{取}る。",
           "romaji": "Mibun shōmeisho to fuzaihyō o motte, honkyoku no 'Yū-Yū Madoguchi' de uketoru.",
           "isCorrect": true,
-          "explanation": "Japan Post's 24/7 or late night counter at regional main post offices is called 'ゆうゆう窓口'."
+          "explanation": "Japan Post's 24/7 or late night counter at regional main post offices is called 'ゆうゆう窓口'.",
+          "explanationZh": "清晰标准的指定送达时间段表达：「明日の19時から21時の間」。"
         },
         {
           "text": "近所のコンビニに勝手に預けられているので取りに行く。",
           "furigana": "きんじょ{近所}の コンビニに かって{勝手}に あず{預}けられているので と{取}りに い{行}く。",
           "romaji": "Kinjo no kombini ni katte ni azukerarete iru node tori ni iku.",
           "isCorrect": false,
-          "explanation": "Packages are not dropped at random convenience stores without prior agreement."
+          "explanation": "Packages are not dropped at random convenience stores without prior agreement.",
+          "explanationZh": "时间表达不精准，容易导致快递员无法确认具体送货区间。"
         }
-      ]
+      ],
+      "promptZh": "你在电话自动语音或窗口中指定希望在明天晚上19点到21点之间重新配送。"
     },
     "keyVocabulary": [
       {
@@ -894,37 +973,46 @@
         "reading": "ふざいひょう",
         "romaji": "fuzaihyō",
         "meaning": "missed delivery notice slip",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "不在联络票（快递未妥投通知）"
       },
       {
         "word": "再配達",
         "reading": "さいはいたつ",
         "romaji": "sai-haitatsu",
         "meaning": "redelivery request",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "再配送（重新送货）"
       },
       {
         "word": "時間帯指定",
         "reading": "じかんたいしてい",
         "romaji": "jikantai shitei",
         "meaning": "delivery time window designation",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "包裹追踪单号"
       },
       {
         "word": "ゆうゆう窓口",
         "reading": "ゆうゆうまどぐち",
         "romaji": "yūyū madoguchi",
         "meaning": "Japan Post after-hours package counter",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "指定送达时间段"
       },
       {
         "word": "置き配",
         "reading": "おきはい",
         "romaji": "okihai",
         "meaning": "contactless doorstep drop delivery",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "本人确认证件（窗口取件用）"
       }
-    ]
+    ],
+    "titleZh": "东京生活实务：不在票再配送申请与邮局窗口取件",
+    "jfCanDoDescriptionZh": "能够看懂日本邮便/宅急便的不在联络票（不在票），完成网上/电话再配送预约或去窗口自取。",
+    "contextZh": "回到家在信箱发现了日本邮便的「ご不在連絡票」。你需要看懂追踪号码并安排明天晚上重新配送。",
+    "culturalTipZh": "日本快递如果家中无人会留下「不在票」，上面有QR码和电话，当天一定时间前预约可享受当晚二次免费送达。"
   },
   {
     "id": "scenario_08_gyudon_fastfood",
@@ -974,16 +1062,19 @@
           "furigana": "ごはん{ご飯} すくな{少}なめ、ねぎだくで おねが{お願}いします！",
           "romaji": "Gohan sukuname, negidaku de onegaishimasu!",
           "isCorrect": true,
-          "explanation": "'Gohan sukuname' = less rice; 'Negidaku' = extra simmered onions."
+          "explanation": "'Gohan sukuname' = less rice; 'Negidaku' = extra simmered onions.",
+          "explanationZh": "完美行话搭配：「牛丼並盛り、つゆだくで、卵セットをお願いします」。"
         },
         {
           "text": "お肉を全部捨ててください。",
           "furigana": "おにく{お肉}を ぜんぶ{全部} す{捨}ててください。",
           "romaji": "O-niku o zembu sutete kudasai.",
           "isCorrect": false,
-          "explanation": "Tells them to throw away the meat!"
+          "explanation": "Tells them to throw away the meat!",
+          "explanationZh": "没有使用「つゆだく」标准术语，店员可能无法精确掌握汤汁量。"
         }
-      ]
+      ],
+      "promptZh": "你想点一份中碗牛丼，要求多放汤汁（汁多），并加一份生鸡蛋和味噌汤套餐。"
     },
     "keyVocabulary": [
       {
@@ -991,37 +1082,46 @@
         "reading": "なみもり",
         "romaji": "namimori",
         "meaning": "regular size portion",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "中碗（普通分量）"
       },
       {
         "word": "大盛",
         "reading": "おおもり",
         "romaji": "ōmori",
         "meaning": "large size portion",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "多加汤汁（牛丼术语）"
       },
       {
         "word": "つゆだく",
         "reading": "つゆだく",
         "romaji": "tsuyudaku",
         "meaning": "extra beef broth / sauce on rice",
-        "type": "slang"
+        "type": "slang",
+        "meaningZh": "生鸡蛋"
       },
       {
         "word": "ねぎだく",
         "reading": "ねぎだく",
         "romaji": "negidaku",
         "meaning": "extra stewed onions",
-        "type": "slang"
+        "type": "slang",
+        "meaningZh": "味噌汤"
       },
       {
         "word": "お冷",
         "reading": "おひや",
         "romaji": "o-hiya",
         "meaning": "cold water",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "肉加量（饭量正常）"
       }
-    ]
+    ],
+    "titleZh": "牛丼屋点餐暗号：多汁(つゆだく)、多葱与生生鸡蛋套餐",
+    "jfCanDoDescriptionZh": "能够在吉野家、松屋、Sukiya自如使用经典点餐术语（汁多、葱多、肉大碗）并搭配套餐。",
+    "contextZh": "深夜在吉野家吧台就座，准备快速享用一顿地道牛丼套餐。你需要用行话准确提出自己的定制需求。",
+    "culturalTipZh": "牛丼店常见术语：つゆだく（多汤汁）、ねぎだく（多洋葱）、あたまの大盛り（只要肉加量米饭普通）。生鸡蛋通常会打在小碗里加少许酱油搅拌后再淋在牛肉上。"
   },
   {
     "id": "scenario_09_supermarket_halfprice",
@@ -1071,16 +1171,19 @@
           "furigana": "がめん{画面}の『ポイントカードを よ{読}みと{取}る』を お{押}して バーコードを かざす。",
           "romaji": "Gamen no 'Pointo kādo o yomitoru' o oshite bākōdo o kDirectionasu.",
           "isCorrect": true,
-          "explanation": "Standard Japanese self-checkout screen procedure."
+          "explanation": "Standard Japanese self-checkout screen procedure.",
+          "explanationZh": "礼貌且得体地向店员确认是否能贴半价标签：「こちらも半額シール貼っていただけますか？」。"
         },
         {
           "text": "レジを叩いてお金を投げ入れる。",
           "furigana": "レジを たた{叩}いて おかね{お金}を な{投}げい{入}れる。",
           "romaji": "Reji o tataite okane o nageireru.",
           "isCorrect": false,
-          "explanation": "Damages the machine!"
+          "explanation": "Damages the machine!",
+          "explanationZh": "态度过于强硬，容易显得不够礼貌。"
         }
-      ]
+      ],
+      "promptZh": "你在熟食区看到店员正在贴标签，想确认手里的刺身拼盘是否也可以贴半价标签。"
     },
     "keyVocabulary": [
       {
@@ -1088,30 +1191,38 @@
         "reading": "はんがく",
         "romaji": "hangaku",
         "meaning": "half price (50% discount)",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "半价（5折）"
       },
       {
         "word": "割引",
         "reading": "わりびき",
         "romaji": "waribiki",
         "meaning": "discount",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "打折 / 折扣（如2割引=8折）"
       },
       {
         "word": "見切り品",
         "reading": "みきりひん",
         "romaji": "mikirihin",
         "meaning": "clearance / reduced price item",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "贴纸（降价贴纸）"
       },
       {
         "word": "消費期限",
         "reading": "しょうひきげん",
         "romaji": "shōhi kigen",
         "meaning": "use-by expiration date (perishable)",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "熟食（便当炸物等）"
       }
-    ]
+    ],
+    "titleZh": "东京超市之夜：晚上8点半价（半額）抢购与熟食结算",
+    "jfCanDoDescriptionZh": "能够看懂超市熟食区降价打折标签（20% OFF、半额），并在收银台正确结算。",
+    "contextZh": "晚上8点走进住处附近的Life或AEON超市。熟食区店员正在给便当、刺身贴半价（半額）贴纸。",
+    "culturalTipZh": "日本超市通常在闭店前2-3小时开始贴打折贴纸（割引シール），从「20円引」、「2割引(20% off)」直到最受欢迎的「半額(50% off)」。贴纸刚贴上即可拿取。"
   },
   {
     "id": "scenario_10_drugstore_medicine",
@@ -1161,16 +1272,19 @@
           "furigana": "この くすり{薬}を の{飲}むと ねむ{眠}くなりますか？（ねむけ{眠気}は で{出}ますか？）",
           "romaji": "Kono kusuri o nomu to nemuku narimasu ka?",
           "isCorrect": true,
-          "explanation": "Natural way to ask if an OTC medication has drowsiness side effects."
+          "explanation": "Natural way to ask if an OTC medication has drowsiness side effects.",
+          "explanationZh": "详尽地道：准确描述头痛发热症状，并明确提出「眠くならない（不嗜睡）」的要求。"
         },
         {
           "text": "飲むとすぐに気絶しますか？",
           "furigana": "の{飲}むと すぐに きぜつ{気絶}しますか？",
           "romaji": "Nomu to sugu ni kizetsu shimasu ka?",
           "isCorrect": false,
-          "explanation": "'Will I immediately faint into a coma?' — overly dramatic."
+          "explanation": "'Will I immediately faint into a coma?' — overly dramatic.",
+          "explanationZh": "缺少对不嗜睡药性的说明，店员可能会推荐容易犯困的强效感冒药。"
         }
-      ]
+      ],
+      "promptZh": "你向店员说明自己从昨晚开始头痛并且有点低烧，想买不瞌睡的止痛感冒药。"
     },
     "keyVocabulary": [
       {
@@ -1178,30 +1292,38 @@
         "reading": "ずつうやく",
         "romaji": "zutsūyaku",
         "meaning": "headache medicine / painkiller",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "头痛"
       },
       {
         "word": "食後",
         "reading": "しょくご",
         "romaji": "shokugo",
         "meaning": "after meals",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "发烧 / 发热"
       },
       {
         "word": "ぬるま湯",
         "reading": "ぬるまゆ",
         "romaji": "nurumayu",
         "meaning": "lukewarm water",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "止痛药"
       },
       {
         "word": "眠気",
         "reading": "ねむけ",
         "romaji": "nemuke",
         "meaning": "drowsiness / sleepiness",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "不瞌睡 / 不嗜睡"
       }
-    ]
+    ],
+    "titleZh": "药妆店买药：购买止痛药(EVE)与向药剂师描述症状",
+    "jfCanDoDescriptionZh": "能够在Matsukiyo或Sundrug向药剂师或店员说明头痛、发热、胃痛症状，并选购对应常备药。",
+    "contextZh": "因感冒头痛前往药妆店购买EVE止痛药或感冒颗粒（Pabron）。需要向店员描述具体症状并确认服用方法。",
+    "culturalTipZh": "日本药妆店药品分为第1类、第2类、第3类。第1类（如强效止痛药洛索洛芬Loxonin）必须由执业药剂师（薬剤師）在场说明后方可购买。"
   },
   {
     "id": "scenario_11_onsen_sento_etiquette",
@@ -1251,16 +1373,19 @@
           "furigana": "あたま{頭}の うえ{上}に たた{畳}んで の{乗}せるか、ゆぶね{湯船}の そと{外}の ふち{縁}に お{置}く。",
           "romaji": "Atama no ue ni tatande noseru ka, yubune no soto no fuchi ni oku.",
           "isCorrect": true,
-          "explanation": "Strict Japanese hygiene rule: towels must never touch communal bath water."
+          "explanation": "Strict Japanese hygiene rule: towels must never touch communal bath water.",
+          "explanationZh": "地道钱汤点单：入浴券、毛巾与洗发水一并完整表达。"
         },
         {
           "text": "お湯の中でタオルを石鹸で洗う。",
           "furigana": "おゆ{お湯}の なか{中}で タオルを せっけん{石鹸}で あら{洗}う。",
           "romaji": "O-yu no naka de taoru o sekken de arau.",
           "isCorrect": false,
-          "explanation": "Severe violation of public bath rules!"
+          "explanation": "Severe violation of public bath rules!",
+          "explanationZh": "用词不专业，钱汤一般不说「お風呂の切符」。"
         }
-      ]
+      ],
+      "promptZh": "在前台你想购买成人入浴券，并租一条小毛巾和洗发水小样。"
     },
     "keyVocabulary": [
       {
@@ -1268,29 +1393,37 @@
         "reading": "おとこゆ / おんなゆ",
         "romaji": "otokoyu / onnayu",
         "meaning": "men's bath / women's bath",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "入浴券"
       },
       {
         "word": "湯船",
         "reading": "ゆぶね",
         "romaji": "yubune",
         "meaning": "communal hot bath tub",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "冲洗水（入池前冲洗）"
       },
       {
         "word": "かけ湯",
         "reading": "かけゆ",
         "romaji": "kakeyu",
         "meaning": "rinsing body with hot water before entering bath",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "冲洗区（坐着洗澡的地方）"
       },
       {
         "word": "番頭",
         "reading": "ばんとう",
         "romaji": "bantō",
         "meaning": "sento bathhouse counter master",
-        "type": "noun"
+        "type": "noun",
+        "meaningZh": "更衣室（脱衣所）"
       }
-    ]
+    ],
+    "titleZh": "钱汤与温泉极意：淋浴冲洗礼仪、毛巾严禁入池与入浴规矩",
+    "jfCanDoDescriptionZh": "能够看懂温泉/钱汤的入浴守则，并在前台购买入浴券、租借毛巾，严格遵守日本公共澡堂礼仪。",
+    "contextZh": "体验东京下町的传统钱汤。在前台（番台）购买入浴券、租借小毛巾，并进入更衣室与浴室。",
+    "culturalTipZh": "三大温泉铁律：1. 入池前必须在冲洗区（洗い場）彻底洗净身体；2. 毛巾严禁泡入浴池（可顶在头上或放池边）；3. 擦干身体后再返回更衣室。"
   }
 ]

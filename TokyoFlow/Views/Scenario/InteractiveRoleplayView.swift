@@ -9,6 +9,8 @@ public struct InteractiveRoleplayView: View {
     @State private var showFeedback: Bool = false
     @State private var isSuccess: Bool = false
 
+    @ObservedObject private var languageManager = LanguageManager.shared
+
     public var body: some View {
         NavigationStack {
             ZStack {
@@ -21,11 +23,11 @@ public struct InteractiveRoleplayView: View {
                             .font(.system(size: 36))
                             .foregroundColor(.accentColor)
 
-                        Text("Roleplay Scenario Challenge")
+                        Text(languageManager.isEnglish ? "Roleplay Scenario Challenge" : "实战场景角色扮演挑战")
                             .font(.title3)
                             .fontWeight(.bold)
 
-                        Text(challenge.prompt)
+                        Text(challenge.localizedPrompt)
                             .font(.subheadline)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.secondary)
@@ -101,11 +103,11 @@ public struct InteractiveRoleplayView: View {
                             HStack {
                                 Image(systemName: option.isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
                                     .foregroundColor(option.isCorrect ? .green : .red)
-                                Text(option.isCorrect ? "Excellent! Natural Tokyo Japanese" : "Not Quite Right")
+                                Text(languageManager.isEnglish ? (option.isCorrect ? "Excellent! Natural Tokyo Japanese" : "Not Quite Right") : (option.isCorrect ? "答对了！地道东京实战表达" : "还不够地道，再试一次吧"))
                                     .font(.headline)
                                     .foregroundColor(option.isCorrect ? .green : .red)
                             }
-                            Text(option.explanation)
+                            Text(option.localizedExplanation)
                                 .font(.footnote)
                                 .foregroundColor(.primary.opacity(0.9))
                         }
@@ -120,7 +122,7 @@ public struct InteractiveRoleplayView: View {
                     Spacer()
 
                     Button(action: { dismiss() }) {
-                        Text(showFeedback ? "Continue" : "Cancel")
+                        Text(languageManager.isEnglish ? (showFeedback ? "Continue" : "Cancel") : (showFeedback ? "完成并继续" : "取消"))
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -132,7 +134,7 @@ public struct InteractiveRoleplayView: View {
                     .padding(.bottom)
                 }
             }
-            .navigationTitle("Live Simulation")
+            .navigationTitle(languageManager.isEnglish ? "Live Simulation" : "实境演练")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

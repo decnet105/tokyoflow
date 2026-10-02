@@ -9,10 +9,10 @@ Duolingo and conventional language apps are built on an algorithmic **decontextu
 
 | Dimensions | Why Duolingo Fails | The Tokyo Real-World Reality | How TokyoFlow Solves It |
 | :--- | :--- | :--- | :--- |
-| **Pragmatics & Situational Flow** | Teaches surreal, disconnected sentences (*"The apple is eating the lawyer"*, *"I am a bird"*). | Japanese is deeply **high-context (*場 - Ba*)**. Real survival depends on situational scripts (kombini register, train platform queues, ticket machines). | **Situational Use-Case Simulations**: Morning commute, kombini checkout, ramen machine customization, izakaya orders. |
+| **Pragmatics & Situational Flow** | Teaches surreal, disconnected sentences (*"The apple is eating the lawyer"*, *"I am a bird"*). | Japanese is deeply **high-context (* - Ba*)**. Real survival depends on situational scripts (kombini register, train platform queues, ticket machines). | **Situational Use-Case Simulations**: Morning commute, kombini checkout, ramen machine customization, izakaya orders. |
 | **Linguistic Register (Keigo vs Casual)** | Mixes levels arbitrarily without context or explanation of interpersonal distance. | Japanese changes drastically depending on whether you are talking to a station staff (polite/keigo), friend (casual), or reading manga (colloquial). | **Register Badges & Dynamic Switching**: Clear labeling of *Keigo*, *Teineigo (Polite)*, *Tameguchi (Casual)*, and *Manga Slang*. |
 | **High-Speed Ambient Audio** | Robotic, slow text-to-speech without real-world background noise or authentic station melodies. | Tokyo transit and stores are full of rapid automated announcements (*"Mamonaku 2-bansen ni..."*, FamilyMart entry tune, delay announcements). | **Tokyo Audio Lab**: Trains your ear on real transit chimes, station departure alerts, and door-closing warnings with comprehension checks. |
-| **Manga Reading Literacy** | Completely absent. Duolingo teaches zero onomatopoeia or conversational contractions. | Manga is dominated by **Onomatopoeia (*Gitaigo / Giseigo*)** (*ドドド, ドキドキ, ざわ…*) and contractions (*〜ちゃう, 〜なきゃ, 〜やがる*). | **Manga Lab & SFX Soundboard**: Interactive comic frames with tap-to-expand dialogue balloons, nuance notes, and soundboard. |
+| **Manga Reading Literacy** | Completely absent. Duolingo teaches zero onomatopoeia or conversational contractions. | Manga is dominated by **Onomatopoeia (*Gitaigo / Giseigo*)** (*, , …*) and contractions (*, , *). | **Manga Lab & SFX Soundboard**: Interactive comic frames with tap-to-expand dialogue balloons, nuance notes, and soundboard. |
 | **Progress Framework** | Arbitrary XP streaks that trap users in dopamine loops without measurable living competence. | Need clear benchmark to live in Tokyo and pass real-life tasks. | **Japan Foundation Standard (CEFR-J A1 to B1)**: 365-day Day-in-the-Life milestones and Can-Do competency checklist. |
 
 ---
@@ -33,8 +33,8 @@ Duolingo and conventional language apps are built on an algorithmic **decontextu
 | QUARTER 3 (Days 181 - 270)         | QUARTER 4 (Days 271 - 365)                                   |
 | [JF A2-B1: Threshold]              | [JF B1: Independent Living]                                  |
 | • City Logistics: Ward Office      | • Medical emergencies (119 / Hospital clinics)              |
-| • Redelivery notices (不在票)       | • Apartment lease renewal, bank & utility contracts          |
-| • Office greetings (お疲れ様です)   | • Matsuri community participation & mixed registers          |
+| • Redelivery notices ()       | • Apartment lease renewal, bank & utility contracts          |
+| • Office greetings ()   | • Matsuri community participation & mixed registers          |
 | • Manga: Seinen, mystery & slang   | • Manga: Raw Tankobon volumes with zero furigana dependency  |
 +------------------------------------+--------------------------------------------------------------+
 ```
@@ -42,10 +42,10 @@ Duolingo and conventional language apps are built on an algorithmic **decontextu
 ---
 
 ### 3. Integrated Japan Foundation & Mystory Assets
-1. **Japan Foundation (*Irodori: 生活の日本語*)**:
+1. **Japan Foundation (*Irodori: *)**:
    - Structured Can-Do descriptors integrated directly into scenario challenges.
    - Situational task-based dialogues reflecting real immigrant/resident life in Japan.
-2. **National Media Arts Database (メディア芸術DB / NCAR)**:
+2. **National Media Arts Database (DB / NCAR)**:
    - Manga linguistic taxonomy: Action SFX, Emotional Gitaigo, Visual Giseigo.
 3. **Apple Native HIG Architecture**:
    - Swift 5.9/6, SwiftUI, AVFoundation Japanese native speech synthesis, SuperMemo SM-2 SRS spaced repetition algorithm, and CoreHaptics tactile feedback.

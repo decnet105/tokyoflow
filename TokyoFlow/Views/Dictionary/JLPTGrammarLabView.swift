@@ -2,7 +2,6 @@ import SwiftUI
 
 public struct JLPTGrammarLabView: View {
     @StateObject private var grammarService = JLPTGrammarService.shared
-    @StateObject private var voiceBank = TokyoVoiceBankService.shared
     @State private var selectedGrammarForQuiz: JLPTGrammarPoint?
     @State private var userSelectedQuizOption: Int?
     @State private var hasSubmittedQuiz: Bool = false
@@ -206,18 +205,17 @@ public struct JLPTGrammarLabView: View {
                                         .textCase(.uppercase)
 
                                     ForEach(grammar.sentences) { sent in
-                                        HStack(alignment: .top, spacing: 8) {
-                                            VStack(alignment: .leading, spacing: 3) {
-                                                Text(sent.furigana)
-                                                    .font(.system(size: 11))
-                                                    .foregroundColor(.secondary)
-                                                Text(sent.japanese)
-                                                    .font(.system(size: 15, weight: .bold))
-                                                    .foregroundColor(.primary)
-                                                Text(sent.english)
-                                                    .font(.system(size: 12))
-                                                    .foregroundColor(.secondary)
-                                            }
+                                        HStack(alignment: .center, spacing: 8) {
+                                            TokyoKaraokeSentenceView(
+                                                sentenceJa: sent.japanese,
+                                                furiganaText: sent.furigana,
+                                                translation: LanguageManager.shared.isEnglish ? sent.english : sent.chinese,
+                                                showFurigana: true,
+                                                fontScale: 1.0,
+                                                onWordTapped: { token in
+                                                    TokyoVoiceBankService.shared.playPhraseOrFallback(key: token, fallbackText: token)
+                                                }
+                                            )
                                             Spacer()
                                             AudioButton(textToSpeak: sent.japanese)
                                         }
@@ -290,7 +288,6 @@ struct GrammarCardRow: View {
     let grammar: JLPTGrammarPoint
     var isSelected: Bool = false
     let onOpenQuiz: () -> Void
-    @StateObject private var voiceBank = TokyoVoiceBankService.shared
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -350,21 +347,21 @@ struct GrammarCardRow: View {
             .cornerRadius(10)
 
             // Example Sentences
+            // Example Sentences with Live Karaoke Follow-along
             if !grammar.sentences.isEmpty {
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(grammar.sentences) { sent in
-                        HStack(alignment: .top, spacing: 8) {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(sent.furigana)
-                                    .font(.system(size: 10))
-                                    .foregroundColor(.secondary)
-                                Text(sent.japanese)
-                                    .font(.system(size: 13, weight: .bold))
-                                    .foregroundColor(.primary)
-                                Text(sent.english)
-                                    .font(.system(size: 11))
-                                    .foregroundColor(.secondary)
-                            }
+                        HStack(alignment: .center, spacing: 8) {
+                            TokyoKaraokeSentenceView(
+                                sentenceJa: sent.japanese,
+                                furiganaText: sent.furigana,
+                                translation: LanguageManager.shared.isEnglish ? sent.english : sent.chinese,
+                                showFurigana: true,
+                                fontScale: 0.90,
+                                onWordTapped: { token in
+                                    TokyoVoiceBankService.shared.playPhraseOrFallback(key: token, fallbackText: token)
+                                }
+                            )
                             Spacer()
                             AudioButton(textToSpeak: sent.japanese)
                         }

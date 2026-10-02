@@ -1,0 +1,25 @@
+{
+  "release_date": "2026-10-02",
+  "episode_number": 10,
+  "folder_name": "E10-anime_sauna_trend-v1.0",
+  "topic": "Anime Studio Opens Real Sauna",
+  "jlpt_difficulty": "JLPT N5",
+  "playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "scheduled_times": {
+    "long_form_video": "2026-10-03 18:00:00 JST",
+    "shorts_video": "2026-10-03 18:30:00 JST"
+  },
+  "long_form_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E10-anime_sauna_trend-v1.0/video.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E10-anime_sauna_trend-v1.0/thumbnail.jpg",
+    "title": "[JLPT N5] EP.10 Anime Company Made a Real Sauna in Tokyo! | Real Japanese Breakdown",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E10-anime_sauna_trend-v1.0/metadata.md"
+  },
+  "shorts_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E10-anime_sauna_trend-v1.0/short.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E10-anime_sauna_trend-v1.0/short_thumbnail.jpg",
+    "title": "[JLPT N5] SH.10 Anime Studio Made a SAUNA in Tokyo?! #Shorts #LearnJapanese",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E10-anime_sauna_trend-v1.0/short_metadata.md",
+    "interactive_poll": "What should anime studios make next? A: Theme Cafe B: Hot Spring Onsen"
+  }
+}

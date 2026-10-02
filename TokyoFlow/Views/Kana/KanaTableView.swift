@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 public struct KanaTableView: View {
     @State private var isKatakana: Bool = false
@@ -229,7 +230,7 @@ public struct KanaSpeechBubbleDialogueView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
 
-                Text("📅 Today's Word (7-Day Rotation)")
+                Text("Today's Word (7-Day Rotation)")
                     .font(.system(size: 11, weight: .bold))
                     .foregroundColor(.secondary)
 
@@ -514,7 +515,7 @@ public struct KanaDetailModal: View {
 
                         Divider()
 
-                        Text("💡 Mnemonic: \(kana.mnemonic)")
+                        Text("Mnemonic: \(kana.mnemonic)")
                             .font(.footnote)
                             .foregroundColor(.secondary)
                     }
@@ -640,7 +641,7 @@ public struct KanaQuizSheet: View {
 
                         if isAnswered {
                             Button(action: nextQuestion) {
-                                Text(currentQuestionIndex < quizQuestions.count - 1 ? "Next Kana ➔" : "Finish Quiz 🏆")
+                                Text(currentQuestionIndex < quizQuestions.count - 1 ? "Next Kana" : "Finish Quiz")
                                     .font(.headline)
                                     .frame(maxWidth: .infinity)
                                     .padding()

@@ -48,7 +48,7 @@ public struct MangaLabView: View {
                         // Manga Lessons List
                         LazyVStack(spacing: 16) {
                             ForEach(dataManager.mangaLessons) { lesson in
-                                NavigationLink(destination: MangaPanelReaderView(lesson: lesson)) {
+                                NavigationLink(destination: LazyView(MangaPanelReaderView(lesson: lesson))) {
                                     MangaLessonCard(lesson: lesson, isCompleted: userProfile.completedMangaLessonIds.contains(lesson.id))
                                 }
                                 .buttonStyle(.plain)

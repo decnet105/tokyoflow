@@ -2,6 +2,7 @@ import SwiftUI
 
 public struct TokyoContextHubCardView: View {
     @ObservedObject var engine = TokyoLearningPackageEngine.shared
+    @ObservedObject var languageManager = LanguageManager.shared
     @State private var showPackageRunner: Bool = false
     @State private var selectedTrackTab: Int = 0 // 0: By Scenario, 1: By JLPT Level
 
@@ -11,20 +12,20 @@ public struct TokyoContextHubCardView: View {
         VStack(alignment: .leading, spacing: 14) {
             // Header
             HStack {
-                Label("DUAL-TRACK ADAPTIVE BUNDLE", systemImage: "sparkles")
+                Label(languageManager.isEnglish ? "DUAL-TRACK ADAPTIVE BUNDLE" : "双轨自适应学习包", systemImage: "sparkles")
                     .font(.system(size: 10, weight: .black))
                     .foregroundColor(.accentColor)
                     .tracking(1.0)
                 Spacer()
-                Text("Ebbinghaus • Native VoiceBank")
+                Text(languageManager.isEnglish ? "Ebbinghaus • Native VoiceBank" : "艾宾浩斯抗遗忘 • 母语原声库")
                     .font(.system(size: 9, weight: .bold))
                     .foregroundColor(.secondary)
             }
 
             // Track Switcher: Scenario vs JLPT Level
             Picker("Track", selection: $selectedTrackTab) {
-                Text("Real-World Scenes").tag(0)
-                Text("JLPT Level Track (N5-N1)").tag(1)
+                Text(languageManager.isEnglish ? "Real-World Scenes" : "日常实战场景").tag(0)
+                Text(languageManager.isEnglish ? "JLPT Level Track (N5-N1)" : "JLPT 等级进阶 (N5-N1)").tag(1)
             }
             .pickerStyle(.segmented)
             .onChange(of: selectedTrackTab) { newTab in
@@ -38,13 +39,12 @@ public struct TokyoContextHubCardView: View {
             // Subtitle & Focus Pill
             HStack(alignment: .center) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(selectedTrackTab == 0 ? "Where are you learning now?" : "Target JLPT Proficiency")
+                    Text(languageManager.isEnglish ? (selectedTrackTab == 0 ? "Where are you learning now?" : "Target JLPT Proficiency") : (selectedTrackTab == 0 ? "您当前在什么场景学习？" : "目标 JLPT 能力等级"))
                         .font(.system(size: 17, weight: .black, design: .rounded))
-                    Text(selectedTrackTab == 0 ? "Curated 5-minute practical immersion bundle." : "Synthesized high-yield JLPT exam mastery package.")
+                    Text(languageManager.isEnglish ? (selectedTrackTab == 0 ? "Curated 5-minute practical immersion bundle." : "Synthesized high-yield JLPT exam mastery package.") : (selectedTrackTab == 0 ? "精选 5 分钟沉浸式实战微课包" : "高频考点与词汇文法通关包"))
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
-
 
                 Spacer()
 
@@ -61,7 +61,7 @@ public struct TokyoContextHubCardView: View {
                     HStack(spacing: 4) {
                         Image(systemName: engine.selectedFocusMode.icon)
                             .font(.system(size: 10))
-                        Text(engine.selectedFocusMode == .practicalFluency ? "Fluency" : "Exam")
+                        Text(languageManager.isEnglish ? (engine.selectedFocusMode == .practicalFluency ? "Fluency" : "Exam") : (engine.selectedFocusMode == .practicalFluency ? "实战流利" : "考级冲刺"))
                             .font(.system(size: 10, weight: .bold))
                     }
                     .padding(.horizontal, 8)
@@ -87,7 +87,7 @@ public struct TokyoContextHubCardView: View {
                                 HStack(spacing: 6) {
                                     Image(systemName: mode.icon)
                                         .font(.caption)
-                                    Text(mode.rawValue)
+                                    Text(mode.localizedName(isEnglish: languageManager.isEnglish))
                                         .font(.system(size: 12, weight: .bold))
                                     Text(mode.targetDuration)
                                         .font(.system(size: 10, weight: .semibold, design: .monospaced))
@@ -128,7 +128,7 @@ public struct TokyoContextHubCardView: View {
                                 HStack(spacing: 6) {
                                     Text(lvl.shortLabel)
                                         .font(.system(size: 12, weight: .black))
-                                    Text(lvl.rawValue.replacingOccurrences(of: "JLPT ", with: ""))
+                                    Text(lvl.localizedLabel(isEnglish: languageManager.isEnglish))
                                         .font(.system(size: 11, weight: .semibold))
                                 }
                                 .foregroundColor(isSelected ? .white : .primary)
@@ -157,7 +157,7 @@ public struct TokyoContextHubCardView: View {
                                 .font(.system(size: 12, weight: .semibold))
                                 .foregroundColor(.primary)
 
-                            Text("\(pkg.items.count) Multi-Grain Steps • Vocab + Grammar + VoiceBank")
+                            Text(languageManager.isEnglish ? "\(pkg.items.count) Multi-Grain Steps • Vocab + Grammar + VoiceBank" : "\(pkg.items.count) 步精细化拆解 • 词汇 + 语法 + 母语音频")
                                 .font(.caption2)
                                 .foregroundColor(.secondary)
                         }
@@ -181,7 +181,7 @@ public struct TokyoContextHubCardView: View {
                                 Circle()
                                     .fill(item.isCompleted ? Color.green : Color.accentColor.opacity(0.5))
                                     .frame(width: 6, height: 6)
-                                Text(item.type.rawValue)
+                                Text(item.type.localizedName(isEnglish: languageManager.isEnglish))
                                     .font(.system(size: 9, weight: .bold))
                                     .lineLimit(1)
                             }
@@ -199,7 +199,7 @@ public struct TokyoContextHubCardView: View {
                         HStack(spacing: 8) {
                             Image(systemName: "play.fill")
                                 .font(.caption)
-                            Text("Launch \(packageButtonLabel(for: pkg)) (~5 min)")
+                            Text(languageManager.isEnglish ? "Launch \(packageButtonLabel(for: pkg)) (~5 min)" : "开始 \(packageButtonLabel(for: pkg)) (~5分钟)")
                                 .font(.system(size: 13, weight: .black))
                         }
                         .foregroundColor(.white)
@@ -234,17 +234,19 @@ public struct TokyoContextHubCardView: View {
     }
 
     private func packageTitle(for pkg: TokyoLearningPackage) -> String {
+        let isEn = languageManager.isEnglish
         if let lvl = pkg.levelTrack {
-            return "\(lvl.shortLabel) Comprehensive Exam & Scenario Sprint"
+            return isEn ? "\(lvl.shortLabel) Comprehensive Exam & Scenario Sprint" : "\(lvl.shortLabel) 综合考点与高频真题冲刺"
         }
-        return pkg.mode.tagline
+        return pkg.mode.localizedTagline(isEnglish: isEn)
     }
 
     private func packageButtonLabel(for pkg: TokyoLearningPackage) -> String {
+        let isEn = languageManager.isEnglish
         if let lvl = pkg.levelTrack {
-            return "\(lvl.shortLabel) Sprint"
+            return isEn ? "\(lvl.shortLabel) Sprint" : "\(lvl.shortLabel) 冲刺包"
         }
-        return "\(pkg.mode.rawValue) Bundle"
+        return isEn ? "\(pkg.mode.rawValue) Bundle" : "\(pkg.mode.localizedName(isEnglish: false))微课包"
     }
 
     private func packageColorHex(for pkg: TokyoLearningPackage) -> String {

@@ -4,11 +4,14 @@ public struct TokyoQuestMapView: View {
     @ObservedObject var dataManager = DataManager.shared
     @ObservedObject var themeManager = ThemeManager.shared
     @ObservedObject var gamification = GamificationService.shared
+    @ObservedObject var notificationService = NotificationService.shared
+    @ObservedObject var languageManager = LanguageManager.shared
     @EnvironmentObject var userProfile: UserProfile
     @State private var selectedStage: QuestStage? = nil
     @State private var showThemePicker = false
     @State private var showDailyMissions = false
     @State private var showLeaderboard = false
+    @State private var showMessageCenter = false
 
     private let worlds = QuestProgressManager.worlds
 
@@ -30,23 +33,64 @@ public struct TokyoQuestMapView: View {
                                         .font(.system(size: 10, weight: .bold))
                                         .foregroundColor(.accentColor)
                                         .tracking(2.0)
-                                    Text("Tokyo Mastery Map")
+                                    Text(languageManager.isEnglish ? "Tokyo Mastery Map" : "东京进阶地图")
                                         .font(.system(size: 24, weight: .black, design: .rounded))
                                 }
 
                                 Spacer()
 
-                                Button(action: { showThemePicker = true }) {
-                                    HStack(spacing: 4) {
-                                        Image(systemName: "paintpalette.fill")
-                                        Text("Theme")
-                                            .font(.caption)
-                                            .fontWeight(.bold)
+                                HStack(spacing: 8) {
+                                    Button(action: {
+                                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                                        languageManager.toggleEnglishChinese()
+                                    }) {
+                                        Text(languageManager.isEnglish ? "EN" : "中文")
+                                            .font(.caption2)
+                                            .fontWeight(.heavy)
+                                            .padding(.horizontal, 8)
+                                            .padding(.vertical, 6)
+                                            .background(Color.accentColor.opacity(0.15))
+                                            .foregroundColor(.accentColor)
+                                            .cornerRadius(12)
                                     }
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 6)
-                                    .background(.ultraThinMaterial)
-                                    .cornerRadius(12)
+
+                                    Button(action: { showMessageCenter = true }) {
+                                        ZStack(alignment: .topTrailing) {
+                                            HStack(spacing: 4) {
+                                                Image(systemName: notificationService.unreadCount > 0 ? "bell.badge.fill" : "bell.fill")
+                                                    .foregroundColor(notificationService.unreadCount > 0 ? .red : .primary)
+                                                Text(languageManager.isEnglish ? "Inbox" : "消息")
+                                                    .font(.caption)
+                                                    .fontWeight(.bold)
+                                            }
+                                            .padding(.horizontal, 10)
+                                            .padding(.vertical, 6)
+                                            .background(.ultraThinMaterial)
+                                            .cornerRadius(12)
+
+                                            if notificationService.unreadCount > 0 {
+                                                Text("\(notificationService.unreadCount)")
+                                                    .font(.system(size: 9, weight: .black))
+                                                    .foregroundColor(.white)
+                                                    .padding(3)
+                                                    .background(Circle().fill(Color.red))
+                                                    .offset(x: 6, y: -6)
+                                            }
+                                        }
+                                    }
+
+                                    Button(action: { showThemePicker = true }) {
+                                        HStack(spacing: 4) {
+                                            Image(systemName: "paintpalette.fill")
+                                            Text(languageManager.isEnglish ? "Theme" : "主题")
+                                                .font(.caption)
+                                                .fontWeight(.bold)
+                                        }
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 6)
+                                        .background(.ultraThinMaterial)
+                                        .cornerRadius(12)
+                                    }
                                 }
                             }
 
@@ -56,7 +100,7 @@ public struct TokyoQuestMapView: View {
                                     HStack(spacing: 6) {
                                         Image(systemName: gamification.isTodayCheckedIn ? "checkmark.circle.fill" : "flame.fill")
                                             .foregroundColor(gamification.isTodayCheckedIn ? .green : .red)
-                                        Text(gamification.isTodayCheckedIn ? "\(gamification.streakDays)d Streak" : "Check In")
+                                        Text(gamification.isTodayCheckedIn ? "\(gamification.streakDays)" + (languageManager.isEnglish ? "d Streak" : " 天连续打卡") : (languageManager.isEnglish ? "Check In" : "每日签到"))
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(.primary)
                                     }
@@ -71,7 +115,7 @@ public struct TokyoQuestMapView: View {
                                     HStack(spacing: 6) {
                                         Image(systemName: "trophy.fill")
                                             .foregroundColor(.yellow)
-                                        Text("Rank #3")
+                                        Text(languageManager.isEnglish ? "Rank #3" : "排名 #3")
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(.primary)
                                     }
@@ -85,7 +129,7 @@ public struct TokyoQuestMapView: View {
                                 HStack(spacing: 6) {
                                     Image(systemName: "crown.fill")
                                         .foregroundColor(.yellow)
-                                    Text("Lv.\(max(1, userProfile.completedScenarioIds.count * 2))")
+                                    Text(languageManager.isEnglish ? "Lv.\(max(1, userProfile.completedScenarioIds.count * 2))" : "等级 \(max(1, userProfile.completedScenarioIds.count * 2))")
                                         .font(.system(size: 12, weight: .bold))
                                 }
                                 .frame(maxWidth: .infinity)
@@ -97,7 +141,7 @@ public struct TokyoQuestMapView: View {
                         .padding(.horizontal)
                         .padding(.top, 8)
 
-                        // 🌟 Real-World Adaptive Scene Learning Hub Card
+                        //  Real-World Adaptive Scene Learning Hub Card
                         TokyoContextHubCardView()
                             .padding(.horizontal)
 
@@ -115,7 +159,7 @@ public struct TokyoQuestMapView: View {
                     .padding(.bottom, 40)
                 }
             }
-            .navigationTitle("Tokyo Quest")
+            .navigationTitle(languageManager.isEnglish ? "Tokyo Quest" : "东京进阶地图")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showThemePicker) {
                 ThemePickerSheet()
@@ -125,6 +169,9 @@ public struct TokyoQuestMapView: View {
             }
             .sheet(isPresented: $showLeaderboard) {
                 TokyoLeaderboardView(isEmbedded: false)
+            }
+            .sheet(isPresented: $showMessageCenter) {
+                TokyoMessageCenterView()
             }
             .sheet(item: $selectedStage) { stage in
                 StageLauncherModal(stage: stage)
@@ -275,6 +322,7 @@ public struct StageLauncherModal: View {
     public let stage: QuestStage
     @Environment(\.dismiss) var dismiss
     @ObservedObject var dataManager = DataManager.shared
+    @ObservedObject var languageManager = LanguageManager.shared
 
     public var body: some View {
         NavigationStack {
@@ -289,12 +337,12 @@ public struct StageLauncherModal: View {
                         .font(.title2)
                         .fontWeight(.black)
 
-                    Text(stage.stageTitle)
+                    Text(languageManager.isEnglish ? stage.stageTitle : stage.stageTitleJa)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
                     HStack(spacing: 8) {
-                        Text("World: \(stage.worldNameJa)")
+                        Text(languageManager.isEnglish ? "World: \(stage.worldName)" : "所属世界：\(stage.worldNameJa)")
                             .font(.caption)
                             .fontWeight(.semibold)
                         Text("• JF \(stage.jfLevel)")
@@ -317,8 +365,8 @@ public struct StageLauncherModal: View {
                     if let scenario = dataManager.scenarios.first(where: { $0.id == stage.targetContentId }) {
                         ScenarioCard(scenario: scenario, isCompleted: false)
                             .padding(.horizontal)
-                        NavigationLink(destination: ScenarioDetailView(scenario: scenario)) {
-                            Text("Launch Scenario Challenge ➔")
+                        NavigationLink(destination: LazyView(ScenarioDetailView(scenario: scenario))) {
+                            Text(languageManager.isEnglish ? "Launch Scenario Challenge" : "进入场景实战")
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
                                 .padding()
@@ -330,8 +378,8 @@ public struct StageLauncherModal: View {
                     } else if let battle = dataManager.dojoBattles.first(where: { $0.id == stage.targetContentId }) {
                         DojoBattleCard(battle: battle)
                             .padding(.horizontal)
-                        NavigationLink(destination: DojoBattleGameView(battle: battle)) {
-                            Text("Enter Dojo Speed Duel ➔")
+                        NavigationLink(destination: LazyView(DojoBattleGameView(battle: battle))) {
+                            Text(languageManager.isEnglish ? "Enter Dojo Speed Duel" : "进入道场极速对决")
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
                                 .padding()
@@ -343,8 +391,8 @@ public struct StageLauncherModal: View {
                     } else if let manga = dataManager.mangaLessons.first(where: { $0.id == stage.targetContentId }) {
                         MangaLessonCard(lesson: manga, isCompleted: false)
                             .padding(.horizontal)
-                        NavigationLink(destination: MangaPanelReaderView(lesson: manga)) {
-                            Text("Read Manga Panels ➔")
+                        NavigationLink(destination: LazyView(MangaPanelReaderView(lesson: manga))) {
+                            Text(languageManager.isEnglish ? "Read Manga Panels" : "开始阅读漫画分镜")
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
                                 .padding()
@@ -354,7 +402,7 @@ public struct StageLauncherModal: View {
                         }
                         .padding(.horizontal)
                     } else {
-                        Text("Ready to start this Tokyo milestone.")
+                        Text(languageManager.isEnglish ? "Ready to start this Tokyo milestone." : "准备开启此东京进阶关卡。")
                             .font(.footnote)
                             .foregroundColor(.secondary)
                     }
@@ -362,11 +410,11 @@ public struct StageLauncherModal: View {
 
                 Spacer()
             }
-            .navigationTitle("Stage \(stage.stageNumber)")
+            .navigationTitle(languageManager.isEnglish ? "Stage \(stage.stageNumber)" : "第 \(stage.stageNumber) 关")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") { dismiss() }
+                    Button(languageManager.isEnglish ? "Close" : "关闭") { dismiss() }
                 }
             }
         }

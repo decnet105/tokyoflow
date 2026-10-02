@@ -23,15 +23,15 @@ public enum AppLanguage: String, CaseIterable, Identifiable, Codable {
         }
     }
 
-    public var flagIcon: String {
+    public var codeBadge: String {
         switch self {
-        case .english: return "🇺🇸"
-        case .simplifiedChinese: return "🇨🇳"
-        case .traditionalChinese: return "🇹🇼"
-        case .spanish: return "🇪🇸"
-        case .korean: return "🇰🇷"
-        case .french: return "🇫🇷"
-        case .german: return "🇩🇪"
+        case .english: return "EN"
+        case .simplifiedChinese: return "简"
+        case .traditionalChinese: return "繁"
+        case .spanish: return "ES"
+        case .korean: return "KO"
+        case .french: return "FR"
+        case .german: return "DE"
         }
     }
 }
@@ -51,6 +51,22 @@ public class LanguageManager: ObservableObject {
         }
         set {
             currentLanguageRaw = newValue.rawValue
+        }
+    }
+
+    public var isEnglish: Bool {
+        return currentLanguage == .english
+    }
+
+    public var isChinese: Bool {
+        return currentLanguage == .simplifiedChinese || currentLanguage == .traditionalChinese
+    }
+
+    public func toggleEnglishChinese() {
+        if isEnglish {
+            currentLanguage = .simplifiedChinese
+        } else {
+            currentLanguage = .english
         }
     }
 

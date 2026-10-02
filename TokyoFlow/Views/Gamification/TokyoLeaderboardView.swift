@@ -44,9 +44,9 @@ public struct TokyoLeaderboardView: View {
             VStack(spacing: 20) {
                         // Leaderboard Scope Segmented Selector
                         Picker("Leaderboard Scope", selection: $selectedLeaderboardType) {
-                            Text("🏆 Weekly League").tag(0)
-                            Text("🌟 Hall of Fame").tag(1)
-                            Text("👥 Friends").tag(2)
+                            Text("Weekly League").tag(0)
+                            Text("Hall of Fame").tag(1)
+                            Text("Friends").tag(2)
                         }
                         .pickerStyle(.segmented)
                         .padding(.horizontal)

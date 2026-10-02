@@ -5,70 +5,50 @@ public struct MainTabView: View {
     @StateObject private var dataManager = DataManager.shared
     @StateObject private var gamification = GamificationService.shared
     @StateObject private var themeManager = ThemeManager.shared
+    @ObservedObject private var notificationService = NotificationService.shared
+    @ObservedObject private var languageManager = LanguageManager.shared
+    @AppStorage("main_selected_tab_index") private var selectedTab: Int = 0
 
     public init() {}
 
     public var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
+            TokyoClassroomHomeView()
+                .tabItem {
+                    Label(languageManager.isEnglish ? "Classroom" : "今日・教室", systemImage: "graduationcap.fill")
+                }
+                .tag(0)
+
             TokyoQuestMapView()
                 .tabItem {
-                    Label("Quest Map", systemImage: "flag.2.crossed.fill")
+                    Label(languageManager.isEnglish ? "Quest Map" : "进阶地图", systemImage: "map.fill")
                 }
+                .tag(1)
 
-            KanaTableView()
+            TokyoMoreHubView()
                 .tabItem {
-                    Label("Kana Tables", systemImage: "character.book.closed.fill")
+                    Label(languageManager.isEnglish ? "Explore & Tools" : "探索与工具", systemImage: "square.grid.2x2.fill")
                 }
-
-            JLPTDictionaryView()
-                .tabItem {
-                    Label("Dictionary", systemImage: "text.book.closed.fill")
-                }
-
-            DailyNewsFeedView()
-                .tabItem {
-                    Label("Daily News", systemImage: "newspaper.fill")
-                }
-
-            ScenarioMapView()
-                .tabItem {
-                    Label("Scenarios", systemImage: "map.fill")
-                }
-
-            TokyoGenerativeRouteView()
-                .tabItem {
-                    Label("Next Destination", systemImage: "sparkles.rectangle.stack.fill")
-                }
-
-            TokyoScenarioVideoHubView()
-                .tabItem {
-                    Label("Video Academy", systemImage: "play.tv.fill")
-                }
-
-            TokyoDojoView()
-                .tabItem {
-                    Label("Dojo Battles", systemImage: "flame.fill")
-                }
-
-            MangaLabView()
-                .tabItem {
-                    Label("Manga Lab", systemImage: "book.pages.fill")
-                }
-
-            TokyoSocialHubView()
-                .tabItem {
-                    Label("Tokyo Social", systemImage: "bubble.left.and.bubble.right.fill")
-                }
+                .tag(2)
 
             TokyoPassportView()
                 .tabItem {
-                    Label("Passport", systemImage: "person.text.rectangle.fill")
+                    Label(languageManager.isEnglish ? "Passport" : "学习档案", systemImage: "person.text.rectangle.fill")
                 }
+                .tag(3)
         }
         .environmentObject(userProfile)
         .environmentObject(dataManager)
         .environmentObject(gamification)
         .environmentObject(themeManager)
+        .sheet(isPresented: $notificationService.showNightlySummarySheet) {
+            if let msg = notificationService.selectedSummaryMessage {
+                TokyoNightlySummaryModalView(message: msg)
+            }
+        }
+        .sheet(isPresented: $notificationService.showMessageCenterSheet) {
+            TokyoMessageCenterView()
+        }
         .tint(.accentColor)
     }
 }

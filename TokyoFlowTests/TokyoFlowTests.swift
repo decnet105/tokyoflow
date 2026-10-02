@@ -491,6 +491,78 @@ final class TokyoFlowTests: XCTestCase {
             }
         }
     }
+
+    func testInboxAndNightlySummaryAudioVerification() {
+        let notificationService = NotificationService.shared
+        let voiceBank = TokyoVoiceBankService.shared
+
+        // 1. Verify all stored / seeded Inbox messages with golden sentences have 100% native audio
+        for msg in notificationService.messages {
+            if let golden = msg.goldenSentence, !golden.isEmpty {
+                XCTAssertTrue(
+                    voiceBank.hasNativeAudio(for: golden),
+                    "Inbox golden sentence '\(golden)' must have 100% native studio voice bank audio (no TTS fallback)"
+                )
+            }
+        }
+
+        // 2. Verify dynamically generated today's nightly summary
+        let todaySummary = notificationService.generateTodayNightlySummary()
+        if let golden = todaySummary.goldenSentence, !golden.isEmpty {
+            XCTAssertTrue(
+                voiceBank.hasNativeAudio(for: golden),
+                "Today's generated summary golden sentence '\(golden)' must have native studio voice"
+            )
+        }
+    }
+
+    func testKaraokeMoraAlignmentPrecision() {
+        let segmenter = JapaneseWordSegmenter.shared
+
+        // Test Japanese word segmentation with spaced furigana reference
+        let text = "すみません、注文をお願いします。"
+        let furi = "すみません、 ちゅうもんを おねがいします。"
+        let tokens = segmenter.segment(text: text, furiganaReference: furi)
+
+        XCTAssertFalse(tokens.isEmpty)
+        XCTAssertGreaterThanOrEqual(tokens.count, 2)
+
+        // Test pure text segmentation
+        let pureTokens = segmenter.segment(text: "東京駅に行きます")
+        XCTAssertFalse(pureTokens.isEmpty)
+        XCTAssertTrue(pureTokens.contains(where: { $0.text.contains("東京") || $0.text.contains("東京駅") }))
+    }
+
+    func testDailyClassroomScenarioAndJLPTPackageEngines() {
+        let engine = TokyoLearningPackageEngine.shared
+        let voiceBank = TokyoVoiceBankService.shared
+
+        // 1. Verify Track 1: 5-Minute Practical Scenario Package
+        let scenarioPkg = engine.generateTodayScenarioPackage()
+        XCTAssertFalse(scenarioPkg.title.isEmpty)
+        XCTAssertEqual(scenarioPkg.durationSeconds, 300, "Daily scenario must be strictly timeboxed to 300 seconds (5 minutes)")
+        XCTAssertFalse(scenarioPkg.sceneDialogue.isEmpty, "Scenario must contain dialogue")
+        XCTAssertFalse(scenarioPkg.vocabGrammarAnalyses.isEmpty, "Scenario must contain vocab & grammar analyses")
+        XCTAssertFalse(scenarioPkg.youtubeVideoId.isEmpty, "Scenario must have linked YouTube lesson")
+        XCTAssertFalse(scenarioPkg.goldenSentence.isEmpty, "Scenario must have 30s shadowing golden sentence")
+        XCTAssertTrue(voiceBank.hasNativeAudio(for: scenarioPkg.goldenSentence), "Golden sentence must have native voice bank audio")
+
+        // 2. Verify Track 2: JLPT 2 New + 3 Review Ebbinghaus Package
+        for level in ["N5", "N4", "N3"] {
+            let jlptPkg = engine.generateTodayJLPTPackage(level: level)
+            XCTAssertEqual(jlptPkg.newItems.count, 2, "JLPT package must contain strictly 2 NEW items per day")
+            XCTAssertEqual(jlptPkg.reviewItems.count, 3, "JLPT package must contain strictly 3 REVIEW items (Ebbinghaus Spaced Repetition)")
+            XCTAssertEqual(jlptPkg.allItems.count, 5, "Total daily drill count must be exactly 5 items")
+
+            for item in jlptPkg.allItems {
+                XCTAssertFalse(item.kanji.isEmpty)
+                XCTAssertFalse(item.reading.isEmpty)
+                XCTAssertFalse(item.romaji.isEmpty)
+                XCTAssertFalse(item.englishMeaning.isEmpty)
+                XCTAssertTrue(voiceBank.hasNativeAudio(for: item.kanji), "VoiceBank must contain native studio audio for \(item.kanji)")
+            }
+        }
+    }
 }
 
 

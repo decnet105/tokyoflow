@@ -40,7 +40,7 @@ public struct ScenarioDetailView: View {
                                 .cornerRadius(8)
                         }
 
-                        Text(scenario.title)
+                        Text(scenario.localizedTitle)
                             .font(.title2)
                             .fontWeight(.bold)
 
@@ -48,7 +48,7 @@ public struct ScenarioDetailView: View {
                             .font(.headline)
                             .foregroundColor(.secondary)
 
-                        Text(scenario.context)
+                        Text(scenario.localizedContext)
                             .font(.subheadline)
                             .foregroundColor(.primary.opacity(0.85))
                             .padding(.top, 4)
@@ -58,7 +58,7 @@ public struct ScenarioDetailView: View {
                             Button(action: { showStickmanExplainer = true }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: "figure.walk.motion")
-                                    Text("60s Drill")
+                                    Text(LanguageManager.shared.isEnglish ? "60s Drill" : "60秒速拆")
                                         .font(.system(size: 11, weight: .bold))
                                 }
                                 .frame(maxWidth: .infinity)
@@ -71,7 +71,7 @@ public struct ScenarioDetailView: View {
                             Button(action: { showYTVideoModal = true }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: "play.tv.fill")
-                                    Text("🎬 YT Masterclass")
+                                    Text(LanguageManager.shared.isEnglish ? "YT Masterclass" : "视频精讲")
                                         .font(.system(size: 11, weight: .bold))
                                 }
                                 .frame(maxWidth: .infinity)
@@ -92,11 +92,11 @@ public struct ScenarioDetailView: View {
                     HStack {
                         Image(systemName: "lightbulb.fill")
                             .foregroundColor(.amberGold)
-                        Text("Tokyo Life Etiquette & Hack")
+                        Text(LanguageManager.shared.isEnglish ? "Tokyo Life Etiquette & Hack" : "东京实战礼仪与避坑指南")
                             .font(.headline)
                             .foregroundColor(.amberGold)
                     }
-                    Text(scenario.culturalTip)
+                    Text(scenario.localizedCulturalTip)
                         .font(.footnote)
                         .foregroundColor(.primary.opacity(0.9))
                 }
@@ -111,7 +111,7 @@ public struct ScenarioDetailView: View {
                     Button(action: { userProfile.furiganaEnabled.toggle() }) {
                         HStack(spacing: 4) {
                             Image(systemName: userProfile.furiganaEnabled ? "character.phonetic" : "character")
-                            Text("Furigana: \(userProfile.furiganaEnabled ? "ON" : "OFF")")
+                            Text((LanguageManager.shared.isEnglish ? "Furigana: " : "假名: ") + (userProfile.furiganaEnabled ? "ON" : "OFF"))
                                 .font(.caption)
                                 .fontWeight(.semibold)
                         }
@@ -124,7 +124,7 @@ public struct ScenarioDetailView: View {
                     Button(action: { showTranslations.toggle() }) {
                         HStack(spacing: 4) {
                             Image(systemName: "translate")
-                            Text("Translation: \(showTranslations ? "ON" : "OFF")")
+                            Text((LanguageManager.shared.isEnglish ? "Translation: " : "翻译: ") + (showTranslations ? "ON" : "OFF"))
                                 .font(.caption)
                                 .fontWeight(.semibold)
                         }
@@ -137,9 +137,9 @@ public struct ScenarioDetailView: View {
                     Spacer()
 
                     Menu {
-                        Button("Slow (0.40x)") { playbackSpeed = 0.40 }
-                        Button("Normal (0.50x)") { playbackSpeed = 0.50 }
-                        Button("Native Tokyo (0.58x)") { playbackSpeed = 0.58 }
+                        Button(LanguageManager.shared.isEnglish ? "Slow (0.40x)" : "慢速 (0.40x)") { playbackSpeed = 0.40 }
+                        Button(LanguageManager.shared.isEnglish ? "Normal (0.50x)" : "标准 (0.50x)") { playbackSpeed = 0.50 }
+                        Button(LanguageManager.shared.isEnglish ? "Native Tokyo (0.58x)" : "东京常速 (0.58x)") { playbackSpeed = 0.58 }
                     } label: {
                         HStack(spacing: 4) {
                             Image(systemName: "speedometer")
@@ -158,7 +158,7 @@ public struct ScenarioDetailView: View {
 
                 // Dialogue Flow
                 VStack(alignment: .leading, spacing: 14) {
-                    Text("SITUATIONAL DIALOGUE")
+                    Text(LanguageManager.shared.isEnglish ? "SITUATIONAL DIALOGUE" : "实战情境对话")
                         .font(.caption)
                         .fontWeight(.bold)
                         .foregroundColor(.secondary)
@@ -183,9 +183,9 @@ public struct ScenarioDetailView: View {
                             Image(systemName: "play.circle.fill")
                                 .font(.title3)
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("Interactive Roleplay Challenge")
+                                Text(LanguageManager.shared.isEnglish ? "Interactive Roleplay Challenge" : "实战互动角色扮演挑战")
                                     .font(.headline)
-                                Text("Test your response in this Tokyo scenario")
+                                Text(LanguageManager.shared.isEnglish ? "Test your response in this Tokyo scenario" : "检验你在该东京场景下的即时回应")
                                     .font(.caption)
                                     .opacity(0.9)
                             }
@@ -202,7 +202,7 @@ public struct ScenarioDetailView: View {
 
                 // Key Vocabulary Section
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("KEY SURVIVAL VOCABULARY")
+                    Text(LanguageManager.shared.isEnglish ? "KEY SURVIVAL VOCABULARY" : "核心生存高频词汇")
                         .font(.caption)
                         .fontWeight(.bold)
                         .foregroundColor(.secondary)
@@ -210,7 +210,7 @@ public struct ScenarioDetailView: View {
                         .padding(.horizontal)
 
                     ForEach(scenario.keyVocabulary) { vocab in
-                        VocabularyRowView(vocab: vocab, context: scenario.title)
+                        VocabularyRowView(vocab: vocab, context: scenario.localizedTitle)
                             .padding(.horizontal)
                     }
                 }
@@ -229,7 +229,7 @@ public struct ScenarioDetailView: View {
             NavigationStack {
                 ScrollView {
                     StickmanPlayerView(
-                        scenarioTitle: scenario.title,
+                        scenarioTitle: scenario.localizedTitle,
                         frames: sampleStickmanFrames(for: scenario)
                     )
                     .padding()
@@ -252,7 +252,7 @@ public struct ScenarioDetailView: View {
                 title: "The Situation Setup",
                 sceneType: "hook",
                 characterPose: "confused",
-                dialogueBubble: "「\(s.context)」",
+                dialogueBubble: "「\(s.localizedContext)」",
                 narrationJapanese: "東京の現場に到着！店員や駅員が話しかけてくる。",
                 narrationEnglish: "You arrived at the scene. Native Tokyo staff approaches.",
                 visualCue: "Tokyo background environment",
@@ -338,12 +338,15 @@ public struct DialogueBubbleView: View {
                         Text(line.romaji)
                             .font(.system(size: 12, design: .monospaced))
                             .foregroundColor(.secondary)
-                        Text(line.english)
-                            .font(.footnote)
-                            .foregroundColor(.primary.opacity(0.85))
-                        Text(line.chinese)
-                            .font(.caption2)
-                            .foregroundColor(.secondary)
+                        if LanguageManager.shared.isEnglish {
+                            Text(line.english)
+                                .font(.footnote)
+                                .foregroundColor(.primary.opacity(0.85))
+                        } else {
+                            Text(line.chinese.isEmpty ? line.english : line.chinese)
+                                .font(.footnote)
+                                .foregroundColor(.primary.opacity(0.85))
+                        }
                     }
                 }
                 .padding(14)
@@ -384,7 +387,7 @@ public struct VocabularyRowView: View {
                         .background(Color.primary.opacity(0.08))
                         .cornerRadius(4)
                 }
-                Text(vocab.meaning)
+                Text(vocab.localizedMeaning)
                     .font(.footnote)
                     .foregroundColor(.secondary)
             }
@@ -394,7 +397,7 @@ public struct VocabularyRowView: View {
                 userProfile.toggleBookmark(
                     japanese: vocab.word,
                     reading: vocab.reading,
-                    english: vocab.meaning,
+                    english: vocab.localizedMeaning,
                     context: context
                 )
             }) {
@@ -412,3 +415,4 @@ public struct VocabularyRowView: View {
 extension Color {
     static let amberGold = Color(hex: "#D97706")
 }
+

@@ -62,7 +62,22 @@ public struct FuriganaText: View {
             segments.append(FuriganaSegment(kanji: trailing, furigana: nil, raw: trailing))
         }
 
-        return segments.isEmpty ? [FuriganaSegment(kanji: fallbackText, furigana: nil, raw: fallbackText)] : segments
+        //  Japanese Kinsoku Shori: Merge standalone punctuation with preceding word segment
+        var kinsokuSegments: [FuriganaSegment] = []
+        let puncSet: Set<Character> = Set("。、！？!?…」』）)】]”’·・,:;：；")
+        for seg in segments {
+            if seg.furigana == nil && seg.kanji.allSatisfy({ puncSet.contains($0) }), let last = kinsokuSegments.popLast() {
+                kinsokuSegments.append(FuriganaSegment(
+                    kanji: last.kanji + seg.kanji,
+                    furigana: last.furigana,
+                    raw: last.raw + seg.raw
+                ))
+            } else {
+                kinsokuSegments.append(seg)
+            }
+        }
+
+        return kinsokuSegments.isEmpty ? [FuriganaSegment(kanji: fallbackText, furigana: nil, raw: fallbackText)] : kinsokuSegments
     }
 
     public var body: some View {

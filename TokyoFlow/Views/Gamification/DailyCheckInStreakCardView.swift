@@ -28,7 +28,7 @@ public struct DailyCheckInStreakCardView: View {
                             Text("\(gamification.streakDays)-Day Streak")
                                 .font(.system(size: 17, weight: .black, design: .rounded))
                             if gamification.streakDays >= 3 {
-                                Text("🔥 x\(min(5, gamification.streakDays / 3 + 1)) Multiplier")
+                                Text("x\(min(5, gamification.streakDays / 3 + 1)) Multiplier")
                                     .font(.system(size: 10, weight: .bold))
                                     .foregroundColor(.orange)
                                     .padding(.horizontal, 6)
@@ -226,7 +226,7 @@ public struct DailyCheckInStreakCardView: View {
     private func handlePunchIn() {
         let success = gamification.punchInToday()
         if success {
-            celebrationText = "🎉 Checked In!\n\(gamification.streakDays)-Day Streak\n+50 TP  +60 EXP"
+            celebrationText = "Checked In!\n\(gamification.streakDays)-Day Streak\n+50 TP  +60 EXP"
             withAnimation(.spring()) {
                 showCheckInCelebration = true
             }

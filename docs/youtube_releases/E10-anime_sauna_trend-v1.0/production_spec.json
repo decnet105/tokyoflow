@@ -1,0 +1,263 @@
+{
+  "date": "2026-10-02",
+  "ep_num": 10,
+  "slug": "anime_sauna_trend",
+  "topic_title": "Anime Studio Opens Real Sauna",
+  "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "target_jlpt_level": "JLPT N5",
+  "district": "Tokyo Pop Culture",
+  "dramatic_hook": "Why fans are shocked by this anime company opening a sauna",
+  "long_form": {
+    "yt_title": "[JLPT N5] EP.10 Anime Company Made a Real Sauna in Tokyo! | Real Japanese Breakdown",
+    "english_hook": "ANIME STUDIO SAUNA",
+    "japanese_key_phrase": "アニメの会社がサウナを作った！",
+    "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\n\nTIMESTAMPS AND CHAPTERS:\n00:00 - 01. Breaking Trend Immersion\n00:06 - 02. Vocabulary & Grammar Breakdown\n00:45 - 03. Situational Practice Drill\n00:52 - 04. Shadowing Drill & Outro\n\nKEY PHRASES COVERED:\n- アニメの会社 (anime no kaisha) = Anime company\n- 新しいサウナを作りました (atarashii sauna o tsukurimashita) = Made a new sauna\n\nRECOMMENDED PRACTICE:\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\n\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "tags": [
+      "LearnJapanese",
+      "TokyoFlow",
+      "JLPTN5",
+      "AnimeJapanese",
+      "JapaneseShadowing",
+      "TokyoPopCulture"
+    ],
+    "slides": [
+      {
+        "type": "follow_along",
+        "chapter": "01. Breaking Trend Immersion",
+        "spoken_text": "アニメの会社が、新しいサウナを作りました！",
+        "en": "An anime company has made a brand new sauna!",
+        "tip": "'' (tsukurimashita) is the past polite form of the N5 verb 'tsukuru' (to make).",
+        "tokens": [
+          {
+            "orig": "アニメの",
+            "kana": "あにめの",
+            "romaji": "anime no",
+            "pos": "Noun + Part.",
+            "meaning": "Anime's"
+          },
+          {
+            "orig": "会社が",
+            "kana": "かいしゃが",
+            "romaji": "kaisha ga",
+            "pos": "Noun + Part.",
+            "meaning": "Company"
+          },
+          {
+            "orig": "新しい",
+            "kana": "あたらしい",
+            "romaji": "atarashii",
+            "pos": "Adjective",
+            "meaning": "New"
+          },
+          {
+            "orig": "サウナを",
+            "kana": "さうなを",
+            "romaji": "sauna o",
+            "pos": "Noun + Part.",
+            "meaning": "Sauna"
+          },
+          {
+            "orig": "作りました！",
+            "kana": "つくりました！",
+            "romaji": "tsukurimashita!",
+            "pos": "Polite Verb",
+            "meaning": "Made!"
+          }
+        ]
+      },
+      {
+        "type": "breakdown",
+        "chapter": "02. Studio Sauna Breakdown",
+        "sentence_ja": "アニメの会社が新しいサウナを作りました！",
+        "vocab": [
+          {
+            "orig": "アニメ",
+            "kana": "あにめ",
+            "romaji": "anime",
+            "pos": "Noun",
+            "meaning": "Anime / Animation"
+          },
+          {
+            "orig": "会社",
+            "kana": "かいしゃ",
+            "romaji": "kaisha",
+            "pos": "Noun",
+            "meaning": "Company (N5)"
+          },
+          {
+            "orig": "新しい",
+            "kana": "あたらしい",
+            "romaji": "atarashii",
+            "pos": "Adjective",
+            "meaning": "New (N5)"
+          },
+          {
+            "orig": "作る",
+            "kana": "つくる",
+            "romaji": "tsukuru",
+            "pos": "Verb",
+            "meaning": "To make / build (N5)"
+          }
+        ],
+        "grammar_title": "JLPT N5 Past Tense Formula: 〜を作りました (Made something)",
+        "grammar_bullets": [
+          [
+            "1. Direct Object Particle ():",
+            "Marks the item being created or purchased in N5."
+          ],
+          [
+            "2. Polite Past Tense ():",
+            "Converts the dictionary verb 'tsukuru' into polite past 'tsukurimashita'."
+          ],
+          [
+            "3. Essential N5 Modifier:",
+            "新しい (atarashii) directly modifies the noun サウナ (new sauna)."
+          ],
+          [
+            "4. Daily Life Scenario:",
+            "Locals say '新しい店を作りました' when announcing a new opening!"
+          ]
+        ],
+        "teamwork_cues": [
+          {
+            "speaker": "en",
+            "text": "Let's break down the core N5 vocabulary and grammar."
+          },
+          {
+            "speaker": "ja",
+            "text": "アニメ",
+            "card_idx": 0
+          },
+          {
+            "speaker": "en",
+            "text": "Noun: Anime or animation.",
+            "card_idx": 0
+          },
+          {
+            "speaker": "ja",
+            "text": "会社",
+            "card_idx": 1
+          },
+          {
+            "speaker": "en",
+            "text": "Company. High-frequency JLPT N5 noun.",
+            "card_idx": 1
+          },
+          {
+            "speaker": "ja",
+            "text": "新しい",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Adjective: new.",
+            "card_idx": 2
+          },
+          {
+            "speaker": "ja",
+            "text": "作る",
+            "card_idx": 3
+          },
+          {
+            "speaker": "en",
+            "text": "Verb: to make or create.",
+            "card_idx": 3
+          },
+          {
+            "speaker": "en",
+            "text": "Grammar spotlight: Direct object particle O plus tsukurimashita.",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "ja",
+            "text": "新しいサウナを作りました！",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "en",
+            "text": "Made a new sauna. This is the fundamental N5 pattern for completed actions.",
+            "is_spotlight": true
+          }
+        ]
+      },
+      {
+        "type": "follow_along",
+        "chapter": "03. Fan Reaction Drill",
+        "spoken_text": "みんな「とても面白い！」と言っています。",
+        "en": "Everyone is saying: 'It is super interesting!'",
+        "tip": "'' (to itte imasu) is the N5 quotative pattern for 'saying that'.",
+        "tokens": [
+          {
+            "orig": "みんな",
+            "kana": "みんな",
+            "romaji": "minna",
+            "pos": "Noun",
+            "meaning": "Everyone"
+          },
+          {
+            "orig": "とても",
+            "kana": "とても",
+            "romaji": "totemo",
+            "pos": "Adverb",
+            "meaning": "Very"
+          },
+          {
+            "orig": "面白い！と",
+            "kana": "おもしろい！と",
+            "romaji": "omoshiroi! to",
+            "pos": "Adj. + Part.",
+            "meaning": "Interesting! (Quote)"
+          },
+          {
+            "orig": "言っています",
+            "kana": "いっています",
+            "romaji": "itte imasu",
+            "pos": "Polite Verb",
+            "meaning": "Is saying"
+          }
+        ]
+      }
+    ]
+  },
+  "shorts": {
+    "yt_short_title": "[JLPT N5] SH.10 Anime Studio Made a SAUNA in Tokyo?! #Shorts #LearnJapanese",
+    "hook_title": "ANIME STUDIO OPENS\nREAL SAUNA IN TOKYO!",
+    "hook_audio_en": "You won't believe what this Japanese anime company just built in Tokyo. Let's master the headline in JLPT N5 Japanese!",
+    "jp_sentence": "アニメの会社がサウナを作った！",
+    "kana_sentence": "あにめのかいしゃがさうなをつくった！",
+    "romaji_sentence": "Anime no kaisha ga sauna o tsukutta!",
+    "en_translation": "The anime company made a sauna!",
+    "tokens": [
+      {
+        "orig": "アニメの",
+        "kana": "あにめの",
+        "romaji": "anime no",
+        "meaning": "Anime's"
+      },
+      {
+        "orig": "会社が",
+        "kana": "かいしゃが",
+        "romaji": "kaisha ga",
+        "meaning": "Company"
+      },
+      {
+        "orig": "サウナを",
+        "kana": "さうなを",
+        "romaji": "sauna o",
+        "meaning": "Sauna"
+      },
+      {
+        "orig": "作った！",
+        "kana": "つくった！",
+        "romaji": "tsukutta!",
+        "meaning": "Made!"
+      }
+    ],
+    "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
+    "pro_tip_body": "'' (tsukutta) is the casual past form of the N5 verb '' (tsukuru - to make). Perfect for sharing breaking news with friends!",
+    "pro_tip_audio_en": "Notice tsukutta. It is the casual past form of tsukuru, to make. Perfect for sharing news!",
+    "interactive_poll": "What should anime studios make next? A: Theme Cafe B: Hot Spring Onsen",
+    "pinned_comment": "👉 Full Deep-Dive Video Available Now! Click the linked video above for netizen reactions & grammar drill!\n🔥 Poll: What should anime studios make next? A: Theme Cafe B: Hot Spring Onsen\n📱 Download TokyoFlow App on iOS for real-time speech pitch scoring!"
+  }
+}

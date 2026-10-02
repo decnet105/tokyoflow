@@ -69,13 +69,13 @@ def create_slide_image(
         draw.text((220, 320), "Learn Natural Tokyo Japanese Through Real-Life Scenarios", fill=(30, 41, 59), font=font_sub)
         
         font_bullets = get_font(28)
-        draw.text((220, 420), "✓ 20+ Real Tokyo Life Scenarios (Transit, Kombini, Izakaya, Akiba)", fill=(71, 85, 105), font=font_bullets)
-        draw.text((220, 490), "✓ NHK Real Audio Shadowing • Pitch Accent & Intonation Guides", fill=(71, 85, 105), font=font_bullets)
-        draw.text((220, 560), "✓ JLPT N5-N1 Core Vocabulary & Japanese Cultural Nuances", fill=(71, 85, 105), font=font_bullets)
+        draw.text((220, 420), " 20+ Real Tokyo Life Scenarios (Transit, Kombini, Izakaya, Akiba)", fill=(71, 85, 105), font=font_bullets)
+        draw.text((220, 490), " NHK Real Audio Shadowing • Pitch Accent & Intonation Guides", fill=(71, 85, 105), font=font_bullets)
+        draw.text((220, 560), " JLPT N5-N1 Core Vocabulary & Japanese Cultural Nuances", fill=(71, 85, 105), font=font_bullets)
         
         draw.rectangle([(220, 660), (width - 220, 840)], fill=(239, 246, 255), outline=(191, 219, 254), width=3)
         font_app = get_font(34)
-        draw.text((260, 695), "📱 Download 'TokyoFlow' Free on the iOS App Store", fill=(37, 99, 235), font=font_app)
+        draw.text((260, 695), " Download 'TokyoFlow' Free on the iOS App Store", fill=(37, 99, 235), font=font_app)
         font_app_sub = get_font(24)
         draw.text((260, 760), "Pair with iOS App for Voice Shadowing Scoring, Kana Practice & SRS Flashcards", fill=(100, 116, 139), font=font_app_sub)
     else:
@@ -102,11 +102,11 @@ def create_slide_image(
         draw.text((180, 515), f"Meaning:  {english_text}", fill=(30, 41, 59), font=font_en)
 
         font_tip = get_font(26)
-        draw.text((180, 595), f"💡 Pro-Tip:  {tip_text}", fill=(16, 185, 129), font=font_tip)
+        draw.text((180, 595), f" Pro-Tip:  {tip_text}", fill=(16, 185, 129), font=font_tip)
 
         draw.rectangle([(120, 770), (width - 120, 920)], fill=(241, 245, 249), outline=(226, 232, 240), width=2)
         font_shadow = get_font(28)
-        draw.text((160, 805), "🗣️  Shadowing Drill: Repeat aloud with native timing and pitch accent", fill=(51, 65, 85), font=font_shadow)
+        draw.text((160, 805), "  Shadowing Drill: Repeat aloud with native timing and pitch accent", fill=(51, 65, 85), font=font_shadow)
         font_shadow_sub = get_font(22)
         draw.text((160, 860), "Native Audio: Nanami (Tokyo Standard) • Real-life context breakdown", fill=(100, 116, 139), font=font_shadow_sub)
 
@@ -145,7 +145,7 @@ async def build_episode(spec: dict):
     ep_num = spec["episode_number"]
     ep_id = f"tokyoflow_v{ep_num:02d}_{spec['slug']}"
     print(f"\n==========================================")
-    print(f"🎬 Producing EP. {ep_num:02d}: {spec['title']}")
+    print(f" Producing EP. {ep_num:02d}: {spec['title']}")
     print(f"==========================================")
 
     workdir = f"tmp/videogen/{ep_id}"
@@ -179,11 +179,11 @@ async def build_episode(spec: dict):
 
         render_scene_video(img_path, audio_path, duration, video_path)
         segment_videos.append(video_path)
-        print(f"  ✓ Segment {idx+1}/{len(spec['slides'])} rendered ({duration:.1f}s)")
+        print(f"   Segment {idx+1}/{len(spec['slides'])} rendered ({duration:.1f}s)")
 
     final_video = f"output/videos/{ep_id}.mp4"
     concat_videos(segment_videos, final_video)
-    print(f"🎉 Final MP4 ready: {final_video}")
+    print(f" Final MP4 ready: {final_video}")
 
     # 2. Generate Thumbnails (if cover parameters provided)
     if "cover" in spec:
@@ -194,13 +194,13 @@ async def build_episode(spec: dict):
             ep_num=ep_num,
             english_hook=cov.get("hook", "TOKYO SURVIVAL"),
             japanese_key_phrase=cov.get("jp", ""),
-            bottom_tag=cov.get("tag", "🇯🇵 Native Audio • 1-Sec Reply"),
+            bottom_tag=cov.get("tag", " Native Audio • 1-Sec Reply"),
             bg_image_path=cov.get("bg_path", ""),
             output_path=thumb_out
         )
 
 def main():
-    print("🚀 TokyoFlow Automated Episode Production Pipeline Active.")
+    print(" TokyoFlow Automated Episode Production Pipeline Active.")
 
 if __name__ == "__main__":
     main()

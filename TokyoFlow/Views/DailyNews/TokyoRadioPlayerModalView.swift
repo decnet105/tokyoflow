@@ -261,8 +261,8 @@ public struct TokyoRadioPlayerModalView: View {
 
                             // Segmented View Mode Picker
                             Picker("View Mode", selection: $selectedViewMode) {
-                                Text("🗣 Live Word Shadowing").tag(1)
-                                Text("📻 Radio Chapters").tag(0)
+                                Text("Live Word Shadowing").tag(1)
+                                Text("Radio Chapters").tag(0)
                             }
                             .pickerStyle(.segmented)
                             .padding(.horizontal)
@@ -433,7 +433,7 @@ public struct TokyoRadioPlayerModalView: View {
                     }
                 }
             }
-            .navigationTitle("NHK 1-Hour Radio")
+            .navigationTitle("NHK Radio Stream")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {

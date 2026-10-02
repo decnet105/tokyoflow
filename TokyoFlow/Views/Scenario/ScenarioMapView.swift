@@ -121,7 +121,7 @@ public struct ScenarioMapView: View {
                             .padding(.vertical, 40)
                         } else {
                             ForEach(filteredScenarios) { scenario in
-                                NavigationLink(destination: ScenarioDetailView(scenario: scenario)) {
+                                NavigationLink(destination: LazyView(ScenarioDetailView(scenario: scenario))) {
                                     ScenarioCard(scenario: scenario, isCompleted: userProfile.completedScenarioIds.contains(scenario.id))
                                 }
                                 .buttonStyle(.plain)

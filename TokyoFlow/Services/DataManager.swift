@@ -12,9 +12,42 @@ public class DataManager: ObservableObject {
 
     private var scenarioMap: [String: Scenario] = [:]
     private var mangaMap: [String: MangaLesson] = [:]
+    private var isLoaded: Bool = false
+    private var isLoadingData: Bool = false
+    private let queue = DispatchQueue(label: "com.tokyoflow.datamanager", qos: .userInitiated)
 
     private init() {
-        loadAllData()
+        loadAllDataAsync()
+    }
+
+    public func loadAllDataAsync() {
+        guard !isLoaded && !isLoadingData else { return }
+        isLoadingData = true
+
+        queue.async {
+            let sc: [Scenario] = self.loadJson(filename: "scenarios") ?? []
+            let mg: [MangaLesson] = self.loadJson(filename: "manga_lessons") ?? []
+            let an: [Announcement] = self.loadJson(filename: "announcements") ?? []
+            let dj: [DojoBattle] = self.loadJson(filename: "dojo_battles") ?? []
+
+            var sMap: [String: Scenario] = [:]
+            for s in sc { sMap[s.id] = s }
+
+            var mMap: [String: MangaLesson] = [:]
+            for m in mg { mMap[m.id] = m }
+
+            DispatchQueue.main.async {
+                self.scenarios = sc
+                self.mangaLessons = mg
+                self.announcements = an
+                self.dojoBattles = dj
+                self.scenarioMap = sMap
+                self.mangaMap = mMap
+                self.isLoading = false
+                self.isLoaded = true
+                self.isLoadingData = false
+            }
+        }
     }
 
     public func loadAllData() {

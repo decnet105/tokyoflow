@@ -158,15 +158,19 @@ public struct JLPTDictionaryView: View {
                     }
                 }
                 .padding(14)
-                .background(.ultraThinMaterial)
+                .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(20)
                 .padding(.horizontal)
                 .padding(.top, 4)
 
-                wordListView
+                if isFlashcardMode {
+                    flashcardDeckView
+                } else {
+                    wordListView
+                }
             }
         } secondaryContent: {
-            // Right Screen: Flashcard Memorization Deck & Active Drill
+            // Right Screen on iPad / Duo: Flashcard Memorization Deck & Active Drill
             flashcardDeckView
         }
     }
@@ -178,7 +182,31 @@ public struct JLPTDictionaryView: View {
 
         return ScrollView {
             LazyVStack(spacing: 12) {
-                if dictService.cachedFilteredWords.isEmpty {
+                if !dictService.isLoaded && dictService.allWords.isEmpty {
+                    // Shimmer skeleton loading placeholder for instant responsiveness
+                    ForEach(0..<6, id: \.self) { _ in
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack {
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(Color(UIColor.tertiarySystemFill))
+                                    .frame(width: 80, height: 22)
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(Color(UIColor.tertiarySystemFill))
+                                    .frame(width: 60, height: 16)
+                                Spacer()
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(Color(UIColor.tertiarySystemFill))
+                                    .frame(width: 40, height: 20)
+                            }
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color(UIColor.tertiarySystemFill))
+                                .frame(maxWidth: .infinity, maxHeight: 16)
+                        }
+                        .padding(14)
+                        .background(Color(UIColor.secondarySystemGroupedBackground))
+                        .cornerRadius(18)
+                    }
+                } else if dictService.cachedFilteredWords.isEmpty {
                     VStack(spacing: 12) {
                         Image(systemName: "character.book.closed")
                             .font(.system(size: 48))
@@ -196,7 +224,7 @@ public struct JLPTDictionaryView: View {
                             word: word,
                             isBookmarked: dictService.isBookmarked(id: word.id),
                             onPlayAudio: {
-                                audioService.speak(text: word.kanji.isEmpty ? word.reading : word.kanji)
+                                audioService.speak(text: word.kanji.isEmpty ? word.reading : word.kanji, reading: word.reading)
                                 weakTracker.recordListen(word: word.kanji.isEmpty ? word.reading : word.kanji, reading: word.reading, meaning: word.meaning)
                             },
                             onPlayExample: {
@@ -316,7 +344,7 @@ public struct JLPTDictionaryView: View {
                             VStack(spacing: 12) {
                                 Divider()
 
-                                Text(currentWord.meaning)
+                                Text(currentWord.localizedMeaning(isEnglish: LanguageManager.shared.isEnglish))
                                     .font(.system(size: 18, weight: .bold))
                                     .foregroundColor(.primary)
 
@@ -324,7 +352,7 @@ public struct JLPTDictionaryView: View {
                                     Text(currentWord.exampleFurigana)
                                         .font(.caption)
                                         .foregroundColor(.secondary)
-                                    Text(currentWord.exampleEn.isEmpty ? currentWord.exampleZh : currentWord.exampleEn)
+                                    Text(LanguageManager.shared.isEnglish ? (currentWord.exampleEn.isEmpty ? currentWord.exampleZh : currentWord.exampleEn) : (currentWord.exampleZh.isEmpty ? currentWord.exampleEn : currentWord.exampleZh))
                                         .font(.caption)
                                         .foregroundColor(.primary)
                                 }
@@ -339,7 +367,7 @@ public struct JLPTDictionaryView: View {
 
                         // Audio button
                         Button(action: {
-                            audioService.speak(text: currentWord.kanji.isEmpty ? currentWord.reading : currentWord.kanji)
+                            audioService.speak(text: currentWord.kanji.isEmpty ? currentWord.reading : currentWord.kanji, reading: currentWord.reading)
                             weakTracker.recordListen(word: currentWord.kanji, reading: currentWord.reading, meaning: currentWord.meaning)
                         }) {
                             HStack(spacing: 6) {
@@ -441,7 +469,7 @@ public struct JLPTWordCardView: View {
                             .foregroundColor(.secondary)
                     }
 
-                    Text(word.meaning)
+                    Text(word.localizedMeaning(isEnglish: LanguageManager.shared.isEnglish))
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.primary)
                 }
@@ -473,26 +501,28 @@ public struct JLPTWordCardView: View {
                 }
             }
 
-            // Example Sentence with furigana
+            // Example Sentence with Live Karaoke Word Flow Highlighting
             HStack(alignment: .center, spacing: 8) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(word.exampleFurigana)
-                        .font(.system(size: 12))
-                        .foregroundColor(.secondary)
-                    Text(word.exampleEn.isEmpty ? word.exampleZh : word.exampleEn)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(.primary)
-                }
+                TokyoKaraokeSentenceView(
+                    sentenceJa: word.exampleJa,
+                    furiganaText: word.exampleFurigana,
+                    translation: LanguageManager.shared.isEnglish ? (word.exampleEn.isEmpty ? word.exampleZh : word.exampleEn) : (word.exampleZh.isEmpty ? word.exampleEn : word.exampleZh),
+                    showFurigana: true,
+                    fontScale: 0.95,
+                    onWordTapped: { token in
+                        TokyoVoiceBankService.shared.playPhraseOrFallback(key: token, fallbackText: token)
+                    }
+                )
 
                 Spacer()
 
-                // Play Example Audio
+                // Play Example Audio (Triggers Native VoiceBank + Live Karaoke Glow)
                 Button(action: onPlayExample) {
                     Image(systemName: "bubble.left.and.bubble.right.fill")
                         .font(.caption)
                         .foregroundColor(.accentColor)
                         .padding(8)
-                        .background(Color.accentColor.opacity(0.12))
+                        .background(Color.accentColor.opacity(0.15))
                         .clipShape(Circle())
                 }
 
@@ -511,11 +541,11 @@ public struct JLPTWordCardView: View {
             .cornerRadius(12)
         }
         .padding(14)
-        .background(.ultraThinMaterial)
+        .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(18)
         .overlay(
             RoundedRectangle(cornerRadius: 18)
-                .stroke(Color.primary.opacity(0.06), lineWidth: 1)
+                .stroke(Color(UIColor.separator).opacity(0.3), lineWidth: 1)
         )
     }
 }

@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """
-TokyoFlow Japanese • Unified YouTube Release Packager
-Generates standardized release directories for all episodes under `docs/youtube_releases/`:
-- ep01_yamanote_transit
-- ep02_kombini_checkout
-- ep03_izakaya_night
-- ep04_akiba_pilgrimage
-
-Each directory strictly contains:
-1. `video.mp4` - 1080p Full HD video
-2. `thumbnail.jpg` - 1920x1080 high-CTR serialized thumbnail
-3. `metadata.md` - Complete YouTube Studio metadata (Title, Description, Chapters, Tags, Pinned Comment)
-4. `script.json` - Bilingual slide transcript and spoken voice text
+TokyoFlow Japanese • Unified YouTube Video & Release Pipeline
+Produces modernized, high-converting YouTube micro-lesson packages for EP. 01 to EP. 04:
+1. 3-Tier Ruby Typography (Kana top, Japanese center, Romaji bottom, English meaning)
+2. Millisecond-level word-by-word karaoke follow-along highlight with 80ms anticipatory lead
+3. Bilingual Teamwork Breakdown Slides:
+   - Nanami (ja-JP-NanamiNeural) pronounces 100% native Japanese words & spotlight examples
+   - Andrew (en-US-AndrewNeural) explains English definitions, grammar rules & cultural nuances
+   - Dynamic Card & Spotlight Follow-Along Highlighting synchronized to the exact audio cues
+4. Fast 3-second Action-Oriented Outro Cards
+5. 16:9 High-CTR Serialized YouTube Thumbnails (Yellow Hook, Bold Japanese, Episode Badge)
+6. Complete Release Packages (video.mp4, thumbnail.jpg, metadata.md, script.json)
 """
 
 import os
@@ -20,20 +19,20 @@ import json
 import shutil
 import asyncio
 import subprocess
-from PIL import Image, ImageDraw, ImageFont
 import edge_tts
 
-FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
-
-def get_font(size: int):
-    try:
-        return ImageFont.truetype(FONT_PATH, size)
-    except Exception:
-        return ImageFont.load_default()
-
-async def generate_speech_audio(text: str, voice: str, out_path: str, rate: str = "-6%", pitch: str = "+3Hz"):
-    communicate = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
-    await communicate.save(out_path)
+from timing_engine import (
+    extract_tokens_from_text,
+    align_sentence_tokens_with_audio
+)
+from slide_designer import (
+    render_follow_along_video_clip,
+    render_breakdown_video_clip,
+    render_static_video_clip,
+    render_outro_frame
+)
+from voice_engine import synthesize_speech
+from generate_thumbnails import generate_serialized_thumbnail
 
 def get_audio_duration(audio_path: str) -> float:
     cmd = [
@@ -44,93 +43,78 @@ def get_audio_duration(audio_path: str) -> float:
     res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     return float(res.stdout.strip())
 
-def create_slide_image(
-    title_category: str,
-    title_main: str,
-    japanese_text: str,
-    furigana_text: str,
-    english_text: str,
-    tip_text: str,
-    chapter_label: str,
-    out_img_path: str,
-    is_outro: bool = False
-):
-    width, height = 1920, 1080
-    img = Image.new("RGB", (width, height), color=(248, 249, 252))
-    draw = ImageDraw.Draw(img)
+async def build_teamwork_breakdown_audio(cues: list, out_final_path: str, tmp_dir: str) -> dict:
+    """
+    Builds a bilingual teamwork breakdown track:
+    - Nanami (ja-JP-NanamiNeural) for Japanese words & example phrases
+    - Andrew (en-US-AndrewNeural) for English explanations
+    Returns exact card & spotlight timings for seamless visual follow-along.
+    """
+    os.makedirs(tmp_dir, exist_ok=True)
+    seg_files = []
+    card_timings = {}
+    spotlight_timings = (9999.0, 9999.0)
+    current_time = 0.0
 
-    # Top Brand Ribbon
-    draw.rectangle([(0, 0), (width, 80)], fill=(22, 28, 45))
-    font_brand = get_font(28)
-    draw.text((60, 24), "TokyoFlow Japanese  |  Real-Life Tokyo Japanese Academy", fill=(255, 255, 255), font=font_brand)
-    font_badge = get_font(22)
-    draw.text((width - 340, 26), f"Chapter: {chapter_label}", fill=(244, 114, 182), font=font_badge)
-
-    if is_outro:
-        draw.rectangle([(160, 160), (width - 160, height - 120)], fill=(255, 255, 255), outline=(226, 232, 240), width=4)
-        font_hero = get_font(54)
-        draw.text((220, 230), "Subscribe to TokyoFlow Japanese on YouTube", fill=(220, 38, 38), font=font_hero)
-        font_sub = get_font(34)
-        draw.text((220, 320), "Learn Natural Tokyo Japanese Through Real-Life Scenarios", fill=(30, 41, 59), font=font_sub)
+    for i, cue in enumerate(cues):
+        speaker = cue["speaker"]
+        text = cue["text"]
+        fn = os.path.join(tmp_dir, f"cue_{i:02d}.mp3")
         
-        font_bullets = get_font(28)
-        draw.text((220, 420), "✓ 20+ Real Tokyo Life Scenarios (Transit, Kombini, Izakaya, Akiba)", fill=(71, 85, 105), font=font_bullets)
-        draw.text((220, 490), "✓ Native Audio VoiceBank • Pitch Accent & Intonation Guides", fill=(71, 85, 105), font=font_bullets)
-        draw.text((220, 560), "✓ 2,600+ JLPT N5-N1 Core Vocabulary & Scenario Drills", fill=(71, 85, 105), font=font_bullets)
+        voice = "ja-JP-NanamiNeural" if speaker == "ja" else "en-US-AndrewNeural"
+        rate = "-6%" if speaker == "ja" else "+2%"
+        pitch = "+3Hz" if speaker == "ja" else "+0Hz"
         
-        draw.rectangle([(220, 660), (width - 220, 840)], fill=(239, 246, 255), outline=(191, 219, 254), width=3)
-        font_app = get_font(34)
-        draw.text((260, 695), "📱 Download 'TokyoFlow' Free on the iOS App Store", fill=(37, 99, 235), font=font_app)
-        font_app_sub = get_font(24)
-        draw.text((260, 760), "Pair with iOS App for Voice Shadowing Scoring, Kana Practice & SRS Flashcards", fill=(100, 116, 139), font=font_app_sub)
-    else:
-        # Category Badge
-        font_cat = get_font(24)
-        draw.rectangle([(120, 120), (520, 165)], fill=(238, 242, 255))
-        draw.text((135, 128), title_category, fill=(79, 70, 229), font=font_cat)
+        comm = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
+        await comm.save(fn)
+        dur = get_audio_duration(fn)
+        
+        start_t = current_time
+        end_t = current_time + dur
+        
+        if "card_idx" in cue:
+            c_idx = cue["card_idx"]
+            if c_idx not in card_timings:
+                card_timings[c_idx] = (start_t, end_t)
+            else:
+                card_timings[c_idx] = (card_timings[c_idx][0], end_t)
+                
+        if cue.get("is_spotlight"):
+            if spotlight_timings == (9999.0, 9999.0):
+                spotlight_timings = (start_t, end_t)
+            else:
+                spotlight_timings = (spotlight_timings[0], end_t)
+                
+        seg_files.append(fn)
+        current_time += dur
 
-        font_title = get_font(38)
-        draw.text((120, 190), title_main, fill=(15, 23, 42), font=font_title)
-
-        draw.rectangle([(120, 270), (width - 120, 720)], fill=(255, 255, 255), outline=(226, 232, 240), width=4)
-
-        if furigana_text:
-            font_furi = get_font(30)
-            draw.text((180, 320), furigana_text, fill=(100, 116, 139), font=font_furi)
-
-        font_jp = get_font(50)
-        draw.text((180, 380), japanese_text, fill=(15, 23, 42), font=font_jp)
-
-        draw.line([(180, 480), (width - 180, 480)], fill=(241, 245, 249), width=3)
-
-        font_en = get_font(34)
-        draw.text((180, 515), f"Meaning:  {english_text}", fill=(30, 41, 59), font=font_en)
-
-        font_tip = get_font(26)
-        draw.text((180, 595), f"💡 Pro-Tip:  {tip_text}", fill=(16, 185, 129), font=font_tip)
-
-        draw.rectangle([(120, 770), (width - 120, 920)], fill=(241, 245, 249), outline=(226, 232, 240), width=2)
-        font_shadow = get_font(28)
-        draw.text((160, 805), "🗣️  Shadowing Drill: Repeat aloud with native timing and pitch accent", fill=(51, 65, 85), font=font_shadow)
-        font_shadow_sub = get_font(22)
-        draw.text((160, 860), "Native Audio: Nanami (Tokyo Standard) • Real-life context breakdown", fill=(100, 116, 139), font=font_shadow_sub)
-
-    img.save(out_img_path, quality=95)
-
-def render_scene_video(img_path: str, audio_path: str, duration: float, out_mp4_path: str):
+    list_path = os.path.join(tmp_dir, "cues.txt")
+    with open(list_path, "w") as f:
+        for fn in seg_files:
+            f.write(f"file '{os.path.abspath(fn)}'\n")
+            
     cmd = [
         "ffmpeg", "-y",
-        "-loop", "1", "-i", img_path,
-        "-i", audio_path,
-        "-c:v", "libx264", "-tune", "stillimage", "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "192k",
-        "-t", str(duration + 0.5),
-        "-shortest",
-        out_mp4_path
+        "-f", "concat", "-safe", "0",
+        "-i", list_path,
+        "-c:a", "aac",
+        "-b:a", "192k",
+        "-ar", "44100",
+        "-ac", "2",
+        out_final_path
     ]
     subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+    
+    total_dur = get_audio_duration(out_final_path)
+    return {
+        "total_duration": total_dur,
+        "timings": {
+            "active_vocab_idx": card_timings,
+            "spotlight_window": spotlight_timings
+        }
+    }
 
-def concat_videos(video_list: list, final_output_path: str):
+def concat_videos_seamless(video_list: list, final_output_path: str):
     concat_txt_path = "tmp/videogen/concat_list.txt"
     os.makedirs(os.path.dirname(concat_txt_path), exist_ok=True)
     with open(concat_txt_path, "w") as f:
@@ -141,322 +125,740 @@ def concat_videos(video_list: list, final_output_path: str):
         "ffmpeg", "-y",
         "-f", "concat", "-safe", "0",
         "-i", concat_txt_path,
-        "-c", "copy",
+        "-c:v", "libx264",
+        "-pix_fmt", "yuv420p",
+        "-r", "30",
+        "-c:a", "aac",
+        "-b:a", "192k",
+        "-ar", "44100",
+        "-ac", "2",
         final_output_path
     ]
     subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
-from generate_thumbnails import generate_serialized_thumbnail
-
 EPISODES = [
     {
         "episode_number": 1,
-        "folder_name": "ep01_yamanote_transit",
+        "folder_name": "E01-Yamanote_Transit-v1.0",
         "slug": "yamanote_transit",
         "title": "Tokyo Metro & Yamanote Line Platform Broadcasts",
-        "yt_title": "Tokyo Train Station Announcements Decoded! 🚆 Yamanote Line Immersion (EP. 01)",
+        "yt_title": "Tokyo Train Station Announcements Decoded!  Yamanote Line Immersion (EP. 01)",
         "category": "Tokyo Transit • Yamanote Line",
         "level": "JLPT N4-N3",
-        "district": "Shinjuku (新宿)",
-        "youtube_id": "kFhcEWNNkkc",
+        "district": "Shinjuku ()",
+        "youtube_id": "yN6dTC-LBz8",
         "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/tokyo_subway_metro_1790613022369.jpg",
         "cover": {
             "hook": "TOKYO METRO HACK",
-            "jp": "まもなく参ります",
-            "tag": "🇯🇵 Native Transit Audio • Shadowing"
+            "jp": "",
+            "tag": " Native Transit Audio • Shadowing"
         },
         "slides": [
             {
+                "type": "follow_along",
                 "chapter": "01. Approaching Train Announcement",
-                "spoken_text": "まもなく、2番線に山手線内回りがまいります。黄色い点字ブロックの内側までお下がりください。",
-                "ja": "まもなく、2番線に山手線内回りがまいります。",
-                "furi": "まもなく、にばんせんに やまのてせん うちまわりが まいります。",
+                "spoken_text": "2",
                 "en": "The Yamanote Line inner loop train will arrive on Platform 2.",
-                "tip": "'まいります' is humble form (Kenjougo), standard JR platform phrasing."
+                "tip": "'' is Kenjougo (humble Japanese), standard JR platform phrasing.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "mamonaku", "pos": "Adverb", "meaning": "Shortly / Soon"},
+                    {"orig": "", "kana": "", "romaji": ""},
+                    {"orig": "2", "kana": "", "romaji": "ni-ban-sen ni", "pos": "Noun + Part.", "meaning": "On Platform 2"},
+                    {"orig": "", "kana": "", "romaji": "yamanote-sen", "pos": "Proper Noun", "meaning": "Yamanote Line"},
+                    {"orig": "", "kana": "", "romaji": "uchi-mawari ga", "pos": "Noun + Part.", "meaning": "Inner loop (clockwise)"},
+                    {"orig": "", "kana": "", "romaji": "mairimasu.", "pos": "Humble Verb", "meaning": "Is arriving (humble)"}
+                ]
             },
             {
-                "chapter": "02. Safety & Tactile Paving",
-                "spoken_text": "黄色い点字ブロックの内側までお下がりください。危ないですから、ご注意ください。",
-                "ja": "黄色い点字ブロックの内側までお下がりください。",
-                "furi": "きいろい てんじぶろっくの うちがわまで おさがりください。",
+                "type": "breakdown",
+                "chapter": "02. Train Announcement Breakdown",
+                "sentence_ja": "2",
+                "vocab": [
+                    {"orig": "", "kana": "", "romaji": "mamonaku", "pos": "Adverb", "meaning": "Shortly / Soon"},
+                    {"orig": "2", "kana": "", "romaji": "ni-ban-sen ni", "pos": "Noun + Part.", "meaning": "On Platform 2"},
+                    {"orig": "", "kana": "", "romaji": "yamanote-sen", "pos": "Proper Noun", "meaning": "Yamanote Loop Line"},
+                    {"orig": "", "kana": "", "romaji": "uchi-mawari ga", "pos": "Noun + Part.", "meaning": "Clockwise Inner Loop"},
+                    {"orig": "", "kana": "", "romaji": "mairimasu", "pos": "Humble Verb", "meaning": "Kenjougo for  (Coming)"}
+                ],
+                "grammar_title": " (Kenjougo) — ",
+                "grammar_bullets": [
+                    ("1. Humble Verb ():", "'' is the humble form of ' (kuru, to come)'."),
+                    ("2. Tokyo Transit Etiquette:", "Station announcements universally humble the train staff to elevate passengers."),
+                    ("3. Daily Life Equivalent:", "'' (I will be right there with you)."),
+                    ("4. Key Takeaway:", "Never use Kenjougo when referring to your customer's actions.")
+                ],
+                "teamwork_cues": [
+                    {"speaker": "en", "text": "Let's break down the vocabulary and grammar."},
+                    {"speaker": "ja", "text": "", "card_idx": 0},
+                    {"speaker": "en", "text": "Adverb: shortly, or very soon.", "card_idx": 0},
+                    {"speaker": "ja", "text": "2", "card_idx": 1},
+                    {"speaker": "en", "text": "On platform 2.", "card_idx": 1},
+                    {"speaker": "ja", "text": "", "card_idx": 2},
+                    {"speaker": "en", "text": "The JR Yamanote Loop Line.", "card_idx": 2},
+                    {"speaker": "ja", "text": "", "card_idx": 3},
+                    {"speaker": "en", "text": "Clockwise inner loop direction.", "card_idx": 3},
+                    {"speaker": "ja", "text": "", "card_idx": 4},
+                    {"speaker": "en", "text": "Humble verb for arriving, Kenjougo of kuru.", "card_idx": 4},
+                    {"speaker": "en", "text": "Grammar Spotlight: Kenjougo humble speech.", "is_spotlight": True},
+                    {"speaker": "ja", "text": "", "is_spotlight": True},
+                    {"speaker": "en", "text": "I will be right there with you. Station broadcasts use humble verbs to elevate passengers.", "is_spotlight": True}
+                ]
+            },
+            {
+                "type": "follow_along",
+                "chapter": "03. Safety & Tactile Paving",
+                "spoken_text": "",
                 "en": "Please stand behind the yellow tactile warning blocks.",
-                "tip": "'お下がりください' is a polite instructional form used across all train stations."
+                "tip": "'' is the respectful imperative formula ( + Verb stem + ).",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "kiiroi", "pos": "Adjective", "meaning": "Yellow"},
+                    {"orig": "", "kana": "", "romaji": "tenji-burokku no", "pos": "Noun + Part.", "meaning": "Tactile warning block's"},
+                    {"orig": "", "kana": "", "romaji": "uchigawa made", "pos": "Noun + Part.", "meaning": "To the inside / behind"},
+                    {"orig": "", "kana": "", "romaji": "osagari kudasai.", "pos": "Polite Imperative", "meaning": "Please step back"}
+                ]
             },
             {
-                "chapter": "03. Transfer Assistance Phrase",
-                "spoken_text": "すみません、中央線への乗り換えはどのホームですか？",
-                "ja": "中央線への乗り換えはどのホームですか？",
-                "furi": "ちゅうおうせんへの のりかえは どのほーむですか？",
+                "type": "breakdown",
+                "chapter": "04. Platform Safety Breakdown",
+                "sentence_ja": "",
+                "vocab": [
+                    {"orig": "", "kana": "", "romaji": "kiiroi", "pos": "Adjective", "meaning": "Yellow color"},
+                    {"orig": "", "kana": "", "romaji": "tenji burokku", "pos": "Noun", "meaning": "Braille / tactile paving"},
+                    {"orig": "", "kana": "", "romaji": "uchigawa made", "pos": "Noun + Part.", "meaning": "Behind / inside limit"},
+                    {"orig": "", "kana": "", "romaji": "osagari", "pos": "Verb Stem", "meaning": "Step back (from )"},
+                    {"orig": "", "kana": "", "romaji": "kudasai", "pos": "Polite Request", "meaning": "Please do"}
+                ],
+                "grammar_title": ":  +  + ",
+                "grammar_bullets": [
+                    ("1. Respectful Command:", "Used by staff to politely instruct customers or passengers."),
+                    ("2. Formation Formula:", " + Verb Masu-Stem +  (e.g.  = Please wait)."),
+                    ("3. Platform Context:", "Heard at every station before trains arrive for commuter safety."),
+                    ("4. Casual Equivalent:", " (Sagatte) — only used with friends/family.")
+                ],
+                "teamwork_cues": [
+                    {"speaker": "en", "text": "Let's break down this platform safety announcement."},
+                    {"speaker": "ja", "text": "", "card_idx": 0},
+                    {"speaker": "en", "text": "Adjective: yellow color.", "card_idx": 0},
+                    {"speaker": "ja", "text": "", "card_idx": 1},
+                    {"speaker": "en", "text": "Noun: tactile paving blocks.", "card_idx": 1},
+                    {"speaker": "ja", "text": "", "card_idx": 2},
+                    {"speaker": "en", "text": "Behind the safety line.", "card_idx": 2},
+                    {"speaker": "ja", "text": "", "card_idx": 3},
+                    {"speaker": "en", "text": "Verb stem from sagaru, to step back.", "card_idx": 3},
+                    {"speaker": "ja", "text": "", "card_idx": 4},
+                    {"speaker": "en", "text": "Polite request formula.", "card_idx": 4},
+                    {"speaker": "en", "text": "Grammar spotlight: Respectful command formula, O plus verb stem plus kudasai.", "is_spotlight": True},
+                    {"speaker": "ja", "text": "", "is_spotlight": True},
+                    {"speaker": "en", "text": "Please wait a moment. Used widely by transit and store staff.", "is_spotlight": True}
+                ]
+            },
+            {
+                "type": "follow_along",
+                "chapter": "05. Transfer Assistance Drill",
+                "spoken_text": "",
                 "en": "Excuse me, which platform is the transfer for the Chuo Line?",
-                "tip": "Essential phrase when asking station staff. Replace '中央線' with any line."
+                "tip": "Essential phrase when asking station staff. Replace '' with any train line.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "sumimasen", "pos": "Phrase", "meaning": "Excuse me"},
+                    {"orig": "", "kana": "", "romaji": ""},
+                    {"orig": "", "kana": "", "romaji": "chuuou-sen e no", "pos": "Proper Noun + Part.", "meaning": "To Chuo Line"},
+                    {"orig": "", "kana": "", "romaji": "norikae wa", "pos": "Noun + Topic", "meaning": "Transfer"},
+                    {"orig": "", "kana": "", "romaji": "dono hoomu desu ka?", "pos": "Question", "meaning": "Which platform is it?"}
+                ]
             },
             {
-                "chapter": "04. Subscribe & Download",
-                "spoken_text": "ご視聴ありがとうございました！チャンネル登録と高評価をお願いします。TokyoFlowアプリでさらに深く学びましょう！",
-                "is_outro": True
+                "type": "outro",
+                "chapter": "06. Subscribe & Download",
+                "spoken_text": "TokyoFlow"
             }
         ]
     },
     {
         "episode_number": 2,
-        "folder_name": "ep02_kombini_checkout",
+        "folder_name": "E02-Kombini_Checkout-v1.0",
         "slug": "kombini_checkout",
         "title": "Japanese 7-Eleven & FamilyMart Checkout Mastery",
-        "yt_title": "Survive Tokyo 7-Eleven Checkout! 🍱 Rapid Register Japanese Decoded (EP. 02)",
+        "yt_title": "Survive Tokyo 7-Eleven Checkout!  Rapid Register Japanese Decoded (EP. 02)",
         "category": "Kombini Protocol • Checkout Guide",
         "level": "JLPT N5-N4",
-        "district": "Shibuya (渋谷)",
-        "youtube_id": "BTKvaO25MUI",
+        "district": "Shibuya ()",
+        "youtube_id": "6er1tWAH_oQ",
         "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/pl_cover_kombini_1790626387613.jpg",
         "cover": {
             "hook": "KOMBINI SURVIVAL",
-            "jp": "温めますか？",
-            "tag": "🇯🇵 1-Sec Register Reply • Shadowing"
+            "jp": "",
+            "tag": " 1-Sec Register Reply • Shadowing"
         },
         "slides": [
             {
+                "type": "follow_along",
                 "chapter": "01. Bento Heating Question",
-                "spoken_text": "お弁当温めますか？少々お待ちください。",
-                "ja": "お弁当温めますか？",
-                "furi": "おべんとう あたためますか？",
+                "spoken_text": "",
                 "en": "Would you like your bento heated up?",
-                "tip": "Reply with '温めてください (Please heat it)' or '大丈夫です (No thanks)'."
+                "tip": "Reply with ' (Please heat it)' or ' (No thanks)'.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "obentou", "pos": "Noun", "meaning": "Bento boxed lunch"},
+                    {"orig": "", "kana": "", "romaji": "atatamemasu ka?", "pos": "Verb + Q", "meaning": "Would you like it heated?"},
+                    {"orig": "", "kana": "", "romaji": "shoushou", "pos": "Adverb", "meaning": "A little moment"},
+                    {"orig": "", "kana": "", "romaji": "omachi kudasai.", "pos": "Polite Request", "meaning": "Please wait"}
+                ]
             },
             {
-                "chapter": "02. Declining Plastic Bags",
-                "spoken_text": "レジ袋はご利用ですか？レジ袋は大丈夫です。",
-                "ja": "レジ袋は大丈夫です。",
-                "furi": "れじぶくろは だいじょうぶです。",
-                "en": "No plastic bag needed, thank you.",
-                "tip": "'大丈夫です' paired with a gentle nod is the natural way to politely decline."
+                "type": "breakdown",
+                "chapter": "02. Register Conversation Breakdown",
+                "sentence_ja": "",
+                "vocab": [
+                    {"orig": "", "kana": "", "romaji": "obentou", "pos": "Polite Noun", "meaning": "Bento lunch box"},
+                    {"orig": "", "kana": "", "romaji": "atatamemasu ka", "pos": "Verb + Q", "meaning": "Do you want it heated?"},
+                    {"orig": "", "kana": "", "romaji": "shoushou", "pos": "Adverb", "meaning": "A short moment"},
+                    {"orig": "", "kana": "", "romaji": "omachi kudasai", "pos": "Polite Imperative", "meaning": "Please wait politely"}
+                ],
+                "grammar_title": ": ",
+                "grammar_bullets": [
+                    ("1. Yes Response:", "' (Atatamete kudasai)' or simply ' (Onegaishimasu)'."),
+                    ("2. No Response:", "' (Daijoubu desu)' or ' (Kono mama de, as is)'."),
+                    ("3. Polite Honorific '-':", "'' adds the polite prefix '' to show customer respect."),
+                    ("4. Speed Tip:", "Clerks ask very fast; answer with a crisp nod and 1-word reply.")
+                ],
+                "teamwork_cues": [
+                    {"speaker": "en", "text": "Let's break down this convenience store register phrase."},
+                    {"speaker": "ja", "text": "", "card_idx": 0},
+                    {"speaker": "en", "text": "Polite noun: bento lunch box.", "card_idx": 0},
+                    {"speaker": "ja", "text": "", "card_idx": 1},
+                    {"speaker": "en", "text": "Would you like it heated up?", "card_idx": 1},
+                    {"speaker": "ja", "text": "", "card_idx": 2},
+                    {"speaker": "en", "text": "Adverb: just a short moment.", "card_idx": 2},
+                    {"speaker": "ja", "text": "", "card_idx": 3},
+                    {"speaker": "en", "text": "Please wait politely.", "card_idx": 3},
+                    {"speaker": "en", "text": "Register etiquette: To heat your food, answer:", "is_spotlight": True},
+                    {"speaker": "ja", "text": "", "is_spotlight": True},
+                    {"speaker": "en", "text": "Please heat it. Or if you prefer it as is, say:", "is_spotlight": True},
+                    {"speaker": "ja", "text": "", "is_spotlight": True},
+                    {"speaker": "en", "text": "It is fine as is.", "is_spotlight": True}
+                ]
             },
             {
-                "chapter": "03. Contactless Payment",
-                "spoken_text": "Suicaでお願いします。ポイントカードはお持ちですか？",
-                "ja": "Suicaでお願いします。",
-                "furi": "すいかで おねがいします。",
-                "en": "I will pay with Suica, please.",
-                "tip": "'[Payment method] でお願いします' works for Suica, PayPay, or Credit Card."
+                "type": "follow_along",
+                "chapter": "03. Declining Plastic Bags",
+                "spoken_text": "",
+                "en": "No plastic bag needed, thank you. A tape sticker is fine.",
+                "tip": "'' paired with a gentle nod is the natural way to politely decline.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "reji-bukuro wa", "pos": "Noun + Topic", "meaning": "Plastic bag"},
+                    {"orig": "", "kana": "", "romaji": "daijoubu desu.", "pos": "Phrase", "meaning": "No thanks / I'm fine"},
+                    {"orig": "", "kana": "", "romaji": "shiiru de", "pos": "Noun + Part.", "meaning": "With a sticker"},
+                    {"orig": "", "kana": "", "romaji": "onegaishimasu.", "pos": "Polite Request", "meaning": "Please"}
+                ]
             },
             {
-                "chapter": "04. Subscribe & Download",
-                "spoken_text": "TokyoFlow Japanese 公式チャンネルを登録して、毎日の生きた日本語をマスターしましょう！",
-                "is_outro": True
+                "type": "breakdown",
+                "chapter": "04. Declining Etiquette Breakdown",
+                "sentence_ja": "",
+                "vocab": [
+                    {"orig": "", "kana": "", "romaji": "reji bukuro", "pos": "Noun", "meaning": "Register plastic shopping bag"},
+                    {"orig": "", "kana": "", "romaji": "daijoubu desu", "pos": "Polite Phrase", "meaning": "I'm okay / No thank you"},
+                    {"orig": "", "kana": "", "romaji": "shiiru", "pos": "Loanword", "meaning": "Proof of purchase tape sticker"},
+                    {"orig": "", "kana": "", "romaji": "onegaishimasu", "pos": "Polite Request", "meaning": "Please do so"}
+                ],
+                "grammar_title": ":  (Polite Refusal)",
+                "grammar_bullets": [
+                    ("1. The Polite 'No':", "Avoid saying blunt ' (I don't want it)'. Use '' instead."),
+                    ("2. Sticker Protocol:", "If you refuse a bag, the clerk applies a small tape '' on items."),
+                    ("3. If you DO want a bag:", "' (Fukuro o ichimai onegaishimasu)' (3-5 JPY)."),
+                    ("4. Body Language:", "A slight hand palm-down gesture makes your refusal crystal clear.")
+                ],
+                "teamwork_cues": [
+                    {"speaker": "en", "text": "Let's break down how to decline plastic bags politely."},
+                    {"speaker": "ja", "text": "", "card_idx": 0},
+                    {"speaker": "en", "text": "Plastic shopping bag.", "card_idx": 0},
+                    {"speaker": "ja", "text": "", "card_idx": 1},
+                    {"speaker": "en", "text": "I am okay, no thank you.", "card_idx": 1},
+                    {"speaker": "ja", "text": "", "card_idx": 2},
+                    {"speaker": "en", "text": "Proof of purchase tape sticker.", "card_idx": 2},
+                    {"speaker": "ja", "text": "", "card_idx": 3},
+                    {"speaker": "en", "text": "Please do so.", "card_idx": 3},
+                    {"speaker": "en", "text": "Grammar spotlight: The universal polite refusal with Daijoubu desu.", "is_spotlight": True},
+                    {"speaker": "ja", "text": "", "is_spotlight": True},
+                    {"speaker": "en", "text": "Pair this with a gentle nod for natural Tokyo manners.", "is_spotlight": True}
+                ]
+            },
+            {
+                "type": "follow_along",
+                "chapter": "05. Contactless Payment Drill",
+                "spoken_text": "Suica",
+                "en": "I will pay with Suica, please. No point card.",
+                "tip": "'[Payment method] ' works for Suica, PayPay, or Credit Card.",
+                "tokens": [
+                    {"orig": "Suica", "kana": "", "romaji": "Suica de", "pos": "Noun + Part.", "meaning": "With Suica"},
+                    {"orig": "", "kana": "", "romaji": "onegaishimasu.", "pos": "Polite Request", "meaning": "Please"},
+                    {"orig": "", "kana": "", "romaji": "pointo kaado wa", "pos": "Noun + Topic", "meaning": "Reward card"},
+                    {"orig": "", "kana": "", "romaji": "arimasen.", "pos": "Verb (Neg)", "meaning": "I don't have"}
+                ]
+            },
+            {
+                "type": "outro",
+                "chapter": "06. Subscribe & Download",
+                "spoken_text": "TokyoFlow"
             }
         ]
     },
     {
         "episode_number": 3,
-        "folder_name": "ep03_izakaya_night",
+        "folder_name": "E03-Izakaya_Night-v1.0",
         "slug": "izakaya_night",
         "title": "Authentic Tokyo Izakaya Ordering & Toasting Etiquette",
-        "yt_title": "Order Like a Tokyo Local at an Izakaya! 🍻 'Toriaezu Nama!' Explained (EP. 03)",
+        "yt_title": "Order Like a Tokyo Local at an Izakaya!  'Toriaezu Nama!' Explained (EP. 03)",
         "category": "Izakaya Culture • Dining Guide",
         "level": "JLPT N4-N3",
-        "district": "Shinjuku Omoide Yokocho (思い出横丁)",
-        "youtube_id": "q6P6i7nkIhU",
+        "district": "Shinjuku Omoide Yokocho ()",
+        "youtube_id": "B4sN_BkLcOw",
         "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/pl_cover_izakaya_1790626403507.jpg",
         "cover": {
             "hook": "IZAKAYA MASTERY",
-            "jp": "とりあえず生！",
-            "tag": "🇯🇵 Showa Pub Etiquette • Shadowing"
+            "jp": "",
+            "tag": " Showa Pub Etiquette • Shadowing"
         },
         "slides": [
             {
+                "type": "follow_along",
                 "chapter": "01. The First Drink Order",
-                "spoken_text": "いらっしゃい！とりあえず生ビール二つお願いします！",
-                "ja": "とりあえず生ビール二つお願いします！",
-                "furi": "とりあえず なまびーる ふたつ おねがいします！",
+                "spoken_text": "",
                 "en": "To start, two draft beers please!",
-                "tip": "'とりあえず〜' (for starters) is the quintessential Japanese izakaya opener."
+                "tip": "'' (for starters) is the quintessential Japanese izakaya opener.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "toriaezu", "pos": "Adverb", "meaning": "For starters / To begin with"},
+                    {"orig": "", "kana": "", "romaji": "nama biiru", "pos": "Noun", "meaning": "Draft beer"},
+                    {"orig": "", "kana": "", "romaji": "futatsu", "pos": "Counter", "meaning": "Two items"},
+                    {"orig": "", "kana": "", "romaji": "onegaishimasu!", "pos": "Polite Request", "meaning": "Please!"}
+                ]
             },
             {
-                "chapter": "02. Yakitori Seasoning",
-                "spoken_text": "焼き鳥盛り合わせを塩でお願いします。お待たせいたしました！",
-                "ja": "焼き鳥盛り合わせを塩でお願いします。",
-                "furi": "やきとり もりあわせを しおで おねがいします。",
+                "type": "breakdown",
+                "chapter": "02. Izakaya Ordering Culture Breakdown",
+                "sentence_ja": "",
+                "vocab": [
+                    {"orig": "", "kana": "", "romaji": "toriaezu", "pos": "Adverb", "meaning": "For starters / First of all"},
+                    {"orig": "", "kana": "", "romaji": "nama biiru", "pos": "Noun", "meaning": "Draft beer (short:  nama)"},
+                    {"orig": "", "kana": "", "romaji": "futatsu", "pos": "Counter", "meaning": "Two (native counter)"},
+                    {"orig": "", "kana": "", "romaji": "onegaishimasu", "pos": "Polite Request", "meaning": "Please give us"}
+                ],
+                "grammar_title": ":  (The Opening Order)",
+                "grammar_bullets": [
+                    ("1. Cultural Norm:", "In Japanese pubs, ordering drinks right away eases the kitchen and starts the table vibe."),
+                    ("2. Counting Drinks:", " (1),  (2),  (3), or [Number]  (hai)."),
+                    ("3. Non-Alcoholic Starter:", "' (Uuron-cha hitotsu)' for Oolong tea."),
+                    ("4. Table Charge ():", "Expect a small mandatory appetizer called 'Otoushi' served with drinks.")
+                ],
+                "teamwork_cues": [
+                    {"speaker": "en", "text": "Let's break down this classic Tokyo izakaya order."},
+                    {"speaker": "ja", "text": "", "card_idx": 0},
+                    {"speaker": "en", "text": "Adverb: for starters, or first of all.", "card_idx": 0},
+                    {"speaker": "ja", "text": "", "card_idx": 1},
+                    {"speaker": "en", "text": "Draft beer, often shortened to Nama.", "card_idx": 1},
+                    {"speaker": "ja", "text": "", "card_idx": 2},
+                    {"speaker": "en", "text": "Native Japanese counter for two items.", "card_idx": 2},
+                    {"speaker": "ja", "text": "", "card_idx": 3},
+                    {"speaker": "en", "text": "Please give us.", "card_idx": 3},
+                    {"speaker": "en", "text": "Izakaya cultural spotlight: The first drink rule.", "is_spotlight": True},
+                    {"speaker": "ja", "text": "", "is_spotlight": True},
+                    {"speaker": "en", "text": "Ordering your first drink immediately helps the kitchen and starts the table toast.", "is_spotlight": True}
+                ]
+            },
+            {
+                "type": "follow_along",
+                "chapter": "03. Yakitori Seasoning Drill",
+                "spoken_text": "",
                 "en": "Assorted yakitori platter with salt seasoning, please.",
-                "tip": "Staff will ask '塩かタレか' (salt or sweet tare sauce). '塩 (shio)' highlights the chicken flavor."
+                "tip": "Staff will ask '' (salt or sweet tare sauce). ' (shio)' highlights the chicken flavor.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "yakitori", "pos": "Noun", "meaning": "Grilled chicken skewers"},
+                    {"orig": "", "kana": "", "romaji": "moriawase o", "pos": "Noun + Obj", "meaning": "Assorted combo platter"},
+                    {"orig": "", "kana": "", "romaji": "shio de", "pos": "Noun + Part.", "meaning": "With salt seasoning"},
+                    {"orig": "", "kana": "", "romaji": "onegaishimasu.", "pos": "Polite Request", "meaning": "Please"}
+                ]
             },
             {
-                "chapter": "03. The Check & Receipt",
-                "spoken_text": "お会計と領収書をお願いします。毎度ありがとうございました！",
-                "ja": "お会計と領収書をお願いします。",
-                "furi": "おかいけいと りょうしゅうしょを おねがいします。",
+                "type": "breakdown",
+                "chapter": "04. Food Seasoning Choice Breakdown",
+                "sentence_ja": "",
+                "vocab": [
+                    {"orig": "", "kana": "", "romaji": "yakitori", "pos": "Noun", "meaning": "Grilled chicken skewers"},
+                    {"orig": "", "kana": "", "romaji": "moriawase", "pos": "Noun", "meaning": "Chef's assortment combo"},
+                    {"orig": "", "kana": "", "romaji": "shio", "pos": "Noun", "meaning": "Salt seasoning"},
+                    {"orig": "", "kana": "", "romaji": "tare", "pos": "Noun", "meaning": "Sweet savory soy glaze"}
+                ],
+                "grammar_title": ":  (Salt) vs  (Tare Sauce)",
+                "grammar_bullets": [
+                    ("1. Salt Choice ():", "Crisp, light, highlights the natural char and quality of the meat."),
+                    ("2. Tare Choice ():", "Rich, sweet soy-mirin glaze, great for liver, meatballs (tsukune), and beer."),
+                    ("3. Platter Order:", "' (Moriawase)' gives you 5-6 assorted cuts chosen by the chef."),
+                    ("4. Ordering Combo:", "'5 (Shio de go-hon)' = 5 skewers with salt.")
+                ],
+                "teamwork_cues": [
+                    {"speaker": "en", "text": "Let's break down ordering yakitori skewers."},
+                    {"speaker": "ja", "text": "", "card_idx": 0},
+                    {"speaker": "en", "text": "Grilled chicken skewers.", "card_idx": 0},
+                    {"speaker": "ja", "text": "", "card_idx": 1},
+                    {"speaker": "en", "text": "Chef's assortment combo platter.", "card_idx": 1},
+                    {"speaker": "ja", "text": "", "card_idx": 2},
+                    {"speaker": "en", "text": "Salt seasoning.", "card_idx": 2},
+                    {"speaker": "ja", "text": "", "card_idx": 3},
+                    {"speaker": "en", "text": "Sweet savory soy glaze.", "card_idx": 3},
+                    {"speaker": "en", "text": "Seasoning choice spotlight: Shio versus Tare.", "is_spotlight": True},
+                    {"speaker": "ja", "text": "5", "is_spotlight": True},
+                    {"speaker": "en", "text": "Salt highlights the pure flavor and crisp char of the meat.", "is_spotlight": True}
+                ]
+            },
+            {
+                "type": "follow_along",
+                "chapter": "05. The Check & Receipt Drill",
+                "spoken_text": "",
                 "en": "The bill and formal receipt, please.",
-                "tip": "'お会計 (okaikei)' means bill, while '領収書 (ryoushuusho)' is an itemized receipt."
+                "tip": "' (okaikei)' means bill, while ' (ryoushuusho)' is a tax receipt.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "okaikei to", "pos": "Noun + And", "meaning": "The bill and"},
+                    {"orig": "", "kana": "", "romaji": "ryoushuusho o", "pos": "Noun + Obj", "meaning": "Formal receipt"},
+                    {"orig": "", "kana": "", "romaji": "onegaishimasu.", "pos": "Polite Request", "meaning": "Please"}
+                ]
             },
             {
-                "chapter": "04. Subscribe & Download",
-                "spoken_text": "TokyoFlow Japanese チャンネルを登録して、リアルな東京の日常会話を体験しましょう！",
-                "is_outro": True
+                "type": "outro",
+                "chapter": "06. Subscribe & Download",
+                "spoken_text": "TokyoFlow"
             }
         ]
     },
     {
         "episode_number": 4,
-        "folder_name": "ep04_akiba_pilgrimage",
+        "folder_name": "E04-Akiba_Pilgrimage-v1.0",
         "slug": "akiba_pilgrimage",
         "title": "Akihabara Pilgrimage: Figures, Merch & Manga Tax-Free",
-        "yt_title": "Akihabara Anime & Manga Shopping Japanese! 🛍️ Tax-Free & Rare Merch (EP. 04)",
+        "yt_title": "Akihabara Anime & Manga Shopping Japanese!  Tax-Free & Rare Merch (EP. 04)",
         "category": "Akihabara Shopping • Anime Protocol",
         "level": "JLPT N3-N2",
-        "district": "Akihabara (秋葉原)",
-        "youtube_id": "5PMwDi4EWvo",
+        "district": "Akihabara ()",
+        "youtube_id": "iaGo6ey75Ws",
         "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/akiba_neon_manga_1790602623116.jpg",
         "cover": {
             "hook": "AKIBA MANGA HUNT",
-            "jp": "購入特典ありますか",
-            "tag": "🇯🇵 Tax-Free & Figures • Shadowing"
+            "jp": "",
+            "tag": " Tax-Free & Figures • Shadowing"
         },
         "slides": [
             {
-                "chapter": "01. Manga & Light Novel Finding",
-                "spoken_text": "今期の新作アニメの原作はどこにありますか？3階の棚にございます。",
-                "ja": "今期の新作アニメの原作はどこにありますか？",
-                "furi": "こんきの しんさくあにめの げんさくは どこに ありますか？",
+                "type": "follow_along",
+                "chapter": "01. Manga & Novel Finding",
+                "spoken_text": "",
                 "en": "Where are the original manga/novels for this season's new anime?",
-                "tip": "Use '原作 (gensaku)' to ask for the original book source of any anime series."
+                "tip": "Use ' (gensaku)' to ask for the original book source of any anime series.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "konki no", "pos": "Noun + Part.", "meaning": "This season's"},
+                    {"orig": "", "kana": "", "romaji": "shinsaku anime no", "pos": "Noun + Part.", "meaning": "New anime release's"},
+                    {"orig": "", "kana": "", "romaji": "gensaku wa", "pos": "Noun + Topic", "meaning": "Original source work"},
+                    {"orig": "", "kana": "", "romaji": "doko ni", "pos": "Question", "meaning": "Where at"},
+                    {"orig": "", "kana": "", "romaji": "arimasu ka?", "pos": "Verb + Q", "meaning": "Is located?"}
+                ]
             },
             {
-                "chapter": "02. Pre-order Perks & Store Bonus",
-                "spoken_text": "こちらの限定版、購入特典はまだ付きますか？はい、特典ポストカードが付きます。",
-                "ja": "購入特典はまだ付きますか？",
-                "furi": "こうにゅうとくてんは まだ つきますか？",
-                "en": "Does this still come with the purchase bonus perk?",
-                "tip": "'特典 (tokuten)' refers to exclusive store gifts like acrylic stands, badges, or illustrations."
+                "type": "breakdown",
+                "chapter": "02. Otaku Shopping Terminology Breakdown",
+                "sentence_ja": "",
+                "vocab": [
+                    {"orig": "", "kana": "", "romaji": "konki", "pos": "Noun", "meaning": "Current broadcast season (Quarter)"},
+                    {"orig": "", "kana": "", "romaji": "shinsaku", "pos": "Noun", "meaning": "New release work"},
+                    {"orig": "", "kana": "", "romaji": "gensaku", "pos": "Noun", "meaning": "Original source manga / light novel"},
+                    {"orig": "", "kana": "", "romaji": "doko ni arimasu ka", "pos": "Question", "meaning": "Where is it located?"}
+                ],
+                "grammar_title": ":  (Original Work) & ",
+                "grammar_bullets": [
+                    ("1. '' Meaning:", "Points to the original manga or light novel that inspired the anime adaptation."),
+                    ("2. Asking Floor Staff:", "'[Anime Name] ' (Where is the book section for X?)."),
+                    ("3. Light Novel vs Manga:", "' (Ranobe)' for light novels; ' (Tankoubon)' for manga volumes."),
+                    ("4. Location Tip:", "Major Akiba bookstores group new season anime originals on the ground floor.")
+                ],
+                "teamwork_cues": [
+                    {"speaker": "en", "text": "Let's break down shopping for anime books in Akihabara."},
+                    {"speaker": "ja", "text": "", "card_idx": 0},
+                    {"speaker": "en", "text": "Current broadcast anime season.", "card_idx": 0},
+                    {"speaker": "ja", "text": "", "card_idx": 1},
+                    {"speaker": "en", "text": "New release work.", "card_idx": 1},
+                    {"speaker": "ja", "text": "", "card_idx": 2},
+                    {"speaker": "en", "text": "Original source manga or light novel.", "card_idx": 2},
+                    {"speaker": "ja", "text": "", "card_idx": 3},
+                    {"speaker": "en", "text": "Where is it located?", "card_idx": 3},
+                    {"speaker": "en", "text": "Akihabara shopping spotlight: Asking for source books.", "is_spotlight": True},
+                    {"speaker": "ja", "text": "", "is_spotlight": True},
+                    {"speaker": "en", "text": "Use Gensaku when looking for original books adapted into anime.", "is_spotlight": True}
+                ]
             },
             {
-                "chapter": "03. Tax-Free Exemption Checkout",
-                "spoken_text": "免税手続きをお願いできますか？パスポートをご提示ください。",
-                "ja": "免税手続きをお願いできますか？",
-                "furi": "めんぜいてつづきを おねがいできますか？",
-                "en": "Could you process tax-free exemption, please?",
-                "tip": "Present your passport with tourist entry visa for 10% consumption tax refund over 5,000 JPY."
+                "type": "follow_along",
+                "chapter": "03. Pre-order Perks & Store Bonus",
+                "spoken_text": "",
+                "en": "Does this limited edition still come with the store purchase bonus perk?",
+                "tip": "' (tokuten)' refers to exclusive gifts like acrylic stands, badges, or illustration cards.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "kochira no", "pos": "Pronoun", "meaning": "This one's"},
+                    {"orig": "", "kana": "", "romaji": "genteiban,", "pos": "Noun", "meaning": "Limited edition"},
+                    {"orig": "", "kana": "", "romaji": "kounyuu tokuten wa", "pos": "Noun + Topic", "meaning": "Purchase bonus perk"},
+                    {"orig": "", "kana": "", "romaji": "mada", "pos": "Adverb", "meaning": "Still / Yet"},
+                    {"orig": "", "kana": "", "romaji": "tsukimasu ka?", "pos": "Verb + Q", "meaning": "Does it come with?"}
+                ]
             },
             {
-                "chapter": "04. Subscribe & Download",
-                "spoken_text": "TokyoFlow Japanese チャンネルを登録して、生きたアニメ日本語をアプリで練習しましょう！",
-                "is_outro": True
+                "type": "breakdown",
+                "chapter": "04. Exclusive Bonus Merch Breakdown",
+                "sentence_ja": "",
+                "vocab": [
+                    {"orig": "", "kana": "", "romaji": "genteiban", "pos": "Noun", "meaning": "Limited collector's edition"},
+                    {"orig": "", "kana": "", "romaji": "kounyuu tokuten", "pos": "Noun", "meaning": "Store purchase bonus / gift"},
+                    {"orig": "", "kana": "", "romaji": "mada", "pos": "Adverb", "meaning": "Still / remaining in stock"},
+                    {"orig": "", "kana": "", "romaji": "tsukimasu ka", "pos": "Verb + Q", "meaning": "Does it attach / include?"}
+                ],
+                "grammar_title": ":  (Tokuten) & ",
+                "grammar_bullets": [
+                    ("1. Store Exclusives:", "Animate, Gamers, Toranoana each have different exclusive ''."),
+                    ("2. First-Come Basis:", "' (While supplies last)' — ask staff before purchasing."),
+                    ("3. Acrylic Stands ():", "Acronym for 'Acrylic Stand ()'. Highly coveted!"),
+                    ("4. Bonus Check:", "Staff will check their register counter stash to see if bonus perks remain.")
+                ],
+                "teamwork_cues": [
+                    {"speaker": "en", "text": "Let's break down asking for exclusive store bonus merch."},
+                    {"speaker": "ja", "text": "", "card_idx": 0},
+                    {"speaker": "en", "text": "Limited collector's edition.", "card_idx": 0},
+                    {"speaker": "ja", "text": "", "card_idx": 1},
+                    {"speaker": "en", "text": "Store purchase bonus gift.", "card_idx": 1},
+                    {"speaker": "ja", "text": "", "card_idx": 2},
+                    {"speaker": "en", "text": "Still, or remaining in stock.", "card_idx": 2},
+                    {"speaker": "ja", "text": "", "card_idx": 3},
+                    {"speaker": "en", "text": "Does it come included?", "card_idx": 3},
+                    {"speaker": "en", "text": "Bonus perk spotlight: Exclusive Tokuten items.", "is_spotlight": True},
+                    {"speaker": "ja", "text": "", "is_spotlight": True},
+                    {"speaker": "en", "text": "Bonus perks are first-come first-served, so always check with staff before checkout.", "is_spotlight": True}
+                ]
+            },
+            {
+                "type": "follow_along",
+                "chapter": "05. Tax-Free Exemption Checkout Drill",
+                "spoken_text": "",
+                "en": "Could you process tax-free exemption, please? I have my passport.",
+                "tip": "Present your passport with tourist entry visa for 10% consumption tax refund over 5,000 JPY.",
+                "tokens": [
+                    {"orig": "", "kana": "", "romaji": "menzei tetsuzuki o", "pos": "Noun + Obj", "meaning": "Tax-free procedure"},
+                    {"orig": "", "kana": "", "romaji": "onegai dekimasu ka?", "pos": "Polite Potential", "meaning": "Could I request?"},
+                    {"orig": "", "kana": "", "romaji": "pasupooto o", "pos": "Noun + Obj", "meaning": "Passport"},
+                    {"orig": "", "kana": "", "romaji": "motte imasu.", "pos": "Verb Phrase", "meaning": "I have / hold"}
+                ]
+            },
+            {
+                "type": "outro",
+                "chapter": "06. Subscribe & Download",
+                "spoken_text": "TokyoFlow"
             }
         ]
     }
 ]
 
-def generate_metadata_markdown(ep: dict, total_duration_s: float) -> str:
+def generate_metadata_markdown(ep: dict, total_duration_s: float, chapter_timestamps: list) -> str:
     ep_num = ep["episode_number"]
     yt_title = ep["yt_title"]
+    folder_name = ep["folder_name"]
     
-    return f"""# 🎌 YouTube Launch Package: EP. {ep_num:02d} • {ep['title']}
+    chapters_formatted = "\n".join([f"{ts} - {title}" for ts, title in chapter_timestamps])
+    
+    key_phrases = "\n".join([
+        f"• {s.get('spoken_text', '')} ({s.get('tokens', [{}])[0].get('romaji', '')}) — {s.get('en', '')}"
+        for s in ep['slides'] if s.get('type') == 'follow_along'
+    ])
+    
+    grammar_points = "\n".join([
+        f"• {s.get('grammar_title', '')}"
+        for s in ep['slides'] if s.get('type') == 'breakdown'
+    ])
 
-## 📌 Video Information
-- **Episode**: `EP. {ep_num:02d}`
-- **YouTube Video Title**: `{yt_title}`
+    return f"""#  YouTube Launch Package: {folder_name}
+# {yt_title}
+
+##  Release Directory Information
+- **Standard Release Directory**: `docs/youtube_releases/{folder_name}/`
+- **Episode Identifier**: `EP. {ep_num:02d}` (`{folder_name}`)
 - **Target Category**: `{ep['category']}`
 - **JLPT Level**: `{ep['level']}`
 - **District / Setting**: `{ep['district']}`
-- **Standard Video File**: `video.mp4` (1080p Full HD, {total_duration_s:.1f}s)
-- **Standard Thumbnail**: `thumbnail.jpg` (1920x1080 High-CTR Serialized Cover)
+- **Video Asset**: `video.mp4` (1080p Full HD, 30.0 fps, {total_duration_s:.1f}s)
+- **Thumbnail Asset**: `thumbnail.jpg` (1920x1080 High-CTR Serialized Cover)
+- **Metadata Document**: `metadata.md` (This launch package)
+- **Structured Manifest**: `script.json` (Machine-readable bilingual script)
 
 ---
 
-## 📝 YouTube Description Box (Copy & Paste Ready)
+##  YouTube Video Title (Copy & Paste)
+
+```
+{yt_title}
+```
+
+---
+
+##  YouTube Description Box (Copy & Paste Ready)
 
 ```markdown
 {yt_title}
 
-Learn authentic Tokyo Japanese as spoken by locals! In this episode, we dive into {ep['title']} at {ep['district']}.
+Learn authentic Tokyo Japanese as spoken by locals! In this episode, we dive into {ep['title']} in {ep['district']}.
 
-Master the high-frequency phrases, pitch accent patterns, and cultural nuances without textbook fluff.
+Master high-frequency phrases, pitch accent patterns, and cultural nuances with real-time millisecond karaoke follow-along highlighting and bilingual teamwork breakdowns (Native Tokyo Voice + English Explanations).
 
-⏱️ TIMESTAMPS & CHAPTERS:
-00:00 - Introduction & Real-Life Audio Immersion
-00:10 - Core Formula & Pronunciation Drill
-00:20 - Situational Survival Expression
-00:30 - Shadowing Practice & iOS App Integration
+⏱ CHAPTER TIMESTAMPS:
+{chapters_formatted}
 
-🔑 KEY PHRASES COVERED:
-{chr(10).join([f"• {s.get('ja', '')} ({s.get('furi', '')}) - {s.get('en', '')}" for s in ep['slides'] if not s.get('is_outro')])}
+ KEY PHRASES COVERED:
+{key_phrases}
 
-📱 TAKE YOUR JAPANESE TO THE NEXT LEVEL:
-Practice real-time speech shadowing with instant pitch accent scoring on TokyoFlow for iOS:
-👉 Download on the App Store: https://apps.apple.com/app/tokyoflow/id6740000000
-👉 Official Website: https://tokyoflow.app
+ GRAMMAR & NUANCE SPOTLIGHTS:
+{grammar_points}
 
-🔔 Subscribe to TokyoFlow Japanese for weekly real-life Tokyo Japanese scenarios!
-#LearnJapanese #Tokyo #JapaneseStudy #{ep['slug'].replace('_', '')} #JLPT
+ TAKE YOUR JAPANESE TO THE NEXT LEVEL:
+Practice interactive speech shadowing with instant pitch accent scoring on TokyoFlow for iOS:
+ Download on the App Store: TokyoFlow - Japanese Speaking (https://apps.apple.com/app/tokyoflow-japanese-speaking/id6740000000)
+ Official Website: https://tokyoflow.app
+
+ Subscribe to TokyoFlow Japanese for weekly real-life Tokyo Japanese micro-lessons!
+#TokyoFlow #LearnJapanese #JapaneseSpeaking #TokyoTravel #JLPT #JapaneseShadowing #{ep['slug'].replace('_', '')}
 ```
 
 ---
 
-## 💬 Pinned Comment (Copy & Paste)
+##  Pinned Comment (Copy & Paste)
 
 ```markdown
-🇯🇵 What Tokyo scenario do you want us to cover next? Let us know in the comments below!
-📲 Practice this lesson with native VoiceBank audio & speech shadowing scoring in the TokyoFlow iOS app: https://apps.apple.com/app/tokyoflow/id6740000000
+ What Tokyo scenario do you want us to cover next? Let us know in the comments below!
+ Practice this lesson with native VoiceBank audio & speech shadowing scoring in the TokyoFlow iOS app: https://apps.apple.com/app/tokyoflow-japanese-speaking/id6740000000
 ```
 
 ---
 
-## 🏷️ YouTube SEO Tags (Comma Separated)
+##  YouTube SEO Tags (Comma Separated)
 
 ```
-learn japanese, tokyo japanese, japanese conversation, {ep['slug'].replace('_', ' ')}, tokyo travel japanese, japanese pronunciation, JLPT, JLPT {ep['level']}, japanese listening practice, japanese shadowing, tokyoflow, study japanese, anime japanese, travel tokyo
+learn japanese, tokyo japanese, japanese conversation, {ep['slug'].replace('_', ' ')}, tokyo travel japanese, japanese pronunciation, JLPT, JLPT {ep['level']}, japanese listening practice, japanese shadowing, tokyoflow, study japanese, anime japanese, travel tokyo, tokyo metro, japanese speaking app
 ```
 """
 
 async def package_episode(ep: dict):
     ep_num = ep["episode_number"]
     folder_name = ep["folder_name"]
+    ep_label = f"EP. {ep_num:02d}"
     release_dir = os.path.join("docs", "youtube_releases", folder_name)
     os.makedirs(release_dir, exist_ok=True)
     
     print(f"\n==========================================")
-    print(f"📦 Packaging EP. {ep_num:02d}: {folder_name}")
+    print(f" Packaging {folder_name}")
     print(f"==========================================")
 
-    # 1. Render Video Segments
     workdir = f"tmp/videogen/{folder_name}"
     os.makedirs(workdir, exist_ok=True)
     
     segment_videos = []
+    chapter_timestamps = []
+    current_time_elapsed = 0.0
+    
     for idx, slide in enumerate(ep["slides"]):
         seg_prefix = f"{workdir}/seg_{idx:02d}"
-        img_path = f"{seg_prefix}.jpg"
-        audio_path = f"{seg_prefix}.mp3"
+        audio_path = f"{seg_prefix}.m4a"
         video_path = f"{seg_prefix}.mp4"
+        s_type = slide.get("type", "follow_along")
+        
+        # Calculate timestamp formatted mm:ss
+        ts_min = int(current_time_elapsed // 60)
+        ts_sec = int(current_time_elapsed % 60)
+        ts_str = f"{ts_min:02d}:{ts_sec:02d}"
+        chapter_title = slide.get("chapter", f"Part {idx+1}")
+        chapter_timestamps.append((ts_str, chapter_title))
 
-        spoken_text = slide["spoken_text"]
-        await generate_speech_audio(spoken_text, "ja-JP-NanamiNeural", audio_path, rate="-6%", pitch="+3Hz")
-        duration = get_audio_duration(audio_path)
+        if s_type == "follow_along":
+            spoken_text = slide["spoken_text"]
+            await synthesize_speech(spoken_text, audio_path, lang="ja", rate="-6%", pitch="+3Hz")
+            duration = get_audio_duration(audio_path)
+            
+            tokens = slide.get("tokens", [])
+            aligned_tokens = align_sentence_tokens_with_audio(audio_path, tokens)
+            
+            render_follow_along_video_clip(
+                tokens=aligned_tokens,
+                category_label=ep.get("category", "Tokyo Scenario"),
+                title_label=f"{ep_label} • {ep['title']}",
+                english_meaning=slide.get("en", ""),
+                pro_tip=slide.get("tip", ""),
+                chapter_label=chapter_title,
+                ep_label=ep_label,
+                audio_path=audio_path,
+                duration=duration,
+                out_mp4_path=video_path,
+                fps=30
+            )
+            seg_dur = duration + 0.3
+            current_time_elapsed += seg_dur
+            print(f"   Follow-Along Segment {idx+1}/{len(ep['slides'])} rendered ({duration:.1f}s)")
 
-        create_slide_image(
-            title_category=ep.get("category", "Tokyo Scenario Masterclass"),
-            title_main=f"EP. {ep_num:02d} • {ep['title']}",
-            japanese_text=slide.get("ja", ""),
-            furigana_text=slide.get("furi", ""),
-            english_text=slide.get("en", ""),
-            tip_text=slide.get("tip", ""),
-            chapter_label=slide.get("chapter", f"Part {idx+1}"),
-            out_img_path=img_path,
-            is_outro=slide.get("is_outro", False)
-        )
+        elif s_type == "breakdown":
+            vocab_list = slide.get("vocab", [])
+            grammar_title = slide.get("grammar_title", "Grammar Point")
+            grammar_bullets = slide.get("grammar_bullets", [])
+            teamwork_cues = slide.get("teamwork_cues", [])
+            
+            # Build Bilingual Teamwork Audio (Nanami JA + Andrew EN)
+            tw_res = await build_teamwork_breakdown_audio(
+                cues=teamwork_cues,
+                out_final_path=audio_path,
+                tmp_dir=f"{workdir}/tw_{idx:02d}"
+            )
+            duration = tw_res["total_duration"]
+            timings = tw_res["timings"]
+            
+            render_breakdown_video_clip(
+                sentence_ja=slide.get("sentence_ja", ""),
+                vocab_list=vocab_list,
+                grammar_title=grammar_title,
+                grammar_bullets=grammar_bullets,
+                category_label=ep.get("category", "Tokyo Scenario"),
+                chapter_label=chapter_title,
+                ep_label=ep_label,
+                timings=timings,
+                audio_path=audio_path,
+                duration=duration,
+                out_mp4_path=video_path,
+                fps=30
+            )
+            seg_dur = duration + 0.3
+            current_time_elapsed += seg_dur
+            print(f"   Bilingual Teamwork Breakdown Segment {idx+1}/{len(ep['slides'])} rendered ({duration:.1f}s)")
 
-        render_scene_video(img_path, audio_path, duration, video_path)
+        elif s_type == "outro":
+            spoken_text = slide["spoken_text"]
+            await synthesize_speech(spoken_text, audio_path, lang="ja", rate="+15%", pitch="+3Hz")
+            dur_audio = get_audio_duration(audio_path)
+            duration = max(dur_audio + 0.35, 3.4)
+            
+            frame = render_outro_frame(ep_label=ep_label)
+            render_static_video_clip(frame, audio_path, duration, video_path, fps=30)
+            current_time_elapsed += duration
+            print(f"   Natural Unclipped Outro Segment {idx+1}/{len(ep['slides'])} rendered ({duration:.1f}s)")
+
         segment_videos.append(video_path)
-        print(f"  ✓ Segment {idx+1}/{len(ep['slides'])} rendered ({duration:.1f}s)")
 
     target_video = os.path.join(release_dir, "video.mp4")
-    concat_videos(segment_videos, target_video)
+    concat_videos_seamless(segment_videos, target_video)
     
-    # Also mirror to output/videos/
+    # Mirror to output/videos/
     os.makedirs("output/videos", exist_ok=True)
+    shutil.copyfile(target_video, f"output/videos/{folder_name}.mp4")
     shutil.copyfile(target_video, f"output/videos/tokyoflow_v{ep_num:02d}_{ep['slug']}.mp4")
     
-    total_duration = sum(get_audio_duration(f"{workdir}/seg_{i:02d}.mp3") for i in range(len(ep["slides"])))
-    print(f"  ✓ Full HD video assembled: {target_video} ({total_duration:.1f}s)")
+    final_duration = get_audio_duration(target_video)
+    print(f"   Full HD 1080p video assembled: {target_video} ({final_duration:.1f}s)")
 
-    # 2. Render Thumbnail
+    # 2. Render High-CTR Serialized Thumbnail using Thumbnail Skill standard
     target_thumb = os.path.join(release_dir, "thumbnail.jpg")
     cov = ep["cover"]
     generate_serialized_thumbnail(
@@ -467,27 +869,27 @@ async def package_episode(ep: dict):
         bg_image_path=ep.get("bg_image", ""),
         output_path=target_thumb
     )
-    # Also mirror to docs/youtube_assets/thumbnails/
+    # Mirror thumbnail
     os.makedirs("docs/youtube_assets/thumbnails", exist_ok=True)
-    shutil.copyfile(target_thumb, f"docs/youtube_assets/thumbnails/ep{ep_num:02d}_{ep['slug']}_thumb.jpg")
-    print(f"  ✓ 1920x1080 Thumbnail saved: {target_thumb}")
+    shutil.copyfile(target_thumb, f"docs/youtube_assets/thumbnails/{folder_name}_thumb.jpg")
+    print(f"   1920x1080 Serialized Thumbnail saved: {target_thumb}")
 
-    # 3. Write Metadata
+    # 3. Write Complete Launch Metadata Package
     target_meta = os.path.join(release_dir, "metadata.md")
     with open(target_meta, "w", encoding="utf-8") as f:
-        f.write(generate_metadata_markdown(ep, total_duration))
-    print(f"  ✓ Launch metadata written: {target_meta}")
+        f.write(generate_metadata_markdown(ep, final_duration, chapter_timestamps))
+    print(f"   Launch metadata written: {target_meta}")
 
-    # 4. Write Script JSON
+    # 4. Write Structured Script Manifest JSON
     target_script = os.path.join(release_dir, "script.json")
     with open(target_script, "w", encoding="utf-8") as f:
         json.dump(ep, f, ensure_ascii=False, indent=2)
-    print(f"  ✓ Script manifest written: {target_script}")
+    print(f"   Script manifest written: {target_script}")
 
 async def main():
     for ep in EPISODES:
         await package_episode(ep)
-    print("\n🎉 All 4 Episodes successfully packaged into docs/youtube_releases/!")
+    print("\n All 4 Episodes successfully upgraded with Bilingual Teamwork & Natural Tokyo Nanami Voice!")
 
 if __name__ == "__main__":
     asyncio.run(main())

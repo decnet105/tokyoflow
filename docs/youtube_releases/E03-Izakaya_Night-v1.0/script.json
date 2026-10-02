@@ -1,0 +1,358 @@
+{
+  "episode_number": 3,
+  "folder_name": "E03-Izakaya_Night-v1.0",
+  "slug": "izakaya_night",
+  "title": "Authentic Tokyo Izakaya Ordering & Toasting Etiquette",
+  "yt_title": "Order Like a Tokyo Local at an Izakaya! 🍻 'Toriaezu Nama!' Explained (EP. 03)",
+  "category": "Izakaya Culture • Dining Guide",
+  "level": "JLPT N4-N3",
+  "district": "Shinjuku Omoide Yokocho (思い出横丁)",
+  "youtube_id": "B4sN_BkLcOw",
+  "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/pl_cover_izakaya_1790626403507.jpg",
+  "cover": {
+    "hook": "IZAKAYA MASTERY",
+    "jp": "とりあえず生！",
+    "tag": "🇯🇵 Showa Pub Etiquette • Shadowing"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. The First Drink Order",
+      "spoken_text": "とりあえず生ビール二つお願いします！",
+      "en": "To start, two draft beers please!",
+      "tip": "'とりあえず〜' (for starters) is the quintessential Japanese izakaya opener.",
+      "tokens": [
+        {
+          "orig": "とりあえず",
+          "kana": "とりあえず",
+          "romaji": "toriaezu",
+          "pos": "Adverb",
+          "meaning": "For starters / To begin with"
+        },
+        {
+          "orig": "生ビール",
+          "kana": "なまびーる",
+          "romaji": "nama biiru",
+          "pos": "Noun",
+          "meaning": "Draft beer"
+        },
+        {
+          "orig": "二つ",
+          "kana": "ふたつ",
+          "romaji": "futatsu",
+          "pos": "Counter",
+          "meaning": "Two items"
+        },
+        {
+          "orig": "お願いします！",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu!",
+          "pos": "Polite Request",
+          "meaning": "Please!"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Izakaya Ordering Culture Breakdown",
+      "sentence_ja": "とりあえず生ビール二つお願いします！",
+      "vocab": [
+        {
+          "orig": "とりあえず",
+          "kana": "とりあえず",
+          "romaji": "toriaezu",
+          "pos": "Adverb",
+          "meaning": "For starters / First of all"
+        },
+        {
+          "orig": "生ビール",
+          "kana": "なまびーる",
+          "romaji": "nama biiru",
+          "pos": "Noun",
+          "meaning": "Draft beer (short: 生 nama)"
+        },
+        {
+          "orig": "二つ",
+          "kana": "ふたつ",
+          "romaji": "futatsu",
+          "pos": "Counter",
+          "meaning": "Two (native counter)"
+        },
+        {
+          "orig": "お願いします",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu",
+          "pos": "Polite Request",
+          "meaning": "Please give us"
+        }
+      ],
+      "grammar_title": "居酒屋文化: とりあえず生 (The Opening Order)",
+      "grammar_bullets": [
+        [
+          "1. Cultural Norm:",
+          "In Japanese pubs, ordering drinks right away eases the kitchen and starts the table vibe."
+        ],
+        [
+          "2. Counting Drinks:",
+          "ひとつ (1), ふたつ (2), みっつ (3), or [Number] 杯 (hai)."
+        ],
+        [
+          "3. Non-Alcoholic Starter:",
+          "'ウーロン茶一つ (Uuron-cha hitotsu)' for Oolong tea."
+        ],
+        [
+          "4. Table Charge (お通し):",
+          "Expect a small mandatory appetizer called 'Otoushi' served with drinks."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down this classic Tokyo izakaya order."
+        },
+        {
+          "speaker": "ja",
+          "text": "とりあえず",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Adverb: for starters, or first of all.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "生ビール",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Draft beer, often shortened to Nama.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "二つ",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Native Japanese counter for two items.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "お願いします",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Please give us.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Izakaya cultural spotlight: The first drink rule.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "とりあえず生！",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Ordering your first drink immediately helps the kitchen and starts the table toast.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. Yakitori Seasoning Drill",
+      "spoken_text": "焼き鳥盛り合わせを塩でお願いします。",
+      "en": "Assorted yakitori platter with salt seasoning, please.",
+      "tip": "Staff will ask '塩かタレか' (salt or sweet tare sauce). '塩 (shio)' highlights the chicken flavor.",
+      "tokens": [
+        {
+          "orig": "焼き鳥",
+          "kana": "やきとり",
+          "romaji": "yakitori",
+          "pos": "Noun",
+          "meaning": "Grilled chicken skewers"
+        },
+        {
+          "orig": "盛り合わせを",
+          "kana": "もりあわせを",
+          "romaji": "moriawase o",
+          "pos": "Noun + Obj",
+          "meaning": "Assorted combo platter"
+        },
+        {
+          "orig": "塩で",
+          "kana": "しおで",
+          "romaji": "shio de",
+          "pos": "Noun + Part.",
+          "meaning": "With salt seasoning"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. Food Seasoning Choice Breakdown",
+      "sentence_ja": "焼き鳥盛り合わせを塩でお願いします。",
+      "vocab": [
+        {
+          "orig": "焼き鳥",
+          "kana": "やきとり",
+          "romaji": "yakitori",
+          "pos": "Noun",
+          "meaning": "Grilled chicken skewers"
+        },
+        {
+          "orig": "盛り合わせ",
+          "kana": "もりあわせ",
+          "romaji": "moriawase",
+          "pos": "Noun",
+          "meaning": "Chef's assortment combo"
+        },
+        {
+          "orig": "塩",
+          "kana": "しお",
+          "romaji": "shio",
+          "pos": "Noun",
+          "meaning": "Salt seasoning"
+        },
+        {
+          "orig": "タレ",
+          "kana": "たれ",
+          "romaji": "tare",
+          "pos": "Noun",
+          "meaning": "Sweet savory soy glaze"
+        }
+      ],
+      "grammar_title": "焼き鳥の味付け: 塩 (Salt) vs タレ (Tare Sauce)",
+      "grammar_bullets": [
+        [
+          "1. Salt Choice (塩):",
+          "Crisp, light, highlights the natural char and quality of the meat."
+        ],
+        [
+          "2. Tare Choice (タレ):",
+          "Rich, sweet soy-mirin glaze, great for liver, meatballs (tsukune), and beer."
+        ],
+        [
+          "3. Platter Order:",
+          "'盛り合わせ (Moriawase)' gives you 5-6 assorted cuts chosen by the chef."
+        ],
+        [
+          "4. Ordering Combo:",
+          "'塩で5本 (Shio de go-hon)' = 5 skewers with salt."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down ordering yakitori skewers."
+        },
+        {
+          "speaker": "ja",
+          "text": "焼き鳥",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Grilled chicken skewers.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "盛り合わせ",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Chef's assortment combo platter.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "塩",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Salt seasoning.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "タレ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Sweet savory soy glaze.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Seasoning choice spotlight: Shio versus Tare.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "塩で5本お願いします。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Salt highlights the pure flavor and crisp char of the meat.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. The Check & Receipt Drill",
+      "spoken_text": "お会計と領収書をお願いします。",
+      "en": "The bill and formal receipt, please.",
+      "tip": "'お会計 (okaikei)' means bill, while '領収書 (ryoushuusho)' is a tax receipt.",
+      "tokens": [
+        {
+          "orig": "お会計と",
+          "kana": "おかいけいと",
+          "romaji": "okaikei to",
+          "pos": "Noun + And",
+          "meaning": "The bill and"
+        },
+        {
+          "orig": "領収書を",
+          "kana": "りょうしゅうしょを",
+          "romaji": "ryoushuusho o",
+          "pos": "Noun + Obj",
+          "meaning": "Formal receipt"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. Subscribe & Download",
+      "spoken_text": "チャンネル登録とTokyoFlowで練習！"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-01",
+  "editorial_summary": "今天的选题聚焦于日本流行文化和社会热点。我们将深入探讨一部引发热议的日本恐怖影片《現地確認記録》，以及一则关于便利店食品消费税的短视频。这些选题不仅能吸引观众的注意，还能提供丰富的日语学习素材。",
+  "topic_1_long_form": {
+    "candidate_id": 1,
+    "event_headline": "怪異をすべて“物理”でぶっ飛ばすホラー映像作品『現地確認記録』が話題に。異常な主人公・佐藤が異変を調査",
+    "matched_playlist": "Playlist 1: 🎬 动漫·影视·娱乐·流行文化",
+    "event_category": "Entertainment / Anime / Film / TV / Pop Culture",
+    "target_jlpt_level": "N3-N2 (Intermediate)",
+    "dramatic_conflict_hook": "一部恐怖片以物理手段解决超自然现象，主人公的异常行为引发观众热议。",
+    "why_selected": "这部影片结合了恐怖与幽默，吸引了大量观众讨论，是学习日语文化和流行语的绝佳素材。",
+    "yt_packaging": {
+      "title_options": [
+        "物理学能否打败幽灵？《現地確認記録》揭秘",
+        "恐怖片新潮流：用科学对抗超自然！",
+        "超自然现象 vs. 物理学：谁能赢？"
+      ],
+      "selected_title": "物理学能否打败幽灵？《現地確認記録》揭秘",
+      "thumbnail_hook_text": "物理で怪異を撃退！",
+      "thumbnail_visual_concept": "一位勇敢的调查员手持科学仪器面对幽灵，背景是阴森的废弃建筑。",
+      "tags": [
+        "ホラー",
+        "映画",
+        "物理",
+        "超自然",
+        "日本文化"
+      ]
+    },
+    "pedagogical_payload": {
+      "core_vocabulary": [
+        {
+          "kanji": "怪異",
+          "furigana": "かいい",
+          "romaji": "kaii",
+          "jlpt_level": "N2",
+          "meaning_cn": "怪异",
+          "meaning_en": "strange phenomenon",
+          "usage_nuance": "通常用于描述无法用常理解释的现象，常见于恐怖或神秘题材。",
+          "example_sentence": "怪異が起こる場所には近づかない方がいい。",
+          "sentence_translation": "最好不要靠近发生怪异的地方。"
+        }
+      ],
+      "grammar_and_syntax": [
+        {
+          "pattern": "〜にのみ",
+          "jlpt_level": "N2",
+          "explanation": "用于强调仅限于某个特定对象或情况。",
+          "news_context_usage": "在影片中，佐藤仅被派遣到无法用常规手段解决的事件中。"
+        }
+      ],
+      "netizen_reaction_quote": {
+        "japanese": "佐藤の行動は異常すぎて笑える！",
+        "furigana": "さとうのこうどうはいじょうすぎてわらえる！",
+        "translation_cn": "佐藤的行为太异常了，简直让人发笑！",
+        "slang_or_subtext": "网民用幽默的方式表达对影片中夸张情节的喜爱。"
+      },
+      "cultural_insight": "日本恐怖片常常结合幽默元素，以缓解紧张气氛，同时也反映了日本观众对超自然现象的独特理解和接受度。"
+    },
+    "production_script_outline": [
+      {
+        "scene_number": 1,
+        "scene_name": "Suspense Hook & Background Drama",
+        "audio_ja": "この恐怖映画は、物理で幽霊を撃退する！",
+        "furigana": "この きょうふ えいが は、ぶつり で ゆうれい を げきたい する！",
+        "text_en": "This horror movie fights ghosts with physics!",
+        "text_cn": "这部恐怖片用物理学对抗幽灵！",
+        "visual_slide_prompt": "展示电影海报，突出物理学元素。"
+      },
+      {
+        "scene_number": 2,
+        "scene_name": "Official Statement vs. True Nuance",
+        "audio_ja": "佐藤は異常な調査員として、怪異に立ち向かう。",
+        "furigana": "さとう は いじょう な ちょうさいん として、かいい に たちむかう。",
+        "text_en": "Sato, as an abnormal investigator, confronts the strange phenomena.",
+        "text_cn": "佐藤作为异常的调查员，面对怪异现象。",
+        "visual_slide_prompt": "展示佐藤的角色设定和影片片段。"
+      },
+      {
+        "scene_number": 3,
+        "scene_name": "Netizen Buzzwords & Real Reaction",
+        "audio_ja": "ネットでは「物理で怪異を撃退」が話題に。",
+        "furigana": "ネット では「ぶつり で かいい を げきたい」が わだい に。",
+        "text_en": "Online, 'defeating the strange with physics' is a hot topic.",
+        "text_cn": "网上，“用物理击退怪异”成为热门话题。",
+        "visual_slide_prompt": "展示网民评论和影片片段。"
+      },
+      {
+        "scene_number": 4,
+        "scene_name": "Practical takeaway & Interactive Shadowing Outro",
+        "audio_ja": "この映画を見て、物理の力を信じるか？",
+        "furigana": "この えいが を みて、ぶつり の ちから を しんじる か？",
+        "text_en": "After watching this movie, do you believe in the power of physics?",
+        "text_cn": "看完这部电影后，你相信物理的力量吗？",
+        "visual_slide_prompt": "Outro slide with TokyoFlow App CTA"
+      }
+    ]
+  },
+  "topic_2_shorts": {
+    "candidate_id": 7,
+    "event_headline": "食品消費税1％は「臨時」 法案概要が判明、2年限定",
+    "matched_playlist": "Playlist 4: 🗞️ 真实社会与突发新闻",
+    "event_category": "Society",
+    "target_jlpt_level": "N5-N4 (Must prioritize beginner-friendly N5-N4 for Shorts)",
+    "why_selected": "食品消费税的临时调整直接影响到日本民众的日常生活，是一个具有广泛影响力和讨论度的话题。",
+    "shorts_packaging": {
+      "title": "食品消費税が1％に！#日本ニュース #消費税",
+      "hook_overlay_text": "消費税1％！",
+      "interactive_poll_question": "遇到这种情况日本人会选A还是B？选A扣1，选B扣2",
+      "pinned_comment_prompt": "你认为这项政策会带来什么影响？"
+    },
+    "pedagogical_payload": {
+      "buzzwords": [
+        {
+          "word": "消費税",
+          "reading": "しょうひぜい",
+          "jlpt_level": "N4",
+          "meaning_cn": "消费税",
+          "meaning_en": "consumption tax",
+          "slang_or_nuance": "在日本，消费税是日常生活中常被讨论的话题，尤其是其调整对物价的影响。"
+        }
+      ],
+      "gold_shadowing_sentence": {
+        "japanese": "食品の消費税が一時的に1％に下がります。",
+        "furigana": "しょくひん の しょうひぜい が いちじてき に 1％ に さがります。",
+        "translation_cn": "食品的消费税暂时降至1%。",
+        "translation_en": "The consumption tax on food will temporarily drop to 1%.",
+        "pitch_accent_note": "平板型"
+      }
+    },
+    "shorts_timeline_script": [
+      {
+        "timeframe": "0:00 - 0:05",
+        "section": "Viral Suspense Hook (反差/冲突)",
+        "audio_ja": "食品の消費税が1％に！？",
+        "text_cn": "食品消费税降至1%！？",
+        "visual_direction": "显示惊讶的表情和1%的大字。"
+      },
+      {
+        "timeframe": "0:05 - 0:25",
+        "section": "Core Buzzwords & Netizen Subtext (真实暗语/神评拆解)",
+        "audio_ja": "これは物価高への一時的な対策です。",
+        "text_cn": "这是应对物价上涨的临时措施。",
+        "visual_direction": "展示政策文件和相关讨论。"
+      },
+      {
+        "timeframe": "0:25 - 0:35",
+        "section": "Speed Shadowing Repeat Drill (黄金跟读)",
+        "audio_ja": "食品の消費税が一時的に1％に下がります。",
+        "text_cn": "食品的消费税暂时降至1%。",
+        "visual_direction": "字幕跟读练习，突出关键词。"
+      },
+      {
+        "timeframe": "0:35 - 0:45",
+        "section": "Interactive Poll & CTA (站队扣1/2 + TokyoFlow App)",
+        "audio_ja": "あなたはこの政策をどう思いますか？",
+        "text_cn": "你怎么看待这项政策？",
+        "visual_direction": "显示投票选项和TokyoFlow应用的CTA。"
+      }
+    ]
+  }
+}

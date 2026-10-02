@@ -254,29 +254,29 @@ public class GamificationService: ObservableObject {
     public func setupLeaderboard() {
         // Weekly League
         self.leaderboardUsers = [
-            LeaderboardUser(id: "u1", rank: 1, name: "Kenji_Tokyo", avatar: "🍜", title: "下町常連 (Lv.48)", points: 2840, streak: 42),
-            LeaderboardUser(id: "u2", rank: 2, name: "Yuki_Anime", avatar: "🌸", title: "留学生 (Lv.25)", points: 2310, streak: 28),
-            LeaderboardUser(id: "u_me", rank: 3, name: "You (あなた)", avatar: "⚡", title: currentTier.titleJapanese.components(separatedBy: " ").first ?? "留学生", points: totalEXP, streak: streakDays, isCurrentUser: true),
-            LeaderboardUser(id: "u3", rank: 4, name: "Takeshi99", avatar: "🚄", title: "ワーホリ滞在者 (Lv.12)", points: 790, streak: 12),
-            LeaderboardUser(id: "u4", rank: 5, name: "Sakura_Manga", avatar: "🎨", title: "ワーホリ滞在者 (Lv.9)", points: 650, streak: 9),
-            LeaderboardUser(id: "u5", rank: 6, name: "Alex_Akiba", avatar: "🎮", title: "観光客 (Lv.4)", points: 420, streak: 5),
-            LeaderboardUser(id: "u6", rank: 7, name: "Mika_Shibuya", avatar: "🛍️", title: "観光客 (Lv.3)", points: 310, streak: 3)
+            LeaderboardUser(id: "u1", rank: 1, name: "Kenji_Tokyo", avatar: "KT", title: "下町常連 (Lv.48)", points: 2840, streak: 42),
+            LeaderboardUser(id: "u2", rank: 2, name: "Yuki_Anime", avatar: "YA", title: "留学生 (Lv.25)", points: 2310, streak: 28),
+            LeaderboardUser(id: "u_me", rank: 3, name: "You (あなた)", avatar: "YOU", title: currentTier.titleJapanese.components(separatedBy: " ").first ?? "留学生", points: totalEXP, streak: streakDays, isCurrentUser: true),
+            LeaderboardUser(id: "u3", rank: 4, name: "Takeshi99", avatar: "TK", title: "ワーホリ滞在者 (Lv.12)", points: 790, streak: 12),
+            LeaderboardUser(id: "u4", rank: 5, name: "Sakura_Manga", avatar: "SM", title: "ワーホリ滞在者 (Lv.9)", points: 650, streak: 9),
+            LeaderboardUser(id: "u5", rank: 6, name: "Alex_Akiba", avatar: "AA", title: "観光客 (Lv.4)", points: 420, streak: 5),
+            LeaderboardUser(id: "u6", rank: 7, name: "Mika_Shibuya", avatar: "MS", title: "観光客 (Lv.3)", points: 310, streak: 3)
         ]
 
         // All-Time Hall of Fame
         self.allTimeLeaderboardUsers = [
-            LeaderboardUser(id: "at1", rank: 1, name: "Daiki_Master", avatar: "👑", title: "東京の達人 (Lv.100)", points: 34500, streak: 365),
-            LeaderboardUser(id: "at2", rank: 2, name: "Sora_Shinjuku", avatar: "🗼", title: "下町常連 (Lv.88)", points: 28900, streak: 210),
-            LeaderboardUser(id: "at3", rank: 3, name: "Kenji_Tokyo", avatar: "🍜", title: "下町常連 (Lv.65)", points: 19400, streak: 140),
-            LeaderboardUser(id: "at4", rank: 4, name: "Ren_Akiba", avatar: "🎮", title: "都内一人暮らし (Lv.40)", points: 12800, streak: 84),
-            LeaderboardUser(id: "u_me_all", rank: 5, name: "You (あなた)", avatar: "⚡", title: currentTier.titleJapanese.components(separatedBy: " ").first ?? "留学生", points: totalEXP, streak: streakDays, isCurrentUser: true)
+            LeaderboardUser(id: "at1", rank: 1, name: "Daiki_Master", avatar: "DM", title: "東京の達人 (Lv.100)", points: 34500, streak: 365),
+            LeaderboardUser(id: "at2", rank: 2, name: "Sora_Shinjuku", avatar: "SS", title: "下町常連 (Lv.88)", points: 28900, streak: 210),
+            LeaderboardUser(id: "at3", rank: 3, name: "Kenji_Tokyo", avatar: "KT", title: "下町常内 (Lv.65)", points: 19400, streak: 140),
+            LeaderboardUser(id: "at4", rank: 4, name: "Ren_Akiba", avatar: "RA", title: "都内一人暮らし (Lv.40)", points: 12800, streak: 84),
+            LeaderboardUser(id: "u_me_all", rank: 5, name: "You (あなた)", avatar: "YOU", title: currentTier.titleJapanese.components(separatedBy: " ").first ?? "留学生", points: totalEXP, streak: streakDays, isCurrentUser: true)
         ]
 
         // Friends Circle
         self.friendsLeaderboardUsers = [
-            LeaderboardUser(id: "u_me_f", rank: 1, name: "You (あなた)", avatar: "⚡", title: currentTier.titleJapanese.components(separatedBy: " ").first ?? "留学生", points: totalEXP, streak: streakDays, isCurrentUser: true),
-            LeaderboardUser(id: "f1", rank: 2, name: "Hiroshi_Study", avatar: "📚", title: "留学生 (Lv.15)", points: 720, streak: 5),
-            LeaderboardUser(id: "f2", rank: 3, name: "Elena_JP", avatar: "☕", title: "ワーホリ滞在者 (Lv.8)", points: 510, streak: 3)
+            LeaderboardUser(id: "u_me_f", rank: 1, name: "You (あなた)", avatar: "YOU", title: currentTier.titleJapanese.components(separatedBy: " ").first ?? "留学生", points: totalEXP, streak: streakDays, isCurrentUser: true),
+            LeaderboardUser(id: "f1", rank: 2, name: "Hiroshi_Study", avatar: "HS", title: "留学生 (Lv.15)", points: 720, streak: 5),
+            LeaderboardUser(id: "f2", rank: 3, name: "Elena_JP", avatar: "EJ", title: "ワーホリ滞在者 (Lv.8)", points: 510, streak: 3)
         ]
     }
 

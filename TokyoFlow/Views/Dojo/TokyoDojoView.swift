@@ -2,6 +2,7 @@ import SwiftUI
 
 public struct TokyoDojoView: View {
     @ObservedObject var dataManager = DataManager.shared
+    @ObservedObject var languageManager = LanguageManager.shared
     @State private var activeBattle: DojoBattle? = nil
 
     public init() {}
@@ -17,11 +18,11 @@ public struct TokyoDojoView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text("TOKYO SURVIVAL DOJO")
+                                    Text(languageManager.isEnglish ? "TOKYO SURVIVAL DOJO" : "东京生存道场")
                                         .font(.system(size: 11, weight: .bold))
                                         .foregroundColor(.red)
                                         .tracking(1.5)
-                                    Text("Real-Life Speed Battles")
+                                    Text(languageManager.isEnglish ? "Real-Life Speed Battles" : "极速实战挑战赛")
                                         .font(.system(size: 26, weight: .bold, design: .rounded))
                                 }
                                 Spacer()
@@ -30,7 +31,7 @@ public struct TokyoDojoView: View {
                                     .foregroundColor(.red)
                             }
 
-                            Text("Survive iconic Tokyo daily life trials: The Kombini 5-Question Barrage, Ramen Vending Machine Ciphers, and Izakaya Mystery Charges!")
+                            Text(languageManager.isEnglish ? "Survive iconic Tokyo daily life trials: The Kombini 5-Question Barrage, Ramen Vending Machine Ciphers, and Izakaya Mystery Charges!" : "挑战东京真实生活必修关卡：便利店收银连环5问、拉面定制暗号、居酒屋神秘账单应对！")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }
@@ -51,8 +52,27 @@ public struct TokyoDojoView: View {
                     .padding(.bottom, 24)
                 }
             }
-            .navigationTitle("Survival Dojo")
+            .navigationTitle(languageManager.isEnglish ? "Survival Dojo" : "东京实战道场")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        languageManager.toggleEnglishChinese()
+                    }) {
+                        HStack(spacing: 4) {
+                            Text(languageManager.isEnglish ? "EN" : "中文")
+                                .font(.caption2)
+                                .fontWeight(.heavy)
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.accentColor.opacity(0.15))
+                        .foregroundColor(.accentColor)
+                        .cornerRadius(8)
+                    }
+                }
+            }
             .sheet(item: $activeBattle) { battle in
                 DojoBattleGameView(battle: battle)
             }
@@ -62,6 +82,7 @@ public struct TokyoDojoView: View {
 
 public struct DojoBattleCard: View {
     public let battle: DojoBattle
+    @ObservedObject var languageManager = LanguageManager.shared
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -84,13 +105,15 @@ public struct DojoBattleCard: View {
             }
 
             VStack(alignment: .leading, spacing: 4) {
-                Text(battle.title)
+                Text(languageManager.isEnglish ? battle.title : battle.titleJa)
                     .font(.headline)
                     .foregroundColor(.primary)
 
-                Text(battle.titleJa)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                if languageManager.isEnglish {
+                    Text(battle.titleJa)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
             }
 
             Text(battle.scenarioSetup)
@@ -101,14 +124,14 @@ public struct DojoBattleCard: View {
             Divider()
 
             HStack {
-                Label("\(battle.rounds.count) Rapid Rounds", systemImage: "bolt.fill")
+                Label("\(battle.rounds.count) " + (languageManager.isEnglish ? "Rapid Rounds" : "轮极速问答"), systemImage: "bolt.fill")
                     .font(.caption2)
                     .foregroundColor(.secondary)
 
                 Spacer()
 
                 HStack(spacing: 4) {
-                    Text("Start Speed Trial")
+                    Text(languageManager.isEnglish ? "Start Speed Trial" : "开始实战挑战")
                         .font(.caption)
                         .fontWeight(.bold)
                     Image(systemName: "chevron.right")
@@ -127,6 +150,7 @@ public struct DojoBattleGameView: View {
     public let battle: DojoBattle
     @Environment(\.dismiss) var dismiss
     @ObservedObject var gamification = GamificationService.shared
+    @ObservedObject var languageManager = LanguageManager.shared
     @State private var currentRoundIndex = 0
     @State private var selectedOption: DojoOption? = nil
     @State private var isShowingFeedback = false
@@ -150,7 +174,7 @@ public struct DojoBattleGameView: View {
                         // Progress & Combo Header
                         VStack(spacing: 6) {
                             HStack {
-                                Text("Round \(currentRoundIndex + 1) of \(battle.rounds.count)")
+                                Text(languageManager.isEnglish ? "Round \(currentRoundIndex + 1) of \(battle.rounds.count)" : "第 \(currentRoundIndex + 1) / \(battle.rounds.count) 轮")
                                     .font(.caption)
                                     .fontWeight(.bold)
                                     .foregroundColor(.secondary)
@@ -175,7 +199,7 @@ public struct DojoBattleGameView: View {
                                 HStack(spacing: 4) {
                                     Image(systemName: "star.fill")
                                         .foregroundColor(.yellow)
-                                    Text("Score: \(score)")
+                                    Text(languageManager.isEnglish ? "Score: \(score)" : "得分：\(score)")
                                         .font(.caption)
                                         .fontWeight(.heavy)
                                 }
@@ -203,7 +227,7 @@ public struct DojoBattleGameView: View {
                             HStack {
                                 Image(systemName: "person.crop.circle.badge.exclamationmark.fill")
                                     .foregroundColor(.red)
-                                Text("Incoming Tokyo Prompt:")
+                                Text(languageManager.isEnglish ? "Incoming Tokyo Prompt:" : "店员/大将实时提问：")
                                     .font(.caption)
                                     .fontWeight(.bold)
                                     .foregroundColor(.red)
@@ -251,7 +275,7 @@ public struct DojoBattleGameView: View {
                                 HStack {
                                     Image(systemName: option.isCorrect ? "sparkles" : "exclamationmark.triangle.fill")
                                         .foregroundColor(option.isCorrect ? .green : .orange)
-                                    Text(option.isCorrect ? "Ninja Accuracy! (+ \(100 * max(1, comboCount)) pts)" : "Tokyo Etiquette Note:")
+                                    Text(option.isCorrect ? (languageManager.isEnglish ? "Ninja Accuracy! (+ \(100 * max(1, comboCount)) pts)" : "反应极速神准！(+ \(100 * max(1, comboCount)) 分)") : (languageManager.isEnglish ? "Tokyo Etiquette Note:" : "东京实战要点："))
                                         .font(.headline)
                                         .foregroundColor(option.isCorrect ? .green : .orange)
                                 }
@@ -266,7 +290,7 @@ public struct DojoBattleGameView: View {
                             .padding(.horizontal)
 
                             Button(action: nextRound) {
-                                Text(currentRoundIndex < battle.rounds.count - 1 ? "Next Round ➔" : "View Ninja Mastery 🏆")
+                                Text(currentRoundIndex < battle.rounds.count - 1 ? (languageManager.isEnglish ? "Next Round" : "下一轮") : (languageManager.isEnglish ? "View Ninja Mastery" : "查看道场战果"))
                                     .font(.headline)
                                     .frame(maxWidth: .infinity)
                                     .padding()
@@ -286,10 +310,10 @@ public struct DojoBattleGameView: View {
                                 .foregroundColor(.orange)
 
                             VStack(spacing: 6) {
-                                Text("Dojo Battle Cleared!")
+                                Text(languageManager.isEnglish ? "Dojo Battle Cleared!" : "道场挑战通关！")
                                     .font(.title)
                                     .fontWeight(.heavy)
-                                Text("Final Score: \(score) Points (Max Combo: \(comboCount))")
+                                Text(languageManager.isEnglish ? "Final Score: \(score) Points (Max Combo: \(comboCount))" : "最终得分：\(score) 分（最大连击：\(comboCount)）")
                                     .font(.headline)
                                     .foregroundColor(.secondary)
                             }
@@ -299,7 +323,7 @@ public struct DojoBattleGameView: View {
                                 HStack {
                                     Image(systemName: "bolt.shield.fill")
                                         .foregroundColor(.red)
-                                    Text("TOKYO NINJA COMBO PHRASE")
+                                    Text(languageManager.isEnglish ? "TOKYO NINJA COMBO PHRASE" : "东京忍者连招金句")
                                         .font(.caption)
                                         .fontWeight(.bold)
                                         .foregroundColor(.red)
@@ -327,7 +351,7 @@ public struct DojoBattleGameView: View {
                                 gamification.addRewards(tp: 80, exp: 100)
                                 dismiss()
                             }) {
-                                Text("Complete & Claim Rewards")
+                                Text(languageManager.isEnglish ? "Complete & Claim Rewards" : "完成挑战并领取奖励")
                                     .font(.headline)
                                     .frame(maxWidth: .infinity)
                                     .padding()
@@ -342,11 +366,11 @@ public struct DojoBattleGameView: View {
                     }
                 }
             }
-            .navigationTitle(battle.titleJa)
+            .navigationTitle(languageManager.isEnglish ? battle.title : battle.titleJa)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Exit") {
+                    Button(languageManager.isEnglish ? "Exit" : "退出") {
                         timer?.invalidate()
                         dismiss()
                     }

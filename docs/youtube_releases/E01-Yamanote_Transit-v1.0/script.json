@@ -1,0 +1,416 @@
+{
+  "episode_number": 1,
+  "folder_name": "E01-Yamanote_Transit-v1.0",
+  "slug": "yamanote_transit",
+  "title": "Tokyo Metro & Yamanote Line Platform Broadcasts",
+  "yt_title": "Tokyo Train Station Announcements Decoded! 🚆 Yamanote Line Immersion (EP. 01)",
+  "category": "Tokyo Transit • Yamanote Line",
+  "level": "JLPT N4-N3",
+  "district": "Shinjuku (新宿)",
+  "youtube_id": "yN6dTC-LBz8",
+  "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/tokyo_subway_metro_1790613022369.jpg",
+  "cover": {
+    "hook": "TOKYO METRO HACK",
+    "jp": "まもなく参ります",
+    "tag": "🇯🇵 Native Transit Audio • Shadowing"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Approaching Train Announcement",
+      "spoken_text": "まもなく、2番線に山手線内回りがまいります。",
+      "en": "The Yamanote Line inner loop train will arrive on Platform 2.",
+      "tip": "'まいります' is Kenjougo (humble Japanese), standard JR platform phrasing.",
+      "tokens": [
+        {
+          "orig": "まもなく",
+          "kana": "まもなく",
+          "romaji": "mamonaku",
+          "pos": "Adverb",
+          "meaning": "Shortly / Soon"
+        },
+        {
+          "orig": "、",
+          "kana": "",
+          "romaji": ""
+        },
+        {
+          "orig": "2番線に",
+          "kana": "にばんせんに",
+          "romaji": "ni-ban-sen ni",
+          "pos": "Noun + Part.",
+          "meaning": "On Platform 2"
+        },
+        {
+          "orig": "山手線",
+          "kana": "やまのてせん",
+          "romaji": "yamanote-sen",
+          "pos": "Proper Noun",
+          "meaning": "Yamanote Line"
+        },
+        {
+          "orig": "内回りが",
+          "kana": "うちまわりが",
+          "romaji": "uchi-mawari ga",
+          "pos": "Noun + Part.",
+          "meaning": "Inner loop (clockwise)"
+        },
+        {
+          "orig": "まいります。",
+          "kana": "まいります",
+          "romaji": "mairimasu.",
+          "pos": "Humble Verb",
+          "meaning": "Is arriving (humble)"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Train Announcement Breakdown",
+      "sentence_ja": "まもなく、2番線に山手線内回りがまいります。",
+      "vocab": [
+        {
+          "orig": "まもなく",
+          "kana": "まもなく",
+          "romaji": "mamonaku",
+          "pos": "Adverb",
+          "meaning": "Shortly / Soon"
+        },
+        {
+          "orig": "2番線に",
+          "kana": "にばんせんに",
+          "romaji": "ni-ban-sen ni",
+          "pos": "Noun + Part.",
+          "meaning": "On Platform 2"
+        },
+        {
+          "orig": "山手線",
+          "kana": "やまのてせん",
+          "romaji": "yamanote-sen",
+          "pos": "Proper Noun",
+          "meaning": "Yamanote Loop Line"
+        },
+        {
+          "orig": "内回りが",
+          "kana": "うちまわりが",
+          "romaji": "uchi-mawari ga",
+          "pos": "Noun + Part.",
+          "meaning": "Clockwise Inner Loop"
+        },
+        {
+          "orig": "まいります",
+          "kana": "まいります",
+          "romaji": "mairimasu",
+          "pos": "Humble Verb",
+          "meaning": "Kenjougo for くる (Coming)"
+        }
+      ],
+      "grammar_title": "謙譲語 (Kenjougo) — まいります",
+      "grammar_bullets": [
+        [
+          "1. Humble Verb (謙譲語):",
+          "'まいります' is the humble form of '来る (kuru, to come)'."
+        ],
+        [
+          "2. Tokyo Transit Etiquette:",
+          "Station announcements universally humble the train staff to elevate passengers."
+        ],
+        [
+          "3. Daily Life Equivalent:",
+          "'ただいま参ります' (I will be right there with you)."
+        ],
+        [
+          "4. Key Takeaway:",
+          "Never use Kenjougo when referring to your customer's actions."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down the vocabulary and grammar."
+        },
+        {
+          "speaker": "ja",
+          "text": "まもなく",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Adverb: shortly, or very soon.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "2番線に",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "On platform 2.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "山手線",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "The JR Yamanote Loop Line.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "内回りが",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Clockwise inner loop direction.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "まいります",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Humble verb for arriving, Kenjougo of kuru.",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar Spotlight: Kenjougo humble speech.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "ただいま参ります。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "I will be right there with you. Station broadcasts use humble verbs to elevate passengers.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. Safety & Tactile Paving",
+      "spoken_text": "黄色い点字ブロックの内側までお下がりください。",
+      "en": "Please stand behind the yellow tactile warning blocks.",
+      "tip": "'お下がりください' is the respectful imperative formula (お + Verb stem + ください).",
+      "tokens": [
+        {
+          "orig": "黄色い",
+          "kana": "きいろい",
+          "romaji": "kiiroi",
+          "pos": "Adjective",
+          "meaning": "Yellow"
+        },
+        {
+          "orig": "点字ブロックの",
+          "kana": "てんじぶろっくの",
+          "romaji": "tenji-burokku no",
+          "pos": "Noun + Part.",
+          "meaning": "Tactile warning block's"
+        },
+        {
+          "orig": "内側まで",
+          "kana": "うちがわまで",
+          "romaji": "uchigawa made",
+          "pos": "Noun + Part.",
+          "meaning": "To the inside / behind"
+        },
+        {
+          "orig": "お下がりください。",
+          "kana": "おさがりください",
+          "romaji": "osagari kudasai.",
+          "pos": "Polite Imperative",
+          "meaning": "Please step back"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. Platform Safety Breakdown",
+      "sentence_ja": "黄色い点字ブロックの内側までお下がりください。",
+      "vocab": [
+        {
+          "orig": "黄色い",
+          "kana": "きいろい",
+          "romaji": "kiiroi",
+          "pos": "Adjective",
+          "meaning": "Yellow color"
+        },
+        {
+          "orig": "点字ブロック",
+          "kana": "てんじぶろっく",
+          "romaji": "tenji burokku",
+          "pos": "Noun",
+          "meaning": "Braille / tactile paving"
+        },
+        {
+          "orig": "内側まで",
+          "kana": "うちがわまで",
+          "romaji": "uchigawa made",
+          "pos": "Noun + Part.",
+          "meaning": "Behind / inside limit"
+        },
+        {
+          "orig": "お下がり",
+          "kana": "おさがり",
+          "romaji": "osagari",
+          "pos": "Verb Stem",
+          "meaning": "Step back (from 下がる)"
+        },
+        {
+          "orig": "ください",
+          "kana": "ください",
+          "romaji": "kudasai",
+          "pos": "Polite Request",
+          "meaning": "Please do"
+        }
+      ],
+      "grammar_title": "敬語指示公式: お + 連用形 + ください",
+      "grammar_bullets": [
+        [
+          "1. Respectful Command:",
+          "Used by staff to politely instruct customers or passengers."
+        ],
+        [
+          "2. Formation Formula:",
+          "お + Verb Masu-Stem + ください (e.g. お待ちください = Please wait)."
+        ],
+        [
+          "3. Platform Context:",
+          "Heard at every station before trains arrive for commuter safety."
+        ],
+        [
+          "4. Casual Equivalent:",
+          "下がって (Sagatte) — only used with friends/family."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down this platform safety announcement."
+        },
+        {
+          "speaker": "ja",
+          "text": "黄色い",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Adjective: yellow color.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "点字ブロック",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Noun: tactile paving blocks.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "内側まで",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Behind the safety line.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "お下がり",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Verb stem from sagaru, to step back.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "ください",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Polite request formula.",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar spotlight: Respectful command formula, O plus verb stem plus kudasai.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "少々お待ちください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Please wait a moment. Used widely by transit and store staff.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. Transfer Assistance Drill",
+      "spoken_text": "すみません、中央線への乗り換えはどのホームですか？",
+      "en": "Excuse me, which platform is the transfer for the Chuo Line?",
+      "tip": "Essential phrase when asking station staff. Replace '中央線' with any train line.",
+      "tokens": [
+        {
+          "orig": "すみません",
+          "kana": "すみません",
+          "romaji": "sumimasen",
+          "pos": "Phrase",
+          "meaning": "Excuse me"
+        },
+        {
+          "orig": "、",
+          "kana": "",
+          "romaji": ""
+        },
+        {
+          "orig": "中央線への",
+          "kana": "ちゅうおうせんへの",
+          "romaji": "chuuou-sen e no",
+          "pos": "Proper Noun + Part.",
+          "meaning": "To Chuo Line"
+        },
+        {
+          "orig": "乗り換えは",
+          "kana": "のりかえは",
+          "romaji": "norikae wa",
+          "pos": "Noun + Topic",
+          "meaning": "Transfer"
+        },
+        {
+          "orig": "どのホームですか？",
+          "kana": "どのほーむですか",
+          "romaji": "dono hoomu desu ka?",
+          "pos": "Question",
+          "meaning": "Which platform is it?"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. Subscribe & Download",
+      "spoken_text": "チャンネル登録とTokyoFlowで練習！"
+    }
+  ]
+}

@@ -1,0 +1,393 @@
+{
+  "episode_number": 7,
+  "folder_name": "E07-Ramen_Ticket_Vending-v1.0",
+  "slug": "ramen_ticket_vending",
+  "title": "Tokyo Ramen Mastery: Ticket Machine & Custom Broth Orders",
+  "yt_title": "Order Ramen Like a Pro in Tokyo! 🍜 Ticket Machine & Broth Hacks (EP. 07)",
+  "category": "Tokyo Dining • Ramen Culture",
+  "level": "JLPT N4-N3",
+  "district": "Ikebukuro (池袋)",
+  "cover_src": "/Users/kilvonwu/.gemini/antigravity/brain/05184417-05e5-4849-b75b-23838a5adf09/tokyoflow_thumb_ep07_1790725937448.jpg",
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Custom Ramen Broth & Noodle Call",
+      "spoken_text": "麺硬め、味濃いめ、油少なめでお願いします。",
+      "en": "Firm noodles, rich broth flavor, and light on the oil please.",
+      "tip": "The sacred Iekei (家系) ramen trinity: 麺の硬さ (Firmness), 味の濃さ (Flavor), 鶏油の量 (Oil).",
+      "tokens": [
+        {
+          "orig": "麺硬め、",
+          "kana": "めんかため",
+          "romaji": "men katame,",
+          "pos": "Noun + Suffix",
+          "meaning": "Noodles firm,"
+        },
+        {
+          "orig": "味濃いめ、",
+          "kana": "あじこいめ",
+          "romaji": "aji koime,",
+          "pos": "Noun + Suffix",
+          "meaning": "Flavor rich,"
+        },
+        {
+          "orig": "油少なめで",
+          "kana": "あぶらすくなめで",
+          "romaji": "abura sukuname de",
+          "pos": "Noun + Suffix + Part",
+          "meaning": "Oil on the light side,"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Ramen Customization Breakdown",
+      "sentence_ja": "麺硬め、味濃いめ、油少なめでお願いします。",
+      "vocab": [
+        {
+          "orig": "麺",
+          "kana": "めん",
+          "romaji": "men",
+          "pos": "Noun",
+          "meaning": "Noodles"
+        },
+        {
+          "orig": "硬め",
+          "kana": "かため",
+          "romaji": "katame",
+          "pos": "Suffix / Adj",
+          "meaning": "Firm / al dente (from 硬い)"
+        },
+        {
+          "orig": "味",
+          "kana": "あじ",
+          "romaji": "aji",
+          "pos": "Noun",
+          "meaning": "Taste / seasoning richness"
+        },
+        {
+          "orig": "濃いめ",
+          "kana": "こいめ",
+          "romaji": "koime",
+          "pos": "Suffix / Adj",
+          "meaning": "Strong / rich flavor (from 濃い)"
+        },
+        {
+          "orig": "少なめ",
+          "kana": "すくなめ",
+          "romaji": "sukuname",
+          "pos": "Suffix / Adj",
+          "meaning": "Less / light amount (from 少ない)"
+        }
+      ],
+      "grammar_title": "程度接尾辞: 〜め (Slightly / On the ... Side)",
+      "grammar_bullets": [
+        [
+          "1. Degree Modifier:",
+          "Attaching 〜め to adjective stems means 'somewhat' or 'on the ... side'."
+        ],
+        [
+          "2. Custom Combinations:",
+          "硬め (firmer), 柔らかめ (softer), 多め (extra), 少なめ (less)."
+        ],
+        [
+          "3. Counter Manners:",
+          "Call out your preferences immediately upon handing over your ticket."
+        ],
+        [
+          "4. Tokyo Standard:",
+          "Most locals choose '麺硬め' (men katame) so noodles don't get soggy."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's decode the famous ramen customization formula in Tokyo."
+        },
+        {
+          "speaker": "ja",
+          "text": "麺",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Noun: ramen noodles.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "硬め",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Adjective suffix: firm or al dente.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "味",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Noun: broth flavor intensity.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "濃いめ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Rich, concentrated savory flavor.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "少なめ",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Lighter quantity.",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar spotlight: The degree suffix me.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "ご飯は大盛りで、ネギは多めでお願いします。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Large rice and extra scallions please. Me customizes your meal flawlessly.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. Noodle Refill Call (Kaedama)",
+      "spoken_text": "すみません、替え玉を一玉追加でお願いします。",
+      "en": "Excuse me, one extra noodle refill please.",
+      "tip": "At Tonkotsu ramen shops (e.g. Ichiran, Ippudo), order Kaedama before your soup gets cold!",
+      "tokens": [
+        {
+          "orig": "すみません、",
+          "kana": "すみません",
+          "romaji": "sumimasen,",
+          "pos": "Interjection",
+          "meaning": "Excuse me,"
+        },
+        {
+          "orig": "替え玉を",
+          "kana": "かえだまを",
+          "romaji": "kaedama o",
+          "pos": "Noun + Obj",
+          "meaning": "Noodle refill"
+        },
+        {
+          "orig": "一玉",
+          "kana": "ひとたま",
+          "romaji": "hitotama",
+          "pos": "Counter",
+          "meaning": "One serving / ball"
+        },
+        {
+          "orig": "追加で",
+          "kana": "ついかで",
+          "romaji": "tsuika de",
+          "pos": "Noun + Manner",
+          "meaning": "As an addition"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. Kaedama & Refills Breakdown",
+      "sentence_ja": "すみません、替え玉を一玉追加でお願いします。",
+      "vocab": [
+        {
+          "orig": "替え玉",
+          "kana": "かえだま",
+          "romaji": "kaedama",
+          "pos": "Compound Noun",
+          "meaning": "Extra serving of noodles added to leftover soup"
+        },
+        {
+          "orig": "一玉",
+          "kana": "ひとたま",
+          "romaji": "hitotama",
+          "pos": "Food Counter",
+          "meaning": "One noodle portion ball"
+        },
+        {
+          "orig": "追加",
+          "kana": "ついか",
+          "romaji": "tsuika",
+          "pos": "Noun / Suru-Verb",
+          "meaning": "Addition / supplement"
+        },
+        {
+          "orig": "すみません",
+          "kana": "すみません",
+          "romaji": "sumimasen",
+          "pos": "Polite Call",
+          "meaning": "Excuse me (to get attention)"
+        },
+        {
+          "orig": "スープ",
+          "kana": "すーぷ",
+          "romaji": "suupu",
+          "pos": "Noun",
+          "meaning": "Ramen broth"
+        }
+      ],
+      "grammar_title": "追加表現: [名詞] を追加でお願いします",
+      "grammar_bullets": [
+        [
+          "1. Adding Extra Portions:",
+          "Use [Item] を追加でお願いします to add toppings or side dishes."
+        ],
+        [
+          "2. Counter for Noodles:",
+          "Noodles are counted as 一玉 (hitotama), 二玉 (futatama), or 半玉 (hantama = half)."
+        ],
+        [
+          "3. Cultural Golden Rule:",
+          "Do not drink all your broth if you intend to order a Kaedama refill!"
+        ],
+        [
+          "4. Payment:",
+          "Pay with coin on the counter or hand over a pre-bought ticket."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down ordering noodle refills at the counter."
+        },
+        {
+          "speaker": "ja",
+          "text": "替え玉",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "The famous Japanese term for extra noodle portions.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "一玉",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Counter for one full serving of ramen noodles.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "追加",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Noun: addition or extra order.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "すみません",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Universal staff call.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "スープ",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Broth or soup base.",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar spotlight: Requesting extra items with tsuika de.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "味玉を追加でトッピングしてください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Please add a seasoned egg as an extra topping. Perfect for customization.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. Paper Bib Request Drill",
+      "spoken_text": "紙エプロンを一枚いただけますか？",
+      "en": "Could I please get a paper bib?",
+      "tip": "Ramen broth splatters easily on clothes. Paper bibs (紙エプロン) are free upon request!",
+      "tokens": [
+        {
+          "orig": "紙エプロンを",
+          "kana": "かみえぷろんを",
+          "romaji": "kami-epuron o",
+          "pos": "Noun + Obj",
+          "meaning": "Paper bib / apron"
+        },
+        {
+          "orig": "一枚",
+          "kana": "いちまい",
+          "romaji": "ichi-mai",
+          "pos": "Flat Counter",
+          "meaning": "One flat sheet"
+        },
+        {
+          "orig": "いただけますか？",
+          "kana": "いただけますか",
+          "romaji": "itadakemasu ka?",
+          "pos": "Polite Potential",
+          "meaning": "Could I receive?"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. Subscribe & Download",
+      "spoken_text": "チャンネル登録とTokyoFlowで練習！"
+    }
+  ]
+}

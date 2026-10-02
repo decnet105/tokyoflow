@@ -1,0 +1,386 @@
+{
+  "episode_number": 8,
+  "folder_name": "E08-Ginza_TaxFree_Shopping-v1.0",
+  "slug": "ginza_taxfree_shopping",
+  "title": "Ginza Fashion Shopping: Sizing, Fitting Room & Tax-Free Refund",
+  "yt_title": "Shop Like a Tokyo Stylist! 🛍️ Fitting Room & Tax-Free Hacks (EP. 08)",
+  "category": "Shopping & Tax-Free • Department Store",
+  "level": "JLPT N4-N3",
+  "district": "Ginza (銀座)",
+  "cover_src": "/Users/kilvonwu/.gemini/antigravity/brain/05184417-05e5-4849-b75b-23838a5adf09/tokyoflow_thumb_ep08_1790725951206.jpg",
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Fitting Room Permission Drill",
+      "spoken_text": "このジャケットを試着してもいいですか？",
+      "en": "May I try on this jacket?",
+      "tip": "Always ask before entering the fitting room (試着室). Remember to remove shoes at the step!",
+      "tokens": [
+        {
+          "orig": "この",
+          "kana": "この",
+          "romaji": "kono",
+          "pos": "Demonstrative",
+          "meaning": "This"
+        },
+        {
+          "orig": "ジャケットを",
+          "kana": "じゃけっとを",
+          "romaji": "jaketto o",
+          "pos": "Noun + Obj",
+          "meaning": "Jacket"
+        },
+        {
+          "orig": "試着しても",
+          "kana": "しちゃくしても",
+          "romaji": "shichaku shite mo",
+          "pos": "Te-form Verb",
+          "meaning": "Even if I try on"
+        },
+        {
+          "orig": "いいですか？",
+          "kana": "いいですか",
+          "romaji": "ii desu ka?",
+          "pos": "Permission Q",
+          "meaning": "Is it fine?"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Fitting Room Permission Breakdown",
+      "sentence_ja": "このジャケットを試着してもいいですか？",
+      "vocab": [
+        {
+          "orig": "試着",
+          "kana": "しちゃく",
+          "romaji": "shichaku",
+          "pos": "Noun / Suru-Verb",
+          "meaning": "Trying on clothes"
+        },
+        {
+          "orig": "ジャケット",
+          "kana": "じゃけっと",
+          "romaji": "jaketto",
+          "pos": "Katakana Noun",
+          "meaning": "Jacket / blazer"
+        },
+        {
+          "orig": "てもいい",
+          "kana": "てもいい",
+          "romaji": "te mo ii",
+          "pos": "Permission Formula",
+          "meaning": "Is allowed / may do"
+        },
+        {
+          "orig": "試着室",
+          "kana": "しちゃくしつ",
+          "romaji": "shichakushitsu",
+          "pos": "Compound Noun",
+          "meaning": "Fitting room"
+        },
+        {
+          "orig": "サイズ",
+          "kana": "さいず",
+          "romaji": "saizu",
+          "pos": "Noun",
+          "meaning": "Size"
+        }
+      ],
+      "grammar_title": "許可表現: 〜てもいいですか？ (Asking Permission Politely)",
+      "grammar_bullets": [
+        [
+          "1. Polite Permission:",
+          "Verb Te-form + もいいですか is the universal polite permission formula."
+        ],
+        [
+          "2. Formation:",
+          "試着する → 試着して → 試着してもいいですか？"
+        ],
+        [
+          "3. Shopping Etiquette:",
+          "Staff will guide you to a numbered booth and provide a face cover (フェイスカバー)."
+        ],
+        [
+          "4. Inquiries:",
+          "After trying on, say 'これにします' (I'll take this) or '検討します' (I'll think about it)."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's analyze asking to try on clothes at Japanese fashion stores."
+        },
+        {
+          "speaker": "ja",
+          "text": "試着",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Noun: trying on clothing garments.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "ジャケット",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Jacket or outerwear.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "てもいい",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Permission formula: is it okay to do.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "試着室",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "The fitting room booth.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "サイズ",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Garment sizing.",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar spotlight: Asking polite permission with te mo ii desu ka.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "写真を撮ってもいいですか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "May I take a photo? Indispensable formula everywhere in Tokyo.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. Size Comparison Drill",
+      "spoken_text": "これのワンサイズ大きいものはありますか？",
+      "en": "Do you have one size larger than this?",
+      "tip": "Japanese sizing runs smaller than US/EU sizes. Use 'ワンサイズ大きい' (one size up) or '小さい' (one size down).",
+      "tokens": [
+        {
+          "orig": "これの",
+          "kana": "これの",
+          "romaji": "kore no",
+          "pos": "Pronoun + Part.",
+          "meaning": "This one's"
+        },
+        {
+          "orig": "ワンサイズ",
+          "kana": "わんさいず",
+          "romaji": "wan-saizu",
+          "pos": "Katakana Noun",
+          "meaning": "One size"
+        },
+        {
+          "orig": "大きいものは",
+          "kana": "おおきいものは",
+          "romaji": "ookii mono wa",
+          "pos": "Adj + Placeholder",
+          "meaning": "Larger one (topic)"
+        },
+        {
+          "orig": "ありますか？",
+          "kana": "ありますか",
+          "romaji": "arimasu ka?",
+          "pos": "Verb + Q",
+          "meaning": "Is there available?"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. Sizing & Alternatives Breakdown",
+      "sentence_ja": "これのワンサイズ大きいものはありますか？",
+      "vocab": [
+        {
+          "orig": "ワンサイズ",
+          "kana": "わんさいず",
+          "romaji": "wan saizu",
+          "pos": "Katakana Noun",
+          "meaning": "One single size increment"
+        },
+        {
+          "orig": "大きい",
+          "kana": "おおきい",
+          "romaji": "ookii",
+          "pos": "I-Adjective",
+          "meaning": "Large / big in dimensions"
+        },
+        {
+          "orig": "もの",
+          "kana": "もの",
+          "romaji": "mono",
+          "pos": "Noun Placeholder",
+          "meaning": "Item / tangible object"
+        },
+        {
+          "orig": "小さい",
+          "kana": "ちいさい",
+          "romaji": "chiisai",
+          "pos": "I-Adjective",
+          "meaning": "Small / tight in dimensions"
+        },
+        {
+          "orig": "色違い",
+          "kana": "いろちがい",
+          "romaji": "irochigai",
+          "pos": "Compound Noun",
+          "meaning": "Different color variant"
+        }
+      ],
+      "grammar_title": "代名詞構文: [形容詞] + もの (Object Placeholder)",
+      "grammar_bullets": [
+        [
+          "1. Descriptive Placeholder:",
+          "Connecting [I-Adj] + もの acts as 'the [adj] one' (e.g. 大きいもの = the bigger one)."
+        ],
+        [
+          "2. Color Variant Formula:",
+          "色違いはありますか？ (Do you have this in a different color?)."
+        ],
+        [
+          "3. Staff Response:",
+          "Staff will check the stockroom: '在庫を確認してまいります' (I will check inventory)."
+        ],
+        [
+          "4. Pro-Tip:",
+          "Use 'Mサイズ' (Emu saizu) or 'Lサイズ' (Eru saizu) for specific letters."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down asking for different sizes and colors while shopping."
+        },
+        {
+          "speaker": "ja",
+          "text": "ワンサイズ",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "One size tier difference.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "大きい",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Adjective: large or spacious.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "もの",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Noun placeholder for item or object.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "小さい",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Small or tighter fitting.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "色違い",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Different color variation.",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar spotlight: Object placeholder with mono.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "もう少し安いものはありますか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Do you have a slightly cheaper one? Smooth and polite bargaining.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. Tax-Free Counter Finding Drill",
+      "spoken_text": "免税カウンターはどのフロアにありますか？",
+      "en": "On which floor is the tax-free refund counter located?",
+      "tip": "In major department stores (Matsuya, Isetan, Parco), the Tax-Free counter is often in the basement or top floor.",
+      "tokens": [
+        {
+          "orig": "免税カウンターは",
+          "kana": "めんぜいかうんたーは",
+          "romaji": "menzei-kauntaa wa",
+          "pos": "Compound Noun + Topic",
+          "meaning": "Tax-free counter"
+        },
+        {
+          "orig": "どのフロアに",
+          "kana": "どのふろあに",
+          "romaji": "dono furoa ni",
+          "pos": "Question + Part",
+          "meaning": "On which floor"
+        },
+        {
+          "orig": "ありますか？",
+          "kana": "ありますか",
+          "romaji": "arimasu ka?",
+          "pos": "Verb + Q",
+          "meaning": "Is located?"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. Subscribe & Download",
+      "spoken_text": "チャンネル登録とTokyoFlowで練習！"
+    }
+  ]
+}

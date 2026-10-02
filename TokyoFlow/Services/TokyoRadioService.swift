@@ -238,7 +238,7 @@ public class TokyoRadioService: NSObject, ObservableObject, AVAudioPlayerDelegat
 
         var info = [String: Any]()
         info[MPMediaItemPropertyTitle] = activeChapter?.titleJa ?? station.titleJa
-        info[MPMediaItemPropertyArtist] = "NHK Radio & TokyoFlow (1-Hour Immersion)"
+        info[MPMediaItemPropertyArtist] = "NHK Radio & TokyoFlow (Radio Immersion)"
         info[MPMediaItemPropertyAlbumTitle] = station.title
         info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTimeSec
         info[MPMediaItemPropertyPlaybackDuration] = durationSec

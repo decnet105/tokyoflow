@@ -11,7 +11,7 @@ public struct TokyoSocialHubView: View {
             name: "Sakura (サクラ)",
             nameJapanese: "渋谷ギャル・サクラ",
             role: "Shibuya Fashion & Slang",
-            avatar: "🌸",
+            avatar: "YA",
             description: "Talk about Shibuya trends, cafe culture, and trendy casual Japanese (タメ口・若者言葉).",
             speechStyle: "Casual / Trendy Gal Slang",
             tags: ["Shibuya", "Slang", "Cafe", "Pop Culture"],
@@ -30,7 +30,7 @@ public struct TokyoSocialHubView: View {
             name: "Master Kenji (健二)",
             nameJapanese: "居酒屋大将・健二",
             role: "Shinjuku Izakaya Master",
-            avatar: "🍶",
+            avatar: "KT",
             description: "Practice ordering dishes, asking for recommendations, table etiquette, and chatting with the chef.",
             speechStyle: "Warm Shitamachi / Friendly",
             tags: ["Izakaya", "Food", "Beer", "Shinjuku"],
@@ -49,7 +49,7 @@ public struct TokyoSocialHubView: View {
             name: "Officer Tanaka (田中さん)",
             nameJapanese: "新宿駅員・田中さん",
             role: "Tokyo Metro Station Staff",
-            avatar: "💼",
+            avatar: "TK",
             description: "Practice formal Keigo, asking for train transfers, lost items, and Suica / Pasmo trouble.",
             speechStyle: "Polite Keigo / Formal",
             tags: ["Station", "Keigo", "Transit", "Suica"],
@@ -68,7 +68,7 @@ public struct TokyoSocialHubView: View {
             name: "Ren (レン)",
             nameJapanese: "秋葉原オタク・レン",
             role: "Akihabara Manga Expert",
-            avatar: "🎮",
+            avatar: "RA",
             description: "Chat about latest manga chapters, anime voice actors, doujinshi events, and Akiba deals.",
             speechStyle: "Enthusiastic Otaku Talk",
             tags: ["Manga", "Anime", "Akiba", "Figures"],
@@ -88,10 +88,10 @@ public struct TokyoSocialHubView: View {
         CommunityPost(
             id: "p1",
             authorName: "TokyoExplorer",
-            authorAvatar: "⚡",
+            authorAvatar: "YOU",
             authorTier: "Tokyo Local (Lv.45)",
             timestampText: "2h ago",
-            tag: "Food Tip 🍜",
+            tag: "Food Tip",
             title: "How to order at Ichiran Ramen like a Tokyo pro?",
             content: "When filling out the custom order sheet (オーダー用紙): Richness -> 'Medium', Richness -> 'Light', Noodle Texture -> 'Extra Firm (超かため)'. Highly recommended!",
             likesCount: 24,
@@ -100,22 +100,22 @@ public struct TokyoSocialHubView: View {
         CommunityPost(
             id: "p2",
             authorName: "MangaLover_JP",
-            authorAvatar: "🌸",
+            authorAvatar: "YA",
             authorTier: "Tokyo Scholar (Lv.18)",
             timestampText: "5h ago",
-            tag: "Manga 📖",
+            tag: "Manga",
             title: "Crushed today's NHK Real Audio shadowing session!",
-            content: "After listening to the 'JR Timetable Update' news, I practiced shadowing '終電' (last train) and '乗り遅れ' (missed train) 3 times. Pronunciation score hit 94%! 🔥",
+            content: "After listening to the 'JR Timetable Update' news, I practiced shadowing '終電' (last train) and '乗り遅れ' (missed train) 3 times. Pronunciation score hit 94%!",
             likesCount: 19,
             commentsCount: 4
         ),
         CommunityPost(
             id: "p3",
             authorName: "AkibaWalker",
-            authorAvatar: "🎮",
+            authorAvatar: "RA",
             authorTier: "Tokyo Resident (Lv.8)",
             timestampText: "1d ago",
-            tag: "Living 💡",
+            tag: "Living",
             title: "The Ultimate 1-Second Kombini Bento Phrase",
             content: "When the cashier asks '温めますか？' (Would you like this heated?), just reply 'あ、お願いします (Hai, onegaishimasu)'. Simple, natural, and friendly!",
             likesCount: 42,
@@ -236,7 +236,7 @@ public struct TokyoSocialHubView: View {
                 .padding(.top, 4)
 
                 ForEach(personas) { persona in
-                    NavigationLink(destination: TokyoCitizenChatView(persona: persona)) {
+                    NavigationLink(destination: LazyView(TokyoCitizenChatView(persona: persona))) {
                         PersonaCardView(persona: persona)
                     }
                     .buttonStyle(PlainButtonStyle())

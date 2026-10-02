@@ -224,7 +224,7 @@ public class NativeAudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
 
         requestPermission { [weak self] granted in
             guard let self = self, granted else {
-                print("⚠️ Microphone permission denied or unavailable.")
+                print("️ Microphone permission denied or unavailable.")
                 return
             }
             self.performStartRecording(id: id)
@@ -263,7 +263,7 @@ public class NativeAudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
                     self.startMeterTimer()
                 }
             } catch {
-                print("❌ Failed to start voice recording: \(error)")
+                print(" Failed to start voice recording: \(error)")
                 DispatchQueue.main.async {
                     self.isRecordingShadowing = false
                 }

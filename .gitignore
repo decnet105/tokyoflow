@@ -1,0 +1,14 @@
+# Credentials & Secrets
+client_secret*.json
+scripts/videogen/auth/
+token.json
+*.token
+.env
+
+# Build & System
+.DS_Store
+.build/
+build/
+build_sim/
+*.xcuserstate
+tmp/

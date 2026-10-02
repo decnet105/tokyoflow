@@ -4,7 +4,7 @@ import Combine
 
 public enum SubscriptionPlan: String, CaseIterable, Identifiable {
     case monthly = "Monthly Plan"
-    case annual = "Annual Pass (Best Value 🔥)"
+    case annual = "Annual Pass (Best Value)"
     case lifetime = "Lifetime Master"
 
     public var id: String { rawValue }

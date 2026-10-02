@@ -1,0 +1,375 @@
+{
+  "episode_number": 2,
+  "folder_name": "E02-Kombini_Checkout-v1.0",
+  "slug": "kombini_checkout",
+  "title": "Japanese 7-Eleven & FamilyMart Checkout Mastery",
+  "yt_title": "Survive Tokyo 7-Eleven Checkout! 🍱 Rapid Register Japanese Decoded (EP. 02)",
+  "category": "Kombini Protocol • Checkout Guide",
+  "level": "JLPT N5-N4",
+  "district": "Shibuya (渋谷)",
+  "youtube_id": "6er1tWAH_oQ",
+  "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/pl_cover_kombini_1790626387613.jpg",
+  "cover": {
+    "hook": "KOMBINI SURVIVAL",
+    "jp": "温めますか？",
+    "tag": "🇯🇵 1-Sec Register Reply • Shadowing"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Bento Heating Question",
+      "spoken_text": "お弁当温めますか？少々お待ちください。",
+      "en": "Would you like your bento heated up?",
+      "tip": "Reply with '温めてください (Please heat it)' or '大丈夫です (No thanks)'.",
+      "tokens": [
+        {
+          "orig": "お弁当",
+          "kana": "おべんとう",
+          "romaji": "obentou",
+          "pos": "Noun",
+          "meaning": "Bento boxed lunch"
+        },
+        {
+          "orig": "温めますか？",
+          "kana": "あたためますか",
+          "romaji": "atatamemasu ka?",
+          "pos": "Verb + Q",
+          "meaning": "Would you like it heated?"
+        },
+        {
+          "orig": "少々",
+          "kana": "しょうしょう",
+          "romaji": "shoushou",
+          "pos": "Adverb",
+          "meaning": "A little moment"
+        },
+        {
+          "orig": "お待ちください。",
+          "kana": "おまちください",
+          "romaji": "omachi kudasai.",
+          "pos": "Polite Request",
+          "meaning": "Please wait"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Register Conversation Breakdown",
+      "sentence_ja": "お弁当温めますか？少々お待ちください。",
+      "vocab": [
+        {
+          "orig": "お弁当",
+          "kana": "おべんとう",
+          "romaji": "obentou",
+          "pos": "Polite Noun",
+          "meaning": "Bento lunch box"
+        },
+        {
+          "orig": "温めますか",
+          "kana": "あたためますか",
+          "romaji": "atatamemasu ka",
+          "pos": "Verb + Q",
+          "meaning": "Do you want it heated?"
+        },
+        {
+          "orig": "少々",
+          "kana": "しょうしょう",
+          "romaji": "shoushou",
+          "pos": "Adverb",
+          "meaning": "A short moment"
+        },
+        {
+          "orig": "お待ちください",
+          "kana": "おまちください",
+          "romaji": "omachi kudasai",
+          "pos": "Polite Imperative",
+          "meaning": "Please wait politely"
+        }
+      ],
+      "grammar_title": "コンビニ応答術: 温めと確認",
+      "grammar_bullets": [
+        [
+          "1. Yes Response:",
+          "'温めてください (Atatamete kudasai)' or simply 'お願いします (Onegaishimasu)'."
+        ],
+        [
+          "2. No Response:",
+          "'大丈夫です (Daijoubu desu)' or 'このままで (Kono mama de, as is)'."
+        ],
+        [
+          "3. Polite Honorific 'お-':",
+          "'お弁当' adds the polite prefix 'お' to show customer respect."
+        ],
+        [
+          "4. Speed Tip:",
+          "Clerks ask very fast; answer with a crisp nod and 1-word reply."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down this convenience store register phrase."
+        },
+        {
+          "speaker": "ja",
+          "text": "お弁当",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Polite noun: bento lunch box.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "温めますか",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Would you like it heated up?",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "少々",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Adverb: just a short moment.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "お待ちください",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Please wait politely.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Register etiquette: To heat your food, answer:",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "温めてください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Please heat it. Or if you prefer it as is, say:",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "このままで大丈夫です。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "It is fine as is.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. Declining Plastic Bags",
+      "spoken_text": "レジ袋は大丈夫です。シールでお願いします。",
+      "en": "No plastic bag needed, thank you. A tape sticker is fine.",
+      "tip": "'大丈夫です' paired with a gentle nod is the natural way to politely decline.",
+      "tokens": [
+        {
+          "orig": "レジ袋は",
+          "kana": "れじぶくろは",
+          "romaji": "reji-bukuro wa",
+          "pos": "Noun + Topic",
+          "meaning": "Plastic bag"
+        },
+        {
+          "orig": "大丈夫です。",
+          "kana": "だいじょうぶです",
+          "romaji": "daijoubu desu.",
+          "pos": "Phrase",
+          "meaning": "No thanks / I'm fine"
+        },
+        {
+          "orig": "シールで",
+          "kana": "しーるで",
+          "romaji": "shiiru de",
+          "pos": "Noun + Part.",
+          "meaning": "With a sticker"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. Declining Etiquette Breakdown",
+      "sentence_ja": "レジ袋は大丈夫です。シールでお願いします。",
+      "vocab": [
+        {
+          "orig": "レジ袋",
+          "kana": "れじぶくろ",
+          "romaji": "reji bukuro",
+          "pos": "Noun",
+          "meaning": "Register plastic shopping bag"
+        },
+        {
+          "orig": "大丈夫です",
+          "kana": "だいじょうぶです",
+          "romaji": "daijoubu desu",
+          "pos": "Polite Phrase",
+          "meaning": "I'm okay / No thank you"
+        },
+        {
+          "orig": "シール",
+          "kana": "しーる",
+          "romaji": "shiiru",
+          "pos": "Loanword",
+          "meaning": "Proof of purchase tape sticker"
+        },
+        {
+          "orig": "お願いします",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu",
+          "pos": "Polite Request",
+          "meaning": "Please do so"
+        }
+      ],
+      "grammar_title": "万能表現: 大丈夫です (Polite Refusal)",
+      "grammar_bullets": [
+        [
+          "1. The Polite 'No':",
+          "Avoid saying blunt 'いりません (I don't want it)'. Use '大丈夫です' instead."
+        ],
+        [
+          "2. Sticker Protocol:",
+          "If you refuse a bag, the clerk applies a small tape 'シール' on items."
+        ],
+        [
+          "3. If you DO want a bag:",
+          "'袋を一枚お願いします (Fukuro o ichimai onegaishimasu)' (3-5 JPY)."
+        ],
+        [
+          "4. Body Language:",
+          "A slight hand palm-down gesture makes your refusal crystal clear."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down how to decline plastic bags politely."
+        },
+        {
+          "speaker": "ja",
+          "text": "レジ袋",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Plastic shopping bag.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "大丈夫です",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "I am okay, no thank you.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "シール",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Proof of purchase tape sticker.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "お願いします",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Please do so.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar spotlight: The universal polite refusal with Daijoubu desu.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "袋は大丈夫です。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Pair this with a gentle nod for natural Tokyo manners.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. Contactless Payment Drill",
+      "spoken_text": "Suicaでお願いします。ポイントカードはありません。",
+      "en": "I will pay with Suica, please. No point card.",
+      "tip": "'[Payment method] でお願いします' works for Suica, PayPay, or Credit Card.",
+      "tokens": [
+        {
+          "orig": "Suicaで",
+          "kana": "すいかで",
+          "romaji": "Suica de",
+          "pos": "Noun + Part.",
+          "meaning": "With Suica"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        },
+        {
+          "orig": "ポイントカードは",
+          "kana": "ぽいんとかーどは",
+          "romaji": "pointo kaado wa",
+          "pos": "Noun + Topic",
+          "meaning": "Reward card"
+        },
+        {
+          "orig": "ありません。",
+          "kana": "ありません",
+          "romaji": "arimasen.",
+          "pos": "Verb (Neg)",
+          "meaning": "I don't have"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. Subscribe & Download",
+      "spoken_text": "チャンネル登録とTokyoFlowで練習！"
+    }
+  ]
+}

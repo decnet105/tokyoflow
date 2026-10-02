@@ -121,7 +121,7 @@ public struct AnnouncementCard: View {
             // Listening Comprehension Quiz
             if let quiz = announcement.listeningQuiz {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("🎧 Listening Check")
+                    Text("Listening Check")
                         .font(.caption)
                         .fontWeight(.bold)
                         .foregroundColor(.teal)

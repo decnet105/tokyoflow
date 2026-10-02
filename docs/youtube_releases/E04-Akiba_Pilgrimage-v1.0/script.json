@@ -1,0 +1,379 @@
+{
+  "episode_number": 4,
+  "folder_name": "E04-Akiba_Pilgrimage-v1.0",
+  "slug": "akiba_pilgrimage",
+  "title": "Akihabara Pilgrimage: Figures, Merch & Manga Tax-Free",
+  "yt_title": "Akihabara Anime & Manga Shopping Japanese! 🛍️ Tax-Free & Rare Merch (EP. 04)",
+  "category": "Akihabara Shopping • Anime Protocol",
+  "level": "JLPT N3-N2",
+  "district": "Akihabara (秋葉原)",
+  "youtube_id": "iaGo6ey75Ws",
+  "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/a1123288-34fb-45bc-a705-3090b9af2bbb/akiba_neon_manga_1790602623116.jpg",
+  "cover": {
+    "hook": "AKIBA MANGA HUNT",
+    "jp": "購入特典ありますか",
+    "tag": "🇯🇵 Tax-Free & Figures • Shadowing"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Manga & Novel Finding",
+      "spoken_text": "今期の新作アニメの原作はどこにありますか？",
+      "en": "Where are the original manga/novels for this season's new anime?",
+      "tip": "Use '原作 (gensaku)' to ask for the original book source of any anime series.",
+      "tokens": [
+        {
+          "orig": "今期の",
+          "kana": "こんきの",
+          "romaji": "konki no",
+          "pos": "Noun + Part.",
+          "meaning": "This season's"
+        },
+        {
+          "orig": "新作アニメの",
+          "kana": "しんさくあにめの",
+          "romaji": "shinsaku anime no",
+          "pos": "Noun + Part.",
+          "meaning": "New anime release's"
+        },
+        {
+          "orig": "原作は",
+          "kana": "げんさくは",
+          "romaji": "gensaku wa",
+          "pos": "Noun + Topic",
+          "meaning": "Original source work"
+        },
+        {
+          "orig": "どこに",
+          "kana": "どこに",
+          "romaji": "doko ni",
+          "pos": "Question",
+          "meaning": "Where at"
+        },
+        {
+          "orig": "ありますか？",
+          "kana": "ありますか",
+          "romaji": "arimasu ka?",
+          "pos": "Verb + Q",
+          "meaning": "Is located?"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Otaku Shopping Terminology Breakdown",
+      "sentence_ja": "今期の新作アニメの原作はどこにありますか？",
+      "vocab": [
+        {
+          "orig": "今期",
+          "kana": "こんき",
+          "romaji": "konki",
+          "pos": "Noun",
+          "meaning": "Current broadcast season (Quarter)"
+        },
+        {
+          "orig": "新作",
+          "kana": "しんさく",
+          "romaji": "shinsaku",
+          "pos": "Noun",
+          "meaning": "New release work"
+        },
+        {
+          "orig": "原作",
+          "kana": "げんさく",
+          "romaji": "gensaku",
+          "pos": "Noun",
+          "meaning": "Original source manga / light novel"
+        },
+        {
+          "orig": "どこにありますか",
+          "kana": "どこにありますか",
+          "romaji": "doko ni arimasu ka",
+          "pos": "Question",
+          "meaning": "Where is it located?"
+        }
+      ],
+      "grammar_title": "秋葉原必須単語: 原作 (Original Work) & 特設コーナー",
+      "grammar_bullets": [
+        [
+          "1. '原作' Meaning:",
+          "Points to the original manga or light novel that inspired the anime adaptation."
+        ],
+        [
+          "2. Asking Floor Staff:",
+          "'[Anime Name] の原作コーナーはどこですか？' (Where is the book section for X?)."
+        ],
+        [
+          "3. Light Novel vs Manga:",
+          "'ラノベ (Ranobe)' for light novels; '単行本 (Tankoubon)' for manga volumes."
+        ],
+        [
+          "4. Location Tip:",
+          "Major Akiba bookstores group new season anime originals on the ground floor."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down shopping for anime books in Akihabara."
+        },
+        {
+          "speaker": "ja",
+          "text": "今期",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Current broadcast anime season.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "新作",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "New release work.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "原作",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Original source manga or light novel.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "どこにありますか",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Where is it located?",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Akihabara shopping spotlight: Asking for source books.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "原作コーナーはどこですか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Use Gensaku when looking for original books adapted into anime.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. Pre-order Perks & Store Bonus",
+      "spoken_text": "こちらの限定版、購入特典はまだ付きますか？",
+      "en": "Does this limited edition still come with the store purchase bonus perk?",
+      "tip": "'特典 (tokuten)' refers to exclusive gifts like acrylic stands, badges, or illustration cards.",
+      "tokens": [
+        {
+          "orig": "こちらの",
+          "kana": "こちらの",
+          "romaji": "kochira no",
+          "pos": "Pronoun",
+          "meaning": "This one's"
+        },
+        {
+          "orig": "限定版、",
+          "kana": "げんていばん",
+          "romaji": "genteiban,",
+          "pos": "Noun",
+          "meaning": "Limited edition"
+        },
+        {
+          "orig": "購入特典は",
+          "kana": "こうにゅうとくてんは",
+          "romaji": "kounyuu tokuten wa",
+          "pos": "Noun + Topic",
+          "meaning": "Purchase bonus perk"
+        },
+        {
+          "orig": "まだ",
+          "kana": "まだ",
+          "romaji": "mada",
+          "pos": "Adverb",
+          "meaning": "Still / Yet"
+        },
+        {
+          "orig": "付きますか？",
+          "kana": "つきますか",
+          "romaji": "tsukimasu ka?",
+          "pos": "Verb + Q",
+          "meaning": "Does it come with?"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. Exclusive Bonus Merch Breakdown",
+      "sentence_ja": "こちらの限定版、購入特典はまだ付きますか？",
+      "vocab": [
+        {
+          "orig": "限定版",
+          "kana": "げんていばん",
+          "romaji": "genteiban",
+          "pos": "Noun",
+          "meaning": "Limited collector's edition"
+        },
+        {
+          "orig": "購入特典",
+          "kana": "こうにゅうとくてん",
+          "romaji": "kounyuu tokuten",
+          "pos": "Noun",
+          "meaning": "Store purchase bonus / gift"
+        },
+        {
+          "orig": "まだ",
+          "kana": "まだ",
+          "romaji": "mada",
+          "pos": "Adverb",
+          "meaning": "Still / remaining in stock"
+        },
+        {
+          "orig": "付きますか",
+          "kana": "つきますか",
+          "romaji": "tsukimasu ka",
+          "pos": "Verb + Q",
+          "meaning": "Does it attach / include?"
+        }
+      ],
+      "grammar_title": "限定グッズ攻略: 購入特典 (Tokuten) & 先着順",
+      "grammar_bullets": [
+        [
+          "1. Store Exclusives:",
+          "Animate, Gamers, Toranoana each have different exclusive '店舗特典'."
+        ],
+        [
+          "2. First-Come Basis:",
+          "'なくなり次第終了 (While supplies last)' — ask staff before purchasing."
+        ],
+        [
+          "3. Acrylic Stands (アクスタ):",
+          "Acronym for 'Acrylic Stand (アクリルスタンド)'. Highly coveted!"
+        ],
+        [
+          "4. Bonus Check:",
+          "Staff will check their register counter stash to see if bonus perks remain."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down asking for exclusive store bonus merch."
+        },
+        {
+          "speaker": "ja",
+          "text": "限定版",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Limited collector's edition.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "購入特典",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Store purchase bonus gift.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "まだ",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Still, or remaining in stock.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "付きますか",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Does it come included?",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Bonus perk spotlight: Exclusive Tokuten items.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "特典ポストカードは付きますか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Bonus perks are first-come first-served, so always check with staff before checkout.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. Tax-Free Exemption Checkout Drill",
+      "spoken_text": "免税手続きをお願いできますか？パスポートを持っています。",
+      "en": "Could you process tax-free exemption, please? I have my passport.",
+      "tip": "Present your passport with tourist entry visa for 10% consumption tax refund over 5,000 JPY.",
+      "tokens": [
+        {
+          "orig": "免税手続きを",
+          "kana": "めんぜいてつづきを",
+          "romaji": "menzei tetsuzuki o",
+          "pos": "Noun + Obj",
+          "meaning": "Tax-free procedure"
+        },
+        {
+          "orig": "お願いできますか？",
+          "kana": "おねがいできますか",
+          "romaji": "onegai dekimasu ka?",
+          "pos": "Polite Potential",
+          "meaning": "Could I request?"
+        },
+        {
+          "orig": "パスポートを",
+          "kana": "ぱすぽーとを",
+          "romaji": "pasupooto o",
+          "pos": "Noun + Obj",
+          "meaning": "Passport"
+        },
+        {
+          "orig": "持っています。",
+          "kana": "もっています",
+          "romaji": "motte imasu.",
+          "pos": "Verb Phrase",
+          "meaning": "I have / hold"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. Subscribe & Download",
+      "spoken_text": "チャンネル登録とTokyoFlowで練習！"
+    }
+  ]
+}

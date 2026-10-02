@@ -2,9 +2,10 @@ import SwiftUI
 
 /// TokyoDuoAdaptiveLayout provides a seamless two-pane responsive experience
 /// optimized for iPhone Duo, foldable displays, iPad Split View, and landscape mode.
-public struct TokyoDuoAdaptiveLayout<PrimaryContent: View, SecondaryContent: View>: View {
+public struct TokyoDuoAdaptiveLayout<PrimaryContent: View, SecondaryContent: View, SingleContent: View>: View {
     public let primaryContent: PrimaryContent
     public let secondaryContent: SecondaryContent
+    public let singleContent: SingleContent?
     public var duoSplitRatio: CGFloat = 0.5 // Default 50/50 split
     public var minimumDuoWidth: CGFloat = 680
 
@@ -15,11 +16,26 @@ public struct TokyoDuoAdaptiveLayout<PrimaryContent: View, SecondaryContent: Vie
         minimumDuoWidth: CGFloat = 680,
         @ViewBuilder primaryContent: () -> PrimaryContent,
         @ViewBuilder secondaryContent: () -> SecondaryContent
+    ) where SingleContent == PrimaryContent {
+        self.duoSplitRatio = duoSplitRatio
+        self.minimumDuoWidth = minimumDuoWidth
+        self.primaryContent = primaryContent()
+        self.secondaryContent = secondaryContent()
+        self.singleContent = nil
+    }
+
+    public init(
+        duoSplitRatio: CGFloat = 0.5,
+        minimumDuoWidth: CGFloat = 680,
+        @ViewBuilder primaryContent: () -> PrimaryContent,
+        @ViewBuilder secondaryContent: () -> SecondaryContent,
+        @ViewBuilder singleContent: () -> SingleContent
     ) {
         self.duoSplitRatio = duoSplitRatio
         self.minimumDuoWidth = minimumDuoWidth
         self.primaryContent = primaryContent()
         self.secondaryContent = secondaryContent()
+        self.singleContent = singleContent()
     }
 
     public var body: some View {
@@ -27,7 +43,7 @@ public struct TokyoDuoAdaptiveLayout<PrimaryContent: View, SecondaryContent: Vie
             let isDuoMode = geo.size.width >= minimumDuoWidth || horizontalSizeClass == .regular
 
             if isDuoMode {
-                // 📱📱 Duo Dual-Pane Mode: Side-by-Side Dual Screens with Hinge Divider
+                //  Duo Dual-Pane Mode: Side-by-Side Dual Screens with Hinge Divider
                 HStack(spacing: 0) {
                     // Left Screen: Immersion & Video/Audio/Map Primary Pane
                     primaryContent
@@ -55,14 +71,30 @@ public struct TokyoDuoAdaptiveLayout<PrimaryContent: View, SecondaryContent: Vie
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                // 📱 Single Screen Mode: Vertical Fluid Layout
-                ScrollView {
-                    VStack(spacing: 16) {
-                        primaryContent
-                        secondaryContent
-                    }
+                //  Single Screen Mode: Zero overhead direct view
+                if let single = singleContent {
+                    single
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    primaryContent
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
         }
+    }
+}
+
+/// A lazy wrapper that defers the creation of its child view until it is actually rendered.
+/// This prevents SwiftUI's `NavigationLink(destination:)` from eagerly instantiating heavy destination views upfront,
+/// ensuring instant tab switching and 120fps navigation responsiveness.
+public struct LazyView<Content: View>: View {
+    private let build: () -> Content
+
+    public init(_ build: @autoclosure @escaping () -> Content) {
+        self.build = build
+    }
+
+    public var body: Content {
+        build()
     }
 }

@@ -54,7 +54,7 @@ def compose_ep04_thumbnail():
     canvas = Image.alpha_composite(bg_enhanced.convert("RGBA"), overlay).convert("RGBA")
     draw = ImageDraw.Draw(canvas)
 
-    # 3. Top-Left Brand Pill ("TokyoFlow 🎌")
+    # 3. Top-Left Brand Pill ("TokyoFlow ")
     pill_w, pill_h = 240, 68
     pill_x, pill_y = 48, 38
     
@@ -69,7 +69,7 @@ def compose_ep04_thumbnail():
     # Pill surface
     draw.rounded_rectangle([(pill_x, pill_y), (pill_x + pill_w, pill_y + pill_h)], radius=18, fill=(255, 255, 255, 250), outline=(220, 38, 38), width=3)
     font_brand = get_font(34)
-    draw.text((pill_x + 24, pill_y + 13), "TokyoFlow 🎌", fill=(220, 38, 38), font=font_brand)
+    draw.text((pill_x + 24, pill_y + 13), "TokyoFlow ", fill=(220, 38, 38), font=font_brand)
 
     # 4. English Hook ("AKIBA MANGA HUNT") + Episode Badge ("EP. 04")
     font_hook = get_font(74)
@@ -97,9 +97,9 @@ def compose_ep04_thumbnail():
                 draw.text((ep_x + dx, ep_y + dy + 2), ep_str, fill=(0, 0, 0, 255), font=font_ep)
     draw.text((ep_x, ep_y), ep_str, fill=(255, 255, 255), font=font_ep)
 
-    # 5. Big Center-Bottom Japanese Key Phrase ("購入特典ありますか")
+    # 5. Big Center-Bottom Japanese Key Phrase ("")
     font_jp = get_font(92)
-    jp_text = "購入特典ありますか"
+    jp_text = ""
     
     bbox = draw.textbbox((0, 0), jp_text, font=font_jp)
     jp_w = bbox[2] - bbox[0]
@@ -113,9 +113,9 @@ def compose_ep04_thumbnail():
                 draw.text((jp_x + dx, jp_y + dy + 3), jp_text, fill=(0, 0, 0, 255), font=font_jp)
     draw.text((jp_x, jp_y), jp_text, fill=(255, 255, 255), font=font_jp)
 
-    # 6. Bottom Information Pill ("🇯🇵 Native Audio • Anime & Merch")
+    # 6. Bottom Information Pill (" Native Audio • Anime & Merch")
     font_pill = get_font(28)
-    pill_text = "🇯🇵 Native Audio • Tax-Free & Merch"
+    pill_text = " Native Audio • Tax-Free & Merch"
     pill_text_bbox = draw.textbbox((0, 0), pill_text, font=font_pill)
     tag_w = pill_text_bbox[2] - pill_text_bbox[0]
     
@@ -147,7 +147,7 @@ def compose_ep04_thumbnail():
     for p in out_paths:
         os.makedirs(os.path.dirname(p), exist_ok=True)
         final_hd.save(p, quality=96)
-        print(f"✓ Master-grade EP04 thumbnail created: {p}")
+        print(f" Master-grade EP04 thumbnail created: {p}")
 
 if __name__ == "__main__":
     compose_ep04_thumbnail()

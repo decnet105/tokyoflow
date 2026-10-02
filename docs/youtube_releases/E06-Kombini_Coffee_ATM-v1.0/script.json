@@ -1,0 +1,400 @@
+{
+  "episode_number": 6,
+  "folder_name": "E06-Kombini_Coffee_ATM-v1.0",
+  "slug": "kombini_coffee_atm",
+  "title": "Tokyo Kombini Hacks: Self-Service Coffee & ATM Shipping",
+  "yt_title": "Order Coffee Like a Tokyo Local! ☕ Kombini Machine & ATM Hacks (EP. 06)",
+  "category": "Kombini & Daily Life • Register Protocols",
+  "level": "JLPT N5-N4",
+  "district": "Roppongi (六本木)",
+  "cover_src": "/Users/kilvonwu/.gemini/antigravity/brain/05184417-05e5-4849-b75b-23838a5adf09/tokyoflow_thumb_ep06_1790725856366.jpg",
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Fresh Kombini Coffee Order",
+      "spoken_text": "アイスコーヒーのレギュラーサイズを一つください。",
+      "en": "One regular sized iced coffee, please.",
+      "tip": "For iced coffee, grab the ice cup from the freezer section first and take it to the register!",
+      "tokens": [
+        {
+          "orig": "アイスコーヒーの",
+          "kana": "あいすこーひーの",
+          "romaji": "aisu-koohii no",
+          "pos": "Noun + Part.",
+          "meaning": "Iced coffee's"
+        },
+        {
+          "orig": "レギュラーサイズを",
+          "kana": "れぎゅらーさいずを",
+          "romaji": "regyuraa-saizu o",
+          "pos": "Noun + Obj",
+          "meaning": "Regular size"
+        },
+        {
+          "orig": "一つ",
+          "kana": "ひとつ",
+          "romaji": "hitotsu",
+          "pos": "Counter",
+          "meaning": "One item"
+        },
+        {
+          "orig": "ください。",
+          "kana": "ください",
+          "romaji": "kudasai.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Coffee Ordering Breakdown",
+      "sentence_ja": "アイスコーヒーのレギュラーサイズを一つください。",
+      "vocab": [
+        {
+          "orig": "アイスコーヒー",
+          "kana": "あいすこーひー",
+          "romaji": "aisu koohii",
+          "pos": "Katakana Noun",
+          "meaning": "Iced coffee"
+        },
+        {
+          "orig": "レギュラーサイズ",
+          "kana": "れぎゅらーさいず",
+          "romaji": "regyuraa saizu",
+          "pos": "Katakana Noun",
+          "meaning": "Regular size (Small in 7-11)"
+        },
+        {
+          "orig": "一つ",
+          "kana": "ひとつ",
+          "romaji": "hitotsu",
+          "pos": "Native Counter",
+          "meaning": "One item (general counter)"
+        },
+        {
+          "orig": "ください",
+          "kana": "ください",
+          "romaji": "kudasai",
+          "pos": "Polite Request",
+          "meaning": "Please give me"
+        },
+        {
+          "orig": "ホット",
+          "kana": "ほっと",
+          "romaji": "hotto",
+          "pos": "Katakana Noun",
+          "meaning": "Hot beverage"
+        }
+      ],
+      "grammar_title": "注文公式: [名詞] を [数量詞] ください",
+      "grammar_bullets": [
+        [
+          "1. Standard Ordering Formula:",
+          "[Item] を [Quantity] ください — the universal ordering sentence."
+        ],
+        [
+          "2. Counter Placement:",
+          "The Japanese counter (一つ, 二つ, 三つ) directly precedes ください."
+        ],
+        [
+          "3. Size Lingo:",
+          "R = Regular (レギュラー), L = Large (ラージ)."
+        ],
+        [
+          "4. Self-Service Machine:",
+          "Press the blinking button matching your exact cup size."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's break down ordering fresh coffee at 7-Eleven and FamilyMart."
+        },
+        {
+          "speaker": "ja",
+          "text": "アイスコーヒー",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Iced coffee, available all year round.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "レギュラーサイズ",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Regular size cup, denoted by letter R.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "一つ",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Native counter for one item.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "ください",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Please give me.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "ホット",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Hot coffee option.",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar spotlight: The universal ordering formula item plus counter plus kudasai.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "おにぎりを二つください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "Two onigiri please. Simple and effective anywhere in Japan.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. Parcel Shipping at Kombini Drill",
+      "spoken_text": "宅急便をこの住所へ送りたいのですが、伝票はありますか？",
+      "en": "I would like to send a parcel to this address, do you have a shipping slip?",
+      "tip": "Yamato Transport (黒猫) shipping slips are available at the counter (元払い = prepaid / 着払い = COD).",
+      "tokens": [
+        {
+          "orig": "宅急便を",
+          "kana": "たっきゅうびんを",
+          "romaji": "takkyuubin o",
+          "pos": "Noun + Obj",
+          "meaning": "Express parcel delivery"
+        },
+        {
+          "orig": "この住所へ",
+          "kana": "このじゅうしょへ",
+          "romaji": "kono juusho e",
+          "pos": "Noun + Direction",
+          "meaning": "To this address"
+        },
+        {
+          "orig": "送りたいのですが、",
+          "kana": "おくnostたいのですが",
+          "romaji": "okuritai no desu ga,",
+          "pos": "Desire + Cushion",
+          "meaning": "I'd like to send, so..."
+        },
+        {
+          "orig": "伝票は",
+          "kana": "でんぴょうは",
+          "romaji": "denpyou wa",
+          "pos": "Noun + Topic",
+          "meaning": "Shipping slip voucher"
+        },
+        {
+          "orig": "ありますか？",
+          "kana": "ありますか",
+          "romaji": "arimasu ka?",
+          "pos": "Verb + Q",
+          "meaning": "Do you have?"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. Shipping & Logistics Breakdown",
+      "sentence_ja": "宅急便をこの住所へ送りたいのですが、伝票はありますか？",
+      "vocab": [
+        {
+          "orig": "宅急便",
+          "kana": "たっきゅうびん",
+          "romaji": "takkyuubin",
+          "pos": "Noun",
+          "meaning": "Courier delivery service (Yamato)"
+        },
+        {
+          "orig": "住所",
+          "kana": "じゅうしょ",
+          "romaji": "juusho",
+          "pos": "Noun",
+          "meaning": "Postal address / residence"
+        },
+        {
+          "orig": "送りたい",
+          "kana": "おくりたい",
+          "romaji": "okuritai",
+          "pos": "Tai-form Verb",
+          "meaning": "Want to send (from 送る)"
+        },
+        {
+          "orig": "のですが",
+          "kana": "のですが",
+          "romaji": "no desu ga",
+          "pos": "Polite Cushion",
+          "meaning": "I'd like to, but... (soft opener)"
+        },
+        {
+          "orig": "伝票",
+          "kana": "でんぴょう",
+          "romaji": "denpyou",
+          "pos": "Noun",
+          "meaning": "Waybill / delivery form slip"
+        }
+      ],
+      "grammar_title": "クッション依頼文: 〜たいのですが (Soft Topic Opener)",
+      "grammar_bullets": [
+        [
+          "1. Polite Conversation Opener:",
+          "Adding 〜のですが softens requests and explains background smoothly."
+        ],
+        [
+          "2. Formulation:",
+          "Verb Tai-Stem + のですが (e.g. 送りたいのですが)."
+        ],
+        [
+          "3. Cultural Nuance:",
+          "Japanese people rarely state demands directly; 〜のですが invites the staff to assist."
+        ],
+        [
+          "4. Kombini Service:",
+          "Staff will hand you a ballpoint pen and adhesive pouch."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "en",
+          "text": "Let's analyze how to send luggage or packages from convenience stores."
+        },
+        {
+          "speaker": "ja",
+          "text": "宅急便",
+          "card_idx": 0
+        },
+        {
+          "speaker": "en",
+          "text": "Courier parcel service, widely handled at kombini counters.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "住所",
+          "card_idx": 1
+        },
+        {
+          "speaker": "en",
+          "text": "Destination postal address.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "送りたい",
+          "card_idx": 2
+        },
+        {
+          "speaker": "en",
+          "text": "Desire form: I want to send.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "のですが",
+          "card_idx": 3
+        },
+        {
+          "speaker": "en",
+          "text": "Polite conversational cushion phrase.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "伝票",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "The shipping waybill slip.",
+          "card_idx": 4
+        },
+        {
+          "speaker": "en",
+          "text": "Grammar spotlight: Softening requests with tai no desu ga.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "荷物を預けたいのですが。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "en",
+          "text": "I would like to store my luggage. Essential for hotel check-ins.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. Utensil Request Drill",
+      "spoken_text": "お箸とストローを一つつけてください。",
+      "en": "Please include chopsticks and a straw.",
+      "tip": "Staff may ask 'お箸ご利用ですか？' (Would you like chopsticks?).",
+      "tokens": [
+        {
+          "orig": "お箸と",
+          "kana": "おはしと",
+          "romaji": "o-hashi to",
+          "pos": "Noun + Conj",
+          "meaning": "Chopsticks and"
+        },
+        {
+          "orig": "ストローを",
+          "kana": "すとろーを",
+          "romaji": "sutoroo o",
+          "pos": "Noun + Obj",
+          "meaning": "Straw"
+        },
+        {
+          "orig": "一つ",
+          "kana": "ひとつ",
+          "romaji": "hitotsu",
+          "pos": "Counter",
+          "meaning": "One each"
+        },
+        {
+          "orig": "つけてください。",
+          "kana": "つけてください",
+          "romaji": "tsukete kudasai.",
+          "pos": "Polite Request",
+          "meaning": "Please attach/include"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. Subscribe & Download",
+      "spoken_text": "チャンネル登録とTokyoFlowで練習！"
+    }
+  ]
+}

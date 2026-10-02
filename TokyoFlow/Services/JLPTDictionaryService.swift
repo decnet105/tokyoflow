@@ -26,8 +26,11 @@ public enum JLPTLevelFilter: String, CaseIterable, Identifiable {
 public class JLPTDictionaryService: ObservableObject {
     public static let shared = JLPTDictionaryService()
 
+    private var isBuildingIndexesInBackground: Bool = false
+
     @Published public var allWords: [JLPTWord] = [] {
         didSet {
+            guard !isBuildingIndexesInBackground else { return }
             rebuildIndexes()
             updateFilteredCache()
         }
@@ -46,16 +49,20 @@ public class JLPTDictionaryService: ObservableObject {
     }
     
     @Published public var bookmarkedWordIds: Set<String> = []
+    @Published public var isLoaded: Bool = false
     
     // High-performance caching & indexing
     private var levelBuckets: [String: [JLPTWord]] = [:]
+    private var searchIndex: [String: String] = [:]
     private var searchCache = NSCache<NSString, NSArray>()
+    private let queue = DispatchQueue(label: "com.tokyoflow.dictionary.service", qos: .userInitiated)
+    private var isLoadingData: Bool = false
     
     // Cached filtered results for instantaneous O(1) view access
     @Published public private(set) var cachedFilteredWords: [JLPTWord] = []
     
     // Pagination for ultra-smooth 120fps scrolling
-    public let pageSize: Int = 40
+    public let pageSize: Int = 35
     @Published public private(set) var displayedPageCount: Int = 1
     
     public var displayedWords: [JLPTWord] {
@@ -79,15 +86,17 @@ public class JLPTDictionaryService: ObservableObject {
     }
 
     private init() {
-        loadDictionary()
         loadBookmarks()
+        loadDictionaryAsync()
     }
 
     public func loadDictionary() {
+        guard !isLoaded else { return }
         if let url = Bundle.main.url(forResource: "jlpt_dictionary", withExtension: "json"),
            let data = try? Data(contentsOf: url),
            let list = try? JSONDecoder().decode([JLPTWord].self, from: data) {
             self.allWords = list
+            self.isLoaded = true
             return
         }
 
@@ -97,6 +106,55 @@ public class JLPTDictionaryService: ObservableObject {
            let data = try? Data(contentsOf: URL(fileURLWithPath: devPath)),
            let list = try? JSONDecoder().decode([JLPTWord].self, from: data) {
             self.allWords = list
+            self.isLoaded = true
+        }
+    }
+
+    public func loadDictionaryAsync() {
+        guard !isLoaded && !isLoadingData else { return }
+        isLoadingData = true
+        
+        queue.async {
+            var words: [JLPTWord]? = nil
+
+            if let url = Bundle.main.url(forResource: "jlpt_dictionary", withExtension: "json"),
+               let data = try? Data(contentsOf: url),
+               let list = try? JSONDecoder().decode([JLPTWord].self, from: data) {
+                words = list
+            } else {
+                let devPath = "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/TokyoFlow/Resources/jlpt_dictionary.json"
+                if FileManager.default.fileExists(atPath: devPath),
+                   let data = try? Data(contentsOf: URL(fileURLWithPath: devPath)),
+                   let list = try? JSONDecoder().decode([JLPTWord].self, from: data) {
+                    words = list
+                }
+            }
+
+            if let decodedWords = words {
+                var buckets: [String: [JLPTWord]] = [
+                    "N5": [], "N4": [], "N3": [], "N2": [], "N1": []
+                ]
+                var sIndex: [String: String] = Dictionary(minimumCapacity: decodedWords.count)
+                for word in decodedWords {
+                    buckets[word.level, default: []].append(word)
+                    sIndex[word.id] = "\(word.kanji) \(word.reading) \(word.romaji) \(word.meaning) \(word.exampleJa)".lowercased()
+                }
+
+                DispatchQueue.main.async {
+                    self.levelBuckets = buckets
+                    self.searchIndex = sIndex
+                    self.isBuildingIndexesInBackground = true
+                    self.allWords = decodedWords
+                    self.isBuildingIndexesInBackground = false
+                    self.updateFilteredCache()
+                    self.isLoaded = true
+                    self.isLoadingData = false
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.isLoadingData = false
+                }
+            }
         }
     }
 
@@ -104,11 +162,20 @@ public class JLPTDictionaryService: ObservableObject {
         var buckets: [String: [JLPTWord]] = [
             "N5": [], "N4": [], "N3": [], "N2": [], "N1": []
         ]
+        var sIndex: [String: String] = Dictionary(minimumCapacity: allWords.count)
         for word in allWords {
             buckets[word.level, default: []].append(word)
+            sIndex[word.id] = "\(word.kanji) \(word.reading) \(word.romaji) \(word.meaning) \(word.exampleJa)".lowercased()
         }
         self.levelBuckets = buckets
+        self.searchIndex = sIndex
         self.searchCache.removeAllObjects()
+
+        // Pre-warm empty query cache for instant level chip switching
+        self.searchCache.setObject(allWords as NSArray, forKey: "ALL_" as NSString)
+        for (lvl, list) in buckets {
+            self.searchCache.setObject(list as NSArray, forKey: "\(lvl)_" as NSString)
+        }
     }
 
     private func updateFilteredCache() {
@@ -134,12 +201,15 @@ public class JLPTDictionaryService: ObservableObject {
         if q.isEmpty {
             results = candidates
         } else {
+            let index = self.searchIndex
             results = candidates.filter { word in
-                word.kanji.lowercased().contains(q) ||
-                word.reading.lowercased().contains(q) ||
-                word.romaji.lowercased().contains(q) ||
-                word.meaning.lowercased().contains(q) ||
-                word.exampleJa.lowercased().contains(q)
+                if let str = index[word.id] {
+                    return str.contains(q)
+                }
+                return word.kanji.lowercased().contains(q) ||
+                       word.reading.lowercased().contains(q) ||
+                       word.romaji.lowercased().contains(q) ||
+                       word.meaning.lowercased().contains(q)
             }
         }
 
