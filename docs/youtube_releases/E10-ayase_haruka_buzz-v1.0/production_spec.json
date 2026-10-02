@@ -1,0 +1,216 @@
+{
+  "date": "2026-10-02",
+  "ep_num": 10,
+  "slug": "ayase_haruka_buzz",
+  "topic_title": "Ayase Haruka's Natural Charm",
+  "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "target_jlpt_level": "JLPT N5",
+  "district": "Tokyo Pop Culture",
+  "dramatic_hook": "Ayase Haruka's spontaneous humor lights up the room, leaving fans and directors in stitches!",
+  "long_form": {
+    "yt_title": "[JLPT N5] EP.10 Ayase Haruka's Natural Charm | Real Japanese Breakdown",
+    "english_hook": "NATURAL HUMOR",
+    "japanese_key_phrase": "綾瀬はるかが会場で笑わせました",
+    "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\n\nTIMESTAMPS AND CHAPTERS:\n00:00 - 01. Breaking Trend Immersion\n00:06 - 02. Vocabulary & Grammar Breakdown\n00:45 - 03. Situational Practice Drill\n00:52 - 04. Shadowing Drill & Outro\n\nKEY PHRASES COVERED:\n- 綾瀬はるかが会場で笑わせました\n- 監督と一緒に話をしました\n\nRECOMMENDED PRACTICE:\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\n\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "tags": [
+      "LearnJapanese",
+      "TokyoFlow",
+      "JLPTN5",
+      "AnimeJapanese",
+      "JapaneseShadowing",
+      "TokyoPopCulture"
+    ],
+    "slides": [
+      {
+        "type": "follow_along",
+        "chapter": "01. Breaking Trend Immersion",
+        "spoken_text": "綾瀬はるかが会場で笑わせました",
+        "en": "Ayase Haruka made the audience laugh at the venue.",
+        "tip": "Use が to highlight the subject performing the action.",
+        "tokens": [
+          {
+            "orig": "綾瀬はるか",
+            "kana": "あやせはるか",
+            "romaji": "ayase haruka",
+            "pos": "Proper Noun",
+            "meaning": "Ayase Haruka"
+          },
+          {
+            "orig": "会場",
+            "kana": "かいじょう",
+            "romaji": "kaijou",
+            "pos": "Noun",
+            "meaning": "venue"
+          },
+          {
+            "orig": "笑わせました",
+            "kana": "わらわせました",
+            "romaji": "warawasemashita",
+            "pos": "Verb",
+            "meaning": "made laugh"
+          }
+        ]
+      },
+      {
+        "type": "breakdown_teamwork",
+        "chapter": "02. Breakdown & Cultural Insight",
+        "words": [
+          {
+            "orig": "監督",
+            "kana": "かんとく",
+            "romaji": "kantoku",
+            "pos": "Noun",
+            "meaning": "director"
+          },
+          {
+            "orig": "話",
+            "kana": "はなし",
+            "romaji": "hanashi",
+            "pos": "Noun",
+            "meaning": "talk"
+          },
+          {
+            "orig": "一緒",
+            "kana": "いっしょ",
+            "romaji": "issho",
+            "pos": "Adverb",
+            "meaning": "together"
+          }
+        ],
+        "grammar": {
+          "title": "Natural Humor in Japanese",
+          "bullets": [
+            [
+              "1. Core JLPT Pattern:",
+              "Use 〜ました for polite past tense."
+            ],
+            [
+              "2. Tokyo Cultural Insight:",
+              "The term '天然' (tennen) is used to describe someone with a natural, airheaded charm, often endearing in Japanese entertainment."
+            ],
+            [
+              "3. Practical Daily Life:",
+              "In Tokyo, being '天然' is seen as a charming trait, especially in the entertainment industry."
+            ]
+          ]
+        },
+        "audio_cues": [
+          {
+            "speaker": "en",
+            "text": "Let's break down today's key words and cultural nuance."
+          },
+          {
+            "speaker": "ja",
+            "text": "監督",
+            "card_idx": 0
+          },
+          {
+            "speaker": "en",
+            "text": "Director, often used in film and TV contexts.",
+            "card_idx": 0
+          },
+          {
+            "speaker": "ja",
+            "text": "話",
+            "card_idx": 1
+          },
+          {
+            "speaker": "en",
+            "text": "Talk or conversation.",
+            "card_idx": 1
+          },
+          {
+            "speaker": "ja",
+            "text": "一緒",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Together, indicating joint action.",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "In Japanese pop culture, '天然' is a beloved trait. Ayase Haruka's charm is a perfect example.",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "ja",
+            "text": "綾瀬はるかが会場で笑わせました",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "en",
+            "text": "Keep practicing and embrace the natural charm in your learning!",
+            "is_spotlight": true
+          }
+        ]
+      },
+      {
+        "type": "follow_along",
+        "chapter": "03. Fan & Audience Reaction",
+        "spoken_text": "監督と一緒に話をしました",
+        "en": "I talked together with the director.",
+        "tip": "Use と to indicate 'with' when doing something together.",
+        "tokens": [
+          {
+            "orig": "監督",
+            "kana": "かんとく",
+            "romaji": "kantoku",
+            "pos": "Noun",
+            "meaning": "director"
+          },
+          {
+            "orig": "一緒",
+            "kana": "いっしょ",
+            "romaji": "issho",
+            "pos": "Adverb",
+            "meaning": "together"
+          },
+          {
+            "orig": "話",
+            "kana": "はなし",
+            "romaji": "hanashi",
+            "pos": "Noun",
+            "meaning": "talk"
+          }
+        ]
+      }
+    ]
+  },
+  "shorts": {
+    "yt_short_title": "[JLPT N5] SH.10 Ayase Haruka's Natural Charm! #Shorts #LearnJapanese",
+    "hook_title": "LAUGH WITH AYASE!\nNATURAL CHARM",
+    "hook_audio_en": "Discover why Ayase Haruka's natural humor is winning hearts across Japan!",
+    "jp_sentence": "綾瀬はるかが会場で笑わせました",
+    "kana_sentence": "あやせはるかがかいじょうでわらわせました",
+    "romaji_sentence": "Ayase Haruka ga kaijou de warawasemashita",
+    "en_translation": "Ayase Haruka made the audience laugh at the venue.",
+    "tokens": [
+      {
+        "orig": "綾瀬はるか",
+        "kana": "あやせはるか",
+        "romaji": "ayase haruka",
+        "meaning": "Ayase Haruka"
+      },
+      {
+        "orig": "会場",
+        "kana": "かいじょう",
+        "romaji": "kaijou",
+        "meaning": "venue"
+      },
+      {
+        "orig": "笑わせました",
+        "kana": "わらわせました",
+        "romaji": "warawasemashita",
+        "meaning": "made laugh"
+      }
+    ],
+    "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
+    "pro_tip_body": "Use が to emphasize the subject of the action, especially in sentences highlighting who did what.",
+    "pro_tip_audio_en": "Remember, using が helps highlight who is performing the action in your sentence.",
+    "interactive_poll": "Who is your favorite Japanese actress? A: Ayase Haruka B: Another actress",
+    "pinned_comment": "Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!\nPoll: Who is your favorite Japanese actress? A: Ayase Haruka B: Another actress\nDownload TokyoFlow App on iOS for real-time speech pitch scoring!"
+  }
+}

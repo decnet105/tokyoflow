@@ -82,127 +82,149 @@ def generate_serialized_thumbnail(
         draw_def = ImageDraw.Draw(base_img)
         draw_def.rectangle([(0, 0), (width, height)], fill=(12, 17, 29))
 
-    # 2. Cinematic Multi-Stop Exponential Dark Vignettes
+    # 2. Cinematic Multi-Stop Dark Left & Bottom Vignettes (for 3-Tier Hook & Japanese text)
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw_ov = ImageDraw.Draw(overlay)
     
-    # Smooth Top Vignette (for Hook & EP Badge)
-    for y in range(320):
-        alpha = int(210 * (1.0 - (y / 320.0) ** 1.3))
-        draw_ov.line([(0, y), (width, y)], fill=(8, 12, 24, alpha))
+    # Left dark vignette for 3-tier hook
+    for x in range(950):
+        alpha = int(220 * (1.0 - (x / 950.0) ** 1.4))
+        draw_ov.line([(x, 0), (x, height)], fill=(8, 12, 24, alpha))
         
     # Smooth Bottom Vignette (for Japanese Text & Value Pill)
-    for y in range(height - 420, height):
-        rel = (y - (height - 420)) / 420.0
-        alpha = int(235 * (rel ** 1.2))
+    for y in range(height - 380, height):
+        rel = (y - (height - 380)) / 380.0
+        alpha = int(210 * (rel ** 1.2))
         draw_ov.line([(0, y), (width, y)], fill=(6, 10, 20, alpha))
         
     canvas = Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGBA")
 
     # 3. Top-Left Brand Pill ("TokyoFlow 🇯🇵") with Soft Shadow
-    pill_w, pill_h = 300, 78
-    pill_x, pill_y = 60, 44
-    
-    shadow_pill = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-    draw_sp = ImageDraw.Draw(shadow_pill)
-    draw_sp.rounded_rectangle([(pill_x + 3, pill_y + 4), (pill_x + pill_w + 3, pill_y + pill_h + 4)], radius=22, fill=(0, 0, 0, 160))
-    shadow_pill = shadow_pill.filter(ImageFilter.GaussianBlur(6))
-    canvas = Image.alpha_composite(canvas, shadow_pill)
+    pill_w, pill_h = 320, 78
+    pill_x, pill_y = 60, 48
     
     draw = ImageDraw.Draw(canvas)
-    draw.rounded_rectangle([(pill_x, pill_y), (pill_x + pill_w, pill_y + pill_h)], radius=22, fill=(255, 255, 255, 250), outline=(220, 38, 38), width=3)
+    draw.rounded_rectangle([(pill_x, pill_y), (pill_x + pill_w, pill_y + pill_h)], radius=24, fill=(220, 38, 38), outline=(255, 255, 255), width=3)
     font_brand = get_font(38)
-    draw.text((pill_x + 28, pill_y + 16), "TokyoFlow 🇯🇵", fill=(220, 38, 38), font=font_brand)
+    draw.text((pill_x + 24, pill_y + 16), "TokyoFlow 🇯🇵", fill=(255, 255, 255), font=font_brand)
 
-    # 4. Top Hook Title & Serialized Episode Badge
-    font_hook = get_font(90)
-    font_ep = get_font(78)
-    
-    hook_str = english_hook.upper()
-    ep_str = f"[{jlpt_level}] EP.{ep_num:02d}"
-    
-    # Measure texts
-    ep_bbox = draw.textbbox((0, 0), ep_str, font=font_ep)
-    ep_w = ep_bbox[2] - ep_bbox[0]
-    ep_x = width - ep_w - 60
-    ep_y = 44
+    # 4. Left 3-Tier Giant 3D Hook Stack
+    font_hook = get_font(116)
+    hook_words = english_hook.upper().replace("\n", " ").split(" ")
+    if len(hook_words) == 1:
+        hook_lines = [hook_words[0], "HACK"]
+    elif len(hook_words) == 2:
+        hook_lines = [hook_words[0], hook_words[1], "HACK"]
+    else:
+        hook_lines = hook_words[:3]
 
-    # Calculate max hook width available
-    max_hook_w = ep_x - 390
-    hook_bbox = draw.textbbox((0, 0), hook_str, font=font_hook)
-    hook_w = hook_bbox[2] - hook_bbox[0]
-    if hook_w > max_hook_w:
-        font_hook = get_font(74)
-        hook_bbox = draw.textbbox((0, 0), hook_str, font=font_hook)
-        hook_w = hook_bbox[2] - hook_bbox[0]
+    h_y = 150
+    for idx, hline in enumerate(hook_lines):
+        bbox_hl = draw.textbbox((0, 0), hline, font=font_hook)
+        hw = bbox_hl[2] - bbox_hl[0]
+        cur_font = font_hook
+        if hw > 820:
+            cur_font = get_font(96)
+            bbox_hl = draw.textbbox((0, 0), hline, font=cur_font)
+            hw = bbox_hl[2] - bbox_hl[0]
 
-    hook_x = 380
-    hook_y = 40
+        hx = 60
+        # Multi-pass 3D Deep Black Extrusion & Shadow
+        for off in range(10, 0, -1):
+            for dx in range(-off, off + 1):
+                for dy in range(-off, off + 1):
+                    draw.text((hx + dx, h_y + dy + 3), hline, fill=(0, 0, 0, 255), font=cur_font)
+        
+        # Color: Lines 1 & 2 in Solar Yellow, Line 3 in Metallic White
+        text_color = (250, 204, 21) if idx < len(hook_lines) - 1 else (255, 255, 255)
+        draw.text((hx, h_y), hline, fill=text_color, font=cur_font)
+        h_y += 118
 
-    # Multi-pass 3D Outline & Shadow for Hook Title
-    for off in range(8, 0, -1):
-        for dx in range(-off, off + 1):
-            for dy in range(-off, off + 1):
-                draw.text((hook_x + dx, hook_y + dy + 2), hook_str, fill=(0, 0, 0, 255), font=font_hook)
-    draw.text((hook_x, hook_y), hook_str, fill=(254, 240, 138), font=font_hook) # Bright Yellow #FEF08A
-
-    # Multi-pass Outline & Shadow for EP Badge
-    for off in range(7, 0, -1):
-        for dx in range(-off, off + 1):
-            for dy in range(-off, off + 1):
-                draw.text((ep_x + dx, ep_y + dy + 2), ep_str, fill=(0, 0, 0, 255), font=font_ep)
-    draw.text((ep_x, ep_y), ep_str, fill=(255, 255, 255), font=font_ep)
-
-    # 5. Big Center-Bottom Japanese Soul Phrase (116pt)
-    font_jp = get_font(114)
+    # 5. Bottom-Left Giant Japanese Soul Phrase (with Magenta Neon Aura)
+    font_jp = get_font(108)
     jp_text = japanese_key_phrase
     bbox_j = draw.textbbox((0, 0), jp_text, font=font_jp)
     jp_w = bbox_j[2] - bbox_j[0]
     
-    if jp_w > width - 180:
-        font_jp = get_font(94)
+    if jp_w > 1200:
+        font_jp = get_font(88)
         bbox_j = draw.textbbox((0, 0), jp_text, font=font_jp)
         jp_w = bbox_j[2] - bbox_j[0]
 
-    jp_x = (width - jp_w) // 2
-    jp_y = height - 320
+    jp_x = 60
+    jp_y = height - 260
 
-    # Multi-pass deep drop shadow (10px)
-    for off in range(10, 0, -1):
+    # Magenta Glowing Outer Aura Layer
+    aura_img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_aura = ImageDraw.Draw(aura_img)
+    for off in range(12, 0, -1):
+        for dx in range(-off, off + 1):
+            for dy in range(-off, off + 1):
+                draw_aura.text((jp_x + dx, jp_y + dy), jp_text, fill=(236, 72, 153, 160), font=font_jp)
+    aura_img = aura_img.filter(ImageFilter.GaussianBlur(8))
+    canvas = Image.alpha_composite(canvas, aura_img)
+    draw = ImageDraw.Draw(canvas)
+
+    # Multi-pass deep drop shadow (10px) & Pure White Text
+    for off in range(9, 0, -1):
         for dx in range(-off, off + 1):
             for dy in range(-off, off + 1):
                 draw.text((jp_x + dx, jp_y + dy + 3), jp_text, fill=(0, 0, 0, 255), font=font_jp)
     draw.text((jp_x, jp_y), jp_text, fill=(255, 255, 255), font=font_jp)
 
-    # 6. Bottom Information Value Pill
-    clean_tag = bottom_tag.replace("🇯🇵 Native Audio •", "").replace("Native Audio •", "").strip()
-    full_tag_str = f"🇯🇵 Native Audio • {clean_tag}" if clean_tag else "🇯🇵 Native Audio • Shadowing"
+    # 6. Bottom-Right 3D Metallic Episode Badge ("EP.XX")
+    font_ep_prefix = get_font(104)
+    font_ep_num = get_font(114)
     
-    font_pill = get_font(32)
+    prefix_str = "EP."
+    num_str = f"{ep_num:02d}"
+    
+    bbox_p = draw.textbbox((0, 0), prefix_str, font=font_ep_prefix)
+    pw = bbox_p[2] - bbox_p[0]
+    bbox_n = draw.textbbox((0, 0), num_str, font=font_ep_num)
+    nw = bbox_n[2] - bbox_n[0]
+    
+    badge_total_w = pw + nw + 12
+    badge_x = width - badge_total_w - 60
+    badge_y = height - 270
+
+    # 3D shadow for EP prefix
+    for off in range(9, 0, -1):
+        for dx in range(-off, off + 1):
+            for dy in range(-off, off + 1):
+                draw.text((badge_x + dx, badge_y + dy + 3), prefix_str, fill=(0, 0, 0, 255), font=font_ep_prefix)
+    draw.text((badge_x, badge_y), prefix_str, fill=(255, 255, 255), font=font_ep_prefix)
+
+    # 3D shadow & Golden Yellow for Episode Number
+    num_x = badge_x + pw + 12
+    for off in range(10, 0, -1):
+        for dx in range(-off, off + 1):
+            for dy in range(-off, off + 1):
+                draw.text((num_x + dx, badge_y + dy + 3), num_str, fill=(0, 0, 0, 255), font=font_ep_num)
+    draw.text((num_x, badge_y), num_str, fill=(250, 204, 21), font=font_ep_num)
+
+    # 7. Bottom-Right Scenario Value Tag Pill
+    clean_tag = bottom_tag.replace("🇯🇵 Native Audio •", "").replace("Native Audio •", "").replace("[JLPT N5]", "").strip()
+    full_tag_str = f"🇯🇵 Native Audio • {jlpt_level} {clean_tag}" if clean_tag else f"🇯🇵 Native Audio • {jlpt_level} Trend"
+    
+    font_pill = get_font(28)
     pill_text_bbox = draw.textbbox((0, 0), full_tag_str, font=font_pill)
     tag_w = pill_text_bbox[2] - pill_text_bbox[0]
     
-    bp_w = max(560, tag_w + 80)
-    bp_h = 72
-    bp_x = (width - bp_w) // 2
-    bp_y = height - 120
+    bp_w = tag_w + 64
+    bp_h = 58
+    bp_x = width - bp_w - 60
+    bp_y = height - 100
     
-    # Shadow for bottom pill
-    shadow_bp = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-    draw_sbp = ImageDraw.Draw(shadow_bp)
-    draw_sbp.rounded_rectangle([(bp_x + 3, bp_y + 4), (bp_x + bp_w + 3, bp_y + bp_h + 4)], radius=20, fill=(0, 0, 0, 180))
-    shadow_bp = shadow_bp.filter(ImageFilter.GaussianBlur(6))
-    canvas = Image.alpha_composite(canvas, shadow_bp)
-    draw = ImageDraw.Draw(canvas)
-    
-    draw.rounded_rectangle([(bp_x, bp_y), (bp_x + bp_w, bp_y + bp_h)], radius=20, fill=(24, 32, 47, 240), outline=(245, 158, 11), width=3)
+    draw.rounded_rectangle([(bp_x, bp_y), (bp_x + bp_w, bp_y + bp_h)], radius=20, fill=(18, 25, 42, 240), outline=(255, 255, 255), width=2)
     text_x = bp_x + (bp_w - tag_w) // 2
-    draw.text((text_x, bp_y + 17), full_tag_str, fill=(255, 255, 255), font=font_pill)
+    draw.text((text_x, bp_y + 14), full_tag_str, fill=(255, 255, 255), font=font_pill)
 
-    # 7. Convert and Save Output
+    # 8. Convert and Save Output
     final_img = canvas.convert("RGB")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     final_img.save(output_path, "JPEG", quality=95)
+    print(f"✓ Master 16:9 Long-Form Thumbnail generated: {output_path}")
     print(f"✓ Master 16:9 Long-Form Thumbnail generated: {output_path}")
 
 # -------------------------------------------------------------------------

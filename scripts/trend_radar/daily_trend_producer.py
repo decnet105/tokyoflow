@@ -701,34 +701,52 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
 # -------------------------------------------------------------------------
 # LLM Editorial Curator (Enforcing 70% JLPT N5 + Pure English Explanations)
 # -------------------------------------------------------------------------
+def get_covered_topics() -> list:
+    """Reads existing release packages to identify all already covered topics and slugs."""
+    releases_dir = os.path.join(PROJECT_ROOT, "docs", "youtube_releases")
+    covered = []
+    if os.path.exists(releases_dir):
+        for item in os.listdir(releases_dir):
+            if item.startswith("E") and "-" in item:
+                covered.append(item)
+    return covered
+
 def curate_single_best_topic(top_candidates: list, date_str: str, next_ep_num: int) -> dict:
+    covered_episodes = get_covered_topics()
+    covered_str = "\n".join([f"- {ep}" for ep in covered_episodes])
+    
     system_prompt = f"""You are the Senior Executive Producer and Pedagogical Director of 'TokyoFlow Japanese'.
-Your mission is to pick THE SINGLE BEST DAILY TRENDING TOPIC from Japan, prioritizing Playlist 1 (Anime, Manga, Film, TV, Pop Culture & Netizen Buzz), and construct a linked Long-Form Video and Shorts Funnel package.
+Your mission is to pick THE SINGLE BEST DAILY TRENDING TOPIC from today's fresh candidate events, prioritizing Playlist 1 (Anime, Manga, Film, TV, Pop Culture, Entertainment & Netizen Buzz), and construct a linked Long-Form Video and Shorts Funnel package.
+
+### PREVIOUSLY COVERED EPISODES (STRICT ANTI-DUPLICATION RULE):
+The following episodes and topics have ALREADY been produced. You MUST NOT select or repeat any of these topics:
+{covered_str}
+YOU MUST SELECT A COMPLETELY NEW AND DIFFERENT TOPIC FROM TODAY'S FRESH CANDIDATES LIST!
 
 ### AUTHORITATIVE TEXTBOOK PEDAGOGICAL CURRICULUM (Genki I & II / Minna no Nihongo I & II / Shin Kanzen Master):
 1. JLPT N5 (70% Channel Focus - True Beginners / Zero Foundation):
    - Strict Lexicon (~800 core words):
-     * Nouns: 会社 (kaisha), 店 (mise), 駅 (eki), 電車 (densha), 人 (hito), 友だち (tomodachi), 映画 (eiga), アニメ (anime), 水 (mizu), 本 (hon), 今日 (kyou), 明日 (ashita), 日本 (nihon), 東京 (tokyo), 時間 (jikan), お金 (okane).
-     * Verbs: 行く (iku), 来る (kuru), 見る (miru), 食べる (taberu), 飲む (nomu), 買う (kau), 話す (hanasu), 言う (iu), 作る (tsukuru), 使う (tsukau), 知る (shiru), 待つ (matsu), 入る (hairu), 出る (deru).
+     * Nouns: 会社 (kaisha), 店 (mise), 駅 (eki), 電車 (densha), 人 (hito), 友だち (tomodachi), 映画 (eiga), アニメ (anime), 水 (mizu), 本 (hon), 今日 (kyou), 明日 (ashita), 日本 (nihon), 東京 (tokyo), 時間 (jikan), お金 (okane), 俳優 (haiyuu), ニュース (nyuusu), 会場 (kaijou), 話 (hanashi).
+     * Verbs: 行く (iku), 来る (kuru), 見る (miru), 食べる (taberu), 飲む (nomu), 買う (kau), 話す (hanasu), 言う (iu), 作る (tsukuru), 使う (tsukau), 知る (shiru), 待つ (matsu), 入る (hairu), 出る (deru), 笑う (warau).
      * Adjectives: 新しい (atarashii), 古い (furui), 大きい (ookii), 小さい (chiisai), 高い (takai), 安い (yasui), 面白い (omoshiroi), 好き (suki), 有名 (yuumei).
    - Strict Grammar Patterns:
      * 〜ます / 〜ません / 〜ました (Polite tense)
-     * X を Verb ます (Direct object: アニメを見ます, 新しい店を作りました)
+     * X を Verb ます (Direct object)
      * X に / へ 行きます / 来ます (Destination)
-     * X で Verb ます (Location of action: 東京で作ります, 電車で行きます)
-     * X が あります / います (Existence: 駅の前にサウナがあります)
-     * 〜たいです (Desire: 見に行きたいです)
-     * 〜てください (Polite request: これを見てください)
-     * 〜ています (Action in progress / state: 作っています, 知っています)
+     * X で Verb ます (Location of action: 会場で見ます, 東京で話します)
+     * X が あります / います (Existence)
+     * 〜たいです (Desire)
+     * 〜てください (Polite request)
+     * 〜ています (Action in progress / state)
    - CRITICAL DOWNSCALING RULE:
-     * NEVER use abstract 4-Kanji Sino-Japanese compound words (e.g. Do NOT use 制作会社, 新規事業展開, 業務提携, 開業を発表).
-     * MANDATORY TRANSFORMATION: Convert raw news into pure N5 (e.g., アニメの会社が、新しいサウナを作りました！).
+     * NEVER use abstract 4-Kanji Sino-Japanese compound words in the core spoken phrases.
+     * MANDATORY TRANSFORMATION: Convert the complex news headline into an authentic, accessible N5 sentence (Subject-Object-Verb).
 
 2. JLPT N4 (20% Focus - Upper Beginners):
-   - Key Patterns: 〜んです/のです (curiosity), 〜すぎる (too much), 〜たほうがいい (advice), 〜ので/のに (cause/contrast), 〜つもりです (plans), 〜たら/なら/ば/と (conditionals), 〜てあげる/もらう/くれる (favors), お + verb stem + ください (polite station/store instructions).
+   - Key Patterns: 〜んです/のです (curiosity), 〜すぎる (too much), 〜たほうがいい (advice), 〜ので/のに (cause/contrast), 〜つもりです (plans), 〜たら/なら/ば/と (conditionals), 〜てあげる/もらう/くれる (favors), お + verb stem + ください.
 
 3. JLPT N3 (10% Focus - Intermediate & Netizen Slang):
-   - Key Patterns: 〜わけにはいかない, 〜かねない, 〜を中心に, 〜に基づいて, 〜に比べて, バズる, 炎上する, 神対応, まさかの展開.
+   - Key Patterns: 〜わけにはいかない, 〜かねない, 〜を中心に, 〜に基づいて, 〜に比べて, バズる, 炎上する, 神対応, 天然.
 
 ### EPISODE NUMBERING & TITLE FORMAT CONTRACT:
 - Long-Form Title MUST strictly start with: `[JLPT N5] EP.{next_ep_num:02d} <High-CTR English Title> | Real Japanese Breakdown`
@@ -740,111 +758,98 @@ Your mission is to pick THE SINGLE BEST DAILY TRENDING TOPIC from Japan, priorit
 - ALL on-screen explanations and breakdown subtitles MUST be in English.
 
 ### AUTHENTIC JAPANESE CULTURAL INSIGHT RULE (日本文化小知识):
-- In every long-form video (and metadata), whenever the topic relates to a genuine Japanese cultural phenomenon (e.g. sauna boom / 'Totono'u' ととのう, anime studio collaborative business, izakaya customs, transit etiquette, kombini culture), Andrew MUST explain this cultural insight in English during the breakdown.
+- In every long-form video (and metadata), whenever the topic relates to a genuine Japanese cultural phenomenon (e.g. natural airhead humor '天然/tennen', anime production culture, ryokan tea-money '心付け/kokorozuke' custom, kombini seasonal shifts, train etiquette), Andrew MUST explain this cultural insight in English during the breakdown.
 - STRICT AUTHENTICITY MANDATE: ONLY explain genuine, verifiable Japanese cultural facts. Never hallucinate or fabricate cultural lore. If there is no specific cultural background for the event, gracefully focus on practical daily conversational nuances.
 
 Return strict, valid JSON with this exact schema:
 {{
   "date": "{date_str}",
   "ep_num": {next_ep_num},
-  "slug": "anime_sauna_trend",
-  "topic_title": "Anime Studio Opens Real Sauna",
+  "slug": "<short_english_slug_under_25_chars>",
+  "topic_title": "<Concise English Topic Title>",
   "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
   "target_jlpt_level": "JLPT N5",
   "district": "Tokyo Pop Culture",
-  "dramatic_hook": "Why fans are shocked by this anime company opening a sauna",
+  "dramatic_hook": "<1 sentence hook on why fans or viewers are talking about this>",
   "long_form": {{
-    "yt_title": "[JLPT N5] EP.{next_ep_num:02d} Anime Company Made a Real Sauna in Tokyo! | Real Japanese Breakdown",
-    "english_hook": "ANIME STUDIO SAUNA",
-    "japanese_key_phrase": "アニメの会社がサウナを作った！",
+    "yt_title": "[JLPT N5] EP.{next_ep_num:02d} <High-CTR English Title> | Real Japanese Breakdown",
+    "english_hook": "<2-3 WORDS PUNCHY UPPERCASE HOOK>",
+    "japanese_key_phrase": "<Short Downscaled N5 Key Phrase with Kanji/Kana>",
     "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
-    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\\n\\nTIMESTAMPS AND CHAPTERS:\\n00:00 - 01. Breaking Trend Immersion\\n00:06 - 02. Vocabulary & Grammar Breakdown\\n00:45 - 03. Situational Practice Drill\\n00:52 - 04. Shadowing Drill & Outro\\n\\nKEY PHRASES COVERED:\\n- アニメの会社 (anime no kaisha) = Anime company\\n- 新しいサウナを作りました (atarashii sauna o tsukurimashita) = Made a new sauna\\n\\nRECOMMENDED PRACTICE:\\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\\n\\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\\n\\nTIMESTAMPS AND CHAPTERS:\\n00:00 - 01. Breaking Trend Immersion\\n00:06 - 02. Vocabulary & Grammar Breakdown\\n00:45 - 03. Situational Practice Drill\\n00:52 - 04. Shadowing Drill & Outro\\n\\nKEY PHRASES COVERED:\\n- <Phrase 1>\\n- <Phrase 2>\\n\\nRECOMMENDED PRACTICE:\\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\\n\\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
     "tags": ["LearnJapanese", "TokyoFlow", "JLPTN5", "AnimeJapanese", "JapaneseShadowing", "TokyoPopCulture"],
     "slides": [
       {{
         "type": "follow_along",
         "chapter": "01. Breaking Trend Immersion",
-        "spoken_text": "アニメの会社が、新しいサウナを作りました！",
-        "en": "An anime company has made a brand new sauna!",
-        "tip": "'' (tsukurimashita) is the past polite form of the N5 verb 'tsukuru' (to make).",
+        "spoken_text": "<Full Japanese sentence for Scene 1>",
+        "en": "<English translation of Scene 1>",
+        "tip": "<Grammar / usage tip in English>",
         "tokens": [
-          {{"orig": "アニメの", "kana": "あにめの", "romaji": "anime no", "pos": "Noun + Part.", "meaning": "Anime's"}},
-          {{"orig": "会社が", "kana": "かいしゃが", "romaji": "kaisha ga", "pos": "Noun + Part.", "meaning": "Company"}},
-          {{"orig": "新しい", "kana": "あたらしい", "romaji": "atarashii", "pos": "Adjective", "meaning": "New"}},
-          {{"orig": "サウナを", "kana": "さうなを", "romaji": "sauna o", "pos": "Noun + Part.", "meaning": "Sauna"}},
-          {{"orig": "作りました！", "kana": "つくりました！", "romaji": "tsukurimashita!", "pos": "Polite Verb", "meaning": "Made!"}}
+          {{"orig": "<Token>", "kana": "<Kana>", "romaji": "<Romaji>", "pos": "<POS>", "meaning": "<English Meaning>"}}
         ]
       }},
       {{
-        "type": "breakdown",
-        "chapter": "02. Studio Sauna Breakdown",
-        "sentence_ja": "アニメの会社が新しいサウナを作りました！",
-        "vocab": [
-          {{"orig": "アニメ", "kana": "あにめ", "romaji": "anime", "pos": "Noun", "meaning": "Anime / Animation"}},
-          {{"orig": "会社", "kana": "かいしゃ", "romaji": "kaisha", "pos": "Noun", "meaning": "Company (N5)"}},
-          {{"orig": "新しい", "kana": "あたらしい", "romaji": "atarashii", "pos": "Adjective", "meaning": "New (N5)"}},
-          {{"orig": "作る", "kana": "つくる", "romaji": "tsukuru", "pos": "Verb", "meaning": "To make / build (N5)"}}
+        "type": "breakdown_teamwork",
+        "chapter": "02. Breakdown & Cultural Insight",
+        "words": [
+          {{"orig": "<Word 1>", "kana": "<Kana 1>", "romaji": "<Romaji 1>", "pos": "Noun", "meaning": "<English Meaning 1>"}},
+          {{"orig": "<Word 2>", "kana": "<Kana 2>", "romaji": "<Romaji 2>", "pos": "Verb", "meaning": "<English Meaning 2>"}},
+          {{"orig": "<Word 3>", "kana": "<Kana 3>", "romaji": "<Romaji 3>", "pos": "Adjective", "meaning": "<English Meaning 3>"}}
         ],
-        "grammar_title": "JLPT N5 Past Tense Formula: 〜を作りました (Made something)",
-        "grammar_bullets": [
-          ["1. Direct Object Particle ():", "Marks the item being created or purchased in N5."],
-          ["2. Polite Past Tense ():", "Converts the dictionary verb 'tsukuru' into polite past 'tsukurimashita'."],
-          ["3. Essential N5 Modifier:", "新しい (atarashii) directly modifies the noun サウナ (new sauna)."],
-          ["4. Daily Life Scenario:", "Locals say '新しい店を作りました' when announcing a new opening!"]
-        ],
-        "teamwork_cues": [
-          {{"speaker": "en", "text": "Let's break down the core N5 vocabulary and grammar."}},
-          {{"speaker": "ja", "text": "アニメ", "card_idx": 0}},
-          {{"speaker": "en", "text": "Noun: Anime or animation.", "card_idx": 0}},
-          {{"speaker": "ja", "text": "会社", "card_idx": 1}},
-          {{"speaker": "en", "text": "Company. High-frequency JLPT N5 noun.", "card_idx": 1}},
-          {{"speaker": "ja", "text": "新しい", "card_idx": 2}},
-          {{"speaker": "en", "text": "Adjective: new.", "card_idx": 2}},
-          {{"speaker": "ja", "text": "作る", "card_idx": 3}},
-          {{"speaker": "en", "text": "Verb: to make or create.", "card_idx": 3}},
-          {{"speaker": "en", "text": "Grammar spotlight: Direct object particle O plus tsukurimashita.", "is_spotlight": true}},
-          {{"speaker": "ja", "text": "新しいサウナを作りました！", "is_spotlight": true}},
-          {{"speaker": "en", "text": "Made a new sauna. This is the fundamental N5 pattern for completed actions.", "is_spotlight": true}}
+        "grammar": {{
+          "title": "<Grammar / Cultural Insight Title>",
+          "bullets": [
+            ["1. Core JLPT Pattern:", "<Explanation in English>"],
+            ["2. Tokyo Cultural Insight:", "<Authentic explanation of Japanese cultural context in English>"],
+            ["3. Practical Daily Life:", "<How locals use this in Tokyo>"]
+          ]
+        }},
+        "audio_cues": [
+          {{"speaker": "en", "text": "Let's break down today's key words and cultural nuance."}},
+          {{"speaker": "ja", "text": "<Word 1>", "card_idx": 0}},
+          {{"speaker": "en", "text": "<English explanation of Word 1>", "card_idx": 0}},
+          {{"speaker": "ja", "text": "<Word 2>", "card_idx": 1}},
+          {{"speaker": "en", "text": "<English explanation of Word 2>", "card_idx": 1}},
+          {{"speaker": "ja", "text": "<Word 3>", "card_idx": 2}},
+          {{"speaker": "en", "text": "<English explanation of Word 3>", "card_idx": 2}},
+          {{"speaker": "en", "text": "<English explanation of the grammar and cultural insight>", "is_spotlight": true}},
+          {{"speaker": "ja", "text": "<Full Japanese sentence>", "is_spotlight": true}},
+          {{"speaker": "en", "text": "<Concluding tip and encouragement in English>", "is_spotlight": true}}
         ]
       }},
       {{
         "type": "follow_along",
-        "chapter": "03. Fan Reaction Drill",
-        "spoken_text": "みんな「とても面白い！」と言っています。",
-        "en": "Everyone is saying: 'It is super interesting!'",
-        "tip": "'' (to itte imasu) is the N5 quotative pattern for 'saying that'.",
+        "chapter": "03. Fan & Audience Reaction",
+        "spoken_text": "<Full Japanese sentence for Scene 2>",
+        "en": "<English translation of Scene 2>",
+        "tip": "<Quotation or reaction pattern tip>",
         "tokens": [
-          {{"orig": "みんな", "kana": "みんな", "romaji": "minna", "pos": "Noun", "meaning": "Everyone"}},
-          {{"orig": "とても", "kana": "とても", "romaji": "totemo", "pos": "Adverb", "meaning": "Very"}},
-          {{"orig": "面白い！と", "kana": "おもしろい！と", "romaji": "omoshiroi! to", "pos": "Adj. + Part.", "meaning": "Interesting! (Quote)"}},
-          {{"orig": "言っています", "kana": "いっています", "romaji": "itte imasu", "pos": "Polite Verb", "meaning": "Is saying"}}
+          {{"orig": "<Token>", "kana": "<Kana>", "romaji": "<Romaji>", "pos": "<POS>", "meaning": "<English Meaning>"}}
         ]
       }}
     ]
   }},
   "shorts": {{
-    "yt_short_title": "[JLPT N5] SH.{next_ep_num:02d} Anime Studio Made a SAUNA in Tokyo?! #Shorts #LearnJapanese",
-    "hook_title": "ANIME STUDIO OPENS\\nREAL SAUNA IN TOKYO!",
-    "hook_audio_en": "You won't believe what this Japanese anime company just built in Tokyo. Let's master the headline in JLPT N5 Japanese!",
-    "jp_sentence": "アニメの会社がサウナを作った！",
-    "kana_sentence": "あにめのかいしゃがさうなをつくった！",
-    "romaji_sentence": "Anime no kaisha ga sauna o tsukutta!",
-    "en_translation": "The anime company made a sauna!",
+    "yt_short_title": "[JLPT N5] SH.{next_ep_num:02d} <High-Impact Short Title>! #Shorts #LearnJapanese",
+    "hook_title": "<LINE 1 HOOK>\\n<LINE 2 HOOK>",
+    "hook_audio_en": "<1-2 sentence compelling English hook voiced by Andrew>",
+    "jp_sentence": "<One punchy N5 Japanese sentence>",
+    "kana_sentence": "<Kana reading>",
+    "romaji_sentence": "<Romaji>",
+    "en_translation": "<English translation>",
     "tokens": [
-      {{"orig": "アニメの", "kana": "あにめの", "romaji": "anime no", "meaning": "Anime's"}},
-      {{"orig": "会社が", "kana": "かいしゃが", "romaji": "kaisha ga", "meaning": "Company"}},
-      {{"orig": "サウナを", "kana": "さうなを", "romaji": "sauna o", "meaning": "Sauna"}},
-      {{"orig": "作った！", "kana": "つくった！", "romaji": "tsukutta!", "meaning": "Made!"}}
+      {{"orig": "<Token>", "kana": "<Kana>", "romaji": "<Romaji>", "meaning": "<Meaning>"}}
     ],
     "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
-    "pro_tip_body": "'' (tsukutta) is the casual past form of the N5 verb '' (tsukuru - to make). Perfect for sharing breaking news with friends!",
-    "pro_tip_audio_en": "Notice tsukutta. It is the casual past form of tsukuru, to make. Perfect for sharing news!",
-    "interactive_poll": "What should anime studios make next? A: Theme Cafe B: Hot Spring Onsen",
-    "pinned_comment": "👉 Full Deep-Dive Video Available Now! Click the linked video above for netizen reactions & grammar drill!\\n🔥 Poll: What should anime studios make next? A: Theme Cafe B: Hot Spring Onsen\\n📱 Download TokyoFlow App on iOS for real-time speech pitch scoring!"
+    "pro_tip_body": "<Clear English explanation of grammar and cultural rule>",
+    "pro_tip_audio_en": "<Andrew English voice explaining rule>",
+    "interactive_poll": "<A vs B poll question for viewers>",
+    "pinned_comment": "Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!\\nPoll: <Poll question> A: <Option A> B: <Option B>\\nDownload TokyoFlow App on iOS for real-time speech pitch scoring!"
   }}
 }}
 """
-    user_prompt = f"Date: {date_str}\nNext Episode Number: {next_ep_num}\n\nTop Scored Candidates:\n{json.dumps(top_candidates[:10], ensure_ascii=False, indent=2)}"
+    user_prompt = f"Date: {date_str}\nNext Episode Number: {next_ep_num}\n\nTop Scored Candidates for Today:\n{json.dumps(top_candidates[:12], ensure_ascii=False, indent=2)}\n\nPlease pick the best trending entertainment/pop culture candidate from today's list (excluding already covered topics), and output the complete JSON specification."
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt}
