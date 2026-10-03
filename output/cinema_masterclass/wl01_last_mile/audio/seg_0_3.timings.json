@@ -1,0 +1,33 @@
+{
+  "target_ja_dur": 4.152,
+  "target_en_dur": 5.616,
+  "target_end": 9.768,
+  "vocab_timings": [
+    {
+      "idx": 0,
+      "start": 9.768,
+      "ja_end": 12.192,
+      "end": 14.064
+    },
+    {
+      "idx": 1,
+      "start": 14.064,
+      "ja_end": 15.936,
+      "end": 17.808
+    },
+    {
+      "idx": 2,
+      "start": 17.808,
+      "ja_end": 20.328,
+      "end": 22.2
+    },
+    {
+      "idx": 3,
+      "start": 22.2,
+      "ja_end": 24.144,
+      "end": 26.016
+    }
+  ],
+  "spotlight_start": 26.016,
+  "total_duration": 43.104
+}

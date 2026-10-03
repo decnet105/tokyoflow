@@ -1,0 +1,27 @@
+{
+  "release_date": "2026-10-03",
+  "series_type": "weekend_cinema_masterclass",
+  "episode_code": "WL.01",
+  "shorts_funnel_code": "WS.01",
+  "folder_name": "WL01-last-mile-masterclass-v1.0",
+  "topic": "Last Mile (ラストマイル) Full Cinema Breakdown",
+  "jlpt_difficulty": "JLPT N5-N2",
+  "playlist": "Playlist: Japanese Cinema Masterclass & JLPT N3",
+  "scheduled_times": {
+    "long_form_video": "2026-10-03 17:00:00 EST",
+    "shorts_video": "2026-10-03 17:00:00 EST"
+  },
+  "long_form_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WL01-last-mile-masterclass-v1.0/video.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WL01-last-mile-masterclass-v1.0/thumbnail.jpg",
+    "title": "[JLPT N5-N2] WL.01 Last Mile (ラストマイル) Full Breakdown | Learn Real Japanese Through Cinema",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WL01-last-mile-masterclass-v1.0/metadata.md"
+  },
+  "shorts_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WL01-last-mile-masterclass-v1.0/short.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WL01-last-mile-masterclass-v1.0/short_thumbnail.jpg",
+    "title": "[JLPT N3] WS.01 2.7m/s OR DIE? The Darkest Phrase in Japanese Cinema #Shorts #LearnJapanese",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WL01-last-mile-masterclass-v1.0/short_metadata.md",
+    "interactive_poll": "If you were the warehouse director, would you stop the belt? A: Stop immediately B: Keep shipping"
+  }
+}

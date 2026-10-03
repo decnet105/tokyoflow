@@ -1238,7 +1238,8 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
         "accent_color": accent_col,
         "secondary_color": sec_col,
         "location": f"TOKYO POP CULTURE • {jlpt_level}",
-        "jlpt_level": jlpt_level
+        "jlpt_level": jlpt_level,
+        "bg_image_path": news_bg_image
     }
     cover_img = create_shorts_cover(shorts_cover_dict)
     cover_img.save(short_thumb_official, "JPEG", quality=95)

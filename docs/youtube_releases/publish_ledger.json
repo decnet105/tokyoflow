@@ -167,6 +167,22 @@
       "publish_at_est": "2026-10-07T17:00:00-04:00",
       "uploaded_at": "2026-10-03T08:02:33.817120-04:00",
       "is_short": true
+    },
+    "WL01-last-mile-masterclass-v1.0_video": {
+      "video_id": "-KFRtoLDNVU",
+      "video_url": "https://youtu.be/-KFRtoLDNVU",
+      "title": "[JLPT N5-N2] WL.01 Last Mile () Full Breakdown | Learn Real Japanese Through Cinema",
+      "publish_at_est": "2026-10-03T17:00:00-04:00",
+      "uploaded_at": "2026-10-03T10:49:59.550893-04:00",
+      "is_short": false
+    },
+    "WL01-last-mile-masterclass-v1.0_short": {
+      "video_id": "NWe3LKOFmz8",
+      "video_url": "https://youtu.be/NWe3LKOFmz8",
+      "title": "2.7m/s OR DIE? The Darkest Phrase in Japanese Cinema (Last Mile) #Shorts",
+      "publish_at_est": "2026-10-03T17:00:00-04:00",
+      "uploaded_at": "2026-10-03T10:50:06.587442-04:00",
+      "is_short": true
     }
   }
 }

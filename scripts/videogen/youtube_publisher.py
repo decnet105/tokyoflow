@@ -325,6 +325,10 @@ EXPLICIT_SCHEDULE_PLAN = {
     "E07-Ramen_Ticket_Vending-v1.0_short": datetime(2026, 10, 2, 8, 0, 0, tzinfo=EST_TZ),
     "E08-Ginza_TaxFree_Shopping-v1.0_video": datetime(2026, 10, 2, 17, 0, 0, tzinfo=EST_TZ),
     "E08-Ginza_TaxFree_Shopping-v1.0_short": datetime(2026, 10, 2, 17, 0, 0, tzinfo=EST_TZ),
+    
+    # 2026-10-03 (Sat) Weekend Japanese Cinema Masterclass WL.01 Launch (5:00 PM EST)
+    "WL01-last-mile-masterclass-v1.0_video": datetime(2026, 10, 3, 17, 0, 0, tzinfo=EST_TZ),
+    "WL01-last-mile-masterclass-v1.0_short": datetime(2026, 10, 3, 17, 0, 0, tzinfo=EST_TZ),
 }
 
 def get_slot_for_asset(asset_key: str, ledger: dict, is_compilation: bool = False) -> datetime:
@@ -339,7 +343,7 @@ def process_releases(dry_run: bool = False, episode_filter: str = None):
     creds = None if dry_run else get_authenticated_service()
     youtube = None if dry_run else build("youtube", "v3", credentials=creds)
     
-    release_dirs = sorted([d for d in RELEASES_DIR.iterdir() if d.is_dir() and d.name.startswith("E")])
+    release_dirs = sorted([d for d in RELEASES_DIR.iterdir() if d.is_dir() and (d.name.startswith("E") or d.name.startswith("WL"))])
     
     print(f"\n==================================================")
     print(f" TokyoFlow Master Release & Scheduler Pipeline")

@@ -13,6 +13,7 @@ Automated end-to-end production engine for 25-minute bilingual cinematic deep-di
 
 import os
 import sys
+import re
 import glob
 import json
 import asyncio
@@ -953,6 +954,21 @@ High contrast, dynamic cinematic lighting, depth of field, 8k resolution, movie 
 # AUDIO SYNTHESIS ENGINE (Anti-Pop, Normalized)
 # ==========================================
 
+def normalize_speech_text(text: str, lang: str = "en") -> str:
+    """Normalizes abbreviations like JLPT N1..N5 for crystal-clear letter-N TTS articulation."""
+    if not text:
+        return ""
+    if lang == "en":
+        # Avoid 'JLPT' + 'N' consonant collision (which sounds like 'JLPTin') by articulating 'JLPT Level N 3'
+        text = re.sub(r'JLPT\s*N([1-5])\s*to\s*N([1-5])', r'JLPT Level N \1 to Level N \2', text, flags=re.IGNORECASE)
+        text = re.sub(r'JLPT\s*N([1-5])', r'JLPT Level N \1', text, flags=re.IGNORECASE)
+        text = re.sub(r'\bN([1-5])\b', r'N \1', text)
+        text = text.replace("Level Level", "Level").replace(",,", ",").replace("  ", " ").strip()
+    elif lang == "ja":
+        # In Japanese audio, N1-N5 is spoken as エヌ (Enu)
+        text = re.sub(r'\bN([1-5])\b', r'エヌ\1', text)
+    return text
+
 async def synthesize_all_audio_tracks(output_dir: str):
     """Synthesizes high-fidelity dual-language audio files with 44.1kHz stereo normalization and rich multi-voice breakdown."""
     audio_dir = os.path.join(output_dir, "audio")
@@ -993,7 +1009,8 @@ async def synthesize_all_audio_tracks(output_dir: str):
                     meaning = "Elena states the core operational principle."
                 
                 tmp_target_en = out_file + ".t_en.raw.mp3"
-                comm_en_sent = edge_tts.Communicate(f"Translation: {meaning}", "en-US-AndrewNeural", rate="+3%", pitch="+0Hz")
+                spoken_trans = normalize_speech_text(f"Translation: {meaning}", "en")
+                comm_en_sent = edge_tts.Communicate(spoken_trans, "en-US-AndrewNeural", rate="+3%", pitch="+0Hz")
                 await comm_en_sent.save(tmp_target_en)
                 dur_target_en = get_audio_duration(tmp_target_en)
                 audio_parts.append(tmp_target_en)
@@ -1010,7 +1027,8 @@ async def synthesize_all_audio_tracks(output_dir: str):
                     await edge_tts.Communicate(v.get("orig", ""), "ja-JP-NanamiNeural", rate="-14%", pitch="+2Hz").save(v_ja_file)
                     v_ja_dur = get_audio_duration(v_ja_file)
                     
-                    await edge_tts.Communicate(v.get("meaning", ""), "en-US-AndrewNeural", rate="+3%", pitch="+0Hz").save(v_en_file)
+                    spoken_meaning = normalize_speech_text(v.get("meaning", ""), "en")
+                    await edge_tts.Communicate(spoken_meaning, "en-US-AndrewNeural", rate="+3%", pitch="+0Hz").save(v_en_file)
                     v_en_dur = get_audio_duration(v_en_file)
                     
                     vocab_timings.append({
@@ -1026,7 +1044,8 @@ async def synthesize_all_audio_tracks(output_dir: str):
                 # Part 3: Grammar & Culture Spotlight
                 spotlight_start = cur_timestamp
                 tmp_spot_en = out_file + ".spot.raw.mp3"
-                comm_spot = edge_tts.Communicate(seg.get("content", ""), "en-US-AndrewNeural", rate="+2%", pitch="+0Hz")
+                spoken_spot = normalize_speech_text(seg.get("content", ""), "en")
+                comm_spot = edge_tts.Communicate(spoken_spot, "en-US-AndrewNeural", rate="+2%", pitch="+0Hz")
                 await comm_spot.save(tmp_spot_en)
                 dur_spot = get_audio_duration(tmp_spot_en)
                 audio_parts.append(tmp_spot_en)
@@ -1069,7 +1088,8 @@ async def synthesize_all_audio_tracks(output_dir: str):
                 print(f"   Normalized Full Dual-Voice Breakdown [JA+EN Multi-Voice]: {os.path.basename(out_file)} ({spotlight_start + dur_spot:.1f}s)")
             else:
                 voice = seg.get("voice", "en-US-AndrewNeural")
-                text = seg.get("content", "")
+                raw_text = seg.get("content", "")
+                text = normalize_speech_text(raw_text, seg.get("lang", "en"))
                 
                 # Strict pacing: Slower Japanese for crystal-clear learning
                 if seg.get("lang") == "ja":
@@ -1816,7 +1836,6 @@ def render_full_master_video(output_dir: str):
 
     final_master_mp4 = os.path.join(output_dir, "last_mile_cinema_masterclass_full.mp4")
     published_mp4 = "output/videos/tokyoflow_cinema_wl01_last_mile.mp4"
-    published_legacy_mp4 = "output/videos/tokyoflow_cinema_ep01_last_mile.mp4"
 
     print(f"\n Concatenating {len(segment_mp4s)} Full-Motion Smooth clips into Final Master Video...")
     cmd_concat = [
@@ -1830,16 +1849,6 @@ def render_full_master_video(output_dir: str):
 
     import shutil
     shutil.copyfile(final_master_mp4, published_mp4)
-    shutil.copyfile(final_master_mp4, published_legacy_mp4)
-
-    # Also mirror deliverables to legacy ep01_last_mile directory safely
-    mirror_dir = "output/cinema_masterclass/ep01_last_mile"
-    os.makedirs(mirror_dir, exist_ok=True)
-    for fname in os.listdir(output_dir):
-        src_p = os.path.join(output_dir, fname)
-        dst_p = os.path.join(mirror_dir, fname)
-        if os.path.isfile(src_p) and os.path.abspath(src_p) != os.path.abspath(dst_p):
-            shutil.copyfile(src_p, dst_p)
 
     print(f" Master 1080p Cinema Video Ready: {final_master_mp4}")
     print(f" Channel Publish Video Ready: {published_mp4}")
@@ -1857,25 +1866,19 @@ async def main_async():
 
     output_dir = "output/cinema_masterclass/wl01_last_mile"
     os.makedirs(output_dir, exist_ok=True)
-    legacy_dir = "output/cinema_masterclass/ep01_last_mile"
-    os.makedirs(legacy_dir, exist_ok=True)
 
     # 1. Build Machine-Readable Spec
     build_production_spec(output_dir)
-    build_production_spec(legacy_dir)
 
     # 2. Build Fountain & JSON Screenplays
     build_script_json_and_fountain(output_dir)
-    build_script_json_and_fountain(legacy_dir)
 
     # 3. Build Zero-Emoji Metadata & 25 SEO Tags
     build_metadata_md(output_dir)
-    build_metadata_md(legacy_dir)
 
     # 4. Build 16:9 4K Master Thumbnail Prompt & Graphic
     build_thumbnail_prompt_md(output_dir)
     render_master_thumbnail(output_dir)
-    render_master_thumbnail(legacy_dir)
 
     # 5. Synthesize Dual-Voice Audio Assets (Slower JA, Anti-Pop)
     await synthesize_all_audio_tracks(output_dir)

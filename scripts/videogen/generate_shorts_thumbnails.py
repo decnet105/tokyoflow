@@ -134,6 +134,34 @@ SHORTS_CONFIG = [
         "secondary_color": (250, 204, 21),  # Solar Sauna Yellow
         "location": "TOKYO ANIME STUDIO • SAUNA",
         "jlpt_level": "JLPT N5"
+    },
+    {
+        "ep_num": 10,
+        "sh_code": "SH.10",
+        "folder": "E10-ayase_haruka_tennen-v1.0",
+        "hook_main": "AYASE HARUKA",
+        "hook_sub": "NATURAL AIRHEAD CHARM",
+        "jp_phrase": "綾瀬はるかが会場で笑わせました",
+        "romaji": "Ayase Haruka ga kaijou de warawasemashita",
+        "en_meaning": "Ayase Haruka Made Audience Laugh",
+        "accent_color": (236, 72, 153),     # Celebrity Pink
+        "secondary_color": (250, 204, 21),  # Golden Yellow
+        "location": "TOKYO MOVIE PREMIERE • JLPT",
+        "jlpt_level": "JLPT N5"
+    },
+    {
+        "ep_num": 11,
+        "sh_code": "SH.11",
+        "folder": "E11-shabuya-robot-drama-v1.0",
+        "hook_main": "ROBOT WAITER",
+        "hook_sub": "SHABU-YA RESTAURANT DRAMA",
+        "jp_phrase": "ロボットが料理を運びます",
+        "romaji": "Robotto ga ryouri o hakobimasu",
+        "en_meaning": "Robot Brings Food To Tables",
+        "accent_color": (236, 72, 153),     # Tech Pop Magenta
+        "secondary_color": (250, 204, 21),  # Cyber Yellow
+        "location": "TOKYO SHABU-SHABU • JLPT",
+        "jlpt_level": "JLPT N5"
     }
 ]
 
@@ -142,6 +170,11 @@ def create_shorts_cover(item: dict) -> Image.Image:
     accent = item.get("accent_color", (236, 72, 153))
     sec = item.get("secondary_color", (250, 204, 21))
     bg_image_path = item.get("bg_image_path", "")
+    
+    if not bg_image_path and item.get("folder"):
+        cand = RELEASES_DIR / item["folder"] / "news_bg.jpg"
+        if cand.exists():
+            bg_image_path = str(cand)
 
     # 1. Background Setup: Real Photo or Cyber Navy Base
     if bg_image_path and os.path.exists(bg_image_path):
