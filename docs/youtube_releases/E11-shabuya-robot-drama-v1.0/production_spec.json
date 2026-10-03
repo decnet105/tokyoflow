@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-03",
+  "ep_num": 11,
+  "slug": "shabuya-robot-drama",
+  "topic_title": "Shabu-ya Robot Drama",
+  "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "target_jlpt_level": "JLPT N5",
+  "district": "Tokyo Pop Culture",
+  "dramatic_hook": "Shabu-ya's serving robots spark a viral debate as customers snatch each other's meals!",
+  "news_broadcast": {
+    "headline_ja": "【速報】しゃぶ葉の配膳ロボで「横取り」問題再燃",
+    "anchor_speech_ja": "しゃぶしゃぶチェーン店「しゃぶ葉」で、配膳ロボットが運ぶ料理を他の客が取る問題が再び話題に。SNSでの投稿が相次いでいます。",
+    "location_tag": "TOKYO POP CULTURE"
+  },
+  "long_form": {
+    "yt_title": "[JLPT N5] EP.11 Shabu-ya Robot Drama | Real Japanese Breakdown",
+    "english_hook": "ROBOT DRAMA",
+    "japanese_key_phrase": "ロボットが料理を運びます",
+    "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\n\nTIMESTAMPS AND CHAPTERS:\n00:00 - 01. Breaking Trend Immersion\n00:06 - 02. Vocabulary & Grammar Breakdown\n00:45 - 03. Situational Practice Drill\n00:52 - 04. Shadowing Drill & Outro\n\nKEY PHRASES COVERED:\n- ロボットが料理を運びます\n- 他の客が料理を取ります\n\nRECOMMENDED PRACTICE:\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\n\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "tags": [
+      "LearnJapanese",
+      "TokyoFlow",
+      "JLPTN5",
+      "AnimeJapanese",
+      "JapaneseShadowing",
+      "TokyoPopCulture"
+    ],
+    "slides": [
+      {
+        "type": "follow_along",
+        "chapter": "01. Breaking Trend Immersion",
+        "spoken_text": "しゃぶ葉のロボットが料理を運びます。",
+        "en": "The robot at Shabu-ya delivers meals.",
+        "tip": "Use 'が' to indicate the subject performing the action.",
+        "tokens": [
+          {
+            "orig": "ロボット",
+            "kana": "ロボット",
+            "romaji": "robotto",
+            "pos": "Noun",
+            "meaning": "robot"
+          },
+          {
+            "orig": "料理",
+            "kana": "りょうり",
+            "romaji": "ryouri",
+            "pos": "Noun",
+            "meaning": "meal"
+          },
+          {
+            "orig": "運びます",
+            "kana": "はこびます",
+            "romaji": "hakobimasu",
+            "pos": "Verb",
+            "meaning": "deliver"
+          }
+        ]
+      },
+      {
+        "type": "breakdown_teamwork",
+        "chapter": "02. Breakdown & Cultural Insight",
+        "words": [
+          {
+            "orig": "横取り",
+            "kana": "よこどり",
+            "romaji": "yokodori",
+            "pos": "Noun",
+            "meaning": "snatching"
+          },
+          {
+            "orig": "問題",
+            "kana": "もんだい",
+            "romaji": "mondai",
+            "pos": "Noun",
+            "meaning": "problem"
+          },
+          {
+            "orig": "再燃",
+            "kana": "さいねん",
+            "romaji": "sainen",
+            "pos": "Verb",
+            "meaning": "rekindle"
+          }
+        ],
+        "grammar": {
+          "title": "Subject-Object-Verb Structure",
+          "bullets": [
+            [
+              "1. Core JLPT Pattern:",
+              "Subject が Object を Verb ます"
+            ],
+            [
+              "2. Tokyo Cultural Insight:",
+              "In Japan, using robots in restaurants is becoming a trend to enhance customer experience."
+            ],
+            [
+              "3. Practical Daily Life:",
+              "You might see robots in various roles, from serving food to cleaning."
+            ]
+          ]
+        },
+        "audio_cues": [
+          {
+            "speaker": "en",
+            "text": "Let's break down today's key words and cultural nuance."
+          },
+          {
+            "speaker": "ja",
+            "text": "横取り",
+            "card_idx": 0
+          },
+          {
+            "speaker": "en",
+            "text": "Snatching, often used in contexts of taking something unfairly.",
+            "card_idx": 0
+          },
+          {
+            "speaker": "ja",
+            "text": "問題",
+            "card_idx": 1
+          },
+          {
+            "speaker": "en",
+            "text": "Problem, a common word in discussing issues.",
+            "card_idx": 1
+          },
+          {
+            "speaker": "ja",
+            "text": "再燃",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Rekindle, used when an issue resurfaces.",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "In Japan, using robots in restaurants is becoming a trend to enhance customer experience.",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "ja",
+            "text": "しゃぶ葉のロボットが料理を運びます。",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "en",
+            "text": "Keep practicing and you'll master these phrases in no time!",
+            "is_spotlight": true
+          }
+        ]
+      },
+      {
+        "type": "follow_along",
+        "chapter": "03. Fan & Audience Reaction",
+        "spoken_text": "他の客が料理を取ります。",
+        "en": "Another customer takes the meal.",
+        "tip": "Use '他の' to indicate 'another' or 'other'.",
+        "tokens": [
+          {
+            "orig": "他の",
+            "kana": "ほかの",
+            "romaji": "hokano",
+            "pos": "Adjective",
+            "meaning": "other"
+          },
+          {
+            "orig": "客",
+            "kana": "きゃく",
+            "romaji": "kyaku",
+            "pos": "Noun",
+            "meaning": "customer"
+          },
+          {
+            "orig": "取ります",
+            "kana": "とります",
+            "romaji": "torimasu",
+            "pos": "Verb",
+            "meaning": "take"
+          }
+        ]
+      }
+    ]
+  },
+  "shorts": {
+    "yt_short_title": "[JLPT N5] SH.11 Shabu-ya Robot Drama! #Shorts #LearnJapanese",
+    "hook_title": "ROBOT DRAMA\nAT SHABU-YA!",
+    "hook_audio_en": "Discover the viral robot drama at Shabu-ya! Learn how to talk about it in Japanese.",
+    "jp_sentence": "しゃぶ葉のロボットが料理を運びます。",
+    "kana_sentence": "しゃぶようのロボットがりょうりをはこびます。",
+    "romaji_sentence": "Shabu-ya no robotto ga ryouri o hakobimasu.",
+    "en_translation": "The robot at Shabu-ya delivers meals.",
+    "tokens": [
+      {
+        "orig": "ロボット",
+        "kana": "ロボット",
+        "romaji": "robotto",
+        "meaning": "robot"
+      },
+      {
+        "orig": "料理",
+        "kana": "りょうり",
+        "romaji": "ryouri",
+        "meaning": "meal"
+      },
+      {
+        "orig": "運びます",
+        "kana": "はこびます",
+        "romaji": "hakobimasu",
+        "meaning": "deliver"
+      }
+    ],
+    "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
+    "pro_tip_body": "In Japanese, subject-object-verb order is key. Use 'が' for the subject and 'を' for the object.",
+    "pro_tip_audio_en": "In Japanese, subject-object-verb order is key. Use 'ga' for the subject and 'o' for the object.",
+    "interactive_poll": "Would you trust a robot to serve your meal? A: Yes B: No",
+    "pinned_comment": "Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!\nPoll: Would you trust a robot to serve your meal? A: Yes B: No\nDownload TokyoFlow App on iOS for real-time speech pitch scoring!"
+  }
+}

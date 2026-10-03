@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-02",
+  "ep_num": 10,
+  "slug": "ayase_haruka_tennen",
+  "topic_title": "Ayase Haruka's Natural Charm",
+  "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "target_jlpt_level": "JLPT N5",
+  "district": "Tokyo Pop Culture",
+  "dramatic_hook": "Ayase Haruka's spontaneous comment had the audience in stitches, showcasing her natural charm.",
+  "long_form": {
+    "yt_title": "[JLPT N5] EP.10 Ayase Haruka's Natural Charm | Real Japanese Breakdown",
+    "english_hook": "NATURAL CHARM",
+    "japanese_key_phrase": "綾瀬はるかの天然発言",
+    "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\n\nTIMESTAMPS AND CHAPTERS:\n00:00 - 01. Breaking Trend Immersion\n00:06 - 02. Vocabulary & Grammar Breakdown\n00:45 - 03. Situational Practice Drill\n00:52 - 04. Shadowing Drill & Outro\n\nKEY PHRASES COVERED:\n- 綾瀬はるかの天然発言\n- 会場で話します\n\nRECOMMENDED PRACTICE:\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\n\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "tags": [
+      "LearnJapanese",
+      "TokyoFlow",
+      "JLPTN5",
+      "AnimeJapanese",
+      "JapaneseShadowing",
+      "TokyoPopCulture"
+    ],
+    "slides": [
+      {
+        "type": "follow_along",
+        "chapter": "01. Breaking Trend Immersion",
+        "spoken_text": "綾瀬はるかが会場で天然発言をしました。",
+        "en": "Ayase Haruka made a spontaneous comment at the venue.",
+        "tip": "Use 'で' to indicate the location where an action takes place.",
+        "tokens": [
+          {
+            "orig": "綾瀬はるか",
+            "kana": "あやせはるか",
+            "romaji": "ayase haruka",
+            "pos": "Proper Noun",
+            "meaning": "Ayase Haruka"
+          },
+          {
+            "orig": "会場",
+            "kana": "かいじょう",
+            "romaji": "kaijou",
+            "pos": "Noun",
+            "meaning": "venue"
+          },
+          {
+            "orig": "天然発言",
+            "kana": "てんねんはつげん",
+            "romaji": "tennen hatsugen",
+            "pos": "Noun",
+            "meaning": "spontaneous comment"
+          }
+        ]
+      },
+      {
+        "type": "breakdown_teamwork",
+        "chapter": "02. Breakdown & Cultural Insight",
+        "words": [
+          {
+            "orig": "天然",
+            "kana": "てんねん",
+            "romaji": "tennen",
+            "pos": "Noun",
+            "meaning": "natural"
+          },
+          {
+            "orig": "発言",
+            "kana": "はつげん",
+            "romaji": "hatsugen",
+            "pos": "Noun",
+            "meaning": "comment"
+          },
+          {
+            "orig": "会場",
+            "kana": "かいじょう",
+            "romaji": "kaijou",
+            "pos": "Noun",
+            "meaning": "venue"
+          }
+        ],
+        "grammar": {
+          "title": "Understanding '天然' in Japanese Culture",
+          "bullets": [
+            [
+              "1. Core JLPT Pattern:",
+              "Use 'で' to indicate the location of an action."
+            ],
+            [
+              "2. Tokyo Cultural Insight:",
+              "The term '天然' (tennen) is often used in Japan to describe someone who is naturally charming or airheaded in a cute way."
+            ],
+            [
+              "3. Practical Daily Life:",
+              "You might hear '天然' used to describe celebrities or friends who have a spontaneous and endearing personality."
+            ]
+          ]
+        },
+        "audio_cues": [
+          {
+            "speaker": "en",
+            "text": "Let us break down today's key words and cultural nuance."
+          },
+          {
+            "speaker": "ja",
+            "text": "天然",
+            "card_idx": 0
+          },
+          {
+            "speaker": "en",
+            "text": "Natural or spontaneous, describing an endearing personality.",
+            "card_idx": 0
+          },
+          {
+            "speaker": "ja",
+            "text": "発言",
+            "card_idx": 1
+          },
+          {
+            "speaker": "en",
+            "text": "Comment, remark, or statement.",
+            "card_idx": 1
+          },
+          {
+            "speaker": "ja",
+            "text": "会場",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Venue, event hall, or press stage.",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Here is today's Japanese cultural insight. In Japanese pop culture and daily life, the word tennen describes someone with an innocent, uncalculated airhead charm. Japanese audiences adore this trait because it feels authentic, warm, and delightfully funny.",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "ja",
+            "text": "綾瀬はるかが会場で天然発言をしました。",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "en",
+            "text": "Notice the particle de marking the venue where the action happened: kaijou de. Practice this pattern to master natural Tokyo conversations!",
+            "is_spotlight": true
+          }
+        ]
+      },
+      {
+        "type": "follow_along",
+        "chapter": "03. Fan & Audience Reaction",
+        "spoken_text": "観客は笑いました。",
+        "en": "The audience laughed.",
+        "tip": "Use 'は' to mark the subject of the sentence.",
+        "tokens": [
+          {
+            "orig": "観客",
+            "kana": "かんきゃく",
+            "romaji": "kankyaku",
+            "pos": "Noun",
+            "meaning": "audience"
+          },
+          {
+            "orig": "笑いました",
+            "kana": "わらいました",
+            "romaji": "waraimashita",
+            "pos": "Verb",
+            "meaning": "laughed"
+          }
+        ]
+      }
+    ]
+  },
+  "shorts": {
+    "yt_short_title": "[JLPT N5] SH.10 Ayase Haruka's Natural Charm! #Shorts #LearnJapanese",
+    "hook_title": "AYASE HARUKA\nNATURAL CHARM",
+    "hook_audio_en": "Discover why Ayase Haruka's spontaneous comment has everyone talking!",
+    "jp_sentence": "綾瀬はるかが会場で天然発言をしました。",
+    "kana_sentence": "あやせはるかがかいじょうでてんねんはつげんをしました。",
+    "romaji_sentence": "Ayase Haruka ga kaijou de tennen hatsugen o shimashita.",
+    "en_translation": "Ayase Haruka made a spontaneous comment at the venue.",
+    "tokens": [
+      {
+        "orig": "綾瀬はるか",
+        "kana": "あやせはるか",
+        "romaji": "ayase haruka",
+        "meaning": "Ayase Haruka"
+      },
+      {
+        "orig": "会場",
+        "kana": "かいじょう",
+        "romaji": "kaijou",
+        "meaning": "venue"
+      },
+      {
+        "orig": "天然発言",
+        "kana": "てんねんはつげん",
+        "romaji": "tennen hatsugen",
+        "meaning": "spontaneous comment"
+      }
+    ],
+    "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
+    "pro_tip_body": "In Japanese, '天然' (tennen) is a term for someone naturally charming or endearingly airheaded.",
+    "pro_tip_audio_en": "Andrew explains how '天然' is used to describe charming personalities in Japan.",
+    "interactive_poll": "Do you find Ayase Haruka's charm irresistible? A: Yes! B: Not really",
+    "pinned_comment": "Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!\nPoll: Do you find Ayase Haruka's charm irresistible? A: Yes! B: Not really\nDownload TokyoFlow App on iOS for real-time speech pitch scoring!"
+  }
+}

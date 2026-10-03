@@ -151,6 +151,22 @@
       "publish_at_est": "2026-10-06T17:00:00-04:00",
       "uploaded_at": "2026-10-02T12:37:30.488549-04:00",
       "is_short": true
+    },
+    "E11-shabuya-robot-drama-v1.0_video": {
+      "video_id": "tIFJcJFxSi4",
+      "video_url": "https://youtu.be/tIFJcJFxSi4",
+      "title": "[JLPT N5] EP.11 Shabu-ya Robot Drama | Real Japanese Breakdown",
+      "publish_at_est": "2026-10-07T08:00:00-04:00",
+      "uploaded_at": "2026-10-03T08:02:27.567987-04:00",
+      "is_short": false
+    },
+    "E11-shabuya-robot-drama-v1.0_short": {
+      "video_id": "xtP-Ng_TfhU",
+      "video_url": "https://youtu.be/xtP-Ng_TfhU",
+      "title": "[JLPT N5] SH.11 Shabu-ya Robot Drama! #Shorts",
+      "publish_at_est": "2026-10-07T17:00:00-04:00",
+      "uploaded_at": "2026-10-03T08:02:33.817120-04:00",
+      "is_short": true
     }
   }
 }
