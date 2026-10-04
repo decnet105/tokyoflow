@@ -1,174 +1,31 @@
 #!/usr/bin/env python3
 """
-TokyoFlow YouTube Shorts Thumbnail Designer
+TokyoFlow YouTube Shorts Thumbnail Designer (Golden Master Standard)
 Generates minimalist, high-CTR, human-centric 9:16 vertical covers for all YouTube Shorts (SH.XX).
-Adheres strictly to the TokyoFlow visual branding language (Zero emojis, high contrast, clean typography).
+Adheres strictly to the TokyoFlow visual branding language (Zero emojis, high contrast, clean typography, glassmorphic card).
 """
 
 import os
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 RELEASES_DIR = PROJECT_ROOT / "docs" / "youtube_releases"
+ASSETS_DIR = PROJECT_ROOT / "docs" / "youtube_assets" / "thumbnails"
 
-FONT_JP_BOLD = "/System/Library/Fonts/Hiragino Sans GB.ttc"
+FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 FONT_EN_HEAVY = "/System/Library/Fonts/Helvetica.ttc"
 
-SHORTS_CONFIG = [
-    {
-        "ep_num": 1,
-        "sh_code": "SH.01",
-        "folder": "E01-Yamanote_Transit-v1.0",
-        "hook_main": "TRAIN HACK",
-        "hook_sub": "STATION ANNOUNCEMENTS",
-        "jp_phrase": "点字ブロックの内側へ",
-        "romaji": "Tenji burokku no uchigawa e",
-        "en_meaning": "Behind The Yellow Line",
-        "accent_color": (16, 185, 129),     # Emerald Yamanote
-        "secondary_color": (56, 189, 248),  # Sky Cyan
-        "location": "SHINJUKU STATION • YAMANOTE"
-    },
-    {
-        "ep_num": 2,
-        "sh_code": "SH.02",
-        "folder": "E02-Kombini_Checkout-v1.0",
-        "hook_main": "7-ELEVEN",
-        "hook_sub": "CHECKOUT SURVIVAL",
-        "jp_phrase": "袋は大丈夫です",
-        "romaji": "Fukuro wa daijoubu desu",
-        "en_meaning": "No Bag Needed, Thanks",
-        "accent_color": (249, 115, 22),     # Kombini Orange
-        "secondary_color": (250, 204, 21),  # Warm Yellow
-        "location": "SHIBUYA 7-ELEVEN • TOKYO"
-    },
-    {
-        "ep_num": 3,
-        "sh_code": "SH.03",
-        "folder": "E03-Izakaya_Night-v1.0",
-        "hook_main": "IZAKAYA",
-        "hook_sub": "ORDER LIKE A LOCAL",
-        "jp_phrase": "とりあえず生で！",
-        "romaji": "Toriaezu nama de!",
-        "en_meaning": "Draft Beer To Start!",
-        "accent_color": (234, 179, 8),      # Amber Beer Gold
-        "secondary_color": (249, 115, 22),  # Warm Glow
-        "location": "SHINBASHI IZAKAYA ALLEY"
-    },
-    {
-        "ep_num": 4,
-        "sh_code": "SH.04",
-        "folder": "E04-Akiba_Pilgrimage-v1.0",
-        "hook_main": "ANIME SHOP",
-        "hook_sub": "TAX-FREE MERCH",
-        "jp_phrase": "免税できますか？",
-        "romaji": "Menzei dekimasu ka?",
-        "en_meaning": "Can I Get Tax-Free?",
-        "accent_color": (168, 85, 247),     # Cyberpunk Purple
-        "secondary_color": (236, 72, 153),  # Neon Pink
-        "location": "AKIHABARA ELECTRIC TOWN"
-    },
-    {
-        "ep_num": 5,
-        "sh_code": "SH.05",
-        "folder": "E05-Tokyo_Subway_Rush-v1.0",
-        "hook_main": "SUBWAY HACK",
-        "hook_sub": "NEVER GET LOST",
-        "jp_phrase": "精算機はどこですか？",
-        "romaji": "Seisanki wa doko desu ka?",
-        "en_meaning": "Where Is Fare Adjustment?",
-        "accent_color": (6, 182, 212),      # Tokyo Metro Cyan
-        "secondary_color": (59, 130, 246),  # Blue Line
-        "location": "TOKYO METRO • MARUNOUCHI"
-    },
-    {
-        "ep_num": 6,
-        "sh_code": "SH.06",
-        "folder": "E06-Kombini_Coffee_ATM-v1.0",
-        "hook_main": "ICED COFFEE",
-        "hook_sub": "KOMBINI MACHINE SECRET",
-        "jp_phrase": "アイスコーヒーのRで",
-        "romaji": "Aisu koohii no aaru de",
-        "en_meaning": "Regular Iced Coffee",
-        "accent_color": (217, 119, 6),      # Roasted Coffee Amber
-        "secondary_color": (251, 191, 36),  # Crema Gold
-        "location": "ROPPONGI LAWSON • TOKYO"
-    },
-    {
-        "ep_num": 7,
-        "sh_code": "SH.07",
-        "folder": "E07-Ramen_Ticket_Vending-v1.0",
-        "hook_main": "RAMEN CHANT",
-        "hook_sub": "PRO CUSTOM ORDER",
-        "jp_phrase": "硬め・濃いめ・替え玉！",
-        "romaji": "Katame, koime, kaedama!",
-        "en_meaning": "Firm Broth & Extra Noodles",
-        "accent_color": (239, 68, 68),      # Fiery Ramen Red
-        "secondary_color": (245, 158, 11),  # Tonkotsu Gold
-        "location": "IKEBUKURO RAMEN ALLEY"
-    },
-    {
-        "ep_num": 8,
-        "sh_code": "SH.08",
-        "folder": "E08-Ginza_TaxFree_Shopping-v1.0",
-        "hook_main": "FITTING ROOM",
-        "hook_sub": "GINZA SHOPPING ETIQUETTE",
-        "jp_phrase": "試着してもいいですか？",
-        "romaji": "Shichaku shite mo ii desu ka?",
-        "en_meaning": "Can I Try This On?",
-        "accent_color": (236, 72, 153),     # Luxury Rose Gold
-        "secondary_color": (168, 85, 247),  # Fashion Lavender
-        "location": "GINZA SHOPPING BOULEVARD",
-        "jlpt_level": "JLPT N5"
-    },
-    {
-        "ep_num": 9,
-        "sh_code": "SH.09",
-        "folder": "E09-anime_sauna_trend-v1.0",
-        "hook_main": "ANIME SAUNA",
-        "hook_sub": "STUDIO OPENS REAL SAUNA",
-        "jp_phrase": "アニメの会社がサウナを作った！",
-        "romaji": "Anime no kaisha ga sauna o tsukutta!",
-        "en_meaning": "Anime Studio Made A Sauna!",
-        "accent_color": (236, 72, 153),     # Neon Anime Pink
-        "secondary_color": (250, 204, 21),  # Solar Sauna Yellow
-        "location": "TOKYO ANIME STUDIO • SAUNA",
-        "jlpt_level": "JLPT N5"
-    },
-    {
-        "ep_num": 10,
-        "sh_code": "SH.10",
-        "folder": "E10-ayase_haruka_tennen-v1.0",
-        "hook_main": "AYASE HARUKA",
-        "hook_sub": "NATURAL AIRHEAD CHARM",
-        "jp_phrase": "綾瀬はるかが会場で笑わせました",
-        "romaji": "Ayase Haruka ga kaijou de warawasemashita",
-        "en_meaning": "Ayase Haruka Made Audience Laugh",
-        "accent_color": (236, 72, 153),     # Celebrity Pink
-        "secondary_color": (250, 204, 21),  # Golden Yellow
-        "location": "TOKYO MOVIE PREMIERE • JLPT",
-        "jlpt_level": "JLPT N5"
-    },
-    {
-        "ep_num": 11,
-        "sh_code": "SH.11",
-        "folder": "E11-shabuya-robot-drama-v1.0",
-        "hook_main": "ROBOT WAITER",
-        "hook_sub": "SHABU-YA RESTAURANT DRAMA",
-        "jp_phrase": "ロボットが料理を運びます",
-        "romaji": "Robotto ga ryouri o hakobimasu",
-        "en_meaning": "Robot Brings Food To Tables",
-        "accent_color": (236, 72, 153),     # Tech Pop Magenta
-        "secondary_color": (250, 204, 21),  # Cyber Yellow
-        "location": "TOKYO SHABU-SHABU • JLPT",
-        "jlpt_level": "JLPT N5"
-    }
-]
+def get_font(size: int, is_en: bool = False):
+    font_file = FONT_PATH if not is_en else FONT_EN_HEAVY
+    try:
+        return ImageFont.truetype(font_file, size)
+    except Exception:
+        return ImageFont.load_default()
 
 def create_shorts_cover(item: dict) -> Image.Image:
+    """Creates a 9:16 Golden Master Vertical Shorts Cover."""
     W, H = 1080, 1920
-    accent = item.get("accent_color", (236, 72, 153))
-    sec = item.get("secondary_color", (250, 204, 21))
     bg_image_path = item.get("bg_image_path", "")
     
     if not bg_image_path and item.get("folder"):
@@ -176,248 +33,133 @@ def create_shorts_cover(item: dict) -> Image.Image:
         if cand.exists():
             bg_image_path = str(cand)
 
-    # 1. Background Setup: Real Photo or Cyber Navy Base
+    # 1. Base Image Setup
     if bg_image_path and os.path.exists(bg_image_path):
-        base_img = Image.open(bg_image_path).convert("RGB")
-        src_w, src_h = base_img.size
+        raw_img = Image.open(bg_image_path).convert("RGB")
+        src_w, src_h = raw_img.size
         target_ratio = W / H
         src_ratio = src_w / src_h
 
         if src_ratio > target_ratio:
             new_w = int(src_h * target_ratio)
-            # Center slightly biased towards right/hero subject if wide
-            center_x = int(src_w * 0.58)
+            center_x = int(src_w * 0.50)
             left = max(0, min(src_w - new_w, center_x - new_w // 2))
-            base_img = base_img.crop((left, 0, left + new_w, src_h))
+            raw_img = raw_img.crop((left, 0, left + new_w, src_h))
         else:
             new_h = int(src_w / target_ratio)
             top = (src_h - new_h) // 2
-            base_img = base_img.crop((0, top, src_w, top + new_h))
+            raw_img = raw_img.crop((0, top, src_w, top + new_h))
 
-        base_img = base_img.resize((W, H), Image.Resampling.LANCZOS)
-        from PIL import ImageEnhance
+        base_img = raw_img.resize((W, H), Image.Resampling.LANCZOS)
         base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
-        base_img = ImageEnhance.Color(base_img).enhance(1.20)
-
-        # Multi-stop dark overlays: Top vignette for badges, Mid/Bottom dark glass for card
-        overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        draw_ov = ImageDraw.Draw(overlay)
-        # Top gradient (0 to 320px)
-        for y in range(320):
-            alpha = int(220 * (1.0 - (y / 320.0) ** 1.2))
-            draw_ov.line([(0, y), (W, y)], fill=(8, 12, 24, alpha))
-        # Mid-Bottom gradient (from 420px to 1920px)
-        for y in range(420, H):
-            rel = (y - 420) / (H - 420.0)
-            alpha = int(235 * (rel ** 0.8))
-            draw_ov.line([(0, y), (W, y)], fill=(6, 10, 20, min(240, alpha)))
-        
-        img = Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+        base_img = ImageEnhance.Color(base_img).enhance(1.18)
     else:
-        img = Image.new("RGB", (W, H), (10, 14, 24)) # Deep Tokyo Night
-        # Background ambient circular radial lights
-        glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        glow_draw = ImageDraw.Draw(glow)
-        glow_draw.ellipse([W//2 - 400, 100, W//2 + 400, 900], fill=(accent[0], accent[1], accent[2], 40))
-        glow_draw.ellipse([W//2 - 450, 800, W//2 + 450, 1700], fill=(sec[0], sec[1], sec[2], 30))
-        glow = glow.filter(ImageFilter.GaussianBlur(120))
-        img.paste(glow, (0, 0), glow)
+        base_img = Image.new("RGB", (W, H), (12, 17, 29))
 
+    # 2. Dark Gradient Overlays
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw_ov = ImageDraw.Draw(overlay)
+    
+    for y in range(540):
+        rel = y / 540.0
+        alpha = int(235 * (1.0 - (rel ** 1.3)))
+        draw_ov.line([(0, y), (W, y)], fill=(8, 12, 24, alpha))
+        
+    for x in range(700):
+        rel = x / 700.0
+        alpha = int(200 * (1.0 - (rel ** 1.2)))
+        draw_ov.line([(x, 0), (x, 560)], fill=(8, 12, 24, alpha))
+
+    for y in range(1000, H):
+        rel = (y - 1000) / (H - 1000.0)
+        alpha = int(245 * (rel ** 0.8))
+        draw_ov.line([(0, y), (W, y)], fill=(6, 10, 20, min(245, alpha)))
+
+    img = Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
     draw = ImageDraw.Draw(img)
 
-    # 2. Typography Setup
-    font_brand = ImageFont.truetype(FONT_EN_HEAVY, 36)
-    font_sh_badge = ImageFont.truetype(FONT_EN_HEAVY, 42)
-    font_hook_giant = ImageFont.truetype(FONT_EN_HEAVY, 110)
-    font_hook_sub = ImageFont.truetype(FONT_EN_HEAVY, 40)
-    font_tag = ImageFont.truetype(FONT_EN_HEAVY, 30)
+    # 3. Top Header: TokyoFlow Brand Pill & Shorts Level Badge
+    pill_w, pill_h = 390, 65
+    draw.rounded_rectangle([(50, 50), (50 + pill_w, 50 + pill_h)], radius=18, fill=(255, 255, 255))
+    font_brand = get_font(28, is_en=True)
+    bbox_b = draw.textbbox((0, 0), "TokyoFlow Japanese", font=font_brand)
+    bw, bh = bbox_b[2] - bbox_b[0], bbox_b[3] - bbox_b[1]
+    draw.text((50 + (pill_w - bw) // 2, 50 + (pill_h - bh) // 2 - bbox_b[1]), "TokyoFlow Japanese", fill=(225, 29, 72), font=font_brand)
 
-    # 3. Top Header: TokyoFlow Brand Capsule + JLPT Level Badge + SH Code Badge
-    pill_h = 64
-    pill_y = 90
+    level_str = item.get("jlpt_level", "JLPT N5")
+    sh_code = f"{item.get('sh_code', 'SH.01')} • {level_str}"
+    badge_w, badge_h = 310, 65
+    badge_x = W - 50 - badge_w
+    draw.rounded_rectangle([(badge_x, 50), (badge_x + badge_w, 50 + badge_h)], radius=18, fill=(225, 29, 72))
+    font_badge = get_font(26, is_en=True)
+    bbox_bg = draw.textbbox((0, 0), sh_code, font=font_badge)
+    gw, gh = bbox_bg[2] - bbox_bg[0], bbox_bg[3] - bbox_bg[1]
+    draw.text((badge_x + (badge_w - gw) // 2, 50 + (badge_h - gh) // 2 - bbox_bg[1]), sh_code, fill=(255, 255, 255), font=font_badge)
 
-    # Brand Pill (Solid white pill, bold crimson red text)
-    brand_text = "TokyoFlow"
-    font_brand_bold = ImageFont.truetype(FONT_EN_HEAVY, 36)
-    bbox_b = draw.textbbox((0, 0), brand_text, font=font_brand_bold)
-    bw = bbox_b[2] - bbox_b[0]
-    bh = bbox_b[3] - bbox_b[1]
-    pill_bw = bw + 52
-    draw.rounded_rectangle([70, pill_y, 70 + pill_bw, pill_y + pill_h], radius=pill_h // 2, fill=(255, 255, 255), outline=(220, 38, 38), width=2)
-    tx_b = 70 + (pill_bw - bw) // 2 - bbox_b[0]
-    ty_b = pill_y + (pill_h - bh) // 2 - bbox_b[1]
-    draw.text((tx_b, ty_b), brand_text, font=font_brand_bold, fill=(220, 38, 38))
-
-    # JLPT Level Badge
-    level_text = item.get("jlpt_level", "JLPT N5")
-    font_level = ImageFont.truetype(FONT_EN_HEAVY, 32)
-    bbox_l = draw.textbbox((0, 0), level_text, font=font_level)
-    lw = bbox_l[2] - bbox_l[0]
-    lh = bbox_l[3] - bbox_l[1]
-    pill_lw = lw + 44
-    pill_lx = 70 + pill_bw + 18
-    draw.rounded_rectangle([pill_lx, pill_y, pill_lx + pill_lw, pill_y + pill_h], radius=pill_h // 2, fill=(24, 32, 47), outline=(56, 189, 248), width=2)
-    tx_l = pill_lx + (pill_lw - lw) // 2 - bbox_l[0]
-    ty_l = pill_y + (pill_h - lh) // 2 - bbox_l[1]
-    draw.text((tx_l, ty_l), level_text, font=font_level, fill=(250, 204, 21))
-
-    # SH Code Badge
-    sh_text = item["sh_code"]
-    bbox_s = draw.textbbox((0, 0), sh_text, font=font_sh_badge)
-    sw = bbox_s[2] - bbox_s[0]
-    sh = bbox_s[3] - bbox_s[1]
-    pill_sw = sw + 44
-    draw.rounded_rectangle([W - 70 - pill_sw, pill_y, W - 70, pill_y + pill_h], radius=pill_h // 2, fill=accent)
-    tx_s = W - 70 - pill_sw + (pill_sw - sw) // 2 - bbox_s[0]
-    ty_s = pill_y + (pill_h - sh) // 2 - bbox_s[1]
-    draw.text((tx_s, ty_s), sh_text, font=font_sh_badge, fill=(10, 14, 24))
-
-    # Location Subtitle Pill
-    draw.text((75, 185), item.get("location", "TOKYO POP CULTURE • JLPT"), font=font_tag, fill=(203, 213, 225))
-
-    # 4. Hero Section: Minimalist 1-2 Words Punchy Hook
-    hook_main = item["hook_main"]
-    hook_sub = item["hook_sub"]
+    # 4. Punchy 3D Action Hook
+    hook_main = item.get("hook_main", "JAPAN TREND")
+    hook_sub = item.get("hook_sub", "POP CULTURE")
     
-    # 3D Drop Shadow on Main Hook
-    for off in range(6, 0, -1):
-        for dx in range(-off, off + 1):
-            for dy in range(-off, off + 1):
-                draw.text((70 + dx, 265 + dy), hook_main, font=font_hook_giant, fill=(0, 0, 0, 255))
-    draw.text((70, 265), hook_main, font=font_hook_giant, fill=sec)
+    font_hook_sh = get_font(74)
+    hy = 150
+    hook_lines = [h.strip() for h in hook_main.split("\n") if h.strip()] if "\n" in hook_main else [hook_main]
+    for line in hook_lines:
+        for dx in range(-4, 5, 2):
+            for dy in range(-4, 5, 2):
+                draw.text((50 + dx, hy + dy), line, fill=(0, 0, 0), font=font_hook_sh)
+        draw.text((50, hy), line, fill=(254, 240, 138), font=font_hook_sh)
+        hy += 88
+
+    # Pink Sub-Hook
+    draw.text((55, hy + 5), hook_sub.upper(), fill=(244, 114, 182), font=get_font(28, is_en=True))
+
+    # 5. Center/Bottom Learning Card
+    card_x, card_y = 40, 1150
+    card_w, card_h = 1000, 720
+    draw.rounded_rectangle([(card_x, card_y), (card_x + card_w, card_y + card_h)], radius=24, fill=(10, 15, 28, 240), outline=(56, 189, 248), width=3)
+
+    # Card Top Header
+    draw.text((card_x + 35, card_y + 25), "[ TOKYO SURVIVAL GYM ]", fill=(56, 189, 248), font=get_font(24, is_en=True))
+    draw.rounded_rectangle([(card_x + card_w - 240, card_y + 20), (card_x + card_w - 30, card_y + 62)], radius=10, fill=(225, 29, 72))
+    draw.text((card_x + card_w - 225, card_y + 28), f"{level_str} ESSENTIAL", fill=(255, 255, 255), font=get_font(19, is_en=True))
+
+    draw.line([(card_x + 35, card_y + 75), (card_x + card_w - 35, card_y + 75)], fill=(51, 65, 85), width=2)
+
+    # Japanese Target Sentence
+    full_jp = item.get("jp_phrase", "").strip()
+    jp_size = 46
+    font_jp = get_font(jp_size)
+    bbox_jp = draw.textbbox((0, 0), full_jp, font=font_jp)
+    while (bbox_jp[2] - bbox_jp[0]) > (card_w - 70) and jp_size > 34:
+        jp_size -= 2
+        font_jp = get_font(jp_size)
+        bbox_jp = draw.textbbox((0, 0), full_jp, font=font_jp)
+    draw.text((card_x + 35, card_y + 100), full_jp, fill=(255, 255, 255), font=font_jp)
+
+    # Romaji
+    draw.text((card_x + 35, card_y + 168), item.get("romaji", ""), fill=(254, 240, 138), font=get_font(25, is_en=True))
     
-    for off in range(4, 0, -1):
-        for dx in range(-off, off + 1):
-            for dy in range(-off, off + 1):
-                draw.text((75 + dx, 400 + dy), hook_sub, font=font_hook_sub, fill=(0, 0, 0, 220))
-    draw.text((75, 400), hook_sub, font=font_hook_sub, fill=(241, 245, 249))
+    # English Translation
+    en_meaning = item.get("en_meaning", "")
+    en_clean = en_meaning if en_meaning.startswith('"') else f'"{en_meaning}"'
+    draw.text((card_x + 35, card_y + 215), en_clean, fill=(226, 232, 240), font=get_font(25, is_en=True))
 
-    # Decorative Accent Line
-    draw.rectangle([70, 475, 320, 483], fill=accent)
+    # Grammar Tag Pill inside card
+    tag_clean = item.get("grammar_tag", f"{level_str} Spoken Japanese Pattern")
+    draw.rounded_rectangle([(card_x + 35, card_y + 280), (card_x + card_w - 35, card_y + 345)], radius=12, fill=(15, 23, 42, 220), outline=(244, 114, 182), width=2)
+    draw.text((card_x + 55, card_y + 298), tag_clean, fill=(244, 114, 182), font=get_font(21))
 
-    # 5. Center Human Feature: Glassmorphic Japanese Hero Card
-    card_top = 530
-    card_h = 920
-    card_w = W - 140
+    # 6. CTA Action Banner at Bottom of Card
+    cta_x = card_x + 30
+    cta_y = card_y + 380
+    cta_w = card_w - 60
+    cta_h = 295
+    draw.rounded_rectangle([(cta_x, cta_y), (cta_x + cta_w, cta_y + cta_h)], radius=18, fill=(225, 29, 72))
     
-    # Card Background with Glow Border
-    draw.rounded_rectangle([70, card_top, 70 + card_w, card_top + card_h], radius=40, fill=(15, 23, 42, 235), outline=accent, width=4)
-    
-    # Inner Tag "SURVIVAL JAPANESE"
-    draw.rounded_rectangle([110, card_top + 45, 470, card_top + 105], radius=24, fill=(30, 41, 59), outline=(51, 65, 85), width=2)
-    draw.text((135, card_top + 60), "TOKYO SURVIVAL PHRASE", font=font_tag, fill=(148, 163, 184))
-
-    # Giant Japanese Phrase (Auto-scale to never overflow card_w - 80)
-    jp_phrase = item["jp_phrase"]
-    jp_size = 86
-    font_jp = ImageFont.truetype(FONT_JP_BOLD, jp_size)
-    bbox_jp = draw.textbbox((0, 0), jp_phrase, font=font_jp)
-    jpw = bbox_jp[2] - bbox_jp[0]
-    while jpw > card_w - 80 and jp_size > 44:
-        jp_size -= 4
-        font_jp = ImageFont.truetype(FONT_JP_BOLD, jp_size)
-        bbox_jp = draw.textbbox((0, 0), jp_phrase, font=font_jp)
-        jpw = bbox_jp[2] - bbox_jp[0]
-    draw.text((110, card_top + 150), jp_phrase, font=font_jp, fill=(255, 255, 255))
-
-    # Romaji (Auto-scale to never overflow card_w - 80)
-    romaji_text = item["romaji"]
-    rom_size = 44
-    font_rom = ImageFont.truetype(FONT_EN_HEAVY, rom_size)
-    bbox_rom = draw.textbbox((0, 0), romaji_text, font=font_rom)
-    rw = bbox_rom[2] - bbox_rom[0]
-    while rw > card_w - 80 and rom_size > 24:
-        rom_size -= 2
-        font_rom = ImageFont.truetype(FONT_EN_HEAVY, rom_size)
-        bbox_rom = draw.textbbox((0, 0), romaji_text, font=font_rom)
-        rw = bbox_rom[2] - bbox_rom[0]
-    draw.text((110, card_top + 340), romaji_text, font=font_rom, fill=(250, 204, 21))
-
-    # Divider line
-    draw.line([(110, card_top + 430), (W - 110, card_top + 430)], fill=(51, 65, 85), width=2)
-
-    # English Translation Box with Multi-line Wrapping
-    draw.text((110, card_top + 470), "ENGLISH MEANING:", font=font_tag, fill=(148, 163, 184))
-    
-    en_raw = f'"{item["en_meaning"]}"'
-    words = en_raw.split(" ")
-    lines = []
-    cur_line = []
-    max_line_w = card_w - 80
-    meaning_font_size = 42
-    font_meaning = ImageFont.truetype(FONT_EN_HEAVY, meaning_font_size)
-
-    for word in words:
-        test_line = " ".join(cur_line + [word])
-        bbox_t = draw.textbbox((0, 0), test_line, font=font_meaning)
-        if bbox_t[2] - bbox_t[0] <= max_line_w:
-            cur_line.append(word)
-        else:
-            if cur_line:
-                lines.append(" ".join(cur_line))
-                cur_line = [word]
-            else:
-                lines.append(word)
-                cur_line = []
-    if cur_line:
-        lines.append(" ".join(cur_line))
-
-    # If more than 2 lines, scale font down
-    if len(lines) > 2:
-        meaning_font_size = 34
-        font_meaning = ImageFont.truetype(FONT_EN_HEAVY, meaning_font_size)
-        lines = []
-        cur_line = []
-        for word in words:
-            test_line = " ".join(cur_line + [word])
-            bbox_t = draw.textbbox((0, 0), test_line, font=font_meaning)
-            if bbox_t[2] - bbox_t[0] <= max_line_w:
-                cur_line.append(word)
-            else:
-                if cur_line:
-                    lines.append(" ".join(cur_line))
-                    cur_line = [word]
-                else:
-                    lines.append(word)
-                    cur_line = []
-        if cur_line:
-            lines.append(" ".join(cur_line))
-
-    m_y = card_top + 520
-    for l in lines:
-        draw.text((110, m_y), l, font=font_meaning, fill=(241, 245, 249))
-        m_y += int(meaning_font_size * 1.3)
-
-    # Audio Shadowing Status Badge inside Card
-    draw.rounded_rectangle([110, card_top + 680, W - 110, card_top + 840], radius=28, fill=(30, 41, 59, 200), outline=(71, 85, 105), width=2)
-    draw.text((145, card_top + 720), "3-STEP INTERACTIVE SHADOWING", font=font_brand, fill=accent)
-    draw.text((145, card_top + 775), "Listen • Break Down • Speak With AI Pitch", font=font_tag, fill=(203, 213, 225))
-
-    # 6. Bottom Conversion Strip: App & Subscription
-    draw.rounded_rectangle([70, H - 380, W - 70, H - 120], radius=32, fill=(2, 6, 23, 240), outline=(30, 41, 59), width=2)
-    draw.text((110, H - 340), "TOKYOFLOW - JAPANESE SPEAKING", font=font_brand, fill=(255, 255, 255))
-    draw.text((110, H - 280), "Real Scenarios • 10,000+ Native Words & Audio", font=font_tag, fill=(148, 163, 184))
-    draw.text((110, H - 210), "Available on the App Store", font=font_tag, fill=sec)
+    ep_num = item.get("ep_num", 1)
+    ep_str = f"EP.{ep_num:02d}"
+    draw.text((cta_x + 35, cta_y + 35), f"WATCH FULL BREAKDOWN ({ep_str})", fill=(255, 255, 255), font=get_font(34, is_en=True))
+    draw.text((cta_x + 35, cta_y + 95), "Complete Vocabulary • Grammar Rules • Shadowing Gym", fill=(254, 240, 138), font=get_font(22, is_en=True))
+    draw.text((cta_x + 35, cta_y + 145), f"Tap Related Video Below  •  TokyoFlow Japanese", fill=(241, 245, 249), font=get_font(20, is_en=True))
 
     return img
-
-def generate_all():
-    print("🎨 Generating all new minimalist, high-CTR YouTube Shorts covers (SH.01 ~ SH.08)...")
-    for idx, conf in enumerate(SHORTS_CONFIG):
-        folder = conf["folder"]
-        sh_code = conf["sh_code"]
-        target_dir = RELEASES_DIR / folder
-        target_dir.mkdir(parents=True, exist_ok=True)
-        
-        cover_img = create_shorts_cover(conf)
-        out_path = target_dir / "short_thumbnail.jpg"
-        cover_img.save(str(out_path), "JPEG", quality=95)
-        print(f"  ✅ Saved [{sh_code}] cover -> {out_path.relative_to(PROJECT_ROOT)} ({out_path.stat().st_size / 1024:.1f} KB)")
-        
-        if idx == 0:
-            std_format_path = PROJECT_ROOT / "output" / "日语短片标准格式.jpg"
-            cover_img.save(str(std_format_path), "JPEG", quality=95)
-            print(f"  🌟 Standard format reference updated -> {std_format_path}")
-
-if __name__ == "__main__":
-    generate_all()

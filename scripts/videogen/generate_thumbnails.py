@@ -1,27 +1,28 @@
 #!/usr/bin/env python3
 """
-TokyoFlow Japanese • Master Serialized Thumbnail & Cover Factory
-Unified, production-grade implementation of tokyoflow-thumbnail-factory skill:
-1. 16:9 Long-Form 4K/Full HD Covers (thumbnail.jpg, 1920x1080)
-   - Real-life authentic Tokyo photographic scene with contrast/saturation boost.
-   - Smooth cinematic multi-stop exponential top and bottom dark vignettes.
-   - Top-Left 'TokyoFlow 🇯🇵' Brand Pill (white pill, crimson text, Gaussian shadow).
-   - 3D Electric-Yellow Hook (88-96pt #FEF08A) + 360° deep black drop stroke.
-   - Top-Right '[JLPT Level] EP.XX' Serialized Badge.
-   - Center-Bottom Giant 116pt Japanese Soul Phrase (10px deep black shadow).
-   - Bottom Scenario Value Tag Pill (dark slate, amber border, drop shadow).
+TokyoFlow Japanese • Master Serialized Thumbnail & Cover Factory (16:9 & 9:16)
+Unified, production-grade Golden Master implementation:
+1. 16:9 Long-Form 4K/Full HD Master Covers (thumbnail.jpg, 1920x1080)
+   - Authentic HD Tokyo photographic scene on right 55-60% with contrast/color boost.
+   - Smooth non-linear cosine dark gradient fade on left (x < 1180).
+   - Top-Left Solid White Brand Pill 'TokyoFlow Japanese' (Crimson text).
+   - Top-Right Solid Crimson Capsule '[JLPT Level] • EP.XX'.
+   - 96pt Giant 3D Solar Yellow Hook (#FEF08A) + Pink Sub-hook (#F472B6).
+   - Glassmorphic Deep Navy Learning Card (#0A0F1C) with Sky Cyan Border (#38BDF8).
+   - Full-Width Crimson Conversion Ribbon at bottom.
 2. 9:16 Shorts High-CTR Vertical Covers (short_thumbnail.jpg, 1080x1920)
-   - Auto-sized dynamic Header Ribbon (dark glassmorphic capsule, cyan border, crisp white text, ZERO overflow).
-   - 108pt 3D Solar Yellow Hook Banner.
-   - Central 3-Tier Japanese Dialogue Card with glowing active word highlight & indicator dot.
-   - Live Mic Shadowing HUD with animated waveform & pacing countdown.
-   - AI Pitch Accent 98.6% Verification Badge.
+   - Full-bleed authentic real photo from top to bottom.
+   - Top-Left White Brand Pill + Top-Right Crimson Badge ('SH.XX • [JLPT Level]').
+   - 74pt 3D Solar Yellow Hook + Pink Sub-hook.
+   - Deep Navy Glassmorphic Learning Card (#0A0F1C) with Sky Cyan Border.
+   - Full-Width Crimson CTA Action Banner ('WATCH FULL BREAKDOWN (EP.XX)').
 """
 
 import os
 import sys
 import glob
 import json
+import math
 import shutil
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
@@ -31,18 +32,23 @@ RELEASES_DIR = PROJECT_ROOT / "docs" / "youtube_releases"
 ASSETS_DIR = PROJECT_ROOT / "docs" / "youtube_assets" / "thumbnails"
 
 FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
-FONT_JP_BOLD = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 FONT_EN_HEAVY = "/System/Library/Fonts/Helvetica.ttc"
 
 def get_font(size: int, is_en: bool = False):
-    font_file = FONT_EN_HEAVY if is_en else FONT_PATH
+    font_file = FONT_PATH if not is_en else FONT_EN_HEAVY
     try:
         return ImageFont.truetype(font_file, size)
     except Exception:
         return ImageFont.load_default()
 
+def get_heavy_hook_font(size: int):
+    try:
+        return ImageFont.truetype(FONT_PATH, size)
+    except Exception:
+        return ImageFont.load_default()
+
 # -------------------------------------------------------------------------
-# 1. 16:9 Long-Form YouTube Thumbnail Generator (Master EP01-EP08 Style)
+# 1. 16:9 Long-Form YouTube Golden Master Thumbnail Generator (1920x1080)
 # -------------------------------------------------------------------------
 def generate_serialized_thumbnail(
     ep_num: int,
@@ -51,194 +57,155 @@ def generate_serialized_thumbnail(
     bottom_tag: str,
     bg_image_path: str,
     output_path: str,
-    jlpt_level: str = "JLPT N5"
+    jlpt_level: str = "JLPT N5",
+    sub_hook: str = "REAL JAPANESE BREAKDOWN",
+    grammar_tag: str = "",
+    en_translation: str = "",
+    context_note: str = "",
+    location_tag: str = ""
 ):
     width, height = 1920, 1080
     
-    # 1. Background Image Loading & Photographic Enhancement
+    # 1. Background Image Loading & Proportional Crop
     if bg_image_path and os.path.exists(bg_image_path):
-        base_img = Image.open(bg_image_path).convert("RGB")
-        src_w, src_h = base_img.size
+        raw_img = Image.open(bg_image_path).convert("RGB")
+        src_w, src_h = raw_img.size
         target_ratio = width / height
         src_ratio = src_w / src_h
         
         if src_ratio > target_ratio:
             new_w = int(src_h * target_ratio)
-            left = (src_w - new_w) // 2
-            base_img = base_img.crop((left, 0, left + new_w, src_h))
+            center_x = int(src_w * 0.60)
+            left = max(0, min(src_w - new_w, center_x - new_w // 2))
+            raw_img = raw_img.crop((left, 0, left + new_w, src_h))
         else:
             new_h = int(src_w / target_ratio)
             top = (src_h - new_h) // 2
-            base_img = base_img.crop((0, top, src_w, top + new_h))
+            raw_img = raw_img.crop((0, top, src_w, top + new_h))
             
-        base_img = base_img.resize((width, height), Image.Resampling.LANCZOS)
-        
-        # Enhance contrast and saturation for authentic YouTube pop
-        base_img = ImageEnhance.Contrast(base_img).enhance(1.18)
-        base_img = ImageEnhance.Color(base_img).enhance(1.22)
+        base_img = raw_img.resize((width, height), Image.Resampling.LANCZOS)
+        base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
+        base_img = ImageEnhance.Color(base_img).enhance(1.18)
     else:
-        # Default Deep Tokyo Cyber-Navy Gradient
-        base_img = Image.new("RGB", (width, height), color=(12, 17, 29))
-        draw_def = ImageDraw.Draw(base_img)
-        draw_def.rectangle([(0, 0), (width, height)], fill=(12, 17, 29))
+        base_img = Image.new("RGB", (width, height), (12, 17, 29))
 
-    # 2. Cinematic Multi-Stop Dark Left & Bottom Vignettes (for 3-Tier Hook & Japanese text)
+    # 2. Smooth Left-to-Right Cosine Dark Gradient & Bottom Vignette
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw_ov = ImageDraw.Draw(overlay)
     
-    # Left dark vignette for 3-tier hook
-    for x in range(950):
-        alpha = int(220 * (1.0 - (x / 950.0) ** 1.4))
-        draw_ov.line([(x, 0), (x, height)], fill=(8, 12, 24, alpha))
-        
-    # Smooth Bottom Vignette (for Japanese Text & Value Pill)
-    for y in range(height - 380, height):
-        rel = (y - (height - 380)) / 380.0
-        alpha = int(210 * (rel ** 1.2))
-        draw_ov.line([(0, y), (width, y)], fill=(6, 10, 20, alpha))
-        
-    canvas = Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGBA")
+    for x in range(width):
+        if x < 1180:
+            rel = x / 1180.0
+            alpha = int(245 * (0.5 * (1 + math.cos(rel * math.pi))))
+            draw_ov.line([(x, 0), (x, height)], fill=(8, 12, 22, alpha))
 
-    # 3. Top-Left Brand Pill ("TokyoFlow [Flag]") with Soft Shadow
-    pill_w, pill_h = 320, 78
-    pill_x, pill_y = 60, 48
-    
-    draw = ImageDraw.Draw(canvas)
-    draw.rounded_rectangle([(pill_x, pill_y), (pill_x + pill_w, pill_y + pill_h)], radius=39, fill=(220, 38, 38), outline=(255, 255, 255), width=3)
-    font_brand = get_font(38, is_en=True)
-    draw.text((pill_x + 28, pill_y + 16), "TokyoFlow", fill=(255, 255, 255), font=font_brand)
-    
-    # Vector Japanese flag badge
-    flag_x = pill_x + 236
-    flag_y = pill_y + 19
-    draw.rounded_rectangle([(flag_x, flag_y), (flag_x + 50, flag_y + 38)], radius=6, fill=(255, 255, 255))
-    draw.ellipse([(flag_x + 14, flag_y + 8), (flag_x + 36, flag_y + 30)], fill=(220, 38, 38))
+    for y in range(850, height):
+        rel = (y - 850) / 230.0
+        alpha = int(220 * (rel ** 1.1))
+        draw_ov.line([(0, y), (width, y)], fill=(6, 10, 18, alpha))
 
-    # 4. Left 3-Tier Giant 3D Hook Stack
-    font_hook = get_font(116)
-    hook_words = english_hook.upper().replace("\n", " ").split(" ")
+    img = Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+    draw = ImageDraw.Draw(img)
+
+    # 3. Top-Left Brand Pill
+    pill_w, pill_h = 360, 60
+    draw.rounded_rectangle([(60, 45), (60 + pill_w, 45 + pill_h)], radius=18, fill=(255, 255, 255))
+    font_brand = get_font(26, is_en=True)
+    bbox_b = draw.textbbox((0, 0), "TokyoFlow Japanese", font=font_brand)
+    bw, bh = bbox_b[2] - bbox_b[0], bbox_b[3] - bbox_b[1]
+    draw.text((60 + (pill_w - bw) // 2, 45 + (pill_h - bh) // 2 - bbox_b[1]), "TokyoFlow Japanese", fill=(225, 29, 72), font=font_brand)
+
+    # 4. Top-Right Level & Episode Badge
+    ep_str = f"EP.{ep_num:02d}"
+    jlpt_badge = f"{jlpt_level} • {ep_str}"
+    badge_w, badge_h = 290, 60
+    badge_x = width - 60 - badge_w
+    draw.rounded_rectangle([(badge_x, 45), (badge_x + badge_w, 45 + badge_h)], radius=18, fill=(225, 29, 72))
+    font_badge = get_font(26, is_en=True)
+    bbox_bg = draw.textbbox((0, 0), jlpt_badge, font=font_badge)
+    gw, gh = bbox_bg[2] - bbox_bg[0], bbox_bg[3] - bbox_bg[1]
+    draw.text((badge_x + (badge_w - gw) // 2, 45 + (badge_h - gh) // 2 - bbox_bg[1]), jlpt_badge, fill=(255, 255, 255), font=font_badge)
+
+    # 5. Giant 3D Yellow Hook Stack (Left Aligned)
+    hook_words = [w.strip() for w in english_hook.replace("\n", " ").split(" ") if w.strip()]
     if len(hook_words) == 1:
-        hook_lines = [hook_words[0], "HACK"]
+        hook_lines = [hook_words[0], "IN TOKYO?!"]
     elif len(hook_words) == 2:
-        hook_lines = [hook_words[0], hook_words[1], "HACK"]
+        hook_lines = [hook_words[0], hook_words[1]]
+    elif len(hook_words) == 3:
+        hook_lines = [hook_words[0], f"{hook_words[1]} {hook_words[2]}"]
     else:
-        hook_lines = hook_words[:3]
+        hook_lines = [" ".join(hook_words[:2]), " ".join(hook_words[2:4])]
 
-    h_y = 150
-    for idx, hline in enumerate(hook_lines):
-        bbox_hl = draw.textbbox((0, 0), hline, font=font_hook)
-        hw = bbox_hl[2] - bbox_hl[0]
-        cur_font = font_hook
-        if hw > 820:
-            cur_font = get_font(96)
-            bbox_hl = draw.textbbox((0, 0), hline, font=cur_font)
-            hw = bbox_hl[2] - bbox_hl[0]
+    font_hook = get_heavy_hook_font(96)
+    hy = 145
+    for line in hook_lines:
+        for dx in range(-5, 6, 2):
+            for dy in range(-5, 6, 2):
+                draw.text((60 + dx, hy + dy), line, fill=(0, 0, 0), font=font_hook)
+        draw.text((60, hy), line, fill=(254, 240, 138), font=font_hook)
+        hy += 112
 
-        hx = 60
-        # Multi-pass 3D Deep Black Extrusion & Shadow
-        for off in range(10, 0, -1):
-            for dx in range(-off, off + 1):
-                for dy in range(-off, off + 1):
-                    draw.text((hx + dx, h_y + dy + 3), hline, fill=(0, 0, 0, 255), font=cur_font)
-        
-        # Color: Lines 1 & 2 in Solar Yellow, Line 3 in Metallic White
-        text_color = (250, 204, 21) if idx < len(hook_lines) - 1 else (255, 255, 255)
-        draw.text((hx, h_y), hline, fill=text_color, font=cur_font)
-        h_y += 118
+    # Pink Sub-Hook
+    clean_sub_hook = sub_hook.upper() if sub_hook else "POP CULTURE TREND"
+    draw.text((65, 385), clean_sub_hook, fill=(244, 114, 182), font=get_font(34, is_en=True))
 
-    # 5. Bottom-Left Giant Japanese Soul Phrase (with Magenta Neon Aura)
-    font_jp = get_font(108)
-    jp_text = japanese_key_phrase
-    bbox_j = draw.textbbox((0, 0), jp_text, font=font_jp)
-    jp_w = bbox_j[2] - bbox_j[0]
+    # 6. Japanese Learning Card (Glassmorphic dark navy with Sky Cyan border)
+    quote_box_w = 860
+    quote_box_y = 450
+    draw.rounded_rectangle([(60, quote_box_y), (60 + quote_box_w, quote_box_y + 410)], radius=22, fill=(10, 15, 28, 235), outline=(56, 189, 248), width=3)
     
-    if jp_w > 1200:
-        font_jp = get_font(88)
-        bbox_j = draw.textbbox((0, 0), jp_text, font=font_jp)
-        jp_w = bbox_j[2] - bbox_j[0]
-
-    jp_x = 60
-    jp_y = height - 260
-
-    # Magenta Glowing Outer Aura Layer
-    aura_img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-    draw_aura = ImageDraw.Draw(aura_img)
-    for off in range(12, 0, -1):
-        for dx in range(-off, off + 1):
-            for dy in range(-off, off + 1):
-                draw_aura.text((jp_x + dx, jp_y + dy), jp_text, fill=(236, 72, 153, 160), font=font_jp)
-    aura_img = aura_img.filter(ImageFilter.GaussianBlur(8))
-    canvas = Image.alpha_composite(canvas, aura_img)
-    draw = ImageDraw.Draw(canvas)
-
-    # Multi-pass deep drop shadow (10px) & Pure White Text
-    for off in range(9, 0, -1):
-        for dx in range(-off, off + 1):
-            for dy in range(-off, off + 1):
-                draw.text((jp_x + dx, jp_y + dy + 3), jp_text, fill=(0, 0, 0, 255), font=font_jp)
-    draw.text((jp_x, jp_y), jp_text, fill=(255, 255, 255), font=font_jp)
-
-    # 6. Bottom-Right 3D Metallic Episode Badge ("EP.XX")
-    font_ep_prefix = get_font(104)
-    font_ep_num = get_font(114)
+    draw.text((90, quote_box_y + 25), "[ REAL TOKYO JAPANESE BREAKDOWN ]", fill=(56, 189, 248), font=get_font(22, is_en=True))
     
-    prefix_str = "EP."
-    num_str = f"{ep_num:02d}"
-    
-    bbox_p = draw.textbbox((0, 0), prefix_str, font=font_ep_prefix)
-    pw = bbox_p[2] - bbox_p[0]
-    bbox_n = draw.textbbox((0, 0), num_str, font=font_ep_num)
-    nw = bbox_n[2] - bbox_n[0]
-    
-    badge_total_w = pw + nw + 12
-    badge_x = width - badge_total_w - 60
-    badge_y = height - 270
+    # Japanese Text Split
+    jp_full = japanese_key_phrase.strip()
+    if len(jp_full) > 14 and ("、" in jp_full or " " in jp_full or "が" in jp_full):
+        if "、" in jp_full:
+            parts = jp_full.split("、", 1)
+            jp_l1, jp_l2 = parts[0] + "、", parts[1]
+        elif " " in jp_full:
+            parts = jp_full.split(" ", 1)
+            jp_l1, jp_l2 = parts[0], parts[1]
+        else:
+            mid = len(jp_full) // 2
+            jp_l1, jp_l2 = jp_full[:mid], jp_full[mid:]
+    else:
+        jp_l1, jp_l2 = jp_full, ""
 
-    # 3D shadow for EP prefix
-    for off in range(9, 0, -1):
-        for dx in range(-off, off + 1):
-            for dy in range(-off, off + 1):
-                draw.text((badge_x + dx, badge_y + dy + 3), prefix_str, fill=(0, 0, 0, 255), font=font_ep_prefix)
-    draw.text((badge_x, badge_y), prefix_str, fill=(255, 255, 255), font=font_ep_prefix)
+    font_jp = get_font(38)
+    draw.text((90, quote_box_y + 70), jp_l1, fill=(255, 255, 255), font=font_jp)
+    if jp_l2:
+        draw.text((90, quote_box_y + 125), jp_l2, fill=(254, 240, 138), font=font_jp)
+        text_offset_y = 0
+    else:
+        text_offset_y = -35
+    
+    tag_str = grammar_tag if grammar_tag else f"{jlpt_level} Grammar • Key Pattern"
+    draw.text((90, quote_box_y + 200 + text_offset_y), tag_str, fill=(244, 114, 182), font=get_font(23))
+    
+    en_str = en_translation if en_translation else f'"{english_hook.title()}"'
+    draw.text((90, quote_box_y + 245 + text_offset_y), en_str, fill=(226, 232, 240), font=get_font(24, is_en=True))
+    
+    note_str = context_note if context_note else f"Daily spoken Tokyo Japanese for real situations"
+    draw.text((90, quote_box_y + 300 + text_offset_y), note_str, fill=(148, 163, 184), font=get_font(20, is_en=True))
+    
+    loc_str = location_tag if location_tag else f"Setting: Tokyo, Japan • {jlpt_level} Mastery"
+    draw.text((90, quote_box_y + 345 + text_offset_y), loc_str, fill=(56, 189, 248), font=get_font(20, is_en=True))
 
-    # 3D shadow & Golden Yellow for Episode Number
-    num_x = badge_x + pw + 12
-    for off in range(10, 0, -1):
-        for dx in range(-off, off + 1):
-            for dy in range(-off, off + 1):
-                draw.text((num_x + dx, badge_y + dy + 3), num_str, fill=(0, 0, 0, 255), font=font_ep_num)
-    draw.text((num_x, badge_y), num_str, fill=(250, 204, 21), font=font_ep_num)
+    # 7. Full-Width Crimson Conversion Ribbon
+    draw.rounded_rectangle([(60, height - 120), (width - 60, height - 45)], radius=16, fill=(225, 29, 72))
+    ribbon_txt = " 100% NATIVE TOKYO AUDIO  •  SHADOWING PRACTICE  •  FULL VOCAB & GRAMMAR BREAKDOWN"
+    font_ribbon = get_font(24, is_en=True)
+    bbox_rb = draw.textbbox((0, 0), ribbon_txt, font=font_ribbon)
+    rw, rh = bbox_rb[2] - bbox_rb[0], bbox_rb[3] - bbox_rb[1]
+    draw.text((60 + (width - 120 - rw) // 2, height - 120 + (75 - rh) // 2 - bbox_rb[1]), ribbon_txt, fill=(255, 255, 255), font=font_ribbon)
 
-    # 7. Bottom-Right Scenario Value Tag Pill
-    clean_tag = bottom_tag.replace("🇯🇵", "").replace("Native Audio •", "").replace("Native Audio -", "").replace("[JLPT N5]", "").replace("JLPT N5", "").strip()
-    tag_content = f"Native Audio • {jlpt_level} {clean_tag}" if clean_tag else f"Native Audio • {jlpt_level} Trend"
-    
-    font_pill = get_font(28)
-    pill_text_bbox = draw.textbbox((0, 0), tag_content, font=font_pill)
-    tag_w = pill_text_bbox[2] - pill_text_bbox[0]
-    
-    bp_w = tag_w + 104
-    bp_h = 58
-    bp_x = width - bp_w - 60
-    bp_y = height - 100
-    
-    draw.rounded_rectangle([(bp_x, bp_y), (bp_x + bp_w, bp_y + bp_h)], radius=20, fill=(18, 25, 42, 240), outline=(255, 255, 255), width=2)
-    # Vector flag badge in bottom pill
-    flag_bx = bp_x + 18
-    flag_by = bp_y + 11
-    draw.rounded_rectangle([(flag_bx, flag_by), (flag_bx + 44, flag_by + 34)], radius=5, fill=(255, 255, 255))
-    draw.ellipse([(flag_bx + 11, flag_by + 6), (flag_bx + 33, flag_by + 28)], fill=(220, 38, 38))
-    
-    draw.text((bp_x + 76, bp_y + 14), tag_content, fill=(255, 255, 255), font=font_pill)
-
-    # 8. Convert and Save Output
-    final_img = canvas.convert("RGB")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    final_img.save(output_path, "JPEG", quality=95)
+    img.save(output_path, "JPEG", quality=95)
     print(f"✓ Master 16:9 Long-Form Thumbnail generated: {output_path}")
 
-## -------------------------------------------------------------------------
-# 2. 9:16 Shorts Minimalist High-CTR Vertical Cover (Zero Overflow Standard)
+# -------------------------------------------------------------------------
+# 2. 9:16 Shorts Vertical Golden Master Generator (1080x1920)
 # -------------------------------------------------------------------------
 def generate_shorts_thumbnail(
     ep_num: int,
@@ -250,63 +217,150 @@ def generate_shorts_thumbnail(
     output_path: str,
     category_theme: str = "anime",
     jlpt_level: str = "JLPT N5",
-    bg_image_path: str = ""
+    bg_image_path: str = "",
+    sub_hook: str = "",
+    grammar_tag: str = ""
 ):
-    from generate_shorts_thumbnails import create_shorts_cover
+    width, height = 1080, 1920
     
-    # Theme color palettes
-    if category_theme == "transit":
-        accent_color = (16, 185, 129)     # Emerald
-        accent_secondary = (56, 189, 248)  # Sky Cyan
-        location = "SHINJUKU STATION • YAMANOTE"
-    elif category_theme == "kombini":
-        accent_color = (249, 115, 22)     # Amber Orange
-        accent_secondary = (250, 204, 21)  # Solar Yellow
-        location = "SHIBUYA 7-ELEVEN • TOKYO"
-    elif category_theme == "izakaya":
-        accent_color = (234, 179, 8)      # Beer Gold
-        accent_secondary = (249, 115, 22)  # Coral Warmth
-        location = "SHINBASHI IZAKAYA ALLEY"
-    else: # Anime / Shopping / Pop Culture
-        accent_color = (236, 72, 153)     # Neon Pink
-        accent_secondary = (250, 204, 21)  # Solar Yellow
-        location = "TOKYO POP CULTURE • JLPT"
-
-    hook_lines = [h.strip() for h in english_hook.replace("\n", " ").split(" ") if h.strip()]
-    if len(hook_lines) >= 2:
-        hook_main = " ".join(hook_lines[:2])
-        hook_sub = " ".join(hook_lines[2:]) if len(hook_lines) > 2 else "JAPAN TREND"
-    elif len(hook_lines) == 1:
-        hook_main = hook_lines[0]
-        hook_sub = "JAPAN TREND"
+    if bg_image_path and os.path.exists(bg_image_path):
+        raw_img = Image.open(bg_image_path).convert("RGB")
+        src_w, src_h = raw_img.size
+        target_ratio = width / height
+        src_ratio = src_w / src_h
+        
+        if src_ratio > target_ratio:
+            new_w = int(src_h * target_ratio)
+            center_x = int(src_w * 0.50)
+            left = max(0, min(src_w - new_w, center_x - new_w // 2))
+            raw_img = raw_img.crop((left, 0, left + new_w, src_h))
+        else:
+            new_h = int(src_w / target_ratio)
+            top = (src_h - new_h) // 2
+            raw_img = raw_img.crop((0, top, src_w, top + new_h))
+            
+        base_img = raw_img.resize((width, height), Image.Resampling.LANCZOS)
+        base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
+        base_img = ImageEnhance.Color(base_img).enhance(1.18)
     else:
-        hook_main = "JAPAN TREND"
-        hook_sub = "POP CULTURE"
+        base_img = Image.new("RGB", (width, height), (12, 17, 29))
 
-    item_dict = {
-        "ep_num": ep_num,
-        "sh_code": f"SH.{ep_num:02d}",
-        "folder": f"E{ep_num:02d}",
-        "hook_main": hook_main,
-        "hook_sub": hook_sub,
-        "jp_phrase": japanese_sentence,
-        "romaji": romaji_sentence,
-        "en_meaning": en_translation,
-        "accent_color": accent_color,
-        "secondary_color": accent_secondary,
-        "location": location,
-        "jlpt_level": jlpt_level,
-        "bg_image_path": bg_image_path
-    }
+    overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_ov = ImageDraw.Draw(overlay)
     
-    img = create_shorts_cover(item_dict)
+    # Top Gradient for Badges and Hook
+    for y in range(540):
+        rel = y / 540.0
+        alpha = int(235 * (1.0 - (rel ** 1.3)))
+        draw_ov.line([(0, y), (width, y)], fill=(8, 12, 24, alpha))
+        
+    # Left Gradient for Hook Text
+    for x in range(700):
+        rel = x / 700.0
+        alpha = int(200 * (1.0 - (rel ** 1.2)))
+        draw_ov.line([(x, 0), (x, 560)], fill=(8, 12, 24, alpha))
+
+    # Smooth Bottom transition to card
+    for y in range(1000, height):
+        rel = (y - 1000) / (height - 1000.0)
+        alpha = int(245 * (rel ** 0.8))
+        draw_ov.line([(0, y), (width, y)], fill=(6, 10, 20, min(245, alpha)))
+
+    img = Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+    draw = ImageDraw.Draw(img)
+
+    # 1. Top Header: TokyoFlow Brand Pill & Shorts Level Badge
+    pill_w, pill_h = 390, 65
+    draw.rounded_rectangle([(50, 50), (50 + pill_w, 50 + pill_h)], radius=18, fill=(255, 255, 255))
+    font_brand = get_font(28, is_en=True)
+    bbox_b = draw.textbbox((0, 0), "TokyoFlow Japanese", font=font_brand)
+    bw, bh = bbox_b[2] - bbox_b[0], bbox_b[3] - bbox_b[1]
+    draw.text((50 + (pill_w - bw) // 2, 50 + (pill_h - bh) // 2 - bbox_b[1]), "TokyoFlow Japanese", fill=(225, 29, 72), font=font_brand)
+
+    sh_code = f"SH.{ep_num:02d} • {jlpt_level}"
+    badge_w, badge_h = 310, 65
+    badge_x = width - 50 - badge_w
+    draw.rounded_rectangle([(badge_x, 50), (badge_x + badge_w, 50 + badge_h)], radius=18, fill=(225, 29, 72))
+    font_badge = get_font(26, is_en=True)
+    bbox_bg = draw.textbbox((0, 0), sh_code, font=font_badge)
+    gw, gh = bbox_bg[2] - bbox_bg[0], bbox_bg[3] - bbox_bg[1]
+    draw.text((badge_x + (badge_w - gw) // 2, 50 + (badge_h - gh) // 2 - bbox_bg[1]), sh_code, fill=(255, 255, 255), font=font_badge)
+
+    # 2. Punchy 3D Action Hook
+    hook_words = [w.strip() for w in english_hook.replace("\n", " ").split(" ") if w.strip()]
+    if len(hook_words) >= 2:
+        hook_lines = [" ".join(hook_words[:2]), " ".join(hook_words[2:])] if len(hook_words) > 2 else hook_words
+    elif len(hook_words) == 1:
+        hook_lines = [hook_words[0], "IN TOKYO?!"]
+    else:
+        hook_lines = ["JAPAN TREND", "IN TOKYO?!"]
+
+    font_hook_sh = get_heavy_hook_font(74)
+    hy = 150
+    for line in hook_lines:
+        for dx in range(-4, 5, 2):
+            for dy in range(-4, 5, 2):
+                draw.text((50 + dx, hy + dy), line, fill=(0, 0, 0), font=font_hook_sh)
+        draw.text((50, hy), line, fill=(254, 240, 138), font=font_hook_sh)
+        hy += 88
+
+    # Pink Sub-Hook
+    clean_sub = sub_hook.upper() if sub_hook else "POP CULTURE TREND"
+    draw.text((55, hy + 5), clean_sub, fill=(244, 114, 182), font=get_font(28, is_en=True))
+
+    # 3. Center/Bottom Learning Card (Glassmorphic container)
+    card_x, card_y = 40, 1150
+    card_w, card_h = 1000, 720
+    draw.rounded_rectangle([(card_x, card_y), (card_x + card_w, card_y + card_h)], radius=24, fill=(10, 15, 28, 240), outline=(56, 189, 248), width=3)
+
+    # Card Top Header
+    draw.text((card_x + 35, card_y + 25), "[ TOKYO SURVIVAL GYM ]", fill=(56, 189, 248), font=get_font(24, is_en=True))
+    draw.rounded_rectangle([(card_x + card_w - 240, card_y + 20), (card_x + card_w - 30, card_y + 62)], radius=10, fill=(225, 29, 72))
+    draw.text((card_x + card_w - 225, card_y + 28), f"{jlpt_level} ESSENTIAL", fill=(255, 255, 255), font=get_font(19, is_en=True))
+
+    draw.line([(card_x + 35, card_y + 75), (card_x + card_w - 35, card_y + 75)], fill=(51, 65, 85), width=2)
+
+    # Japanese Target Sentence
+    full_jp = japanese_sentence.strip()
+    jp_size = 46
+    font_jp = get_font(jp_size)
+    bbox_jp = draw.textbbox((0, 0), full_jp, font=font_jp)
+    while (bbox_jp[2] - bbox_jp[0]) > (card_w - 70) and jp_size > 34:
+        jp_size -= 2
+        font_jp = get_font(jp_size)
+        bbox_jp = draw.textbbox((0, 0), full_jp, font=font_jp)
+    draw.text((card_x + 35, card_y + 100), full_jp, fill=(255, 255, 255), font=font_jp)
+
+    # Romaji
+    draw.text((card_x + 35, card_y + 168), romaji_sentence, fill=(254, 240, 138), font=get_font(25, is_en=True))
+    
+    # English Translation
+    en_clean = en_translation if en_translation.startswith('"') else f'"{en_translation}"'
+    draw.text((card_x + 35, card_y + 215), en_clean, fill=(226, 232, 240), font=get_font(25, is_en=True))
+
+    # Grammar Tag Pill inside card
+    tag_clean = grammar_tag if grammar_tag else f"{jlpt_level} Spoken Japanese Pattern"
+    draw.rounded_rectangle([(card_x + 35, card_y + 280), (card_x + card_w - 35, card_y + 345)], radius=12, fill=(15, 23, 42, 220), outline=(244, 114, 182), width=2)
+    draw.text((card_x + 55, card_y + 298), tag_clean, fill=(244, 114, 182), font=get_font(21))
+
+    # 4. CTA Action Banner at Bottom of Card
+    cta_x = card_x + 30
+    cta_y = card_y + 380
+    cta_w = card_w - 60
+    cta_h = 295
+    draw.rounded_rectangle([(cta_x, cta_y), (cta_x + cta_w, cta_y + cta_h)], radius=18, fill=(225, 29, 72))
+    
+    ep_str = f"EP.{ep_num:02d}"
+    draw.text((cta_x + 35, cta_y + 35), f"WATCH FULL BREAKDOWN ({ep_str})", fill=(255, 255, 255), font=get_font(34, is_en=True))
+    draw.text((cta_x + 35, cta_y + 95), "Complete Vocabulary • Grammar Rules • Shadowing Gym", fill=(254, 240, 138), font=get_font(22, is_en=True))
+    draw.text((cta_x + 35, cta_y + 145), f"Tap Related Video Below  •  TokyoFlow Japanese", fill=(241, 245, 249), font=get_font(20, is_en=True))
+
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     img.save(output_path, "JPEG", quality=95)
-    print(f"✓ Master 9:16 Shorts Cover generated (3-Pill Header): {output_path}")
+    print(f"✓ Master 9:16 Shorts Cover generated: {output_path}")
 
 # -------------------------------------------------------------------------
-# -------------------------------------------------------------------------
-# Standalone CLI Runner (Incremental Single-Target & Batch Support)
+# Standalone CLI Runner (Processes Single Release or All Releases)
 # -------------------------------------------------------------------------
 def process_release_dir(rdir: str, sh_num: int = None):
     rdir_path = Path(rdir)
@@ -314,23 +368,13 @@ def process_release_dir(rdir: str, sh_num: int = None):
         print(f"Directory not found: {rdir}")
         return
         
-    script_file = rdir_path / "script.json"
-    wallpapers = {
-        "transit": str(PROJECT_ROOT / "TokyoFlow" / "Resources" / "Wallpapers" / "tokyo_subway.jpg"),
-        "kombini": str(PROJECT_ROOT / "TokyoFlow" / "Resources" / "Wallpapers" / "rainy_cafe.jpg"),
-        "izakaya": str(PROJECT_ROOT / "TokyoFlow" / "Resources" / "Wallpapers" / "cozy_room.jpg"),
-        "shopping": str(PROJECT_ROOT / "TokyoFlow" / "Resources" / "Wallpapers" / "liquid_glass.jpg")
-    }
-
     dir_name = rdir_path.name
-    # Determine episode and short number
     try:
-        ep_num = int(dir_name.split("-")[0].replace("E", ""))
+        ep_num = int(dir_name.split("-")[0].replace("E", "").replace("tokyoflow_v", ""))
     except Exception:
         ep_num = 1
         
     if sh_num is None:
-        # Default mapping: E13 is sequential Short SH.09 following SH.01-08
         if ep_num == 13 or "E13" in dir_name:
             sh_num = 9
         else:
@@ -338,42 +382,101 @@ def process_release_dir(rdir: str, sh_num: int = None):
 
     out_16_9 = str(rdir_path / "thumbnail.jpg")
     out_9_16 = str(rdir_path / "short_thumbnail.jpg")
-    master_asset_path = ASSETS_DIR / f"{dir_name}_thumb.jpg"
+    
+    # Priority for base image:
+    # 1. news_bg.jpg (High-res realistic photo)
+    # 2. hero_16_9.jpg / hero_female_vert.jpg
+    # 3. master asset in ASSETS_DIR
+    bg_16_9 = ""
+    bg_9_16 = ""
+    
+    news_bg = rdir_path / "news_bg.jpg"
+    hero_16_9 = rdir_path / "hero_16_9.jpg"
+    hero_9_16 = rdir_path / "hero_female_vert.jpg" or rdir_path / "hero_9_16.jpg"
+    
+    if hero_16_9.exists():
+        bg_16_9 = str(hero_16_9)
+    elif news_bg.exists():
+        bg_16_9 = str(news_bg)
+        
+    if hero_9_16.exists():
+        bg_9_16 = str(hero_9_16)
+    elif news_bg.exists():
+        bg_9_16 = str(news_bg)
 
-    if script_file.exists():
+    # Read manifest data
+    spec_file = rdir_path / "production_spec.json"
+    script_file = rdir_path / "script.json"
+    
+    if spec_file.exists():
+        with open(spec_file) as fp:
+            spec = json.load(fp)
+        long_spec = spec.get("long_form", {})
+        shorts_spec = spec.get("shorts", {})
+        level = spec.get("target_jlpt_level", "JLPT N5")
+        
+        hook = long_spec.get("english_hook", "JAPAN TREND")
+        jp = long_spec.get("japanese_key_phrase", spec.get("topic_title", "日本トレンド"))
+        sub_hook = long_spec.get("sub_hook", "POP CULTURE TREND")
+        grammar_tag = long_spec.get("grammar_point", f"{level} Grammar")
+        en_trans = long_spec.get("en_translation", "")
+        context = long_spec.get("context_note", "")
+        location = long_spec.get("location_tag", "Tokyo, Japan")
+        
+        # 16:9 Cover
+        generate_serialized_thumbnail(
+            ep_num=ep_num,
+            english_hook=hook,
+            japanese_key_phrase=jp,
+            bottom_tag=f"[{level}] Native Audio",
+            bg_image_path=bg_16_9,
+            output_path=out_16_9,
+            jlpt_level=level,
+            sub_hook=sub_hook,
+            grammar_tag=grammar_tag,
+            en_translation=en_trans,
+            context_note=context,
+            location_tag=location
+        )
+        
+        # 9:16 Shorts Cover
+        sh_hook = shorts_spec.get("hook_title", hook)
+        sh_jp = shorts_spec.get("jp_sentence", jp)
+        sh_kana = shorts_spec.get("kana_sentence", "")
+        sh_romaji = shorts_spec.get("romaji_sentence", "")
+        sh_en = shorts_spec.get("en_translation", en_trans)
+        
+        generate_shorts_thumbnail(
+            ep_num=sh_num,
+            english_hook=sh_hook,
+            japanese_sentence=sh_jp,
+            kana_sentence=sh_kana,
+            romaji_sentence=sh_romaji,
+            en_translation=sh_en,
+            output_path=out_9_16,
+            category_theme="anime",
+            jlpt_level=level,
+            bg_image_path=bg_9_16,
+            sub_hook=sub_hook,
+            grammar_tag=grammar_tag
+        )
+    elif script_file.exists():
         with open(script_file) as fp:
             data = json.load(fp)
         hook = data.get("cover", {}).get("hook", "TOKYO LESSON")
         jp = data.get("cover", {}).get("jp", "まもなく参ります")
-        tag = data.get("cover", {}).get("tag", "🇯🇵 Native Audio • JLPT")
-        bg = data.get("bg_image", "")
         level = data.get("level", "JLPT N5")
-        cat = data.get("category", "").lower()
         
-        if "transit" in cat or "subway" in cat or "metro" in cat:
-            theme = "transit"
-        elif "kombini" in cat or "checkout" in cat or "coffee" in cat:
-            theme = "kombini"
-        elif "izakaya" in cat or "dining" in cat or "ramen" in cat:
-            theme = "izakaya"
-        else:
-            theme = "shopping"
-            
-        news_bg = rdir_path / "news_bg.jpg"
-        if not bg or not os.path.exists(bg):
-            if news_bg.exists():
-                bg = str(news_bg)
-            else:
-                bg = wallpapers.get(theme, wallpapers["shopping"])
-
-        # 1. 16:9 Cover
-        if master_asset_path.exists():
-            shutil.copyfile(str(master_asset_path), out_16_9)
-            print(f"✓ Preserved authentic 4K AI Master Thumbnail: {out_16_9}")
-        else:
-            generate_serialized_thumbnail(ep_num, hook, jp, tag, bg, out_16_9, level)
-
-        # 2. 9:16 Shorts Cover
+        generate_serialized_thumbnail(
+            ep_num=ep_num,
+            english_hook=hook,
+            japanese_key_phrase=jp,
+            bottom_tag=f"[{level}] Native Audio",
+            bg_image_path=bg_16_9,
+            output_path=out_16_9,
+            jlpt_level=level
+        )
+        
         first_slide = data.get("slides", [{}])[0]
         jp_sent = first_slide.get("spoken_text", jp)
         romaji_sent = " ".join([t.get("romaji", "") for t in first_slide.get("tokens", [])]).strip()
@@ -388,85 +491,18 @@ def process_release_dir(rdir: str, sh_num: int = None):
             romaji_sentence=romaji_sent,
             en_translation=en_trans,
             output_path=out_9_16,
-            category_theme=theme,
+            category_theme="anime",
             jlpt_level=level,
-            bg_image_path=bg
+            bg_image_path=bg_9_16
         )
-    else:
-        # Fallback for trend-radar episodes (reads production_spec.json)
-        spec_file = rdir_path / "production_spec.json"
-        if spec_file.exists():
-            with open(spec_file) as fp:
-                spec = json.load(fp)
-            long_spec = spec.get("long_form", {})
-            shorts_spec = spec.get("shorts", {})
-            level = spec.get("target_jlpt_level", "JLPT N5")
-            playlist = spec.get("matched_playlist", "")
-            
-            if "交通" in playlist or "Transit" in playlist:
-                theme = "transit"
-            elif "便利店" in playlist or "Kombini" in playlist:
-                theme = "kombini"
-            elif "居酒屋" in playlist or "Izakaya" in playlist:
-                theme = "izakaya"
-            else:
-                theme = "anime"
-                
-            news_bg = rdir_path / "news_bg.jpg"
-            if news_bg.exists():
-                bg = str(news_bg)
-            else:
-                bg = wallpapers.get(theme, wallpapers["anime"])
-            
-            if master_asset_path.exists():
-                shutil.copyfile(str(master_asset_path), out_16_9)
-                print(f"✓ Preserved authentic 4K AI Master Thumbnail: {out_16_9}")
-            else:
-                hook = long_spec.get("english_hook", "JAPAN TREND")
-                jp = long_spec.get("japanese_key_phrase", spec.get("topic_title", "Japan Trend"))
-                tag = long_spec.get("bottom_tag", f"[{level}] Native Audio • Pop Culture Trend")
-                generate_serialized_thumbnail(ep_num, hook, jp, tag, bg, out_16_9, level)
-            
-            generate_shorts_thumbnail(
-                ep_num=sh_num,
-                english_hook=shorts_spec.get("hook_title", "JAPAN TREND"),
-                japanese_sentence=shorts_spec.get("jp_sentence", ""),
-                kana_sentence=shorts_spec.get("kana_sentence", ""),
-                romaji_sentence=shorts_spec.get("romaji_sentence", ""),
-                en_translation=shorts_spec.get("en_translation", ""),
-                output_path=out_9_16,
-                category_theme=theme,
-                jlpt_level=level,
-                bg_image_path=bg
-            )
-        else:
-            if master_asset_path.exists():
-                shutil.copyfile(str(master_asset_path), out_16_9)
-                print(f"✓ Preserved authentic 4K AI Master Thumbnail: {out_16_9}")
-            else:
-                bg = wallpapers["anime"]
-                generate_serialized_thumbnail(ep_num, "JAPAN TREND", "日本語を話そう", f"[{jlpt_level}] Native Audio", bg, out_16_9, "JLPT N5")
-                
-            generate_shorts_thumbnail(
-                ep_num=sh_num,
-                english_hook="JAPAN TREND",
-                japanese_sentence="日本語を話そう",
-                kana_sentence="にほんごをはなそう",
-                romaji_sentence="Nihongo o hanasou",
-                en_translation="Let's speak Japanese!",
-                output_path=out_9_16,
-                category_theme="anime",
-                jlpt_level="JLPT N5"
-            )
     print(f"✅ Finished updating cover for {dir_name} (Short: SH.{sh_num:02d})")
-
 
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="TokyoFlow Master Thumbnail Factory")
     parser.add_argument("--dir", type=str, help="Target release directory to process")
-    parser.add_argument("--episode", type=int, help="Episode number to process (e.g. 13)")
-    parser.add_argument("--sh-num", type=int, help="Sequential Shorts number (e.g. 9 for SH.09)")
+    parser.add_argument("--episode", type=int, help="Episode number to process (e.g. 10)")
+    parser.add_argument("--sh-num", type=int, help="Sequential Shorts number (e.g. 10 for SH.10)")
     parser.add_argument("--all", action="store_true", help="Explicitly process all release directories")
 
     args = parser.parse_args()
@@ -486,11 +522,10 @@ if __name__ == "__main__":
             process_release_dir(rdir)
         print("✅ All release thumbnails synchronized!")
     else:
-        # Default single target: latest release (E13)
-        latest_dir = "docs/youtube_releases/E13-anime_sauna_trend-v1.0"
+        # Default single target: latest release (E11)
+        latest_dir = "docs/youtube_releases/E11-shabuya-robot-drama-v1.0"
         if os.path.exists(latest_dir):
             print(f"ℹ️ No flags passed. Running incremental single-target on latest release: {latest_dir}")
-            process_release_dir(latest_dir, sh_num=9)
+            process_release_dir(latest_dir, sh_num=11)
         else:
             print("Please specify --dir <PATH>, --episode <NUM>, or --all")
-
