@@ -981,17 +981,34 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
         default_bg = wallpapers["shopping"]
 
     # Retrieve dedicated topic scene background (YouTube/News Press Scene/Generated 4K)
-    # Zero fallback to cartoon/manga illustration
+    # Zero fallback to cartoon/manga illustration or generic abstract wallpaper
     news_bg_candidate = os.path.join(official_release_dir, "news_bg.jpg")
     scene_bg_dir = os.path.join(PROJECT_ROOT, "docs", "youtube_assets", "scene_backgrounds")
     if not os.path.exists(news_bg_candidate) and os.path.exists(scene_bg_dir):
+        # 1. First check episode-specific 4K scene
         for f in os.listdir(scene_bg_dir):
             if f.startswith(f"E{next_ep_num:02d}"):
                 news_bg_candidate = os.path.join(scene_bg_dir, f)
                 shutil.copyfile(news_bg_candidate, os.path.join(official_release_dir, "news_bg.jpg"))
                 break
-                
-    bg_image_path = news_bg_candidate if os.path.exists(news_bg_candidate) else default_bg
+        # 2. If still not found, select best matching 4K authentic Tokyo scene photo
+        if not os.path.exists(os.path.join(official_release_dir, "news_bg.jpg")):
+            if "便利店" in playlist_badge or "Kombini" in playlist_badge:
+                fallback_photo = os.path.join(scene_bg_dir, "scene_kombini_store.jpg")
+            elif "交通" in playlist_badge or "Transit" in playlist_badge or "地铁" in playlist_badge:
+                fallback_photo = os.path.join(scene_bg_dir, "scene_yamanote_platform.jpg")
+            elif "居酒屋" in playlist_badge or "Izakaya" in playlist_badge or "拉面" in playlist_badge or "美食" in playlist_badge:
+                fallback_photo = os.path.join(scene_bg_dir, "scene_izakaya_yokocho.jpg")
+            elif "动漫" in playlist_badge or "Anime" in playlist_badge or "秋叶原" in playlist_badge:
+                fallback_photo = os.path.join(scene_bg_dir, "scene_akiba_street.jpg")
+            else:
+                fallback_photo = os.path.join(scene_bg_dir, "scene_tokyo_skyline.jpg")
+            
+            if os.path.exists(fallback_photo):
+                shutil.copyfile(fallback_photo, os.path.join(official_release_dir, "news_bg.jpg"))
+                news_bg_candidate = os.path.join(official_release_dir, "news_bg.jpg")
+
+    bg_image_path = news_bg_candidate if os.path.exists(news_bg_candidate) else os.path.join(scene_bg_dir, "scene_tokyo_skyline.jpg")
     news_bg_image = bg_image_path
 
     rendered_clips = []

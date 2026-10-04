@@ -96,28 +96,15 @@ Every vertical Short must execute a tight 4-phase psychological retention loop:
    - Followed by punchy hook + `#Shorts #LearnJapanese`
    - ZERO Emojis
    - Example: `[JLPT N5] SH.09 Anime Studio Opened a SAUNA in Tokyo?! #Shorts #LearnJapanese`
-2. Minimalist High-CTR Cover Architecture (`short_thumbnail.jpg`):
-   - Dimensions: 9:16 Vertical (`1080x1920`)
-   - **Photographic Topic Base**: High-res 4K authentic photo (e.g. `news_bg.jpg` / celebrity press conference) with 58% center-right subject bias crop, contrast boost (+15%), saturation boost (+20%), top gradient vignette (0~320px) and mid-to-bottom dark glassmorphic vignette (420~1920px).
-   - **Top 3-Pill Header**:
-     - Left: `TokyoFlow` (Solid White Pill, Bold Crimson `#DC2626` text)
-     - Center: `JLPT N5` (Dark Glassmorphic Capsule `#18202F`, Sky Cyan `#38BDF8` border, Solar Yellow `#FACC15` text)
-     - Right: `SH.XX` (Scenario Accent Pill, Dark Navy `#0A0E18` text)
-   - **Location Tag**: Upper district indicator (`SHINJUKU STATION • YAMANOTE`, `SHIBUYA 7-ELEVEN • TOKYO`, `TOKYO POP CULTURE • JLPT`)
-   - **Minimalist 1-2 Words Punchy English Hook**: Large 104pt~110pt heavy uppercase hook in secondary accent color with 3D drop shadow (`AYASE HARUKA`, `TRAIN HACK`, `7-ELEVEN`, `IZAKAYA`, `ANIME SAUNA`)
-   - **Central Glassmorphic Hero Card**: 4px Scenario Primary Accent border, Authentic Japanese phrase (auto-scaled down to prevent overflow) + Romaji + **Dynamic Multi-Line Auto-Wrapping English Meaning** (strictly ZERO truncation or right-edge overflow) + 3-step shadowing pill.
-   - **Bottom Conversion Strip**: App Store branding + feature bullets
-   - Scenario Color Palettes:
-     - SH.01 Yamanote: Emerald `#10B981` & Sky Cyan `#38BDF8`
-     - SH.02 7-Eleven: Kombini Orange `#F97316` & Warm Yellow `#FACC15`
-     - SH.03 Izakaya: Amber Beer Gold `#EAB308` & Warm Glow `#F97316`
-     - SH.04 Akiba Anime: Cyberpunk Purple `#A855F7` & Neon Pink `#EC4899`
-     - SH.05 Subway: Metro Cyan `#06B6D4` & Blue Line `#3B82F6`
-     - SH.06 Kombini Coffee: Roasted Amber `#D97706` & Crema Gold `#FBBF24`
-     - SH.07 Ramen: Fiery Red `#EF4444` & Tonkotsu Gold `#F59E0B`
-     - SH.08 Ginza Shopping: Luxury Rose Gold `#EC4899` & Fashion Lavender `#A855F7`
-     - SH.09 Anime Sauna Trend: Neon Anime Pink `#EC4899` & Solar Sauna Yellow `#FACC15`
-     - SH.10 Ayase Haruka Charm: Neon Pink `#EC4899` & Solar Yellow `#FACC15` (Real 4K Photo Base)
+2. Golden Master High-CTR Vertical Cover Architecture (`short_thumbnail.jpg`):
+   - Dimensions: 9:16 Vertical (`1080x1920 Full HD`).
+   - **Full-Bleed Photographic Base**: Full-bleed authentic real photo base from top to bottom (contrast `1.15x`, saturation `1.18x`). Smooth top dark fade (`y < 540`) and bottom transition (`y > 1000`) protecting text legibility without split black boxes.
+   - **Top Header Capsules**:
+     - Left: `TokyoFlow Japanese` (Solid White Pill, Bold Crimson `#E11D48` text).
+     - Right: `SH.XX • [JLPT Level]` (Solid Crimson Badge, Bold Pure White text).
+   - **Punchy 3D Action Hook**: 74pt Heavy Hiragino Sans font in Solar Yellow `#FEF08A` with 4px deep black 3D shadow extrusion + Pink Sub-hook (`#F472B6`, 28pt).
+   - **Glassmorphic Learning Card**: Rounded dark navy card (`#0A0F1C`, 240 alpha) with Sky Cyan border (`#38BDF8`, 3px), containing `[ TOKYO SURVIVAL GYM ]` tag, `JLPT ESSENTIAL` badge, Target Japanese Sentence, Romaji, English Translation, and JLPT Grammar Pill.
+   - **Bottom CTA Action Banner**: Solid Crimson `#E11D48` banner highlighting `WATCH FULL BREAKDOWN (EP.XX)` + `Complete Vocabulary • Grammar Rules • Shadowing Gym`.
 3. Shorts Title Standard: Mandatory `[JLPT Level]` and `SH.XX` Prefix:
    - Format: `[JLPT N5] SH.XX <High-Impact English Hook>! #Shorts #LearnJapanese`
    - Example: `[JLPT N5] SH.10 Ayase Haruka's Natural Charm! #Shorts`

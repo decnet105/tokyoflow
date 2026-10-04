@@ -135,16 +135,17 @@ Canvas resolution: `1920x1080 Full HD`, `30.0 fps`, `yuv420p`.
 
 ---
 
-## 4. Automated Thumbnail Generation (Dedicated Skill Standard)
+## 4. Automated Thumbnail Generation (Golden Master Standard)
 
-Every video build strictly adheres to the `tokyoflow-thumbnail-factory` master visual standard, saving the 16:9 master cover directly as `thumbnail.jpg`:
-1. Resolution and Canvas: `1920x1080 Full HD / 4K UHD`.
-2. Atmosphere and Scene: Lived-in Tokyo backdrop with authentic ambiance.
-3. Top-Left Brand Capsule: Crimson-red pill with crisp white text: `TokyoFlow Japanese`.
-4. Left 3-Tier 3D Hook Stack: Uppercase typography (Lines 1 & 2 in Solar Yellow `#FACC15`, Line 3 in Metallic White `#FFFFFF`) with heavy black 3D extrusion (`ANIME` / `SAUNA` / `HACK`).
-5. Bottom-Left Japanese Key Phrase: Bold pure white Japanese calligraphy kanji/kana with pink/magenta glowing aura (`#EC4899`) and deep black drop stroke.
-6. Bottom-Right 3D Episode Badge: Metallic badge `EP.XX` with yellow/gold number.
-7. Bottom-Right Value Tag Pill: Rounded dark slate pill with white outline: `[JLPT N5] Native Audio - Pop Culture Trend`.
+Every video build strictly adheres to the `tokyoflow-thumbnail-factory` Golden Master visual standard, saving the 16:9 master cover directly as `thumbnail.jpg`:
+1. **Resolution and Canvas**: `1920x1080 Full HD / 4K UHD`.
+2. **Authentic HD Photo Base**: Real-life authentic Tokyo photograph on right 55%-60% (`x > 800`), contrast `1.15x`, saturation `1.18x`. Zero cartoon drawings/stickers.
+3. **Smooth Non-Linear Dark Gradient Fade**: Cosine gradient `alpha = 245 * 0.5 * (1 + cos(pi * x / 1180))` for `x < 1180`, ensuring pristine text contrast without dimming the hero subject.
+4. **Top-Left Solid White Brand Pill**: `TokyoFlow Japanese` in bold crimson `(225, 29, 72)`.
+5. **Top-Right Solid Crimson Badge**: `[JLPT Level] • EP.XX` in bold pure white `(255, 255, 255)`.
+6. **Left Giant 3D Solar Yellow Hook**: 96pt Heavy Hiragino Sans font (`#FEF08A`) with 5px solid black 3D extrusion + Pink Sub-hook (`#F472B6`, 34-36pt).
+7. **Glassmorphic Japanese Learning Card**: Rounded dark navy card (`#0A0F1C`, 235 alpha) with Sky Cyan border (`#38BDF8`, 3px), displaying Target Japanese line, JLPT Grammar tag, English translation, context note, and Tokyo setting.
+8. **Bottom Full-Width Crimson Conversion Ribbon**: Solid crimson `#E11D48` ribbon highlighting `100% NATIVE TOKYO AUDIO • SHADOWING PRACTICE • FULL VOCAB & GRAMMAR BREAKDOWN`.
 
 ---
 

@@ -398,11 +398,23 @@ def process_release_dir(rdir: str, sh_num: int = None):
         bg_16_9 = str(hero_16_9)
     elif news_bg.exists():
         bg_16_9 = str(news_bg)
+    else:
+        # Check ASSETS_DIR for episode-specific scene or authentic 4K Tokyo photos
+        scene_dir = PROJECT_ROOT / "docs" / "youtube_assets" / "scene_backgrounds"
+        if scene_dir.exists():
+            for f in os.listdir(str(scene_dir)):
+                if f.startswith(f"E{ep_num:02d}") or f.startswith(f"E{ep_num}"):
+                    bg_16_9 = str(scene_dir / f)
+                    break
+            if not bg_16_9:
+                bg_16_9 = str(scene_dir / "scene_tokyo_skyline.jpg")
         
     if hero_9_16.exists():
         bg_9_16 = str(hero_9_16)
     elif news_bg.exists():
         bg_9_16 = str(news_bg)
+    else:
+        bg_9_16 = bg_16_9
 
     # Read manifest data
     spec_file = rdir_path / "production_spec.json"

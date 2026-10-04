@@ -31,22 +31,26 @@ TokyoFlow Japanese
 ```
 *(`@TokyoFlowJP`  `@TokyoFlowLanguage`)*
 
-###  Channel Bio / Description ()
+### Channel Bio / Description
 ```text
-Welcome to TokyoFlow Japanese  — Master real-life Tokyo Japanese through authentic scenarios, native train announcements, kombini survival drills, and NHK news shadowing.
+Welcome to TokyoFlow Japanese -- Master real-life Tokyo Japanese through authentic scenarios, native train announcements, kombini drills, and pop culture immersion.
 
- WHY TOKYOFLOW?
-Traditional textbooks teach stiff, formal Japanese you rarely hear on Tokyo streets. TokyoFlow bridges the gap between textbook theory and real-life Tokyo fluency:
-•  Authentic Metro & Yamanote Line announcements with furigana breakdowns.
-•  1-second survival response phrases for 7-Eleven, FamilyMart & Lawson.
-•  Izakaya ordering etiquette, sake culture & casual slang.
-•  NHK Easy Japanese news shadowing with pitch accent guidance.
-•  JLPT N5 to N1 core vocabulary in context.
+WHY TOKYOFLOW?
+Textbooks teach stiff Japanese rarely heard in Tokyo. TokyoFlow delivers real-world conversational fluency:
+- Authentic Metro & Yamanote Line announcements with pitch accent.
+- 1-second survival response formulas for 7-Eleven, FamilyMart & Lawson.
+- Izakaya etiquette, casual spoken phrases, and cultural nuances.
+- NHK Easy news shadowing and JLPT N5-N1 vocabulary in context.
 
- COMPANION iOS APP:
-Download 'TokyoFlow' on the Apple App Store for free interactive voice scoring, Kana drills, and intelligent SRS flashcards.
+PUBLISHING SCHEDULE:
+- Daily Shorts: 8:00 AM
+- Weekend Masterclass: Saturday & Sunday 8:00 AM
 
- Subscribe for weekly Tokyo immersion lessons and level up your Japanese confidence!
+COMPANION iOS APP:
+Download 'TokyoFlow' on the Apple App Store for voice scoring and smart SRS flashcards.
+
+Subscribe to @TokyoFlowJapan for daily Tokyo immersion.
+
 #Japanese #LearnJapanese #Tokyo #JLPT #JapaneseListening #StudyJapanese
 ```
 
