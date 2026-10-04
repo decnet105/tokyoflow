@@ -1,0 +1,233 @@
+{
+  "episode_number": 17,
+  "folder_name": "E17-Onsen_Sento_Etiquette-v1.0",
+  "slug": "onsen_sento_etiquette",
+  "release_date": "2026-10-15",
+  "publish_time_est": "2026-10-15T08:00:00-04:00",
+  "title": "Tokyo Public Bath and Onsen Hot Springs Etiquette Guide",
+  "yt_title": "[JLPT N5] EP.17 Tokyo Public Bath and Onsen Etiquette! Washing Rules and Towel Protocol",
+  "category": "Culture & Wellness • Sento & Onsen",
+  "level": "JLPT N5",
+  "district": "Asakusa (浅草)",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_assets/scene_backgrounds/scene_onsen_sento.jpg",
+  "cover": {
+    "hook": "ONSEN ETIQUETTE HACK",
+    "sub_hook": "SURVIVE TOKYO PUBLIC BATHS",
+    "jp_line1": "湯船に入る前に、",
+    "jp_line2": "体をきれいに洗ってください！",
+    "grammar_tag": "JLPT N5 Grammar: Verb (Plain Form) + 前に (Before Doing Something)",
+    "translation": "'Wash your body thoroughly before entering the hot bath tub!'",
+    "context_note": "Traditional Asakusa sento & onsen golden rule",
+    "location_tag": "SCENARIO: ASAKUSA TRADITIONAL SENTO"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. The Golden Rule of Hot Springs",
+      "spoken_text": "湯船に入る前に、かけ湯で体を洗い流してください。",
+      "meaning": "Before getting into the bath, please rinse and wash your body thoroughly.",
+      "tip": "Never step into the communal bath water without thoroughly rinsing first.",
+      "tokens": [
+        {
+          "orig": "湯船に",
+          "kana": "ゆぶねに",
+          "romaji": "yubune ni",
+          "pos": "Noun + Part.",
+          "meaning": "Bath tub"
+        },
+        {
+          "orig": "入る前に、",
+          "kana": "はいるまえに",
+          "romaji": "hairu mae ni,",
+          "pos": "Verb + Noun + Part.",
+          "meaning": "Before entering,"
+        },
+        {
+          "orig": "かけ湯で",
+          "kana": "かけゆで",
+          "romaji": "kakeyu de",
+          "pos": "Noun + Part.",
+          "meaning": "With rinse water"
+        },
+        {
+          "orig": "体を",
+          "kana": "からだを",
+          "romaji": "karada o",
+          "pos": "Noun + Part.",
+          "meaning": "Body"
+        },
+        {
+          "orig": "洗い流してください。",
+          "kana": "あらいながしてください",
+          "romaji": "arainagashite kudasai.",
+          "pos": "Polite Command",
+          "meaning": "Please wash and rinse"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Sento Vocabulary & Onsen Rules",
+      "sentence_ja": "湯船に入る前に、かけ湯で体を洗い流してください。",
+      "vocab": [
+        {
+          "orig": "湯船",
+          "kana": "ゆぶね",
+          "romaji": "yubune",
+          "pos": "Noun",
+          "meaning": "Bathtub / Soaking pool"
+        },
+        {
+          "orig": "入る前に",
+          "kana": "はいるまえに",
+          "romaji": "hairu mae ni",
+          "pos": "Grammar Structure",
+          "meaning": "Before entering"
+        },
+        {
+          "orig": "かけ湯",
+          "kana": "かけゆ",
+          "romaji": "kakeyu",
+          "pos": "Noun",
+          "meaning": "Preliminary hot water rinse"
+        },
+        {
+          "orig": "洗い流す",
+          "kana": "あらいながす",
+          "romaji": "arainagasu",
+          "pos": "Compound Verb",
+          "meaning": "Wash away / Rinse off"
+        }
+      ],
+      "grammar_title": "Time Sequence Pattern: Verb (Dictionary Form) + 前に (Before Doing)",
+      "grammar_bullets": [
+        [
+          "1. Wash First Rule:",
+          "The communal bath tub (湯船) is strictly for soaking—all soaping and scrubbing happens at individual stalls."
+        ],
+        [
+          "2. Towel Protocol:",
+          "Small privacy towels must never touch the hot spring water—rest them on your head or edge of the tub."
+        ],
+        [
+          "3. Dry Off Before Dressing:",
+          "Wipe your body dry with your towel before stepping back into the changing room (脱衣所)."
+        ],
+        [
+          "4. Hydration & Milk:",
+          "Drinking chilled fruit milk (フルーツ牛乳) after soaking is a cherished Tokyo sento tradition."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "Let's master the sacred etiquette rules of Japanese public baths and onsen hot springs."
+        },
+        {
+          "speaker": "ja",
+          "text": "湯船",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: communal hot bath soaking tub.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "入る前に",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "Grammar: before entering or stepping inside.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "かけ湯",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: rinsing your body with hot water before soaking.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "洗い流す",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Verb: to wash and rinse off thoroughly.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Grammar Spotlight: express prior conditions with mae ni.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "湯船に入る前に、かけ湯で体を洗い流してください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "Before getting into the tub, please rinse and wash your body clean.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "spoken_text": "Subscribe to TokyoFlow Japanese on YouTube and practice speech shadowing in the companion iOS App."
+    }
+  ],
+  "shorts": {
+    "hook_title": "ONSEN SURVIVAL RULES\nIN 30 SECONDS!",
+    "hook_audio_en": "Here is the number one etiquette rule you must follow in Japanese onsen and sento baths!",
+    "jp_sentence": "湯船に入る前に、体をきれいに洗ってください。",
+    "kana_sentence": "ゆぶねにはいるまえに、からだをきれいにとあらってください。",
+    "romaji_sentence": "Yubune ni hairu mae ni, karada o kirei ni aratte kudasai.",
+    "en_translation": "Wash your body clean before getting into the bath.",
+    "tokens": [
+      {
+        "orig": "湯船に",
+        "kana": "ゆぶねに",
+        "romaji": "yubune ni",
+        "meaning": "In the tub"
+      },
+      {
+        "orig": "入る前に、",
+        "kana": "はいるまえに",
+        "romaji": "hairu mae ni,",
+        "meaning": "Before entering,"
+      },
+      {
+        "orig": "体を",
+        "kana": "からだを",
+        "romaji": "karada o",
+        "meaning": "Body"
+      },
+      {
+        "orig": "きれいに",
+        "kana": "きれいに",
+        "romaji": "kirei ni",
+        "meaning": "Cleanly"
+      },
+      {
+        "orig": "洗ってください",
+        "kana": "あらってください",
+        "romaji": "aratte kudasai",
+        "meaning": "Please wash"
+      }
+    ],
+    "pro_tip_title": "ONSEN ETIQUETTE PRO-TIP",
+    "pro_tip_body": "Always wash and rinse your body thoroughly at the seated wash stalls before stepping into the tub!",
+    "pro_tip_audio_en": "Wash at the sit-down stalls first before touching the bath water.",
+    "yt_short_title": "[JLPT N5] SH.17 Onsen Bath Etiquette in Tokyo in 30s! #Shorts #LearnJapanese",
+    "pinned_comment": "Have you experienced a traditional Tokyo neighborhood sento (public bath)?"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "episode_number": 19,
+  "folder_name": "E19-Shinkansen_BulletTrain_Tickets-v1.0",
+  "slug": "shinkansen_bullettrain_tickets",
+  "release_date": "2026-10-19",
+  "publish_time_est": "2026-10-19T08:00:00-04:00",
+  "title": "Shinkansen Bullet Train Ticket Booking and Seat Selection Hacks",
+  "yt_title": "[JLPT N4] EP.19 Book Shinkansen Bullet Train Tickets! Reserved Seats and Green Car Hacks",
+  "category": "Intercity Travel • Shinkansen Bullet Train",
+  "level": "JLPT N4",
+  "district": "Tokyo Station (東京駅)",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_assets/scene_backgrounds/scene_yamanote_platform.jpg",
+  "cover": {
+    "hook": "SHINKANSEN HACK",
+    "sub_hook": "BOOK BULLET TRAIN IN 30 SECONDS",
+    "jp_line1": "京都までの指定席を、",
+    "jp_line2": "富士山側の窓席でお願いします！",
+    "grammar_tag": "JLPT N4 Grammar: Destination + までの + Noun (Tickets Bound for...)",
+    "translation": "'Reserved seat to Kyoto with Mt. Fuji window view, please!'",
+    "context_note": "Midori-no-Madoguchi ticket window booking",
+    "location_tag": "SCENARIO: TOKYO STATION MIDORI-NO-MADOGUCHI"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Booking Shinkansen Reserved Seats",
+      "spoken_text": "京都までの指定席を、富士山側の窓側でお願いします。",
+      "meaning": "A reserved seat to Kyoto on the Mt. Fuji window side, please.",
+      "tip": "Seat E on the Tokaido Shinkansen (2-seat row) guarantees the best view of Mt. Fuji.",
+      "tokens": [
+        {
+          "orig": "京都までの",
+          "kana": "きょうとまでの",
+          "romaji": "kyouto made no",
+          "pos": "Noun + Particle",
+          "meaning": "To Kyoto"
+        },
+        {
+          "orig": "指定席を、",
+          "kana": "していせきを",
+          "romaji": "shiteiseki o,",
+          "pos": "Noun + Particle",
+          "meaning": "Reserved seat,"
+        },
+        {
+          "orig": "富士山側の",
+          "kana": "ふじさんかわの",
+          "romaji": "fujisan-gawa no",
+          "pos": "Noun + Particle",
+          "meaning": "Mt. Fuji side's"
+        },
+        {
+          "orig": "窓側で",
+          "kana": "まどがわで",
+          "romaji": "madogawa de",
+          "pos": "Noun + Particle",
+          "meaning": "On window side"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegai shimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Ticket Class & Seat Selection Jargon",
+      "sentence_ja": "京都までの指定席を、富士山側の窓側でお願いします。",
+      "vocab": [
+        {
+          "orig": "指定席",
+          "kana": "していせき",
+          "romaji": "shiteiseki",
+          "pos": "Noun",
+          "meaning": "Reserved seat"
+        },
+        {
+          "orig": "自由席",
+          "kana": "じゆうせき",
+          "romaji": "jiyuuseki",
+          "pos": "Noun",
+          "meaning": "Non-reserved seat"
+        },
+        {
+          "orig": "窓側",
+          "kana": "まどがわ",
+          "romaji": "madogawa",
+          "pos": "Noun",
+          "meaning": "Window seat"
+        },
+        {
+          "orig": "通路側",
+          "kana": "つうろがわ",
+          "romaji": "tsuurogawa",
+          "pos": "Noun",
+          "meaning": "Aisle seat"
+        }
+      ],
+      "grammar_title": "Travel Formula: [Destination] までの [Seat Type] + [Seat Position] でお願いします",
+      "grammar_bullets": [
+        [
+          "1. Destination Connector:",
+          "Place + までの (e.g. 京都までのきっぷ) describes tickets bound for a destination."
+        ],
+        [
+          "2. Ticket Classes:",
+          "普通車 (standard car), グリーン車 (Green Car luxury), グランクラス (Gran Class ultra-luxury)."
+        ],
+        [
+          "3. Mt. Fuji View Rule:",
+          "When riding from Tokyo towards Osaka/Kyoto, request '富士山側 (Seat E)' for stunning views."
+        ],
+        [
+          "4. Large Luggage Rule:",
+          "Suitcases with total dimensions over 160cm require a special '特大荷物スペースつき座席' reservation."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "Here is how to book Shinkansen bullet train tickets at JR ticket counters and vending machines."
+        },
+        {
+          "speaker": "ja",
+          "text": "指定席",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: reserved numbered seating.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "自由席",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: non-reserved unassigned seating.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "窓側",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: window seat for scenic views.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "通路側",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: aisle seat for easy legroom and exit.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Grammar Spotlight: specify tickets bound for a destination with made no.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "京都までの指定席を、富士山側の窓側でお願いします。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "A reserved seat to Kyoto on the Mt. Fuji window side, please.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "spoken_text": "Subscribe to TokyoFlow Japanese on YouTube and practice speech shadowing in the companion iOS App."
+    }
+  ],
+  "shorts": {
+    "hook_title": "BOOK SHINKANSEN TICKETS\nIN 30 SECONDS!",
+    "hook_audio_en": "Here is how to get the best window seat with Mt. Fuji views on the Shinkansen bullet train!",
+    "jp_sentence": "京都までの指定席、富士山側の窓側をお願いします。",
+    "kana_sentence": "きょうとまでのしていせき、ふじさんがわのまどがわをおねがいします。",
+    "romaji_sentence": "Kyouto made no shiteiseki, Fujisan-gawa no madogawa o onegai shimasu.",
+    "en_translation": "Reserved seat to Kyoto with Mt. Fuji window view, please.",
+    "tokens": [
+      {
+        "orig": "京都までの",
+        "kana": "きょうとまでの",
+        "romaji": "kyouto made no",
+        "meaning": "To Kyoto"
+      },
+      {
+        "orig": "指定席、",
+        "kana": "していせき",
+        "romaji": "shiteiseki,",
+        "meaning": "Reserved seat,"
+      },
+      {
+        "orig": "富士山側の",
+        "kana": "ふじさんがわの",
+        "romaji": "fujisan-gawa no",
+        "meaning": "Mt. Fuji side"
+      },
+      {
+        "orig": "窓側を",
+        "kana": "まどがわを",
+        "romaji": "madogawa o",
+        "meaning": "Window seat"
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu",
+        "meaning": "Please"
+      }
+    ],
+    "pro_tip_title": "SHINKANSEN PRO-TIP",
+    "pro_tip_body": "Always ask for 'Fujisan-gawa' (Seat E) on Tokaido Shinkansen trains for breathtaking Mt. Fuji views!",
+    "pro_tip_audio_en": "Ask for Seat E on the right side for clear views of Mt. Fuji.",
+    "yt_short_title": "[JLPT N4] SH.19 How to Book Shinkansen Tickets with Mt. Fuji View #Shorts #LearnJapanese",
+    "pinned_comment": "Have you ever seen Mt. Fuji from the window of a Shinkansen bullet train?"
+  }
+}

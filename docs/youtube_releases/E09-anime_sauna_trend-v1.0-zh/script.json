@@ -1,0 +1,426 @@
+{
+  "episode_number": 9,
+  "folder_name": "E09-anime_sauna_trend-v1.0-zh",
+  "slug": "anime_sauna_trend_zh",
+  "locale": "zh",
+  "title": "东京动漫公司跨界开设正宗芬兰桑拿热点",
+  "yt_title": "【JLPT N5】动漫公司去开桑拿？身心彻底放松「整う」流行语精讲（EP.09）",
+  "category": "东京热点 • 桑拿流行语",
+  "level": "JLPT N5",
+  "district": "秋叶原 (Akihabara)",
+  "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/b34d491c-7bb1-4e81-ab7c-51e66a95dc10/ep09_female_sauna_16_9_1791040719951.jpg",
+  "cover": {
+    "hook": "动漫公司开桑拿",
+    "sub_hook": "身心放松流行语",
+    "jp_line1": "本格的なサウナで、",
+    "jp_line2": "心身がととのう！",
+    "grammar_tag": "JLPT N5 语法：~で（动作场所）& ととのう（桑拿流行语）",
+    "translation": "「在正宗桑拿里，身心彻底放松舒畅！」",
+    "context_note": "日本全网爆火的桑拿文化流行语与跨界新业态",
+    "location_tag": "场景：秋叶原动漫街 • 芬兰桑拿馆",
+    "tag": "🇯🇵 东京流行热点 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 动漫公司跨界新闻速报",
+      "spoken_text": "アニメ制作会社が東京で本格的なサウナをオープンしました。",
+      "meaning": "动画制作公司在东京开设了一家地道的芬兰桑拿馆。",
+      "tip": "「本格的（ほんかくてき）」表示正宗、专业、地道的品质。",
+      "tokens": [
+        {
+          "orig": "アニメ制作会社が",
+          "kana": "あにめせいさくがいしゃが",
+          "romaji": "anime seisakugaisha ga",
+          "pos": "名词+主格",
+          "meaning": "动画制作公司"
+        },
+        {
+          "orig": "東京で",
+          "kana": "とうきょうで",
+          "romaji": "toukyou de",
+          "pos": "名词+场所",
+          "meaning": "在东京"
+        },
+        {
+          "orig": "本格的な",
+          "kana": "ほんかくてきな",
+          "romaji": "honkakuteki na",
+          "pos": "形容动词",
+          "meaning": "地道正宗的"
+        },
+        {
+          "orig": "サウナを",
+          "kana": "さうなを",
+          "romaji": "sauna o",
+          "pos": "外来语+宾格",
+          "meaning": "桑拿馆"
+        },
+        {
+          "orig": "オープンしました。",
+          "kana": "おーぷんしました",
+          "romaji": "oopun shimashita.",
+          "pos": "动词过去式",
+          "meaning": "开业了"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 新闻热点词汇与语法拆解",
+      "sentence_ja": "アニメ制作会社が東京で本格的なサウナをオープンしました。",
+      "vocab": [
+        {
+          "orig": "アニメ",
+          "kana": "あにめ",
+          "romaji": "anime",
+          "pos": "名词",
+          "meaning": "日本动画"
+        },
+        {
+          "orig": "制作会社",
+          "kana": "せいさくがいしゃ",
+          "romaji": "seisakugaisha",
+          "pos": "名词",
+          "meaning": "制作出品公司"
+        },
+        {
+          "orig": "本格的",
+          "kana": "ほんかくてき",
+          "romaji": "honkakuteki",
+          "pos": "形容动词",
+          "meaning": "正宗地道"
+        },
+        {
+          "orig": "サウナ",
+          "kana": "さうな",
+          "romaji": "sauna",
+          "pos": "外来语",
+          "meaning": "芬兰桑拿浴"
+        },
+        {
+          "orig": "オープン",
+          "kana": "おーぷん",
+          "romaji": "oopun",
+          "pos": "动词",
+          "meaning": "开业/新开张"
+        }
+      ],
+      "grammar_title": "场所助词：名词（场所）+ で（表示动作发生地）",
+      "grammar_bullets": [
+        [
+          "1. 场所助词 で 功能：",
+          "表示某项动态活动或事件发生的地点（如「東京で開く」在东京举办）。"
+        ],
+        [
+          "2. 本格的（ほんかくてき）：",
+          "日本社会极受青睐的品质形容词，形容不偷工减料、遵循原产地正统标准。"
+        ],
+        [
+          "3. 动漫跨界趋势：",
+          "秋叶原动漫制作工作室将二次元原画展示与芬兰木屋桑拿结合，打造新式体验空间。"
+        ],
+        [
+          "4. 开业动词：",
+          "「オープンする（新店开业）」、「リニューアル（翻新升级）」."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解这条在东京社交网络引发热烈讨论的跨界新闻。"
+        },
+        {
+          "speaker": "ja",
+          "text": "アニメ",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：日本动画、Anime。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "制作会社",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：制作出品公司。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "本格的",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "形容动词：正宗地道、原汁原味。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "サウナ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语：芬兰桑拿浴。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "オープン",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "开张开业、Open。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：表示在某地开展新业务的场所助词用法。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "本格的なサウナをオープンしました。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是开设了地道的正宗桑拿馆，新闻标题标准句式。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 桑拿流行语「整う」深度解析",
+      "spoken_text": "ととのうという言葉は、心身がリフレッシュすることを意味します。",
+      "meaning": "所谓的「totonou」是指身心得到彻底放松舒畅的状态。",
+      "tip": "「ととのう（整う）」是日本全网爆火的桑拿热词，形容冷热水交替后的大脑极度放空。",
+      "tokens": [
+        {
+          "orig": "ととのうという",
+          "kana": "ととのうという",
+          "romaji": "totonou to iu",
+          "pos": "引用表达",
+          "meaning": "所谓的totonou"
+        },
+        {
+          "orig": "言葉は、",
+          "kana": "ことばは",
+          "romaji": "kotoba wa,",
+          "pos": "名词+提示",
+          "meaning": "这个词汇"
+        },
+        {
+          "orig": "心身が",
+          "kana": "しんしんが",
+          "romaji": "shinshin ga",
+          "pos": "名词+主格",
+          "meaning": "身心"
+        },
+        {
+          "orig": "リフレッシュする",
+          "kana": "りふれっしゅする",
+          "romaji": "rifuresshu suru",
+          "pos": "动词",
+          "meaning": "彻底放松刷新"
+        },
+        {
+          "orig": "ことを意味します。",
+          "kana": "ことをいみします",
+          "romaji": "koto o imi shimasu.",
+          "pos": "短语",
+          "meaning": "意味着……"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 桑拿流行文化与心理状态剖析",
+      "sentence_ja": "ととのうという言葉は、心身がリフレッシュすることを意味します。",
+      "vocab": [
+        {
+          "orig": "ととのう",
+          "kana": "ととのう",
+          "romaji": "totonou",
+          "pos": "动词",
+          "meaning": "身心协调舒畅"
+        },
+        {
+          "orig": "言葉",
+          "kana": "ことば",
+          "romaji": "kotoba",
+          "pos": "名词",
+          "meaning": "词汇/语言"
+        },
+        {
+          "orig": "心身",
+          "kana": "しんしん",
+          "romaji": "shinshin",
+          "pos": "名词",
+          "meaning": "身体与心灵"
+        },
+        {
+          "orig": "リフレッシュ",
+          "kana": "りふれっしゅ",
+          "romaji": "rifuresshu",
+          "pos": "动词",
+          "meaning": "恢复活力Refresh"
+        },
+        {
+          "orig": "意味します",
+          "kana": "いみします",
+          "romaji": "imi shimasu",
+          "pos": "动词",
+          "meaning": "意思是/意味着"
+        }
+      ],
+      "grammar_title": "定义句型：名词 + という言葉は、〜を意味します",
+      "grammar_bullets": [
+        [
+          "1. 术语定义公式：",
+          "「A という言葉は B を意味します（所谓 A 这个词，意味着 B）」."
+        ],
+        [
+          "2. 「整う（ととのう）」的生理机理：",
+          "桑拿高温蒸发 -> 冷水浴收缩血管 -> 外气浴静坐，产生深度内啡肽分泌."
+        ],
+        [
+          "3. 日本年轻人社交文化：",
+          "下班后结伴去「サ活（桑拿活动）」，成为东京都市白领最流行的解压方式."
+        ],
+        [
+          "4. 桑拿爱好者专有名词：",
+          "热爱桑拿的人被称为「サウナー（Saunist）」."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解日本近年来最火热的流行语「整う」的文化背景。"
+        },
+        {
+          "speaker": "ja",
+          "text": "ととのう",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词：身心恢复平衡舒畅。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "言葉",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：词语、流行用语。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "心身",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 shinshin，身心两方面。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "リフレッシュ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语动词：恢复活力、极度放松。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "意味します",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词：意味着、代表着。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：定义某项新兴概念或流行语的标准句式。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "心身がリフレッシュすることを意味します。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是代表身心彻底焕然一新，桑拿文化核心关键词。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 预约制与官网确认",
+      "spoken_text": "完全予約制なので、事前に公式サイトで確認してください。",
+      "meaning": "因为是完全预约制，请提前在官方网站确认。",
+      "tip": "日本高档桑拿通常需提前线上预约，避免现场满员扑空。",
+      "tokens": [
+        {
+          "orig": "完全予約制",
+          "kana": "かんぜんよやくせい",
+          "romaji": "kanzen yoyakusei",
+          "pos": "名词",
+          "meaning": "完全预约制"
+        },
+        {
+          "orig": "なので、",
+          "kana": "なので",
+          "romaji": "na no de,",
+          "pos": "原因助词",
+          "meaning": "因为……所以"
+        },
+        {
+          "orig": "事前に",
+          "kana": "じぜんに",
+          "romaji": "jizen ni",
+          "pos": "副词",
+          "meaning": "提前/事先"
+        },
+        {
+          "orig": "公式サイトで",
+          "kana": "こうしきさいとで",
+          "romaji": "koushiki saito de",
+          "pos": "名词+手段",
+          "meaning": "在官方网站"
+        },
+        {
+          "orig": "確認してください。",
+          "kana": "かくにんしてください",
+          "romaji": "kakunin shite kudasai.",
+          "pos": "祈使短语",
+          "meaning": "请确认"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

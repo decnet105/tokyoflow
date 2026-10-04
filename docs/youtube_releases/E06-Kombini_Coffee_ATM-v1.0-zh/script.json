@@ -1,0 +1,412 @@
+{
+  "episode_number": 6,
+  "folder_name": "E06-Kombini_Coffee_ATM-v1.0-zh",
+  "slug": "kombini_coffee_atm_zh",
+  "locale": "zh",
+  "title": "便利店现磨冰咖啡购买与ATM外卡取现",
+  "yt_title": "【JLPT N5】便利店咖啡怎么买？冷柜取杯与ATM取现全流程精讲（EP.06）",
+  "category": "便利店日常 • 咖啡与ATM",
+  "level": "JLPT N5",
+  "district": "新宿 (Shinjuku)",
+  "bg_image": "tmp/videogen/real_photos/ep06_coffee_1.jpg",
+  "cover": {
+    "hook": "便利店咖啡秘籍",
+    "sub_hook": "冷柜拿杯收银按键",
+    "jp_line1": "アイスコーヒーのRを、",
+    "jp_line2": "ひとつください！",
+    "grammar_tag": "JLPT N5 语法：~のRで / ひとつ（数量词与点单）",
+    "translation": "「请给我一杯常规中杯冰咖啡！」",
+    "context_note": "日本便利店冰咖啡标准购买口诀与按键指南",
+    "location_tag": "场景：便利店咖啡机与Seven Bank ATM",
+    "tag": "🇯🇵 便利店实用技能 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 现磨冰咖啡收银点单",
+      "spoken_text": "アイスコーヒーのRを、ひとつください！",
+      "meaning": "请给我一杯常规中杯冰咖啡！",
+      "tip": "冰咖啡需先去冷冻柜拿装有冰块的杯子，再去收银台结账并到机器前按键。",
+      "tokens": [
+        {
+          "orig": "アイスコーヒーの",
+          "kana": "あいすこーひーの",
+          "romaji": "aisu koohii no",
+          "pos": "外来语+助词",
+          "meaning": "冰咖啡的"
+        },
+        {
+          "orig": "Rを、",
+          "kana": "あーるを",
+          "romaji": "aaru o,",
+          "pos": "尺寸代号+宾格",
+          "meaning": "Regular中杯"
+        },
+        {
+          "orig": "ひとつ",
+          "kana": "ひとつ",
+          "romaji": "hitotsu",
+          "pos": "量词",
+          "meaning": "一个/一杯"
+        },
+        {
+          "orig": "ください！",
+          "kana": "ください",
+          "romaji": "kudasai!",
+          "pos": "短语",
+          "meaning": "请给我"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 咖啡点单尺寸与动线拆解",
+      "sentence_ja": "アイスコーヒーのRを、ひとつください！",
+      "vocab": [
+        {
+          "orig": "アイスコーヒー",
+          "kana": "あいすこーひー",
+          "romaji": "aisu koohii",
+          "pos": "外来语",
+          "meaning": "冰咖啡"
+        },
+        {
+          "orig": "R",
+          "kana": "あーる",
+          "romaji": "aaru",
+          "pos": "量词",
+          "meaning": "Regular 标准杯"
+        },
+        {
+          "orig": "を",
+          "kana": "を",
+          "romaji": "o",
+          "pos": "助词",
+          "meaning": "宾格助词"
+        },
+        {
+          "orig": "ひとつ",
+          "kana": "ひとつ",
+          "romaji": "hitotsu",
+          "pos": "量词",
+          "meaning": "一个/一份"
+        },
+        {
+          "orig": "ください",
+          "kana": "ください",
+          "romaji": "kudasai",
+          "pos": "祈使短语",
+          "meaning": "请给……"
+        }
+      ],
+      "grammar_title": "点单公式：物品 + の + 尺寸 + を + 数量 + ください",
+      "grammar_bullets": [
+        [
+          "1. 杯型代号辨识：",
+          "R 代表 Regular（标准中杯，约110日元）；L 代表 Large（大杯）。"
+        ],
+        [
+          "2. 冷热购买动线差异：",
+          "热咖啡直接在收银台点单拿空纸杯；冰咖啡必须先在冷冻柜自取冰杯。"
+        ],
+        [
+          "3. 自助咖啡机操作：",
+          "将撕开封口的冰杯放入机器，按下对应的「アイス（Ice）」与「R」按钮。"
+        ],
+        [
+          "4. 数量词复习：",
+          "ひとつ（一个）、ふたつ（两个）、みっつ（三个）。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解日本便利店极高性价比的现磨冰咖啡购买技巧。"
+        },
+        {
+          "speaker": "ja",
+          "text": "アイスコーヒー",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语：冰咖啡。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "R",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "杯型读作 aaru，代表标准中杯。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "を",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "提示动作对象的宾格助词。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "ひとつ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "和语数量词：一份、一杯。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "ください",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "请给我，点单必备表达。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：便利店点饮料的标准句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "アイスコーヒーのRをひとつください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是请给我一杯标准杯冰咖啡，结账时直接说。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. ATM海外银联卡取款问询",
+      "spoken_text": "ATMで海外カードの引き出しは可能ですか？",
+      "meaning": "请问在ATM机上可以使用海外卡取现吗？",
+      "tip": "7-Eleven 的 Seven Bank ATM 全面支持中文界面与银联/Visa/MasterCard 取日元现金。",
+      "tokens": [
+        {
+          "orig": "ATMで",
+          "kana": "えーてぃーえむで",
+          "romaji": "eetiiemu de",
+          "pos": "名词+手段",
+          "meaning": "在ATM上"
+        },
+        {
+          "orig": "海外カードの",
+          "kana": "かいがいかーどの",
+          "romaji": "kaigai kaado no",
+          "pos": "名词+助词",
+          "meaning": "海外银行卡的"
+        },
+        {
+          "orig": "引き出しは",
+          "kana": "ひきだしは",
+          "romaji": "hikidashi wa",
+          "pos": "名词+提示",
+          "meaning": "取款/取现"
+        },
+        {
+          "orig": "可能ですか？",
+          "kana": "かのうですか",
+          "romaji": "kanou desu ka?",
+          "pos": "形容动词疑问",
+          "meaning": "可以吗？"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 银行金融与取款词汇拆解",
+      "sentence_ja": "ATMで海外カードの引き出しは可能ですか？",
+      "vocab": [
+        {
+          "orig": "ATM",
+          "kana": "えーてぃーえむ",
+          "romaji": "eetiiemu",
+          "pos": "名词",
+          "meaning": "自动柜员机"
+        },
+        {
+          "orig": "海外カード",
+          "kana": "かいがいかーど",
+          "romaji": "kaigai kaado",
+          "pos": "名词",
+          "meaning": "境外发行的卡"
+        },
+        {
+          "orig": "引き出し",
+          "kana": "ひきだし",
+          "romaji": "hikidashi",
+          "pos": "名词",
+          "meaning": "取款/提现"
+        },
+        {
+          "orig": "可能",
+          "kana": "かのう",
+          "romaji": "kanou",
+          "pos": "名词",
+          "meaning": "可行/可能"
+        },
+        {
+          "orig": "ですか",
+          "kana": "ですか",
+          "romaji": "desu ka",
+          "pos": "疑问助词",
+          "meaning": "是……吗"
+        }
+      ],
+      "grammar_title": "正式询问句型：名词 + は可能ですか",
+      "grammar_bullets": [
+        [
+          "1. 语法功能：",
+          "比「できますか」更加书面正式，常用于服务业询问某项业务是否支持。"
+        ],
+        [
+          "2. 取款与存款专有名词：",
+          "「お引き出し（取款）」、「お預け入れ（存款）」、「残高照会（查余额）」。"
+        ],
+        [
+          "3. 7-Eleven ATM优势：",
+          "插卡后屏幕左上角可直接切换「简体中文」，单笔最高可取10万日元。"
+        ],
+        [
+          "4. 找零收据提醒：",
+          "「レシートをお受け取りください（请收好您的小票）」。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解在便利店ATM机使用海外卡取现金的实用句型。"
+        },
+        {
+          "speaker": "ja",
+          "text": "ATM",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 eetiiemu，自动取款机。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "海外カード",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：海外发行的银联或信用卡。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "引き出し",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：取款、提现。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "可能",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：可行、能够支持。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "ですか",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "礼貌疑问句尾助词。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：询问某项金融业务是否支持的高级句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "海外カードの引き出しは可能ですか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是支持海外卡取现吗，问店员或客服时非常地道。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 小票与找零确认",
+      "spoken_text": "レシートをお受け取りください。ありがとうございました！",
+      "meaning": "请收好您的小票收据。非常感谢！",
+      "tip": "购物小票上有退税明细或促销条码，店员一定会双手递上并说这句道谢。",
+      "tokens": [
+        {
+          "orig": "レシートを",
+          "kana": "れしーとを",
+          "romaji": "reshiito o",
+          "pos": "外来语+宾格",
+          "meaning": "小票收据"
+        },
+        {
+          "orig": "お受け取り",
+          "kana": "おうけとり",
+          "romaji": "ouketori",
+          "pos": "敬语连用形",
+          "meaning": "收取"
+        },
+        {
+          "orig": "ください。",
+          "kana": "ください",
+          "romaji": "kudasai.",
+          "pos": "祈使短语",
+          "meaning": "请……"
+        },
+        {
+          "orig": "ありがとう",
+          "kana": "ありがとう",
+          "romaji": "arigatou",
+          "pos": "寒暄语",
+          "meaning": "感谢"
+        },
+        {
+          "orig": "ございました！",
+          "kana": "ございました",
+          "romaji": "gozaimashita!",
+          "pos": "敬语过去式",
+          "meaning": "非常感谢"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

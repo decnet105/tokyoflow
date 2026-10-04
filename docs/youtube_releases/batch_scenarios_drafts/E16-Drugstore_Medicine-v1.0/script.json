@@ -1,0 +1,233 @@
+{
+  "episode_number": 16,
+  "folder_name": "E16-Drugstore_Medicine-v1.0",
+  "slug": "drugstore_medicine",
+  "release_date": "2026-10-14",
+  "publish_time_est": "2026-10-14T08:00:00-04:00",
+  "title": "Tokyo Drugstore Painkiller and Symptom Guide",
+  "yt_title": "[JLPT N5] EP.16 Tokyo Drugstore Survival! Buying Painkillers and Explaining Symptoms",
+  "category": "Healthcare & Shopping • Drugstore",
+  "level": "JLPT N5",
+  "district": "Shinjuku East (新宿東口)",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_assets/scene_backgrounds/scene_akiba_street.jpg",
+  "cover": {
+    "hook": "DRUGSTORE HACK",
+    "sub_hook": "BUY PAINKILLERS IN TOKYO",
+    "jp_line1": "頭痛がひどいので、",
+    "jp_line2": "よく効く痛み止めありますか？",
+    "grammar_tag": "JLPT N5 Grammar: Noun がする (Expressing Physical Symptoms & Sensations)",
+    "translation": "'I have a bad headache, do you have effective painkillers?'",
+    "context_note": "Matsumoto Kiyoshi & Sundrug pharmacist inquiries",
+    "location_tag": "SCENARIO: MATSUMOTO KIYOSHI SHINJUKU"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Asking Pharmacist for Painkillers",
+      "spoken_text": "頭痛がひどいので、よく効く痛み止めはありますか？",
+      "meaning": "I have a severe headache, do you have an effective painkiller?",
+      "tip": "Use '〜がひどい' (is severe) to clearly communicate pain intensity to pharmacy staff.",
+      "tokens": [
+        {
+          "orig": "頭痛が",
+          "kana": "ずつうが",
+          "romaji": "zutsuu ga",
+          "pos": "Noun + Part.",
+          "meaning": "Headache"
+        },
+        {
+          "orig": "ひどいので、",
+          "kana": "ひどいので",
+          "romaji": "hidoi node,",
+          "pos": "Adjective + Conjunction",
+          "meaning": "Is severe, so"
+        },
+        {
+          "orig": "よく効く",
+          "kana": "よくきく",
+          "romaji": "yoku kiku",
+          "pos": "Adverb + Verb",
+          "meaning": "Works effectively"
+        },
+        {
+          "orig": "痛み止めは",
+          "kana": "いたみどめは",
+          "romaji": "itami-dome wa",
+          "pos": "Noun + Part.",
+          "meaning": "Painkillers"
+        },
+        {
+          "orig": "ありますか？",
+          "kana": "ありますか",
+          "romaji": "arimasu ka?",
+          "pos": "Verb (Question)",
+          "meaning": "Do you have?"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Common Japanese Symptoms & Dosages",
+      "sentence_ja": "頭痛がひどいので、よく効く痛み止めはありますか？",
+      "vocab": [
+        {
+          "orig": "頭痛",
+          "kana": "ずつう",
+          "romaji": "zutsuu",
+          "pos": "Noun",
+          "meaning": "Headache"
+        },
+        {
+          "orig": "痛み止め",
+          "kana": "いたみどめ",
+          "romaji": "itami-dome",
+          "pos": "Noun",
+          "meaning": "Painkiller (Analgesic)"
+        },
+        {
+          "orig": "よく効く",
+          "kana": "よくきく",
+          "romaji": "yoku kiku",
+          "pos": "Verb Phrase",
+          "meaning": "Highly effective"
+        },
+        {
+          "orig": "食後",
+          "kana": "しょくご",
+          "romaji": "shokugo",
+          "pos": "Noun",
+          "meaning": "After meals"
+        }
+      ],
+      "grammar_title": "Symptom Formula: [Body Part / Symptom] がひどい (Severe Pain)",
+      "grammar_bullets": [
+        [
+          "1. Top Painkiller Brands:",
+          "EVE (イブ) for mild headaches, Loxonin (ロキソニン) for fast strong relief."
+        ],
+        [
+          "2. Essential Symptom Words:",
+          "胃痛 (stomach ache), 発熱 (fever), 喉の痛み (sore throat), 鼻水 (runny nose)."
+        ],
+        [
+          "3. Dosage Instructions:",
+          "食後に1回2錠 (Take 2 tablets once after meals with water)."
+        ],
+        [
+          "4. Pharmacist Counter:",
+          "Class 1 medications like Loxonin require a registered pharmacist (薬剤師) on duty."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "Let's learn how to explain your symptoms and buy over-the-counter medicine at Japanese drugstores."
+        },
+        {
+          "speaker": "ja",
+          "text": "頭痛",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: headache or head pain.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "痛み止め",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: painkiller or pain relief medication.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "よく効く",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "Verb phrase: works effectively and quickly.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "食後",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: taking medicine after finishing meals.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Grammar Spotlight: state your symptom clearly with ga hidoi.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "頭痛がひどいので、よく効く痛み止めはありますか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "I have a bad headache, do you have effective painkillers?",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "spoken_text": "Subscribe to TokyoFlow Japanese on YouTube and practice speech shadowing in the companion iOS App."
+    }
+  ],
+  "shorts": {
+    "hook_title": "BUY MEDICINE IN TOKYO\nIN 30 SECONDS!",
+    "hook_audio_en": "Here is how to buy painkillers and cold medicine at any Japanese drugstore!",
+    "jp_sentence": "頭痛がひどいので、よく効く痛み止めはありますか？",
+    "kana_sentence": "ずつうがひどいので、よくきくいたみどめはありますか？",
+    "romaji_sentence": "Zutsuu ga hidoi node, yoku kiku itami-dome wa arimasu ka?",
+    "en_translation": "I have a bad headache, do you have effective painkillers?",
+    "tokens": [
+      {
+        "orig": "頭痛が",
+        "kana": "ずつうが",
+        "romaji": "zutsuu ga",
+        "meaning": "Headache"
+      },
+      {
+        "orig": "ひどいので、",
+        "kana": "ひどいので",
+        "romaji": "hidoi node,",
+        "meaning": "Is severe, so"
+      },
+      {
+        "orig": "よく効く",
+        "kana": "よくきく",
+        "romaji": "yoku kiku",
+        "meaning": "Effective"
+      },
+      {
+        "orig": "痛み止めは",
+        "kana": "いたみどめは",
+        "romaji": "itami-dome wa",
+        "meaning": "Painkillers"
+      },
+      {
+        "orig": "ありますか",
+        "kana": "ありますか",
+        "romaji": "arimasu ka",
+        "meaning": "Do you have"
+      }
+    ],
+    "pro_tip_title": "TOKYO DRUGSTORE PRO-TIP",
+    "pro_tip_body": "Ask for 'EVE' or 'Loxonin' directly if you need fast, proven headache and fever relief!",
+    "pro_tip_audio_en": "Ask for EVE or Loxonin for fast and proven headache relief.",
+    "yt_short_title": "[JLPT N5] SH.16 How to Buy Painkillers in Tokyo Drugstores #Shorts #LearnJapanese",
+    "pinned_comment": "What Japanese over-the-counter medicine do you always stock up on when visiting Japan?"
+  }
+}

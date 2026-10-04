@@ -1,0 +1,402 @@
+{
+  "episode_number": 7,
+  "folder_name": "E07-Ramen_Ticket_Vending-v1.0-zh",
+  "slug": "ramen_ticket_vending_zh",
+  "locale": "zh",
+  "title": "东京一兰拉面食券机与面硬汤浓定制黑话",
+  "yt_title": "【JLPT N5】像老饕一样吃拉面！食券机点餐与面硬汤浓定制精讲（EP.07）",
+  "category": "拉面美食 • 食券与定制",
+  "level": "JLPT N5",
+  "district": "池袋 (Ikebukuro)",
+  "bg_image": "tmp/videogen/real_photos/ep07_ichiran_shinjuku.jpg",
+  "cover": {
+    "hook": "拉面点单黑话",
+    "sub_hook": "面硬汤浓加份面",
+    "jp_line1": "麺硬め・味濃いめ、",
+    "jp_line2": "替え玉をお願いします！",
+    "grammar_tag": "JLPT N5 语法：~め（程度偏向）& 替え玉（加面）",
+    "translation": "「面条偏硬、汤底偏浓，再加一份面！」",
+    "context_note": "东京博多豚骨与家系拉面店最核心的定制点单口诀",
+    "location_tag": "场景：池袋正宗豚骨拉面街 • 吧台前",
+    "tag": "🇯🇵 拉面老饕必备 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 食券机先购票提示",
+      "spoken_text": "食券を先にお買い求めください。",
+      "meaning": "请先在自动食券机上购买餐券。",
+      "tip": "日本拉面店多采用先买票后入座机制，进门先看「券売機（けんばいき）」。",
+      "tokens": [
+        {
+          "orig": "食券を",
+          "kana": "しょっけんを",
+          "romaji": "shokken o",
+          "pos": "名词+宾格",
+          "meaning": "餐券/食券"
+        },
+        {
+          "orig": "先に",
+          "kana": "さきに",
+          "romaji": "saki ni",
+          "pos": "副词",
+          "meaning": "先/预先"
+        },
+        {
+          "orig": "お買い求め",
+          "kana": "おかいもとめ",
+          "romaji": "okaimotome",
+          "pos": "敬语连用形",
+          "meaning": "购买"
+        },
+        {
+          "orig": "ください。",
+          "kana": "ください",
+          "romaji": "kudasai.",
+          "pos": "礼貌祈使",
+          "meaning": "请……"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 拉面店食券购买词汇拆解",
+      "sentence_ja": "食券を先にお買い求めください。",
+      "vocab": [
+        {
+          "orig": "食券",
+          "kana": "しょっけん",
+          "romaji": "shokken",
+          "pos": "名词",
+          "meaning": "点餐食券"
+        },
+        {
+          "orig": "先に",
+          "kana": "さきに",
+          "romaji": "saki ni",
+          "pos": "副词",
+          "meaning": "首先/预先"
+        },
+        {
+          "orig": "お買い求め",
+          "kana": "おかいもとめ",
+          "romaji": "okaimotome",
+          "pos": "敬语词干",
+          "meaning": "选购/购买"
+        },
+        {
+          "orig": "ください",
+          "kana": "ください",
+          "romaji": "kudasai",
+          "pos": "短语",
+          "meaning": "请……"
+        }
+      ],
+      "grammar_title": "敬语公式：お + 动词连用形 + ください",
+      "grammar_bullets": [
+        [
+          "1. 敬语动词：",
+          "「お買い求め（おかいもとめ）」是「買う（购买）」的典雅敬语形式。"
+        ],
+        [
+          "2. 食券机使用动线：",
+          "投入现金/刷IC卡 -> 按下按钮选择拉面与配菜 -> 取出食券与找零。"
+        ],
+        [
+          "3. 常见加料按钮：",
+          "「味玉（あじたま，溏心蛋）」、「チャーシュー（叉烧）」、「ネギ（葱花）」。"
+        ],
+        [
+          "4. 递券时机：",
+          "入座后将食券放在吧台上方，店员收券时会询问口味定制细节。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解日本拉面店进门第一句听到的购票指引。"
+        },
+        {
+          "speaker": "ja",
+          "text": "食券",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：点餐券、食券。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "先に",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "副词：首先、预先。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "お買い求め",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词買う的高级敬语连用形：选购。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "ください",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "请……礼貌祈使表达。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：服务人员礼貌引导顾客购买的经典句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "食券を先にお買い求めください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是请先购买餐券，排队进店时店员常会引导。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 面条硬度与加面老饕定制",
+      "spoken_text": "麺硬め、味濃いめで、替え玉をお願いします！",
+      "meaning": "面条偏硬，汤底偏浓，再加一份面！",
+      "tip": "形容词词干后加「め」表示程度偏向（硬め、柔らかめ、多め、少なめ）。",
+      "tokens": [
+        {
+          "orig": "麺",
+          "kana": "めん",
+          "romaji": "men",
+          "pos": "名词",
+          "meaning": "面条"
+        },
+        {
+          "orig": "硬め、",
+          "kana": "かため",
+          "romaji": "katame,",
+          "pos": "程度接尾",
+          "meaning": "偏硬"
+        },
+        {
+          "orig": "味",
+          "kana": "あじ",
+          "romaji": "aji",
+          "pos": "名词",
+          "meaning": "味道/汤底"
+        },
+        {
+          "orig": "濃いめで、",
+          "kana": "こいめで",
+          "romaji": "koime de,",
+          "pos": "程度接尾+助词",
+          "meaning": "偏浓"
+        },
+        {
+          "orig": "替え玉を",
+          "kana": "かえだまを",
+          "romaji": "kaedama o",
+          "pos": "名词+宾格",
+          "meaning": "加面/续面"
+        },
+        {
+          "orig": "お願いします！",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu!",
+          "pos": "短语",
+          "meaning": "拜托了"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 口味倾向与加面黑话拆解",
+      "sentence_ja": "麺硬め、味濃いめで、替え玉をお願いします！",
+      "vocab": [
+        {
+          "orig": "麺",
+          "kana": "めん",
+          "romaji": "men",
+          "pos": "名词",
+          "meaning": "拉面面条"
+        },
+        {
+          "orig": "硬め",
+          "kana": "かため",
+          "romaji": "katame",
+          "pos": "程度接尾",
+          "meaning": "偏硬/有嚼劲"
+        },
+        {
+          "orig": "濃いめ",
+          "kana": "こいめ",
+          "romaji": "koime",
+          "pos": "程度接尾",
+          "meaning": "汤底偏浓"
+        },
+        {
+          "orig": "替え玉",
+          "kana": "かえだま",
+          "romaji": "kaedama",
+          "pos": "名词",
+          "meaning": "续面/加一份面"
+        },
+        {
+          "orig": "お願いします",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu",
+          "pos": "短语",
+          "meaning": "请/拜托"
+        }
+      ],
+      "grammar_title": "程度接尾词：形容词词干 + め（表示倾向）",
+      "grammar_bullets": [
+        [
+          "1. 程度倾向公式：",
+          "形容词去掉い + め（硬め = 偏硬，柔らかめ = 偏软，多め = 偏多，少なめ = 偏少）。"
+        ],
+        [
+          "2. 替え玉（かえだま）文化：",
+          "博多豚骨拉面保留汤底，向店员加点一份刚煮好的细面（通常100~150日元）。"
+        ],
+        [
+          "3. 加面时机技巧：",
+          "第一碗面吃到还剩三分之一且汤底充足时喊「替え玉」，即可无缝衔接。"
+        ],
+        [
+          "4. 油量定制词汇：",
+          "「油多め（多油，脂香浓郁）」、「油少なめ（少油，清爽可口）」。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解拉面店最受老饕推崇的个性化口味定制口诀。"
+        },
+        {
+          "speaker": "ja",
+          "text": "麺",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：面条。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "硬め",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "形容词词干加接尾词：面条煮得偏硬、有嚼劲。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "濃いめ",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "汤底味道偏浓厚。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "替え玉",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "专有名词：保留汤底额外加一份面条。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "お願いします",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "拜托了、麻烦您。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：形容词加め表示程度偏向的实用法则。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "麺硬めで、替え玉をお願いします！",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是面煮硬一点再加一份面，拉面店地道点单金句。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 清汤冲淡实战问询",
+      "spoken_text": "スープを割りスープで薄めてもらえますか？",
+      "meaning": "可以帮我加点清汤把汤底冲淡一点吗？",
+      "tip": "吃沾面（つけ麺）吃完后，让店员加「スープ割り（清汤）」可以喝到鲜美高汤。",
+      "tokens": [
+        {
+          "orig": "スープを",
+          "kana": "すーぷを",
+          "romaji": "suupu o",
+          "pos": "外来语+宾格",
+          "meaning": "汤底"
+        },
+        {
+          "orig": "割りスープで",
+          "kana": "わりすーぷで",
+          "romaji": "wari-suupu de",
+          "pos": "名词+手段",
+          "meaning": "用稀释高汤"
+        },
+        {
+          "orig": "薄めて",
+          "kana": "うすめて",
+          "romaji": "usumete",
+          "pos": "动词て形",
+          "meaning": "冲淡/稀释"
+        },
+        {
+          "orig": "もらえますか？",
+          "kana": "もらえますか",
+          "romaji": "moraemasu ka?",
+          "pos": "可能请求",
+          "meaning": "能帮我……吗？"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

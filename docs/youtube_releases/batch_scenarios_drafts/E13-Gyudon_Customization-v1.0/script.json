@@ -1,0 +1,220 @@
+{
+  "episode_number": 13,
+  "folder_name": "E13-Gyudon_Customization-v1.0",
+  "slug": "gyudon_customization",
+  "release_date": "2026-10-09",
+  "publish_time_est": "2026-10-09T08:00:00-04:00",
+  "title": "Yoshinoya and Matsuya Gyudon Customization Hacks",
+  "yt_title": "[JLPT N5] EP.13 Order Gyudon Like a Tokyo Local! Yoshinoya Tsuyudaku and Set Hacks",
+  "category": "Japanese Dining • Gyudon Counter",
+  "level": "JLPT N5",
+  "district": "Kanda & Shimbashi (神田・新橋)",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_assets/scene_backgrounds/scene_izakaya_yokocho.jpg",
+  "cover": {
+    "hook": "GYUDON SECRET HACK",
+    "sub_hook": "ORDER LIKE A TOKYO SALARYMAN",
+    "jp_line1": "牛丼並盛り、つゆだくで",
+    "jp_line2": "たまごセットお願いします！",
+    "grammar_tag": "JLPT N5 Grammar: Noun + でお願いします (Ordering Formula)",
+    "translation": "'Regular gyudon with extra broth and egg set, please.'",
+    "context_note": "Yoshinoya & Matsuya secret counter orders",
+    "location_tag": "SCENARIO: YOSHINOYA KANDA COUNTER"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Ordering Gyudon with Extra Broth",
+      "spoken_text": "牛丼の並盛り、つゆだくでお願いします。",
+      "meaning": "Regular beef bowl with extra beef broth, please.",
+      "tip": "'つゆだく' (tsuyudaku) is the legendary insider term for extra savory broth.",
+      "tokens": [
+        {
+          "orig": "牛丼の",
+          "kana": "ぎゅうどんの",
+          "romaji": "gyuudon no",
+          "pos": "Noun + Part.",
+          "meaning": "Beef bowl's"
+        },
+        {
+          "orig": "並盛り、",
+          "kana": "なみもり",
+          "romaji": "nami-mori,",
+          "pos": "Noun",
+          "meaning": "Regular size,"
+        },
+        {
+          "orig": "つゆだくで",
+          "kana": "つゆだくで",
+          "romaji": "tsuyu-daku de",
+          "pos": "Slang + Part.",
+          "meaning": "With extra broth"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegai shimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Counter Sizing & Secret Customizations",
+      "sentence_ja": "牛丼の並盛り、つゆだくでお願いします。",
+      "vocab": [
+        {
+          "orig": "牛丼",
+          "kana": "ぎゅうどん",
+          "romaji": "gyuudon",
+          "pos": "Noun",
+          "meaning": "Beef bowl"
+        },
+        {
+          "orig": "並盛り",
+          "kana": "なみもり",
+          "romaji": "nami-mori",
+          "pos": "Noun",
+          "meaning": "Regular portion"
+        },
+        {
+          "orig": "つゆだく",
+          "kana": "つゆだく",
+          "romaji": "tsuyu-daku",
+          "pos": "Food Jargon",
+          "meaning": "Extra soup/broth"
+        },
+        {
+          "orig": "お願いします",
+          "kana": "おねがいします",
+          "romaji": "onegai shimasu",
+          "pos": "Polite Phrase",
+          "meaning": "Please / I request"
+        }
+      ],
+      "grammar_title": "Ordering Formula: Item + [Customization] でお願いします",
+      "grammar_bullets": [
+        [
+          "1. Standard Sizing:",
+          "並盛り (regular), 大盛り (large), 特盛り (extra large)."
+        ],
+        [
+          "2. Broth Options:",
+          "つゆだく (extra soup), つゆぬき (no soup), ねぎだく (extra onions)."
+        ],
+        [
+          "3. Condiment Etiquette:",
+          "Pickled red ginger (紅生姜) and shichimi pepper are free on the counter."
+        ],
+        [
+          "4. Payment Protocol:",
+          "Pay at the counter after eating at Yoshinoya, or buy a ticket first at Matsuya."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "Here is the golden order formula for Japanese beef bowl restaurants like Yoshinoya and Sukiya."
+        },
+        {
+          "speaker": "ja",
+          "text": "牛丼",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: gyudon, Japanese simmered beef over rice.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "並盛り",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: regular standard portion size.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "つゆだく",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "Insider term: requesting extra delicious beef broth over your rice.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "お願いします",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Polite request: please make it so.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Grammar Spotlight: use de onegai shimasu to specify customizations.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "牛丼の並盛り、つゆだくでお願いします。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "Regular beef bowl with extra broth, please.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "spoken_text": "Subscribe to TokyoFlow Japanese on YouTube and practice speech shadowing in the companion iOS App."
+    }
+  ],
+  "shorts": {
+    "hook_title": "ORDER GYUDON LIKE A LOCAL\nIN 30 SECONDS!",
+    "hook_audio_en": "Here is the secret insider phrase Tokyo locals use at Yoshinoya and Matsuya!",
+    "jp_sentence": "牛丼の並盛り、つゆだくでお願いします。",
+    "kana_sentence": "ぎゅうどんのなみもり、つゆだくでおねがいします。",
+    "romaji_sentence": "Gyuudon no nami-mori, tsuyu-daku de onegai shimasu.",
+    "en_translation": "Regular beef bowl with extra broth, please.",
+    "tokens": [
+      {
+        "orig": "牛丼の",
+        "kana": "ぎゅうどんの",
+        "romaji": "gyuudon no",
+        "meaning": "Gyudon's"
+      },
+      {
+        "orig": "並盛り、",
+        "kana": "なみもり",
+        "romaji": "nami-mori,",
+        "meaning": "Regular,"
+      },
+      {
+        "orig": "つゆだくで",
+        "kana": "つゆだくで",
+        "romaji": "tsuyu-daku de",
+        "meaning": "Extra broth"
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu",
+        "meaning": "Please"
+      }
+    ],
+    "pro_tip_title": "YOSHINOYA INSIDER PRO-TIP",
+    "pro_tip_body": "'Tsuyu-daku' asks the chef to pour generous beef simmer broth over your rice bowl for free!",
+    "pro_tip_audio_en": "Tsuyu-daku means extra simmered beef broth over your rice for free!",
+    "yt_short_title": "[JLPT N5] SH.13 How to Order Gyudon at Yoshinoya Like a Pro #Shorts #LearnJapanese",
+    "pinned_comment": "Do you like your Gyudon with extra broth (tsuyudaku) or extra onions (negidaku)?"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "episode_number": 15,
+  "folder_name": "E15-Supermarket_HalfPrice_Rush-v1.0",
+  "slug": "supermarket_halfprice_rush",
+  "release_date": "2026-10-13",
+  "publish_time_est": "2026-10-13T08:00:00-04:00",
+  "title": "Tokyo Supermarket 8 PM Half-Price Sticker Hunt Hacks",
+  "yt_title": "[JLPT N5] EP.15 Tokyo Supermarket 8 PM Half-Price Hunt! Hangaku Bento and Sashimi Hacks",
+  "category": "Supermarket Shopping • Daily Life",
+  "level": "JLPT N5",
+  "district": "Koenji (高円寺)",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_assets/scene_backgrounds/scene_kombini_store.jpg",
+  "cover": {
+    "hook": "SUPERMARKET HACK",
+    "sub_hook": "50% OFF BENTO & SASHIMI",
+    "jp_line1": "8時になるとお惣菜に",
+    "jp_line2": "半額シールが貼られます！",
+    "grammar_tag": "JLPT N5 Grammar: Verb (Plain Form) + と (Natural Condition / Whenever)",
+    "translation": "'Whenever 8 PM comes, half-price stickers are placed on prepared food!'",
+    "context_note": "Tokyo evening supermarket clearance frenzy",
+    "location_tag": "SCENARIO: KOENJI SUPERMARKET AISLE"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. The 8 PM Half-Price Clearance",
+      "spoken_text": "夜8時になると、お惣菜に半額シールが貼られます。",
+      "meaning": "When 8 PM arrives, half-price discount stickers are placed on prepared food.",
+      "tip": "The conditional 'と' indicates an automatic, predictable daily event.",
+      "tokens": [
+        {
+          "orig": "夜8時に",
+          "kana": "よるはちじに",
+          "romaji": "yoru hachi-ji ni",
+          "pos": "Time Noun + Part.",
+          "meaning": "At 8 PM"
+        },
+        {
+          "orig": "なると、",
+          "kana": "なると",
+          "romaji": "naru to,",
+          "pos": "Verb + Part.",
+          "meaning": "When it becomes,"
+        },
+        {
+          "orig": "お惣菜に",
+          "kana": "おそうざいに",
+          "romaji": "osouzai ni",
+          "pos": "Noun + Part.",
+          "meaning": "On side dishes"
+        },
+        {
+          "orig": "半額シールが",
+          "kana": "はんがくしーるが",
+          "romaji": "hangaku shiiru ga",
+          "pos": "Noun + Part.",
+          "meaning": "Half-price stickers"
+        },
+        {
+          "orig": "貼られます。",
+          "kana": "はられます",
+          "romaji": "hararemasu.",
+          "pos": "Passive Verb",
+          "meaning": "Are affixed"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Discount Percentages & Supermarket Culture",
+      "sentence_ja": "夜8時になると、お惣菜に半額シールが貼られます。",
+      "vocab": [
+        {
+          "orig": "お惣菜",
+          "kana": "おそうざい",
+          "romaji": "osouzai",
+          "pos": "Noun",
+          "meaning": "Delicatessen / Prepared dishes"
+        },
+        {
+          "orig": "半額",
+          "kana": "はんがく",
+          "romaji": "hangaku",
+          "pos": "Noun",
+          "meaning": "Half price (50% off)"
+        },
+        {
+          "orig": "割引",
+          "kana": "わりびき",
+          "romaji": "waribiki",
+          "pos": "Noun",
+          "meaning": "Discount"
+        },
+        {
+          "orig": "貼られます",
+          "kana": "はられます",
+          "romaji": "hararemasu",
+          "pos": "Passive Verb",
+          "meaning": "Are pasted / affixed"
+        }
+      ],
+      "grammar_title": "Conditional Pattern: Verb (Present) + と (Whenever / As Soon As)",
+      "grammar_bullets": [
+        [
+          "1. Automatic Result:",
+          "Verb plain form + と expresses guaranteed consequences (e.g. at 8 PM, stickers appear)."
+        ],
+        [
+          "2. Discount Progression:",
+          "2割引 (20% off) at 6 PM -> 3割引 (30% off) at 7 PM -> 半額 (50% off) at 8 PM."
+        ],
+        [
+          "3. Best Targets:",
+          "High-grade sushi and sashimi platters, karaage fried chicken, and tonkatsu bento."
+        ],
+        [
+          "4. Local Etiquette:",
+          "Do not crowd the clerk with the sticker gun—wait politely until they finish applying the stickers."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "Every night around 8 PM, Tokyo supermarkets start their famous half-price discount clearance."
+        },
+        {
+          "speaker": "ja",
+          "text": "お惣菜",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: fresh prepared side dishes and bentos.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "半額",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: 50% off half-price discount.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "割引",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: discount or price reduction.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "貼られます",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Passive verb: are placed or affixed.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Grammar Spotlight: use to for natural automatic timing.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "夜8時になると、お惣菜に半額シールが貼られます。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "When 8 PM comes, half-price stickers are placed on prepared dishes.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "spoken_text": "Subscribe to TokyoFlow Japanese on YouTube and practice speech shadowing in the companion iOS App."
+    }
+  ],
+  "shorts": {
+    "hook_title": "TOKYO 8 PM HALF-PRICE HUNT\nIN 30 SECONDS!",
+    "hook_audio_en": "Here is how to get 50% off luxury sushi and bento every night in Tokyo supermarkets!",
+    "jp_sentence": "夜8時になると、お惣菜に半額シールが貼られます。",
+    "kana_sentence": "よるはちじになると、おそうざいにはんがくしーるがはられます。",
+    "romaji_sentence": "Yoru hachi-ji ni naru to, osouzai ni hangaku shiiru ga hararemasu.",
+    "en_translation": "At 8 PM, half-price stickers are placed on prepared food.",
+    "tokens": [
+      {
+        "orig": "8時に",
+        "kana": "はちじに",
+        "romaji": "hachi-ji ni",
+        "meaning": "At 8 PM"
+      },
+      {
+        "orig": "なると、",
+        "kana": "なると",
+        "romaji": "naru to,",
+        "meaning": "When it turns,"
+      },
+      {
+        "orig": "お惣菜に",
+        "kana": "おそうざいに",
+        "romaji": "osouzai ni",
+        "meaning": "On food"
+      },
+      {
+        "orig": "半額シールが",
+        "kana": "はんがくしーるが",
+        "romaji": "hangaku shiiru ga",
+        "meaning": "Half-price stickers"
+      },
+      {
+        "orig": "貼られます",
+        "kana": "はられます",
+        "romaji": "hararemasu",
+        "meaning": "Are attached"
+      }
+    ],
+    "pro_tip_title": "SUPERMARKET SAVINGS PRO-TIP",
+    "pro_tip_body": "Look for the red '半額' (hangaku) sticker on fresh sushi and bento boxes after 8 PM!",
+    "pro_tip_audio_en": "Look for the red kanji hangaku for instant 50% off deals.",
+    "yt_short_title": "[JLPT N5] SH.15 How to Hunt Half-Price Bento in Tokyo #Shorts #LearnJapanese",
+    "pinned_comment": "Have you scored a half-price sushi or bento feast at a Japanese supermarket?"
+  }
+}

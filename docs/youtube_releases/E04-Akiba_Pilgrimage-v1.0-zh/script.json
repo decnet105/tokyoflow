@@ -1,0 +1,419 @@
+{
+  "episode_number": 4,
+  "folder_name": "E04-Akiba_Pilgrimage-v1.0-zh",
+  "slug": "akiba_pilgrimage_zh",
+  "locale": "zh",
+  "title": "秋叶原二次元手办专门店免税购物指南",
+  "yt_title": "【JLPT N5】秋叶原淘手办必学！免税退税与查库存实用口语（EP.04）",
+  "category": "秋叶原购物 • 手办免税",
+  "level": "JLPT N5",
+  "district": "秋叶原 (Akihabara)",
+  "bg_image": "tmp/videogen/real_photos/ep04_akiba_2.jpg",
+  "cover": {
+    "hook": "秋叶原购物秘籍",
+    "sub_hook": "手办免税立省10%",
+    "jp_line1": "免税手続きは、",
+    "jp_line2": "ここでできますか？",
+    "grammar_tag": "JLPT N5 语法：~できますか（能够……/可以做……吗）",
+    "translation": "「请问可以在这里办理免税吗？」",
+    "context_note": "秋叶原动漫手办周边店直接享受10%退税省钱神句",
+    "location_tag": "场景：秋叶原电器街 • 手办专门店",
+    "tag": "🇯🇵 二次元圣地实景 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 免税退税实战问询",
+      "spoken_text": "すみません、免税手続きはここでできますか？",
+      "meaning": "不好意思，请问这里可以办理免税吗？",
+      "tip": "购物满5000日元出示护照即可办理免税，直接免除10%消费税。",
+      "tokens": [
+        {
+          "orig": "すみません、",
+          "kana": "すみません",
+          "romaji": "sumimasen,",
+          "pos": "短语",
+          "meaning": "不好意思"
+        },
+        {
+          "orig": "免税手続きは",
+          "kana": "めんぜいてつづきは",
+          "romaji": "menzei tetsuzuki wa",
+          "pos": "名词+提示",
+          "meaning": "免税手续"
+        },
+        {
+          "orig": "ここで",
+          "kana": "ここで",
+          "romaji": "koko de",
+          "pos": "代词+场所",
+          "meaning": "在这里"
+        },
+        {
+          "orig": "できますか？",
+          "kana": "できますか",
+          "romaji": "dekimasu ka?",
+          "pos": "可能动词",
+          "meaning": "可以做吗？"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 免税问询核心词汇拆解",
+      "sentence_ja": "すみません、免税手続きはここでできますか？",
+      "vocab": [
+        {
+          "orig": "すみません",
+          "kana": "すみません",
+          "romaji": "sumimasen",
+          "pos": "短语",
+          "meaning": "打扰一下"
+        },
+        {
+          "orig": "免税",
+          "kana": "めんぜい",
+          "romaji": "menzei",
+          "pos": "名词",
+          "meaning": "免税 Tax-Free"
+        },
+        {
+          "orig": "手続き",
+          "kana": "てつづき",
+          "romaji": "tetsuzuki",
+          "pos": "名词",
+          "meaning": "手续/办理"
+        },
+        {
+          "orig": "ここで",
+          "kana": "ここで",
+          "romaji": "koko de",
+          "pos": "代词",
+          "meaning": "在这里"
+        },
+        {
+          "orig": "できますか",
+          "kana": "できますか",
+          "romaji": "dekimasu ka",
+          "pos": "可能态",
+          "meaning": "可以办理吗"
+        }
+      ],
+      "grammar_title": "可能表达：〜できますか（能做……吗？）",
+      "grammar_bullets": [
+        [
+          "1. 语法功能：",
+          "名词 + が / は + できますか，询问是否具备某种功能或服务。"
+        ],
+        [
+          "2. 免税退税门槛：",
+          "同一店铺当天消费满5000日元（不含税）即可办理。"
+        ],
+        [
+          "3. 护照携带要求：",
+          "必须出示入境盖有上陆许可章的实体护照原件。"
+        ],
+        [
+          "4. 肯定回答对照：",
+          "店员通常回答「はい、レジで承ります（是的，在收银台即可办理）」。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解秋叶原购物立省百分之十税费的核心句式。"
+        },
+        {
+          "speaker": "ja",
+          "text": "すみません",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "常用寒暄：劳驾、不好意思。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "免税",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：免税、Tax-Free。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "手続き",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：办理、流程手续。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "ここで",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "场所代词加助词：在这里。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "できますか",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "可能态疑问：可以办理吗？",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：询问是否可以办理某项手续的经典句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "免税手続きはここでできますか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是请问这里能免税吗，结账前必问。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 手办未拆封库存问询",
+      "spoken_text": "このフィギュアの未開封品は在庫がありますか？",
+      "meaning": "请问这个手办有未拆封的新品库存吗？",
+      "tip": "秋叶原许多展示品已拆封，想要全新盒装请认准「未開封品（みかいふうひん）」。",
+      "tokens": [
+        {
+          "orig": "この",
+          "kana": "この",
+          "romaji": "kono",
+          "pos": "连体词",
+          "meaning": "这个"
+        },
+        {
+          "orig": "フィギュアの",
+          "kana": "ふぃぎゅあの",
+          "romaji": "figyua no",
+          "pos": "名词+助词",
+          "meaning": "手办的"
+        },
+        {
+          "orig": "未開封品は",
+          "kana": "みかいふうひんは",
+          "romaji": "mikaifuuhin wa",
+          "pos": "名词+提示",
+          "meaning": "未拆封新品"
+        },
+        {
+          "orig": "在庫が",
+          "kana": "ざいこが",
+          "romaji": "zaiko ga",
+          "pos": "名词+主格",
+          "meaning": "库存"
+        },
+        {
+          "orig": "ありますか？",
+          "kana": "ありますか",
+          "romaji": "arimasu ka?",
+          "pos": "存在动词",
+          "meaning": "有吗？"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 手办收藏与库存词汇拆解",
+      "sentence_ja": "このフィギュアの未開封品は在庫がありますか？",
+      "vocab": [
+        {
+          "orig": "この",
+          "kana": "この",
+          "romaji": "kono",
+          "pos": "代词",
+          "meaning": "这个"
+        },
+        {
+          "orig": "フィギュア",
+          "kana": "ふぃぎゅあ",
+          "romaji": "figyua",
+          "pos": "外来语",
+          "meaning": "手办模型"
+        },
+        {
+          "orig": "未開封品",
+          "kana": "みかいふうひん",
+          "romaji": "mikaifuuhin",
+          "pos": "名词",
+          "meaning": "未开封盒装"
+        },
+        {
+          "orig": "在庫",
+          "kana": "ざいこ",
+          "romaji": "zaiko",
+          "pos": "名词",
+          "meaning": "库存/存货"
+        },
+        {
+          "orig": "ありますか",
+          "kana": "ありますか",
+          "romaji": "arimasu ka",
+          "pos": "存在动词",
+          "meaning": "有存货吗"
+        }
+      ],
+      "grammar_title": "存在句型：〜は在庫がありますか（有库存吗？）",
+      "grammar_bullets": [
+        [
+          "1. 购物查库存公式：",
+          "商品名 + の + 在庫はありますか，各类专门店通用。"
+        ],
+        [
+          "2. 中古与新品区分：",
+          "「未開封品（全新未拆封）」、「開封済み（已拆封）」、「ジャンク品（瑕疵品）」。"
+        ],
+        [
+          "3. 店员查找库存回答：",
+          "「バックヤードを確認してまいります（我帮您去后库确认一下）」。"
+        ],
+        [
+          "4. 无库存回答对照：",
+          "「申し訳ありません、現品限りとなります（抱歉，只剩柜台展示的现货了）」。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解在秋叶原淘全新手办的必备查库存表达。"
+        },
+        {
+          "speaker": "ja",
+          "text": "この",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "指示连体词：这个。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "フィギュア",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语：手办模型、Figure。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "未開封品",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "专有名词：全新未拆封商品。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "在庫",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：库存、存货。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "ありますか",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "存在动词疑问：有吗？",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：询问是否有未开封新品库存的黄金句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "未開封品の在庫はありますか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是请问有未拆封的库存吗，手办玩家必备口语。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 护照出示实战问询",
+      "spoken_text": "パスポートを見せていただけますか？こちらでサインをお願いします。",
+      "meaning": "可以出示一下您的护照吗？请在这里签字确认。",
+      "tip": "免税办理最后一步，店员会扫描护照并请您在电子屏上签名。",
+      "tokens": [
+        {
+          "orig": "パスポートを",
+          "kana": "ぱすぽーとを",
+          "romaji": "pasupooto o",
+          "pos": "名词+宾格",
+          "meaning": "护照"
+        },
+        {
+          "orig": "見せて",
+          "kana": "みせて",
+          "romaji": "misete",
+          "pos": "动词て形",
+          "meaning": "出示"
+        },
+        {
+          "orig": "いただけますか？",
+          "kana": "いただけますか",
+          "romaji": "itadakemasu ka?",
+          "pos": "敬语请求",
+          "meaning": "能给我……吗？"
+        },
+        {
+          "orig": "こちらで",
+          "kana": "こちらで",
+          "romaji": "kochira de",
+          "pos": "代词+场所",
+          "meaning": "在这里"
+        },
+        {
+          "orig": "サインをお願いします。",
+          "kana": "さいんをおねがいします",
+          "romaji": "sain o onegaishimasu.",
+          "pos": "短语",
+          "meaning": "请签字"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

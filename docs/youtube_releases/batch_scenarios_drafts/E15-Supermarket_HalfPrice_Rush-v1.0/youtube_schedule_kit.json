@@ -1,0 +1,22 @@
+{
+  "release_date": "2026-10-13",
+  "episode_number": 15,
+  "folder_name": "E15-Supermarket_HalfPrice_Rush-v1.0",
+  "topic": "Tokyo Supermarket 8 PM Half-Price Sticker Hunt Hacks",
+  "jlpt_difficulty": "JLPT N5",
+  "scheduled_time_est": "2026-10-13T08:00:00-04:00",
+  "notify_subscribers": true,
+  "long_form_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-Supermarket_HalfPrice_Rush-v1.0/video.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-Supermarket_HalfPrice_Rush-v1.0/thumbnail.jpg",
+    "title": "[JLPT N5] EP.15 Tokyo Supermarket 8 PM Half-Price Hunt! Hangaku Bento and Sashimi Hacks",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-Supermarket_HalfPrice_Rush-v1.0/metadata.md"
+  },
+  "shorts_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-Supermarket_HalfPrice_Rush-v1.0/short.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-Supermarket_HalfPrice_Rush-v1.0/short_thumbnail.jpg",
+    "title": "[JLPT N5] SH.15 How to Hunt Half-Price Bento in Tokyo #Shorts #LearnJapanese",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-Supermarket_HalfPrice_Rush-v1.0/short_metadata.md",
+    "pinned_comment": "Have you scored a half-price sushi or bento feast at a Japanese supermarket?"
+  }
+}

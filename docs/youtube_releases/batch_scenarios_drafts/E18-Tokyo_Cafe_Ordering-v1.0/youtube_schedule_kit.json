@@ -1,0 +1,22 @@
+{
+  "release_date": "2026-10-16",
+  "episode_number": 18,
+  "folder_name": "E18-Tokyo_Cafe_Ordering-v1.0",
+  "topic": "Tokyo Cafe Ordering and Drink Customization Hacks",
+  "jlpt_difficulty": "JLPT N5",
+  "scheduled_time_est": "2026-10-16T08:00:00-04:00",
+  "notify_subscribers": true,
+  "long_form_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E18-Tokyo_Cafe_Ordering-v1.0/video.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E18-Tokyo_Cafe_Ordering-v1.0/thumbnail.jpg",
+    "title": "[JLPT N5] EP.18 Order Coffee and Custom Drinks in Tokyo! Takeout and Milk Hacks",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E18-Tokyo_Cafe_Ordering-v1.0/metadata.md"
+  },
+  "shorts_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E18-Tokyo_Cafe_Ordering-v1.0/short.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E18-Tokyo_Cafe_Ordering-v1.0/short_thumbnail.jpg",
+    "title": "[JLPT N5] SH.18 How to Order Coffee at Tokyo Cafes #Shorts #LearnJapanese",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E18-Tokyo_Cafe_Ordering-v1.0/short_metadata.md",
+    "pinned_comment": "What is your favorite coffee order when exploring Tokyo's cafe scene?"
+  }
+}

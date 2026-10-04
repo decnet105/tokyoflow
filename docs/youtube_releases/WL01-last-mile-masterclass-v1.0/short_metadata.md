@@ -1,7 +1,7 @@
 # TokyoFlow Cinema • YouTube Shorts Funnel Specification (WS.01)
 
 ## Video Title
-2.7m/s OR DIE? The Darkest Phrase in Japanese Cinema (Last Mile) #Shorts #LearnJapanese
+[JLPT N5-N2] WS.01 2.7m/s OR DIE? The Darkest Phrase in Japanese Cinema (Last Mile) #Shorts #LearnJapanese
 
 ## Funnel Link Configuration (CRITICAL)
 - **Related Video (Linked Video)**: `[JLPT N5-N2] WL.01 Last Mile (ラストマイル) Full Breakdown | Learn Real Japanese Through Cinema`

@@ -1,20 +1,26 @@
 # YouTube Short Manifest: SH.11
 
 ## Short Title
-[JLPT N5] SH.11 Shabu-ya Robot Drama! #Shorts #LearnJapanese
-
-## Interactive Pinned Comment
-Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!
-Poll: Would you trust a robot to serve your meal? A: Yes B: No
-Download TokyoFlow App on iOS for real-time speech pitch scoring!
+[JLPT N5] SH.11 Cat Robot Waiter in Tokyo Restaurant?! #Shorts #LearnJapanese
 
 ## Description
-ROBOT DRAMA
-AT SHABU-YA!
-Japanese Phrase: しゃぶ葉のロボットが料理を運びます。 (Shabu-ya no robotto ga ryouri o hakobimasu.)
-English: The robot at Shabu-ya delivers meals.
-Rule: In Japanese, subject-object-verb order is key. Use 'が' for the subject and 'を' for the object.
+AUTONOMOUS ROBOT WAITER DELIVERS SHABU-SHABU IN TOKYO! 🤖🍲
 
-Practice speaking and pitch accent scoring in TokyoFlow - Japanese Speaking on iOS!
+🎯 Target Phrase: ロボットが、料理を運びます！
+📖 Romaji: Robotto ga, ryouri o hakobimasu!
+💬 English: "A robot brings dishes to tables!"
 
-#Shorts #LearnJapanese #JapaneseSpeaking #TokyoFlow #Tokyo #JLPT #JapaneseShadowing
+📍 Location: Tokyo, Japan (Dining & Restaurant Technology Trend)
+💡 Grammar Tip: 「運びます」(hakobimasu) is the polite present form of the JLPT N5 verb 「運ぶ」(hakobu - to carry/deliver). Perfect for describing everyday actions!
+
+👉 Full vocabulary breakdown and shadowing gym linked in related video above (EP.11)!
+
+#Shorts #LearnJapanese #JLPTN5 #Tokyo #JapaneseSpeaking #TokyoFlow #TokyoFood #JapaneseShadowing #JapanTravel
+
+## Interactive Pinned Comment
+👉 Full restaurant breakdown & vocabulary drill in EP.11 linked above!
+🔥 Quick Poll: Would you let a robot serve your shabu-shabu in Tokyo? A: Yes! Cute!  B: Prefer human staff
+📱 Master natural Tokyo Japanese pitch accent with TokyoFlow on iOS!
+
+## SEO & GEO Tags
+Shorts, LearnJapanese, JLPTN5, Tokyo, Japan, JapaneseShorts, TokyoFlow, JapaneseSpeaking, JapaneseShadowing, TokyoFood, TokyoTravel

@@ -1,0 +1,22 @@
+{
+  "release_date": "2026-10-12",
+  "episode_number": 14,
+  "folder_name": "E14-JapanPost_Redelivery-v1.0",
+  "topic": "Japan Post Redelivery Slip and Package Recovery Hacks",
+  "jlpt_difficulty": "JLPT N4",
+  "scheduled_time_est": "2026-10-12T08:00:00-04:00",
+  "notify_subscribers": true,
+  "long_form_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E14-JapanPost_Redelivery-v1.0/video.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E14-JapanPost_Redelivery-v1.0/thumbnail.jpg",
+    "title": "[JLPT N4] EP.14 Never Miss Japanese Mail! Japan Post Redelivery Slip and Delivery Hacks",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E14-JapanPost_Redelivery-v1.0/metadata.md"
+  },
+  "shorts_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E14-JapanPost_Redelivery-v1.0/short.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E14-JapanPost_Redelivery-v1.0/short_thumbnail.jpg",
+    "title": "[JLPT N4] SH.14 How to Redeliver Packages in Japan #Shorts #LearnJapanese",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E14-JapanPost_Redelivery-v1.0/short_metadata.md",
+    "pinned_comment": "Have you ever found a mysterious 不在票 (fuzaihyo) in your Japanese mailbox?"
+  }
+}

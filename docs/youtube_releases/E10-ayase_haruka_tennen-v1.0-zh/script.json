@@ -1,0 +1,426 @@
+{
+  "episode_number": 10,
+  "folder_name": "E10-ayase_haruka_tennen-v1.0-zh",
+  "slug": "ayase_haruka_tennen_zh",
+  "locale": "zh",
+  "title": "国民女神绫濑遥天然呆反差萌魅力精讲",
+  "yt_title": "【JLPT N5】绫濑遥天然呆发言引全场爆笑！日综反差萌流行语精讲（EP.10）",
+  "category": "东京娱乐 • 明星流行语",
+  "level": "JLPT N5",
+  "district": "东京流行文化",
+  "bg_image": "docs/youtube_releases/E10-ayase_haruka_tennen-v1.0/thumbnail.jpg",
+  "cover": {
+    "hook": "绫濑遥天然呆发言",
+    "sub_hook": "反差萌国民女神",
+    "jp_line1": "綾瀬はるかが会場で、",
+    "jp_line2": "天然発言をしました！",
+    "grammar_tag": "JLPT N5 语法：~で（动作场所）& 天然（天真纯粹萌点）",
+    "translation": "「绫濑遥在现场发表了可爱的天然呆发言！」",
+    "context_note": "日本演艺圈最受喜爱的国民级性格标签「天然（てんねん）」",
+    "location_tag": "场景：东京电影首映会发布会现场",
+    "tag": "🇯🇵 日本演艺圈娱乐精讲 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 发布会天然呆爆笑现场",
+      "spoken_text": "綾瀬はるかが会場で天然発言をして、みんなを笑わせました。",
+      "meaning": "绫濑遥在会场发表了可爱的天然呆发言，逗笑了全场观众。",
+      "tip": "「天然（てんねん）」在日语流行文化中专指单纯率真、不按常理出牌的可爱性格。",
+      "tokens": [
+        {
+          "orig": "綾瀬はるかが",
+          "kana": "あやせはるかが",
+          "romaji": "ayase haruka ga",
+          "pos": "专有名词+主格",
+          "meaning": "绫濑遥"
+        },
+        {
+          "orig": "会場で",
+          "kana": "かいじょうで",
+          "romaji": "kaijou de",
+          "pos": "名词+场所",
+          "meaning": "在会场"
+        },
+        {
+          "orig": "天然発言を",
+          "kana": "てんねんはつげんを",
+          "romaji": "tennen hatsugen o",
+          "pos": "名词+宾格",
+          "meaning": "天然呆发言"
+        },
+        {
+          "orig": "して、",
+          "kana": "して",
+          "romaji": "shite,",
+          "pos": "动词て形",
+          "meaning": "发表了"
+        },
+        {
+          "orig": "みんなを",
+          "kana": "みんなを",
+          "romaji": "minna o",
+          "pos": "代词+宾格",
+          "meaning": "全场大家"
+        },
+        {
+          "orig": "笑わせました。",
+          "kana": "わらわせました",
+          "romaji": "warawasemashita.",
+          "pos": "使役态动词",
+          "meaning": "逗笑了"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 娱乐新闻与使役态语法拆解",
+      "sentence_ja": "綾瀬はるかが会場で天然発言をして、みんなを笑わせました。",
+      "vocab": [
+        {
+          "orig": "綾瀬はるか",
+          "kana": "あやせはるか",
+          "romaji": "ayase haruka",
+          "pos": "专有名词",
+          "meaning": "国民女演员绫濑遥"
+        },
+        {
+          "orig": "会場",
+          "kana": "かいじょう",
+          "romaji": "kaijou",
+          "pos": "名词",
+          "meaning": "活动会场"
+        },
+        {
+          "orig": "天然発言",
+          "kana": "てんねんはつげん",
+          "romaji": "tennen hatsugen",
+          "pos": "名词",
+          "meaning": "天然呆出格言论"
+        },
+        {
+          "orig": "みんな",
+          "kana": "みんな",
+          "romaji": "minna",
+          "pos": "名词",
+          "meaning": "大家/观众们"
+        },
+        {
+          "orig": "笑わせました",
+          "kana": "わらわせました",
+          "romaji": "warawasemashita",
+          "pos": "使役态",
+          "meaning": "使大家笑起来"
+        }
+      ],
+      "grammar_title": "使役动词：动词使役态（让……笑起来）",
+      "grammar_bullets": [
+        [
+          "1. 使役态构成：",
+          "一类动词词尾改 a 段 + せる（笑う -> 笑わせる，让某人笑起来）."
+        ],
+        [
+          "2. 「天然（てんねん）」文化内涵：",
+          "并非贬义，而是指本人毫无造作伪装、自然流露的呆萌魅力，深受观众喜爱."
+        ],
+        [
+          "3. 演艺圈反差萌地位：",
+          "绫濑遥演技精湛但在综艺节目中常有脱线发言，多年蝉联“日本最受欢迎女星”榜首."
+        ],
+        [
+          "4. 动词连用形接续：",
+          "「〜をして、〜ました」表示连续发生的前后两个动作."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解日本娱乐节目最常出现的国民级流行词汇「天然」。"
+        },
+        {
+          "speaker": "ja",
+          "text": "綾瀬はるか",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "专有名词：日本国民级顶流女演员绫濑遥。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "会場",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：电影发布会现场、会场。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "天然発言",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "流行词汇：天然呆脱线发言。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "みんな",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "代词：大家、现场全员。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "笑わせました",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词使役态：逗得大家开怀大笑。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：使役态让某人产生情绪反应的经典句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "天然発言をして、みんなを笑わせました。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是发表了天然呆言论逗笑全场，日综最高频表达。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 自然不做作的性格魅力",
+      "spoken_text": "自然体なリアクションが、長年愛されている理由です。",
+      "meaning": "真实不做作的自然反应，正是她多年来深受大家喜爱的原因。",
+      "tip": "「自然体（しぜんたい）」形容为人处世不装腔作势、保持本真的纯粹状态。",
+      "tokens": [
+        {
+          "orig": "自然体な",
+          "kana": "しぜんたいな",
+          "romaji": "shizentai na",
+          "pos": "形容动词",
+          "meaning": "自然不做作的"
+        },
+        {
+          "orig": "リアクションが、",
+          "kana": "りあくしょんが",
+          "romaji": "riakushon ga,",
+          "pos": "外来语+主格",
+          "meaning": "临场反应"
+        },
+        {
+          "orig": "長年",
+          "kana": "ながねん",
+          "romaji": "naganen",
+          "pos": "副词/名词",
+          "meaning": "长年以来"
+        },
+        {
+          "orig": "愛されている",
+          "kana": "あいされている",
+          "romaji": "aisarete iru",
+          "pos": "被动态",
+          "meaning": "被大家深爱"
+        },
+        {
+          "orig": "理由です。",
+          "kana": "りゆうです",
+          "romaji": "riyuu desu.",
+          "pos": "断定句",
+          "meaning": "的原因"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 被动态与原因句型深度拆解",
+      "sentence_ja": "自然体なリアクションが、長年愛されている理由です。",
+      "vocab": [
+        {
+          "orig": "自然体",
+          "kana": "しぜんたい",
+          "romaji": "shizentai",
+          "pos": "名词",
+          "meaning": "自然不做作"
+        },
+        {
+          "orig": "リアクション",
+          "kana": "りあくしょん",
+          "romaji": "riakushon",
+          "pos": "外来语",
+          "meaning": "情绪反应/Reaction"
+        },
+        {
+          "orig": "長年",
+          "kana": "ながねん",
+          "romaji": "naganen",
+          "pos": "名词",
+          "meaning": "长年累月"
+        },
+        {
+          "orig": "愛されている",
+          "kana": "あいされている",
+          "romaji": "aisarete iru",
+          "pos": "被动态",
+          "meaning": "被深爱着"
+        },
+        {
+          "orig": "理由",
+          "kana": "りゆう",
+          "romaji": "riyuu",
+          "pos": "名词",
+          "meaning": "原因/缘由"
+        }
+      ],
+      "grammar_title": "被动态表达：动词受身形 + ている（持续被……）",
+      "grammar_bullets": [
+        [
+          "1. 被动态构成：",
+          "「愛する -> 愛される -> 愛されている（一直深受大众爱戴）」."
+        ],
+        [
+          "2. 说明理由句型：",
+          "「小句（修饰语）+ 理由です（这就是……的原因）」."
+        ],
+        [
+          "3. リアクション文化：",
+          "日本综艺极其注重嘉宾的「リアクション（受惊、惊喜等即时反应）」."
+        ],
+        [
+          "4. 赞美他人性格：",
+          "「裏表がない（为人表里如一，毫无心机）」."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解表达某位明星为什么深受大众喜爱的说明句式。"
+        },
+        {
+          "speaker": "ja",
+          "text": "自然体",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：自然纯真、不做作的状态。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "リアクション",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语：现场即时反应、Reaction。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "長年",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "时间副词：多年以来。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "愛されている",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词被动态进行时：持续被大家所喜爱。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "理由",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：缘由、原因所在。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：用被动态修饰名词说明核心原因的句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "長年愛されている理由です。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是这就是她多年深受喜爱的原因，评论明星标准表达。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 暖心治愈感悟表达",
+      "spoken_text": "思わずほっこりするエピソードですね。癒やされました！",
+      "meaning": "真是让人忍不住会心一笑的暖心小故事呢。太治愈了！",
+      "tip": "「ほっこりする」和「癒やされる（いやされる）」是日本年轻人表达“被暖到、被治愈”的最高频词。",
+      "tokens": [
+        {
+          "orig": "思わず",
+          "kana": "おもわず",
+          "romaji": "omowazu",
+          "pos": "副词",
+          "meaning": "情不自禁地"
+        },
+        {
+          "orig": "ほっこりする",
+          "kana": "ほっこりする",
+          "romaji": "hokkori suru",
+          "pos": "拟态词动词",
+          "meaning": "心里暖洋洋"
+        },
+        {
+          "orig": "エピソードですね。",
+          "kana": "えぴそーどですね",
+          "romaji": "episoodo desu ne.",
+          "pos": "外来语+感叹",
+          "meaning": "小故事呢"
+        },
+        {
+          "orig": "癒やされました！",
+          "kana": "いやされました",
+          "romaji": "iyasaremashita!",
+          "pos": "动词被动态",
+          "meaning": "被治愈了！"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

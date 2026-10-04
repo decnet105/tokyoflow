@@ -1,0 +1,18 @@
+{
+  "episode_code": "WM.01",
+  "shorts_code": "WS.01",
+  "target_release_day": "Sunday",
+  "target_release_time_est": "05:00 PM EST",
+  "video_path": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WM01-weekday_survival_mega_compilation-v1.0/video.mp4",
+  "thumbnail_path": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WM01-weekday_survival_mega_compilation-v1.0/thumbnail.jpg",
+  "short_video_path": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WM01-weekday_survival_mega_compilation-v1.0/short.mp4",
+  "short_thumbnail_path": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WM01-weekday_survival_mega_compilation-v1.0/short_thumbnail.jpg",
+  "metadata_path": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/WM01-weekday_survival_mega_compilation-v1.0/metadata.md",
+  "playlists": [
+    "Weekly Mega-Compilations & Masterclasses",
+    "JLPT N5-N3 Complete Curriculum",
+    "Real-Life Tokyo Scenario Guides"
+  ],
+  "category_id": "27",
+  "privacy_status": "public"
+}

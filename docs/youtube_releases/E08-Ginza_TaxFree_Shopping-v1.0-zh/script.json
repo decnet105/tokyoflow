@@ -1,0 +1,419 @@
+{
+  "episode_number": 8,
+  "folder_name": "E08-Ginza_TaxFree_Shopping-v1.0-zh",
+  "slug": "ginza_taxfree_shopping_zh",
+  "locale": "zh",
+  "title": "银座旗舰店优雅试衣与免税退税流程",
+  "yt_title": "【JLPT N5】银座购物优雅试衣！试穿与询问尺码精品店日语精讲（EP.08）",
+  "category": "银座购物 • 试衣与免税",
+  "level": "JLPT N5",
+  "district": "银座 (Ginza)",
+  "bg_image": "tmp/videogen/real_photos/ep08_ginza_uniqlo.jpg",
+  "cover": {
+    "hook": "银座购物试衣",
+    "sub_hook": "优雅试穿询问句式",
+    "jp_line1": "この服を、",
+    "jp_line2": "試着してもいいですか？",
+    "grammar_tag": "JLPT N5 语法：~てもいいですか（请求许可：可以……吗）",
+    "translation": "「我可以试穿一下这件衣服吗？」",
+    "context_note": "银座精品店、优衣库旗舰店试衣间前最优雅的标准口语",
+    "location_tag": "场景：银座旗舰百货 • 服饰精品专柜",
+    "tag": "🇯🇵 银座购物实景 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 试衣间试穿礼貌请求",
+      "spoken_text": "この服を、試着してもいいですか？",
+      "meaning": "我可以试穿一下这件衣服吗？",
+      "tip": "日本服装店试衣前必须先向店员打招呼，女性试穿套头衣物需佩戴面罩（フェイスカバー）。",
+      "tokens": [
+        {
+          "orig": "この",
+          "kana": "この",
+          "romaji": "kono",
+          "pos": "连体词",
+          "meaning": "这个/这件"
+        },
+        {
+          "orig": "服を、",
+          "kana": "ふくを",
+          "romaji": "fuku o,",
+          "pos": "名词+宾格",
+          "meaning": "衣服"
+        },
+        {
+          "orig": "試着して",
+          "kana": "しちゃくして",
+          "romaji": "shichaku shite",
+          "pos": "动词て形",
+          "meaning": "试穿"
+        },
+        {
+          "orig": "もいいですか？",
+          "kana": "もいいですか",
+          "romaji": "mo ii desu ka?",
+          "pos": "许可句型",
+          "meaning": "可以吗？"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 试穿请求语法与礼仪拆解",
+      "sentence_ja": "この服を、試着してもいいですか？",
+      "vocab": [
+        {
+          "orig": "この",
+          "kana": "この",
+          "romaji": "kono",
+          "pos": "连体词",
+          "meaning": "这/这件"
+        },
+        {
+          "orig": "服",
+          "kana": "ふく",
+          "romaji": "fuku",
+          "pos": "名词",
+          "meaning": "服装/衣服"
+        },
+        {
+          "orig": "試着",
+          "kana": "しちゃく",
+          "romaji": "shichaku",
+          "pos": "名词/动词",
+          "meaning": "试穿衣服"
+        },
+        {
+          "orig": "して",
+          "kana": "して",
+          "romaji": "shite",
+          "pos": "助动词",
+          "meaning": "做（接续形式）"
+        },
+        {
+          "orig": "もいいですか",
+          "kana": "もいいですか",
+          "romaji": "mo ii desu ka",
+          "pos": "许可句型",
+          "meaning": "可以……吗"
+        }
+      ],
+      "grammar_title": "请求许可公式：动词て形 + もいいですか",
+      "grammar_bullets": [
+        [
+          "1. 语法功能：",
+          "用于向对方征求许可，“我可以做某事吗？”语气客气温和。"
+        ],
+        [
+          "2. 试衣间礼仪：",
+          "进入试衣间（試着室，しちゃくしつ）前，店员会询问件数并递上号码牌。"
+        ],
+        [
+          "3. 脱鞋规定：",
+          "日本试衣间地面铺有地毯，进入前务必在踏垫前脱鞋。"
+        ],
+        [
+          "4. 店员热情回应：",
+          "「どうぞ、試着室へご案内いたします（请，我带您去试衣间）」。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解在银座各大服饰百货试穿衣服的标准礼貌句型。"
+        },
+        {
+          "speaker": "ja",
+          "text": "この",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "指示代词：这件。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "服",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 fuku，衣服服装。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "試着",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 shichaku，试穿。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "して",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词做（する）的接续て形。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "もいいですか",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "请求许可短语：可以吗？",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：征求对方许可的标准句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "試着してもいいですか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是我可以试穿一下吗，挑好衣服向店员示意时必说。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 尺码与颜色差异问询",
+      "spoken_text": "サイズ違いや色違いはありますか？Sサイズをお願いします。",
+      "meaning": "有其他尺码或者其他颜色吗？麻烦给我拿一件S码。",
+      "tip": "在日语中，后缀「〜違い（ちがい）」常用来表达“其他不同种类”。",
+      "tokens": [
+        {
+          "orig": "サイズ違いや",
+          "kana": "さいずちがいや",
+          "romaji": "saizu-chigai ya",
+          "pos": "名词+连词",
+          "meaning": "其他尺码或"
+        },
+        {
+          "orig": "色違いは",
+          "kana": "いろちがいは",
+          "romaji": "iro-chigai wa",
+          "pos": "名词+提示",
+          "meaning": "其他颜色"
+        },
+        {
+          "orig": "ありますか？",
+          "kana": "ありますか",
+          "romaji": "arimasu ka?",
+          "pos": "存在动词",
+          "meaning": "有吗？"
+        },
+        {
+          "orig": "Sサイズを",
+          "kana": "えすさいずを",
+          "romaji": "esu-saizu o",
+          "pos": "名词+宾格",
+          "meaning": "S号尺码"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu.",
+          "pos": "礼貌短语",
+          "meaning": "麻烦了"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 服饰尺寸与款式词汇拆解",
+      "sentence_ja": "サイズ違いや色違いはありますか？Sサイズをお願いします。",
+      "vocab": [
+        {
+          "orig": "サイズ違い",
+          "kana": "さいずちがい",
+          "romaji": "saizu chigai",
+          "pos": "名词",
+          "meaning": "不同尺码"
+        },
+        {
+          "orig": "色違い",
+          "kana": "いろちがい",
+          "romaji": "iro chigai",
+          "pos": "名词",
+          "meaning": "不同颜色"
+        },
+        {
+          "orig": "ありますか",
+          "kana": "ありますか",
+          "romaji": "arimasu ka",
+          "pos": "存在动词",
+          "meaning": "有存货吗"
+        },
+        {
+          "orig": "Sサイズ",
+          "kana": "えすさいず",
+          "romaji": "esu saizu",
+          "pos": "外来语",
+          "meaning": "小码 S Size"
+        },
+        {
+          "orig": "お願いします",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu",
+          "pos": "短语",
+          "meaning": "请拿给我"
+        }
+      ],
+      "grammar_title": "词汇构成：名词 + 違い（表示不同款式）",
+      "grammar_bullets": [
+        [
+          "1. 构词法：",
+          "「サイズ違い（尺码不同）」、「色違い（颜色不同）」、「柄違い（花纹图案不同）」."
+        ],
+        [
+          "2. 尺码表达：",
+          "Sサイズ（小码）、Mサイズ（中码）、Lサイズ（大码）、フリーサイズ（均码）."
+        ],
+        [
+          "3. 试穿后觉得不合身：",
+          "「少し小さいです / 少し大きいです（稍微有点小 / 稍微有点大）」."
+        ],
+        [
+          "4. 决定购买：",
+          "「これにします / これをいただきます（我就要这件了）」."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解试穿后询问其他尺码与颜色的地道表达。"
+        },
+        {
+          "speaker": "ja",
+          "text": "サイズ違い",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：其他尺码、不同号码。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "色違い",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：其他颜色配色。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "ありますか",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "存在动词疑问：有吗？",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "Sサイズ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 esu-saizu，小号尺码。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "お願いします",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "拜托了、麻烦拿给我。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：名词加違い表达其他不同款式的构词法。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "サイズ違いはありますか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是请问有别的尺码吗，试衣服时极其高频实用。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 免税柜台引导问询",
+      "spoken_text": "免税専用カウンターへご案内いたします。こちらへどうぞ。",
+      "meaning": "我带您前往免税专用柜台。请往这边走。",
+      "tip": "在大型百货（如三越、高岛屋），通常需在专门的免税退税楼层统一办理。",
+      "tokens": [
+        {
+          "orig": "免税専用",
+          "kana": "めんぜいせんよう",
+          "romaji": "menzei senyou",
+          "pos": "名词",
+          "meaning": "免税专用"
+        },
+        {
+          "orig": "カウンターへ",
+          "kana": "かうんたーへ",
+          "romaji": "kauntaa e",
+          "pos": "名词+方向",
+          "meaning": "前往柜台"
+        },
+        {
+          "orig": "ご案内",
+          "kana": "ごあんない",
+          "romaji": "goannai",
+          "pos": "敬语名词",
+          "meaning": "引导/带路"
+        },
+        {
+          "orig": "いたします。",
+          "kana": "いたします",
+          "romaji": "itashimasu.",
+          "pos": "谦让语",
+          "meaning": "我为您做"
+        },
+        {
+          "orig": "こちらへどうぞ。",
+          "kana": "こちらへどうぞ",
+          "romaji": "kochira e douzo.",
+          "pos": "礼貌短语",
+          "meaning": "请往这边"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

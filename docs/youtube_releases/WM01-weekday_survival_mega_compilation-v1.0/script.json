@@ -1,0 +1,2223 @@
+{
+  "metadata": {
+    "series_code": "WM.01",
+    "shorts_code": "WS.01",
+    "release_folder": "WM01-weekday_survival_mega_compilation-v1.0",
+    "title_en": "Monday to Friday Tokyo Survival All-in-One + Japanese Culture, Customs & Travel 28-Min Masterclass",
+    "title_ja": "【保存版】月〜金Tokyo日常サバイバル＆日本文化・風俗・旅行完全マスター28分スペシャル",
+    "jlpt_level": "JLPT N5-N3",
+    "target_duration_mins": 28,
+    "district": "Tokyo Metropolitan (Shinjuku, Shibuya, Akihabara, Asakusa, Roppongi, Ginza)",
+    "description_summary": "The ultimate 28-minute Japanese learning mega-compilation combining Monday-to-Friday daily survival scenarios (Transit, Kombini, Izakaya, Akiba, Ramen, Sento/Onsen, Shrine/Temple) with in-depth cultural insights, travel etiquette, bathing customs, and conversation formulas."
+  },
+  "screenplay": [
+    {
+      "chapter_id": 0,
+      "chapter_title": "PROLOGUE • THE ULTIMATE TOKYO SURVIVAL ROADMAP",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "0_1",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Welcome to the TokyoFlow Weekend Mega-Compilation. Today, we bring together the complete Monday through Friday Tokyo survival curriculum into one seamless 28-minute masterclass. Whether you are prepping for the JLPT, planning your dream trip to Japan, or wanting to understand authentic Japanese life, this episode is your definitive guide.",
+          "duration_est": 21.0,
+          "jlpt": "Roadmap",
+          "actual_duration": 21.552
+        },
+        {
+          "seg_id": "0_2",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Over the next twenty-eight minutes, we will cover seven essential weekday and weekend life survival zones: Tokyo train transit, convenience store checkout, izakaya pub dining, Akihabara anime shopping, ramen ticket ordering, onsen bathhouse etiquette, and shrine temple customs. Plus, we will dive deep into fascinating Japanese cultural secrets, from train manner mode and bowing angles to zero-tipping and omotenashi hospitality. Let us begin with Day 1: Tokyo train mastery.",
+          "duration_est": 27.0,
+          "jlpt": "Curriculum",
+          "actual_duration": 26.76
+        }
+      ]
+    },
+    {
+      "chapter_id": 1,
+      "chapter_title": "DAY 1 • YAMANOTE LINE TRANSIT & TRAIN MANNERS",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_yamanote_platform.jpg",
+      "segments": [
+        {
+          "seg_id": "1_1_intro",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Day 1 begins on the platforms of Shinjuku Station, the busiest transit hub in the world with over 3.5 million daily passengers. When stepping onto a JR platform, the first sound you will hear is the automated arrival broadcast.",
+          "duration_est": 14.0,
+          "jlpt": "N/A",
+          "actual_duration": 14.376
+        },
+        {
+          "seg_id": "1_1_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "まもなく、2番線に山手線内回りがまいります。黄色い点字ブロックの内側までお下がりください。",
+          "furi": "まもなく、 にばんせん に やまのてせん うちまわり が まいります。 きいろい てんじぶろっく の うちがわ まで おさがりください。",
+          "romaji": "Mamonaku, nibansen ni Yamanotesen uchimawari ga mairimasu. Kiiroi tenji burokku no uchigawa made osagari kudasai.",
+          "meaning": "The Yamanote Line inner loop will soon arrive at track 2. Please stand back behind the yellow tactile braille blocks.",
+          "jlpt": "JLPT N4-N3",
+          "grammar": "まもなく (Soon) + 参ります (Humble come) + お下がりください (Polite request)",
+          "tokens": [
+            {
+              "orig": "まもなく",
+              "kana": "まもなく",
+              "romaji": "mamonaku",
+              "start": 0.0,
+              "end": 1.104
+            },
+            {
+              "orig": "2番線に",
+              "kana": "にばんせんに",
+              "romaji": "nibansen ni",
+              "start": 1.104,
+              "end": 2.208
+            },
+            {
+              "orig": "山手線",
+              "kana": "やまのてせん",
+              "romaji": "yamanotesen",
+              "start": 2.208,
+              "end": 3.3120000000000003
+            },
+            {
+              "orig": "内回りが",
+              "kana": "うちまわりが",
+              "romaji": "uchimawari ga",
+              "start": 3.3120000000000003,
+              "end": 4.416
+            },
+            {
+              "orig": "まいります",
+              "kana": "まいります",
+              "romaji": "mairimasu",
+              "start": 4.416,
+              "end": 5.5200000000000005
+            },
+            {
+              "orig": "黄色い",
+              "kana": "きいろい",
+              "romaji": "kiiroi",
+              "start": 5.5200000000000005,
+              "end": 6.6240000000000006
+            },
+            {
+              "orig": "点字ブロックの",
+              "kana": "てんじぶろっくの",
+              "romaji": "tenji burokku no",
+              "start": 6.6240000000000006,
+              "end": 7.728000000000001
+            },
+            {
+              "orig": "内側まで",
+              "kana": "うちがわまで",
+              "romaji": "uchigawa made",
+              "start": 7.728000000000001,
+              "end": 8.832
+            },
+            {
+              "orig": "お下がりください",
+              "kana": "おさがりください",
+              "romaji": "osagari kudasai",
+              "start": 8.832,
+              "end": 9.936
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "まもなく",
+              "kana": "まもなく",
+              "romaji": "mamonaku",
+              "pos": "Adv (N4)",
+              "meaning": "Soon / Shortly"
+            },
+            {
+              "orig": "内回り",
+              "kana": "うちまわり",
+              "romaji": "uchimawari",
+              "pos": "Noun (N3)",
+              "meaning": "Inner loop (Counter-clockwise)"
+            },
+            {
+              "orig": "参る",
+              "kana": "まいる",
+              "romaji": "mairu",
+              "pos": "Kenjougo (N3)",
+              "meaning": "Humble 'To come'"
+            },
+            {
+              "orig": "点字ブロック",
+              "kana": "てんじぶろっく",
+              "romaji": "tenji burokku",
+              "pos": "Noun (N3)",
+              "meaning": "Tactile braille paving"
+            },
+            {
+              "orig": "下がる",
+              "kana": "さがる",
+              "romaji": "sagaru",
+              "pos": "Verb (N4)",
+              "meaning": "To step back / Stand back"
+            }
+          ],
+          "grammar_title": "Humble 参る (Mairu) & Polite お〜ください",
+          "grammar_bullets": [
+            [
+              "• Humble Transit Verb",
+              "参ります (mairimasu) is the humble equivalent of 来ます (kimasu), standard on all Japanese railways"
+            ],
+            [
+              "• Polite Request Pattern",
+              "お + Verb stem + ください (お下がりください = Please step back)"
+            ],
+            [
+              "• Inner vs Outer Loop",
+              "内回り (Uchimawari = Counter-clockwise) vs 外回り (Sotomawari = Clockwise)"
+            ]
+          ],
+          "duration_est": 10.0,
+          "actual_duration": 9.936
+        },
+        {
+          "seg_id": "1_1_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Let us break down the transit grammar. 'Mairimasu' is the humble form of 'kimasu', used in public transit announcements across Japan. When the broadcast says 'osagari kudasai', notice the honorific prefix 'o' combined with the verb stem 'sagari' and 'kudasai'. This forms the universal polite public request formula.",
+          "duration_est": 21.0,
+          "jlpt": "N4-N3 Breakdown",
+          "ref_sentence": "まもなく、2番線に山手線内回りがまいります。黄色い点字ブロックの内側までお下がりください。",
+          "vocab": [
+            {
+              "orig": "まもなく",
+              "kana": "まもなく",
+              "romaji": "mamonaku",
+              "pos": "Adv (N4)",
+              "meaning": "Soon / Shortly"
+            },
+            {
+              "orig": "内回り",
+              "kana": "うちまわり",
+              "romaji": "uchimawari",
+              "pos": "Noun (N3)",
+              "meaning": "Inner loop (Counter-clockwise)"
+            },
+            {
+              "orig": "参る",
+              "kana": "まいる",
+              "romaji": "mairu",
+              "pos": "Kenjougo (N3)",
+              "meaning": "Humble 'To come'"
+            },
+            {
+              "orig": "点字ブロック",
+              "kana": "てんじぶろっく",
+              "romaji": "tenji burokku",
+              "pos": "Noun (N3)",
+              "meaning": "Tactile braille paving"
+            },
+            {
+              "orig": "下がる",
+              "kana": "さがる",
+              "romaji": "sagaru",
+              "pos": "Verb (N4)",
+              "meaning": "To step back / Stand back"
+            }
+          ],
+          "grammar_title": "Humble 参る (Mairu) & Polite お〜ください",
+          "grammar_bullets": [
+            [
+              "• Humble Transit Verb",
+              "参ります (mairimasu) is the humble equivalent of 来ます (kimasu), standard on all Japanese railways"
+            ],
+            [
+              "• Polite Request Pattern",
+              "お + Verb stem + ください (お下がりください = Please step back)"
+            ],
+            [
+              "• Inner vs Outer Loop",
+              "内回り (Uchimawari = Counter-clockwise) vs 外回り (Sotomawari = Clockwise)"
+            ]
+          ],
+          "actual_duration": 20.688
+        },
+        {
+          "seg_id": "1_2_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "すみません、中央線への乗り換えはどのホームですか？",
+          "furi": "すみません、 ちゅうおうせん への のりかえ は どの ほーむ ですか？",
+          "romaji": "Sumimasen, Chuuousen e no norikae wa dono hoomu desu ka?",
+          "meaning": "Excuse me, which platform is the transfer for the Chuo Line?",
+          "jlpt": "JLPT N5",
+          "grammar": "乗り換え (Transfer) + どのホーム (Which platform?)",
+          "tokens": [
+            {
+              "orig": "すみません",
+              "kana": "すみません",
+              "romaji": "sumimasen",
+              "start": 0.0,
+              "end": 1.056
+            },
+            {
+              "orig": "中央線への",
+              "kana": "ちゅうおうせんへの",
+              "romaji": "chuuousen e no",
+              "start": 1.056,
+              "end": 2.112
+            },
+            {
+              "orig": "乗り換えは",
+              "kana": "のりかえは",
+              "romaji": "norikae wa",
+              "start": 2.112,
+              "end": 3.168
+            },
+            {
+              "orig": "どのホーム",
+              "kana": "どのほーむ",
+              "romaji": "dono hoomu",
+              "start": 3.168,
+              "end": 4.224
+            },
+            {
+              "orig": "ですか",
+              "kana": "ですか",
+              "romaji": "desu ka",
+              "start": 4.224,
+              "end": 5.28
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "すみません",
+              "kana": "すみません",
+              "romaji": "sumimasen",
+              "pos": "Exp (N5)",
+              "meaning": "Excuse me / Sorry"
+            },
+            {
+              "orig": "中央線",
+              "kana": "ちゅうおうせん",
+              "romaji": "chuuousen",
+              "pos": "Noun (N5)",
+              "meaning": "Chuo Line (Rapid)"
+            },
+            {
+              "orig": "乗り換え",
+              "kana": "のりかえ",
+              "romaji": "norikae",
+              "pos": "Noun (N5)",
+              "meaning": "Transfer / Connection"
+            },
+            {
+              "orig": "どの",
+              "kana": "どの",
+              "romaji": "dono",
+              "pos": "Pronoun (N5)",
+              "meaning": "Which"
+            },
+            {
+              "orig": "ホーム",
+              "kana": "ほーむ",
+              "romaji": "hoomu",
+              "pos": "Noun (N5)",
+              "meaning": "Platform / Track"
+            }
+          ],
+          "grammar_title": "Transfer Formula: [Line Name] + への乗り換え",
+          "grammar_bullets": [
+            [
+              "• Particle Combo ~への",
+              "Combines directional particle へ with possessive の (Transfer TO the line)"
+            ],
+            [
+              "• Asking Directions",
+              "〜はどのホームですか？ (Which platform is ~?)"
+            ],
+            [
+              "• Natural Station Staff Reply",
+              "7番ホームです (Platform 7) or まっすぐ進んでください (Go straight)"
+            ]
+          ],
+          "duration_est": 6.0,
+          "actual_duration": 5.28
+        },
+        {
+          "seg_id": "1_2_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "This is your golden transfer phrase. Notice the particle combination 'e no'. 'E' marks direction, and 'no' connects it to 'norikae' (transfer). If you ever get turned around in Tokyo's giant stations, simply replace 'Chuuousen' with any subway or train line name.",
+          "duration_est": 16.0,
+          "jlpt": "N5 Breakdown",
+          "ref_sentence": "すみません、中央線への乗り換えはどのホームですか？",
+          "vocab": [
+            {
+              "orig": "すみません",
+              "kana": "すみません",
+              "romaji": "sumimasen",
+              "pos": "Exp (N5)",
+              "meaning": "Excuse me / Sorry"
+            },
+            {
+              "orig": "中央線",
+              "kana": "ちゅうおうせん",
+              "romaji": "chuuousen",
+              "pos": "Noun (N5)",
+              "meaning": "Chuo Line (Rapid)"
+            },
+            {
+              "orig": "乗り換え",
+              "kana": "のりかえ",
+              "romaji": "norikae",
+              "pos": "Noun (N5)",
+              "meaning": "Transfer / Connection"
+            },
+            {
+              "orig": "どの",
+              "kana": "どの",
+              "romaji": "dono",
+              "pos": "Pronoun (N5)",
+              "meaning": "Which"
+            },
+            {
+              "orig": "ホーム",
+              "kana": "ほーむ",
+              "romaji": "hoomu",
+              "pos": "Noun (N5)",
+              "meaning": "Platform / Track"
+            }
+          ],
+          "grammar_title": "Transfer Formula: [Line Name] + への乗り換え",
+          "grammar_bullets": [
+            [
+              "• Particle Combo ~への",
+              "Combines directional particle へ with possessive の (Transfer TO the line)"
+            ],
+            [
+              "• Asking Directions",
+              "〜はどのホームですか？ (Which platform is ~?)"
+            ],
+            [
+              "• Natural Station Staff Reply",
+              "7番ホームです (Platform 7) or まっすぐ進んでください (Go straight)"
+            ]
+          ],
+          "actual_duration": 16.296
+        },
+        {
+          "seg_id": "1_cultural_deep_dive_1",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Now for our deep Japanese cultural insight. In Japan, train etiquette is sacred. You will notice that Japanese trains are whisper quiet. Passengers switch their phones to 'Manner Mode'—meaning silent mode—and phone calls are strictly forbidden inside the train car. If you receive a call, you either decline it or quickly whisper that you are on the train and will call back.",
+          "duration_est": 21.0,
+          "jlpt": "Culture",
+          "actual_duration": 20.88
+        },
+        {
+          "seg_id": "1_cultural_deep_dive_2",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Did you know that every train station in Tokyo has its own unique 7-second departure jingle called a 'Hassha Melody'? For example, Ebisu Station plays the famous theme from The Third Man because Yebisu Beer was founded there, and Takadanobaba Station plays Astro Boy! These melodic chimes prevent rushed boarding while reducing commuter stress.",
+          "duration_est": 24.0,
+          "jlpt": "Culture",
+          "actual_duration": 19.368
+        },
+        {
+          "seg_id": "1_cultural_deep_dive_3",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Also, pay close attention to escalator etiquette. In Tokyo and Eastern Japan, you always stand on the left side and walk on the right side. But in Osaka and Western Japan, the rule flips: you stand on the right and walk on the left! Remembering this simple custom will make you look like a seasoned local from day one.",
+          "duration_est": 20.0,
+          "jlpt": "Culture",
+          "actual_duration": 19.368
+        }
+      ]
+    },
+    {
+      "chapter_id": 2,
+      "chapter_title": "DAY 2 • CONVENIENCE STORE SURVIVAL & KOMBINI CULTURE",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_kombini_store.jpg",
+      "segments": [
+        {
+          "seg_id": "2_1_intro",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Day 2 brings us inside Japan's modern miracle: the convenience store, or kombini. With over fifty thousand branches of 7-Eleven, FamilyMart, and Lawson, you will visit one almost every single day. Here is the rapid-fire checkout dialogue you must master.",
+          "duration_est": 16.0,
+          "jlpt": "N/A",
+          "actual_duration": 16.248
+        },
+        {
+          "seg_id": "2_1_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "お弁当温めますか？レジ袋はご利用ですか？",
+          "furi": "おべんとう あたためます か？ れじぶくろ は ごりよう です か？",
+          "romaji": "Obentou atatamemasu ka? Rejibukuro wa goriyou desu ka?",
+          "meaning": "Would you like your lunch box heated up? Will you be using a plastic shopping bag?",
+          "jlpt": "JLPT N5-N4",
+          "grammar": "温めますか (Microwave question) + ご利用ですか (Polite use)",
+          "tokens": [
+            {
+              "orig": "お弁当",
+              "kana": "おべんとう",
+              "romaji": "obentou",
+              "start": 0.0,
+              "end": 1.1663999999999999
+            },
+            {
+              "orig": "温めますか",
+              "kana": "あたためますか",
+              "romaji": "atatamemasu ka",
+              "start": 1.1663999999999999,
+              "end": 2.3327999999999998
+            },
+            {
+              "orig": "レジ袋は",
+              "kana": "れじぶくろは",
+              "romaji": "rejibukuro wa",
+              "start": 2.3327999999999998,
+              "end": 3.4991999999999996
+            },
+            {
+              "orig": "ご利用",
+              "kana": "ごりよう",
+              "romaji": "goriyou",
+              "start": 3.4991999999999996,
+              "end": 4.6655999999999995
+            },
+            {
+              "orig": "ですか",
+              "kana": "ですか",
+              "romaji": "desu ka",
+              "start": 4.6655999999999995,
+              "end": 5.831999999999999
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "お弁当",
+              "kana": "おべんとう",
+              "romaji": "obentou",
+              "pos": "Noun (N5)",
+              "meaning": "Bento lunch box"
+            },
+            {
+              "orig": "温める",
+              "kana": "あたためる",
+              "romaji": "atatameru",
+              "pos": "Verb (N4)",
+              "meaning": "To warm up / Heat"
+            },
+            {
+              "orig": "レジ袋",
+              "kana": "れじぶくろ",
+              "romaji": "rejibukuro",
+              "pos": "Noun (N5)",
+              "meaning": "Plastic checkout bag"
+            },
+            {
+              "orig": "ご利用",
+              "kana": "ごりよう",
+              "romaji": "goriyou",
+              "pos": "Noun (N4)",
+              "meaning": "Polite usage / Use"
+            }
+          ],
+          "grammar_title": "Kombini Register Double Question",
+          "grammar_bullets": [
+            [
+              "• Heating Response",
+              "温めてください (Please heat it) or そのままで大丈夫です (As-is is fine)"
+            ],
+            [
+              "• Declining Bag",
+              "袋は大丈夫です (I'm fine without a bag / I have my own)"
+            ],
+            [
+              "• Polite 'Go-' Prefix",
+              "ご利用 (goriyou) adds respectful prefix ご to indicate customer usage"
+            ]
+          ],
+          "duration_est": 6.0,
+          "actual_duration": 5.832
+        },
+        {
+          "seg_id": "2_1_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "These are the two iconic questions asked at every register. To reply to heating, say 'Atatamete kudasai' if you want it hot, or 'Sono mama de daijoubu desu' if you will eat it cold. When asked about a bag, a gentle nod with 'Daijoubu desu' is the standard polite Japanese way to decline.",
+          "duration_est": 18.0,
+          "jlpt": "N5 Breakdown",
+          "ref_sentence": "お弁当温めますか？レジ袋はご利用ですか？",
+          "vocab": [
+            {
+              "orig": "お弁当",
+              "kana": "おべんとう",
+              "romaji": "obentou",
+              "pos": "Noun (N5)",
+              "meaning": "Bento lunch box"
+            },
+            {
+              "orig": "温める",
+              "kana": "あたためる",
+              "romaji": "atatameru",
+              "pos": "Verb (N4)",
+              "meaning": "To warm up / Heat"
+            },
+            {
+              "orig": "レジ袋",
+              "kana": "れじぶくろ",
+              "romaji": "rejibukuro",
+              "pos": "Noun (N5)",
+              "meaning": "Plastic checkout bag"
+            },
+            {
+              "orig": "ご利用",
+              "kana": "ごりよう",
+              "romaji": "goriyou",
+              "pos": "Noun (N4)",
+              "meaning": "Polite usage / Use"
+            }
+          ],
+          "grammar_title": "Kombini Register Double Question",
+          "grammar_bullets": [
+            [
+              "• Heating Response",
+              "温めてください (Please heat it) or そのままで大丈夫です (As-is is fine)"
+            ],
+            [
+              "• Declining Bag",
+              "袋は大丈夫です (I'm fine without a bag / I have my own)"
+            ],
+            [
+              "• Polite 'Go-' Prefix",
+              "ご利用 (goriyou) adds respectful prefix ご to indicate customer usage"
+            ]
+          ],
+          "actual_duration": 17.4
+        },
+        {
+          "seg_id": "2_2_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "支払いはSuicaでお願いします。領収書もいただけますか？",
+          "furi": "しはらい は すいか で おねがいします。 りょうしゅうしょ も いただけます か？",
+          "romaji": "Shiharai wa Suica de onegaishimasu. Ryoushuusho mo itadakemasu ka?",
+          "meaning": "I'll pay with Suica, please. Could I also get a tax receipt?",
+          "jlpt": "JLPT N5-N4",
+          "grammar": "[Payment] + でお願いします + いただけますか (Humble request)",
+          "tokens": [
+            {
+              "orig": "支払いは",
+              "kana": "しはらいは",
+              "romaji": "shiharai wa",
+              "start": 0.0,
+              "end": 1.2768000000000002
+            },
+            {
+              "orig": "Suicaで",
+              "kana": "すいかで",
+              "romaji": "suika de",
+              "start": 1.2768000000000002,
+              "end": 2.5536000000000003
+            },
+            {
+              "orig": "お願いします",
+              "kana": "おねがいします",
+              "romaji": "onegaishimasu",
+              "start": 2.5536000000000003,
+              "end": 3.8304000000000005
+            },
+            {
+              "orig": "領収書も",
+              "kana": "りょうしゅうしょも",
+              "romaji": "ryoushuusho mo",
+              "start": 3.8304000000000005,
+              "end": 5.107200000000001
+            },
+            {
+              "orig": "いただけますか",
+              "kana": "いただけますか",
+              "romaji": "itadakemasu ka",
+              "start": 5.107200000000001,
+              "end": 6.384
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "支払い",
+              "kana": "しはらい",
+              "romaji": "shiharai",
+              "pos": "Noun (N4)",
+              "meaning": "Payment / Settle check"
+            },
+            {
+              "orig": "Suica",
+              "kana": "すいか",
+              "romaji": "suika",
+              "pos": "Noun (N5)",
+              "meaning": "Tokyo IC Transit Card"
+            },
+            {
+              "orig": "領収書",
+              "kana": "りょうしゅうしょ",
+              "romaji": "ryoushuusho",
+              "pos": "Noun (N4)",
+              "meaning": "Official itemized tax receipt"
+            },
+            {
+              "orig": "いただく",
+              "kana": "いただく",
+              "romaji": "itadaku",
+              "pos": "Kenjougo (N4)",
+              "meaning": "Humble 'To receive'"
+            }
+          ],
+          "grammar_title": "Payment Formula & Polite Receipt Request",
+          "grammar_bullets": [
+            [
+              "• Cashless Payment Formula",
+              "[PayPay / クレジットカード / Suica] + でお願いします"
+            ],
+            [
+              "• Receipt Nuance",
+              "レシート (Register slip) vs 領収書 (Official tax receipt with company name)"
+            ],
+            [
+              "• Humble Request いただけますか",
+              "More polite than ください; literally 'Could I humbly receive ~?'"
+            ]
+          ],
+          "duration_est": 6.5,
+          "actual_duration": 6.384
+        },
+        {
+          "seg_id": "2_2_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "For payment, simply state your method followed by 'de onegaishimasu'—such as 'Kurejitto kaado de' or 'PayPay de'. If you need a formal business receipt for expense reimbursement, ask for 'ryoushuusho' instead of a standard register 'reshiito'.",
+          "duration_est": 15.0,
+          "jlpt": "N4 Breakdown",
+          "ref_sentence": "支払いはSuicaでお願いします。領収書もいただけますか？",
+          "vocab": [
+            {
+              "orig": "支払い",
+              "kana": "しはらい",
+              "romaji": "shiharai",
+              "pos": "Noun (N4)",
+              "meaning": "Payment / Settle check"
+            },
+            {
+              "orig": "Suica",
+              "kana": "すいか",
+              "romaji": "suika",
+              "pos": "Noun (N5)",
+              "meaning": "Tokyo IC Transit Card"
+            },
+            {
+              "orig": "領収書",
+              "kana": "りょうしゅうしょ",
+              "romaji": "ryoushuusho",
+              "pos": "Noun (N4)",
+              "meaning": "Official itemized tax receipt"
+            },
+            {
+              "orig": "いただく",
+              "kana": "いただく",
+              "romaji": "itadaku",
+              "pos": "Kenjougo (N4)",
+              "meaning": "Humble 'To receive'"
+            }
+          ],
+          "grammar_title": "Payment Formula & Polite Receipt Request",
+          "grammar_bullets": [
+            [
+              "• Cashless Payment Formula",
+              "[PayPay / クレジットカード / Suica] + でお願いします"
+            ],
+            [
+              "• Receipt Nuance",
+              "レシート (Register slip) vs 領収書 (Official tax receipt with company name)"
+            ],
+            [
+              "• Humble Request いただけますか",
+              "More polite than ください; literally 'Could I humbly receive ~?'"
+            ]
+          ],
+          "actual_duration": 15.0
+        },
+        {
+          "seg_id": "2_cultural_deep_dive_1",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Japanese kombini culture is famous worldwide for its seasonal limited editions, known as 'Kikan Gentei'. In spring, shelves turn pink with sakura flavored lattes and sweets. In autumn, you will find rich chestnut and sweet potato treats, and in winter, steaming hot oden stew counters and nikuman meat buns right beside the register.",
+          "duration_est": 22.0,
+          "jlpt": "Culture",
+          "actual_duration": 21.456
+        },
+        {
+          "seg_id": "2_cultural_deep_dive_2",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "When ordering from the winter Oden counter, pick your favorite simmered ingredients like Daikon radish, Hanpen fish cake, and hard-boiled Tamago. The staff will ask if you want 'Karashi' (spicy Japanese yellow mustard) on the side of your bowl. Say 'Karashi tsukete kudasai' for the authentic winter flavor kick!",
+          "duration_est": 22.0,
+          "jlpt": "Culture",
+          "actual_duration": 22.2
+        },
+        {
+          "seg_id": "2_cultural_deep_dive_3",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Here is a fun travel hack: when opening an onigiri rice ball, follow the numbered red pull-tabs 1, 2, and 3. Pull tab 1 straight down the middle and all the way around the back, then gently slide corners 2 and 3 off. This clever packaging keeps the crisp seaweed separated from the moist rice until the exact moment you take your first bite!",
+          "duration_est": 22.0,
+          "jlpt": "Culture",
+          "actual_duration": 22.2
+        }
+      ]
+    },
+    {
+      "chapter_id": 3,
+      "chapter_title": "DAY 3 • IZAKAYA SHOWA PUB ORDERING & NIGHTLIFE ETIQUETTE",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_izakaya_yokocho.jpg",
+      "segments": [
+        {
+          "seg_id": "3_1_intro",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Day 3 takes us into the lantern-lit alleys of Shinjuku Omoide Yokocho. The Japanese izakaya is more than a restaurant; it is where colleagues and friends unwind after work. The moment you sit down, you receive a hot damp towel called an oshibori and prepare your opening order.",
+          "duration_est": 18.0,
+          "jlpt": "N/A",
+          "actual_duration": 17.472
+        },
+        {
+          "seg_id": "3_1_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "とりあえず生ビール二つお願いします！焼き鳥は塩とタレ、どちらがおすすめですか？",
+          "furi": "とりあえず なまびーる ふたつ おねがいします！ やきとり は しお と たれ、 どちら が おすすめ です か？",
+          "romaji": "Toriaezu nama biiru futatsu onegaishimasu! Yakitori wa shio to tare, dochira ga osusume desu ka?",
+          "meaning": "Two draft beers to start, please! Between salt and sweet tare sauce, which do you recommend for the yakitori skewers?",
+          "jlpt": "JLPT N5-N4",
+          "grammar": "とりあえず (For now / To start) + どちら (Which of two) + おすすめ (Recommendation)",
+          "tokens": [
+            {
+              "orig": "とりあえず",
+              "kana": "とりあえず",
+              "romaji": "toriaezu",
+              "start": 0.0,
+              "end": 0.9386666666666668
+            },
+            {
+              "orig": "生ビール",
+              "kana": "なまびーる",
+              "romaji": "nama biiru",
+              "start": 0.9386666666666668,
+              "end": 1.8773333333333335
+            },
+            {
+              "orig": "二つ",
+              "kana": "ふたつ",
+              "romaji": "futatsu",
+              "start": 1.8773333333333335,
+              "end": 2.8160000000000003
+            },
+            {
+              "orig": "お願いします",
+              "kana": "おねがいします",
+              "romaji": "onegaishimasu",
+              "start": 2.8160000000000003,
+              "end": 3.754666666666667
+            },
+            {
+              "orig": "焼き鳥は",
+              "kana": "やきとりは",
+              "romaji": "yakitori wa",
+              "start": 3.754666666666667,
+              "end": 4.693333333333333
+            },
+            {
+              "orig": "塩と",
+              "kana": "しおと",
+              "romaji": "shio to",
+              "start": 4.693333333333333,
+              "end": 5.632000000000001
+            },
+            {
+              "orig": "タレ",
+              "kana": "たれ",
+              "romaji": "tare",
+              "start": 5.632000000000001,
+              "end": 6.570666666666668
+            },
+            {
+              "orig": "どちらが",
+              "kana": "どちらが",
+              "romaji": "dochira ga",
+              "start": 6.570666666666668,
+              "end": 7.509333333333334
+            },
+            {
+              "orig": "おすすめですか",
+              "kana": "おすすめですか",
+              "romaji": "osusume desu ka",
+              "start": 7.509333333333334,
+              "end": 8.448
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "とりあえず",
+              "kana": "とりあえず",
+              "romaji": "toriaezu",
+              "pos": "Adv (N4)",
+              "meaning": "To begin with / For now"
+            },
+            {
+              "orig": "生ビール",
+              "kana": "なまびーる",
+              "romaji": "nama biiru",
+              "pos": "Noun (N5)",
+              "meaning": "Draft beer on tap"
+            },
+            {
+              "orig": "二つ",
+              "kana": "ふたつ",
+              "romaji": "futatsu",
+              "pos": "Counter (N5)",
+              "meaning": "Two items"
+            },
+            {
+              "orig": "焼き鳥",
+              "kana": "やきとり",
+              "romaji": "yakitori",
+              "pos": "Noun (N5)",
+              "meaning": "Grilled chicken skewers"
+            },
+            {
+              "orig": "おすすめ",
+              "kana": "おすすめ",
+              "romaji": "osusume",
+              "pos": "Noun (N4)",
+              "meaning": "Recommendation"
+            }
+          ],
+          "grammar_title": "Toriaezu Formula & Comparative Recommendation",
+          "grammar_bullets": [
+            [
+              "• The Izakaya Golden Opener",
+              "とりあえず生 (Toriaezu nama) = 'Draft beer to start!' ensures instant table delivery"
+            ],
+            [
+              "• Salt vs Tare Sauce",
+              "塩 (Shio = Savory salt) highlights ingredient quality; タレ (Tare = Sweet soy glaze)"
+            ],
+            [
+              "• Two-Choice Question",
+              "AとB、どちらが〜ですか？ (Between A and B, which one is ~?)"
+            ]
+          ],
+          "duration_est": 8.5,
+          "actual_duration": 8.448
+        },
+        {
+          "seg_id": "3_1_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "'Toriaezu nama' is the iconic phrase heard in every pub across Japan. 'Toriaezu' means 'for now' or 'to start'. Ordering draft beers first gives the kitchen time while getting drinks on the table instantly. For yakitori, 'shio' gives a clean salted taste, while 'tare' is a rich caramelized sweet soy sauce.",
+          "duration_est": 20.0,
+          "jlpt": "N4 Breakdown",
+          "ref_sentence": "とりあえず生ビール二つお願いします！焼き鳥は塩とタレ、どちらがおすすめですか？",
+          "vocab": [
+            {
+              "orig": "とりあえず",
+              "kana": "とりあえず",
+              "romaji": "toriaezu",
+              "pos": "Adv (N4)",
+              "meaning": "To begin with / For now"
+            },
+            {
+              "orig": "生ビール",
+              "kana": "なまびーる",
+              "romaji": "nama biiru",
+              "pos": "Noun (N5)",
+              "meaning": "Draft beer on tap"
+            },
+            {
+              "orig": "二つ",
+              "kana": "ふたつ",
+              "romaji": "futatsu",
+              "pos": "Counter (N5)",
+              "meaning": "Two items"
+            },
+            {
+              "orig": "焼き鳥",
+              "kana": "やきとり",
+              "romaji": "yakitori",
+              "pos": "Noun (N5)",
+              "meaning": "Grilled chicken skewers"
+            },
+            {
+              "orig": "おすすめ",
+              "kana": "おすすめ",
+              "romaji": "osusume",
+              "pos": "Noun (N4)",
+              "meaning": "Recommendation"
+            }
+          ],
+          "grammar_title": "Toriaezu Formula & Comparative Recommendation",
+          "grammar_bullets": [
+            [
+              "• The Izakaya Golden Opener",
+              "とりあえず生 (Toriaezu nama) = 'Draft beer to start!' ensures instant table delivery"
+            ],
+            [
+              "• Salt vs Tare Sauce",
+              "塩 (Shio = Savory salt) highlights ingredient quality; タレ (Tare = Sweet soy glaze)"
+            ],
+            [
+              "• Two-Choice Question",
+              "AとB、どちらが〜ですか？ (Between A and B, which one is ~?)"
+            ]
+          ],
+          "actual_duration": 20.4
+        },
+        {
+          "seg_id": "3_2_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "すみません、お会計をお願いします。別々に払えますか？",
+          "furi": "すみません、 おかいけい を おねがいします。 べつべつ に はらえます か？",
+          "romaji": "Sumimasen, okaikei o onegaishimasu. Betsubetsu ni haraemasu ka?",
+          "meaning": "Excuse me, could we get the check? Can we pay separately?",
+          "jlpt": "JLPT N5-N4",
+          "grammar": "お会計 (The bill) + 別々に (Separately) + 払えますか (Potential form: Can pay)",
+          "tokens": [
+            {
+              "orig": "すみません",
+              "kana": "すみません",
+              "romaji": "sumimasen",
+              "start": 0.0,
+              "end": 1.3392
+            },
+            {
+              "orig": "お会計を",
+              "kana": "おかいけいを",
+              "romaji": "okaikei o",
+              "start": 1.3392,
+              "end": 2.6784
+            },
+            {
+              "orig": "お願いします",
+              "kana": "おねがいします",
+              "romaji": "onegaishimasu",
+              "start": 2.6784,
+              "end": 4.0176
+            },
+            {
+              "orig": "別々に",
+              "kana": "べつべつに",
+              "romaji": "betsubetsu ni",
+              "start": 4.0176,
+              "end": 5.3568
+            },
+            {
+              "orig": "払えますか",
+              "kana": "はらえますか",
+              "romaji": "haraemasu ka",
+              "start": 5.3568,
+              "end": 6.696
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "お会計",
+              "kana": "おかいけい",
+              "romaji": "okaikei",
+              "pos": "Noun (N5)",
+              "meaning": "Bill / Check settlement"
+            },
+            {
+              "orig": "別々",
+              "kana": "べつべつ",
+              "romaji": "betsubetsu",
+              "pos": "Noun/Adv (N4)",
+              "meaning": "Separately / Individually"
+            },
+            {
+              "orig": "払う",
+              "kana": "はらう",
+              "romaji": "harau",
+              "pos": "Verb (N5)",
+              "meaning": "To pay"
+            },
+            {
+              "orig": "払える",
+              "kana": "はらえる",
+              "romaji": "haraeru",
+              "pos": "Potential Verb (N4)",
+              "meaning": "Can pay / Able to pay"
+            }
+          ],
+          "grammar_title": "Settling the Bill & Split Payment",
+          "grammar_bullets": [
+            [
+              "• Asking for the Bill",
+              "お会計お願いします (Okaikei onegaishimasu) or お勘定 (Okanjou)"
+            ],
+            [
+              "• Splitting the Bill",
+              "別々で (Betsubetsu de = Split individual tabs) or 割り勘 (Warikan = Split evenly)"
+            ],
+            [
+              "• Potential Verb Form",
+              "払う (harau) -> 払える (haraeru = can pay)"
+            ]
+          ],
+          "duration_est": 6.5,
+          "actual_duration": 6.696
+        },
+        {
+          "seg_id": "3_2_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "When ready to leave, cross your index fingers in an 'X' gesture or say 'Okaikei onegaishimasu'. If you wish to split the check, use 'betsubetsu ni' for individual item checks, or 'warikan' for splitting the total evenly.",
+          "duration_est": 14.5,
+          "actual_duration": 14.328
+        },
+        {
+          "seg_id": "3_cultural_deep_dive_1",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Many visitors are surprised when a small unrequested dish appears at their izakaya table. This is called 'Otoshi' or 'Tsukidashi'—a traditional seating cover charge that comes with an appetizer made fresh daily by the chef. It acts as the table charge and acknowledges your patronage.",
+          "duration_est": 17.0,
+          "jlpt": "Culture",
+          "actual_duration": 16.896
+        },
+        {
+          "seg_id": "3_cultural_deep_dive_2",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "When doing a 'Kanpai' toast with Japanese friends or colleagues, there is a subtle rule of respect: if you are toasting with someone older or senior in rank, tap your glass slightly lower than theirs. Also, never pour your own beer from a bottle; pouring for each other builds harmony and social connection!",
+          "duration_est": 18.0,
+          "jlpt": "Culture",
+          "actual_duration": 17.688
+        },
+        {
+          "seg_id": "3_cultural_deep_dive_3",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "And here is an important table manner regarding the hot Oshibori towel: it is provided strictly for wiping your hands before eating. In formal or polite dining settings, avoid wiping your face or neck with the towel, as that is considered overly casual.",
+          "duration_est": 17.0,
+          "jlpt": "Culture",
+          "actual_duration": 15.12
+        }
+      ]
+    },
+    {
+      "chapter_id": 4,
+      "chapter_title": "DAY 4 • AKIHABARA ANIME PILGRIMAGE & POP CULTURE",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_akiba_street.jpg",
+      "segments": [
+        {
+          "seg_id": "4_1_intro",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Day 4 brings us into Electric Town: Akihabara. From towering eight-story manga department stores to retro gaming alleys, navigating Akiba requires specific vocabulary for merchandise, pre-order perks, and tax-free processing.",
+          "duration_est": 15.0,
+          "jlpt": "N/A",
+          "actual_duration": 14.688
+        },
+        {
+          "seg_id": "4_1_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "今期の新作アニメの原作はどこにありますか？購入特典はまだ付きますか？",
+          "furi": "こんき の しんさく あにめ の げんさく は どこ に あります か？ こうにゅう とくてん は まだ つきます か？",
+          "romaji": "Konki no shinsaku anime no gensaku wa doko ni arimasu ka? Kounyuu tokuten wa mada tsukimasu ka?",
+          "meaning": "Where are the original manga or novels for this season's new anime? Does it still come with the purchase bonus perk?",
+          "jlpt": "JLPT N4-N3",
+          "grammar": "今期 (Current season) + 原作 (Original work) + 特典が付く (Include bonus)",
+          "tokens": [
+            {
+              "orig": "今期の",
+              "kana": "こんきの",
+              "romaji": "konki no",
+              "start": 0.0,
+              "end": 1.02
+            },
+            {
+              "orig": "新作アニメの",
+              "kana": "しんさくあにめの",
+              "romaji": "shinsaku anime no",
+              "start": 1.02,
+              "end": 2.04
+            },
+            {
+              "orig": "原作は",
+              "kana": "げんさくは",
+              "romaji": "gensaku wa",
+              "start": 2.04,
+              "end": 3.06
+            },
+            {
+              "orig": "どこに",
+              "kana": "どこに",
+              "romaji": "doko ni",
+              "start": 3.06,
+              "end": 4.08
+            },
+            {
+              "orig": "ありますか",
+              "kana": "ありますか",
+              "romaji": "arimasu ka",
+              "start": 4.08,
+              "end": 5.1
+            },
+            {
+              "orig": "購入特典は",
+              "kana": "こうにゅうとくてんは",
+              "romaji": "kounyuu tokuten wa",
+              "start": 5.1,
+              "end": 6.12
+            },
+            {
+              "orig": "まだ",
+              "kana": "まだ",
+              "romaji": "mada",
+              "start": 6.12,
+              "end": 7.140000000000001
+            },
+            {
+              "orig": "付きますか",
+              "kana": "つきますか",
+              "romaji": "tsukimasu ka",
+              "start": 7.140000000000001,
+              "end": 8.16
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "今期",
+              "kana": "こんき",
+              "romaji": "konki",
+              "pos": "Noun (N3)",
+              "meaning": "Current broadcasting term/season"
+            },
+            {
+              "orig": "新作",
+              "kana": "しんさく",
+              "romaji": "shinsaku",
+              "pos": "Noun (N4)",
+              "meaning": "New release / New work"
+            },
+            {
+              "orig": "原作",
+              "kana": "げんさく",
+              "romaji": "gensaku",
+              "pos": "Noun (N3)",
+              "meaning": "Original manga / light novel source"
+            },
+            {
+              "orig": "購入特典",
+              "kana": "こうにゅうとくてん",
+              "romaji": "kounyuu tokuten",
+              "pos": "Noun (N3)",
+              "meaning": "Exclusive buyer bonus perk"
+            },
+            {
+              "orig": "付く",
+              "kana": "つく",
+              "romaji": "tsuku",
+              "pos": "Verb (N4)",
+              "meaning": "To come with / Be attached"
+            }
+          ],
+          "grammar_title": "Anime Merch Hunting & Exclusive Bonus Inquiries",
+          "grammar_bullets": [
+            [
+              "• The Core Anime Term 原作",
+              "Manga or light novel upon which an anime is adapted"
+            ],
+            [
+              "• Bonus Perk Formula",
+              "特典は付きますか？ (Does the limited bonus still come with it?)"
+            ],
+            [
+              "• Still Available",
+              "まだ (Mada = Still / Yet)"
+            ]
+          ],
+          "duration_est": 8.0,
+          "actual_duration": 8.16
+        },
+        {
+          "seg_id": "4_1_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "When shopping for anime merchandise, 'gensaku' is the essential term for the original source manga or light novel. Japanese specialty shops often include exclusive collector postcards or acrylic stands called 'tokuten'. Asking 'Kounyuu tokuten wa mada tsukimasu ka?' confirms if limited bonus items remain in stock.",
+          "duration_est": 20.0,
+          "jlpt": "N3 Breakdown",
+          "ref_sentence": "今期の新作アニメの原作はどこにありますか？購入特典はまだ付きますか？",
+          "vocab": [
+            {
+              "orig": "今期",
+              "kana": "こんき",
+              "romaji": "konki",
+              "pos": "Noun (N3)",
+              "meaning": "Current broadcasting term/season"
+            },
+            {
+              "orig": "新作",
+              "kana": "しんさく",
+              "romaji": "shinsaku",
+              "pos": "Noun (N4)",
+              "meaning": "New release / New work"
+            },
+            {
+              "orig": "原作",
+              "kana": "げんさく",
+              "romaji": "gensaku",
+              "pos": "Noun (N3)",
+              "meaning": "Original manga / light novel source"
+            },
+            {
+              "orig": "購入特典",
+              "kana": "こうにゅうとくてん",
+              "romaji": "kounyuu tokuten",
+              "pos": "Noun (N3)",
+              "meaning": "Exclusive buyer bonus perk"
+            },
+            {
+              "orig": "付く",
+              "kana": "つく",
+              "romaji": "tsuku",
+              "pos": "Verb (N4)",
+              "meaning": "To come with / Be attached"
+            }
+          ],
+          "grammar_title": "Anime Merch Hunting & Exclusive Bonus Inquiries",
+          "grammar_bullets": [
+            [
+              "• The Core Anime Term 原作",
+              "Manga or light novel upon which an anime is adapted"
+            ],
+            [
+              "• Bonus Perk Formula",
+              "特典は付きますか？ (Does the limited bonus still come with it?)"
+            ],
+            [
+              "• Still Available",
+              "まだ (Mada = Still / Yet)"
+            ]
+          ],
+          "actual_duration": 20.184
+        },
+        {
+          "seg_id": "4_2_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "パスポートを提示すれば、免税手続きは可能ですか？",
+          "furi": "ぱすぽーと を ていじ すれば、 めんぜい てつづき は かのう です か？",
+          "romaji": "Pasupooto o teiji sureba, menzei tetsuzuki wa kanou desu ka?",
+          "meaning": "If I present my passport, is tax-free processing possible?",
+          "jlpt": "JLPT N4-N3",
+          "grammar": "~ば条件形 (Hypothetical conditional) + 免税手続き (Tax-free procedure)",
+          "tokens": [
+            {
+              "orig": "パスポートを",
+              "kana": "ぱすぽーとを",
+              "romaji": "pasupooto o",
+              "start": 0.0,
+              "end": 1.344
+            },
+            {
+              "orig": "提示すれば",
+              "kana": "ていじすれば",
+              "romaji": "teiji sureba",
+              "start": 1.344,
+              "end": 2.688
+            },
+            {
+              "orig": "免税手続きは",
+              "kana": "めんぜいてつづきは",
+              "romaji": "menzei tetsuzuki wa",
+              "start": 2.688,
+              "end": 4.032
+            },
+            {
+              "orig": "可能ですか",
+              "kana": "かのうですか",
+              "romaji": "kanou desu ka",
+              "start": 4.032,
+              "end": 5.376
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "パスポート",
+              "kana": "ぱすぽーと",
+              "romaji": "pasupooto",
+              "pos": "Noun (N5)",
+              "meaning": "Passport"
+            },
+            {
+              "orig": "提示",
+              "kana": "ていじ",
+              "romaji": "teiji",
+              "pos": "Noun/Suru (N3)",
+              "meaning": "Presentation / Showing document"
+            },
+            {
+              "orig": "免税",
+              "kana": "めんぜい",
+              "romaji": "menzei",
+              "pos": "Noun (N3)",
+              "meaning": "Tax-free / Tax exemption"
+            },
+            {
+              "orig": "手続き",
+              "kana": "てつづき",
+              "romaji": "tetsuzuki",
+              "pos": "Noun (N3)",
+              "meaning": "Procedure / Formal process"
+            },
+            {
+              "orig": "可能",
+              "kana": "かのう",
+              "romaji": "kanou",
+              "pos": "Na-Adj (N3)",
+              "meaning": "Possible / Feasible"
+            }
+          ],
+          "grammar_title": "~ば Conditional & Tax-Free Processing",
+          "grammar_bullets": [
+            [
+              "• Conditional ~ば",
+              "Verb e-row + ば (提示する -> 提示すれば = If I present)"
+            ],
+            [
+              "• Tax-Free Minimum",
+              "Requires purchases exceeding 5,000 yen (excluding tax) on the same day"
+            ],
+            [
+              "• Essential Document",
+              "Must present physical passport with temporary visitor entry landing sticker"
+            ]
+          ],
+          "duration_est": 5.5,
+          "actual_duration": 5.376
+        },
+        {
+          "seg_id": "4_2_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "For foreign visitors spending over five thousand yen on general goods or consumables, you save Japan's ten percent consumption tax. Remember to carry your physical passport with the immigration landing stamp, as digital photos on smartphones are not accepted for tax-free processing.",
+          "duration_est": 16.5,
+          "actual_duration": 16.32
+        },
+        {
+          "seg_id": "4_cultural_deep_dive_1",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "In Akihabara, you will see walls of hundreds of 'Gachapon' capsule toy machines. These machines dispense highly detailed miniature collectibles ranging from famous anime figurines to tiny realistic Japanese food replicas. The golden rule: have plenty of hundred-yen coins ready, and please return empty plastic capsules into the recycling baskets beside the machines.",
+          "duration_est": 22.0,
+          "jlpt": "Culture",
+          "actual_duration": 22.32
+        },
+        {
+          "seg_id": "4_cultural_deep_dive_2",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "If you visit an Akiba Maid Cafe, you will be welcomed with 'Okaerinasaimase, goshujinsama!' (Welcome home, Master!). Before eating, the maid will lead you in chanting a cute food-blessing spell: 'Oishiku naare, Moe Moe Kyun!'. Remember the etiquette: taking photos of the maids or touching them is strictly forbidden.",
+          "duration_est": 23.0,
+          "jlpt": "Culture",
+          "actual_duration": 20.4
+        },
+        {
+          "seg_id": "4_cultural_deep_dive_3",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Another unique cultural phenomenon is 'Seichi Junrei'—anime pilgrimage. Anime fans travel across Tokyo to visit the exact real-world stairs, intersections, and shrines depicted in famous series like Your Name and Jujutsu Kaisen. Always respect local residents by taking quiet photos without blocking pathways.",
+          "duration_est": 20.0,
+          "jlpt": "Culture",
+          "actual_duration": 20.4
+        }
+      ]
+    },
+    {
+      "chapter_id": 5,
+      "chapter_title": "DAY 5 • RAMEN TICKET MACHINE CUSTOMIZATION & DINING ETIQUETTE",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_ramen_counter.jpg",
+      "segments": [
+        {
+          "seg_id": "5_1_intro",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Day 5 brings us to Tokyo's supreme culinary obsession: Ramen. Most ramen shops in Japan do not take verbal orders at the counter; instead, you purchase a meal ticket from a vending machine called a 'Shokkenki' before sitting down.",
+          "duration_est": 16.0,
+          "jlpt": "N/A",
+          "actual_duration": 12.36
+        },
+        {
+          "seg_id": "5_1_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "食券をお買い求めください。麺の硬さはカタメで、味は濃いめでお願いします！",
+          "furi": "しょっけん を おかいもとめ ください。 めん の かたさ は かため で、 あじ は こいめ で おねがいします！",
+          "romaji": "Shokken o okaimotome kudasai. Men no katasa wa katame de, aji wa koime de onegaishimasu!",
+          "meaning": "Please purchase a food ticket. I would like firm noodles and rich, bold broth seasoning, please!",
+          "jlpt": "JLPT N4-N3",
+          "grammar": "お買い求めください (Polite purchase) + [Customization] + でお願いします",
+          "tokens": [
+            {
+              "orig": "食券を",
+              "kana": "しょっけんを",
+              "romaji": "shokken o",
+              "start": 0.0,
+              "end": 0.9428571428571428
+            },
+            {
+              "orig": "お買い求めください",
+              "kana": "おかいもとめください",
+              "romaji": "okaimotome kudasai",
+              "start": 0.9428571428571428,
+              "end": 1.8857142857142857
+            },
+            {
+              "orig": "麺の硬さは",
+              "kana": "めんのかたさは",
+              "romaji": "men no katasa wa",
+              "start": 1.8857142857142857,
+              "end": 2.8285714285714283
+            },
+            {
+              "orig": "カタメで",
+              "kana": "かためで",
+              "romaji": "katame de",
+              "start": 2.8285714285714283,
+              "end": 3.7714285714285714
+            },
+            {
+              "orig": "味は",
+              "kana": "あじは",
+              "romaji": "aji wa",
+              "start": 3.7714285714285714,
+              "end": 4.714285714285714
+            },
+            {
+              "orig": "濃いめで",
+              "kana": "こいめで",
+              "romaji": "koime de",
+              "start": 4.714285714285714,
+              "end": 5.657142857142857
+            },
+            {
+              "orig": "お願いします",
+              "kana": "おねがいします",
+              "romaji": "onegaishimasu",
+              "start": 5.657142857142857,
+              "end": 6.6
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "食券",
+              "kana": "しょっけん",
+              "romaji": "shokken",
+              "pos": "Noun (N4)",
+              "meaning": "Meal coupon / Food ticket"
+            },
+            {
+              "orig": "硬さ",
+              "kana": "かたさ",
+              "romaji": "katasa",
+              "pos": "Noun (N3)",
+              "meaning": "Firmness / Hardness"
+            },
+            {
+              "orig": "カタメ",
+              "kana": "かため",
+              "romaji": "katame",
+              "pos": "Noun (N4)",
+              "meaning": "Firm / Al dente noodle texture"
+            },
+            {
+              "orig": "濃いめ",
+              "kana": "こいめ",
+              "romaji": "koime",
+              "pos": "Noun (N4)",
+              "meaning": "Stronger / Richer broth flavor"
+            }
+          ],
+          "grammar_title": "Ramen Customization: Firmness & Broth Richness",
+          "grammar_bullets": [
+            [
+              "• Noodle Firmness Options",
+              "バリ柔 (Bari-yawa) -> 普通 (Futsuu) -> カタメ (Katame) -> バリカタ (Bari-kata = Extra firm)"
+            ],
+            [
+              "• Broth Flavor Adjustments",
+              "薄め (Usume = Light) vs 普通 (Futsuu) vs 濃いめ (Koime = Rich & Bold)"
+            ],
+            [
+              "• Oil & Fat Levels",
+              "あっさり (Assari = Light oil) vs こってり (Kotteri = Rich oil/backfat)"
+            ]
+          ],
+          "duration_est": 8.5,
+          "actual_duration": 6.6
+        },
+        {
+          "seg_id": "5_1_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "When you hand your ticket to the chef, they will ask for your preferences. 'Katame' means firm noodles with great chew, while 'Futsuu' is standard. If you love deep savory flavors, say 'Koime' for richer seasoning and 'Kotteri' for extra aromatic pork fat.",
+          "duration_est": 18.5,
+          "jlpt": "N4 Breakdown",
+          "ref_sentence": "食券をお買い求めください。麺の硬さはカタメで、味は濃いめでお願いします！",
+          "vocab": [
+            {
+              "orig": "食券",
+              "kana": "しょっけん",
+              "romaji": "shokken",
+              "pos": "Noun (N4)",
+              "meaning": "Meal coupon / Food ticket"
+            },
+            {
+              "orig": "硬さ",
+              "kana": "かたさ",
+              "romaji": "katasa",
+              "pos": "Noun (N3)",
+              "meaning": "Firmness / Hardness"
+            },
+            {
+              "orig": "カタメ",
+              "kana": "かため",
+              "romaji": "katame",
+              "pos": "Noun (N4)",
+              "meaning": "Firm / Al dente noodle texture"
+            },
+            {
+              "orig": "濃いめ",
+              "kana": "こいめ",
+              "romaji": "koime",
+              "pos": "Noun (N4)",
+              "meaning": "Stronger / Richer broth flavor"
+            }
+          ],
+          "grammar_title": "Ramen Customization: Firmness & Broth Richness",
+          "grammar_bullets": [
+            [
+              "• Noodle Firmness Options",
+              "バリ柔 (Bari-yawa) -> 普通 (Futsuu) -> カタメ (Katame) -> バリカタ (Bari-kata = Extra firm)"
+            ],
+            [
+              "• Broth Flavor Adjustments",
+              "薄め (Usume = Light) vs 普通 (Futsuu) vs 濃いめ (Koime = Rich & Bold)"
+            ],
+            [
+              "• Oil & Fat Levels",
+              "あっさり (Assari = Light oil) vs こってり (Kotteri = Rich oil/backfat)"
+            ]
+          ],
+          "actual_duration": 15.936
+        },
+        {
+          "seg_id": "5_cultural_deep_dive_1",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Why do Japanese people loudly slurp their ramen? In Japanese dining culture, slurping noodles together with air cools down the boiling hot broth while enhancing the aroma of the soup in your nasal passage. It is not considered rude; rather, it signals to the ramen master that you are thoroughly enjoying your meal!",
+          "duration_est": 23.0,
+          "jlpt": "Culture",
+          "actual_duration": 16.32
+        },
+        {
+          "seg_id": "5_cultural_deep_dive_2",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "At tonkotsu ramen shops like Ichiran or Ippudo, when you finish your noodles but still have soup left in your bowl, you can order an extra noodle refill called 'Kaedama'! Simply say 'Kaedama katame de onegaishimasu' and hand one or two hundred yen to the chef.",
+          "duration_est": 21.0,
+          "jlpt": "Culture",
+          "actual_duration": 25.2
+        },
+        {
+          "seg_id": "5_cultural_deep_dive_3",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "When you finish eating at a ramen counter, do the master a courtesy: wipe down your counter space with the cloth provided, place your empty bowl onto the raised upper ledge, and say 'Gochisousama deshita!' on your way out.",
+          "duration_est": 18.0,
+          "jlpt": "Culture",
+          "actual_duration": 15.12
+        }
+      ]
+    },
+    {
+      "chapter_id": 6,
+      "chapter_title": "DAY 6 • SENTO BATHS & ONSEN 5 GOLDEN RULES",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_onsen_sento.jpg",
+      "segments": [
+        {
+          "seg_id": "6_1_intro",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Weekend relaxation in Japan revolves around thermal water: soaking in a neighborhood sento public bathhouse or visiting a natural volcanic onsen hot spring resort. But before stepping into the steaming bath, you must know the 5 Golden Rules of Japanese Bathing.",
+          "duration_est": 18.0,
+          "jlpt": "N/A",
+          "actual_duration": 13.944
+        },
+        {
+          "seg_id": "6_1_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "湯船に入る前に、体をきれいに洗ってください。タオルは湯船に入れないでくださいね。",
+          "furi": "ゆぶね に はいる まえ に、 からだ を きれい に あらって ください。 たおる は ゆぶね に いれないで ください ね。",
+          "romaji": "Yubune ni hairu mae ni, karada o kirei ni aratte kudasai. Taoru wa yubune ni irenaide kudasai ne.",
+          "meaning": "Before entering the bathtub, please wash your body thoroughly. Please do not put your towel into the bathwater.",
+          "jlpt": "JLPT N4-N3",
+          "grammar": "Verb辞書形 + 前に (Before doing) + ~ないでください (Negative polite request)",
+          "tokens": [
+            {
+              "orig": "湯船に",
+              "kana": "ゆぶねに",
+              "romaji": "yubune ni",
+              "start": 0.0,
+              "end": 0.8712
+            },
+            {
+              "orig": "入る前に",
+              "kana": "はいるまえに",
+              "romaji": "hairu mae ni",
+              "start": 0.8712,
+              "end": 1.7424
+            },
+            {
+              "orig": "体を",
+              "kana": "からだを",
+              "romaji": "karada o",
+              "start": 1.7424,
+              "end": 2.6136
+            },
+            {
+              "orig": "きれいに",
+              "kana": "きれいに",
+              "romaji": "kirei ni",
+              "start": 2.6136,
+              "end": 3.4848
+            },
+            {
+              "orig": "洗って",
+              "kana": "あらって",
+              "romaji": "aratte",
+              "start": 3.4848,
+              "end": 4.356
+            },
+            {
+              "orig": "ください",
+              "kana": "ください",
+              "romaji": "kudasai",
+              "start": 4.356,
+              "end": 5.2272
+            },
+            {
+              "orig": "タオルは",
+              "kana": "たおるは",
+              "romaji": "taoru wa",
+              "start": 5.2272,
+              "end": 6.0984
+            },
+            {
+              "orig": "湯船に",
+              "kana": "ゆぶねに",
+              "romaji": "yubune ni",
+              "start": 6.0984,
+              "end": 6.9696
+            },
+            {
+              "orig": "入れないで",
+              "kana": "いれないで",
+              "romaji": "irenaide",
+              "start": 6.9696,
+              "end": 7.8408
+            },
+            {
+              "orig": "くださいね",
+              "kana": "くださいね",
+              "romaji": "kudasai ne",
+              "start": 7.8408,
+              "end": 8.712
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "湯船",
+              "kana": "ゆぶね",
+              "romaji": "yubune",
+              "pos": "Noun (N3)",
+              "meaning": "Bathtub / Communal soaking tub"
+            },
+            {
+              "orig": "洗う",
+              "kana": "あらう",
+              "romaji": "arau",
+              "pos": "Verb (N5)",
+              "meaning": "To wash / Cleanse"
+            },
+            {
+              "orig": "入れる",
+              "kana": "いれる",
+              "romaji": "ireru",
+              "pos": "Verb (N5)",
+              "meaning": "To put in / Submerge"
+            },
+            {
+              "orig": "きれいに",
+              "kana": "きれいに",
+              "romaji": "kirei ni",
+              "pos": "Adv (N5)",
+              "meaning": "Cleanly / Thoroughly"
+            }
+          ],
+          "grammar_title": "Before Action (〜前に) & Negative Request (〜ないでください)",
+          "grammar_bullets": [
+            [
+              "• Timing Formula",
+              "Verb Dictionary Form + 前に (入る前に = Before entering)"
+            ],
+            [
+              "• Negative Request Pattern",
+              "Verb ない-form + でください (入れないでください = Please do not put in)"
+            ],
+            [
+              "• Communal Bathing Principle",
+              "The tub is solely for peaceful soaking; all soap and scrubbing occur at wash stalls"
+            ]
+          ],
+          "duration_est": 8.5,
+          "actual_duration": 8.712
+        },
+        {
+          "seg_id": "6_1_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Notice the two fundamental grammar rules here: 'hairu mae ni' means 'before entering', where a dictionary verb pairs with 'mae ni'. And 'irenaide kudasai' is the polite negative command formed by taking the negative 'nai' stem plus 'de kudasai'.",
+          "duration_est": 18.0,
+          "jlpt": "N4 Breakdown",
+          "ref_sentence": "湯船に入る前に、体をきれいに洗ってください。タオルは湯船に入れないでくださいね。",
+          "vocab": [
+            {
+              "orig": "湯船",
+              "kana": "ゆぶね",
+              "romaji": "yubune",
+              "pos": "Noun (N3)",
+              "meaning": "Bathtub / Communal soaking tub"
+            },
+            {
+              "orig": "洗う",
+              "kana": "あらう",
+              "romaji": "arau",
+              "pos": "Verb (N5)",
+              "meaning": "To wash / Cleanse"
+            },
+            {
+              "orig": "入れる",
+              "kana": "いれる",
+              "romaji": "ireru",
+              "pos": "Verb (N5)",
+              "meaning": "To put in / Submerge"
+            },
+            {
+              "orig": "きれいに",
+              "kana": "きれいに",
+              "romaji": "kirei ni",
+              "pos": "Adv (N5)",
+              "meaning": "Cleanly / Thoroughly"
+            }
+          ],
+          "grammar_title": "Before Action (〜前に) & Negative Request (〜ないでください)",
+          "grammar_bullets": [
+            [
+              "• Timing Formula",
+              "Verb Dictionary Form + 前に (入る前に = Before entering)"
+            ],
+            [
+              "• Negative Request Pattern",
+              "Verb ない-form + でください (入れないでください = Please do not put in)"
+            ],
+            [
+              "• Communal Bathing Principle",
+              "The tub is solely for peaceful soaking; all soap and scrubbing occur at wash stalls"
+            ]
+          ],
+          "actual_duration": 16.56
+        },
+        {
+          "seg_id": "6_cultural_deep_dive_1",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Let us review the 5 Golden Rules of Japanese Bathing. Rule 1: Wash thoroughly at the shower stalls before soaking. Rule 2: Never submerge your towel into the bath; fold it and place it on your head! Rule 3: Tie long hair up so it never touches the mineral water. Rule 4: No swimming or splashing. And Rule 5: Wipe off with your towel before stepping back into the dressing room.",
+          "duration_est": 26.0,
+          "jlpt": "Culture",
+          "actual_duration": 27.576
+        },
+        {
+          "seg_id": "6_cultural_deep_dive_2",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "And after your relaxing bath, follow the timeless Showa tradition: buy a glass bottle of ice-cold Coffee Milk or Meiji Milk from the lobby vending machine, stand with one hand on your hip, and drink it down in one satisfying gulp. That is the true Japanese onsen experience!",
+          "duration_est": 20.0,
+          "jlpt": "Culture",
+          "actual_duration": 22.44
+        },
+        {
+          "seg_id": "6_cultural_deep_dive_3",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "When staying at a traditional Ryokan onsen inn, you will wear a cotton robe called a Yukata. Remember the vital rule of wearing a Yukata: always wrap the LEFT side over the RIGHT side. Wrapping right over left is reserved exclusively for traditional funerals, so remember 'Left on Top for Living'!",
+          "duration_est": 23.0,
+          "jlpt": "Culture",
+          "actual_duration": 17.88
+        }
+      ]
+    },
+    {
+      "chapter_id": 7,
+      "chapter_title": "DAY 7 • SHRINES, TEMPLES, BOWING ANGLES & OMOTENASHI",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_shrine_asakusa.jpg",
+      "segments": [
+        {
+          "seg_id": "7_1_intro",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Sunday brings us to Tokyo's historic spiritual landmarks, from Asakusa Sensoji Temple to Meiji Jingu Shrine. Understanding the ritual etiquette of shrine purification, prayer claps, and bowing angles reveals the soul of Japanese culture.",
+          "duration_est": 16.0,
+          "jlpt": "N/A",
+          "actual_duration": 15.816
+        },
+        {
+          "seg_id": "7_1_dialogue",
+          "type": "dialogue",
+          "character": "Nanami",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "ごちそうさまでした。とても美味しかったです。おもてなしをありがとうございました。",
+          "furi": "ごちそうさまでした。 とても おいしかった です。 おもてなし を ありがとうございました。",
+          "romaji": "Gochisousama deshita. Totemo oishikatta desu. Omotenashi o arigatou gozaimashita.",
+          "meaning": "Thank you for the wonderful meal. It was truly delicious. Thank you for your gracious hospitality.",
+          "jlpt": "JLPT N5",
+          "grammar": "ごちそうさまでした (Post-meal gratitude) + おもてなし (Japanese hospitality)",
+          "tokens": [
+            {
+              "orig": "ごちそうさまでした",
+              "kana": "ごちそうさまでした",
+              "romaji": "gochisousama deshita",
+              "start": 0.0,
+              "end": 1.7424
+            },
+            {
+              "orig": "とても",
+              "kana": "とても",
+              "romaji": "totemo",
+              "start": 1.7424,
+              "end": 3.4848
+            },
+            {
+              "orig": "美味しかったです",
+              "kana": "おいしかったです",
+              "romaji": "oishikatta desu",
+              "start": 3.4848,
+              "end": 5.2272
+            },
+            {
+              "orig": "おもてなしを",
+              "kana": "おもてなしを",
+              "romaji": "omotenashi o",
+              "start": 5.2272,
+              "end": 6.9696
+            },
+            {
+              "orig": "ありがとうございました",
+              "kana": "ありがとうございました",
+              "romaji": "arigatou gozaimashita",
+              "start": 6.9696,
+              "end": 8.712
+            }
+          ],
+          "vocab": [
+            {
+              "orig": "ごちそうさまでした",
+              "kana": "ごちそうさまでした",
+              "romaji": "gochisousama deshita",
+              "pos": "Exp (N5)",
+              "meaning": "Post-meal appreciation formula"
+            },
+            {
+              "orig": "とても",
+              "kana": "とても",
+              "romaji": "totemo",
+              "pos": "Adv (N5)",
+              "meaning": "Very / Truly"
+            },
+            {
+              "orig": "美味しい",
+              "kana": "おいしい",
+              "romaji": "oishii",
+              "pos": "I-Adj (N5)",
+              "meaning": "Delicious / Tasty"
+            },
+            {
+              "orig": "おもてなし",
+              "kana": "おもてなし",
+              "romaji": "omotenashi",
+              "pos": "Noun (N3)",
+              "meaning": "Selfless Japanese hospitality"
+            }
+          ],
+          "grammar_title": "Dining Gratitude & Expressing Appreciation",
+          "grammar_bullets": [
+            [
+              "• Post-Meal Etiquette",
+              "Always say ごちそうさまでした (Gochisousama deshita) when leaving any dining counter"
+            ],
+            [
+              "• Past Tense of I-Adjectives",
+              "美味しい (Oishii) -> 美味しかった (Oishikatta = It was delicious)"
+            ],
+            [
+              "• The Spirit of Omotenashi",
+              "Anticipating guests' needs before they even ask"
+            ]
+          ],
+          "duration_est": 8.0,
+          "actual_duration": 8.712
+        },
+        {
+          "seg_id": "7_1_breakdown",
+          "type": "breakdown",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Whenever you finish dining in Japan, say 'Gochisousama deshita' to the chef or staff as you leave. It literally means 'it was a feast' and acknowledges the effort behind preparing your meal. Notice the past tense of the adjective: 'oishii' becomes 'oishikatta desu'.",
+          "duration_est": 18.0,
+          "jlpt": "N5 Breakdown",
+          "ref_sentence": "ごちそうさまでした。とても美味しかったです。おもてなしをありがとうございました。",
+          "vocab": [
+            {
+              "orig": "ごちそうさまでした",
+              "kana": "ごちそうさまでした",
+              "romaji": "gochisousama deshita",
+              "pos": "Exp (N5)",
+              "meaning": "Post-meal appreciation formula"
+            },
+            {
+              "orig": "とても",
+              "kana": "とても",
+              "romaji": "totemo",
+              "pos": "Adv (N5)",
+              "meaning": "Very / Truly"
+            },
+            {
+              "orig": "美味しい",
+              "kana": "おいしい",
+              "romaji": "oishii",
+              "pos": "I-Adj (N5)",
+              "meaning": "Delicious / Tasty"
+            },
+            {
+              "orig": "おもてなし",
+              "kana": "おもてなし",
+              "romaji": "omotenashi",
+              "pos": "Noun (N3)",
+              "meaning": "Selfless Japanese hospitality"
+            }
+          ],
+          "grammar_title": "Dining Gratitude & Expressing Appreciation",
+          "grammar_bullets": [
+            [
+              "• Post-Meal Etiquette",
+              "Always say ごちそうさまでした (Gochisousama deshita) when leaving any dining counter"
+            ],
+            [
+              "• Past Tense of I-Adjectives",
+              "美味しい (Oishii) -> 美味しかった (Oishikatta = It was delicious)"
+            ],
+            [
+              "• The Spirit of Omotenashi",
+              "Anticipating guests' needs before they even ask"
+            ]
+          ],
+          "actual_duration": 16.56
+        },
+        {
+          "seg_id": "7_cultural_deep_dive_1",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "When entering a Shinto shrine, bow lightly before passing through the red Torii gate, and walk along the outer edges of the path—as the center path is reserved for the deities. At the water pavilion (Temizuya), rinse your left hand, right hand, and mouth using the wooden ladle.",
+          "duration_est": 21.0,
+          "jlpt": "Culture",
+          "actual_duration": 17.088
+        },
+        {
+          "seg_id": "7_cultural_deep_dive_2",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "For shrine prayer, follow the ancient rule of 'Ni-rei, Ni-hai, Ichi-rei': Toss a 5-yen coin into the offering box, bow deeply twice at ninety degrees, clap your hands twice firmly, pray quietly in your heart, and finish with one final deep bow. Note that at Buddhist temples, you bow with palms pressed silently together without clapping!",
+          "duration_est": 25.0,
+          "jlpt": "Culture",
+          "actual_duration": 22.152
+        },
+        {
+          "seg_id": "7_cultural_deep_dive_3",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Let us master the 3 Bowing Angles of Japan. Angle 1: Eshaku (fifteen degrees) is a casual greeting used when passing colleagues or neighbors. Angle 2: Keirei (thirty degrees) is the standard business bow used when greeting clients or entering shops. And Angle 3: Saikeirei (forty-five degrees) expresses profound gratitude or deep apologies. Keep your back straight and bend smoothly from the hips!",
+          "duration_est": 25.0,
+          "jlpt": "Culture",
+          "actual_duration": 27.576
+        },
+        {
+          "seg_id": "7_cultural_deep_dive_4",
+          "type": "cultural_insight",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Finally, remember the No-Tipping Rule. In Japan, exceptional service is seen as standard pride in one's profession, and tipping is not practiced. If you leave extra cash on a table, the server will often run down the street to return the money you accidentally left behind. Instead, a warm smile and a polite 'Arigatou gozaimashita' is the highest praise you can give.",
+          "duration_est": 24.0,
+          "jlpt": "Culture",
+          "actual_duration": 22.44
+        }
+      ]
+    },
+    {
+      "chapter_id": 8,
+      "chapter_title": "EPILOGUE • 40+ KEY PHRASE RECAP & TOKYOFLOW ACADEMY",
+      "bg_scene": "docs/youtube_assets/scene_backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "8_1_recap",
+          "type": "narration",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "Congratulations on completing this 28-minute TokyoFlow Japanese Masterclass! You have mastered over forty essential JLPT N5 to N3 phrases, seven real-world Tokyo life survival scenarios, and the cultural rules of trains, kombini, izakayas, anime shopping, ramen customization, onsen bathing, shrine worship, and Japanese etiquette.",
+          "duration_est": 22.0,
+          "jlpt": "Recap",
+          "actual_duration": 23.712
+        },
+        {
+          "seg_id": "8_2_app_cta",
+          "type": "app_outro",
+          "character": "Andrew",
+          "lang": "en",
+          "voice": "en-US-AndrewNeural",
+          "content": "To practice interactive shadowing with real-time AI pitch accent scoring and explore over fourteen thousand native audio recordings across ten thousand JLPT vocabulary words, download TokyoFlow - Japanese Speaking on the iOS App Store today. Subscribe for new episodes every day, and we will see you in Tokyo. Mata ne!",
+          "duration_est": 22.0,
+          "jlpt": "App Showcase",
+          "actual_duration": 21.432
+        }
+      ]
+    }
+  ]
+}

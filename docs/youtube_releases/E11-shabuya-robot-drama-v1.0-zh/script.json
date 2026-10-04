@@ -1,0 +1,447 @@
+{
+  "episode_number": 11,
+  "folder_name": "E11-shabuya-robot-drama-v1.0-zh",
+  "slug": "shibuya_robot_drama_zh",
+  "locale": "zh",
+  "title": "涩谷街头AI机器人短剧爆火与科技流行语",
+  "yt_title": "【JLPT N4】涩谷AI机器人短剧爆火！科技科幻与社交网络热点精讲（EP.11）",
+  "category": "东京科技 • 影视热点",
+  "level": "JLPT N4",
+  "district": "涩谷 (Shibuya)",
+  "bg_image": "docs/youtube_releases/E11-shabuya-robot-drama-v1.0/thumbnail.jpg",
+  "cover": {
+    "hook": "涩谷未来科幻短剧",
+    "sub_hook": "AI机器人引发热议",
+    "jp_line1": "渋谷の街を舞台にした、",
+    "jp_line2": "AIロボットドラマが話題！",
+    "grammar_tag": "JLPT N4 语法：~を舞台にする（以……为背景舞台）",
+    "translation": "「以涩谷街头为舞台的AI机器人短剧引爆热议！」",
+    "context_note": "东京涩谷十字路口未来科技短片在社交媒体引发全网疯传",
+    "location_tag": "场景：涩谷十字路口 • 未来科技短剧",
+    "tag": "🇯🇵 东京科技影视热点 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 涩谷科幻微剧热点速报",
+      "spoken_text": "渋谷の街を舞台にしたAIロボットの短編ドラマが話題になっています。",
+      "meaning": "以涩谷街头为舞台的AI机器人短篇微剧正在引发广泛热议。",
+      "tip": "「〜を舞台にする」是影视报道高频短语，表示“以某地或某时期为故事背景”。",
+      "tokens": [
+        {
+          "orig": "渋谷の街を",
+          "kana": "しぶやのまちを",
+          "romaji": "shibuya no machi o",
+          "pos": "专有名词+宾格",
+          "meaning": "涩谷的街头"
+        },
+        {
+          "orig": "舞台にした",
+          "kana": "ぶたいにした",
+          "romaji": "butai ni shita",
+          "pos": "短语",
+          "meaning": "以……为舞台"
+        },
+        {
+          "orig": "AIロボットの",
+          "kana": "えーあいろぼっとの",
+          "romaji": "eeai robotto no",
+          "pos": "外来语+助词",
+          "meaning": "AI机器人的"
+        },
+        {
+          "orig": "短編ドラマが",
+          "kana": "たんぺんどらまが",
+          "romaji": "tanpen dorama ga",
+          "pos": "名词+主格",
+          "meaning": "短篇电视剧"
+        },
+        {
+          "orig": "話題に",
+          "kana": "わだいに",
+          "romaji": "wadai ni",
+          "pos": "名词+结果",
+          "meaning": "成为热点话题"
+        },
+        {
+          "orig": "なっています。",
+          "kana": "なっています",
+          "romaji": "natte imasu.",
+          "pos": "动词进行时",
+          "meaning": "正在引发关注"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 影视报道与话题句型拆解",
+      "sentence_ja": "渋谷の街を舞台にしたAIロボットの短編ドラマが話題になっています。",
+      "vocab": [
+        {
+          "orig": "渋谷の街",
+          "kana": "しぶやのまち",
+          "romaji": "shibuya no machi",
+          "pos": "名词",
+          "meaning": "涩谷街头市景"
+        },
+        {
+          "orig": "舞台",
+          "kana": "ぶたい",
+          "romaji": "butai",
+          "pos": "名词",
+          "meaning": "舞台/故事背景"
+        },
+        {
+          "orig": "AIロボット",
+          "kana": "えーあいろぼっと",
+          "romaji": "eeai robotto",
+          "pos": "外来语",
+          "meaning": "人工智能机器人"
+        },
+        {
+          "orig": "短編ドラマ",
+          "kana": "たんぺんどらま",
+          "romaji": "tanpen dorama",
+          "pos": "名词",
+          "meaning": "短篇微剧"
+        },
+        {
+          "orig": "話題",
+          "kana": "わだい",
+          "romaji": "wadai",
+          "pos": "名词",
+          "meaning": "热门话题/焦点"
+        }
+      ],
+      "grammar_title": "经典句型：名词 + を舞台にする（以……为背景）",
+      "grammar_bullets": [
+        [
+          "1. 句式用法：",
+          "「A を舞台にした B」用来修饰小说、动漫或电影，“以 A 为舞台背景的 B 作品”."
+        ],
+        [
+          "2. 「話題になっている」功能：",
+          "表示某件事物在网络、电视或报刊上持续发酵成为当下热门讨论焦点."
+        ],
+        [
+          "3. 涩谷科幻地标：",
+          "涩谷十字路口（スクランブル交差点）因赛博朋克霓虹大屏常被选为未来科幻拍摄地."
+        ],
+        [
+          "4. 动词变化：",
+          "「話題になる（成为话题）」->「話題になっている（正成为热门热搜）」."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解这条讲述东京未来科技影视创作的热门报道。"
+        },
+        {
+          "speaker": "ja",
+          "text": "渋谷の街",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "专有名词：涩谷繁华街区市景。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "舞台",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 butai，戏剧舞台、故事背景。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "AIロボット",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语：人工智能机器人、AI Robot。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "短編ドラマ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：短篇微短剧、短剧集。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "話題",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 wadai，热门话题、热搜焦点。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：以某地为舞台背景并引发全网热议的标准句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "短編ドラマが話題になっています。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是这部短剧正在引发热烈讨论，媒体报道标准表达。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 社交网络病毒式传播",
+      "spoken_text": "未来の東京を描いた映像が、SNSで急速に拡散されています。",
+      "meaning": "描绘未来东京的科幻画面，在社交媒体上正在被迅速传播转发。",
+      "tip": "「拡散される（かくさんされる）」专指在 X（原Twitter）等社交平台上被大量转发扩散。",
+      "tokens": [
+        {
+          "orig": "未来の",
+          "kana": "みらいの",
+          "romaji": "mirai no",
+          "pos": "名词+助词",
+          "meaning": "未来的"
+        },
+        {
+          "orig": "東京を",
+          "kana": "とうきょうを",
+          "romaji": "toukyou o",
+          "pos": "名词+宾格",
+          "meaning": "东京"
+        },
+        {
+          "orig": "描いた",
+          "kana": "えがいた",
+          "romaji": "egaita",
+          "pos": "动词过去式",
+          "meaning": "描绘展现的"
+        },
+        {
+          "orig": "映像が、",
+          "kana": "えいぞうが",
+          "romaji": "eizou ga,",
+          "pos": "名词+主格",
+          "meaning": "影像画面"
+        },
+        {
+          "orig": "SNSで",
+          "kana": "えすえぬえすで",
+          "romaji": "esuenuesu de",
+          "pos": "名词+手段",
+          "meaning": "在社交网络上"
+        },
+        {
+          "orig": "急速に",
+          "kana": "きゅうそくに",
+          "romaji": "kyuusoku ni",
+          "pos": "副词",
+          "meaning": "迅速飞快地"
+        },
+        {
+          "orig": "拡散されています。",
+          "kana": "かくさんされています",
+          "romaji": "kakusan sarete imasu.",
+          "pos": "被动态进行时",
+          "meaning": "被大量转发传播"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 社交媒体与网络传播词汇拆解",
+      "sentence_ja": "未来の東京を描いた映像が、SNSで急速に拡散されています。",
+      "vocab": [
+        {
+          "orig": "未来",
+          "kana": "みらい",
+          "romaji": "mirai",
+          "pos": "名词",
+          "meaning": "近未来/科技未来"
+        },
+        {
+          "orig": "描いた",
+          "kana": "えがいた",
+          "romaji": "egaita",
+          "pos": "动词",
+          "meaning": "描绘/刻画"
+        },
+        {
+          "orig": "映像",
+          "kana": "えいぞう",
+          "romaji": "eizou",
+          "pos": "名词",
+          "meaning": "影像/视频画面"
+        },
+        {
+          "orig": "SNS",
+          "kana": "えすえぬえす",
+          "romaji": "esuenuesu",
+          "pos": "名词",
+          "meaning": "社交网络平台"
+        },
+        {
+          "orig": "拡散",
+          "kana": "かくさん",
+          "romaji": "kakusan",
+          "pos": "动词/名词",
+          "meaning": "扩散/转发"
+        }
+      ],
+      "grammar_title": "被动进行时：动词被动态 + ている（正在被……）",
+      "grammar_bullets": [
+        [
+          "1. 句式构成：",
+          "「拡散する（转发扩散）」->「拡散される（被转发）」->「拡散されている（正在被病毒式疯传）」."
+        ],
+        [
+          "2. SNS 在日语中的读法：",
+          "按字母逐字读作「エス・エヌ・エス（指代X、Instagram、TikTok、YouTube等）」."
+        ],
+        [
+          "3. 网络爆火词汇：",
+          "「バズる（在网上突然爆火，Buzz）」、「トレンド入り（登上热搜榜首）」."
+        ],
+        [
+          "4. 副词急速に（きゅうそくに）：",
+          "形容传播扩散速度极快，短时间内突破百万播放."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解社交媒体时代形容视频爆火疯传的黄金词汇。"
+        },
+        {
+          "speaker": "ja",
+          "text": "未来",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：近未来、科技未来世界。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "描いた",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词描く的过去形：描绘、展现。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "映像",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 eizou，视频画面、影像。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "SNS",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 esuenuesu，社交媒体网络平台。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "拡散",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 kakusan，扩散、转发疯传。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：被动进行时态形容事物正在被大量传播的句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "SNSで急速に拡散されています。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是在社交媒体上正在被飞速疯传，网络热点必备表达。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 近未来探访愿望表达",
+      "spoken_text": "近未来の渋谷に行ってみたいですね！楽しみです。",
+      "meaning": "真想去近未来的涩谷亲眼看看呢！太让人期待了。",
+      "tip": "「〜てみたい（想去试一试/想去看看）」是表达对新鲜事物憧憬的最高频句式。",
+      "tokens": [
+        {
+          "orig": "近未来の",
+          "kana": "きんみらいの",
+          "romaji": "kinmirai no",
+          "pos": "名词+助词",
+          "meaning": "近未来的"
+        },
+        {
+          "orig": "渋谷に",
+          "kana": "しぶやに",
+          "romaji": "shibuya ni",
+          "pos": "专有名词+目的地",
+          "meaning": "去涩谷"
+        },
+        {
+          "orig": "行って",
+          "kana": "いって",
+          "romaji": "itte",
+          "pos": "动词て形",
+          "meaning": "去"
+        },
+        {
+          "orig": "みたいですね！",
+          "kana": "みたいですね",
+          "romaji": "mitai desu ne!",
+          "pos": "尝试愿望",
+          "meaning": "想去看看呢！"
+        },
+        {
+          "orig": "楽しみです。",
+          "kana": "たのしみです",
+          "romaji": "tanoshimi desu.",
+          "pos": "形容动词",
+          "meaning": "很让人期待"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

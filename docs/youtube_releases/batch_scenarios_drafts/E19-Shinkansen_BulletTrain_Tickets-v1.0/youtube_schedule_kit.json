@@ -1,0 +1,22 @@
+{
+  "release_date": "2026-10-19",
+  "episode_number": 19,
+  "folder_name": "E19-Shinkansen_BulletTrain_Tickets-v1.0",
+  "topic": "Shinkansen Bullet Train Ticket Booking and Seat Selection Hacks",
+  "jlpt_difficulty": "JLPT N4",
+  "scheduled_time_est": "2026-10-19T08:00:00-04:00",
+  "notify_subscribers": true,
+  "long_form_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E19-Shinkansen_BulletTrain_Tickets-v1.0/video.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E19-Shinkansen_BulletTrain_Tickets-v1.0/thumbnail.jpg",
+    "title": "[JLPT N4] EP.19 Book Shinkansen Bullet Train Tickets! Reserved Seats and Green Car Hacks",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E19-Shinkansen_BulletTrain_Tickets-v1.0/metadata.md"
+  },
+  "shorts_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E19-Shinkansen_BulletTrain_Tickets-v1.0/short.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E19-Shinkansen_BulletTrain_Tickets-v1.0/short_thumbnail.jpg",
+    "title": "[JLPT N4] SH.19 How to Book Shinkansen Tickets with Mt. Fuji View #Shorts #LearnJapanese",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E19-Shinkansen_BulletTrain_Tickets-v1.0/short_metadata.md",
+    "pinned_comment": "Have you ever seen Mt. Fuji from the window of a Shinkansen bullet train?"
+  }
+}

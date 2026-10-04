@@ -1,0 +1,220 @@
+{
+  "episode_number": 14,
+  "folder_name": "E14-JapanPost_Redelivery-v1.0",
+  "slug": "japanpost_redelivery",
+  "release_date": "2026-10-12",
+  "publish_time_est": "2026-10-12T08:00:00-04:00",
+  "title": "Japan Post Redelivery Slip and Package Recovery Hacks",
+  "yt_title": "[JLPT N4] EP.14 Never Miss Japanese Mail! Japan Post Redelivery Slip and Delivery Hacks",
+  "category": "Living Logistics • Japan Post",
+  "level": "JLPT N4",
+  "district": "Shimokitazawa (下北沢)",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_assets/scene_backgrounds/scene_kombini_store.jpg",
+  "cover": {
+    "hook": "JAPAN MAIL HACK",
+    "sub_hook": "DECODE FUZAIHYO IN 30 SECONDS",
+    "jp_line1": "不在票が入っていたので、",
+    "jp_line2": "再配達をお願いします！",
+    "grammar_tag": "JLPT N4 Grammar: ~ので (Polite Objective Cause / Reason)",
+    "translation": "'I received a missed delivery notice, please redeliver.'",
+    "context_note": "Japan Post & Yamato Transport redelivery calls",
+    "location_tag": "SCENARIO: SHIMOKITAZAWA APARTMENT"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Requesting Package Redelivery",
+      "spoken_text": "不在連絡票が入っていたので、再配達をお願いします。",
+      "meaning": "I received a missed delivery slip, so I would like to request redelivery.",
+      "tip": "Use 'ので' instead of 'から' when talking to service representatives for a polite tone.",
+      "tokens": [
+        {
+          "orig": "不在連絡票が",
+          "kana": "ふざいれんらくひょうが",
+          "romaji": "fuzai-renrakuhyou ga",
+          "pos": "Noun + Part.",
+          "meaning": "Missed delivery slip"
+        },
+        {
+          "orig": "入っていたので、",
+          "kana": "はいっていたので",
+          "romaji": "haitte ita node,",
+          "pos": "Verb + Conjunction",
+          "meaning": "Was in the mailbox, so"
+        },
+        {
+          "orig": "再配達を",
+          "kana": "さいはいたつを",
+          "romaji": "sai-haitatsu o",
+          "pos": "Noun + Part.",
+          "meaning": "Redelivery"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegai shimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Delivery Slips & Time Slot Jargon",
+      "sentence_ja": "不在連絡票が入っていたので、再配達をお願いします。",
+      "vocab": [
+        {
+          "orig": "不在連絡票",
+          "kana": "ふざいれんらくひょう",
+          "romaji": "fuzai-renrakuhyou",
+          "pos": "Noun",
+          "meaning": "Missed delivery slip (不在票)"
+        },
+        {
+          "orig": "入っていた",
+          "kana": "はいっていた",
+          "romaji": "haitte ita",
+          "pos": "Verb (past continuous)",
+          "meaning": "Was inserted / delivered"
+        },
+        {
+          "orig": "ので",
+          "kana": "ので",
+          "romaji": "node",
+          "pos": "Conjunction",
+          "meaning": "Because / Since (polite)"
+        },
+        {
+          "orig": "再配達",
+          "kana": "さいはいたつ",
+          "romaji": "sai-haitatsu",
+          "pos": "Noun",
+          "meaning": "Redelivery"
+        }
+      ],
+      "grammar_title": "Polite Reason Pattern: Verb (Plain Form) + ので (Since / Because)",
+      "grammar_bullets": [
+        [
+          "1. Polite Justification:",
+          "'ので' sounds softer and more objective than 'から' when calling courier services."
+        ],
+        [
+          "2. QR Code Automated Option:",
+          "Most slips (不在票) have a QR code you can scan on Line or Safari to pick a time without speaking."
+        ],
+        [
+          "3. Standard Delivery Slots:",
+          "午前中 (morning), 14-16時 (early afternoon), 19-21時 (night)."
+        ],
+        [
+          "4. Kombini Pickup:",
+          "You can also redirect packages to your local 7-Eleven or FamilyMart."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "When you miss a package delivery in Japan, here is how to arrange redelivery like a local."
+        },
+        {
+          "speaker": "ja",
+          "text": "不在連絡票",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: missed delivery notice left in your mailbox.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "入っていた",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "Verb: was placed inside.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "ので",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "Conjunction: polite because or since.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "再配達",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: redelivery of your parcel.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Grammar Spotlight: explain reason politely with node.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "不在連絡票が入っていたので、再配達をお願いします。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "I got a missed delivery notice, so please redeliver my package.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "spoken_text": "Subscribe to TokyoFlow Japanese on YouTube and practice speech shadowing in the companion iOS App."
+    }
+  ],
+  "shorts": {
+    "hook_title": "NEVER MISS JAPAN MAIL\nIN 30 SECONDS!",
+    "hook_audio_en": "Here is the essential phrase to request package redelivery in Japan!",
+    "jp_sentence": "不在票が入っていたので、再配達をお願いします。",
+    "kana_sentence": "ふざいひょうがはいっていたので、さいはいたつをおねがいします。",
+    "romaji_sentence": "Fuzaihyou ga haitte ita node, sai-haitatsu o onegai shimasu.",
+    "en_translation": "I received a missed delivery slip, please redeliver.",
+    "tokens": [
+      {
+        "orig": "不在票が",
+        "kana": "ふざいひょうが",
+        "romaji": "fuzaihyou ga",
+        "meaning": "Missed delivery slip"
+      },
+      {
+        "orig": "入っていたので、",
+        "kana": "はいっていたので",
+        "romaji": "haitte ita node,",
+        "meaning": "Was left, so"
+      },
+      {
+        "orig": "再配達を",
+        "kana": "さいはいたつを",
+        "romaji": "sai-haitatsu o",
+        "meaning": "Redelivery"
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu",
+        "meaning": "Please"
+      }
+    ],
+    "pro_tip_title": "JAPAN POST PRO-TIP",
+    "pro_tip_body": "Use 'node' to give polite reasons when speaking to customer service representatives in Japan!",
+    "pro_tip_audio_en": "Use node for polite reasons when speaking to Japanese delivery staff.",
+    "yt_short_title": "[JLPT N4] SH.14 How to Redeliver Packages in Japan #Shorts #LearnJapanese",
+    "pinned_comment": "Have you ever found a mysterious 不在票 (fuzaihyo) in your Japanese mailbox?"
+  }
+}

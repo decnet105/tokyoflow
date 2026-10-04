@@ -1,0 +1,426 @@
+{
+  "episode_number": 5,
+  "folder_name": "E05-Tokyo_Subway_Rush-v1.0-zh",
+  "slug": "tokyo_subway_rush_zh",
+  "locale": "zh",
+  "title": "东京地铁出站补票与精算机使用指南",
+  "yt_title": "【JLPT N4】东京地铁坐过站/余额不足？精算机补票实景精讲（EP.05）",
+  "category": "东京交通 • 地铁补票",
+  "level": "JLPT N4",
+  "district": "赤坂见附 (Akasaka)",
+  "bg_image": "tmp/videogen/real_photos/ep05_metro_gates.jpg",
+  "cover": {
+    "hook": "地铁补票避坑",
+    "sub_hook": "出站余额不足秒解决",
+    "jp_line1": "乗り越し精算機は、",
+    "jp_line2": "どこにありますか？",
+    "grammar_tag": "JLPT N4 语法：~はどこにありますか（询问场所方位）",
+    "translation": "「请问补票机在哪里？」",
+    "context_note": "东京地铁刷卡不过闸机时最实用的求助句式",
+    "location_tag": "场景：东京地铁闸机口 • 精算机前",
+    "tag": "🇯🇵 地铁出行必备 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 站台精算机位置问询",
+      "spoken_text": "すみません、乗り越し精算機はどこにありますか？",
+      "meaning": "不好意思，请问坐过站的补票机在哪里？",
+      "tip": "出站时西瓜卡余额不足导致红灯报警，找「精算機（せいさんき）」补差价即可。",
+      "tokens": [
+        {
+          "orig": "すみません、",
+          "kana": "すみません",
+          "romaji": "sumimasen,",
+          "pos": "短语",
+          "meaning": "不好意思"
+        },
+        {
+          "orig": "乗り越し",
+          "kana": "のりこし",
+          "romaji": "norikoshi",
+          "pos": "名词",
+          "meaning": "乘车越站"
+        },
+        {
+          "orig": "精算機は",
+          "kana": "せいさんきは",
+          "romaji": "seisanki wa",
+          "pos": "名词+提示",
+          "meaning": "补票结算机"
+        },
+        {
+          "orig": "どこに",
+          "kana": "どこに",
+          "romaji": "doko ni",
+          "pos": "疑问代词",
+          "meaning": "在哪里"
+        },
+        {
+          "orig": "ありますか？",
+          "kana": "ありますか",
+          "romaji": "arimasu ka?",
+          "pos": "存在动词",
+          "meaning": "有/在吗？"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 补票词汇与交通文化拆解",
+      "sentence_ja": "すみません、乗り越し精算機はどこにありますか？",
+      "vocab": [
+        {
+          "orig": "すみません",
+          "kana": "すみません",
+          "romaji": "sumimasen",
+          "pos": "短语",
+          "meaning": "劳驾/抱歉"
+        },
+        {
+          "orig": "乗り越し",
+          "kana": "のりこし",
+          "romaji": "norikoshi",
+          "pos": "名词",
+          "meaning": "乘车越站/坐过站"
+        },
+        {
+          "orig": "精算機",
+          "kana": "せいさんき",
+          "romaji": "seisanki",
+          "pos": "名词",
+          "meaning": "补票机/精算机"
+        },
+        {
+          "orig": "どこ",
+          "kana": "どこ",
+          "romaji": "doko",
+          "pos": "疑问词",
+          "meaning": "哪里"
+        },
+        {
+          "orig": "ありますか",
+          "kana": "ありますか",
+          "romaji": "arimasu ka",
+          "pos": "存在动词",
+          "meaning": "有/在吗"
+        }
+      ],
+      "grammar_title": "问路句型：名词 + はどこにありますか",
+      "grammar_bullets": [
+        [
+          "1. 句式用法：",
+          "用于询问建筑物、设施或物品的具体位置（事物用あります，人物动物用います）。"
+        ],
+        [
+          "2. 精算机功能：",
+          "日本所有车站闸机旁均设有黄色「精算機」，放入车票或IC卡投入差价即可通关。"
+        ],
+        [
+          "3. 坐过站的表达：",
+          "「乗り越す（のりこす）」专指坐过预定站点，补交票价称为「乗り越し精算」。"
+        ],
+        [
+          "4. 站务员回答：",
+          "「改札口の右手にございます（在检票口的右手边）」。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解在东京地铁坐过站或卡内没钱时的急救口语。"
+        },
+        {
+          "speaker": "ja",
+          "text": "すみません",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "向站务员求助发问：不好意思、劳驾。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "乗り越し",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "专有名词：乘车坐过站、越站。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "精算機",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：自动补票机、结算机。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "どこ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "疑问代词：在哪里。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "ありますか",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "非生物存在疑问句：有吗、在吗？",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：询问某处设施方位的标准公式。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "乗り越し精算機はどこにありますか？",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是请问补票机在哪里，出站遇阻时直接问站务员。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 交通卡余额不足与充值",
+      "spoken_text": "ICカードの残高が足りません、チャージしたいです。",
+      "meaning": "交通卡余额不足，我想充值。",
+      "tip": "充值在日语中直接使用外来语「チャージ（Charge）」，极为简单实用。",
+      "tokens": [
+        {
+          "orig": "ICカードの",
+          "kana": "あいしーかーどの",
+          "romaji": "aishii-kaado no",
+          "pos": "外来语+助词",
+          "meaning": "交通IC卡的"
+        },
+        {
+          "orig": "残高が",
+          "kana": "ざんだかが",
+          "romaji": "zandaka ga",
+          "pos": "名词+主格",
+          "meaning": "卡内余额"
+        },
+        {
+          "orig": "足りません、",
+          "kana": "たりません",
+          "romaji": "tarimasen,",
+          "pos": "动词否定",
+          "meaning": "不够/不足"
+        },
+        {
+          "orig": "チャージ",
+          "kana": "ちゃーじ",
+          "romaji": "chaaji",
+          "pos": "外来语",
+          "meaning": "充值"
+        },
+        {
+          "orig": "したいです。",
+          "kana": "したいです",
+          "romaji": "shitai desu.",
+          "pos": "愿望句型",
+          "meaning": "想做……"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 余额与充值愿望句型拆解",
+      "sentence_ja": "ICカードの残高が足りません、チャージしたいです。",
+      "vocab": [
+        {
+          "orig": "ICカード",
+          "kana": "あいしーかーど",
+          "romaji": "aishii kaado",
+          "pos": "名词",
+          "meaning": "Suica/Pasmo"
+        },
+        {
+          "orig": "残高",
+          "kana": "ざんだか",
+          "romaji": "zandaka",
+          "pos": "名词",
+          "meaning": "账户余额"
+        },
+        {
+          "orig": "足りません",
+          "kana": "たりません",
+          "romaji": "tarimasen",
+          "pos": "动词否定",
+          "meaning": "不足/不够"
+        },
+        {
+          "orig": "チャージ",
+          "kana": "ちゃーじ",
+          "romaji": "chaaji",
+          "pos": "名词",
+          "meaning": "充值/加值"
+        },
+        {
+          "orig": "したいです",
+          "kana": "したいです",
+          "romaji": "shitai desu",
+          "pos": "愿望句",
+          "meaning": "想做……"
+        }
+      ],
+      "grammar_title": "愿望表达：动词ます形词干 + たいです",
+      "grammar_bullets": [
+        [
+          "1. 表达自身愿望：",
+          "「动词词干 + たいです」表示第一人称“我想做某事”。"
+        ],
+        [
+          "2. 残高（ざんだか）：",
+          "特指账户、银行卡或交通卡的可用余额。"
+        ],
+        [
+          "3. 充值设备操作：",
+          "除了精算机，日本各大车站自动售票机均支持1000日元起现金充值。"
+        ],
+        [
+          "4. 询问充值位置：",
+          "「チャージはどこでできますか（请问在哪里可以充值？）」。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解交通卡余额不足时的充值诉求表达。"
+        },
+        {
+          "speaker": "ja",
+          "text": "ICカード",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语：西瓜卡、Pasmo等交通IC卡。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "残高",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：卡内余额。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "足りません",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词否定形式：不足、不够。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "チャージ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语名词：充值、加值。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "したいです",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "愿望助动词：想要做某事。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：表达想要充值的经典句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "チャージしたいです。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是我想充值，窗口求助时简洁明了。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 换乘联络通道实战问询",
+      "spoken_text": "丸ノ内線への連絡通路はこちらですか？まっすぐお進みください。",
+      "meaning": "去丸之内线的换乘通道是走这边吗？请一直往前走。",
+      "tip": "在新宿、东京等大站换乘时，找「連絡通路（れんらくつうろ）」标识可快速通达。",
+      "tokens": [
+        {
+          "orig": "丸ノ内線への",
+          "kana": "まるのうちせんへの",
+          "romaji": "marunouchi-sen e no",
+          "pos": "专有名词+助词",
+          "meaning": "去丸之内线的"
+        },
+        {
+          "orig": "連絡通路は",
+          "kana": "れんらくつうろは",
+          "romaji": "renraku tsuuro wa",
+          "pos": "名词+提示",
+          "meaning": "换乘联络通道"
+        },
+        {
+          "orig": "こちらですか？",
+          "kana": "こちらですか",
+          "romaji": "kochira desu ka?",
+          "pos": "代词疑问",
+          "meaning": "是这边吗？"
+        },
+        {
+          "orig": "まっすぐ",
+          "kana": "まっすぐ",
+          "romaji": "massugu",
+          "pos": "副词",
+          "meaning": "径直/一直"
+        },
+        {
+          "orig": "お進みください。",
+          "kana": "おすすみください",
+          "romaji": "osusumi kudasai.",
+          "pos": "敬语祈使",
+          "meaning": "请往前走"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

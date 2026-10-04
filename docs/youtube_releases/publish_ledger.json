@@ -161,12 +161,13 @@
       "is_short": false
     },
     "E11-shabuya-robot-drama-v1.0_short": {
-      "video_id": "xtP-Ng_TfhU",
-      "video_url": "https://youtu.be/xtP-Ng_TfhU",
-      "title": "[JLPT N5] SH.11 Shabu-ya Robot Drama! #Shorts",
-      "publish_at_est": "2026-10-07T17:00:00-04:00",
-      "uploaded_at": "2026-10-03T08:02:33.817120-04:00",
-      "is_short": true
+      "video_id": "DiGmCYF_ZNI",
+      "video_url": "https://youtu.be/DiGmCYF_ZNI",
+      "title": "[JLPT N5] SH.11 Shabu-ya Robot Drama! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-07T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T14:45:17Z",
+      "is_short": true,
+      "notify_subscribers": true
     },
     "WL01-last-mile-masterclass-v1.0_video": {
       "video_id": "-KFRtoLDNVU",
@@ -398,21 +399,21 @@
       "is_short": true,
       "notify_subscribers": false
     },
-    "E20-apple-suicide-prevention-v1.0_video": {
+    "E12-apple-suicide-prevention-v1.0_video": {
       "video_id": "nVD1G__Yj6U",
       "video_url": "https://youtu.be/nVD1G__Yj6U",
-      "title": "[JLPT N5] EP.20 Apple's Suicide Prevention Request | Real Japanese Breakdown",
+      "title": "[JLPT N5] EP.12 Apple's Suicide Prevention Request | Real Japanese Breakdown",
       "publish_at_est": "2026-10-08T08:00:00-04:00",
-      "uploaded_at": "2026-10-04T08:02:26.177375-04:00",
+      "uploaded_at": "2026-10-04T12:02:20Z",
       "is_short": false,
       "notify_subscribers": true
     },
-    "E20-apple-suicide-prevention-v1.0_short": {
+    "E12-apple-suicide-prevention-v1.0_short": {
       "video_id": "HnjKOw0GiSs",
       "video_url": "https://youtu.be/HnjKOw0GiSs",
-      "title": "[JLPT N5] SH.20 Apple's New Feature Request! #Shorts",
-      "publish_at_est": "2026-10-09T08:00:00-04:00",
-      "uploaded_at": "2026-10-04T08:02:33.962424-04:00",
+      "title": "[JLPT N5] SH.12 Apple's New Feature Request! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-08T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T12:02:29Z",
       "is_short": true,
       "notify_subscribers": true
     }

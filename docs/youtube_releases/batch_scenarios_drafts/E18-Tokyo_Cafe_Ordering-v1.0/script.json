@@ -1,0 +1,233 @@
+{
+  "episode_number": 18,
+  "folder_name": "E18-Tokyo_Cafe_Ordering-v1.0",
+  "slug": "tokyo_cafe_ordering",
+  "release_date": "2026-10-16",
+  "publish_time_est": "2026-10-16T08:00:00-04:00",
+  "title": "Tokyo Cafe Ordering and Drink Customization Hacks",
+  "yt_title": "[JLPT N5] EP.18 Order Coffee and Custom Drinks in Tokyo! Takeout and Milk Hacks",
+  "category": "Cafe & Dining • Coffee Shop",
+  "level": "JLPT N5",
+  "district": "Shibuya & Omotesando (渋谷・表参道)",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_assets/scene_backgrounds/scene_tokyo_skyline_distant_4k.jpg",
+  "cover": {
+    "hook": "TOKYO CAFE HACK",
+    "sub_hook": "ORDER DRINKS LIKE A LOCAL",
+    "jp_line1": "アイスラテを豆乳変更で、",
+    "jp_line2": "お持ち帰りお願いします！",
+    "grammar_tag": "JLPT N5 Grammar: Noun + 変更で (Customization / Substitution Formula)",
+    "translation": "'Iced latte with soy milk substitution, to go please!'",
+    "context_note": "Starbucks, Doutor & Omotesando specialty cafes",
+    "location_tag": "SCENARIO: SHIBUYA SPECIALTY CAFE"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Ordering Custom Iced Latte To-Go",
+      "spoken_text": "アイスラテを豆乳に変更で、お持ち帰りでお願いします。",
+      "meaning": "An iced latte with soy milk substitution, to go please.",
+      "tip": "Use '豆乳に変更' (tounyuu ni henkou) to substitute dairy with soy milk seamlessly.",
+      "tokens": [
+        {
+          "orig": "アイスラテを",
+          "kana": "あいすらてを",
+          "romaji": "aisu rate o",
+          "pos": "Noun + Part.",
+          "meaning": "Iced latte"
+        },
+        {
+          "orig": "豆乳に",
+          "kana": "とうにゅうに",
+          "romaji": "tounyuu ni",
+          "pos": "Noun + Part.",
+          "meaning": "To soy milk"
+        },
+        {
+          "orig": "変更で、",
+          "kana": "へんこうで",
+          "romaji": "henkou de,",
+          "pos": "Noun + Part.",
+          "meaning": "With substitution,"
+        },
+        {
+          "orig": "お持ち帰りで",
+          "kana": "おもちかえりで",
+          "romaji": "omochikaeri de",
+          "pos": "Noun + Part.",
+          "meaning": "For takeout"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegai shimasu.",
+          "pos": "Polite Request",
+          "meaning": "Please"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. Takeout vs Eat-In Tax & Milk Customizations",
+      "sentence_ja": "アイスラテを豆乳に変更で、お持ち帰りでお願いします。",
+      "vocab": [
+        {
+          "orig": "アイスラテ",
+          "kana": "あいすらて",
+          "romaji": "aisu rate",
+          "pos": "Noun",
+          "meaning": "Iced latte"
+        },
+        {
+          "orig": "豆乳",
+          "kana": "とうにゅう",
+          "romaji": "tounyuu",
+          "pos": "Noun",
+          "meaning": "Soy milk"
+        },
+        {
+          "orig": "変更",
+          "kana": "へんこう",
+          "romaji": "henkou",
+          "pos": "Noun",
+          "meaning": "Change / Substitution"
+        },
+        {
+          "orig": "お持ち帰り",
+          "kana": "おもちかえり",
+          "romaji": "omochikaeri",
+          "pos": "Polite Noun",
+          "meaning": "Takeout / To go"
+        }
+      ],
+      "grammar_title": "Cafe Jargon: [Option] に変更 (Substitute with) & 店内 vs 持ち帰り",
+      "grammar_bullets": [
+        [
+          "1. Tax Difference:",
+          "店内ご利用 (eat-in) is 10% tax; お持ち帰り (takeout) is 8% tax in Japan."
+        ],
+        [
+          "2. Milk Options:",
+          "ソイミルク / 豆乳 (soy), オーツミルク (oat), アーモンドミルク (almond)."
+        ],
+        [
+          "3. Temperature & Ice:",
+          "ホット (hot), アイス (iced), 氷少なめ (light ice)."
+        ],
+        [
+          "4. Size Words:",
+          "ショート (short), トール (tall), グランデ (grande)."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "Here is how to order customized coffee drinks like a local at Tokyo cafes."
+        },
+        {
+          "speaker": "ja",
+          "text": "アイスラテ",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: iced cafe latte.",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "豆乳",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: soy milk.",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "変更",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "Noun: substitution or modification.",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "お持ち帰り",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Polite noun: to go or takeout order.",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "Grammar Spotlight: customize with ni henkou de.",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "アイスラテを豆乳に変更で、お持ち帰りでお願いします。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "Iced latte with soy milk substitution, to go please.",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "spoken_text": "Subscribe to TokyoFlow Japanese on YouTube and practice speech shadowing in the companion iOS App."
+    }
+  ],
+  "shorts": {
+    "hook_title": "ORDER COFFEE IN TOKYO\nIN 30 SECONDS!",
+    "hook_audio_en": "Here is how to customize your drink and order takeout at any Tokyo cafe!",
+    "jp_sentence": "アイスラテを豆乳に変更で、お持ち帰りお願いします。",
+    "kana_sentence": "あいすらてをとうにゅうにへんこうで、おもちかえりおねがいします。",
+    "romaji_sentence": "Aisu rate o tounyuu ni henkou de, omochikaeri onegai shimasu.",
+    "en_translation": "Iced latte with soy milk substitution, to go please.",
+    "tokens": [
+      {
+        "orig": "アイスラテを",
+        "kana": "あいすらてを",
+        "romaji": "aisu rate o",
+        "meaning": "Iced latte"
+      },
+      {
+        "orig": "豆乳に",
+        "kana": "とうにゅうに",
+        "romaji": "tounyuu ni",
+        "meaning": "To soy milk"
+      },
+      {
+        "orig": "変更で、",
+        "kana": "へんこうで",
+        "romaji": "henkou de,",
+        "meaning": "Change,"
+      },
+      {
+        "orig": "お持ち帰り",
+        "kana": "おもちかえり",
+        "romaji": "omochikaeri",
+        "meaning": "Takeout"
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu",
+        "meaning": "Please"
+      }
+    ],
+    "pro_tip_title": "TOKYO CAFE PRO-TIP",
+    "pro_tip_body": "Say 'omochikaeri de' for to-go orders to get the 8% reduced food tax rate in Japan!",
+    "pro_tip_audio_en": "Say omochikaeri de for to-go orders and the 8% tax rate.",
+    "yt_short_title": "[JLPT N5] SH.18 How to Order Coffee at Tokyo Cafes #Shorts #LearnJapanese",
+    "pinned_comment": "What is your favorite coffee order when exploring Tokyo's cafe scene?"
+  }
+}

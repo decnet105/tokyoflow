@@ -1,0 +1,423 @@
+{
+  "episode_number": 1,
+  "folder_name": "E01-Yamanote_Transit-v1.0-zh",
+  "slug": "yamanote_transit_zh",
+  "locale": "zh",
+  "title": "东京地铁与山手线月台广播深度解析",
+  "yt_title": "【JLPT N4】听懂东京山手线报站！新宿站实景原声精讲（EP.01）",
+  "category": "东京出行 • JR山手线",
+  "level": "JLPT N4",
+  "district": "新宿 (Shinjuku)",
+  "youtube_id": "",
+  "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/b34d491c-7bb1-4e81-ab7c-51e66a95dc10/ep01_yamanote_16_9_1791043147876.jpg",
+  "cover": {
+    "hook": "山手线报站秘籍",
+    "sub_hook": "东京电车听力秒懂",
+    "jp_line1": "点字ブロックの内側へ",
+    "jp_line2": "お下がりください。",
+    "grammar_tag": "JLPT N4 语法：~の内側へ（方向与范围边界）",
+    "translation": "「请退到黄色盲道安全线内侧。」",
+    "context_note": "JR 东京所有车站最核心的高频安全广播",
+    "location_tag": "场景：JR 新宿站 • 山手线月台",
+    "tag": "🇯🇵 东京原声广播 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 列车进站报站广播",
+      "spoken_text": "まもなく、2番線に山手線内回りがまいります。",
+      "meaning": "2号站台即将有山手线内环（顺时针）列车进站。",
+      "tip": "「まいります」是「来る（来）」的谦让语，JR站台广播的标准服务敬语。",
+      "tokens": [
+        {
+          "orig": "まもなく",
+          "kana": "まもなく",
+          "romaji": "mamonaku",
+          "pos": "副词",
+          "meaning": "马上 / 即将"
+        },
+        {
+          "orig": "、",
+          "kana": "",
+          "romaji": ""
+        },
+        {
+          "orig": "2番線に",
+          "kana": "にばんせんに",
+          "romaji": "ni-ban-sen ni",
+          "pos": "名词+助词",
+          "meaning": "在2号站台"
+        },
+        {
+          "orig": "山手線",
+          "kana": "やまのてせん",
+          "romaji": "yamanote-sen",
+          "pos": "专有名词",
+          "meaning": "山手线"
+        },
+        {
+          "orig": "内回りが",
+          "kana": "うちまわりが",
+          "romaji": "uchi-mawari ga",
+          "pos": "名词+助词",
+          "meaning": "内环顺时针"
+        },
+        {
+          "orig": "まいります。",
+          "kana": "まいります",
+          "romaji": "mairimasu.",
+          "pos": "谦让语动词",
+          "meaning": "即将进站"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 进站广播词汇与语法拆解",
+      "sentence_ja": "まもなく、2番線に山手線内回りがまいります。",
+      "vocab": [
+        {
+          "orig": "まもなく",
+          "kana": "まもなく",
+          "romaji": "mamonaku",
+          "pos": "副词",
+          "meaning": "马上 / 即将"
+        },
+        {
+          "orig": "2番線に",
+          "kana": "にばんせんに",
+          "romaji": "ni-ban-sen ni",
+          "pos": "名词+助词",
+          "meaning": "在2号站台"
+        },
+        {
+          "orig": "山手線",
+          "kana": "やまのてせん",
+          "romaji": "yamanote-sen",
+          "pos": "专有名词",
+          "meaning": "JR山手线环线"
+        },
+        {
+          "orig": "内回りが",
+          "kana": "うちまわりが",
+          "romaji": "uchi-mawari ga",
+          "pos": "名词+助词",
+          "meaning": "顺时针内环"
+        },
+        {
+          "orig": "まいります",
+          "kana": "まいります",
+          "romaji": "mairimasu",
+          "pos": "谦让语",
+          "meaning": "来る的自谦语"
+        }
+      ],
+      "grammar_title": "谦让语 (Kenjougo) — まいります",
+      "grammar_bullets": [
+        [
+          "1. 谦让语动词：",
+          "「まいります」是「来る（kuru，来）」的自谦敬语形式。"
+        ],
+        [
+          "2. 东京交通服务礼仪：",
+          "车站广播统一使用谦让语自谦，以此尊重并抬高乘客地位。"
+        ],
+        [
+          "3. 日常生活高频对照：",
+          "「ただいま参ります」（我马上就过来为您服务）。"
+        ],
+        [
+          "4. 避坑要点：",
+          "谦让语仅能用于自身或己方动作，严禁用于描述客户或对方行为。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解这句话的词汇和语法结构。"
+        },
+        {
+          "speaker": "ja",
+          "text": "まもなく",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "副词：马上、即将。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "2番線に",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "在2号站台。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "山手線",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "JR山手线环线。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "内回りが",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "顺时针内环方向。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "まいります",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词「来る」的谦让语，表示即将进站。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：谦让语表达。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "ただいま参ります。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是「我马上就来」。车站广播通过谦让语自谦，以此尊重抬高乘客。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 站台安全黄线提示",
+      "spoken_text": "黄色い点字ブロックの内側までお下がりください。",
+      "meaning": "请退到黄色盲道安全线内侧。",
+      "tip": "「お下がりください」是典型的敬语指示句式（お + 动词连用形 + ください）。",
+      "tokens": [
+        {
+          "orig": "黄色い",
+          "kana": "きいろい",
+          "romaji": "kiiroi",
+          "pos": "形容词",
+          "meaning": "黄色的"
+        },
+        {
+          "orig": "点字ブロックの",
+          "kana": "てんじぶろっくの",
+          "romaji": "tenji-burokku no",
+          "pos": "名词+助词",
+          "meaning": "盲道地砖的"
+        },
+        {
+          "orig": "内側まで",
+          "kana": "うちがわまで",
+          "romaji": "uchigawa made",
+          "pos": "名词+助词",
+          "meaning": "退到内侧"
+        },
+        {
+          "orig": "お下がりください。",
+          "kana": "おさがりください",
+          "romaji": "osagari kudasai.",
+          "pos": "敬语祈使句",
+          "meaning": "请向后退"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 站台安全警示词汇与句式拆解",
+      "sentence_ja": "黄色い点字ブロックの内側までお下がりください。",
+      "vocab": [
+        {
+          "orig": "黄色い",
+          "kana": "きいろい",
+          "romaji": "kiiroi",
+          "pos": "形容词",
+          "meaning": "黄色的"
+        },
+        {
+          "orig": "点字ブロック",
+          "kana": "てんじぶろっく",
+          "romaji": "tenji burokku",
+          "pos": "名词",
+          "meaning": "盲道凸起地砖"
+        },
+        {
+          "orig": "内側まで",
+          "kana": "うちがわまで",
+          "romaji": "uchigawa made",
+          "pos": "名词+助词",
+          "meaning": "退到安全线内"
+        },
+        {
+          "orig": "お下がり",
+          "kana": "おさがり",
+          "romaji": "osagari",
+          "pos": "动词连用形",
+          "meaning": "后退 (来自下がる)"
+        },
+        {
+          "orig": "ください",
+          "kana": "ください",
+          "romaji": "kudasai",
+          "pos": "礼貌请求",
+          "meaning": "请……"
+        }
+      ],
+      "grammar_title": "敬语指示公式：お + 动词连用形 + ください",
+      "grammar_bullets": [
+        [
+          "1. 礼貌指示句式：",
+          "服务人员用于向乘客或顾客发出礼貌要求或安全引导。"
+        ],
+        [
+          "2. 构成公式：",
+          "お + 动词ます形词干 + ください（例如：少々お待ちください = 请稍候）。"
+        ],
+        [
+          "3. 站台广播场景：",
+          "每趟列车进站前必播，提醒候车乘客注意安全。"
+        ],
+        [
+          "4. 随意口语对照：",
+          "熟人朋友间说「下がって」（退后），仅限于平辈或晚辈。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解这句高频出现的站台安全警示。"
+        },
+        {
+          "speaker": "ja",
+          "text": "黄色い",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "形容词：黄色的。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "点字ブロック",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：黄色凸起盲道地砖。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "内側まで",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "退到内侧安全线以内。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "お下がり",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词「下がる」的连用形，表示后退。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "ください",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "礼貌祈使表达，请……",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：敬语指示公式，お加动词连用形加ください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "少々お待ちください。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是「请稍等片刻」。这是交通和店铺工作人员最常用的指示句式。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 站台换乘实战问询",
+      "spoken_text": "すみません、中央線への乗り換えはどのホームですか？",
+      "meaning": "不好意思，请问换乘中央线是在哪个站台？",
+      "tip": "向车站乘务员求助的必备句式。将「中央線」替换为任意线路名称即可。",
+      "tokens": [
+        {
+          "orig": "すみません",
+          "kana": "すみません",
+          "romaji": "sumimasen",
+          "pos": "短语",
+          "meaning": "不好意思 / 劳驾"
+        },
+        {
+          "orig": "、",
+          "kana": "",
+          "romaji": ""
+        },
+        {
+          "orig": "中央線への",
+          "kana": "ちゅうおうせんへの",
+          "romaji": "chuuou-sen e no",
+          "pos": "专有名词+助词",
+          "meaning": "去中央线的"
+        },
+        {
+          "orig": "乗り換えは",
+          "kana": "のりかえは",
+          "romaji": "norikae wa",
+          "pos": "名词+提示助词",
+          "meaning": "换乘"
+        },
+        {
+          "orig": "どのホームですか？",
+          "kana": "どのほーむですか",
+          "romaji": "dono hoomu desu ka?",
+          "pos": "疑问句",
+          "meaning": "在哪个站台？"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

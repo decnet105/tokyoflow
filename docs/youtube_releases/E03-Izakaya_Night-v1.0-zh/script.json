@@ -1,0 +1,419 @@
+{
+  "episode_number": 3,
+  "folder_name": "E03-Izakaya_Night-v1.0-zh",
+  "slug": "izakaya_night_zh",
+  "locale": "zh",
+  "title": "东京新桥居酒屋点单与经典开场句式",
+  "yt_title": "【JLPT N5】像东京本地人一样点单！居酒屋生啤开场实景精讲（EP.03）",
+  "category": "居酒屋美食 • 点单秘籍",
+  "level": "JLPT N5",
+  "district": "新桥 (Shinbashi)",
+  "bg_image": "/Users/kilvonwu/.gemini/antigravity/brain/b34d491c-7bb1-4e81-ab7c-51e66a95dc10/ep03_izakaya_16_9_1791043208822.jpg",
+  "cover": {
+    "hook": "居酒屋点单秘籍",
+    "sub_hook": "先来生啤经典神句",
+    "jp_line1": "とりあえず生で、",
+    "jp_line2": "ビールをお願いします！",
+    "grammar_tag": "JLPT N5 语法：とりあえず~で（先来……）",
+    "translation": "「先来生啤，麻烦上两杯啤酒！」",
+    "context_note": "全日本所有居酒屋通用的黄金开场点单第一句",
+    "location_tag": "场景：新桥居酒屋街 • 东京夜生活",
+    "tag": "🇯🇵 居酒屋地道点单 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 居酒屋黄金开场点单",
+      "spoken_text": "とりあえず生で、ビールを二つお願いします！",
+      "meaning": "先来生啤，请上两杯啤酒！",
+      "tip": "在居酒屋落座后店员会先问饮料，用「とりあえず生で」点生啤最地道。",
+      "tokens": [
+        {
+          "orig": "とりあえず",
+          "kana": "とりあえず",
+          "romaji": "toriaezu",
+          "pos": "副词",
+          "meaning": "首先/先来"
+        },
+        {
+          "orig": "生で、",
+          "kana": "なまで",
+          "romaji": "nama de,",
+          "pos": "名词+助词",
+          "meaning": "生啤"
+        },
+        {
+          "orig": "ビールを",
+          "kana": "びーるを",
+          "romaji": "biiru o",
+          "pos": "名词+宾格",
+          "meaning": "啤酒"
+        },
+        {
+          "orig": "二つ",
+          "kana": "ふたつ",
+          "romaji": "futatsu",
+          "pos": "量词",
+          "meaning": "两个/两杯"
+        },
+        {
+          "orig": "お願いします！",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu!",
+          "pos": "礼貌短语",
+          "meaning": "拜托了"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 点单词汇与酒文化剖析",
+      "sentence_ja": "とりあえず生で、ビールを二つお願いします！",
+      "vocab": [
+        {
+          "orig": "とりあえず",
+          "kana": "とりあえず",
+          "romaji": "toriaezu",
+          "pos": "副词",
+          "meaning": "首先/暂且"
+        },
+        {
+          "orig": "生",
+          "kana": "なま",
+          "romaji": "nama",
+          "pos": "名词",
+          "meaning": "生啤酒"
+        },
+        {
+          "orig": "ビール",
+          "kana": "びーる",
+          "romaji": "biiru",
+          "pos": "外来语",
+          "meaning": "啤酒"
+        },
+        {
+          "orig": "二つ",
+          "kana": "ふたつ",
+          "romaji": "futatsu",
+          "pos": "量词",
+          "meaning": "两个"
+        },
+        {
+          "orig": "お願いします",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu",
+          "pos": "礼貌短语",
+          "meaning": "请/拜托"
+        }
+      ],
+      "grammar_title": "经典句型：とりあえず〜で（先来……）",
+      "grammar_bullets": [
+        [
+          "1. 句式用法：",
+          "「とりあえず + 名词 + で」表示在做决定前，先快速点上某样东西。"
+        ],
+        [
+          "2. 生（なま）的含义：",
+          "指「生ビール（鲜扎生啤）」，不需要说全称，直接说「生（なま）」即可。"
+        ],
+        [
+          "3. 居酒屋开场礼仪：",
+          "日本职场聚会落座后，通常全员先点生啤共同干杯（乾杯，かんぱい）。"
+        ],
+        [
+          "4. 数量词点单公式：",
+          "物品 + を + 数量（ひとつ / ふたつ / みっつ）+ お願いします。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解日本居酒屋最著名、最高频的开场点单神句。"
+        },
+        {
+          "speaker": "ja",
+          "text": "とりあえず",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "副词：首先、先来。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "生",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：生啤酒、扎啤。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "ビール",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语：啤酒。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "二つ",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "数量词：两个、两杯。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "お願いします",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "万能礼貌句：麻烦了、请给我。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：居酒屋点单公式，先来某样东西。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "とりあえず生で！",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是先来生啤，落座两秒内喊出这句话，店员立即心领神会。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 冰水与买单常用表达",
+      "spoken_text": "すみません、お冷とお会計をお願いします。",
+      "meaning": "不好意思，请上一杯冰水，顺便买单结账。",
+      "tip": "日本餐厅冰水免费，专有名词称为「お冷（おひや）」。",
+      "tokens": [
+        {
+          "orig": "すみません、",
+          "kana": "すみません",
+          "romaji": "sumimasen,",
+          "pos": "短语",
+          "meaning": "不好意思"
+        },
+        {
+          "orig": "お冷と",
+          "kana": "おひやと",
+          "romaji": "ohiya to",
+          "pos": "名词+连词",
+          "meaning": "冰水和"
+        },
+        {
+          "orig": "お会計を",
+          "kana": "おかいけいを",
+          "romaji": "okaikei o",
+          "pos": "名词+宾格",
+          "meaning": "结账/买单"
+        },
+        {
+          "orig": "お願いします。",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu.",
+          "pos": "礼貌短语",
+          "meaning": "拜托了"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "04. 买单与服务词汇深度剖析",
+      "sentence_ja": "すみません、お冷とお会計をお願いします。",
+      "vocab": [
+        {
+          "orig": "すみません",
+          "kana": "すみません",
+          "romaji": "sumimasen",
+          "pos": "短语",
+          "meaning": "劳驾/不好意思"
+        },
+        {
+          "orig": "お冷",
+          "kana": "おひや",
+          "romaji": "ohiya",
+          "pos": "名词",
+          "meaning": "免费冰水"
+        },
+        {
+          "orig": "と",
+          "kana": "と",
+          "romaji": "to",
+          "pos": "助词",
+          "meaning": "和/跟"
+        },
+        {
+          "orig": "お会計",
+          "kana": "おかいけい",
+          "romaji": "okaikei",
+          "pos": "名词",
+          "meaning": "结账买单"
+        },
+        {
+          "orig": "お願いします",
+          "kana": "おねがいします",
+          "romaji": "onegaishimasu",
+          "pos": "短语",
+          "meaning": "请/拜托"
+        }
+      ],
+      "grammar_title": "居酒屋结账文化：お会計 / お勘定",
+      "grammar_bullets": [
+        [
+          "1. 结账词汇选择：",
+          "「お会計（おかいけい）」最为普遍优雅；「お勘定（おかんじょう）」略带传统老店气息。"
+        ],
+        [
+          "2. お冷（おひや）特指：",
+          "餐厅免费提供的冰水。温水称为「白湯（さゆ）」，热茶称为「あがり/お茶」。"
+        ],
+        [
+          "3. 经典肢体语言：",
+          "在嘈杂居酒屋，向店员双手食指交叉比作「X」形，代表请求结账。"
+        ],
+        [
+          "4. 找零礼仪：",
+          "结账通常在门口收银台进行，店员会将找零与小票用双手端托盘递上。"
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "接下来拆解居酒屋要冰水与买单的黄金组合句。"
+        },
+        {
+          "speaker": "ja",
+          "text": "すみません",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "呼叫服务员必备短语：劳驾、不好意思。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "お冷",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：餐厅免费提供的冰水。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "と",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "并列助词：和、跟。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "お会計",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词：结账、买单。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "お願いします",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "拜托了、麻烦您。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：结账与呼叫服务员的地道表达。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "お会計をお願いします。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是麻烦结账，也可以配合食指交叉比X手势。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "05. 招牌推荐实战问询",
+      "spoken_text": "おすすめの焼き鳥は何ですか？盛り合わせをください。",
+      "meaning": "请问推荐的烤鸡肉串是什么？请给我来一份拼盘。",
+      "tip": "不知道点什么时，说「盛り合わせ（拼盘）」可以品尝到主厨招牌组合。",
+      "tokens": [
+        {
+          "orig": "おすすめの",
+          "kana": "おすすめの",
+          "romaji": "osusume no",
+          "pos": "名词+助词",
+          "meaning": "推荐的"
+        },
+        {
+          "orig": "焼き鳥は",
+          "kana": "やきとりは",
+          "romaji": "yakitori wa",
+          "pos": "名词+提示",
+          "meaning": "烤鸡肉串"
+        },
+        {
+          "orig": "何ですか？",
+          "kana": "なんですか",
+          "romaji": "nan desu ka?",
+          "pos": "疑问句",
+          "meaning": "是什么？"
+        },
+        {
+          "orig": "盛り合わせを",
+          "kana": "もりあわせを",
+          "romaji": "moriawase o",
+          "pos": "名词+宾格",
+          "meaning": "拼盘组合"
+        },
+        {
+          "orig": "ください。",
+          "kana": "ください",
+          "romaji": "kudasai.",
+          "pos": "短语",
+          "meaning": "请给我"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "06. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}
