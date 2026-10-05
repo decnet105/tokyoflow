@@ -25,6 +25,7 @@ VIDEOGEN_DIR = PROJECT_ROOT / "scripts" / "videogen"
 sys.path.insert(0, str(VIDEOGEN_DIR))
 
 from youtube_publisher import process_releases
+from update_youtube_metadata_and_covers import update_all_youtube_releases
 
 EST_TZ = zoneinfo.ZoneInfo("America/New_York")
 
@@ -57,7 +58,13 @@ def main():
     if args.wait:
         wait_until_target_time(args.target_hour, args.target_minute)
 
-    print("Starting YouTube Upload Process...")
+    print("Starting YouTube Metadata & Cover Sync Process...")
+    try:
+        update_all_youtube_releases()
+    except Exception as e:
+        print(f"Metadata sync encountered: {e}")
+
+    print("\nStarting YouTube Upload Process...")
     process_releases(dry_run=args.dry_run)
 
 if __name__ == "__main__":
