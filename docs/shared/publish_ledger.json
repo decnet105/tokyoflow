@@ -55,5 +55,13 @@
   "playlists": {
     "playlist_en_long": "PLHUEYGzrBe-s",
     "playlist_en_short": "PLVxXRTmSmcAM"
+  },
+  "WL01-last-mile-masterclass-v1.0-zh_video": {
+    "video_id": "qVNR2duZWqQ",
+    "video_url": "https://youtu.be/qVNR2duZWqQ",
+    "title": "【JLPT N3-N2】WL.01《最后的里程》满岛光原声台词精讲 | 2024日本票房冠军悬疑神作25分钟深度拆解",
+    "uploaded_at": "2026-10-05T09:03:12.555022-04:00",
+    "is_short": false,
+    "notify_subscribers": false
   }
 }

@@ -1,0 +1,891 @@
+{
+  "0_2": {
+    "dur_demo": 8.712,
+    "breath_pause": 0.35,
+    "dur_drill": 8.904,
+    "total_dur": 17.966,
+    "aligned_demo": [
+      {
+        "orig": "ベルトコンベアを",
+        "kana": "べるとこんべあを",
+        "romaji": "beruto konbea o",
+        "start": 0.0,
+        "end": 1.37
+      },
+      {
+        "orig": "止める",
+        "kana": "とめる",
+        "romaji": "tomeru",
+        "start": 1.24,
+        "end": 1.81
+      },
+      {
+        "orig": "わけにはいきません",
+        "kana": "わけにはいきません",
+        "romaji": "wake ni wa ikimasen",
+        "start": 1.68,
+        "end": 3.01
+      },
+      {
+        "orig": "私たちの",
+        "kana": "わたしたちの",
+        "romaji": "watashitachi no",
+        "start": 3.8799999999999994,
+        "end": 4.97
+      },
+      {
+        "orig": "仕事は",
+        "kana": "しごとは",
+        "romaji": "shigoto wa",
+        "start": 4.84,
+        "end": 5.6899999999999995
+      },
+      {
+        "orig": "荷物を",
+        "kana": "にもつを",
+        "romaji": "nimotsu o",
+        "start": 5.56,
+        "end": 6.59
+      },
+      {
+        "orig": "届けることです",
+        "kana": "todokeru koto desu",
+        "romaji": "todokeru koto desu",
+        "start": 6.46,
+        "end": 7.77
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "ベルトコンベアを",
+        "kana": "べるとこんべあを",
+        "romaji": "beruto konbea o",
+        "start": 9.062,
+        "end": 10.452
+      },
+      {
+        "orig": "止める",
+        "kana": "とめる",
+        "romaji": "tomeru",
+        "start": 10.322,
+        "end": 10.911999999999999
+      },
+      {
+        "orig": "わけにはいきません",
+        "kana": "わけにはいきません",
+        "romaji": "wake ni wa ikimasen",
+        "start": 10.782,
+        "end": 12.132
+      },
+      {
+        "orig": "私たちの",
+        "kana": "わたしたちの",
+        "romaji": "watashitachi no",
+        "start": 13.001999999999999,
+        "end": 14.131999999999998
+      },
+      {
+        "orig": "仕事は",
+        "kana": "しごとは",
+        "romaji": "shigoto wa",
+        "start": 14.001999999999999,
+        "end": 14.872
+      },
+      {
+        "orig": "荷物を",
+        "kana": "にもつを",
+        "romaji": "nimotsu o",
+        "start": 14.741999999999999,
+        "end": 15.791999999999998
+      },
+      {
+        "orig": "届けることです",
+        "kana": "todokeru koto desu",
+        "romaji": "todokeru koto desu",
+        "start": 15.661999999999999,
+        "end": 17.012
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "ベルトコンベアを",
+        "kana": "べるとこんべあを",
+        "romaji": "beruto konbea o"
+      },
+      {
+        "orig": "止める",
+        "kana": "とめる",
+        "romaji": "tomeru"
+      },
+      {
+        "orig": "わけにはいきません",
+        "kana": "わけにはいきません",
+        "romaji": "wake ni wa ikimasen"
+      },
+      {
+        "orig": "私たちの",
+        "kana": "わたしたちの",
+        "romaji": "watashitachi no"
+      },
+      {
+        "orig": "仕事は",
+        "kana": "しごとは",
+        "romaji": "shigoto wa"
+      },
+      {
+        "orig": "荷物を",
+        "kana": "にもつを",
+        "romaji": "nimotsu o"
+      },
+      {
+        "orig": "届けることです",
+        "kana": "todokeru koto desu",
+        "romaji": "todokeru koto desu"
+      }
+    ]
+  },
+  "1_1_dialogue": {
+    "dur_demo": 6.792,
+    "breath_pause": 0.35,
+    "dur_drill": 6.936,
+    "total_dur": 14.078,
+    "aligned_demo": [
+      {
+        "orig": "今日から",
+        "kana": "きょうから",
+        "romaji": "kyou kara",
+        "start": 0.0,
+        "end": 0.77
+      },
+      {
+        "orig": "こちらで",
+        "kana": "こちらで",
+        "romaji": "kochira de",
+        "start": 0.64,
+        "end": 1.45
+      },
+      {
+        "orig": "お世話に",
+        "kana": "おせわに",
+        "romaji": "osewa ni",
+        "start": 1.3199999999999998,
+        "end": 2.09
+      },
+      {
+        "orig": "なります",
+        "kana": "なります",
+        "romaji": "narimasu",
+        "start": 1.96,
+        "end": 3.8699999999999997
+      },
+      {
+        "orig": "どうぞ",
+        "kana": "どうぞ",
+        "romaji": "douzo",
+        "start": 3.7399999999999998,
+        "end": 4.49
+      },
+      {
+        "orig": "よろしく",
+        "kana": "よろしく",
+        "romaji": "yoroshiku",
+        "start": 4.36,
+        "end": 5.1899999999999995
+      },
+      {
+        "orig": "お願い",
+        "kana": "おねがい",
+        "romaji": "onegai",
+        "start": 5.06,
+        "end": 5.67
+      },
+      {
+        "orig": "いたします",
+        "kana": "いたします",
+        "romaji": "itashimasu",
+        "start": 5.67,
+        "end": 6.17
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "今日から",
+        "kana": "きょうから",
+        "romaji": "kyou kara",
+        "start": 7.1419999999999995,
+        "end": 7.9319999999999995
+      },
+      {
+        "orig": "こちらで",
+        "kana": "こちらで",
+        "romaji": "kochira de",
+        "start": 7.802,
+        "end": 8.632
+      },
+      {
+        "orig": "お世話に",
+        "kana": "おせわに",
+        "romaji": "osewa ni",
+        "start": 8.501999999999999,
+        "end": 9.292
+      },
+      {
+        "orig": "なります",
+        "kana": "なります",
+        "romaji": "narimasu",
+        "start": 9.161999999999999,
+        "end": 11.091999999999999
+      },
+      {
+        "orig": "どうぞ",
+        "kana": "どうぞ",
+        "romaji": "douzo",
+        "start": 10.962,
+        "end": 11.732
+      },
+      {
+        "orig": "よろしく",
+        "kana": "よろしく",
+        "romaji": "yoroshiku",
+        "start": 11.602,
+        "end": 12.431999999999999
+      },
+      {
+        "orig": "お願い",
+        "kana": "おねがい",
+        "romaji": "onegai",
+        "start": 12.302,
+        "end": 12.951999999999998
+      },
+      {
+        "orig": "いたします",
+        "kana": "いたします",
+        "romaji": "itashimasu",
+        "start": 12.951999999999998,
+        "end": 13.451999999999998
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "今日から",
+        "kana": "きょうから",
+        "romaji": "kyou kara"
+      },
+      {
+        "orig": "こちらで",
+        "kana": "こちらで",
+        "romaji": "kochira de"
+      },
+      {
+        "orig": "お世話に",
+        "kana": "おせわに",
+        "romaji": "osewa ni"
+      },
+      {
+        "orig": "なります",
+        "kana": "なります",
+        "romaji": "narimasu"
+      },
+      {
+        "orig": "どうぞ",
+        "kana": "どうぞ",
+        "romaji": "douzo"
+      },
+      {
+        "orig": "よろしく",
+        "kana": "よろしく",
+        "romaji": "yoroshiku"
+      },
+      {
+        "orig": "お願い",
+        "kana": "おねがい",
+        "romaji": "onegai"
+      },
+      {
+        "orig": "いたします",
+        "kana": "いたします",
+        "romaji": "itashimasu"
+      }
+    ]
+  },
+  "1_2_dialogue": {
+    "dur_demo": 7.872,
+    "breath_pause": 0.35,
+    "dur_drill": 8.04,
+    "total_dur": 16.262,
+    "aligned_demo": [
+      {
+        "orig": "ブラックフライデーの",
+        "kana": "ぶらっくふらいでーの",
+        "romaji": "burakku furaidee no",
+        "start": 0.0,
+        "end": 1.49
+      },
+      {
+        "orig": "初日です",
+        "kana": "しょにちです",
+        "romaji": "shonichi desu",
+        "start": 1.3599999999999999,
+        "end": 2.4899999999999998
+      },
+      {
+        "orig": "荷物的",
+        "kana": "にもつの",
+        "romaji": "nimotsu no",
+        "start": 3.28,
+        "end": 4.01
+      },
+      {
+        "orig": "バーコードを",
+        "kana": "ばーこーどを",
+        "romaji": "baakoodo o",
+        "start": 3.88,
+        "end": 4.81
+      },
+      {
+        "orig": "速やかに",
+        "kana": "すみやかに",
+        "romaji": "sumiyaka ni",
+        "start": 4.68,
+        "end": 5.569999999999999
+      },
+      {
+        "orig": "確認して",
+        "kana": "かくにんして",
+        "romaji": "kakunin shite",
+        "start": 5.4399999999999995,
+        "end": 6.37
+      },
+      {
+        "orig": "ください",
+        "kana": "ください",
+        "romaji": "kudasai",
+        "start": 6.24,
+        "end": 6.83
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "ブラックフライデーの",
+        "kana": "ぶらっくふらいでーの",
+        "romaji": "burakku furaidee no",
+        "start": 8.222,
+        "end": 9.732
+      },
+      {
+        "orig": "初日です",
+        "kana": "しょにちです",
+        "romaji": "shonichi desu",
+        "start": 9.602,
+        "end": 10.671999999999999
+      },
+      {
+        "orig": "荷物的",
+        "kana": "にもつの",
+        "romaji": "nimotsu no",
+        "start": 11.521999999999998,
+        "end": 12.312
+      },
+      {
+        "orig": "バーコードを",
+        "kana": "ばーこーどを",
+        "romaji": "baakoodo o",
+        "start": 12.181999999999999,
+        "end": 13.132
+      },
+      {
+        "orig": "速やかに",
+        "kana": "すみやかに",
+        "romaji": "sumiyaka ni",
+        "start": 13.001999999999999,
+        "end": 13.911999999999999
+      },
+      {
+        "orig": "確認して",
+        "kana": "かくにんして",
+        "romaji": "kakunin shite",
+        "start": 13.782,
+        "end": 14.732
+      },
+      {
+        "orig": "ください",
+        "kana": "ください",
+        "romaji": "kudasai",
+        "start": 14.602,
+        "end": 15.212
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "ブラックフライデーの",
+        "kana": "ぶらっくふらいでーの",
+        "romaji": "burakku furaidee no"
+      },
+      {
+        "orig": "初日です",
+        "kana": "しょにちです",
+        "romaji": "shonichi desu"
+      },
+      {
+        "orig": "荷物的",
+        "kana": "にもつの",
+        "romaji": "nimotsu no"
+      },
+      {
+        "orig": "バーコードを",
+        "kana": "ばーこーどを",
+        "romaji": "baakoodo o"
+      },
+      {
+        "orig": "速やかに",
+        "kana": "すみやかに",
+        "romaji": "sumiyaka ni"
+      },
+      {
+        "orig": "確認して",
+        "kana": "かくにんして",
+        "romaji": "kakunin shite"
+      },
+      {
+        "orig": "ください",
+        "kana": "ください",
+        "romaji": "kudasai"
+      }
+    ]
+  },
+  "1_3_dialogue": {
+    "dur_demo": 7.704,
+    "breath_pause": 0.35,
+    "dur_drill": 7.872,
+    "total_dur": 15.926,
+    "aligned_demo": [
+      {
+        "orig": "ベルトの速度を",
+        "kana": "べるとのそくどを",
+        "romaji": "beruto no sokudo o",
+        "start": 0.0,
+        "end": 1.43
+      },
+      {
+        "orig": "秒速2.7メートルに",
+        "kana": "びょうそくにいてんななめーとるに",
+        "romaji": "byousoku ni ten nana meetoru ni",
+        "start": 1.2999999999999998,
+        "end": 3.13
+      },
+      {
+        "orig": "保てば",
+        "kana": "たもてば",
+        "romaji": "tamoteba",
+        "start": 3.0,
+        "end": 3.59
+      },
+      {
+        "orig": "すべての",
+        "kana": "すべての",
+        "romaji": "subete no",
+        "start": 3.46,
+        "end": 4.7299999999999995
+      },
+      {
+        "orig": "出荷が",
+        "kana": "しゅっかが",
+        "romaji": "shukka ga",
+        "start": 4.6,
+        "end": 5.25
+      },
+      {
+        "orig": "間に合います",
+        "kana": "まにあいます",
+        "romaji": "maniaimasu",
+        "start": 5.12,
+        "end": 6.71
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "ベルトの速度を",
+        "kana": "べるとのそくどを",
+        "romaji": "beruto no sokudo o",
+        "start": 8.054,
+        "end": 9.524000000000001
+      },
+      {
+        "orig": "秒速2.7メートルに",
+        "kana": "びょうそくにいてんななめーとるに",
+        "romaji": "byousoku ni ten nana meetoru ni",
+        "start": 9.394,
+        "end": 11.184000000000001
+      },
+      {
+        "orig": "保てば",
+        "kana": "たもてば",
+        "romaji": "tamoteba",
+        "start": 11.054,
+        "end": 11.524000000000001
+      },
+      {
+        "orig": "すべての",
+        "kana": "すべての",
+        "romaji": "subete no",
+        "start": 11.394,
+        "end": 12.764
+      },
+      {
+        "orig": "出荷が",
+        "kana": "しゅっかが",
+        "romaji": "shukka ga",
+        "start": 12.634,
+        "end": 13.224
+      },
+      {
+        "orig": "間に合います",
+        "kana": "まにあいます",
+        "romaji": "maniaimasu",
+        "start": 13.094000000000001,
+        "end": 14.544
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "ベルトの速度を",
+        "kana": "べるとのそくどを",
+        "romaji": "beruto no sokudo o"
+      },
+      {
+        "orig": "秒速2.7メートルに",
+        "kana": "びょうそくにいてんななめーとるに",
+        "romaji": "byousoku ni ten nana meetoru ni"
+      },
+      {
+        "orig": "保てば",
+        "kana": "たもてば",
+        "romaji": "tamoteba"
+      },
+      {
+        "orig": "すべての",
+        "kana": "すべての",
+        "romaji": "subete no"
+      },
+      {
+        "orig": "出荷が",
+        "kana": "しゅっかが",
+        "romaji": "shukka ga"
+      },
+      {
+        "orig": "間に合います",
+        "kana": "まにあいます",
+        "romaji": "maniaimasu"
+      }
+    ]
+  },
+  "2_1_dialogue": {
+    "dur_demo": 9.168,
+    "breath_pause": 0.35,
+    "dur_drill": 9.384,
+    "total_dur": 18.902,
+    "aligned_demo": [
+      {
+        "orig": "このまま",
+        "kana": "このまま",
+        "romaji": "kono mama",
+        "start": 0.0,
+        "end": 0.89
+      },
+      {
+        "orig": "配送を",
+        "kana": "はいそうを",
+        "romaji": "haisou o",
+        "start": 0.76,
+        "end": 1.45
+      },
+      {
+        "orig": "続ければ",
+        "kana": "つづければ",
+        "romaji": "tsuzukereba",
+        "start": 1.3199999999999998,
+        "end": 2.29
+      },
+      {
+        "orig": "被害が",
+        "kana": "ひがいが",
+        "romaji": "higai ga",
+        "start": 2.58,
+        "end": 3.21
+      },
+      {
+        "orig": "拡大しかねません",
+        "kana": "かくだいしかねません",
+        "romaji": "kakudai shikanemasen",
+        "start": 3.08,
+        "end": 4.51
+      },
+      {
+        "orig": "直ちに",
+        "kana": "ただちに",
+        "romaji": "tadachini",
+        "start": 5.34,
+        "end": 6.03
+      },
+      {
+        "orig": "全ラインを",
+        "kana": "ぜんらいんを",
+        "romaji": "zen rain o",
+        "start": 5.9,
+        "end": 7.01
+      },
+      {
+        "orig": "停止すべきです",
+        "kana": "ていしすべきです",
+        "romaji": "teishi subeki desu",
+        "start": 6.88,
+        "end": 8.190000000000001
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "このまま",
+        "kana": "このまま",
+        "romaji": "kono mama",
+        "start": 9.517999999999999,
+        "end": 10.427999999999999
+      },
+      {
+        "orig": "配送を",
+        "kana": "はいそうを",
+        "romaji": "haisou o",
+        "start": 10.297999999999998,
+        "end": 10.988
+      },
+      {
+        "orig": "続ければ",
+        "kana": "つづければ",
+        "romaji": "tsuzukereba",
+        "start": 10.857999999999999,
+        "end": 11.887999999999998
+      },
+      {
+        "orig": "被害が",
+        "kana": "ひがいが",
+        "romaji": "higai ga",
+        "start": 12.158,
+        "end": 12.787999999999998
+      },
+      {
+        "orig": "拡大しかねません",
+        "kana": "かくだいしかねません",
+        "romaji": "kakudai shikanemasen",
+        "start": 12.658,
+        "end": 14.107999999999999
+      },
+      {
+        "orig": "直ちに",
+        "kana": "ただちに",
+        "romaji": "tadachini",
+        "start": 15.078,
+        "end": 15.687999999999999
+      },
+      {
+        "orig": "全ラインを",
+        "kana": "ぜんらいんを",
+        "romaji": "zen rain o",
+        "start": 15.558,
+        "end": 16.688
+      },
+      {
+        "orig": "停止すべきです",
+        "kana": "ていしすべきです",
+        "romaji": "teishi subeki desu",
+        "start": 16.558,
+        "end": 17.887999999999998
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "このまま",
+        "kana": "このまま",
+        "romaji": "kono mama"
+      },
+      {
+        "orig": "配送を",
+        "kana": "はいそうを",
+        "romaji": "haisou o"
+      },
+      {
+        "orig": "続ければ",
+        "kana": "つづければ",
+        "romaji": "tsuzukereba"
+      },
+      {
+        "orig": "被害が",
+        "kana": "ひがいが",
+        "romaji": "higai ga"
+      },
+      {
+        "orig": "拡大しかねません",
+        "kana": "かくだいしかねません",
+        "romaji": "kakudai shikanemasen"
+      },
+      {
+        "orig": "直ちに",
+        "kana": "ただちに",
+        "romaji": "tadachini"
+      },
+      {
+        "orig": "全ラインを",
+        "kana": "ぜんらいんを",
+        "romaji": "zen rain o"
+      },
+      {
+        "orig": "停止すべきです",
+        "kana": "ていしすべきです",
+        "romaji": "teishi subeki desu"
+      }
+    ]
+  },
+  "3_1_dialogue": {
+    "dur_demo": 10.728,
+    "breath_pause": 0.35,
+    "dur_drill": 10.968,
+    "total_dur": 22.046,
+    "aligned_demo": [
+      {
+        "orig": "人間の命を",
+        "kana": "にんげんのいのちを",
+        "romaji": "ningen no inochi o",
+        "start": 0.0,
+        "end": 1.53
+      },
+      {
+        "orig": "犠牲にしてまで",
+        "kana": "ぎせいにしてまで",
+        "romaji": "gisei ni shite made",
+        "start": 1.4,
+        "end": 2.65
+      },
+      {
+        "orig": "守るべき利益など",
+        "kana": "まもるべきりえきなど",
+        "romaji": "mamoru beki rieki nado",
+        "start": 2.52,
+        "end": 4.45
+      },
+      {
+        "orig": "存在しません",
+        "kana": "そんざいしません",
+        "romaji": "sonzai shimasen",
+        "start": 4.32,
+        "end": 5.55
+      },
+      {
+        "orig": "私たちは",
+        "kana": "わたしたちは",
+        "romaji": "watashitachi wa",
+        "start": 6.36,
+        "end": 7.43
+      },
+      {
+        "orig": "立ち止まる勇気を",
+        "kana": "たちどまるゆうきを",
+        "romaji": "tachidomaru yuuki o",
+        "start": 7.3,
+        "end": 8.850000000000001
+      },
+      {
+        "orig": "持つべきです",
+        "kana": "もつべきです",
+        "romaji": "motsu beki desu",
+        "start": 8.72,
+        "end": 9.75
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "人間の命を",
+        "kana": "にんげんのいのちを",
+        "romaji": "ningen no inochi o",
+        "start": 11.078,
+        "end": 12.648
+      },
+      {
+        "orig": "犠牲にしてまで",
+        "kana": "ぎせいにしてまで",
+        "romaji": "gisei ni shite made",
+        "start": 12.517999999999999,
+        "end": 13.767999999999999
+      },
+      {
+        "orig": "守るべき利益など",
+        "kana": "まもるべきりえきなど",
+        "romaji": "mamoru beki rieki nado",
+        "start": 14.117999999999999,
+        "end": 15.628
+      },
+      {
+        "orig": "存在しません",
+        "kana": "そんざいしません",
+        "romaji": "sonzai shimasen",
+        "start": 15.498,
+        "end": 16.727999999999998
+      },
+      {
+        "orig": "私たちは",
+        "kana": "わたしたちは",
+        "romaji": "watashitachi wa",
+        "start": 17.558,
+        "end": 18.688
+      },
+      {
+        "orig": "立ち止まる勇気を",
+        "kana": "たちどまるゆうきを",
+        "romaji": "tachidomaru yuuki o",
+        "start": 18.558,
+        "end": 20.128
+      },
+      {
+        "orig": "持つべきです",
+        "kana": "もつべきです",
+        "romaji": "motsu beki desu",
+        "start": 19.997999999999998,
+        "end": 21.048000000000002
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "人間の命を",
+        "kana": "にんげんのいのちを",
+        "romaji": "ningen no inochi o"
+      },
+      {
+        "orig": "犠牲にしてまで",
+        "kana": "ぎせいにしてまで",
+        "romaji": "gisei ni shite made"
+      },
+      {
+        "orig": "守るべき利益など",
+        "kana": "まもるべきりえきなど",
+        "romaji": "mamoru beki rieki nado"
+      },
+      {
+        "orig": "存在しません",
+        "kana": "そんざいしません",
+        "romaji": "sonzai shimasen"
+      },
+      {
+        "orig": "私たちは",
+        "kana": "わたしたちは",
+        "romaji": "watashitachi wa"
+      },
+      {
+        "orig": "立ち止まる勇気を",
+        "kana": "たちどまるゆうきを",
+        "romaji": "tachidomaru yuuki o"
+      },
+      {
+        "orig": "持つべきです",
+        "kana": "もつべきです",
+        "romaji": "motsu beki desu"
+      }
+    ]
+  }
+}
