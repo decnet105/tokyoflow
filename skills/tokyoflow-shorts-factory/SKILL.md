@@ -15,13 +15,19 @@ description: >
 > **Reference Format Template**: `output/日语短片标准格式.jpg` (9:16 Minimalist Cover)
 > All vertical shorts must follow this 4-stage progressive retention loop, millisecond yellow token glow, strict role separation (Andrew EN + Nanami JA), and minimalist 3-pill header layout.
 
-## The 4 Core Pillars: Production Bible & Director Contract (制作圣经与导演合同)
+## The 4 Core Pillars: Production Bible & Director Contract
 
 Every Short must strictly execute the **4 Core Pillars**:
-1. ⚡ **Rapid Trend Velocity & Real-time GEO Precision**: Same-day trending topic extraction + authentic Tokyo location tags (`SHIBUYA`, `SHINJUKU`, `AKIHABARA`, `GINZA`).
-2. 🎭 **Viral Entertainment & Breaking Immersion**: Instant high-stakes hook + Japanese live news flash sounder.
-3. 🎯 **Strict JLPT Level Alignment**: 70% N5 (zero prerequisite) with accessible Subject-Object-Verb spoken phrases.
-4. 🧠 **Frictionless Multimodal Learning**: Native audio slowed to `-10% ~ -12%` + 30fps millisecond yellow token glow + 3-2-1 beep countdown + AI pitch scoring.
+1. **Rapid Trend Velocity & Real-time GEO Precision**: Same-day trending topic extraction + authentic Tokyo location tags (`SHIBUYA`, `SHINJUKU`, `AKIHABARA`, `GINZA`).
+2. **Viral Entertainment & Breaking Immersion**: Instant high-stakes hook + Japanese live news flash sounder.
+3. **Strict JLPT Level Alignment**: 70% N5 (zero prerequisite) with accessible Subject-Object-Verb spoken phrases.
+4. **Frictionless Multimodal Learning**: Native audio slowed to `-10% ~ -12%` + 30fps millisecond yellow token glow + 3-2-1 beep countdown + AI pitch scoring.
+
+## Mandatory YouTube Shorts First-Frame Master Cover Injection Rule
+Because the YouTube Data API does NOT support setting custom thumbnails for YouTube Shorts (the Shorts player relies entirely on automatic in-video frame capture):
+- The 9:16 vertical master cover (`short_thumbnail.jpg`) **MUST ALWAYS BE GENERATED FIRST**.
+- The exact master cover image **MUST BE INJECTED / BURNED INTO THE VIDEO AS THE FIRST 8-10 FRAMES (0.25s ~ 0.33s)** at `30.0 fps`.
+- This guarantees 100% reliable high-CTR cover capture on YouTube Shorts mobile feeds and desktop carousels without manual mobile app intervention.
 
 ---
 

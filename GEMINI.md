@@ -43,3 +43,8 @@
 - Priority 1: Authentic original news press/event photo of the topic.
 - Priority 2: 4K photorealistic scene photograph matching the authentic Japanese/Tokyo context (e.g. government briefing room, Tokyo skyline, Shibuya yokocho, Akiba street, Ramen counter, Kombini store).
 - Strictly PROHIBITED: Plain dark canvas, generic abstract wallpapers (such as liquid glass), or cartoon drawings as cover backgrounds. Always composite with 58% center-right subject crop, contrast boost, and multi-stop cosine/vignette overlays.
+
+## 6. YouTube Shorts First-Frame Master Cover Injection Rule
+- The YouTube Data API does NOT support setting custom thumbnails for YouTube Shorts (it only applies to 16:9 long videos).
+- For all 9:16 vertical Shorts, the master cover (`short_thumbnail.jpg`) MUST ALWAYS be generated first and burned into the video stream as the first 8-10 frames (approx 0.25s ~ 0.33s at 30fps).
+- This ensures YouTube's automatic thumbnail capture on upload displays the full-contrast, serialized 9:16 cover across all mobile feeds, carousels, and search results without requiring manual mobile app intervention.

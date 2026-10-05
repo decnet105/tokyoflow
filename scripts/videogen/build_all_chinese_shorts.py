@@ -922,9 +922,30 @@ async def generate_single_chinese_short(conf: dict):
     t_shadow_end = t_shadow_start + dur_drill + 0.3
     t_score_end = total_duration
 
-    # 3. Load Short Cover Thumbnail for First-Frame Injection
+    # 3. Load or Generate Short Cover Thumbnail for First-Frame Injection
     short_thumb_path = os.path.join(release_dir, "short_thumbnail.jpg")
     cover_frame_img = None
+    if not os.path.exists(short_thumb_path):
+        try:
+            from generate_shorts_thumbnails import create_shorts_cover
+            hook_title_parts = conf.get("hook_title", "JAPAN TREND\nPOP CULTURE").split("\n")
+            cover_item = {
+                "bg_image_path": conf.get("bg_image", ""),
+                "jlpt_level": conf.get("jlpt_level", "JLPT N5"),
+                "sh_code": conf.get("shorts_code", f"SH.{ep_num:02d}"),
+                "ep_num": ep_num,
+                "hook_main": hook_title_parts[0],
+                "hook_sub": hook_title_parts[1] if len(hook_title_parts) > 1 else "POP CULTURE",
+                "jp_phrase": conf.get("jp_sentence", ""),
+                "romaji": conf.get("romaji_sentence", ""),
+                "en_meaning": conf.get("zh_translation", ""),
+                "grammar_tag": conf.get("pro_tip_title", "JLPT 核心要点")
+            }
+            c_img = create_shorts_cover(cover_item)
+            c_img.save(short_thumb_path, "JPEG", quality=95)
+        except Exception as e:
+            print(f"Warning generating cover on the fly: {e}")
+
     if os.path.exists(short_thumb_path):
         try:
             cover_frame_img = Image.open(short_thumb_path).convert("RGB").resize((1080, 1920), Image.Resampling.LANCZOS)
@@ -942,8 +963,8 @@ async def generate_single_chinese_short(conf: dict):
         cur_t = frame_idx / fps
         prog = cur_t / total_duration
 
-        # First-Frame Injection: Frames 0..5 (first 0.2s) use the exact 9:16 master cover
-        if frame_idx < 6 and cover_frame_img is not None:
+        # First-Frame Injection: Frames 0..7 (first ~0.26s) use the exact 9:16 master cover
+        if frame_idx < 8 and cover_frame_img is not None:
             frame_img = cover_frame_img
         elif cur_t < t_hook:
             stg = 0

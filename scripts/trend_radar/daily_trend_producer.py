@@ -434,8 +434,8 @@ def render_interactive_short_frame(
         draw.ellipse([(mic_cx - pulse_r2, mic_cy - pulse_r2), (mic_cx + pulse_r2, mic_cy + pulse_r2)], outline=(239, 68, 68), width=2)
         draw.ellipse([(mic_cx - pulse_r1, mic_cy - pulse_r1), (mic_cx + pulse_r1, mic_cy + pulse_r1)], fill=(225, 29, 72), outline=(255, 255, 255), width=2)
         
-        font_mic_icon = get_font(36)
-        draw.text((mic_cx - 18, mic_cy - 22), "🎙", fill=(255, 255, 255), font=font_mic_icon)
+        font_mic_icon = get_font(30, is_en=True)
+        draw.text((mic_cx - 18, mic_cy - 18), "REC", fill=(255, 255, 255), font=font_mic_icon)
 
         font_mic_prompt = get_font(30)
         prompt_txt = "SPEAK NOW! MATCH TOKYO PITCH & SPEED"
@@ -459,23 +459,23 @@ def render_interactive_short_frame(
             )
 
         prog_bar_y = mid_y + 380
-        draw.text((mid_x + 30, prog_bar_y), "⏱ SHADOWING PACING COUNTDOWN:", fill=(203, 213, 225), font=get_font(22))
+        draw.text((mid_x + 30, prog_bar_y), "[TIME] SHADOWING PACING COUNTDOWN:", fill=(203, 213, 225), font=get_font(22))
         draw.rounded_rectangle([(mid_x + 30, prog_bar_y + 34), (mid_x + mid_w - 30, prog_bar_y + 64)], radius=12, fill=(15, 23, 42), outline=(71, 85, 105), width=2)
         sp_fill_w = int((mid_w - 60) * max(0.0, min(1.0, speaking_prog)))
         if sp_fill_w > 0:
             draw.rounded_rectangle([(mid_x + 30, prog_bar_y + 34), (mid_x + 30 + sp_fill_w, prog_bar_y + 64)], radius=12, fill=(239, 68, 68))
         
-        draw.text((mid_x + 40, mid_y + 465), " Coaching: Follow the red active word highlight above!", fill=(254, 240, 138), font=get_font(22))
+        draw.text((mid_x + 40, mid_y + 465), "Coaching: Follow the active word highlight above.", fill=(254, 240, 138), font=get_font(22))
         draw.text((mid_x + 40, mid_y + 500), "Say each syllable in cadence with the Tokyo voice guide.", fill=(203, 213, 225), font=get_font(20))
 
     elif stage_num == 4: # AI SCORING
         draw.rounded_rectangle([(mid_x, mid_y), (mid_x + mid_w, mid_y + mid_h)], radius=24, fill=(16, 44, 87), outline=(56, 189, 248), width=3)
-        draw.text((mid_x + 30, mid_y + 24), " AI PITCH ACCENT EVALUATION", fill=(56, 189, 248), font=get_font(28))
+        draw.text((mid_x + 30, mid_y + 24), "[AI] PITCH ACCENT EVALUATION", fill=(56, 189, 248), font=get_font(28))
         draw.line([(mid_x + 24, mid_y + 64), (mid_x + mid_w - 24, mid_y + 64)], fill=(30, 58, 138), width=2)
 
         draw.rounded_rectangle([(mid_x + 40, mid_y + 90), (mid_x + mid_w - 40, mid_y + 230)], radius=20, fill=(30, 58, 138), outline=(96, 165, 250), width=2)
         font_score = get_font(56)
-        score_str = "98.6% MATCH "
+        score_str = "98.6% MATCH"
         bbox_sc = draw.textbbox((0, 0), score_str, font=font_score)
         scw = bbox_sc[2] - bbox_sc[0]
         draw.text((mid_x + (mid_w - scw) // 2, mid_y + 110), score_str, fill=(250, 204, 21), font=font_score)
@@ -486,17 +486,17 @@ def render_interactive_short_frame(
         subw = bbox_sub[2] - bbox_sub[0]
         draw.text((mid_x + (mid_w - subw) // 2, mid_y + 180), sub_str, fill=(255, 255, 255), font=font_subscore)
 
-        draw.text((mid_x + 40, mid_y + 265), "• Rhythm & Intonation: Excellent (100%)", fill=(241, 245, 249), font=get_font(24))
-        draw.text((mid_x + 40, mid_y + 305), "• High-Low Pitch Match: Native Equivalent", fill=(241, 245, 249), font=get_font(24))
-        draw.text((mid_x + 40, mid_y + 345), "• Mora Cadence: 0.12s Standard Interval", fill=(241, 245, 249), font=get_font(24))
+        draw.text((mid_x + 40, mid_y + 265), "* Rhythm and Intonation: Excellent (100%)", fill=(241, 245, 249), font=get_font(24))
+        draw.text((mid_x + 40, mid_y + 305), "* High-Low Pitch Match: Native Equivalent", fill=(241, 245, 249), font=get_font(24))
+        draw.text((mid_x + 40, mid_y + 345), "* Mora Cadence: 0.12s Standard Interval", fill=(241, 245, 249), font=get_font(24))
 
         draw.rounded_rectangle([(mid_x + 40, mid_y + 400), (mid_x + mid_w - 40, mid_y + 510)], radius=18, fill=(15, 23, 42), outline=(52, 211, 153), width=2)
-        draw.text((mid_x + 60, mid_y + 420), " Score your voice in TokyoFlow App", fill=(52, 211, 153), font=get_font(26))
+        draw.text((mid_x + 60, mid_y + 420), "Score your voice in TokyoFlow App", fill=(52, 211, 153), font=get_font(26))
         draw.text((mid_x + 60, mid_y + 460), "10,000+ JLPT Vocabulary & Real Tokyo Scenarios", fill=(203, 213, 225), font=get_font(20))
 
     else: # PRO-TIP & FORMULA MODE (Stages 1 & 2)
         draw.rounded_rectangle([(mid_x, mid_y), (mid_x + mid_w, mid_y + mid_h)], radius=24, fill=(30, 41, 59), outline=(52, 211, 153) if stage_num==2 else (51, 65, 85), width=3 if stage_num==2 else 2)
-        draw.text((mid_x + 30, mid_y + 24), conf.get("pro_tip_title", " LOCAL PRO-TIP"), fill=(52, 211, 153), font=get_font(28))
+        draw.text((mid_x + 30, mid_y + 24), conf.get("pro_tip_title", "[PRO-TIP] LOCAL GUIDE"), fill=(52, 211, 153), font=get_font(28))
         draw.line([(mid_x + 24, mid_y + 64), (mid_x + mid_w - 24, mid_y + 64)], fill=(51, 65, 85), width=2)
 
         font_tip_body = get_font(25)
@@ -522,7 +522,7 @@ def render_interactive_short_frame(
 
         draw.rounded_rectangle([(mid_x + 30, mid_y + 360), (mid_x + mid_w - 30, mid_y + 510)], radius=16, fill=(15, 23, 42))
         draw.text((mid_x + 50, mid_y + 380), "3-STEP SHADOWING MASTER SYSTEM:", fill=(250, 204, 21), font=get_font(22))
-        draw.text((mid_x + 50, mid_y + 420), "1.  Listen  2.  Breakdown  3.  Shadow Out Loud", fill=(203, 213, 225), font=get_font(21))
+        draw.text((mid_x + 50, mid_y + 420), "1. Listen  2. Breakdown  3. Shadow Out Loud", fill=(203, 213, 225), font=get_font(21))
         draw.text((mid_x + 50, mid_y + 458), "Speak after the 3-2-1 countdown beep!", fill=(244, 114, 182), font=get_font(21))
 
     # 7. Dynamic Status Badge (y=1545..1625)
@@ -540,11 +540,11 @@ def render_interactive_short_frame(
     # 8. Bottom CTA Block (y=1640..1870)
     cta_x, cta_y, cta_w, cta_h = 50, 1640, width - 100, 230
     draw.rounded_rectangle([(cta_x, cta_y), (cta_x + cta_w, cta_y + cta_h)], radius=22, fill=(15, 23, 42), outline=(51, 65, 85), width=2)
-    draw.text((cta_x + 30, cta_y + 20), "👉 Watch Full Deep-Dive Video & Netizen Reaction", fill=(56, 189, 248), font=get_font(24))
-    draw.text((cta_x + 30, cta_y + 56), "Pinned comment contains full breakdown link 🔗", fill=(203, 213, 225), font=get_font(20))
+    draw.text((cta_x + 30, cta_y + 20), "[WATCH] Full Deep-Dive Video & Lesson Breakdown", fill=(56, 189, 248), font=get_font(24))
+    draw.text((cta_x + 30, cta_y + 56), "Pinned comment contains full lesson link", fill=(203, 213, 225), font=get_font(20))
 
     draw.rounded_rectangle([(cta_x + 24, cta_y + 105), (cta_x + cta_w - 24, cta_y + 195)], radius=16, fill=(244, 63, 94))
-    btn_text = " SUBSCRIBE & SHADOW DAILY!"
+    btn_text = "SUBSCRIBE & SHADOW DAILY"
     bbox_btn = draw.textbbox((0, 0), btn_text, font=get_font(28))
     btn_w = bbox_btn[2] - bbox_btn[0]
     draw.text((cta_x + (cta_w - btn_w) // 2, cta_y + 130), btn_text, fill=(255, 255, 255), font=get_font(28))
@@ -628,17 +628,13 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
     t_shadow_start = t_countdown
     t_shadow_end = t_shadow_start + shadow_silence_dur + 0.2
 
-    # Generate 9:16 Cover Thumbnail
-    thumb_img = render_interactive_short_frame(
-        1080, 1920, conf,
-        active_token_idx=1,
-        stage_num=3,
-        stage_title="  YOUR TURN: SHADOW OUT LOUD!",
-        speaking_prog=0.4,
-        total_progress=0.6,
-        frame_idx=15
-    )
-    thumb_img.save(out_thumb_path, "JPEG", quality=95)
+    # Load 9:16 Cover Thumbnail for First-Frame Auto-Capture Injection
+    cover_frame_img = None
+    if os.path.exists(out_thumb_path):
+        try:
+            cover_frame_img = Image.open(out_thumb_path).convert("RGB").resize((1080, 1920), Image.Resampling.LANCZOS)
+        except Exception:
+            cover_frame_img = None
 
     # 3. Stream frames to ffmpeg at 30fps
     fps = 30
@@ -670,11 +666,25 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
             cur_t = f_i / fps
             prog = cur_t / total_duration
 
-            if cur_t < t_hook:
+            # First-Frame Injection: Frames 0..7 (first ~0.25s) use the exact 9:16 master cover
+            if f_i < 8 and cover_frame_img is not None:
+                frame = cover_frame_img
+            elif cur_t < t_hook:
                 stg = 0
                 active_tok = -1
-                stg_title = " INTRO: HOT TOPIC BREAKDOWN"
+                stg_title = "[INTRO] HOT TOPIC BREAKDOWN"
                 spk_prog = 0.0
+                frame = render_interactive_short_frame(
+                    width=1080,
+                    height=1920,
+                    conf=conf,
+                    active_token_idx=active_tok,
+                    stage_num=stg,
+                    stage_title=stg_title,
+                    speaking_prog=spk_prog,
+                    total_progress=prog,
+                    frame_idx=f_i
+                )
             elif cur_t < t_listen:
                 stg = 1
                 rel_t = cur_t - t_hook
@@ -685,13 +695,35 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     if st <= rel_t <= et:
                         active_tok = tok_i
                         break
-                stg_title = " STEP 1: LISTEN (Native Tokyo Speed)"
+                stg_title = "[STEP 1] LISTEN (Native Tokyo Speed)"
                 spk_prog = 0.0
+                frame = render_interactive_short_frame(
+                    width=1080,
+                    height=1920,
+                    conf=conf,
+                    active_token_idx=active_tok,
+                    stage_num=stg,
+                    stage_title=stg_title,
+                    speaking_prog=spk_prog,
+                    total_progress=prog,
+                    frame_idx=f_i
+                )
             elif cur_t < t_countdown:
                 stg = 2
                 active_tok = -1
-                stg_title = " STEP 2: PRO-TIP & FORMULA"
+                stg_title = "[STEP 2] PRO-TIP AND FORMULA"
                 spk_prog = 0.0
+                frame = render_interactive_short_frame(
+                    width=1080,
+                    height=1920,
+                    conf=conf,
+                    active_token_idx=active_tok,
+                    stage_num=stg,
+                    stage_title=stg_title,
+                    speaking_prog=spk_prog,
+                    total_progress=prog,
+                    frame_idx=f_i
+                )
             elif cur_t < t_shadow_end:
                 stg = 3
                 rel_shadow_t = cur_t - t_shadow_start
@@ -703,24 +735,34 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     if st <= rel_shadow_t <= et:
                         active_tok = tok_i
                         break
-                stg_title = "  YOUR TURN: SHADOW OUT LOUD!"
+                stg_title = "[STEP 3] YOUR TURN: SHADOW OUT LOUD"
+                frame = render_interactive_short_frame(
+                    width=1080,
+                    height=1920,
+                    conf=conf,
+                    active_token_idx=active_tok,
+                    stage_num=stg,
+                    stage_title=stg_title,
+                    speaking_prog=spk_prog,
+                    total_progress=prog,
+                    frame_idx=f_i
+                )
             else:
                 stg = 4
                 active_tok = -1
-                stg_title = " STEP 4: AI PITCH ACCENT SCORE"
+                stg_title = "[STEP 4] AI PITCH ACCENT SCORE"
                 spk_prog = 1.0
-
-            frame = render_interactive_short_frame(
-                width=1080,
-                height=1920,
-                conf=conf,
-                active_token_idx=active_tok,
-                stage_num=stg,
-                stage_title=stg_title,
-                speaking_prog=spk_prog,
-                total_progress=prog,
-                frame_idx=f_i
-            )
+                frame = render_interactive_short_frame(
+                    width=1080,
+                    height=1920,
+                    conf=conf,
+                    active_token_idx=active_tok,
+                    stage_num=stg,
+                    stage_title=stg_title,
+                    speaking_prog=spk_prog,
+                    total_progress=prog,
+                    frame_idx=f_i
+                )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
         pass
@@ -1243,8 +1285,8 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
             jlpt_level=jlpt_level
         )
     
-    # 5. Render 9:16 Shorts Video (4-Stage Progressive Shadowing Engine)
-    print(f"⚡ [4/5] Rendering 9:16 Shorts Funnel Video (4-Stage Interactive Shadowing)...")
+    # 5. Generate Dedicated 9:16 Minimalist Cover Thumbnail FIRST (for First-Frame Video Burning)
+    print(f"[4/5] Designing 9:16 Shorts Cover & Rendering Interactive Video...")
     shorts_spec = spec["shorts"]
     shorts_spec["ep_num"] = next_ep_num
     shorts_spec["jlpt_level"] = jlpt_level
@@ -1253,10 +1295,6 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
     short_mp4_official = os.path.join(official_release_dir, "short.mp4")
     short_thumb_official = os.path.join(official_release_dir, "short_thumbnail.jpg")
     
-    shorts_tmp = os.path.join(temp_dir, "shorts_render")
-    await generate_trend_short_video(shorts_spec, short_mp4_official, short_thumb_official, shorts_tmp)
-    
-    # Generate Dedicated 9:16 Minimalist Cover Thumbnail per SH.01 standard (generate_shorts_thumbnails.py)
     if "交通" in playlist_badge or "Transit" in playlist_badge:
         accent_col = (16, 185, 129)     # Emerald
         sec_col = (56, 189, 248)        # Sky Cyan
@@ -1291,10 +1329,15 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
     }
     cover_img = create_shorts_cover(shorts_cover_dict)
     cover_img.save(short_thumb_official, "JPEG", quality=95)
-    print(f"✓ Shorts Funnel Video & SH.01 Skill Cover Generated: {short_mp4_official}")
+    print(f"✓ 9:16 Shorts Cover Generated: {short_thumb_official}")
+
+    # Render 9:16 Shorts Video with First-Frame Cover Injection
+    shorts_tmp = os.path.join(temp_dir, "shorts_render")
+    await generate_trend_short_video(shorts_spec, short_mp4_official, short_thumb_official, shorts_tmp)
+    print(f"✓ Shorts Funnel Video Generated with First-Frame Cover: {short_mp4_official}")
     
     # 6. Save Metadata & Scheduling Packages
-    print(f"📦 [5/5] Packaging Metadata, Descriptions & Schedule Kits...")
+    print(f"Packaging Metadata, Descriptions & Schedule Kits...")
     
     # Long-form metadata.md
     metadata_content = f"""# YouTube Release Manifest: EP.{next_ep_num:02d}
