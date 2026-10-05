@@ -1,0 +1,903 @@
+{
+  "1_2_quote": {
+    "dur_demo": 8.952,
+    "breath_pause": 0.35,
+    "dur_drill": 9.144,
+    "total_dur": 18.445999999999998,
+    "aligned_demo": [
+      {
+        "orig": "まもなく",
+        "kana": "まもなく",
+        "romaji": "mamonaku",
+        "start": 0.0,
+        "end": 0.87
+      },
+      {
+        "orig": "二番線に",
+        "kana": "にばんせんに",
+        "romaji": "nibansen ni",
+        "start": 0.74,
+        "end": 2.19
+      },
+      {
+        "orig": "電車が",
+        "kana": "でんしゃが",
+        "romaji": "densha ga",
+        "start": 2.06,
+        "end": 2.75
+      },
+      {
+        "orig": "まいります",
+        "kana": "まいります",
+        "romaji": "mairimasu",
+        "start": 2.62,
+        "end": 3.4299999999999997
+      },
+      {
+        "orig": "黄色い",
+        "kana": "きいろい",
+        "romaji": "kiiroi",
+        "start": 4.28,
+        "end": 5.1499999999999995
+      },
+      {
+        "orig": "点字ブロックの",
+        "kana": "てんじぶろっくの",
+        "romaji": "tenji burokku no",
+        "start": 5.02,
+        "end": 6.1499999999999995
+      },
+      {
+        "orig": "内側まで",
+        "kana": "うちがわまで",
+        "romaji": "uchigawa made",
+        "start": 6.02,
+        "end": 6.95
+      },
+      {
+        "orig": "お下がりください",
+        "kana": "おさがりください",
+        "romaji": "osagari kudasai",
+        "start": 6.82,
+        "end": 7.95
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "まもなく",
+        "kana": "まもなく",
+        "romaji": "mamonaku",
+        "start": 9.302,
+        "end": 10.192
+      },
+      {
+        "orig": "二番線に",
+        "kana": "にばんせんに",
+        "romaji": "nibansen ni",
+        "start": 10.062,
+        "end": 11.532
+      },
+      {
+        "orig": "電車が",
+        "kana": "でんしゃが",
+        "romaji": "densha ga",
+        "start": 11.402,
+        "end": 12.111999999999998
+      },
+      {
+        "orig": "まいります",
+        "kana": "まいります",
+        "romaji": "mairimasu",
+        "start": 11.982,
+        "end": 12.831999999999999
+      },
+      {
+        "orig": "黄色い",
+        "kana": "きいろい",
+        "romaji": "kiiroi",
+        "start": 13.661999999999999,
+        "end": 14.572
+      },
+      {
+        "orig": "点字ブロックの",
+        "kana": "てんじぶろっくの",
+        "romaji": "tenji burokku no",
+        "start": 14.442,
+        "end": 15.591999999999999
+      },
+      {
+        "orig": "内側まで",
+        "kana": "うちがわまで",
+        "romaji": "uchigawa made",
+        "start": 15.462,
+        "end": 16.392
+      },
+      {
+        "orig": "お下がりください",
+        "kana": "おさがりください",
+        "romaji": "osagari kudasai",
+        "start": 16.262,
+        "end": 17.432000000000002
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "まもなく",
+        "kana": "まもなく",
+        "romaji": "mamonaku"
+      },
+      {
+        "orig": "二番線に",
+        "kana": "にばんせんに",
+        "romaji": "nibansen ni"
+      },
+      {
+        "orig": "電車が",
+        "kana": "でんしゃが",
+        "romaji": "densha ga"
+      },
+      {
+        "orig": "まいります",
+        "kana": "まいります",
+        "romaji": "mairimasu"
+      },
+      {
+        "orig": "黄色い",
+        "kana": "きいろい",
+        "romaji": "kiiroi"
+      },
+      {
+        "orig": "点字ブロックの",
+        "kana": "てんじぶろっくの",
+        "romaji": "tenji burokku no"
+      },
+      {
+        "orig": "内側まで",
+        "kana": "うちがわまで",
+        "romaji": "uchigawa made"
+      },
+      {
+        "orig": "お下がりください",
+        "kana": "おさがりください",
+        "romaji": "osagari kudasai"
+      }
+    ]
+  },
+  "2_2_quote": {
+    "dur_demo": 6.216,
+    "breath_pause": 0.35,
+    "dur_drill": 6.36,
+    "total_dur": 12.926,
+    "aligned_demo": [
+      {
+        "orig": "お弁当",
+        "kana": "おべんとう",
+        "romaji": "obentou",
+        "start": 0.0,
+        "end": 0.75
+      },
+      {
+        "orig": "温めますか",
+        "kana": "あたためますか",
+        "romaji": "atatamemasu ka",
+        "start": 0.62,
+        "end": 1.75
+      },
+      {
+        "orig": "レジ袋は",
+        "kana": "れじぶくろは",
+        "romaji": "rejibukuro wa",
+        "start": 1.6199999999999999,
+        "end": 3.4699999999999998
+      },
+      {
+        "orig": "ご利用に",
+        "kana": "ごりように",
+        "romaji": "goriyou ni",
+        "start": 3.34,
+        "end": 4.109999999999999
+      },
+      {
+        "orig": "なりますか",
+        "kana": "なりますか",
+        "romaji": "narimasu ka",
+        "start": 3.9799999999999995,
+        "end": 4.6899999999999995
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "お弁当",
+        "kana": "おべんとう",
+        "romaji": "obentou",
+        "start": 6.566,
+        "end": 7.336
+      },
+      {
+        "orig": "温めますか",
+        "kana": "あたためますか",
+        "romaji": "atatamemasu ka",
+        "start": 7.2059999999999995,
+        "end": 8.336
+      },
+      {
+        "orig": "レジ袋は",
+        "kana": "れじぶくろは",
+        "romaji": "rejibukuro wa",
+        "start": 8.206,
+        "end": 10.116
+      },
+      {
+        "orig": "ご利用に",
+        "kana": "ごりように",
+        "romaji": "goriyou ni",
+        "start": 9.986,
+        "end": 10.736
+      },
+      {
+        "orig": "なりますか",
+        "kana": "なりますか",
+        "romaji": "narimasu ka",
+        "start": 10.606,
+        "end": 11.616
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "お弁当",
+        "kana": "おべんとう",
+        "romaji": "obentou"
+      },
+      {
+        "orig": "温めますか",
+        "kana": "あたためますか",
+        "romaji": "atatamemasu ka"
+      },
+      {
+        "orig": "レジ袋は",
+        "kana": "れじぶくろは",
+        "romaji": "rejibukuro wa"
+      },
+      {
+        "orig": "ご利用に",
+        "kana": "ごりように",
+        "romaji": "goriyou ni"
+      },
+      {
+        "orig": "なりますか",
+        "kana": "なりますか",
+        "romaji": "narimasu ka"
+      }
+    ]
+  },
+  "3_2_quote": {
+    "dur_demo": 4.968,
+    "breath_pause": 0.35,
+    "dur_drill": 5.088,
+    "total_dur": 10.405999999999999,
+    "aligned_demo": [
+      {
+        "orig": "とりあえず",
+        "kana": "とりあえず",
+        "romaji": "toriaezu",
+        "start": 0.0,
+        "end": 0.91
+      },
+      {
+        "orig": "生ビール",
+        "kana": "なまびーる",
+        "romaji": "nama biiru",
+        "start": 0.78,
+        "end": 1.51
+      },
+      {
+        "orig": "二つと",
+        "kana": "ふたつと",
+        "romaji": "futatsu to",
+        "start": 1.38,
+        "end": 2.17
+      },
+      {
+        "orig": "枝豆を",
+        "kana": "えだまめを",
+        "romaji": "edamame o",
+        "start": 2.04,
+        "end": 2.9699999999999998
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu",
+        "start": 2.84,
+        "end": 3.67
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "とりあえず",
+        "kana": "とりあえず",
+        "romaji": "toriaezu",
+        "start": 5.318,
+        "end": 6.247999999999999
+      },
+      {
+        "orig": "生ビール",
+        "kana": "なまびーる",
+        "romaji": "nama biiru",
+        "start": 6.117999999999999,
+        "end": 6.848
+      },
+      {
+        "orig": "二つと",
+        "kana": "ふたつと",
+        "romaji": "futatsu to",
+        "start": 6.718,
+        "end": 7.528
+      },
+      {
+        "orig": "枝豆を",
+        "kana": "えだまめを",
+        "romaji": "edamame o",
+        "start": 7.398,
+        "end": 8.347999999999999
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu",
+        "start": 8.218,
+        "end": 9.068
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "とりあえず",
+        "kana": "とりあえず",
+        "romaji": "toriaezu"
+      },
+      {
+        "orig": "生ビール",
+        "kana": "なまびーる",
+        "romaji": "nama biiru"
+      },
+      {
+        "orig": "二つと",
+        "kana": "ふたつと",
+        "romaji": "futatsu to"
+      },
+      {
+        "orig": "枝豆を",
+        "kana": "えだまめを",
+        "romaji": "edamame o"
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu"
+      }
+    ]
+  },
+  "4_2_quote": {
+    "dur_demo": 6.456,
+    "breath_pause": 0.35,
+    "dur_drill": 6.6,
+    "total_dur": 13.405999999999999,
+    "aligned_demo": [
+      {
+        "orig": "免税手続きを",
+        "kana": "めんぜいてつづきを",
+        "romaji": "menzei tetsuzuki o",
+        "start": 0.0,
+        "end": 1.55
+      },
+      {
+        "orig": "お願い",
+        "kana": "おねがい",
+        "romaji": "onegai",
+        "start": 1.42,
+        "end": 1.83
+      },
+      {
+        "orig": "できますか",
+        "kana": "できますか",
+        "romaji": "dekimasu ka",
+        "start": 1.7,
+        "end": 2.71
+      },
+      {
+        "orig": "パスポートは",
+        "kana": "ぱすぽーとは",
+        "romaji": "pasupooto wa",
+        "start": 3.6,
+        "end": 4.67
+      },
+      {
+        "orig": "こちらです",
+        "kana": "こちらです",
+        "romaji": "kochira desu",
+        "start": 4.54,
+        "end": 5.49
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "免税手続きを",
+        "kana": "めんぜいてつづきを",
+        "romaji": "menzei tetsuzuki o",
+        "start": 6.806,
+        "end": 8.376
+      },
+      {
+        "orig": "お願い",
+        "kana": "おねがい",
+        "romaji": "onegai",
+        "start": 8.246,
+        "end": 8.676
+      },
+      {
+        "orig": "できますか",
+        "kana": "できますか",
+        "romaji": "dekimasu ka",
+        "start": 8.546,
+        "end": 9.576
+      },
+      {
+        "orig": "パスポートは",
+        "kana": "ぱすぽーとは",
+        "romaji": "pasupooto wa",
+        "start": 10.426,
+        "end": 11.596
+      },
+      {
+        "orig": "こちらです",
+        "kana": "こちらです",
+        "romaji": "kochira desu",
+        "start": 11.466000000000001,
+        "end": 12.436
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "免税手続きを",
+        "kana": "めんぜいてつづきを",
+        "romaji": "menzei tetsuzuki o"
+      },
+      {
+        "orig": "お願い",
+        "kana": "おねがい",
+        "romaji": "onegai"
+      },
+      {
+        "orig": "できますか",
+        "kana": "できますか",
+        "romaji": "dekimasu ka"
+      },
+      {
+        "orig": "パスポートは",
+        "kana": "ぱすぽーとは",
+        "romaji": "pasupooto wa"
+      },
+      {
+        "orig": "こちらです",
+        "kana": "こちらです",
+        "romaji": "kochira desu"
+      }
+    ]
+  },
+  "5_2_quote": {
+    "dur_demo": 7.416,
+    "breath_pause": 0.35,
+    "dur_drill": 7.584,
+    "total_dur": 15.35,
+    "aligned_demo": [
+      {
+        "orig": "麺は",
+        "kana": "めんは",
+        "romaji": "men wa",
+        "start": 0.0,
+        "end": 0.75
+      },
+      {
+        "orig": "硬めで",
+        "kana": "かためで",
+        "romaji": "katame de",
+        "start": 0.62,
+        "end": 1.45
+      },
+      {
+        "orig": "味は",
+        "kana": "あじは",
+        "romaji": "aji wa",
+        "start": 1.66,
+        "end": 2.21
+      },
+      {
+        "orig": "濃いめで",
+        "kana": "こいめで",
+        "romaji": "koime de",
+        "start": 2.08,
+        "end": 2.79
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu",
+        "start": 2.66,
+        "end": 3.3899999999999997
+      },
+      {
+        "orig": "替え玉を",
+        "kana": "かえだまを",
+        "romaji": "kaedama o",
+        "start": 4.6,
+        "end": 5.39
+      },
+      {
+        "orig": "一つください",
+        "kana": "ひとつください",
+        "romaji": "hitotsu kudasai",
+        "start": 5.26,
+        "end": 6.29
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "麺は",
+        "kana": "めんは",
+        "romaji": "men wa",
+        "start": 7.766,
+        "end": 8.536
+      },
+      {
+        "orig": "硬めで",
+        "kana": "かためで",
+        "romaji": "katame de",
+        "start": 8.406,
+        "end": 9.256
+      },
+      {
+        "orig": "味は",
+        "kana": "あじは",
+        "romaji": "aji wa",
+        "start": 9.486,
+        "end": 10.036
+      },
+      {
+        "orig": "濃いめで",
+        "kana": "こいめで",
+        "romaji": "koime de",
+        "start": 9.906,
+        "end": 10.616
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu",
+        "start": 10.486,
+        "end": 11.236
+      },
+      {
+        "orig": "替え玉を",
+        "kana": "かえだまを",
+        "romaji": "kaedama o",
+        "start": 12.526,
+        "end": 13.276
+      },
+      {
+        "orig": "一つください",
+        "kana": "ひとつください",
+        "romaji": "hitotsu kudasai",
+        "start": 13.146,
+        "end": 14.216000000000001
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "麺は",
+        "kana": "めんは",
+        "romaji": "men wa"
+      },
+      {
+        "orig": "硬めで",
+        "kana": "かためで",
+        "romaji": "katame de"
+      },
+      {
+        "orig": "味は",
+        "kana": "あじは",
+        "romaji": "aji wa"
+      },
+      {
+        "orig": "濃いめで",
+        "kana": "こいめで",
+        "romaji": "koime de"
+      },
+      {
+        "orig": "お願いします",
+        "kana": "おねがいします",
+        "romaji": "onegai shimasu"
+      },
+      {
+        "orig": "替え玉を",
+        "kana": "かえだまを",
+        "romaji": "kaedama o"
+      },
+      {
+        "orig": "一つください",
+        "kana": "ひとつください",
+        "romaji": "hitotsu kudasai"
+      }
+    ]
+  },
+  "6_2_quote": {
+    "dur_demo": 9.096,
+    "breath_pause": 0.35,
+    "dur_drill": 9.288,
+    "total_dur": 18.734,
+    "aligned_demo": [
+      {
+        "orig": "湯船に",
+        "kana": "ゆぶねに",
+        "romaji": "yubune ni",
+        "start": 0.0,
+        "end": 0.87
+      },
+      {
+        "orig": "入る前に",
+        "kana": "はいるまえに",
+        "romaji": "hairu mae ni",
+        "start": 0.74,
+        "end": 1.85
+      },
+      {
+        "orig": "必ず体を",
+        "kana": "かならずからだを",
+        "romaji": "kanarazu karada o",
+        "start": 2.08,
+        "end": 3.3499999999999996
+      },
+      {
+        "orig": "綺麗に",
+        "kana": "きれいに",
+        "romaji": "kirei ni",
+        "start": 3.2199999999999998,
+        "end": 3.9299999999999997
+      },
+      {
+        "orig": "洗ってください",
+        "kana": "あらってください",
+        "romaji": "aratte kudasai",
+        "start": 3.8,
+        "end": 4.85
+      },
+      {
+        "orig": "タオルは",
+        "kana": "たおるは",
+        "romaji": "taoru wa",
+        "start": 5.74,
+        "end": 6.53
+      },
+      {
+        "orig": "湯に",
+        "kana": "ゆに",
+        "romaji": "yu ni",
+        "start": 6.4,
+        "end": 6.89
+      },
+      {
+        "orig": "入れないでください",
+        "kana": "いれないでください",
+        "romaji": "irenaide kudasai",
+        "start": 6.76,
+        "end": 8.01
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "湯船に",
+        "kana": "ゆぶねに",
+        "romaji": "yubune ni",
+        "start": 9.446,
+        "end": 10.196
+      },
+      {
+        "orig": "入る前に",
+        "kana": "はいるまえに",
+        "romaji": "hairu mae ni",
+        "start": 10.065999999999999,
+        "end": 10.956
+      },
+      {
+        "orig": "必ず体を",
+        "kana": "かならずからだを",
+        "romaji": "kanarazu karada o",
+        "start": 10.826,
+        "end": 12.536
+      },
+      {
+        "orig": "綺麗に",
+        "kana": "きれいに",
+        "romaji": "kirei ni",
+        "start": 12.405999999999999,
+        "end": 13.216
+      },
+      {
+        "orig": "洗ってください",
+        "kana": "あらってください",
+        "romaji": "aratte kudasai",
+        "start": 13.086,
+        "end": 14.376
+      },
+      {
+        "orig": "タオルは",
+        "kana": "たおるは",
+        "romaji": "taoru wa",
+        "start": 15.346,
+        "end": 16.116
+      },
+      {
+        "orig": "湯に",
+        "kana": "ゆに",
+        "romaji": "yu ni",
+        "start": 15.986,
+        "end": 16.476
+      },
+      {
+        "orig": "入れないでください",
+        "kana": "いれないでください",
+        "romaji": "irenaide kudasai",
+        "start": 16.346,
+        "end": 17.616
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "湯船に",
+        "kana": "ゆぶねに",
+        "romaji": "yubune ni"
+      },
+      {
+        "orig": "入る前に",
+        "kana": "はいるまえに",
+        "romaji": "hairu mae ni"
+      },
+      {
+        "orig": "必ず体を",
+        "kana": "かならずからだを",
+        "romaji": "kanarazu karada o"
+      },
+      {
+        "orig": "綺麗に",
+        "kana": "きれいに",
+        "romaji": "kirei ni"
+      },
+      {
+        "orig": "洗ってください",
+        "kana": "あらってください",
+        "romaji": "aratte kudasai"
+      },
+      {
+        "orig": "タオルは",
+        "kana": "たおるは",
+        "romaji": "taoru wa"
+      },
+      {
+        "orig": "湯に",
+        "kana": "ゆに",
+        "romaji": "yu ni"
+      },
+      {
+        "orig": "入れないでください",
+        "kana": "いれないでください",
+        "romaji": "irenaide kudasai"
+      }
+    ]
+  },
+  "7_2_quote": {
+    "dur_demo": 6.024,
+    "breath_pause": 0.35,
+    "dur_drill": 6.168,
+    "total_dur": 12.542,
+    "aligned_demo": [
+      {
+        "orig": "お賽銭を",
+        "kana": "おさいせんを",
+        "romaji": "osaisen o",
+        "start": 0.0,
+        "end": 1.05
+      },
+      {
+        "orig": "入れて",
+        "kana": "いれて",
+        "romaji": "irete",
+        "start": 0.92,
+        "end": 1.47
+      },
+      {
+        "orig": "二礼二拍手一礼の",
+        "kana": "にれいにはくしゅいちれいの",
+        "romaji": "nirei nihakushu ichirei no",
+        "start": 1.3399999999999999,
+        "end": 3.53
+      },
+      {
+        "orig": "作法で",
+        "kana": "さほうで",
+        "romaji": "sahou de",
+        "start": 3.4,
+        "end": 4.069999999999999
+      },
+      {
+        "orig": "参拝します",
+        "kana": "さんぱいします",
+        "romaji": "sanpai shimasu",
+        "start": 3.9399999999999995,
+        "end": 5.03
+      }
+    ],
+    "aligned_drill": [
+      {
+        "orig": "お賽銭を",
+        "kana": "おさいせんを",
+        "romaji": "osaisen o",
+        "start": 6.374,
+        "end": 7.4639999999999995
+      },
+      {
+        "orig": "入れて",
+        "kana": "いれて",
+        "romaji": "irete",
+        "start": 7.334,
+        "end": 7.864
+      },
+      {
+        "orig": "二礼二拍手一礼の",
+        "kana": "にれいにはくしゅいちれいの",
+        "romaji": "nirei nihakushu ichirei no",
+        "start": 7.734,
+        "end": 9.963999999999999
+      },
+      {
+        "orig": "作法で",
+        "kana": "さほうで",
+        "romaji": "sahou de",
+        "start": 9.834,
+        "end": 10.544
+      },
+      {
+        "orig": "参拝します",
+        "kana": "さんぱいします",
+        "romaji": "sanpai shimasu",
+        "start": 10.414,
+        "end": 11.544
+      }
+    ],
+    "tokens": [
+      {
+        "orig": "お賽銭を",
+        "kana": "おさいせんを",
+        "romaji": "osaisen o"
+      },
+      {
+        "orig": "入れて",
+        "kana": "いれて",
+        "romaji": "irete"
+      },
+      {
+        "orig": "二礼二拍手一礼の",
+        "kana": "にれいにはくしゅいちれいの",
+        "romaji": "nirei nihakushu ichirei no"
+      },
+      {
+        "orig": "作法で",
+        "kana": "さほうで",
+        "romaji": "sahou de"
+      },
+      {
+        "orig": "参拝します",
+        "kana": "さんぱいします",
+        "romaji": "sanpai shimasu"
+      }
+    ]
+  }
+}

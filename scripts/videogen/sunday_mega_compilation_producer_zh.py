@@ -2,10 +2,11 @@
 """
 TokyoFlow Japanese • Sunday Mega-Compilation Producer (Chinese Edition)
 ========================================================================
-Automates production of the 28-minute Chinese-localized mega-compilation:
-- WL.02 / WM.01: 周一到周五东京生活全景大合集（28分钟超长沉浸精讲）【中文解说版】
+Automates production of the Chinese-localized mega-compilation:
+- WL.02 / WM.01: 周一到周五东京生活全景大合集（实景精讲）【中文解说版】
 - 100% Authentic 4K Real Tokyo Photography (Zero AI Cartoon / Zero Clutter)
-- 3-Tier Ruby Typography & Word-by-Word Glowing Yellow Karaoke
+- 3-Tier Ruby Typography & Millisecond Word-by-Word Glowing Yellow Karaoke
+- Continuous Practice: Stage 1 原声示范 + Stage 2 影子跟读练读（原声领读，中间不停顿）
 - Dual-Voice Role Separation: Nanami JA @ Tokyo Native + Yunxi ZH @ Chinese Masterclass
 - Covers 7 Major Japanese Scenarios:
   1. 山手线电车与乘车礼仪
@@ -35,6 +36,10 @@ from seamless_tts_engine import (
     synthesize_seamless_bilingual_audio,
     normalize_chinese_speech_text,
     get_audio_duration
+)
+from timing_engine import (
+    extract_tokens_from_text,
+    align_sentence_tokens_with_audio
 )
 
 FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
@@ -76,9 +81,9 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "content": "欢迎来到 TokyoFlow 日语周末大合集特辑。今天，我们将周一到周五的完整东京生活实景口语，浓缩进这堂28分钟的全景深度精讲课中。无论你正在备考 JLPT，还是计划前往日本旅行与生活，本期视频都将成为你最实用的随身日语指南。",
+                "content": "欢迎来到 TokyoFlow 日语周末大合集特辑。今天，我们将周一到周五的完整东京生活实景口语，浓缩进这堂全景深度精讲课中。无论你正在备考 JLPT，还是计划前往日本旅行与生活，本期视频都将成为你最实用的随身日语指南。",
                 "speech_chunks": [
-                    {"lang": "zh", "text": "欢迎来到 TokyoFlow 日语周末大合集特辑。今天，我们将周一到周五的完整东京生活实景口语，浓缩进这堂28分钟的全景深度精讲课中。无论你正在备考 JLPT，还是计划前往日本旅行与生活，本期视频都将成为你最实用的随身日语指南。"}
+                    {"lang": "zh", "text": "欢迎来到 TokyoFlow 日语周末大合集特辑。今天，我们将周一到周五的完整东京生活实景口语，浓缩进这堂全景深度精讲课中。无论你正在备考 JLPT，还是计划前往日本旅行与生活，本期视频都将成为你最实用的随身日语指南。"}
                 ],
                 "duration_est": 21.0,
                 "jlpt": "导览"
@@ -88,11 +93,11 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "content": "在接下来的28分钟里，我们将精讲七大核心生活场景：山手线乘车报站、便利店收银结账、居酒屋点单交流、秋叶原免税购物、拉面食券定制、温泉钱汤礼仪以及神社寺庙参拜。同时，我们还将深入剖析电车静音模式、鞠躬礼节、零小费原则与极致款待文化。让我们从第一天：山手线电车开始！",
+                "content": "我们将精讲七大核心生活场景：山手线电车报站、便利店收银结账、居酒屋点单交流、秋叶原免税购物、拉面食券定制、温泉钱汤礼仪以及神社寺庙参拜。同时，深入剖析电车静音模式、鞠躬礼节、零小费原则与极致款待文化。让我们从第一天：山手线电车开始！",
                 "speech_chunks": [
-                    {"lang": "zh", "text": "在接下来的28分钟里，我们将精讲七大核心生活场景：山手线乘车报站、便利店收银结账、居酒屋点单交流、秋叶原免税购物、拉面食券定制、温泉钱汤礼仪以及神社寺庙参拜。同时，我们还将深入剖析电车静音模式、鞠躬礼节、零小费原则与极致款待文化。让我们从第一天：山手线电车开始！"}
+                    {"lang": "zh", "text": "我们将精讲七大核心生活场景：山手线电车报站、便利店收银结账、居酒屋点单交流、秋叶原免税购物、拉面食券定制、温泉钱汤礼仪以及神社寺庙参拜。同时，深入剖析电车静音模式、鞠躬礼节、零小费原则与极致款待文化。让我们从第一天：山手线电车开始！"}
                 ],
-                "duration_est": 27.0,
+                "duration_est": 25.0,
                 "jlpt": "课程大纲"
             }
         ]
@@ -115,7 +120,7 @@ MEGA_SCREENPLAY_ZH = [
                 "speech_chunks": [
                     {"lang": "zh", "text": "周一清晨，东京的脉搏从山手线开始跳动。在站台与车厢内，你最常听到的就是标准广播提示。"}
                 ],
-                "duration_est": 10.0,
+                "duration_est": 9.0,
                 "jlpt": "场景引入"
             },
             {
@@ -127,18 +132,38 @@ MEGA_SCREENPLAY_ZH = [
                 "furi": "まもなく、 にばんせん に でんしゃ が まいります。 きいろい てんじ ぶろっく の うちがわ まで おさがり ください。",
                 "romaji": "Mamonaku, nibansen ni densha ga mairimasu. Kiiroi tenji burokku no uchigawa made osagari kudasai.",
                 "meaning": "列车即将到达2号站台，请退至黄色盲道内侧等候。",
-                "speech_chunks": [
-                    {"lang": "ja", "text": "まもなく、二番線に電車がまいります。黄色い点字ブロックの内側までお下がりください。"}
+                "tokens": [
+                    {"orig": "まもなく", "kana": "まもなく", "romaji": "mamonaku"},
+                    {"orig": "二番線に", "kana": "にばんせんに", "romaji": "nibansen ni"},
+                    {"orig": "電車が", "kana": "でんしゃが", "romaji": "densha ga"},
+                    {"orig": "まいります", "kana": "まいります", "romaji": "mairimasu"},
+                    {"orig": "黄色い", "kana": "きいろい", "romaji": "kiiroi"},
+                    {"orig": "点字ブロックの", "kana": "てんじぶろっくの", "romaji": "tenji burokku no"},
+                    {"orig": "内側まで", "kana": "うちがわまで", "romaji": "uchigawa made"},
+                    {"orig": "お下がりください", "kana": "おさがりください", "romaji": "osagari kudasai"}
                 ],
                 "jlpt": "N4",
-                "duration_est": 8.5
+                "duration_est": 18.0
             },
             {
                 "seg_id": "1_3_breakdown",
-                "type": "narration",
+                "type": "breakdown",
                 "character": "云希 / 七海",
                 "lang": "bilingual",
                 "content": "请注意动词 'mairimasu'，这是 'kimasu'（来）的自谦语，体现了铁道公司的极高服务敬意；'osagari kudasai' 则是 'o + 动词连用形 + kudasai' 的高频敬语祈使句型。",
+                "ref_sentence": "まもなく、二番線に電車がまいります。黄色い点字ブロックの内側までお下がりください。",
+                "vocab": [
+                    {"orig": "まもなく", "kana": "まもなく", "romaji": "mamonaku", "pos": "副词 (N4)", "meaning": "不久 / 马上"},
+                    {"orig": "参る", "kana": "まいる", "romaji": "mairu", "pos": "自谦动词 (N3)", "meaning": "来（自谦敬语）"},
+                    {"orig": "点字ブロック", "kana": "てんじぶろっく", "romaji": "tenji burokku", "pos": "名词 (N3)", "meaning": "盲道导盲砖"},
+                    {"orig": "下がる", "kana": "さがる", "romaji": "sagaru", "pos": "动词 (N4)", "meaning": "后退 / 退后"}
+                ],
+                "grammar_title": "自谦动词 参る (Mairu) 与 敬语祈使句型",
+                "grammar_bullets": [
+                    ("• 自谦动词 参ります", "まいります 是 きます 的自谦形式，日本铁路与公共广播的标准用语"),
+                    ("• 敬语祈使句型", "お + 动词ます形词干 + ください (お下がりください = 请向后退)"),
+                    ("• 盲道安全提示", "黄色い点字ブロックの内側 (黄色盲道内侧安全区域)")
+                ],
                 "speech_chunks": [
                     {"lang": "zh", "text": "请注意动词"},
                     {"lang": "ja", "text": "まいります"},
@@ -152,7 +177,7 @@ MEGA_SCREENPLAY_ZH = [
                     {"lang": "ja", "text": "ください"},
                     {"lang": "zh", "text": "的高频敬语祈使句型。"}
                 ],
-                "duration_est": 15.0,
+                "duration_est": 16.0,
                 "jlpt": "N4 语法精讲"
             }
         ]
@@ -175,7 +200,7 @@ MEGA_SCREENPLAY_ZH = [
                 "speech_chunks": [
                     {"lang": "zh", "text": "周二走进街头随处可见的 7-Eleven 或全家便利店。在收银台前，店员会连续询问便当加热与塑料袋需求。"}
                 ],
-                "duration_est": 11.0,
+                "duration_est": 10.0,
                 "jlpt": "场景引入"
             },
             {
@@ -187,18 +212,35 @@ MEGA_SCREENPLAY_ZH = [
                 "furi": "おべんとう あたためます か？ れじぶくろ は ごりよう に なります か？",
                 "romaji": "Obentou atatamemasu ka? Rejibukuro wa goriyou ni narimasu ka?",
                 "meaning": "便当需要加热吗？需要使用塑料袋吗？",
-                "speech_chunks": [
-                    {"lang": "ja", "text": "お弁当温めますか？レジ袋はご利用になりますか？"}
+                "tokens": [
+                    {"orig": "お弁当", "kana": "おべんとう", "romaji": "obentou"},
+                    {"orig": "温めますか", "kana": "あたためますか", "romaji": "atatamemasu ka"},
+                    {"orig": "レジ袋は", "kana": "れじぶくろは", "romaji": "rejibukuro wa"},
+                    {"orig": "ご利用に", "kana": "ごりように", "romaji": "goriyou ni"},
+                    {"orig": "なりますか", "kana": "なりますか", "romaji": "narimasu ka"}
                 ],
                 "jlpt": "N5",
-                "duration_est": 7.5
+                "duration_est": 16.0
             },
             {
                 "seg_id": "2_3_breakdown",
-                "type": "narration",
+                "type": "breakdown",
                 "character": "云希 / 七海",
                 "lang": "bilingual",
                 "content": "如果需要加热，直接回答 'Onegaishimasu'；如果不需要塑料袋，最地道的回答是 'Fukuro wa daijoubu desu'（不用了，谢谢）。'Daijoubu desu' 在这里巧妙表达了礼貌拒绝。",
+                "ref_sentence": "お弁当温めますか？レジ袋はご利用になりますか？",
+                "vocab": [
+                    {"orig": "温める", "kana": "あたためる", "romaji": "atatameru", "pos": "动词 (N5)", "meaning": "加热 / 热一下"},
+                    {"orig": "レジ袋", "kana": "れじぶくろ", "romaji": "rejibukuro", "pos": "名词 (N5)", "meaning": "收银塑料袋"},
+                    {"orig": "ご利用", "kana": "ごりよう", "romaji": "goriyou", "pos": "尊他名词 (N4)", "meaning": "使用（敬语）"},
+                    {"orig": "大丈夫", "kana": "だいじょうぶ", "romaji": "daijoubu", "pos": "形容词 (N5)", "meaning": "不用/没关系"}
+                ],
+                "grammar_title": "便利店应答秘籍: お願いします 与 大丈夫です",
+                "grammar_bullets": [
+                    ("• 确认加热", "お願いします (onegai shimasu = 麻烦加热)"),
+                    ("• 委婉拒绝塑料袋", "袋は大丈夫です (fukuro wa daijoubu desu = 塑料袋不用了，谢谢)"),
+                    ("• 尊他敬语格式", "ご + 汉字词 + になる (ご利用になります = 您使用吗)")
+                ],
                 "speech_chunks": [
                     {"lang": "zh", "text": "如果需要加热，直接回答"},
                     {"lang": "ja", "text": "お願いします"},
@@ -231,7 +273,7 @@ MEGA_SCREENPLAY_ZH = [
                 "speech_chunks": [
                     {"lang": "zh", "text": "周三夜晚，步入烟火气十足的东京居酒屋。入座后第一件事不是看菜单，而是先点第一杯饮料。"}
                 ],
-                "duration_est": 11.0,
+                "duration_est": 10.0,
                 "jlpt": "场景引入"
             },
             {
@@ -243,18 +285,35 @@ MEGA_SCREENPLAY_ZH = [
                 "furi": "とりあえず なまびーる ふたつ と、 えだまめ を おねがい します。",
                 "romaji": "Toriaezu nama biiru futatsu to, edamame o onegai shimasu.",
                 "meaning": "先来两杯生啤酒和一份毛豆，谢谢。",
-                "speech_chunks": [
-                    {"lang": "ja", "text": "とりあえず生ビール二つと、枝豆をお願いします。"}
+                "tokens": [
+                    {"orig": "とりあえず", "kana": "とりあえず", "romaji": "toriaezu"},
+                    {"orig": "生ビール", "kana": "なまびーる", "romaji": "nama biiru"},
+                    {"orig": "二つと", "kana": "ふたつと", "romaji": "futatsu to"},
+                    {"orig": "枝豆を", "kana": "えだまめを", "romaji": "edamame o"},
+                    {"orig": "お願いします", "kana": "おねがいします", "romaji": "onegai shimasu"}
                 ],
                 "jlpt": "N5",
-                "duration_est": 7.0
+                "duration_est": 15.0
             },
             {
                 "seg_id": "3_3_breakdown",
-                "type": "narration",
+                "type": "breakdown",
                 "character": "云希 / 七海",
                 "lang": "bilingual",
                 "content": "'Toriaezu' 是居酒屋黄金副词，意思是'总之先来……'。同时请注意桌上主动端上的席位小菜 'Otoushi'，这是日本居酒屋不成文的席位费文化，通常为300到500日元。",
+                "ref_sentence": "とりあえず生ビール二つと、枝豆をお願いします。",
+                "vocab": [
+                    {"orig": "とりあえず", "kana": "とりあえず", "romaji": "toriaezu", "pos": "副词 (N4)", "meaning": "总之先 / 首先"},
+                    {"orig": "生ビール", "kana": "なまびーる", "romaji": "nama biiru", "pos": "名词 (N5)", "meaning": "生啤酒"},
+                    {"orig": "枝豆", "kana": "えだまめ", "romaji": "edamame", "pos": "名词 (N5)", "meaning": "毛豆"},
+                    {"orig": "お通し", "kana": "おとおし", "romaji": "otooshi", "pos": "文化名词", "meaning": "居酒屋开胃小菜 / 席位小菜"}
+                ],
+                "grammar_title": "居酒屋黄金暗号: とりあえず 与 席位小菜文化",
+                "grammar_bullets": [
+                    ("• 居酒屋开场暗号", "とりあえず生で (toriaezu nama de = 先来生啤，全日本居酒屋通用)"),
+                    ("• 数量词点餐句型", "名词 + 数量 (一つ/二つ) + を + お願いします"),
+                    ("• 席位小菜文化 (お通し)", "居酒屋固定席位前菜，代表座位费与款待，结账时自动包含")
+                ],
                 "speech_chunks": [
                     {"lang": "ja", "text": "とりあえず"},
                     {"lang": "zh", "text": "是居酒屋黄金副词，意思是总之先来。同时请注意桌上主动端上的席位小菜"},
@@ -284,7 +343,7 @@ MEGA_SCREENPLAY_ZH = [
                 "speech_chunks": [
                     {"lang": "zh", "text": "周四来到动漫圣地秋叶原。在友都八喜或手办店结账时，免税是外国游客最核心的交流诉求。"}
                 ],
-                "duration_est": 11.0,
+                "duration_est": 10.0,
                 "jlpt": "场景引入"
             },
             {
@@ -296,18 +355,35 @@ MEGA_SCREENPLAY_ZH = [
                 "furi": "めんぜい てつづき を おねがい できます か？ ぱすぽーと は こちら です。",
                 "romaji": "Menzei tetsuzuki o onegai dekimasu ka? Pasupooto wa kochira desu.",
                 "meaning": "请问可以办理免税手续吗？这是我的护照。",
-                "speech_chunks": [
-                    {"lang": "ja", "text": "免税手続きをお願いできますか？パスポートはこちらです。"}
+                "tokens": [
+                    {"orig": "免税手続きを", "kana": "めんぜいてつづきを", "romaji": "menzei tetsuzuki o"},
+                    {"orig": "お願い", "kana": "おねがい", "romaji": "onegai"},
+                    {"orig": "できますか", "kana": "できますか", "romaji": "dekimasu ka"},
+                    {"orig": "パスポートは", "kana": "ぱすぽーとは", "romaji": "pasupooto wa"},
+                    {"orig": "こちらです", "kana": "こちらです", "romaji": "kochira desu"}
                 ],
                 "jlpt": "N4",
-                "duration_est": 7.5
+                "duration_est": 16.0
             },
             {
                 "seg_id": "4_3_breakdown",
-                "type": "narration",
+                "type": "breakdown",
                 "character": "云希 / 七海",
                 "lang": "bilingual",
                 "content": "'~o onegai dekimasu ka' 是比 '~kudasai' 更具礼貌色彩的可能形请求句型。日本消费税为10%，单笔消费满5000日元即可出示护照享受当场免税。",
+                "ref_sentence": "免税手続きをお願いできますか？パスポートはこちらです。",
+                "vocab": [
+                    {"orig": "免税", "kana": "めんぜい", "romaji": "menzei", "pos": "名词 (N4)", "meaning": "免税 (Tax Free)"},
+                    {"orig": "手続き", "kana": "てつづき", "romaji": "tetsuzuki", "pos": "名词 (N4)", "meaning": "手续 / 办理流程"},
+                    {"orig": "パスポート", "kana": "ぱすぽーと", "romaji": "pasupooto", "pos": "外来语 (N5)", "meaning": "护照"},
+                    {"orig": "こちら", "kana": "こちら", "romaji": "kochira", "pos": "代词 (N5)", "meaning": "这里 / 这边（敬语）"}
+                ],
+                "grammar_title": "可能形礼貌请求: お願いできますか 与 免税规则",
+                "grammar_bullets": [
+                    ("• 极具礼貌的请求句型", "お + 动词连用形 + できますか (比 ください 更委婉谦和)"),
+                    ("• 递交物品礼仪", "パスポートはこちらです (出示护照并双手递上)"),
+                    ("• 免税门槛", "单店消费满 5000 日元（不含税）即可享受 10% 消费税减免")
+                ],
                 "speech_chunks": [
                     {"lang": "ja", "text": "をお願いできますか"},
                     {"lang": "zh", "text": "是比"},
@@ -337,7 +413,7 @@ MEGA_SCREENPLAY_ZH = [
                 "speech_chunks": [
                     {"lang": "zh", "text": "周五深夜，来到一兰或家系拉面店。在食券机前买好票后，店员会询问你对口味与面条硬度的详细偏好。"}
                 ],
-                "duration_est": 11.0,
+                "duration_est": 10.0,
                 "jlpt": "场景引入"
             },
             {
@@ -349,18 +425,37 @@ MEGA_SCREENPLAY_ZH = [
                 "furi": "めん は かため で、 あじ は こいめ で おねがい します。 かえだま を ひとつ ください。",
                 "romaji": "Men wa katame de, aji wa koime de onegai shimasu. Kaedama o hitotsu kudasai.",
                 "meaning": "面条要偏硬一点，汤头要浓郁一点，谢谢。请再加一份面。",
-                "speech_chunks": [
-                    {"lang": "ja", "text": "麺は硬めで、味は濃いめでお願いします。替え玉を一つください。"}
+                "tokens": [
+                    {"orig": "麺は", "kana": "めんは", "romaji": "men wa"},
+                    {"orig": "硬めで", "kana": "かためで", "romaji": "katame de"},
+                    {"orig": "味は", "kana": "あじは", "romaji": "aji wa"},
+                    {"orig": "濃いめで", "kana": "こいめで", "romaji": "koime de"},
+                    {"orig": "お願いします", "kana": "おねがいします", "romaji": "onegai shimasu"},
+                    {"orig": "替え玉を", "kana": "かえだまを", "romaji": "kaedama o"},
+                    {"orig": "一つください", "kana": "ひとつください", "romaji": "hitotsu kudasai"}
                 ],
                 "jlpt": "N5",
-                "duration_est": 8.0
+                "duration_est": 18.0
             },
             {
                 "seg_id": "5_3_breakdown",
-                "type": "narration",
+                "type": "breakdown",
                 "character": "云希 / 七海",
                 "lang": "bilingual",
                 "content": "后缀 '~me'（目）表示程度偏向，例如 'katame'（偏硬）、'koime'（偏浓）。博多豚骨拉面中的加面叫做 'Kaedama'，记得留半碗汤再呼叫店员哦。",
+                "ref_sentence": "麺は硬めで、味は濃いめでお願いします。替え玉を一つください。",
+                "vocab": [
+                    {"orig": "硬め", "kana": "かため", "romaji": "katame", "pos": "形容词后缀 (N5)", "meaning": "偏硬一点"},
+                    {"orig": "濃いめ", "kana": "こいめ", "romaji": "koime", "pos": "形容词后缀 (N5)", "meaning": "偏浓郁一点"},
+                    {"orig": "替え玉", "kana": "かえだま", "romaji": "kaedama", "pos": "拉面专有名词", "meaning": "加一份拉面条"},
+                    {"orig": "食券", "kana": "しょっけん", "romaji": "shokken", "pos": "名词 (N5)", "meaning": "自动贩卖食券"}
+                ],
+                "grammar_title": "拉面定制公式: 后缀 ~め (偏向) 与 替え玉 加面",
+                "grammar_bullets": [
+                    ("• 程度偏向后缀 〜め", "硬め (katame = 偏硬), 柔らかめ (yawarakame = 偏软), 濃いめ (koime = 偏浓)"),
+                    ("• 替玉加面文化", "博多拉面特色：吃完面条保留汤底，喊 'すいません、替え玉！'"),
+                    ("• 食券机流程", "先投币再按按钮，入座后直接将食券放在柜台上方")
+                ],
                 "speech_chunks": [
                     {"lang": "zh", "text": "后缀"},
                     {"lang": "ja", "text": "目"},
@@ -395,7 +490,7 @@ MEGA_SCREENPLAY_ZH = [
                 "speech_chunks": [
                     {"lang": "zh", "text": "周末放松时刻，体验日本传统的钱汤与温泉。入浴前必须严格遵守先洗净身体再入池与毛巾绝不浸入温泉水等传统规矩。"}
                 ],
-                "duration_est": 12.0,
+                "duration_est": 11.0,
                 "jlpt": "文化导入"
             },
             {
@@ -407,11 +502,18 @@ MEGA_SCREENPLAY_ZH = [
                 "furi": "ゆぶね に はいる まえ に、 かならず からだ を きれい に あらって ください。 たおる は ゆ に いれないで ください。",
                 "romaji": "Yubune ni hairu mae ni, kanarazu karada o kirei ni aratte kudasai. Taoru wa yu ni irenaide kudasai.",
                 "meaning": "进入浴池之前，请务必将身体彻底清洗干净。毛巾请勿浸入浴池中。",
-                "speech_chunks": [
-                    {"lang": "ja", "text": "湯船に入る前に、必ず体を綺麗に洗ってください。タオルは湯に入れないでください。"}
+                "tokens": [
+                    {"orig": "湯船に", "kana": "ゆぶねに", "romaji": "yubune ni"},
+                    {"orig": "入る前に", "kana": "はいるまえに", "romaji": "hairu mae ni"},
+                    {"orig": "必ず体を", "kana": "かならずからだを", "romaji": "kanarazu karada o"},
+                    {"orig": "綺麗に", "kana": "きれいに", "romaji": "kirei ni"},
+                    {"orig": "洗ってください", "kana": "あらってください", "romaji": "aratte kudasai"},
+                    {"orig": "タオルは", "kana": "たおるは", "romaji": "taoru wa"},
+                    {"orig": "湯に", "kana": "ゆに", "romaji": "yu ni"},
+                    {"orig": "入れないでください", "kana": "いれないでください", "romaji": "irenaide kudasai"}
                 ],
                 "jlpt": "N4",
-                "duration_est": 9.0
+                "duration_est": 20.0
             }
         ]
     },
@@ -435,7 +537,7 @@ MEGA_SCREENPLAY_ZH = [
                     {"lang": "ja", "text": "二礼二拍手一礼"},
                     {"lang": "zh", "text": "，投币时推荐使用5日元硬币（音同'有缘'）。"}
                 ],
-                "duration_est": 13.0,
+                "duration_est": 12.0,
                 "jlpt": "文化导入"
             },
             {
@@ -445,13 +547,17 @@ MEGA_SCREENPLAY_ZH = [
                 "lang": "ja",
                 "content": "お賽銭を入れて、二礼二拍手一礼の作法で参拝します。",
                 "furi": "おさいせん を いれて、 にれい にはくしゅ いちれい の さほう で さんぱい します。",
-                "romaji": "Osaisen o irete, nirei nihakushu ichirei no saほう de sanpai shimasu.",
+                "romaji": "Osaisen o irete, nirei nihakushu ichirei no sahou de sanpai shimasu.",
                 "meaning": "投入香油钱后，按照两次鞠躬、两次击掌、最后一次鞠躬的礼法进行参拜。",
-                "speech_chunks": [
-                    {"lang": "ja", "text": "お賽銭を入れて、二礼二拍手一礼の作法で参拝します。"}
+                "tokens": [
+                    {"orig": "お賽銭を", "kana": "おさいせんを", "romaji": "osaisen o"},
+                    {"orig": "入れて", "kana": "いれて", "romaji": "irete"},
+                    {"orig": "二礼二拍手一礼の", "kana": "にれいにはくしゅいちれいの", "romaji": "nirei nihakushu ichirei no"},
+                    {"orig": "作法で", "kana": "さほうで", "romaji": "sahou de"},
+                    {"orig": "参拝します", "kana": "さんぱいします", "romaji": "sanpai shimasu"}
                 ],
                 "jlpt": "N3",
-                "duration_est": 8.5
+                "duration_est": 18.0
             }
         ]
     },
@@ -480,38 +586,125 @@ MEGA_SCREENPLAY_ZH = [
     }
 ]
 
+# ==========================================
+# AUDIO SYNTHESIS & MILLISECOND ALIGNMENT ENGINE
+# ==========================================
+
+# In-memory storage for token alignment timings
+ALIGNMENT_STORE = {}
+
 async def synthesize_all_audio_tracks_zh(output_dir: str):
     """
-    Synthesizes all audio tracks with seamless bilingual code-switching,
-    flawless Japanese pitch accent, and contextual polyphone/brand normalization.
+    Synthesizes all audio tracks:
+    1. Japanese quotes: Two-stage continuous audio (Stage 1 Demo + 0.35s breath + Stage 2 Practice Shadowing Drill)
+       with Nanami Tokyo Native voice, perfectly continuous without dead pauses.
+    2. Explanations: Seamless bilingual in-line switching between Yunxi (Chinese) and Nanami (Japanese).
+    3. Whisper word alignment: Extracts millisecond timestamps for word-by-word karaoke follow-along.
     """
     audio_dir = os.path.join(output_dir, "audio")
     os.makedirs(audio_dir, exist_ok=True)
-    print("\n--- 正在合成 WL.02 中文大合集音频轨道 (Nanami 日语原声 + 云希 中文解说 • 无缝多语言混读) ---")
+    temp_dir = "tmp/tts_mega_zh"
+    os.makedirs(temp_dir, exist_ok=True)
+    print("\n--- 正在合成 WL.02 中文大合集音频轨道 (含两段式连贯跟读练读与毫秒级时间轴) ---")
 
     for ch in MEGA_SCREENPLAY_ZH:
         for seg in ch["segments"]:
             seg_id = seg["seg_id"]
+            seg_type = seg.get("type", "narration")
             out_file = os.path.join(audio_dir, f"seg_{seg_id}.mp3")
 
-            speech_chunks = seg.get("speech_chunks")
-            if speech_chunks:
-                await synthesize_seamless_bilingual_audio(speech_chunks, out_file)
-                print(f"   [OK] 无缝多语言混读合成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
-            else:
-                lang = seg.get("lang", "zh")
-                text = seg.get("content", "")
-                if lang == "ja":
-                    chunks = [{"lang": "ja", "text": text}]
-                else:
-                    chunks = [{"lang": "zh", "text": text}]
-                await synthesize_seamless_bilingual_audio(chunks, out_file)
-                print(f"   [OK] 单语言音频合成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
+            if seg_type == "audio_phrase":
+                # Two-Stage Continuous Practice Audio:
+                # Stage 1: 原声示范 (Native Model Tempo)
+                # Stage 2: 跟读练读 (Shadowing Drill Practice Tempo)
+                text_ja = seg.get("content", "")
+                f_demo = os.path.join(temp_dir, f"seg_{seg_id}_demo.mp3")
+                f_drill = os.path.join(temp_dir, f"seg_{seg_id}_drill.mp3")
 
-    print(" [OK] WL.02 全部音频轨道无缝混读合成完毕！")
+                # Stage 1 TTS
+                comm_demo = edge_tts.Communicate(text_ja, "ja-JP-NanamiNeural", rate="-10%", pitch="+2Hz")
+                await comm_demo.save(f_demo)
+
+                # Stage 2 TTS
+                comm_drill = edge_tts.Communicate(text_ja, "ja-JP-NanamiNeural", rate="-12%", pitch="+2Hz")
+                await comm_drill.save(f_drill)
+
+                # Align Tokens with Whisper for both Stage 1 and Stage 2
+                tokens = seg.get("tokens", extract_tokens_from_text(text_ja))
+                aligned_demo = align_sentence_tokens_with_audio(f_demo, tokens)
+                aligned_drill = align_sentence_tokens_with_audio(f_drill, tokens)
+
+                dur_demo = get_audio_duration(f_demo)
+                dur_drill = get_audio_duration(f_drill)
+                breath_pause = 0.35
+
+                # Shift Stage 2 timestamps by (dur_demo + breath_pause)
+                offset_drill = dur_demo + breath_pause
+                aligned_drill_shifted = []
+                for tok in aligned_drill:
+                    aligned_drill_shifted.append({
+                        **tok,
+                        "start": tok.get("start", 0.0) + offset_drill,
+                        "end": tok.get("end", 0.0) + offset_drill
+                    })
+
+                # Store alignment data for rendering
+                ALIGNMENT_STORE[seg_id] = {
+                    "dur_demo": dur_demo,
+                    "breath_pause": breath_pause,
+                    "dur_drill": dur_drill,
+                    "total_dur": dur_demo + breath_pause + dur_drill,
+                    "aligned_demo": aligned_demo,
+                    "aligned_drill": aligned_drill_shifted,
+                    "tokens": tokens
+                }
+
+                # Concatenate Stage 1 + breath pause + Stage 2 into seamless single audio file
+                # Use apad on stage 1 for natural breath pause
+                f_demo_padded = os.path.join(temp_dir, f"seg_{seg_id}_demo_pad.mp3")
+                subprocess.run([
+                    "ffmpeg", "-y", "-i", f_demo,
+                    "-af", f"apad=pad_dur={breath_pause}",
+                    "-c:a", "libmp3lame", "-b:a", "192k", "-ar", "44100", "-ac", "2",
+                    f_demo_padded
+                ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+
+                cmd_concat = [
+                    "ffmpeg", "-y",
+                    "-i", f_demo_padded,
+                    "-i", f_drill,
+                    "-filter_complex", "[0:a][1:a]concat=n=2:v=0:a=1[outa]",
+                    "-map", "[outa]",
+                    "-c:a", "libmp3lame", "-b:a", "192k", "-ar", "44100", "-ac", "2",
+                    out_file
+                ]
+                subprocess.run(cmd_concat, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+                print(f"   [OK] 日语示范与跟读练读无缝合并 [{seg_id}]: {os.path.basename(out_file)} (示范 {dur_demo:.1f}s + 练读 {dur_drill:.1f}s)")
+
+            else:
+                speech_chunks = seg.get("speech_chunks")
+                if speech_chunks:
+                    await synthesize_seamless_bilingual_audio(speech_chunks, out_file)
+                    print(f"   [OK] 无缝多语言混读合成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
+                else:
+                    lang = seg.get("lang", "zh")
+                    text = seg.get("content", "")
+                    if lang == "ja":
+                        chunks = [{"lang": "ja", "text": text}]
+                    else:
+                        chunks = [{"lang": "zh", "text": text}]
+                    await synthesize_seamless_bilingual_audio(chunks, out_file)
+                    print(f"   [OK] 单语言音频合成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
+
+    # Save alignment store to json for verification
+    align_json_path = os.path.join(output_dir, "alignment_cache.json")
+    with open(align_json_path, "w", encoding="utf-8") as f:
+        json.dump(ALIGNMENT_STORE, f, ensure_ascii=False, indent=2)
+
+    print(" [OK] WL.02 全部音频轨道与毫秒级时间轴计算完成！")
 
 # ==========================================
-# METADATA GENERATION
+# METADATA & SCRIPTS
 # ==========================================
 
 def build_metadata_md_zh(output_dir: str):
@@ -563,7 +756,7 @@ def build_script_json_zh(output_dir: str):
     print(f"  [OK] 保存中文版大合集剧本: {script_path}")
 
 # ==========================================
-# 4K MASTER THUMBNAIL (REAL PHOTO BASE)
+# 4K MASTER THUMBNAILS
 # ==========================================
 
 def render_master_thumbnail_zh(output_dir: str):
@@ -573,7 +766,6 @@ def render_master_thumbnail_zh(output_dir: str):
         bg_path = "docs/shared/assets/backgrounds/scene_yamanote_platform.jpg"
 
     base = Image.open(bg_path).convert("RGB").resize((width, height), Image.Resampling.LANCZOS)
-
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw_ov = ImageDraw.Draw(overlay)
 
@@ -634,7 +826,6 @@ def render_master_thumbnail_zh(output_dir: str):
     img.save(thumb_out, quality=95)
     print(f"  [OK] 保存 16:9 中文大合集封面: {thumb_out}")
 
-    # Sync to assets
     for target_dir in ["assets/thumbnails", "site/assets/thumbnails", "docs/site/assets/thumbnails"]:
         os.makedirs(target_dir, exist_ok=True)
         img.save(os.path.join(target_dir, "WM01-weekday_survival_mega_compilation_zh_thumb.jpg"), quality=95)
@@ -646,7 +837,6 @@ def render_shorts_thumbnail_zh(output_dir: str):
         bg_path = "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg"
 
     base = Image.open(bg_path).convert("RGB").resize((width, height), Image.Resampling.LANCZOS)
-
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw_ov = ImageDraw.Draw(overlay)
 
@@ -699,11 +889,225 @@ def render_shorts_thumbnail_zh(output_dir: str):
     print(f"  [OK] 保存 9:16 中文短片封面: {short_thumb_out}")
 
 # ==========================================
-# MASTER VIDEO RENDERING (AUTHENTIC SCENE BACKGROUNDS)
+# 1080P MASTER VIDEO RENDERING (MILLIS-KARAOKE + BREAKDOWN)
 # ==========================================
 
+def render_dialogue_karaoke_frame_zh(
+    tokens: list,
+    category_label: str,
+    title_label: str,
+    chinese_meaning: str,
+    current_time: float,
+    total_duration: float,
+    jlpt_level: str = "N4",
+    stage_label: str = "原声示范"
+) -> Image.Image:
+    """Renders 3-Tier dialogue card with active glowing yellow capsule and red bouncing mora dot."""
+    img = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+
+    # Top brand bar
+    draw.rectangle([(0, 0), (1920, 70)], fill=(10, 15, 28, 230))
+    draw.text((50, 18), "TokyoFlow 日语实景大课  |  WL.02 周一到周五东京生活全景大合集", fill=(255, 255, 255), font=get_font(26))
+    badge_str = f"【{jlpt_level}】• {category_label}"
+    draw.text((1400, 18), badge_str, fill=(244, 114, 182), font=get_font(22))
+
+    # Stage Badge (示范 / 练读)
+    is_drill = "练读" in stage_label or "跟读" in stage_label
+    badge_color = (225, 29, 72) if not is_drill else (16, 185, 129)
+    draw.rounded_rectangle([(50, 95), (480, 145)], radius=12, fill=badge_color)
+    draw.text((70, 106), f"[ {stage_label} • 纯正东京原声 ]", fill=(255, 255, 255), font=get_font(22))
+
+    # Main 3-Tier Card
+    card_x, card_y, card_w, card_h = 50, 480, 1820, 540
+    draw.rounded_rectangle([(card_x, card_y), (card_x + card_w, card_y + card_h)], radius=24, fill=(10, 15, 28, 240), outline=(56, 189, 248), width=2)
+
+    # Layout tokens
+    base_jp_sz = 44
+    base_kana_sz = 22
+    base_ro_sz = 22
+
+    f_jp = get_font(base_jp_sz)
+    f_ka = get_font(base_kana_sz)
+    f_ro = get_font(base_ro_sz)
+
+    pad_x = 24
+    token_widths = []
+    for tok in tokens:
+        w_jp = draw.textbbox((0, 0), tok["orig"], font=f_jp)[2]
+        w_ka = draw.textbbox((0, 0), tok.get("kana", ""), font=f_ka)[2] if tok.get("kana") else 0
+        w_ro = draw.textbbox((0, 0), tok.get("romaji", ""), font=f_ro)[2] if tok.get("romaji") else 0
+        w = max(w_jp, w_ka, w_ro) + pad_x
+        token_widths.append(w)
+
+    total_tokens_w = sum(token_widths)
+    start_x = card_x + max(30, (card_w - total_tokens_w) // 2)
+    curr_x = start_x
+
+    y_kana = card_y + 40
+    y_jp = card_y + 85
+    y_romaji = card_y + 165
+
+    for i, tok in enumerate(tokens):
+        w = token_widths[i]
+        st = tok.get("start", 0.0)
+        et = tok.get("end", 0.0)
+        is_active = (st <= current_time <= et) and (et > st)
+
+        if is_active:
+            # Active glowing gold capsule
+            draw.rounded_rectangle([(curr_x + 2, y_kana - 12), (curr_x + w - 2, y_romaji + 42)], radius=16, fill=(254, 240, 138), outline=(245, 158, 11), width=3)
+            # Active bouncing mora indicator dot
+            dot_cx = curr_x + w // 2
+            draw.ellipse([(dot_cx - 6, y_kana - 26), (dot_cx + 6, y_kana - 14)], fill=(220, 38, 38))
+            c_kana = (180, 83, 9)
+            c_jp = (15, 23, 42)
+            c_ro = (180, 83, 9)
+        else:
+            c_kana = (148, 163, 184)
+            c_jp = (255, 255, 255)
+            c_ro = (148, 163, 184)
+
+        if tok.get("kana"):
+            kw = draw.textbbox((0, 0), tok["kana"], font=f_ka)[2]
+            draw.text((curr_x + (w - kw) // 2, y_kana), tok["kana"], fill=c_kana, font=f_ka)
+
+        jw = draw.textbbox((0, 0), tok["orig"], font=f_jp)[2]
+        draw.text((curr_x + (w - jw) // 2, y_jp), tok["orig"], fill=c_jp, font=f_jp)
+
+        if tok.get("romaji"):
+            rw = draw.textbbox((0, 0), tok["romaji"], font=f_ro)[2]
+            draw.text((curr_x + (w - rw) // 2, y_romaji), tok["romaji"], fill=c_ro, font=f_ro)
+
+        curr_x += w
+
+    # Divider
+    draw.line([(card_x + 40, card_y + 245), (card_x + card_w - 40, card_y + 245)], fill=(51, 65, 85, 200), width=2)
+
+    # Chinese Meaning
+    draw.text((card_x + 45, card_y + 265), f"中文释义：「{chinese_meaning}」", fill=(226, 232, 240), font=get_font(30))
+
+    # Follow-Along Prompt Box
+    prompt_y = card_y + 335
+    if is_drill:
+        draw.rounded_rectangle([(card_x + 45, prompt_y), (card_x + card_w - 45, prompt_y + 105)], radius=14, fill=(30, 41, 59, 220), outline=(16, 185, 129), width=2)
+        draw.text((card_x + 70, prompt_y + 20), "[ 影子跟读练读中 • 纯正东京原声领读 ]", fill=(16, 185, 129), font=get_font(24))
+        draw.text((card_x + 70, prompt_y + 60), "跟随黄色发光胶囊同步大声朗读 • 强化语调与声调肌肉记忆", fill=(255, 255, 255), font=get_font(22))
+    else:
+        draw.rounded_rectangle([(card_x + 45, prompt_y), (card_x + card_w - 45, prompt_y + 105)], radius=14, fill=(30, 41, 59, 220), outline=(56, 189, 248), width=1)
+        draw.text((card_x + 70, prompt_y + 20), "[ 场景示范聆听 • 纯正东京原声 ]", fill=(56, 189, 248), font=get_font(24))
+        draw.text((card_x + 70, prompt_y + 60), "先聆听东京母语者标准发音与停顿节奏，随后进入连续跟读练读", fill=(226, 232, 240), font=get_font(22))
+
+    # Bottom Studio Ribbon
+    draw.rounded_rectangle([(card_x, card_y + card_h - 45), (card_x + card_w, card_y + card_h)], radius=10, fill=(15, 23, 42))
+    draw.text((card_x + 25, card_y + card_h - 36), "[ TOKYOFLOW 实景学院 ]  100% 纯正东京原声 (Nanami) • 毫秒级卡拉OK跟读对齐", fill=(56, 189, 248), font=get_font(18))
+
+    return img
+
+def render_breakdown_frame_zh(
+    ref_sentence: str,
+    vocab_list: list,
+    grammar_title: str,
+    grammar_bullets: list,
+    chapter_title: str,
+    jlpt_level: str
+) -> Image.Image:
+    """Renders high-contrast Glassmorphic breakdown card with vocab grid and grammar spotlight."""
+    img = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+
+    # Top Brand Ribbon
+    draw.rectangle([(0, 0), (1920, 70)], fill=(10, 15, 28, 230))
+    draw.text((50, 18), "TokyoFlow 日语实景大课  |  WL.02 周一到周五东京生活全景大合集", fill=(255, 255, 255), font=get_font(26))
+    draw.text((1400, 18), f"【{jlpt_level}】• {chapter_title}", fill=(244, 114, 182), font=get_font(22))
+
+    card_x, card_w = 50, 1820
+
+    # Header Target Sentence Banner (y=90..165)
+    draw.rounded_rectangle([(card_x, 90), (card_x + card_w, 165)], radius=16, fill=(15, 23, 42, 240), outline=(56, 189, 248), width=2)
+    draw.text((card_x + 30, 102), f"[ 名师核心句语法精讲 ]", fill=(244, 114, 182), font=get_font(20))
+    draw.text((card_x + 300, 102), ref_sentence, fill=(255, 255, 255), font=get_font(24))
+
+    # Vocab Grid Cards (y=180..440)
+    grid_y = 180
+    n_cards = min(4, len(vocab_list)) if vocab_list else 1
+    cw = (card_w - (n_cards - 1) * 20) // max(1, n_cards)
+    ch_h = 245
+
+    for i in range(n_cards):
+        v = vocab_list[i] if i < len(vocab_list) else {}
+        cx = card_x + i * (cw + 20)
+        draw.rounded_rectangle([(cx, grid_y), (cx + cw, grid_y + ch_h)], radius=16, fill=(10, 15, 28, 235), outline=(51, 65, 85, 200), width=2)
+
+        pos_str = f" {v.get('pos', '重点词汇')} "
+        draw.rounded_rectangle([(cx + 20, grid_y + 15), (cx + cw - 20, grid_y + 50)], radius=8, fill=(30, 41, 59))
+        draw.text((cx + 30, grid_y + 20), pos_str, fill=(56, 189, 248), font=get_font(18))
+
+        draw.text((cx + 25, grid_y + 65), v.get("orig", ""), fill=(254, 240, 138), font=get_font(30))
+        draw.text((cx + 25, grid_y + 115), f"{v.get('kana', '')} ({v.get('romaji', '')})", fill=(148, 163, 184), font=get_font(18))
+        draw.line([(cx + 20, grid_y + 155), (cx + cw - 20, grid_y + 155)], fill=(51, 65, 85, 180), width=1)
+        draw.text((cx + 25, grid_y + 175), v.get("meaning", ""), fill=(241, 245, 249), font=get_font(20))
+
+    # Grammar & Culture Spotlight Box (y=445..1020)
+    box_y = 445
+    box_h = 575
+    draw.rounded_rectangle([(card_x, box_y), (card_x + card_w, box_y + box_h)], radius=20, fill=(10, 15, 28, 240), outline=(56, 189, 248), width=2)
+
+    draw.rounded_rectangle([(card_x + 2, box_y + 2), (card_x + card_w - 2, box_y + 60)], radius=18, fill=(30, 41, 59))
+    draw.text((card_x + 35, box_y + 15), f"[ 语法与文化核心要点 ] {grammar_title}", fill=(254, 240, 138), font=get_font(26))
+
+    by = box_y + 85
+    for header, detail in grammar_bullets:
+        draw.text((card_x + 35, by), header, fill=(244, 114, 182), font=get_font(24))
+        draw.text((card_x + 40, by + 36), detail, fill=(241, 245, 249), font=get_font(24))
+        by += 90
+
+    # Bottom Tag
+    draw.rounded_rectangle([(card_x, box_y + box_h - 45), (card_x + card_w, box_y + box_h)], radius=10, fill=(15, 23, 42))
+    draw.text((card_x + 25, box_y + box_h - 36), "[ TOKYOFLOW 语法精讲 ] 云希全中文深度拆解 • 融入日本高语境文化习惯", fill=(56, 189, 248), font=get_font(18))
+
+    return img
+
+def render_story_narration_frame_zh(
+    chapter_num: int,
+    chapter_title: str,
+    narration_text: str,
+    character_name: str,
+    jlpt_level: str
+) -> Image.Image:
+    """Renders general narration card."""
+    img = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+
+    # Top Banner
+    draw.rectangle([(0, 0), (1920, 70)], fill=(10, 15, 28, 230))
+    draw.text((50, 18), "TokyoFlow 日语实景大课  |  WL.02 周一到周五东京生活全景大合集", fill=(255, 255, 255), font=get_font(26))
+    draw.text((1400, 18), f"【{jlpt_level}】• {chapter_title}", fill=(244, 114, 182), font=get_font(22))
+
+    # Bottom Subtitle Card
+    box_x, box_y, box_w, box_h = 50, 680, 1820, 350
+    draw.rounded_rectangle([(box_x, box_y), (box_x + box_w, box_y + box_h)], radius=22, fill=(10, 15, 28, 235), outline=(56, 189, 248), width=2)
+
+    draw.text((box_x + 35, box_y + 20), f"[ 章节 {chapter_num} • {chapter_title} ]", fill=(254, 240, 138), font=get_font(26))
+
+    draw.rounded_rectangle([(box_x + box_w - 360, box_y + 15), (box_x + box_w - 35, box_y + 55)], radius=10, fill=(225, 29, 72))
+    draw.text((box_x + box_w - 340, box_y + 22), f"名师解说 • {character_name}", fill=(255, 255, 255), font=get_font(18))
+
+    draw.line([(box_x + 35, box_y + 65), (box_x + box_w - 35, box_y + 65)], fill=(51, 65, 85, 200), width=1)
+
+    lines = [narration_text[i:i+45] for i in range(0, len(narration_text), 45)]
+    ty = box_y + 85
+    for line in lines[:4]:
+        draw.text((box_x + 35, ty), line, fill=(241, 245, 249), font=get_font(28))
+        ty += 48
+
+    draw.rounded_rectangle([(box_x + 35, box_y + box_h - 45), (box_x + box_w - 35, box_y + box_h - 10)], radius=8, fill=(15, 23, 42))
+    draw.text((box_x + 50, box_y + box_h - 38), "[ TOKYOFLOW 实景学院 ]  100% 纯正东京原声 (Nanami) • 云希全中文深度拆解", fill=(56, 189, 248), font=get_font(18))
+
+    return img
+
 def render_full_master_video_zh(output_dir: str):
-    """Renders 1080p master video using authentic Tokyo 4K scenes and real-time Chinese RGBA HUD."""
+    """Renders 1080p master video using authentic Tokyo 4K scenes, millisecond karaoke HUD, and continuous practice audio."""
     print("\n--- 正在使用 4K 东京实景渲染 1080p 中文大合集视频 ---")
     tmp_vid_dir = "tmp/videogen/sunday_mega_wm01_zh"
     os.makedirs(tmp_vid_dir, exist_ok=True)
@@ -719,6 +1123,7 @@ def render_full_master_video_zh(output_dir: str):
 
         for seg in ch["segments"]:
             seg_id = seg["seg_id"]
+            seg_type = seg.get("type", "narration")
             audio_path = os.path.join(audio_dir, f"seg_{seg_id}.mp3")
             out_mp4 = os.path.join(tmp_vid_dir, f"clip_{seg_id}.mp4")
 
@@ -757,42 +1162,52 @@ def render_full_master_video_zh(output_dir: str):
             proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
             try:
                 for f_idx in range(total_frames):
-                    img = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
-                    draw = ImageDraw.Draw(img)
+                    t = f_idx / fps
 
-                    # Top Banner
-                    draw.rectangle([(0, 0), (1920, 68)], fill=(10, 15, 28, 220))
-                    draw.text((50, 18), "TokyoFlow 日语实景大课  |  WL.02 周一到周五东京生活全景大合集", fill=(255, 255, 255), font=get_font(26))
-                    draw.text((1500, 18), f"【JLPT N5-N3】• {ch_title}", fill=(244, 114, 182), font=get_font(22))
+                    if seg_type == "audio_phrase":
+                        align_data = ALIGNMENT_STORE.get(seg_id, {})
+                        dur_demo = align_data.get("dur_demo", dur * 0.5)
+                        breath_p = align_data.get("breath_pause", 0.35)
+                        t_demo_end = dur_demo + breath_p
 
-                    # Bottom Subtitle Card
-                    box_x, box_y, box_w, box_h = 50, 680, 1820, 350
-                    draw.rounded_rectangle([(box_x, box_y), (box_x + box_w, box_y + box_h)], radius=22, fill=(10, 15, 28, 235), outline=(56, 189, 248), width=2)
+                        if t < t_demo_end:
+                            # Stage 1: 原声示范
+                            active_tokens = align_data.get("aligned_demo", seg.get("tokens", []))
+                            stg_lbl = "原声示范"
+                        else:
+                            # Stage 2: 影子跟读练读
+                            active_tokens = align_data.get("aligned_drill", seg.get("tokens", []))
+                            stg_lbl = "影子跟读"
 
-                    draw.text((box_x + 35, box_y + 20), f"[ 章节 {ch_id} • {ch_title} ]", fill=(254, 240, 138), font=get_font(26))
-
-                    char_name = seg.get("character", "云希")
-                    draw.rounded_rectangle([(box_x + box_w - 360, box_y + 15), (box_x + box_w - 35, box_y + 55)], radius=10, fill=(225, 29, 72))
-                    draw.text((box_x + box_w - 340, box_y + 22), f"名师 / 原声 • {char_name}", fill=(255, 255, 255), font=get_font(18))
-
-                    draw.line([(box_x + 35, box_y + 65), (box_x + box_w - 35, box_y + 65)], fill=(51, 65, 85, 200), width=1)
-
-                    content_text = seg.get("content", "")
-                    if seg.get("lang") == "ja":
-                        draw.text((box_x + 35, box_y + 85), content_text, fill=(255, 255, 255), font=get_font(40))
-                        draw.text((box_x + 35, box_y + 150), f"假名：{seg.get('furi', '')}", fill=(244, 114, 182), font=get_font(26))
-                        draw.text((box_x + 35, box_y + 200), f"中文：「{seg.get('meaning', '')}」", fill=(226, 232, 240), font=get_font(28))
+                        frame = render_dialogue_karaoke_frame_zh(
+                            tokens=active_tokens,
+                            category_label=ch_title,
+                            title_label=f"场景 {seg_id} • {ch_title}",
+                            chinese_meaning=seg.get("meaning", ""),
+                            current_time=t,
+                            total_duration=dur,
+                            jlpt_level=seg.get("jlpt", "N4"),
+                            stage_label=stg_lbl
+                        )
+                    elif seg_type == "breakdown":
+                        frame = render_breakdown_frame_zh(
+                            ref_sentence=seg.get("ref_sentence", seg.get("content", "")),
+                            vocab_list=seg.get("vocab", []),
+                            grammar_title=seg.get("grammar_title", "JLPT 语法与文化解析"),
+                            grammar_bullets=seg.get("grammar_bullets", []),
+                            chapter_title=ch_title,
+                            jlpt_level=seg.get("jlpt", "N4")
+                        )
                     else:
-                        lines = [content_text[i:i+45] for i in range(0, len(content_text), 45)]
-                        ty = box_y + 85
-                        for line in lines[:4]:
-                            draw.text((box_x + 35, ty), line, fill=(241, 245, 249), font=get_font(28))
-                            ty += 48
+                        frame = render_story_narration_frame_zh(
+                            chapter_num=ch_id,
+                            chapter_title=ch_title,
+                            narration_text=seg.get("content", ""),
+                            character_name=seg.get("character", "云希"),
+                            jlpt_level=seg.get("jlpt", "导览")
+                        )
 
-                    draw.rounded_rectangle([(box_x + 35, box_y + box_h - 45), (box_x + box_w - 35, box_y + box_h - 10)], radius=8, fill=(15, 23, 42))
-                    draw.text((box_x + 50, box_y + box_h - 38), "[ TOKYOFLOW 实景学院 ]  100% 纯正东京原声 (Nanami) • 云希全中文深度拆解", fill=(56, 189, 248), font=get_font(18))
-
-                    proc.stdin.write(img.tobytes())
+                    proc.stdin.write(frame.tobytes())
             except Exception:
                 pass
             finally:
@@ -803,6 +1218,7 @@ def render_full_master_video_zh(output_dir: str):
                 proc.wait()
 
             segment_mp4s.append(out_mp4)
+            print(f"  [RENDERED] clip_{seg_id}.mp4 ({dur:.1f}s)")
 
     concat_txt = os.path.join(tmp_vid_dir, "concat_list.txt")
     with open(concat_txt, "w", encoding="utf-8") as f:

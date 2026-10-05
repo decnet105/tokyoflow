@@ -117,13 +117,16 @@ async def synthesize_seamless_bilingual_audio(speech_chunks: list, output_mp3: s
         
         await synthesize_chunk_audio(chunk, chunk_raw)
         
-        # Apply 45ms natural breath interval with smooth 10ms in/out anti-pop fading
-        # Pad duration is short to maintain natural sentence rhythm without robotic pauses
+        # Calculate raw audio duration for accurate fade-out start time
+        raw_dur = get_audio_duration(chunk_raw)
         pad_dur = chunk.get("pad_tail", 0.05)
+        fade_out_st = max(0.0, raw_dur - 0.008)
+        
+        # Apply natural breath interval with smooth 8ms in/out anti-pop fading at real end
         cmd_norm = [
             "ffmpeg", "-y",
             "-i", chunk_raw,
-            "-af", f"apad=pad_dur={pad_dur},afade=t=in:ss=0:d=0.008,afade=t=out:st=0:d=0.008",
+            "-af", f"apad=pad_dur={pad_dur},afade=t=in:ss=0:d=0.008,afade=t=out:st={fade_out_st}:d=0.008",
             "-c:a", "libmp3lame",
             "-b:a", "192k",
             "-ar", "44100",
@@ -140,7 +143,7 @@ async def synthesize_seamless_bilingual_audio(speech_chunks: list, output_mp3: s
     n = len(chunk_files)
     if n == 1:
         # Direct copy if only one chunk
-        subprocess.run(["ffmpeg", "-y", "-i", chunk_files[0], "-c", "copy", output_mp3],
+        subprocess.run(["ffmpeg", "-y", "-i", chunk_files[0], "-c:a", "libmp3lame", "-b:a", "192k", output_mp3],
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
     else:
         inputs = []

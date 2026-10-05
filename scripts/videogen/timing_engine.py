@@ -56,7 +56,7 @@ def align_sentence_tokens_with_audio(audio_path: str, tokens: list) -> list:
     
     for tok in tokens:
         orig = tok["orig"]
-        clean_orig = re.sub(r"[\s]", "", orig)
+        clean_orig = re.sub(r"[\s、。！？・「」『』（）,\.!\?]", "", orig)
         
         if not clean_orig:
             prev_end = aligned_tokens[-1]["end"] if aligned_tokens else 0.0
@@ -72,7 +72,7 @@ def align_sentence_tokens_with_audio(audio_path: str, tokens: list) -> list:
         
         while w_idx < total_w:
             w_item = whisper_words[w_idx]
-            w_text = re.sub(r"[\s]", "", w_item["word"])
+            w_text = re.sub(r"[\s、。！？・「」『』（）,\.!\?]", "", w_item["word"])
             matched_words.append(w_item)
             matched_chars += w_text
             w_idx += 1

@@ -23,7 +23,7 @@ from youtube_auth import get_authenticated_service
 
 EST_TZ = zoneinfo.ZoneInfo("America/New_York")
 
-OLD_WL02_ID = "owPAbQVhGE0"
+OLD_WL02_ID = "K-XY0ZFnSIk"
 
 def parse_metadata_file(md_path: Path):
     content = md_path.read_text(encoding="utf-8")
