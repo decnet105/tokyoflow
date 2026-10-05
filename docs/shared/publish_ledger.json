@@ -209,6 +209,42 @@
       "uploaded_at": "2026-10-03T16:24:17.675377-04:00",
       "is_short": true
     },
+    "WL01-last-mile-masterclass-v1.0-zh_video": {
+      "video_id": "AaWSZ4J2fSI",
+      "video_url": "https://youtu.be/AaWSZ4J2fSI",
+      "title": "【JLPT N5-N2】电影《最后的里程》影视沉浸精讲（WL.01）| 满岛光×冈田将生 2024票房冠军超长深度解析",
+      "publish_at_est": "2026-10-04T21:52:51-04:00",
+      "uploaded_at": "2026-10-04T21:52:54Z",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "WL01-last-mile-masterclass-v1.0-zh_short": {
+      "video_id": "vMM1KrOG4j4",
+      "video_url": "https://youtu.be/vMM1KrOG4j4",
+      "title": "【JLPT N3】电影《最后的里程》高光台词跟读！2.7m/s绝不停运？（WS.01） #Shorts",
+      "publish_at_est": "2026-10-04T21:52:55-04:00",
+      "uploaded_at": "2026-10-04T21:52:57Z",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "WM01-weekday_survival_mega_compilation-v1.0-zh_video": {
+      "video_id": "jFEtdDNpvlg",
+      "video_url": "https://youtu.be/jFEtdDNpvlg",
+      "title": "【JLPT N5-N3】周一到周五东京生活全景大合集（WM.01）| 电车·便利店·居酒屋·秋叶原·拉面·温泉全场景28分钟精讲",
+      "publish_at_est": "2026-10-04T21:52:57-04:00",
+      "uploaded_at": "2026-10-04T21:53:00Z",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "WM01-weekday_survival_mega_compilation-v1.0-zh_short": {
+      "video_id": "4_95LXM4uj0",
+      "video_url": "https://youtu.be/4_95LXM4uj0",
+      "title": "【JLPT N4】听懂山手线站台广播！黄色盲道退后提示与自谦语精讲（WS.01） #Shorts",
+      "publish_at_est": "2026-10-04T21:53:00-04:00",
+      "uploaded_at": "2026-10-04T21:53:03Z",
+      "is_short": true,
+      "notify_subscribers": false
+    },
     "E01-Yamanote_Transit-v1.0-zh_video": {
       "video_id": "6JRuW-U_KsQ",
       "video_url": "https://youtu.be/6JRuW-U_KsQ",

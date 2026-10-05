@@ -20,5 +20,6 @@ tmp/
 # Rendered Video & Audio Output
 output/**/*.mp4
 output/**/*.m4a
+docs/youtube_releases/**/*.mp4
 test.mp3
 test_norm.mp3

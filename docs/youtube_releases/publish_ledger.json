@@ -1,0 +1,41 @@
+{
+  "published": {
+    "WL01-last-mile-masterclass-v1.0-zh_video": {
+      "video_id": "AaWSZ4J2fSI",
+      "video_url": "https://youtu.be/AaWSZ4J2fSI",
+      "title": "YouTube 视频标题",
+      "publish_at_est": "2026-10-04T21:52:51.239284-04:00",
+      "uploaded_at": "2026-10-04T21:52:54.944608-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "WL01-last-mile-masterclass-v1.0-zh_short": {
+      "video_id": "vMM1KrOG4j4",
+      "video_url": "https://youtu.be/vMM1KrOG4j4",
+      "title": "YouTube Shorts 标题 #Shorts",
+      "publish_at_est": "2026-10-04T21:52:55.231438-04:00",
+      "uploaded_at": "2026-10-04T21:52:57.566067-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "WM01-weekday_survival_mega_compilation-v1.0-zh_video": {
+      "video_id": "jFEtdDNpvlg",
+      "video_url": "https://youtu.be/jFEtdDNpvlg",
+      "title": "YouTube 视频标题",
+      "publish_at_est": "2026-10-04T21:52:57.700306-04:00",
+      "uploaded_at": "2026-10-04T21:53:00.752765-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "WM01-weekday_survival_mega_compilation-v1.0-zh_short": {
+      "video_id": "4_95LXM4uj0",
+      "video_url": "https://youtu.be/4_95LXM4uj0",
+      "title": "YouTube Shorts 标题 #Shorts",
+      "publish_at_est": "2026-10-04T21:53:00.866919-04:00",
+      "uploaded_at": "2026-10-04T21:53:03.414643-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    }
+  },
+  "slots": []
+}

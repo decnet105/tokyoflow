@@ -534,13 +534,13 @@ MASTERCLASSES = [
         "thumb_en": "/assets/thumbnails/WL01-last-mile-masterclass_thumb.jpg",
         "thumb_zh": "/assets/thumbnails/WL01-last-mile-masterclass_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/-KFRtoLDNVU",
-        "yt_url_zh": "https://youtu.be/-KFRtoLDNVU",
+        "yt_url_zh": "https://youtu.be/AaWSZ4J2fSI",
         "yt_id_en": "-KFRtoLDNVU",
-        "yt_id_zh": "-KFRtoLDNVU",
+        "yt_id_zh": "AaWSZ4J2fSI",
         "is_live_en": True,
         "is_live_zh": True,
         "schedule_en": "LIVE NOW",
-        "schedule_zh": "全球先行版已公开上线 (可直接播放)"
+        "schedule_zh": "已公开上线 • 立即观看"
     },
     {
         "id": "WM01",
@@ -560,18 +560,38 @@ MASTERCLASSES = [
         "thumb_en": "/assets/thumbnails/WM01-weekday_survival_mega_compilation_thumb.jpg",
         "thumb_zh": "/assets/thumbnails/WM01-weekday_survival_mega_compilation_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/mV7J6OKutj0",
-        "yt_url_zh": "https://youtu.be/mV7J6OKutj0",
+        "yt_url_zh": "https://youtu.be/jFEtdDNpvlg",
         "yt_id_en": "mV7J6OKutj0",
-        "yt_id_zh": "mV7J6OKutj0",
+        "yt_id_zh": "jFEtdDNpvlg",
         "is_live_en": True,
         "is_live_zh": True,
         "schedule_en": "LIVE NOW",
-        "schedule_zh": "全球先行版已公开上线 (可直接播放)"
+        "schedule_zh": "已公开上线 • 立即观看"
     }
 ]
 
 # Top Vertical Shorts for Rapid Shadowing Drills
 SHORTS_ZH = [
+    {
+        "id": "WS.01",
+        "jlpt": "【JLPT N3】",
+        "title": "电影《最后的里程》高光台词跟读！2.7m/s绝不停运？",
+        "yt_url": "https://youtu.be/vMM1KrOG4j4",
+        "yt_id": "vMM1KrOG4j4",
+        "focus": "满岛光电影原声与~わけにはいかない",
+        "is_live": True,
+        "schedule": "已公开上线 • 立即跟读"
+    },
+    {
+        "id": "WS.02",
+        "jlpt": "【JLPT N4】",
+        "title": "听懂山手线站台广播！黄色盲道退后提示与自谦语精讲",
+        "yt_url": "https://youtu.be/4_95LXM4uj0",
+        "yt_id": "4_95LXM4uj0",
+        "focus": "山手线站台广播与自谦语mairimasu",
+        "is_live": True,
+        "schedule": "已公开上线 • 立即跟读"
+    },
     {
         "id": "SH.00",
         "jlpt": "【中文首发】",
