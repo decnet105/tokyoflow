@@ -1862,6 +1862,7 @@ body {
 
 
 
+
 /* ==========================================================================
    ENHANCED YOUTUBE ACADEMY & CONVERSION STYLES
    ========================================================================== */
@@ -1877,7 +1878,7 @@ body {
   align-items: center;
   gap: 2.5rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   color: #FFFFFF;
 }
 
@@ -1956,6 +1957,37 @@ body {
   background: #E60000;
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(255, 0, 0, 0.45);
+}
+
+/* Schedule Notice Bar */
+.schedule-notice-bar {
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.86rem;
+  color: var(--navy);
+  font-family: var(--font-serif);
+}
+
+.notice-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cinnabar);
+  background: rgba(188, 56, 44, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.notice-text {
+  flex: 1;
+  line-height: 1.5;
 }
 
 /* Playlist Filter Bar */
@@ -2075,6 +2107,39 @@ body {
   font-weight: 700;
 }
 
+.video-status-overlay {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
+  display: flex;
+}
+
+.status-badge-live {
+  background: rgba(16, 185, 129, 0.92);
+  color: #FFFFFF;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.status-badge-scheduled {
+  background: rgba(18, 54, 94, 0.92);
+  color: #FBBF24;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
 .video-play-overlay {
   position: absolute;
   inset: 0;
@@ -2179,6 +2244,28 @@ body {
   margin-top: 0.75rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--border-gold-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.video-schedule-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+}
+
+.schedule-label {
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.schedule-val {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 .yt-action-btn {
@@ -2190,6 +2277,7 @@ body {
   font-weight: 700;
   color: var(--cinnabar);
   transition: gap 0.2s ease;
+  margin-top: 0.2rem;
 }
 
 .video-card-link:hover .yt-action-btn {
@@ -2316,13 +2404,21 @@ body {
 .short-focus-box {
   font-size: 0.76rem;
   color: var(--ink-sub);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .short-focus-label {
   font-family: var(--font-mono);
   font-weight: 600;
   color: var(--gold-deep);
+}
+
+.short-schedule-tag {
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+  width: fit-content;
 }
 
 .short-btn-bar {

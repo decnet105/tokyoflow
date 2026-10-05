@@ -20,7 +20,7 @@ def assert_zero_emoji(text: str, context_name: str = ""):
     if matches:
         raise ValueError(f"[ZERO EMOJI VIOLATION] Found forbidden emojis in {context_name}: {matches}")
 
-# 21 Long-Form Masterclasses / Compilations
+# 21 Long-Form Masterclasses / Compilations with Exact Scheduled/Live Timestamps
 MASTERCLASSES = [
     {
         "id": "E01",
@@ -37,11 +37,16 @@ MASTERCLASSES = [
         "key_phrase": "黄色い点字ブロックの内側までお下がりください。",
         "key_meaning_en": "Please wait behind the yellow tactile braille blocks.",
         "key_meaning_zh": "请退至黄色盲道内侧等候列车进站。",
-        "thumb": "/assets/thumbnails/E01-Yamanote_Transit_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E01-Yamanote_Transit_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E01-Yamanote_Transit_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/yN6dTC-LBz8",
         "yt_url_zh": "https://youtu.be/6JRuW-U_KsQ",
         "yt_id_en": "yN6dTC-LBz8",
-        "yt_id_zh": "6JRuW-U_KsQ"
+        "yt_id_zh": "6JRuW-U_KsQ",
+        "is_live_en": True,
+        "is_live_zh": False,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "首播时间：2026年10月05日 20:00 EDT"
     },
     {
         "id": "E02",
@@ -58,11 +63,16 @@ MASTERCLASSES = [
         "key_phrase": "お弁当温めますか？レジ袋はご利用ですか？",
         "key_meaning_en": "Would you like your bento warmed? Do you need a plastic bag?",
         "key_meaning_zh": "便当需要帮您加热吗？需要使用塑料购物袋吗？",
-        "thumb": "/assets/thumbnails/E02-Kombini_Checkout_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E02-Kombini_Checkout_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E02-Kombini_Checkout_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/6er1tWAH_oQ",
         "yt_url_zh": "https://youtu.be/SweaDZEQlpo",
         "yt_id_en": "6er1tWAH_oQ",
-        "yt_id_zh": "SweaDZEQlpo"
+        "yt_id_zh": "SweaDZEQlpo",
+        "is_live_en": True,
+        "is_live_zh": False,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "首播时间：2026年10月07日 20:00 EDT"
     },
     {
         "id": "E03",
@@ -79,11 +89,16 @@ MASTERCLASSES = [
         "key_phrase": "とりあえず生二つ、焼き鳥盛り合わせ塩で！",
         "key_meaning_en": "First two draft beers, and a salt-grilled yakitori platter please!",
         "key_meaning_zh": "先来两杯生啤酒，再来一份盐烤烤鸡串拼盘！",
-        "thumb": "/assets/thumbnails/E03-Izakaya_Night_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E03-Izakaya_Night_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E03-Izakaya_Night_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/B4sN_BkLcOw",
         "yt_url_zh": "https://youtu.be/P9wLC803VF4",
         "yt_id_en": "B4sN_BkLcOw",
-        "yt_id_zh": "P9wLC803VF4"
+        "yt_id_zh": "P9wLC803VF4",
+        "is_live_en": True,
+        "is_live_zh": False,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "首播时间：2026年10月09日 20:00 EDT"
     },
     {
         "id": "E04",
@@ -100,11 +115,16 @@ MASTERCLASSES = [
         "key_phrase": "すみません、この限定フィギュアの未開封品は在庫ありますか？",
         "key_meaning_en": "Excuse me, is this limited edition figure in mint unopened condition in stock?",
         "key_meaning_zh": "请问这款限定手办的未开封新品还有库存吗？",
-        "thumb": "/assets/thumbnails/E04-Akiba_Pilgrimage_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E04-Akiba_Pilgrimage_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E04-Akiba_Pilgrimage_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/iaGo6ey75Ws",
         "yt_url_zh": "https://youtu.be/Hf8aLBN1iEw",
         "yt_id_en": "iaGo6ey75Ws",
-        "yt_id_zh": "Hf8aLBN1iEw"
+        "yt_id_zh": "Hf8aLBN1iEw",
+        "is_live_en": True,
+        "is_live_zh": False,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "首播时间：2026年10月13日 20:00 EDT"
     },
     {
         "id": "E05",
@@ -121,11 +141,16 @@ MASTERCLASSES = [
         "key_phrase": "精算機で乗り越し精算をしたいのですが、どこですか？",
         "key_meaning_en": "I want to adjust my fare at the fare adjustment machine; where is it?",
         "key_meaning_zh": "我想在精算机办理坐过站补票，请问机器在哪里？",
-        "thumb": "/assets/thumbnails/E05-Tokyo_Subway_Rush_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E05-Tokyo_Subway_Rush_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E05-Tokyo_Subway_Rush_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/71K0XIHNZLs",
         "yt_url_zh": "https://youtu.be/odIHpboH1A0",
         "yt_id_en": "71K0XIHNZLs",
-        "yt_id_zh": "odIHpboH1A0"
+        "yt_id_zh": "odIHpboH1A0",
+        "is_live_en": True,
+        "is_live_zh": False,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "首播时间：2026年10月15日 20:00 EDT"
     },
     {
         "id": "E06",
@@ -142,11 +167,16 @@ MASTERCLASSES = [
         "key_phrase": "アイスコーヒーのレギュラーサイズをお願いします。",
         "key_meaning_en": "One regular-size iced coffee, please.",
         "key_meaning_zh": "请给我一杯常规杯型（R）的冰咖啡。",
-        "thumb": "/assets/thumbnails/E06-Kombini_Coffee_ATM_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E06-Kombini_Coffee_ATM_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E06-Kombini_Coffee_ATM_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/kPXKS2r3o8w",
         "yt_url_zh": "https://youtu.be/C9qHbhafnqc",
         "yt_id_en": "kPXKS2r3o8w",
-        "yt_id_zh": "C9qHbhafnqc"
+        "yt_id_zh": "C9qHbhafnqc",
+        "is_live_en": True,
+        "is_live_zh": False,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "首播时间：2026年10月19日 20:00 EDT"
     },
     {
         "id": "E07",
@@ -163,11 +193,16 @@ MASTERCLASSES = [
         "key_phrase": "麺硬め、味濃いめ、油少なめでお願いします。替え玉も！",
         "key_meaning_en": "Noodles firm, flavor rich, light oil please. Also one noodle refill!",
         "key_meaning_zh": "面要硬一些、汤头浓郁、少放油，再加一份替玉（加面）！",
-        "thumb": "/assets/thumbnails/E07-Ramen_Ticket_Vending_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E07-Ramen_Ticket_Vending_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E07-Ramen_Ticket_Vending_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/jB4I3CicHrs",
         "yt_url_zh": "https://youtu.be/ipyktZrqHgQ",
         "yt_id_en": "jB4I3CicHrs",
-        "yt_id_zh": "ipyktZrqHgQ"
+        "yt_id_zh": "ipyktZrqHgQ",
+        "is_live_en": True,
+        "is_live_zh": False,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "首播时间：2026年10月21日 20:00 EDT"
     },
     {
         "id": "E08",
@@ -184,11 +219,16 @@ MASTERCLASSES = [
         "key_phrase": "試着してみてもいいですか？ワンサイズ大きいものはありますか？",
         "key_meaning_en": "May I try this on? Do you have one size larger?",
         "key_meaning_zh": "请问可以试穿一下吗？有再大一个号的尺码吗？",
-        "thumb": "/assets/thumbnails/E08-Ginza_TaxFree_Shopping_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E08-Ginza_TaxFree_Shopping_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E08-Ginza_TaxFree_Shopping_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/9GOBcaATRjE",
         "yt_url_zh": "https://youtu.be/WQ1mqBP0gN0",
         "yt_id_en": "9GOBcaATRjE",
-        "yt_id_zh": "WQ1mqBP0gN0"
+        "yt_id_zh": "WQ1mqBP0gN0",
+        "is_live_en": True,
+        "is_live_zh": False,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "首播时间：2026年10月23日 20:00 EDT"
     },
     {
         "id": "E09",
@@ -205,11 +245,16 @@ MASTERCLASSES = [
         "key_phrase": "サウナに入って心身ともに整いました。",
         "key_meaning_en": "After the sauna session, my body and mind are totally rejuvenated.",
         "key_meaning_zh": "泡完桑拿后，身心彻底进入了放松通透的绝佳状态。",
-        "thumb": "/assets/thumbnails/E09-anime_sauna_trend_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E09-anime_sauna_trend_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E09-anime_sauna_trend_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/fXJMz9_CGCs",
         "yt_url_zh": "https://youtu.be/28N9m0VcL50",
         "yt_id_en": "fXJMz9_CGCs",
-        "yt_id_zh": "28N9m0VcL50"
+        "yt_id_zh": "28N9m0VcL50",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 05, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年10月27日 20:00 EDT"
     },
     {
         "id": "E10",
@@ -226,11 +271,16 @@ MASTERCLASSES = [
         "key_phrase": "天然な性格でみんなを笑顔にさせました。",
         "key_meaning_en": "Her natural, charming quirkiness brought smiles to everyone in the hall.",
         "key_meaning_zh": "她那天然萌的可爱性格让全场观众都露出了笑容。",
-        "thumb": "/assets/thumbnails/E10-ayase_haruka_tennen_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E10-ayase_haruka_tennen_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E10-ayase_haruka_tennen_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/CCUSAjlHbYQ",
         "yt_url_zh": "https://youtu.be/y1zQQA0Tmfs",
         "yt_id_en": "CCUSAjlHbYQ",
-        "yt_id_zh": "y1zQQA0Tmfs"
+        "yt_id_zh": "y1zQQA0Tmfs",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 06, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年10月29日 20:00 EDT"
     },
     {
         "id": "E11",
@@ -247,11 +297,16 @@ MASTERCLASSES = [
         "key_phrase": "配膳ロボットが席までお肉を運んできました。",
         "key_meaning_en": "The delivery robot brought the beef dishes straight to our table.",
         "key_meaning_zh": "智能送餐机器人把新鲜肉品直接送到了我们的座位上。",
-        "thumb": "/assets/thumbnails/E11-shabuya-robot-drama_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E11-shabuya-robot-drama_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E11-shabuya-robot-drama_zh_thumb.jpg",
         "yt_url_en": "https://youtu.be/tIFJcJFxSi4",
         "yt_url_zh": "https://youtu.be/OkPi4X-K8u4",
         "yt_id_en": "tIFJcJFxSi4",
-        "yt_id_zh": "OkPi4X-K8u4"
+        "yt_id_zh": "OkPi4X-K8u4",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 07, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月02日 20:00 EST"
     },
     {
         "id": "E12",
@@ -268,11 +323,16 @@ MASTERCLASSES = [
         "key_phrase": "相談窓口への案内機能が追加されました。",
         "key_meaning_en": "A guidance feature directing users to consultation hotlines has been added.",
         "key_meaning_zh": "系统中已新增引导用户联系官方心理咨询窗口的支持功能。",
-        "thumb": "/assets/thumbnails/E12-apple-suicide-prevention_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E12-apple-suicide-prevention_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E12-apple-suicide-prevention_thumb.jpg",
         "yt_url_en": "https://youtu.be/nVD1G__Yj6U",
         "yt_url_zh": "https://youtu.be/nVD1G__Yj6U",
         "yt_id_en": "nVD1G__Yj6U",
-        "yt_id_zh": "nVD1G__Yj6U"
+        "yt_id_zh": "nVD1G__Yj6U",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 08, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月04日 20:00 EST (排期预告)"
     },
     {
         "id": "E13",
@@ -289,11 +349,16 @@ MASTERCLASSES = [
         "key_phrase": "牛丼並盛、つゆだくで生卵とお新香セットをつけてください。",
         "key_meaning_en": "Standard gyudon with extra sauce, plus raw egg and pickle set please.",
         "key_meaning_zh": "来一份中碗牛肉饭，要多汁（つゆだく），加一份生鸡蛋和腌菜套餐。",
-        "thumb": "/assets/thumbnails/E13-Gyudon_Customization_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E13-Gyudon_Customization_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E13-Gyudon_Customization_thumb.jpg",
         "yt_url_en": "https://youtu.be/JoM1Ht4rsm0",
         "yt_url_zh": "https://youtu.be/JoM1Ht4rsm0",
         "yt_id_en": "JoM1Ht4rsm0",
-        "yt_id_zh": "JoM1Ht4rsm0"
+        "yt_id_zh": "JoM1Ht4rsm0",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 09, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月06日 20:00 EST (排期预告)"
     },
     {
         "id": "E14",
@@ -310,11 +375,16 @@ MASTERCLASSES = [
         "key_phrase": "ご不在連絡票の追跡番号で再配達をお願いしたいです。",
         "key_meaning_en": "I'd like to request redelivery using the tracking number on my absence slip.",
         "key_meaning_zh": "我想用不在联络票上的单号申请重新预约配送。",
-        "thumb": "/assets/thumbnails/E14-JapanPost_Redelivery_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E14-JapanPost_Redelivery_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E14-JapanPost_Redelivery_thumb.jpg",
         "yt_url_en": "https://youtu.be/hMpbydnmDzE",
         "yt_url_zh": "https://youtu.be/hMpbydnmDzE",
         "yt_id_en": "hMpbydnmDzE",
-        "yt_id_zh": "hMpbydnmDzE"
+        "yt_id_zh": "hMpbydnmDzE",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 12, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月09日 20:00 EST (排期预告)"
     },
     {
         "id": "E15",
@@ -331,11 +401,16 @@ MASTERCLASSES = [
         "key_phrase": "このお刺身、半額シールが貼ってありますね！",
         "key_meaning_en": "Look, this sashimi platter has a half-price sticker on it!",
         "key_meaning_zh": "你看，这份生鱼片已经贴上了半价折扣标签！",
-        "thumb": "/assets/thumbnails/E15-Supermarket_HalfPrice_Rush_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E15-Supermarket_HalfPrice_Rush_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E15-Supermarket_HalfPrice_Rush_thumb.jpg",
         "yt_url_en": "https://youtu.be/SYTMgRcyycQ",
         "yt_url_zh": "https://youtu.be/SYTMgRcyycQ",
         "yt_id_en": "SYTMgRcyycQ",
-        "yt_id_zh": "SYTMgRcyycQ"
+        "yt_id_zh": "SYTMgRcyycQ",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 13, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月11日 20:00 EST (排期预告)"
     },
     {
         "id": "E16",
@@ -352,11 +427,16 @@ MASTERCLASSES = [
         "key_phrase": "頭痛がひどいので、胃に優しい鎮痛薬を探しています。",
         "key_meaning_en": "I have a severe headache, so I'm looking for a painkiller that is gentle on the stomach.",
         "key_meaning_zh": "我头痛得厉害，想找一种不刺激胃的温和止痛药。",
-        "thumb": "/assets/thumbnails/E16-Drugstore_Medicine_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E16-Drugstore_Medicine_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E16-Drugstore_Medicine_thumb.jpg",
         "yt_url_en": "https://youtu.be/jOlIP0S4TJI",
         "yt_url_zh": "https://youtu.be/jOlIP0S4TJI",
         "yt_id_en": "jOlIP0S4TJI",
-        "yt_id_zh": "jOlIP0S4TJI"
+        "yt_id_zh": "jOlIP0S4TJI",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 14, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月13日 20:00 EST (排期预告)"
     },
     {
         "id": "E17",
@@ -373,11 +453,16 @@ MASTERCLASSES = [
         "key_phrase": "湯船に入る前に、かけ湯で体を綺麗に洗いましょう。",
         "key_meaning_en": "Before entering the bathtub, let's rinse and wash our body clean with warm water.",
         "key_meaning_zh": "进入温泉汤池之前，请务必先冲洗身体清洁干净。",
-        "thumb": "/assets/thumbnails/E17-Onsen_Sento_Etiquette_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E17-Onsen_Sento_Etiquette_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E17-Onsen_Sento_Etiquette_thumb.jpg",
         "yt_url_en": "https://youtu.be/NvxHyVZ0XSY",
         "yt_url_zh": "https://youtu.be/NvxHyVZ0XSY",
         "yt_id_en": "NvxHyVZ0XSY",
-        "yt_id_zh": "NvxHyVZ0XSY"
+        "yt_id_zh": "NvxHyVZ0XSY",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 15, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月16日 20:00 EST (排期预告)"
     },
     {
         "id": "E18",
@@ -394,11 +479,16 @@ MASTERCLASSES = [
         "key_phrase": "オーツミルクに変更で、持ち帰りでお願いします。",
         "key_meaning_en": "Please substitute oat milk, and make it for takeout.",
         "key_meaning_zh": "请帮我换成燕麦奶，这杯麻烦打包带走。",
-        "thumb": "/assets/thumbnails/E18-Tokyo_Cafe_Ordering_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E18-Tokyo_Cafe_Ordering_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E18-Tokyo_Cafe_Ordering_thumb.jpg",
         "yt_url_en": "https://youtu.be/rY3KT6Lk1uA",
         "yt_url_zh": "https://youtu.be/rY3KT6Lk1uA",
         "yt_id_en": "rY3KT6Lk1uA",
-        "yt_id_zh": "rY3KT6Lk1uA"
+        "yt_id_zh": "rY3KT6Lk1uA",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 16, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月18日 20:00 EST (排期预告)"
     },
     {
         "id": "E19",
@@ -415,11 +505,16 @@ MASTERCLASSES = [
         "key_phrase": "富士山が見える側の指定席を一枚予約したいのですが。",
         "key_meaning_en": "I'd like to book one reserved seat on the side with the Mt. Fuji view.",
         "key_meaning_zh": "我想预订一张能看到富士山那一侧的靠窗指定席车票。",
-        "thumb": "/assets/thumbnails/E19-Shinkansen_BulletTrain_Tickets_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/E19-Shinkansen_BulletTrain_Tickets_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/E19-Shinkansen_BulletTrain_Tickets_thumb.jpg",
         "yt_url_en": "https://youtu.be/OeVMipTfon0",
         "yt_url_zh": "https://youtu.be/OeVMipTfon0",
         "yt_id_en": "OeVMipTfon0",
-        "yt_id_zh": "OeVMipTfon0"
+        "yt_id_zh": "OeVMipTfon0",
+        "is_live_en": False,
+        "is_live_zh": False,
+        "schedule_en": "Scheduled: Oct 19, 08:00 AM EDT",
+        "schedule_zh": "首播时间：2026年11月20日 20:00 EST (排期预告)"
     },
     {
         "id": "WL01",
@@ -436,11 +531,16 @@ MASTERCLASSES = [
         "key_phrase": "映画のリアルなセリフから高コンテクストな日本語を深く学ぶ。",
         "key_meaning_en": "Deeply learn high-context living Japanese through authentic cinematic dialogues.",
         "key_meaning_zh": "从真实电影台词中深度汲取高语境地道日语与社会文化精髓。",
-        "thumb": "/assets/thumbnails/WL01-last-mile-masterclass_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/WL01-last-mile-masterclass_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/WL01-last-mile-masterclass_thumb.jpg",
         "yt_url_en": "https://youtu.be/-KFRtoLDNVU",
         "yt_url_zh": "https://youtu.be/-KFRtoLDNVU",
         "yt_id_en": "-KFRtoLDNVU",
-        "yt_id_zh": "-KFRtoLDNVU"
+        "yt_id_zh": "-KFRtoLDNVU",
+        "is_live_en": True,
+        "is_live_zh": True,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "全球先行版已公开上线 (可直接播放)"
     },
     {
         "id": "WM01",
@@ -457,147 +557,263 @@ MASTERCLASSES = [
         "key_phrase": "月曜日から金曜日までの東京リアル生活を完全攻略！",
         "key_meaning_en": "Complete conquest of authentic Tokyo living from Monday through Friday!",
         "key_meaning_zh": "一站式通关周一到周五东京独立生活全部核心口语与高频语法！",
-        "thumb": "/assets/thumbnails/WM01-weekday_survival_mega_compilation_thumb.jpg",
+        "thumb_en": "/assets/thumbnails/WM01-weekday_survival_mega_compilation_thumb.jpg",
+        "thumb_zh": "/assets/thumbnails/WM01-weekday_survival_mega_compilation_thumb.jpg",
         "yt_url_en": "https://youtu.be/mV7J6OKutj0",
         "yt_url_zh": "https://youtu.be/mV7J6OKutj0",
         "yt_id_en": "mV7J6OKutj0",
-        "yt_id_zh": "mV7J6OKutj0"
+        "yt_id_zh": "mV7J6OKutj0",
+        "is_live_en": True,
+        "is_live_zh": True,
+        "schedule_en": "LIVE NOW",
+        "schedule_zh": "全球先行版已公开上线 (可直接播放)"
     }
 ]
 
 # Top Vertical Shorts for Rapid Shadowing Drills
-SHORTS = [
+SHORTS_ZH = [
+    {
+        "id": "SH.00",
+        "jlpt": "【中文首发】",
+        "title": "告别死板教科书！每天1分钟搞定东京地道实景日语",
+        "yt_url": "https://youtu.be/XUWDCPU0Tog",
+        "yt_id": "XUWDCPU0Tog",
+        "focus": "东京地道实景日语全景导学",
+        "is_live": True,
+        "schedule": "已公开上线 • 立即跟读"
+    },
+    {
+        "id": "SH.01",
+        "jlpt": "【JLPT N4】",
+        "title": "听懂东京山手线报站！1分钟实景原声跟读挑战",
+        "yt_url": "https://youtu.be/7CPqE_Y4nYA",
+        "yt_id": "7CPqE_Y4nYA",
+        "focus": "山手线发车音与盲道黄线",
+        "is_live": False,
+        "schedule": "首播时间：10月06日 20:00 EDT"
+    },
+    {
+        "id": "SH.02",
+        "jlpt": "【JLPT N5】",
+        "title": "便利店买便当必听！收银台原声跟读挑战",
+        "yt_url": "https://youtu.be/qnW1x0AMq5Y",
+        "yt_id": "qnW1x0AMq5Y",
+        "focus": "便当加热与购物袋选择",
+        "is_live": False,
+        "schedule": "首播时间：10月08日 20:00 EDT"
+    },
+    {
+        "id": "SH.03",
+        "jlpt": "【JLPT N5】",
+        "title": "像本地人一样进居酒屋！先来生啤原声跟读",
+        "yt_url": "https://youtu.be/RdE2fQdcQnw",
+        "yt_id": "RdE2fQdcQnw",
+        "focus": "先来生啤与烤串拼盘",
+        "is_live": False,
+        "schedule": "首播时间：10月12日 20:00 EDT"
+    },
+    {
+        "id": "SH.04",
+        "jlpt": "【JLPT N5】",
+        "title": "秋叶原淘手办必学！免税退税1分钟原声跟读",
+        "yt_url": "https://youtu.be/Sxb_NET07Io",
+        "yt_id": "Sxb_NET07Io",
+        "focus": "免税退税与未开封正品",
+        "is_live": False,
+        "schedule": "首播时间：10月14日 20:00 EDT"
+    },
+    {
+        "id": "SH.05",
+        "jlpt": "【JLPT N4】",
+        "title": "东京地铁坐过站/余额不足？精算机补票跟读",
+        "yt_url": "https://youtu.be/DqzlmsrCWO4",
+        "yt_id": "DqzlmsrCWO4",
+        "focus": "精算机补票与换乘指引",
+        "is_live": False,
+        "schedule": "首播时间：10月16日 20:00 EDT"
+    },
+    {
+        "id": "SH.06",
+        "jlpt": "【JLPT N5】",
+        "title": "日本便利店冰咖啡怎么买？冷柜取杯与点单跟读",
+        "yt_url": "https://youtu.be/8Whu9ozLB6Y",
+        "yt_id": "8Whu9ozLB6Y",
+        "focus": "冷柜自取冰杯与咖啡机",
+        "is_live": False,
+        "schedule": "首播时间：10月20日 20:00 EDT"
+    },
+    {
+        "id": "SH.07",
+        "jlpt": "【JLPT N5】",
+        "title": "像老饕一样吃拉面！面硬汤浓加面口诀原声跟读",
+        "yt_url": "https://youtu.be/jCqHgSzkYNY",
+        "yt_id": "jCqHgSzkYNY",
+        "focus": "面硬汤浓定制口诀与替玉",
+        "is_live": False,
+        "schedule": "首播时间：10月22日 20:00 EDT"
+    },
+    {
+        "id": "SH.08",
+        "jlpt": "【JLPT N5】",
+        "title": "银座买衣服优雅试穿！试衣间许可请求跟读",
+        "yt_url": "https://youtu.be/tOwEtT7ftMA",
+        "yt_id": "tOwEtT7ftMA",
+        "focus": "试衣间许可与尺码询问",
+        "is_live": False,
+        "schedule": "首播时间：10月26日 20:00 EDT"
+    },
+    {
+        "id": "SH.09",
+        "jlpt": "【JLPT N5】",
+        "title": "动漫公司开桑拿？身心放松「整う」流行语跟读",
+        "yt_url": "https://youtu.be/EHnxZQyZCJY",
+        "yt_id": "EHnxZQyZCJY",
+        "focus": "芬兰桑拿与放松口诀",
+        "is_live": False,
+        "schedule": "首播时间：10月28日 20:00 EDT"
+    },
+    {
+        "id": "SH.10",
+        "jlpt": "【JLPT N5】",
+        "title": "绫濑遥天然呆引爆笑！日综反差萌流行语跟读",
+        "yt_url": "https://youtu.be/7QO41aDb5dU",
+        "yt_id": "7QO41aDb5dU",
+        "focus": "天然呆性格与综艺对话",
+        "is_live": False,
+        "schedule": "首播时间：10月30日 20:00 EDT"
+    },
+    {
+        "id": "SH.11",
+        "jlpt": "【JLPT N4】",
+        "title": "涩谷AI机器人微剧爆火！近未来科技热点跟读",
+        "yt_url": "https://youtu.be/zoFHEf-Ir2c",
+        "yt_id": "zoFHEf-Ir2c",
+        "focus": "送餐机器人与餐饮动词",
+        "is_live": False,
+        "schedule": "首播时间：11月03日 20:00 EST"
+    }
+]
+
+SHORTS_EN = [
     {
         "id": "SH.01",
         "jlpt": "[JLPT N4]",
-        "jlpt_zh": "【JLPT N4】",
-        "title_en": "What Tokyo Train Stations ACTUALLY Announce!",
-        "title_zh": "听懂东京山手线报站！1分钟实景原声跟读挑战",
+        "title": "What Tokyo Train Stations ACTUALLY Announce!",
         "yt_url": "https://youtu.be/luY_kYPz5Bo",
         "yt_id": "luY_kYPz5Bo",
         "focus": "Yamanote Train Arrival & Braille Block",
-        "focus_zh": "山手线发车音与盲道黄线"
+        "is_live": True,
+        "schedule": "LIVE NOW"
     },
     {
         "id": "SH.02",
         "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "How to Survive Tokyo 7-Eleven Checkout in 30s",
-        "title_zh": "便利店买便当必听！收银台原声跟读挑战",
+        "title": "How to Survive Tokyo 7-Eleven Checkout in 30s",
         "yt_url": "https://youtu.be/npUV2_Ilid8",
         "yt_id": "npUV2_Ilid8",
         "focus": "Bento Heating & Bag Choices",
-        "focus_zh": "便当加热与购物袋选择"
+        "is_live": True,
+        "schedule": "LIVE NOW"
     },
     {
         "id": "SH.03",
         "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "How Locals Order at a Tokyo Izakaya",
-        "title_zh": "像本地人一样进居酒屋！先来生啤原声跟读",
+        "title": "How Locals Order at a Tokyo Izakaya",
         "yt_url": "https://youtu.be/9gMYd5lRwtI",
         "yt_id": "9gMYd5lRwtI",
         "focus": "Toriaezu Nama & Yakitori",
-        "focus_zh": "先来生啤与烤串拼盘"
+        "is_live": True,
+        "schedule": "LIVE NOW"
     },
     {
         "id": "SH.04",
         "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "How to Buy Anime Figures in Akihabara Tax-Free!",
-        "title_zh": "秋叶原淘手办必学！免税退税1分钟原声跟读",
+        "title": "How to Buy Anime Figures in Akihabara Tax-Free!",
         "yt_url": "https://youtu.be/GerQ2oL84o8",
         "yt_id": "GerQ2oL84o8",
         "focus": "Duty-Free & Mint Condition",
-        "focus_zh": "免税退税与未开封正品"
+        "is_live": True,
+        "schedule": "LIVE NOW"
     },
     {
         "id": "SH.05",
         "jlpt": "[JLPT N4]",
-        "jlpt_zh": "【JLPT N4】",
-        "title_en": "Never Get Lost on the Tokyo Subway!",
-        "title_zh": "东京地铁坐过站/余额不足？精算机补票跟读",
+        "title": "Never Get Lost on the Tokyo Subway!",
         "yt_url": "https://youtu.be/K8E-XXJFu3I",
         "yt_id": "K8E-XXJFu3I",
         "focus": "Fare Adjustment & Transfers",
-        "focus_zh": "精算机补票与换乘指引"
+        "is_live": True,
+        "schedule": "LIVE NOW"
     },
     {
         "id": "SH.06",
         "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "How to Order Coffee at Japanese Kombini",
-        "title_zh": "日本便利店冰咖啡怎么买？冷柜取杯与点单跟读",
+        "title": "How to Order Coffee at Japanese Convenience Stores",
         "yt_url": "https://youtu.be/fj-Yto1FF3U",
         "yt_id": "fj-Yto1FF3U",
         "focus": "Freezer Ice Cup & Machine",
-        "focus_zh": "冷柜自取冰杯与咖啡机"
+        "is_live": True,
+        "schedule": "LIVE NOW"
     },
     {
         "id": "SH.07",
         "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "How to Order Ramen Like a Tokyo Master",
-        "title_zh": "像老饕一样吃拉面！面硬汤浓加面口诀原声跟读",
+        "title": "How to Order Ramen Like a Tokyo Master",
         "yt_url": "https://youtu.be/4nH8UUKeEDA",
         "yt_id": "4nH8UUKeEDA",
         "focus": "Noodle Hardness & Kaedama",
-        "focus_zh": "面硬汤浓定制口诀与替玉"
+        "is_live": True,
+        "schedule": "LIVE NOW"
     },
     {
         "id": "SH.08",
         "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "How to Shop Clothes in Tokyo Ginza!",
-        "title_zh": "银座买衣服优雅试穿！试衣间许可请求跟读",
+        "title": "How to Shop Clothes in Tokyo Ginza!",
         "yt_url": "https://youtu.be/O2FjmMOFWgM",
         "yt_id": "O2FjmMOFWgM",
         "focus": "Fitting Room & Size Request",
-        "focus_zh": "试衣间许可与尺码询问"
+        "is_live": True,
+        "schedule": "LIVE NOW"
+    },
+    {
+        "id": "SH.09",
+        "jlpt": "[JLPT N5]",
+        "title": "Anime Studio Made a SAUNA in Tokyo?!",
+        "yt_url": "https://youtu.be/nLSoKy3DFFI",
+        "yt_id": "nLSoKy3DFFI",
+        "focus": "Finnish Sauna & Totonou Slang",
+        "is_live": False,
+        "schedule": "Scheduled: Oct 05, 05:00 PM EDT"
+    },
+    {
+        "id": "SH.10",
+        "jlpt": "[JLPT N5]",
+        "title": "Ayase Haruka's Natural Charm!",
+        "yt_url": "https://youtu.be/gkl9fCKjkyQ",
+        "yt_id": "gkl9fCKjkyQ",
+        "focus": "Natural Personality Trait (Tennen)",
+        "is_live": False,
+        "schedule": "Scheduled: Oct 06, 05:00 PM EDT"
+    },
+    {
+        "id": "SH.11",
+        "jlpt": "[JLPT N5]",
+        "title": "Shabu-ya Robot Drama!",
+        "yt_url": "https://youtu.be/DiGmCYF_ZNI",
+        "yt_id": "DiGmCYF_ZNI",
+        "focus": "Restaurant Cat Robot Server",
+        "is_live": False,
+        "schedule": "Scheduled: Oct 07, 08:00 AM EDT"
     },
     {
         "id": "SH.13",
         "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "How to Order Gyudon at Yoshinoya Like a Pro",
-        "title_zh": "吉野家牛肉饭点单暗号！汁多与套餐口诀跟读",
+        "title": "How to Order Gyudon at Yoshinoya Like a Pro",
         "yt_url": "https://youtu.be/aXDKg4hwK2I",
         "yt_id": "aXDKg4hwK2I",
         "focus": "Tsuyudaku & Set Customization",
-        "focus_zh": "汁多暗号与生鸡蛋套餐"
-    },
-    {
-        "id": "SH.15",
-        "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "How to Hunt Half-Price Bento in Tokyo",
-        "title_zh": "东京超市晚8点半价大作战！半价贴标抢购跟读",
-        "yt_url": "https://youtu.be/0RcrIeiBurg",
-        "yt_id": "0RcrIeiBurg",
-        "focus": "Hangaku Stickers & Sashimi",
-        "focus_zh": "半价贴纸与生鲜刺身"
-    },
-    {
-        "id": "SH.17",
-        "jlpt": "[JLPT N5]",
-        "jlpt_zh": "【JLPT N5】",
-        "title_en": "Onsen Bath Etiquette in Tokyo in 30s!",
-        "title_zh": "日本温泉与钱汤入浴礼仪！毛巾规范与清洗跟读",
-        "yt_url": "https://youtu.be/YDptABMYPxw",
-        "yt_id": "YDptABMYPxw",
-        "focus": "Kakeyu Washing & Bath Protocol",
-        "focus_zh": "淋浴冲洗与温泉汤池规范"
-    },
-    {
-        "id": "SH.19",
-        "jlpt": "[JLPT N4]",
-        "jlpt_zh": "【JLPT N4】",
-        "title_en": "How to Book Shinkansen Tickets with Mt. Fuji View",
-        "title_zh": "新干线订票技巧！富士山景观席与指定席跟读",
-        "yt_url": "https://youtu.be/9b5UwiqG4o8",
-        "yt_id": "9b5UwiqG4o8",
-        "focus": "Reserved Seats & Mt. Fuji Window",
-        "focus_zh": "绿色窗口与富士山靠窗席"
+        "is_live": False,
+        "schedule": "Scheduled: Oct 09, 08:00 AM EDT"
     }
 ]
 
@@ -676,14 +892,17 @@ def build_schema_json(lang="zh"):
     # Create VideoObject list
     video_objects = []
     for item in MASTERCLASSES[:12]:
+        thumb = item["thumb_zh"] if lang == "zh" else item["thumb_en"]
+        yt_url = item["yt_url_zh"] if lang == "zh" else item["yt_url_en"]
+        yt_id = item["yt_id_zh"] if lang == "zh" else item["yt_id_en"]
         video_objects.append({
             "@type": "VideoObject",
             "name": item["title_zh"] if lang == "zh" else item["title_en"],
             "description": item["desc_zh"] if lang == "zh" else item["desc_en"],
-            "thumbnailUrl": f"https://tokyoflow.app{item['thumb']}",
+            "thumbnailUrl": f"https://tokyoflow.app{thumb}",
             "uploadDate": "2026-10-01T08:00:00+09:00",
-            "contentUrl": item["yt_url_zh"] if lang == "zh" else item["yt_url_en"],
-            "embedUrl": f"https://www.youtube-nocookie.com/embed/{item['yt_id_zh'] if lang == 'zh' else item['yt_id_en']}",
+            "contentUrl": yt_url,
+            "embedUrl": f"https://www.youtube-nocookie.com/embed/{yt_id}",
             "publisher": {
                 "@type": "Organization",
                 "name": "TokyoFlow",
@@ -768,18 +987,33 @@ def generate_video_cards_html(lang="zh"):
         district = ep["district_zh"] if lang == "zh" else ep["district_en"]
         jlpt = ep["jlpt_zh"] if lang == "zh" else ep["jlpt"]
         yt_url = ep["yt_url_zh"] if lang == "zh" else ep["yt_url_en"]
+        thumb = ep["thumb_zh"] if lang == "zh" else ep["thumb_en"]
         key_meaning = ep["key_meaning_zh"] if lang == "zh" else ep["key_meaning_en"]
-        btn_text = "在 YouTube 观看精讲" if lang == "zh" else "Watch on YouTube"
         takeaway_label = "核心实景金句" if lang == "zh" else "Key Survival Phrase"
+        
+        is_live = ep["is_live_zh"] if lang == "zh" else ep["is_live_en"]
+        schedule_text = ep["schedule_zh"] if lang == "zh" else ep["schedule_en"]
+
+        if is_live:
+            status_badge_class = "status-badge-live"
+            status_badge_text = "[已公开上线 • 立即观看]" if lang == "zh" else "[LIVE NOW]"
+            btn_text = "在 YouTube 观看精讲" if lang == "zh" else "Watch on YouTube"
+        else:
+            status_badge_class = "status-badge-scheduled"
+            status_badge_text = f"[{schedule_text}]"
+            btn_text = "前往 YouTube 预约首播提醒" if lang == "zh" else "Set Premiere Reminder"
 
         card = f"""
         <article class="video-card-item" data-category="{ep['category']}">
           <a href="{yt_url}" target="_blank" rel="noopener" class="video-card-link" aria-label="{title}">
             <div class="video-thumb-wrap">
-              <img src="{ep['thumb']}" alt="{title}" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <img src="{thumb}" alt="{title}" class="video-thumb-img" loading="lazy" width="640" height="360">
               <div class="video-badge-group">
                 <span class="badge-jlpt">{jlpt}</span>
                 <span class="badge-duration">{ep['duration']}</span>
+              </div>
+              <div class="video-status-overlay">
+                <span class="{status_badge_class}">{status_badge_text}</span>
               </div>
               <div class="video-play-overlay">
                 <div class="play-circle">
@@ -802,6 +1036,10 @@ def generate_video_cards_html(lang="zh"):
               </div>
 
               <div class="video-yt-action">
+                <div class="video-schedule-row">
+                  <span class="schedule-label">{"发布状态" if lang == "zh" else "Release Status"}:</span>
+                  <span class="schedule-val {status_badge_class}">{schedule_text}</span>
+                </div>
                 <span class="yt-action-btn">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                   <span>{btn_text}</span>
@@ -817,11 +1055,20 @@ def generate_video_cards_html(lang="zh"):
 
 def generate_shorts_cards_html(lang="zh"):
     cards_html = []
-    for sh in SHORTS:
-        title = sh["title_zh"] if lang == "zh" else sh["title_en"]
-        focus = sh["focus_zh"] if lang == "zh" else sh["focus"]
-        jlpt = sh["jlpt_zh"] if lang == "zh" else sh["jlpt"]
-        btn_text = "跟读挑战" if lang == "zh" else "Shadowing Drill"
+    shorts_list = SHORTS_ZH if lang == "zh" else SHORTS_EN
+    for sh in shorts_list:
+        title = sh["title"]
+        focus = sh["focus"]
+        jlpt = sh["jlpt"]
+        is_live = sh["is_live"]
+        schedule = sh["schedule"]
+        
+        if is_live:
+            badge_class = "status-badge-live"
+            btn_text = "立即跟读挑战" if lang == "zh" else "Start Shadowing Drill"
+        else:
+            badge_class = "status-badge-scheduled"
+            btn_text = "预约首播跟读" if lang == "zh" else "Set Reminder"
 
         card = f"""
         <div class="short-card-item">
@@ -834,6 +1081,9 @@ def generate_shorts_cards_html(lang="zh"):
             <div class="short-focus-box">
               <span class="short-focus-label">{"跟读要点" if lang == "zh" else "Drill Focus"}:</span>
               <span class="short-focus-text">{focus}</span>
+            </div>
+            <div class="short-schedule-tag {badge_class}">
+              <span>{schedule}</span>
             </div>
             <div class="short-btn-bar">
               <span class="short-action-link">
@@ -852,8 +1102,8 @@ def generate_faq_html(lang="zh"):
         faqs = [
             ("TokyoFlow 和传统教科书（如《大家的日语》《新标日》）有什么核心区别？",
              "传统教科书主要围绕语法规则和人造例句展开，缺少真实日本高语境（Ba）的空气感与即时反应。TokyoFlow 采用东京实景驱动体系，内置 4,170+ 本地真人原声、山手线发车铃声与站台广播、便利店3秒极速收银、居酒屋点单、声调高低走向图谱及 3-tier 假名卡拉OK高亮，帮助学习者直接建立肌肉记忆与脱口而出的听说反射。"),
-            ("TokyoFlow 的视频剧集和学习路径是如何规划的？",
-             "TokyoFlow 遵循 Japan Foundation (CEFR-J A1 至 B2) 与 JLPT N5 至 N1 标准，构建了 365 日年间独立生活进阶路线。内容涵盖 16:9 长篇影视化深度精讲（Micro-lessons）、9:16 沉浸影子跟读（Shorts）、超长生活全景合集（Mega-compilations）与院线电影沉浸精析，并在官方 YouTube 频道（@TokyoFlowJapan）保持稳定更新。"),
+            ("TokyoFlow 的视频剧集发布时间与排期规划是怎样的？",
+             "TokyoFlow 中文解说专区定于美东时间每晚 20:00（北京时间次日 08:00）首播，目前已排期发布 EP.01 至 EP.11 完整长视频与跟读短片；全球英文版定于美东时间每日 08:00 AM 首播。页面上每个专集卡片均明确标注了【已公开上线】或【预约首播时间】，方便学习者提前在 YouTube 设定开播提醒。"),
             ("什么是东京标准声调走向图谱（Pitch Accent）？为什么对听说极其重要？",
              "日语是典型的音高重音（Pitch Accent）语言。相同的假名组合（如「雨 ame」和「飴 ame」），音调高低走向不同含义完全相反。TokyoFlow 将头高型、中高型、尾高型和平板型声调全部视觉化为平滑高低曲线，并配合本地真人原声示范，彻底根除外国学习者的平调发音。"),
             ("零基础学习者可以从 TokyoFlow 开始学习吗？",
@@ -865,8 +1115,8 @@ def generate_faq_html(lang="zh"):
         faqs = [
             ("How does TokyoFlow differ from traditional textbooks like Genki or Minna no Nihongo?",
              "Traditional textbooks rely on artificial grammar drills and robotic synthesized voices disconnected from high-context Japanese culture. TokyoFlow is built on real-world Tokyo situations with 4,170+ native audio tracks, Yamanote Line announcements, 7-Eleven register speed drills, and visual pitch accent curves that rewire your instinctive speaking fluency."),
-            ("How is the TokyoFlow curriculum and video catalog structured?",
-             "TokyoFlow is aligned with the Japan Foundation Standard (CEFR-J A1 to B2) and JLPT N5 through N1. It features a 365-Day Living Blueprint across 16:9 In-Depth Masterclasses, 9:16 Rapid Shadowing Shorts, Mega Compilations, and Cinema Immersion lessons published on the official YouTube Channel (@TokyoFlowJapan)."),
+            ("What is the YouTube release cadence and schedule for TokyoFlow episodes?",
+             "TokyoFlow Global English edition drops daily at 08:00 AM EDT (21:00 JST), while Chinese Edition drops at 20:00 EDT (08:00 AM CST next day). Each video card on our website explicitly displays whether the episode is [LIVE NOW] or its exact [Scheduled Premiere Date & Time] with one-click YouTube reminder integration."),
             ("Why is visual Pitch Accent essential for speaking natural Japanese?",
              "Japanese is a pitch-accent language where pitch contours differentiate meanings (such as 'ame' for rain vs 'ame' for candy). TokyoFlow visualizes all four pitch patterns (Atamadaka, Nakadaka, Odaka, Heiban) with real-time waveform and pitch curves to eliminate monotone accents."),
             ("Can complete beginners start learning with TokyoFlow?",
@@ -921,7 +1171,7 @@ def build_chinese_page():
   <meta property="og:site_name" content="TokyoFlow">
   <meta property="og:url" content="https://tokyoflow.app/">
   <meta property="og:title" content="TokyoFlow · 東京を、生きる日本語。">
-  <meta property="og:description" content="在 4,170+ 真实东京真人原声与生活场景中，掌握真正鲜活的高语境日语。涵盖山手线广播、7-Eleven收银、居酒屋点单与全量视频影视库。">
+  <meta property="og:description" content="在 4,170+ 真实东京真人原声与生活场景中，掌握真正鲜活的高语境日语。涵盖山手线广播、7-Eleven收银、居酒屋点单与中文解说视频专区。">
   <meta property="og:image" content="https://tokyoflow.app/assets/app_icon.jpg">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
@@ -961,7 +1211,7 @@ def build_chinese_page():
 
       <ul class="nav-links">
         <li><a href="#showcase">/01 现场实境</a></li>
-        <li><a href="#academy">/02 影视专区</a></li>
+        <li><a href="#academy">/02 中文影视专区</a></li>
         <li><a href="#pillars">/03 四大体系</a></li>
         <li><a href="#curriculum">/04 年间路线</a></li>
         <li><a href="#materials">/05 学习材料</a></li>
@@ -1009,18 +1259,18 @@ def build_chinese_page():
         </h2>
 
         <p class="hero-description">
-          从山手线发车铃声与站台广播，到深夜居酒屋的热气与漫画拟声词。4,170+ 原声声库、标准声调高低走向图谱、全景视频精讲与真实生活任务，全面重塑你的日语直觉。
+          从山手线发车铃声与站台广播，到深夜居酒屋的热气与漫画拟声词。4,170+ 原声声库、标准声调高低走向图谱、中文解说影视专区与真实生活任务，全面重塑你的日语直觉。
         </p>
 
         <div class="hero-cta-group">
           <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" rel="noopener" class="btn-hero-yt">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            <span>订阅 YouTube 官方频道 (每日更新)</span>
+            <span>订阅 YouTube 官方频道 (每日美东 20:00 中文首播)</span>
           </a>
 
           <a href="#academy" class="btn-hero-secondary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v12H4z M2 4v16h20V4H2z M10 9v6l5-3z"/></svg>
-            <span>浏览影视教学专区</span>
+            <span>浏览中文解说影视专区</span>
           </a>
 
           <a href="#download" class="btn-hero-appstore">
@@ -1037,11 +1287,11 @@ def build_chinese_page():
           </div>
           <div class="metric-item">
             <span class="metric-num">21+ 专集</span>
-            <span class="metric-label">影视长视频精讲</span>
+            <span class="metric-label">中文实景影视长片</span>
           </div>
           <div class="metric-item">
-            <span class="metric-num">20+ 实景</span>
-            <span class="metric-label">高语境生活任务模拟</span>
+            <span class="metric-num">20:00 EDT</span>
+            <span class="metric-label">中文频道每日定时首播</span>
           </div>
           <div class="metric-item">
             <span class="metric-num">N5 → N1</span>
@@ -1143,7 +1393,7 @@ def build_chinese_page():
                 </div>
 
                 <div class="app-japanese-phrase" id="appJpText">
-                  まもなく、2番線に山手線がまいります。黄色い点字ブロックの内側までお下がりください。
+                  まもなく、2番線に山手線がまいります。黄色い点字ブロックの内侧までお下がりください。
                 </div>
 
                 <div class="app-romaji-phrase" id="appRomajiText">
@@ -1198,7 +1448,7 @@ def build_chinese_page():
     </div>
   </section>
 
-  <!-- YouTube Academy & Playlist Hub -->
+  <!-- YouTube Academy & Playlist Hub (Chinese Edition) -->
   <section id="academy" class="academy-section">
     <div class="container">
       
@@ -1207,24 +1457,31 @@ def build_chinese_page():
         <div class="yt-banner-left">
           <div class="yt-live-pill">
             <span class="pulse-dot"></span>
-            <span>YOUTUBE 官方频道 · 每日双更</span>
+            <span>YOUTUBE 官方中文专区 · 每日 20:00 EDT 首播</span>
           </div>
-          <h2 class="yt-banner-title">TokyoFlow 日语实景影视专区</h2>
+          <h2 class="yt-banner-title">TokyoFlow 日语实景影视专区【中文解说版】</h2>
           <p class="yt-banner-desc">
-            全网首创东京实景影视级教学。结合 4K 真实街景、标准东京原声与 3-tier 卡拉OK字幕，每天 1 篇长视频精讲 + 1 篇跟读短剧。
+            全网首创东京实景影视级精讲。结合 4K 真实街景、纯正东京真人原声与 3-tier 振假名卡拉OK高亮。所有中文专集均已同步排期，支持在 YouTube 设定开播提醒。
           </p>
           <div class="yt-schedule-tags">
-            <span class="sched-tag">美东 08:00 AM / 北京 20:00 全球同步</span>
-            <span class="sched-tag">1080p 60fps 原画</span>
+            <span class="sched-tag">美东 20:00 (北京次日 08:00) 定时首播</span>
+            <span class="sched-tag">中文地道语法与文化解说</span>
+            <span class="sched-tag">4K 现场实景照片背景</span>
             <span class="sched-tag">3-Tier 振假名对照</span>
           </div>
         </div>
         <div class="yt-banner-right">
           <a href="https://www.youtube.com/@TokyoFlowJapan?sub_confirmation=1" target="_blank" rel="noopener" class="btn-yt-subscribe">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            <span>一键订阅 YouTube 频道</span>
+            <span>一键订阅 YouTube 频道 (开启铃铛)</span>
           </a>
         </div>
+      </div>
+
+      <!-- Release Schedule Notice -->
+      <div class="schedule-notice-bar">
+        <span class="notice-badge">[首播排期说明]</span>
+        <span class="notice-text">下方专集卡片均已接入官方中文版 YouTube 链接与中文 4K 封面。<strong>已公开视频</strong>可直接播放，<strong>排期首播视频</strong>显示具体公映日期与时间，点击可前往 YouTube 预约开播提醒！</span>
       </div>
 
       <!-- Playlist Filter Bar -->
@@ -1242,13 +1499,13 @@ def build_chinese_page():
 {video_cards}
       </div>
 
-      <!-- Shorts Shadowing Showcase -->
+      <!-- Shorts Shadowing Showcase (Chinese Edition) -->
       <div class="shorts-section-wrap">
         <div class="shorts-header">
           <div>
             <div class="section-stamp">快速跟读</div>
-            <h3 class="shorts-title">9:16 竖屏影子跟读挑战（Shorts）</h3>
-            <p class="shorts-desc">每天 30 秒，跟随东京原声极速跟读，校准音调与脱口直觉。</p>
+            <h3 class="shorts-title">9:16 竖屏影子跟读挑战【中文解说版】</h3>
+            <p class="shorts-desc">每天 30 秒，跟随东京原声极速跟读，校准音调与脱口直觉。点击直达中文 Shorts 播放与排期页面。</p>
           </div>
           <a href="https://www.youtube.com/@TokyoFlowJapan/shorts" target="_blank" rel="noopener" class="btn-shorts-all">
             <span>浏览全部 YouTube Shorts</span>
@@ -1486,7 +1743,7 @@ def build_chinese_page():
           <div class="download-actions-wrap">
             <a href="https://www.youtube.com/@TokyoFlowJapan?sub_confirmation=1" target="_blank" rel="noopener" class="btn-hero-yt">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              <span>订阅 YouTube 频道</span>
+              <span>订阅 YouTube 频道 (开启首播通知)</span>
             </a>
 
             <a href="#" class="btn-hero-appstore">
@@ -1505,7 +1762,7 @@ def build_chinese_page():
       <div class="footer-inner">
         <div class="footer-brand-info">
           <div class="footer-brand-title">TokyoFlow · 東京フロウ</div>
-          <div class="footer-brand-tagline">东京高语境实景日语学习体系 · 影视教学专区</div>
+          <div class="footer-brand-tagline">东京高语境实景日语学习体系 · 中文解说影视专区</div>
         </div>
 
         <div class="footer-links-group">
@@ -1596,7 +1853,7 @@ def build_english_page():
         <img src="/assets/app_icon.jpg" alt="TokyoFlow Icon" class="brand-icon" width="38" height="38">
         <div class="brand-text-group">
           <div class="brand-title">TOKYO<span>FLOW</span></div>
-          <span class="brand-kanji">東京・文脈主導の日本語</span>
+          <span class="brand-kanji">東京・文脈主导の日本語</span>
         </div>
       </a>
 
@@ -1656,7 +1913,7 @@ def build_english_page():
         <div class="hero-cta-group">
           <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" rel="noopener" class="btn-hero-yt">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            <span>Subscribe on YouTube (Daily Drops)</span>
+            <span>Subscribe on YouTube (Daily 08:00 AM EDT Releases)</span>
           </a>
 
           <a href="#academy" class="btn-hero-secondary">
@@ -1681,8 +1938,8 @@ def build_english_page():
             <span class="metric-label">Cinematic Video Lessons</span>
           </div>
           <div class="metric-item">
-            <span class="metric-num">20+ Scenarios</span>
-            <span class="metric-label">High-Context Missions</span>
+            <span class="metric-num">08:00 AM EDT</span>
+            <span class="metric-label">Daily Global Premieres</span>
           </div>
           <div class="metric-item">
             <span class="metric-num">N5 → N1</span>
@@ -1848,14 +2105,14 @@ def build_english_page():
         <div class="yt-banner-left">
           <div class="yt-live-pill">
             <span class="pulse-dot"></span>
-            <span>OFFICIAL YOUTUBE CHANNEL · DAILY RELEASES</span>
+            <span>OFFICIAL YOUTUBE CHANNEL · DAILY 08:00 AM EDT RELEASES</span>
           </div>
-          <h2 class="yt-banner-title">TokyoFlow Video Academy</h2>
+          <h2 class="yt-banner-title">TokyoFlow Video Academy [Global Edition]</h2>
           <p class="yt-banner-desc">
             Cinematic Japanese lessons filmed and deconstructed across real Tokyo districts. Full HD 1080p, 3-tier Ruby karaoke alignment, and native pitch accent breakdowns.
           </p>
           <div class="yt-schedule-tags">
-            <span class="sched-tag">08:00 AM EDT / 21:00 JST Global Drop</span>
+            <span class="sched-tag">08:00 AM EDT Daily Release</span>
             <span class="sched-tag">1080p 60fps Master Quality</span>
             <span class="sched-tag">3-Tier Ruby Transcripts</span>
           </div>
@@ -1866,6 +2123,12 @@ def build_english_page():
             <span>Subscribe on YouTube</span>
           </a>
         </div>
+      </div>
+
+      <!-- Schedule Notice -->
+      <div class="schedule-notice-bar">
+        <span class="notice-badge">[RELEASE SCHEDULE]</span>
+        <span class="notice-text">Each lesson card indicates whether it is <strong>LIVE NOW</strong> or displays its <strong>Scheduled Premiere Date & Time</strong>. Click any card to watch now or set a premiere reminder on YouTube.</span>
       </div>
 
       <!-- Playlist Filter Bar -->
@@ -1888,7 +2151,7 @@ def build_english_page():
         <div class="shorts-header">
           <div>
             <div class="section-stamp">SHADOWING HUB</div>
-            <h3 class="shorts-title">9:16 Vertical Interactive Shorts</h3>
+            <h3 class="shorts-title">9:16 Vertical Interactive Shorts [English Edition]</h3>
             <p class="shorts-desc">30-second rapid shadowing callouts with native Tokyo pronunciation.</p>
           </div>
           <a href="https://www.youtube.com/@TokyoFlowJapan/shorts" target="_blank" rel="noopener" class="btn-shorts-all">
@@ -2500,7 +2763,7 @@ def build_extended_css():
   align-items: center;
   gap: 2.5rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   color: #FFFFFF;
 }
 
@@ -2579,6 +2842,37 @@ def build_extended_css():
   background: #E60000;
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(255, 0, 0, 0.45);
+}
+
+/* Schedule Notice Bar */
+.schedule-notice-bar {
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.86rem;
+  color: var(--navy);
+  font-family: var(--font-serif);
+}
+
+.notice-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cinnabar);
+  background: rgba(188, 56, 44, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.notice-text {
+  flex: 1;
+  line-height: 1.5;
 }
 
 /* Playlist Filter Bar */
@@ -2698,6 +2992,39 @@ def build_extended_css():
   font-weight: 700;
 }
 
+.video-status-overlay {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
+  display: flex;
+}
+
+.status-badge-live {
+  background: rgba(16, 185, 129, 0.92);
+  color: #FFFFFF;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.status-badge-scheduled {
+  background: rgba(18, 54, 94, 0.92);
+  color: #FBBF24;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
 .video-play-overlay {
   position: absolute;
   inset: 0;
@@ -2802,6 +3129,28 @@ def build_extended_css():
   margin-top: 0.75rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--border-gold-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.video-schedule-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+}
+
+.schedule-label {
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.schedule-val {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 .yt-action-btn {
@@ -2813,6 +3162,7 @@ def build_extended_css():
   font-weight: 700;
   color: var(--cinnabar);
   transition: gap 0.2s ease;
+  margin-top: 0.2rem;
 }
 
 .video-card-link:hover .yt-action-btn {
@@ -2939,13 +3289,21 @@ def build_extended_css():
 .short-focus-box {
   font-size: 0.76rem;
   color: var(--ink-sub);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .short-focus-label {
   font-family: var(--font-mono);
   font-weight: 600;
   color: var(--gold-deep);
+}
+
+.short-schedule-tag {
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+  width: fit-content;
 }
 
 .short-btn-bar {
@@ -3308,7 +3666,7 @@ Sitemap: https://tokyoflow.app/sitemap.xml
     return txt
 
 def main():
-    print("Building TokyoFlow Redesigned Bilingual Website...")
+    print("Building TokyoFlow Redesigned Bilingual Website with Accurate Chinese YouTube URLs & Schedule Badges...")
 
     zh_html = build_chinese_page()
     en_html = build_english_page()
