@@ -1,0 +1,319 @@
+{
+  "metadata": {
+    "series_code": "WM.01",
+    "shorts_code": "WS.01",
+    "release_folder": "WM01-weekday_survival_mega_compilation-v1.0-zh",
+    "title_zh": "周一到周五东京生活全景大合集 + 日本深度文化风俗旅行完全掌握 28分钟精讲",
+    "title_ja": "【保存版】月〜金Tokyo日常サバイバル＆日本文化・風俗・旅行完全マスター28分スペシャル",
+    "jlpt_level": "JLPT N5-N3",
+    "target_duration_mins": 28,
+    "district": "东京都全景（新宿、涩谷、秋叶原、浅草、六本木、银座）",
+    "description_summary": "28分钟掌握周一到周五全套东京生活实景生存口语（电车、便利店、居酒屋、秋叶原、拉面店、温泉钱汤、神社参拜），融合深度日本文化风俗、出行礼仪与高频对话公式。"
+  },
+  "screenplay": [
+    {
+      "chapter_id": 0,
+      "chapter_title": "序章 • 东京生活全景学习导览",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "0_1",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "欢迎来到 TokyoFlow 日语周末大合集特辑。今天，我们将周一到周五的完整东京生活实景口语，浓缩进这堂28分钟的全景深度精讲课中。无论你正在备考 JLPT，还是计划前往日本旅行与生活，本期视频都将成为你最实用的随身日语指南。",
+          "duration_est": 21.0,
+          "jlpt": "导览"
+        },
+        {
+          "seg_id": "0_2",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "在接下来的28分钟里，我们将精讲七大核心生活场景：山手线乘车报站、便利店收银结账、居酒屋点单交流、秋叶原免税购物、拉面食券定制、温泉钱汤礼仪以及神社寺庙参拜。同时，我们还将深入剖析电车静音模式、鞠躬礼节、零小费原则与极致款待文化。让我们从第一天：山手线电车开始！",
+          "duration_est": 27.0,
+          "jlpt": "课程大纲"
+        }
+      ]
+    },
+    {
+      "chapter_id": 1,
+      "chapter_title": "Day 1 • 山手线电车报站与乘车礼仪",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_yamanote_platform.jpg",
+      "segments": [
+        {
+          "seg_id": "1_1_intro",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "周一清晨，东京的脉搏从山手线开始跳动。在站台与车厢内，你最常听到的就是标准广播提示。",
+          "duration_est": 10.0,
+          "jlpt": "场景引入"
+        },
+        {
+          "seg_id": "1_2_quote",
+          "type": "audio_phrase",
+          "character": "七海",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "まもなく、二番線に電車がまいります。黄色い点字ブロックの内側までお下がりください。",
+          "furi": "まもなく、 にばんせん に でんしゃ が まいります。 きいろい てんじ ぶろっく の うちがわ まで おさがり ください。",
+          "romaji": "Mamonaku, nibansen ni densha ga mairimasu. Kiiroi tenji burokku no uchigawa made osagari kudasai.",
+          "meaning": "列车即将到达2号站台，请退至黄色盲道内侧等候。",
+          "jlpt": "N4",
+          "duration_est": 8.5
+        },
+        {
+          "seg_id": "1_3_breakdown",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "请注意动词 'mairimasu'，这是 'kimasu'（来）的自谦语，体现了铁道公司的极高服务敬意；'osagari kudasai' 则是 'o + 动词连用形 + kudasai' 的高频敬语祈使句型。",
+          "duration_est": 15.0,
+          "jlpt": "N4 语法精讲"
+        }
+      ]
+    },
+    {
+      "chapter_id": 2,
+      "chapter_title": "Day 2 • 7-Eleven 便利店结账全流程",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "2_1_intro",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "周二走进街头随处可见的 7-Eleven 或全家便利店。在收银台前，店员会连续询问便当加热与塑料袋需求。",
+          "duration_est": 11.0,
+          "jlpt": "场景引入"
+        },
+        {
+          "seg_id": "2_2_quote",
+          "type": "audio_phrase",
+          "character": "七海",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "お弁当温めますか？レジ袋はご利用になりますか？",
+          "furi": "おべんとう あたためます か？ れじぶくろ は ごりよう に なります か？",
+          "romaji": "Obentou atatamemasu ka? Rejibukuro wa goriyou ni narimasu ka?",
+          "meaning": "便当需要加热吗？需要使用塑料袋吗？",
+          "jlpt": "N5",
+          "duration_est": 7.5
+        },
+        {
+          "seg_id": "2_3_breakdown",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "如果需要加热，直接回答 'Onegaishimasu'；如果不需要塑料袋，最地道的回答是 'Fukuro wa daijoubu desu'（不用了，谢谢）。'Daijoubu desu' 在这里巧妙表达了礼貌拒绝。",
+          "duration_est": 16.0,
+          "jlpt": "N5 实战应答应答"
+        }
+      ]
+    },
+    {
+      "chapter_id": 3,
+      "chapter_title": "Day 3 • 居酒屋点餐与前菜文化 (お通し)",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "3_1_intro",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "周三夜晚，步入烟火气十足的东京居酒屋。入座后第一件事不是看菜单，而是先点第一杯饮料。",
+          "duration_est": 11.0,
+          "jlpt": "场景引入"
+        },
+        {
+          "seg_id": "3_2_quote",
+          "type": "audio_phrase",
+          "character": "七海",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "とりあえず生ビール二つと、枝豆をお願いします。",
+          "furi": "とりあえず なまびーる ふたつ と、 えだまめ を おねがい します。",
+          "romaji": "Toriaezu nama biiru futatsu to, edamame o onegai shimasu.",
+          "meaning": "先来两杯生啤酒和一份毛豆，谢谢。",
+          "jlpt": "N5",
+          "duration_est": 7.0
+        },
+        {
+          "seg_id": "3_3_breakdown",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "'Toriaezu' 是居酒屋黄金副词，意思是'总之先来……'。同时请注意桌上主动端上的小菜 'Otoushi'，这是日本居酒屋不成文的席位费文化，通常为300到500日元。",
+          "duration_est": 17.0,
+          "jlpt": "文化与高频副词"
+        }
+      ]
+    },
+    {
+      "chapter_id": 4,
+      "chapter_title": "Day 4 • 秋叶原二次元购物与免税退税",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "4_1_intro",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "周四来到动漫圣地秋叶原。在友都八喜或手办店结账时，免税是外国游客最核心的交流诉求。",
+          "duration_est": 11.0,
+          "jlpt": "场景引入"
+        },
+        {
+          "seg_id": "4_2_quote",
+          "type": "audio_phrase",
+          "character": "七海",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "免税手続きをお願いできますか？パスポートはこちらです。",
+          "furi": "めんぜい てつづき を おねがい できます か？ ぱすぽーと は こちら です。",
+          "romaji": "Menzei tetsuzuki o onegai dekimasu ka? Pasupooto wa kochira desu.",
+          "meaning": "请问可以办理免税手续吗？这是我的护照。",
+          "jlpt": "N4",
+          "duration_est": 7.5
+        },
+        {
+          "seg_id": "4_3_breakdown",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "'~o onegai dekimasu ka' 是比 '~kudasai' 更具礼貌色彩的可能形请求句型。日本消费税为10%，单笔消费满5000日元即可出示护照享受当场免税。",
+          "duration_est": 16.0,
+          "jlpt": "N4 购物敬语"
+        }
+      ]
+    },
+    {
+      "chapter_id": 5,
+      "chapter_title": "Day 5 • 拉面食券机定制与加面 (替玉)",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "5_1_intro",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "周五深夜，来到一兰或家系拉面店。在食券机前买好票后，店员会询问你对口味与面条硬度的详细偏好。",
+          "duration_est": 11.0,
+          "jlpt": "场景引入"
+        },
+        {
+          "seg_id": "5_2_quote",
+          "type": "audio_phrase",
+          "character": "七海",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "麺は硬めで、味は濃いめでお願いします。替え玉を一つください。",
+          "furi": "めん は かため で、 あじ は こいめ で おねがい します。 かえだま を ひとつ ください。",
+          "romaji": "Men wa katame de, aji wa koime de onegai shimasu. Kaedama o hitotsu kudasai.",
+          "meaning": "面条要偏硬一点，汤头要浓郁一点，谢谢。请再加一份面。",
+          "jlpt": "N5",
+          "duration_est": 8.0
+        },
+        {
+          "seg_id": "5_3_breakdown",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "后缀 '~me'（目）表示程度偏向，例如 'katame'（偏硬）、'koime'（偏浓）。博多豚骨拉面中的加面叫做 'Kaedama'，记得留半碗汤再呼叫店员哦。",
+          "duration_est": 16.0,
+          "jlpt": "饮食定制表达"
+        }
+      ]
+    },
+    {
+      "chapter_id": 6,
+      "chapter_title": "Weekend Part 1 • 钱汤温泉入浴五大礼仪",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "6_1_intro",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "周末放松时刻，体验日本传统的钱汤与温泉。入浴前必须严格遵守'先洗净身体再入池'与'毛巾绝不浸入温泉水'等传统规矩。",
+          "duration_est": 12.0,
+          "jlpt": "文化导入"
+        },
+        {
+          "seg_id": "6_2_quote",
+          "type": "audio_phrase",
+          "character": "七海",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "湯船に入る前に、必ず体を綺麗に洗ってください。タオルは湯に入れないでください。",
+          "furi": "ゆぶね に はいる まえ に、 かならず からだ を きれい に あらって ください。 たおる は ゆ に いれないで ください。",
+          "romaji": "Yubune ni hairu mae ni, kanarazu karada o kirei ni aratte kudasai. Taoru wa yu ni irenaide kudasai.",
+          "meaning": "进入浴池之前，请务必将身体彻底清洗干净。毛巾请勿浸入浴池中。",
+          "jlpt": "N4",
+          "duration_est": 9.0
+        }
+      ]
+    },
+    {
+      "chapter_id": 7,
+      "chapter_title": "Weekend Part 2 • 神社寺庙参拜礼仪 (二礼二拍手)",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "7_1_intro",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "漫步浅草寺或明治神宫。参拜神道教神社的标准仪式是'二礼二拍手一礼'，投币时推荐使用5日元硬币（音同'有缘'）。",
+          "duration_est": 13.0,
+          "jlpt": "文化导入"
+        },
+        {
+          "seg_id": "7_2_quote",
+          "type": "audio_phrase",
+          "character": "七海",
+          "lang": "ja",
+          "voice": "ja-JP-NanamiNeural",
+          "content": "お賽銭を入れて、二礼二拍手一礼の作法で参拝します。",
+          "furi": "おさいせん を いれて、 にれい にはくしゅ いちれい の さほう で さんぱい します。",
+          "romaji": "Osaisen o irete, nirei nihakushu ichirei no sahou de sanpai shimasu.",
+          "meaning": "投入香油钱后，按照两次鞠躬、两次击掌、最后一次鞠躬的礼法进行参拜。",
+          "jlpt": "N3",
+          "duration_est": 8.5
+        }
+      ]
+    },
+    {
+      "chapter_id": 8,
+      "chapter_title": "终章 • 学习总结与复习展望",
+      "bg_scene": "docs/shared/assets/backgrounds/scene_tokyo_skyline.jpg",
+      "segments": [
+        {
+          "seg_id": "8_1_outro",
+          "type": "narration",
+          "character": "Yunxi",
+          "lang": "zh",
+          "voice": "zh-CN-YunxiNeural",
+          "content": "恭喜你完成了整整28分钟的东京生活全景精讲特训！从电车到便利店，从居酒屋到温泉神宫，你已经系统掌握了东京日常所需的全部核心口语与文化礼节。欢迎访问 TokyoFlow 官网下载完整词汇讲义。点赞订阅，开启你的地道日语之旅！",
+          "duration_est": 22.0,
+          "jlpt": "结语"
+        }
+      ]
+    }
+  ]
+}
