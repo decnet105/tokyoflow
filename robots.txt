@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /tmp/
+Disallow: /build/
+Disallow: /build_sim/
+
+Sitemap: https://tokyoflow.app/sitemap.xml

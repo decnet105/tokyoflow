@@ -3351,7 +3351,17 @@ def main():
             dst_file = os.path.join(dest_dir, file)
             shutil.copy2(src_file, dst_file)
 
-    print("TokyoFlow Website generated and synchronized successfully!")
+    # Sync entire site to repo root for Cloudflare Pages / Workers deployment
+    for root, dirs, files in os.walk("site"):
+        rel_path = os.path.relpath(root, "site")
+        dest_dir = os.path.join(".", rel_path) if rel_path != "." else "."
+        os.makedirs(dest_dir, exist_ok=True)
+        for file in files:
+            src_file = os.path.join(root, file)
+            dst_file = os.path.join(dest_dir, file)
+            shutil.copy2(src_file, dst_file)
+
+    print("TokyoFlow Website generated and synchronized to site/, docs/site/, and repo root!")
     print("Zero Emoji Verification Passed on all files.")
 
 if __name__ == "__main__":

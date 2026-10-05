@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Chinese Homepage (Canonical Root) -->
+  <url>
+    <loc>https://tokyoflow.app/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tokyoflow.app/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokyoflow.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokyoflow.app/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokyoflow.app/" />
+  </url>
+
+  <!-- English Homepage -->
+  <url>
+    <loc>https://tokyoflow.app/en/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokyoflow.app/en/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tokyoflow.app/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokyoflow.app/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokyoflow.app/" />
+  </url>
+
+  <!-- Legal & Support Pages -->
+  <url>
+    <loc>https://tokyoflow.app/privacy/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://tokyoflow.app/terms/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://tokyoflow.app/support/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://tokyoflow.app/en/privacy/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://tokyoflow.app/en/terms/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://tokyoflow.app/en/support/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
