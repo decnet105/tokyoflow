@@ -1,9 +1,10 @@
 {
   "metadata": {
-    "series_code": "WM.01",
-    "shorts_code": "WS.01",
+    "series_code": "WL.02",
+    "legacy_code": "WM.01",
+    "shorts_code": "WS.02",
     "release_folder": "WM01-weekday_survival_mega_compilation-v1.0-zh",
-    "title_zh": "周一到周五东京生活全景大合集 + 日本深度文化风俗旅行完全掌握 28分钟精讲",
+    "title_zh": "【JLPT N5-N3】WL.02 周一到周五东京生活全景大合集 | 电车·便利店·居酒屋·秋叶原·拉面·温泉全场景28分钟精讲",
     "title_ja": "【保存版】月〜金Tokyo日常サバイバル＆日本文化・風俗・旅行完全マスター28分スペシャル",
     "jlpt_level": "JLPT N5-N3",
     "target_duration_mins": 28,
@@ -19,7 +20,7 @@
         {
           "seg_id": "0_1",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "欢迎来到 TokyoFlow 日语周末大合集特辑。今天，我们将周一到周五的完整东京生活实景口语，浓缩进这堂28分钟的全景深度精讲课中。无论你正在备考 JLPT，还是计划前往日本旅行与生活，本期视频都将成为你最实用的随身日语指南。",
@@ -29,7 +30,7 @@
         {
           "seg_id": "0_2",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "在接下来的28分钟里，我们将精讲七大核心生活场景：山手线乘车报站、便利店收银结账、居酒屋点单交流、秋叶原免税购物、拉面食券定制、温泉钱汤礼仪以及神社寺庙参拜。同时，我们还将深入剖析电车静音模式、鞠躬礼节、零小费原则与极致款待文化。让我们从第一天：山手线电车开始！",
@@ -46,7 +47,7 @@
         {
           "seg_id": "1_1_intro",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "周一清晨，东京的脉搏从山手线开始跳动。在站台与车厢内，你最常听到的就是标准广播提示。",
@@ -69,7 +70,7 @@
         {
           "seg_id": "1_3_breakdown",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "请注意动词 'mairimasu'，这是 'kimasu'（来）的自谦语，体现了铁道公司的极高服务敬意；'osagari kudasai' 则是 'o + 动词连用形 + kudasai' 的高频敬语祈使句型。",
@@ -86,7 +87,7 @@
         {
           "seg_id": "2_1_intro",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "周二走进街头随处可见的 7-Eleven 或全家便利店。在收银台前，店员会连续询问便当加热与塑料袋需求。",
@@ -109,12 +110,12 @@
         {
           "seg_id": "2_3_breakdown",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "如果需要加热，直接回答 'Onegaishimasu'；如果不需要塑料袋，最地道的回答是 'Fukuro wa daijoubu desu'（不用了，谢谢）。'Daijoubu desu' 在这里巧妙表达了礼貌拒绝。",
           "duration_est": 16.0,
-          "jlpt": "N5 实战应答应答"
+          "jlpt": "N5 实战应答"
         }
       ]
     },
@@ -126,7 +127,7 @@
         {
           "seg_id": "3_1_intro",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "周三夜晚，步入烟火气十足的东京居酒屋。入座后第一件事不是看菜单，而是先点第一杯饮料。",
@@ -149,7 +150,7 @@
         {
           "seg_id": "3_3_breakdown",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "'Toriaezu' 是居酒屋黄金副词，意思是'总之先来……'。同时请注意桌上主动端上的小菜 'Otoushi'，这是日本居酒屋不成文的席位费文化，通常为300到500日元。",
@@ -166,7 +167,7 @@
         {
           "seg_id": "4_1_intro",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "周四来到动漫圣地秋叶原。在友都八喜或手办店结账时，免税是外国游客最核心的交流诉求。",
@@ -189,7 +190,7 @@
         {
           "seg_id": "4_3_breakdown",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "'~o onegai dekimasu ka' 是比 '~kudasai' 更具礼貌色彩的可能形请求句型。日本消费税为10%，单笔消费满5000日元即可出示护照享受当场免税。",
@@ -206,7 +207,7 @@
         {
           "seg_id": "5_1_intro",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "周五深夜，来到一兰或家系拉面店。在食券机前买好票后，店员会询问你对口味与面条硬度的详细偏好。",
@@ -229,7 +230,7 @@
         {
           "seg_id": "5_3_breakdown",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "后缀 '~me'（目）表示程度偏向，例如 'katame'（偏硬）、'koime'（偏浓）。博多豚骨拉面中的加面叫做 'Kaedama'，记得留半碗汤再呼叫店员哦。",
@@ -246,7 +247,7 @@
         {
           "seg_id": "6_1_intro",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "周末放松时刻，体验日本传统的钱汤与温泉。入浴前必须严格遵守'先洗净身体再入池'与'毛巾绝不浸入温泉水'等传统规矩。",
@@ -276,7 +277,7 @@
         {
           "seg_id": "7_1_intro",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "漫步浅草寺或明治神宫。参拜神道教神社的标准仪式是'二礼二拍手一礼'，投币时推荐使用5日元硬币（音同'有缘'）。",
@@ -306,7 +307,7 @@
         {
           "seg_id": "8_1_outro",
           "type": "narration",
-          "character": "Yunxi",
+          "character": "云希",
           "lang": "zh",
           "voice": "zh-CN-YunxiNeural",
           "content": "恭喜你完成了整整28分钟的东京生活全景精讲特训！从电车到便利店，从居酒屋到温泉神宫，你已经系统掌握了东京日常所需的全部核心口语与文化礼节。欢迎访问 TokyoFlow 官网下载完整词汇讲义。点赞订阅，开启你的地道日语之旅！",

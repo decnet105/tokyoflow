@@ -4,18 +4,21 @@ TokyoFlow Japanese Cinema Masterclass • Weekend Blockbuster Production Pipelin
 ==================================================================================================
 Automated production engine for 25-minute Chinese-localized cinematic deep-dives:
 - WL.01: 电影《最后的里程》(ラストマイル) 25分钟影视沉浸大课【中文解说版】
-- Explainer Voice: zh-CN-YunxiNeural (云希全中文名师精讲)
-- Tokyo Standard Voice: ja-JP-NanamiNeural (七海纯正东京原声)
-- Real-time Word-by-Word Karaoke Subtitles & Micro-Lesson Sentence Breakdown HUD
-- High-CTR 16:9 Master Chinese Cover & 9:16 Shorts Cover (Zero Emoji Discipline)
+- 100% Authentic Movie Action Footage (Clean Cuts, High Bitrate)
+- Real-time Word-by-Word Karaoke Follow-Along Subtitles (Glowing Gold Capsule & Red Dot)
+- Micro-Lesson Sentence Breakdown HUD (Chinese Vocabulary Grid + Active Grammar Spotlight)
+- Strict Dual-Voice Separation (Yunxi 100% ZH / Nanami 100% JA with Slow, Crisp Speed)
+- 4K Authentic Hikari Mitsushima (满岛光) Movie Hero Cover & 9:16 Shorts Cover (Zero Emoji Discipline)
 """
 
 import os
 import sys
 import re
+import glob
 import json
 import asyncio
 import subprocess
+from pathlib import Path
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 import edge_tts
@@ -69,9 +72,9 @@ CINEMA_SCREENPLAY_ZH = [
         "scene_clip": "scene_01_warehouse",
         "segments": [
             {
-                "seg_id": "0.1",
+                "seg_id": "0_1",
                 "type": "cold_open",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "东京，黑色星期五。数以百万计的包裹正以每秒2.7米的速度极速运转。然而，其中一个包裹暗藏致命炸弹。如果停下流水线，企业将面临数亿日元的巨额违约金；如果继续运转，整个东京随时可能陷入连环爆炸。欢迎来到 TokyoFlow 日语影视大课。今天，我们将深度解析2024年日本现象级票房悬疑神作——《最后的里程》。",
@@ -79,7 +82,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "jlpt": "导览"
             },
             {
-                "seg_id": "0.2",
+                "seg_id": "0_2",
                 "type": "hero_quote",
                 "character": "舟渡艾蕾娜",
                 "lang": "ja",
@@ -115,9 +118,9 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 8.0
             },
             {
-                "seg_id": "0.3",
+                "seg_id": "0_3",
                 "type": "instant_breakdown",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "请注意句中极为关键的 JLPT N3 核心语法：'wake ni wa ikimasen'。在日语高语境中，它并不是表示能力上做不到，而是受到社会道德、职业契约或舆论责任的强烈制约，因而'绝不能停'。在日本企业文化中，擅自中断流水线被视为对整个社会契约的背叛。",
@@ -138,9 +141,9 @@ CINEMA_SCREENPLAY_ZH = [
                 ]
             },
             {
-                "seg_id": "0.4",
+                "seg_id": "0_4",
                 "type": "channel_cta",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "在接下来的25分钟超长大课中，你将掌握从 JLPT N5 到 N2 的80个实战高频句型、掌握地道职场潜台词，并深入剖析这部烧脑大片背后的社会心理真相。欢迎订阅 TokyoFlow，准备好笔记本，让我们一起走进这场东京物流风暴。",
@@ -160,9 +163,9 @@ CINEMA_SCREENPLAY_ZH = [
         "scene_clip": "scene_02_elena",
         "segments": [
             {
-                "seg_id": "1.1_narration",
+                "seg_id": "1_1_narration",
                 "type": "story_setup",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "故事拉开帷幕。位于关东的巨型物流集散中心迎来了新任中心总监——舟渡艾蕾娜。协助她的是谨慎沉稳的现场主管梨本孔。在庞大的仓库内，数千名员工正在紧张而有序地高效作业。",
@@ -170,7 +173,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "jlpt": "剧情铺垫"
             },
             {
-                "seg_id": "1.1_dialogue",
+                "seg_id": "1_1_dialogue",
                 "type": "dialogue_n5",
                 "character": "舟渡艾蕾娜",
                 "lang": "ja",
@@ -207,9 +210,9 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 7.0
             },
             {
-                "seg_id": "1.1_breakdown",
+                "seg_id": "1_1_breakdown",
                 "type": "pedagogical_lesson",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "这是日本职场中含金量极高的 JLPT N5 新人入职金句。'Osewa ni narimasu' 直译为'我将成为接受您照料的一方'。注意艾蕾娜巧妙结合了自谦动词 'itashimasu'，瞬间树立起既专业又谦逊的职场管理形象。",
@@ -231,7 +234,7 @@ CINEMA_SCREENPLAY_ZH = [
                 ]
             },
             {
-                "seg_id": "1.2_dialogue",
+                "seg_id": "1_2_dialogue",
                 "type": "dialogue_n5_n4",
                 "character": "梨本孔",
                 "lang": "ja",
@@ -267,9 +270,9 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 7.5
             },
             {
-                "seg_id": "1.2_breakdown",
+                "seg_id": "1_2_breakdown",
                 "type": "pedagogical_lesson",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "在日本快节奏的仓储物流行业中，主管一般不会用随意的 'hayaku'，而是使用地道的 JLPT N3 商务副词 'sumiyaka ni'，意思是'在不造成停顿和拥堵的前提下迅速推进'。",
@@ -291,7 +294,7 @@ CINEMA_SCREENPLAY_ZH = [
                 ]
             },
             {
-                "seg_id": "1.3_dialogue",
+                "seg_id": "1_3_dialogue",
                 "type": "dialogue_n4",
                 "character": "舟渡艾蕾娜",
                 "lang": "ja",
@@ -325,9 +328,9 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 8.0
             },
             {
-                "seg_id": "1.3_cultural_insight",
+                "seg_id": "1_3_cultural_insight",
                 "type": "cultural_insight",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "这里埋下了电影最致命的伏笔：'Byousoku ni ten nana meetoru'——每秒2.7米。这不仅仅是一个物理数字，更是跨国巨头物流系统强行设定的绝对考核指标。一旦降速哪怕0.1秒，全球管理系统就会自动拉响红色警报。",
@@ -360,9 +363,9 @@ CINEMA_SCREENPLAY_ZH = [
         "scene_clip": "scene_06_miu404",
         "segments": [
             {
-                "seg_id": "2.1_narration",
+                "seg_id": "2_1_narration",
                 "type": "story_escalation",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "第二幕危机全面爆发。东京都内多个收件人在拆开包裹的瞬间遭遇炸弹爆炸。警方机动搜查队的志摩与伊吹刑警迅速赶到现场，法医团队 UDI 研究所也紧急介入，将整个物流中心重重包围。",
@@ -370,7 +373,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "jlpt": "剧情推向高潮"
             },
             {
-                "seg_id": "2.1_dialogue",
+                "seg_id": "2_1_dialogue",
                 "type": "dialogue_n3",
                 "character": "志摩一未 (刑警)",
                 "lang": "ja",
@@ -407,9 +410,9 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 8.5
             },
             {
-                "seg_id": "2.1_breakdown",
+                "seg_id": "2_1_breakdown",
                 "type": "pedagogical_lesson",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "志摩刑警这句话中同时出现了两大 JLPT 核心考点：一个是 N2 语法 '~shikanemasen'，它专门用来预警可能引发的灾难性恶果；另一个是 N3 必备语法 '~subeki desu'，代表基于社会正义与职责'理应采取的行动'。",
@@ -440,12 +443,12 @@ CINEMA_SCREENPLAY_ZH = [
         "chapter_id": 3,
         "chapter_title": "第三幕 • 终极高潮与灵魂金句",
         "timecode_range": "15:00 - 22:30",
-        "scene_clip": "scene_08_climax",
+        "scene_clip": "scene_08_speedgauge",
         "segments": [
             {
-                "seg_id": "3.1_narration",
+                "seg_id": "3_1_narration",
                 "type": "climax_intro",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "剧情迎来了全片最高能的反转与爆发。艾蕾娜的真实身份与神秘过往浮出水面。面对上层资本的无情施压与无辜人命的生死抉择，她在控制室作出了震惊全场的终极抉择。",
@@ -453,7 +456,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "jlpt": "高潮剧情"
             },
             {
-                "seg_id": "3.1_dialogue",
+                "seg_id": "3_1_dialogue",
                 "type": "dialogue_n2",
                 "character": "舟渡艾蕾娜",
                 "lang": "ja",
@@ -489,9 +492,9 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 9.5
             },
             {
-                "seg_id": "3.1_breakdown",
+                "seg_id": "3_1_breakdown",
                 "type": "pedagogical_lesson",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "这一句是整部电影的思想灵魂所在。'~te made' 是 JLPT N2 核心句型，表示'甚至不惜付出惨痛代价去做某事'。而艾蕾娜在 'rieki' 后面加上 'nado'，以极具威慑力的语气全盘否定了资本唯利是图的虚伪本质。",
@@ -522,12 +525,12 @@ CINEMA_SCREENPLAY_ZH = [
         "chapter_id": 4,
         "chapter_title": "影视影子跟读特训营 • 5大等级灵魂台词",
         "timecode_range": "22:30 - 24:00",
-        "scene_clip": "scene_shadowing",
+        "scene_clip": "scene_09_evacuation",
         "segments": [
             {
-                "seg_id": "4.1_intro",
+                "seg_id": "4_0_intro",
                 "type": "shadowing_intro",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "现在进入 TokyoFlow 影视沉浸影子跟读特训营。请跟随七海纯正东京原声，在屏幕上的金色卡拉OK高亮引导下，大声朗读以下五条经典台词。",
@@ -535,7 +538,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "jlpt": "跟读特训"
             },
             {
-                "seg_id": "4.2_line1",
+                "seg_id": "4_1_drill",
                 "type": "shadowing_line",
                 "character": "七海",
                 "lang": "ja",
@@ -546,7 +549,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 5.0
             },
             {
-                "seg_id": "4.3_line2",
+                "seg_id": "4_2_drill",
                 "type": "shadowing_line",
                 "character": "七海",
                 "lang": "ja",
@@ -557,7 +560,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 5.5
             },
             {
-                "seg_id": "4.4_line3",
+                "seg_id": "4_3_drill",
                 "type": "shadowing_line",
                 "character": "七海",
                 "lang": "ja",
@@ -568,7 +571,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 5.5
             },
             {
-                "seg_id": "4.5_line4",
+                "seg_id": "4_4_drill",
                 "type": "shadowing_line",
                 "character": "七海",
                 "lang": "ja",
@@ -579,7 +582,7 @@ CINEMA_SCREENPLAY_ZH = [
                 "duration_est": 6.0
             },
             {
-                "seg_id": "4.6_line5",
+                "seg_id": "4_5_drill",
                 "type": "shadowing_line",
                 "character": "七海",
                 "lang": "ja",
@@ -599,12 +602,12 @@ CINEMA_SCREENPLAY_ZH = [
         "chapter_id": 5,
         "chapter_title": "总结结语与下期预告",
         "timecode_range": "24:00 - 25:00",
-        "scene_clip": "scene_outro",
+        "scene_clip": "scene_10_climax",
         "segments": [
             {
-                "seg_id": "5.1_outro",
+                "seg_id": "5_1_philosophical",
                 "type": "outro",
-                "character": "Yunxi",
+                "character": "云希",
                 "lang": "zh",
                 "voice": "zh-CN-YunxiNeural",
                 "content": "以上就是本期《最后的里程》电影级深度大课的全部精讲。通过地道的影视对白，我们不仅掌握了从 N5 到 N2 的高频句型，更读懂了日本现代社会中职场人内心的挣扎与温情。如果本期内容对你的日语学习有所启发，请点赞、订阅并分享给你的学习伙伴。在评论区留下你印象最深的一句台词，我们下期影视大课再见！",
@@ -616,66 +619,346 @@ CINEMA_SCREENPLAY_ZH = [
 ]
 
 # ==========================================
-# METADATA & SCHEDULE GENERATION
+# AUDIO DURATION HELPER
 # ==========================================
 
-def build_metadata_md_zh(output_dir: str):
-    meta_path = os.path.join(output_dir, "metadata.md")
-    title = f"【JLPT N5-N2】电影《最后的里程》影视沉浸精讲（WL.01）| 满岛光×冈田将生 2024票房冠军超长深度解析"
-    description = f"""【TokyoFlow 日语影视实景大课 • 中文解说版】
-长视频特辑编号：WL.01
-短视频跟读编号：WS.01
-JLPT 难度跨度：[JLPT N5] ~ [JLPT N2]
-
-通过 2024 年日本现象级院线票房冠军悬疑大作《最后的里程》（ラストマイル / Last Mile），深度掌握地道东京职场高语境日语、商务寒暄法则与 JLPT N5 至 N2 必考核心句型！
-
-【课程时间轴目录】
-00:00 - 90秒黄金开局 • 核心矛盾引爆（每秒2.7米还是爆炸？）
-01:30 - 第一幕 • 初入职场与物流危机（JLPT N5-N4 职场新人寒暄与工作指令）
-07:30 - 第二幕 • 冲突爆发与真心话较量（JLPT N4-N3 危机处理与隐患预警）
-15:00 - 第三幕 • 终极高潮与灵魂金句（JLPT N3-N2 深度语法与资本哲学剖析）
-22:30 - 影视影子跟读特训营 • 5大等级灵魂台词跟读
-24:00 - 总结结语与下期影视预告
-
-【本片核心制作信息】
-电影名称：最后的里程（ラストマイル / Last Mile）
-导演：冢原亚由子 (Ayuko Tsukahara)
-编剧：野木亚纪子 (Akiko Nogi)
-领衔主演：满岛光 (Hikari Mitsushima)、冈田将生 (Masaki Okada)、石原里美 (Satomi Ishihara)、绫野刚 (Go Ayano)
-
-【核心教学语法点】
-- [JLPT N5]：今日からお世話になります (职场入职标准问候语) + いたします (自谦动词)
-- [JLPT N4]：~ば 条件形 (假定条件) + 間に合う (赶得上/按时)
-- [JLPT N3]：~わけにはいかない (受社会契约与道德约束的绝不能) + ~べきだ (理应/应当)
-- [JLPT N2]：~かねない (极有可能引发灾难恶果) + ~てまで (甚至不惜付出代价)
-
-【TokyoFlow 官方学习平台】
-访问 TokyoFlow 官方网站下载完整讲义与配套词汇卡：
-https://tokyoflow.app/
-
-【检索标签】
-日语学习, 最后的里程, 满岛光, 冈田将生, 石原里美, 绫野刚, 冢原亚由子, 野木亚纪子, 看电影学日语, JLPT N5, JLPT N4, JLPT N3, JLPT N2, 日语听力, 日语影子跟读, 日本电影, 职场日语, 日语语法, TokyoFlow, 日语口语, 日语敬语"""
-
-    with open(meta_path, "w", encoding="utf-8") as f:
-        f.write(f"# YouTube 视频标题\n```\n{title}\n```\n\n# YouTube 视频简介\n```\n{description}\n```\n")
-    print(f"  [OK] 保存中文版视频元数据: {meta_path}")
-
-def build_script_json_zh(output_dir: str):
-    script_path = os.path.join(output_dir, "script.json")
-    out_obj = {
-        "metadata": EPISODE_METADATA_ZH,
-        "screenplay": CINEMA_SCREENPLAY_ZH
-    }
-    with open(script_path, "w", encoding="utf-8") as f:
-        json.dump(out_obj, f, ensure_ascii=False, indent=2)
-    print(f"  [OK] 保存中文版剧本配置: {script_path}")
+def get_audio_duration(audio_path: str) -> float:
+    cmd = [
+        "ffprobe", "-v", "error", "-show_entries",
+        "format=duration", "-of", "default=noprint_wrappers=1:nokey=1",
+        audio_path
+    ]
+    res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    try:
+        return float(res.stdout.strip())
+    except Exception:
+        return 5.0
 
 # ==========================================
-# THUMBNAIL ENGINE (16:9 & 9:16 CHINESE EDITION)
+# HUD FRAME RENDERING (100% CONTRAST & ZERO CUTOFF)
+# ==========================================
+
+def draw_top_brand_bar_zh(draw: ImageDraw.Draw, width: int, chapter_title: str, jlpt_level: str):
+    draw.rectangle([(0, 0), (width, 68)], fill=(10, 15, 28, 220))
+    draw.text((50, 18), "TokyoFlow 日语影视大课  |  WL.01《最后的里程》影视沉浸精讲", fill=(255, 255, 255), font=get_font(26))
+
+    level_clean = jlpt_level.replace("Breakdown", "").replace("Lesson", "").replace("dialogue_", "").strip() if jlpt_level else ""
+    if level_clean and level_clean != "N/A" and level_clean != "CTA":
+        badge_str = f"【{level_clean}】" if not level_clean.startswith("【") else level_clean
+    else:
+        badge_str = "【影视大课】"
+
+    f_badge = get_font(22)
+    bbox = draw.textbbox((0, 0), badge_str, font=f_badge)
+    text_w = bbox[2] - bbox[0]
+    pill_w = max(140, text_w + 36)
+    x1 = width - 50 - pill_w
+    x2 = width - 50
+    draw.rounded_rectangle([(x1, 12), (x2, 56)], radius=12, fill=(225, 29, 72, 230), outline=(255, 255, 255, 180), width=2)
+    draw.text((x1 + (pill_w - text_w) // 2, 18), badge_str, fill=(255, 255, 255), font=f_badge)
+
+def compute_mora_ranges(tokens: list, total_duration: float) -> list:
+    weights = []
+    for tok in tokens:
+        k = tok.get("kana", "") or tok.get("orig", "")
+        m_count = float(len(k))
+        for small in ["ゃ", "ゅ", "ょ", "ぁ", "ぃ", "ぅ", "ぇ", "ぉ", "っ", "ャ", "ュ", "ョ", "ッ"]:
+            m_count -= 0.35 * k.count(small)
+        if any(p in tok.get("orig", "") for p in ["、", "。", "！", "？", ",", "!"]):
+            m_count += 1.2
+        weights.append(max(0.7, m_count))
+
+    total_w = sum(weights)
+    lead_in = 0.10
+    tail_out = 0.18
+    active_dur = max(0.4, total_duration - (lead_in + tail_out))
+
+    ranges = []
+    cur_t = lead_in
+    for w in weights:
+        dur = (w / total_w) * active_dur
+        ranges.append((cur_t, cur_t + dur))
+        cur_t += dur
+    return ranges
+
+def render_dialogue_karaoke_frame_zh(
+    tokens: list,
+    category_label: str,
+    title_label: str,
+    chinese_meaning: str,
+    grammar_text: str,
+    current_time: float,
+    total_duration: float,
+    jlpt_level: str = "N3"
+) -> Image.Image:
+    img = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+
+    for y in range(80):
+        alpha = int(220 * (1.0 - (y / 80.0)))
+        draw.line([(0, y), (1920, y)], fill=(10, 15, 28, alpha))
+
+    for y in range(540, 1080):
+        rel = (y - 540) / 540.0
+        alpha = int(240 * (rel ** 0.85))
+        draw.line([(0, y), (1920, y)], fill=(8, 12, 22, alpha))
+
+    draw_top_brand_bar_zh(draw, 1920, category_label, jlpt_level)
+
+    draw.rounded_rectangle([(50, 80), (460, 120)], radius=10, fill=(30, 41, 59, 210))
+    draw.text((65, 87), "[ 影视对白 • 影子跟读 ]", fill=(244, 114, 182), font=get_font(18))
+
+    card_x, card_y, card_w, card_h = 50, 580, 1820, 440
+    draw.rounded_rectangle([(card_x, card_y), (card_x + card_w, card_y + card_h)], radius=22, fill=(10, 15, 28, 230), outline=(51, 65, 85, 200), width=2)
+
+    max_tokens_w = card_w - 70
+    base_jp_size = 46
+    base_kana_size = 22
+    base_ro_size = 22
+
+    def calc_widths(jp_sz, kana_sz, ro_sz, pad_x):
+        f_jp = get_font(jp_sz)
+        f_ka = get_font(kana_sz)
+        f_ro = get_font(ro_sz)
+        t_widths = []
+        for tok in tokens:
+            w_jp = draw.textbbox((0, 0), tok["orig"], font=f_jp)[2]
+            w_kana = draw.textbbox((0, 0), tok.get("kana", ""), font=f_ka)[2] if tok.get("kana") else 0
+            w_ro = draw.textbbox((0, 0), tok.get("romaji", ""), font=f_ro)[2] if tok.get("romaji") else 0
+            w = max(w_jp, w_kana, w_ro) + pad_x
+            t_widths.append(w)
+        return t_widths, f_jp, f_ka, f_ro
+
+    pad_x = 22
+    token_widths, font_jp, font_kana, font_romaji = calc_widths(base_jp_size, base_kana_size, base_ro_size, pad_x)
+    total_tokens_w = sum(token_widths)
+
+    if total_tokens_w > max_tokens_w:
+        scale = max_tokens_w / total_tokens_w
+        jp_sz = max(28, int(base_jp_size * scale))
+        kana_sz = max(15, int(base_kana_size * scale))
+        ro_sz = max(15, int(base_ro_size * scale))
+        pad_x = max(8, int(22 * scale))
+        token_widths, font_jp, font_kana, font_romaji = calc_widths(jp_sz, kana_sz, ro_sz, pad_x)
+        total_tokens_w = sum(token_widths)
+
+    start_x = card_x + max(25, (card_w - total_tokens_w) // 2)
+    curr_x = start_x
+
+    y_kana = card_y + 35
+    y_jp = card_y + 80
+    y_romaji = card_y + 155
+
+    time_ranges = compute_mora_ranges(tokens, total_duration)
+
+    for i, tok in enumerate(tokens):
+        w = token_widths[i]
+        st, et = time_ranges[i]
+        is_active = (st <= current_time <= et)
+
+        if is_active:
+            draw.rounded_rectangle([(curr_x + 2, y_kana - 10), (curr_x + w - 2, y_romaji + 38)], radius=14, fill=(254, 240, 138), outline=(245, 158, 11), width=3)
+            dot_cx = curr_x + w // 2
+            draw.ellipse([(dot_cx - 6, y_kana - 22), (dot_cx + 6, y_kana - 10)], fill=(220, 38, 38))
+            c_kana = (180, 83, 9)
+            c_jp = (15, 23, 42)
+            c_ro = (180, 83, 9)
+        else:
+            c_kana = (148, 163, 184)
+            c_jp = (255, 255, 255)
+            c_ro = (148, 163, 184)
+
+        if tok.get("kana"):
+            kw = draw.textbbox((0, 0), tok["kana"], font=font_kana)[2]
+            draw.text((curr_x + (w - kw) // 2, y_kana), tok["kana"], fill=c_kana, font=font_kana)
+
+        jw = draw.textbbox((0, 0), tok["orig"], font=font_jp)[2]
+        draw.text((curr_x + (w - jw) // 2, y_jp), tok["orig"], fill=c_jp, font=font_jp)
+
+        if tok.get("romaji"):
+            rw = draw.textbbox((0, 0), tok["romaji"], font=font_romaji)[2]
+            draw.text((curr_x + (w - rw) // 2, y_romaji), tok["romaji"], fill=c_ro, font=font_romaji)
+
+        curr_x += w
+
+    draw.line([(card_x + 35, card_y + 215), (card_x + card_w - 35, card_y + 215)], fill=(51, 65, 85, 180), width=2)
+
+    font_zh = get_font(26)
+    draw.text((card_x + 40, card_y + 230), f"中文释义： {chinese_meaning}", fill=(226, 232, 240), font=font_zh)
+
+    if grammar_text:
+        draw.rounded_rectangle([(card_x + 40, card_y + 285), (card_x + card_w - 40, card_y + 365)], radius=12, fill=(30, 41, 59, 230), outline=(244, 114, 182, 180), width=1)
+        clean_g = grammar_text.replace("▶", ">").replace("􀀀", ">").replace("■", "•").strip()
+        draw.text((card_x + 60, card_y + 295), f"[ 核心语法解析 ]  {clean_g}", fill=(244, 114, 182), font=get_font(20))
+        draw.text((card_x + 60, card_y + 325), "跟随东京原声大声跟读 • 掌握地道音调与职场语境", fill=(255, 255, 255), font=get_font(20))
+
+    draw.rounded_rectangle([(card_x, card_y + 380), (card_x + card_w, card_y + 425)], radius=10, fill=(15, 23, 42, 230))
+    draw.text((card_x + 25, card_y + 392), "[ 影子跟读进行中 ]  纯正东京原声 ja-JP-NanamiNeural", fill=(56, 189, 248), font=get_font(20))
+
+    return img
+
+def render_breakdown_frame_zh(
+    sentence_ja: str,
+    vocab_list: list,
+    grammar_title: str,
+    grammar_bullets: list,
+    current_time: float,
+    total_duration: float,
+    chapter_title: str = "句型拆解",
+    jlpt_level: str = "N3"
+) -> Image.Image:
+    img = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+
+    draw.rectangle([(0, 0), (1920, 1080)], fill=(10, 15, 28, 220))
+    draw_top_brand_bar_zh(draw, 1920, chapter_title, jlpt_level)
+
+    num_cards = min(5, len(vocab_list))
+    vocab_window = total_duration * 0.55
+    card_dur = vocab_window / max(1, num_cards)
+
+    if current_time >= vocab_window:
+        spotlight_active = True
+        active_vocab_idx = None
+    else:
+        spotlight_active = False
+        active_vocab_idx = min(num_cards - 1, int(current_time / card_dur))
+
+    # Top Dialogue Header
+    draw.rounded_rectangle([(50, 80), (620, 120)], radius=10, fill=(30, 41, 59, 220))
+    pill_txt = "[ 核心词汇精讲 ] 逐词发音与词性" if active_vocab_idx is not None else "[ 名师语法拆解 ] 高频句型与文化背景"
+    draw.text((65, 87), pill_txt, fill=(244, 114, 182), font=get_font(18))
+
+    draw.rounded_rectangle([(50, 135), (1870, 195)], radius=12, fill=(15, 23, 42, 235), outline=(56, 189, 248), width=2)
+    draw.text((70, 148), f"原声台词： {sentence_ja}", fill=(255, 255, 255), font=get_font(28))
+    draw.rounded_rectangle([(1500, 145), (1850, 185)], radius=8, fill=(225, 29, 72))
+    draw.text((1520, 152), "名师解说 • 云希", fill=(255, 255, 255), font=get_font(18))
+
+    # Vocab Grid Cards
+    grid_x = 50
+    grid_y = 215
+    gap = 20
+    card_w = (1820 - (num_cards - 1) * gap) // num_cards
+    card_h = 240
+
+    for i in range(num_cards):
+        v = vocab_list[i]
+        x = grid_x + i * (card_w + gap)
+        y = grid_y
+        is_active = (active_vocab_idx == i)
+
+        if is_active:
+            draw.rounded_rectangle([(x, y), (x + card_w, y + card_h)], radius=16, fill=(254, 249, 195), outline=(245, 158, 11), width=3)
+            draw.ellipse([(x + card_w // 2 - 7, y - 7), (x + card_w // 2 + 7, y + 7)], fill=(220, 38, 38))
+            pos_fill = (254, 240, 138)
+            pos_color = (180, 83, 9)
+            kana_color = (180, 83, 9)
+            jp_color = (15, 23, 42)
+            meaning_color = (180, 83, 9)
+        else:
+            draw.rounded_rectangle([(x, y), (x + card_w, y + card_h)], radius=16, fill=(15, 23, 42, 230), outline=(51, 65, 85), width=2)
+            pos_fill = (30, 41, 59)
+            pos_color = (244, 114, 182)
+            kana_color = (56, 189, 248)
+            jp_color = (255, 255, 255)
+            meaning_color = (226, 232, 240)
+
+        draw.rounded_rectangle([(x + 14, y + 14), (x + min(card_w - 14, 140), y + 44)], radius=8, fill=pos_fill)
+        draw.text((x + 20, y + 20), v.get("pos", "词汇"), fill=pos_color, font=get_font(17))
+
+        draw.text((x + 14, y + 54), v.get("orig", ""), fill=jp_color, font=get_font(30))
+
+        kana_ro = f"{v.get('kana', '')} • {v.get('romaji', '')}"
+        draw.text((x + 14, y + 105), kana_ro, fill=kana_color, font=get_font(18))
+
+        draw.text((x + 14, y + 145), v.get("meaning", ""), fill=meaning_color, font=get_font(20))
+
+    # Grammar Spotlight Card
+    spot_x = 50
+    spot_y = 475
+    spot_w = 1820
+    spot_h = 475
+
+    clean_grammar_title = grammar_title.replace("~", "~").strip()
+
+    if spotlight_active:
+        draw.rounded_rectangle([(spot_x, spot_y), (spot_x + spot_w, spot_y + spot_h)], radius=20, fill=(15, 23, 42, 240), outline=(99, 102, 241), width=4)
+        draw.rounded_rectangle([(spot_x, spot_y), (spot_x + spot_w, spot_y + 60)], radius=20, fill=(49, 46, 129))
+        draw.text((spot_x + 30, spot_y + 16), f"[ 语法与社会文化深度解析 ]  {clean_grammar_title}", fill=(254, 240, 138), font=get_font(26))
+    else:
+        draw.rounded_rectangle([(spot_x, spot_y), (spot_x + spot_w, spot_y + spot_h)], radius=20, fill=(15, 23, 42, 230), outline=(51, 65, 85), width=2)
+        draw.rounded_rectangle([(spot_x, spot_y), (spot_x + spot_w, spot_y + 60)], radius=20, fill=(30, 41, 59))
+        draw.text((spot_x + 30, spot_y + 16), f"[ 语法与社会文化深度解析 ]  {clean_grammar_title}", fill=(244, 114, 182), font=get_font(26))
+
+    b_y = spot_y + 80
+    for bullet in grammar_bullets:
+        if isinstance(bullet, (list, tuple)) and len(bullet) >= 2:
+            title, desc = bullet[0], bullet[1]
+        elif isinstance(bullet, str) and ":" in bullet:
+            parts = bullet.split(":", 1)
+            title, desc = parts[0].strip(), parts[1].strip()
+        else:
+            title, desc = "• 要点", str(bullet)
+
+        t_font = get_font(24)
+        d_font = get_font(22)
+        bbox_t = draw.textbbox((0, 0), title, font=t_font)
+        title_w = bbox_t[2] - bbox_t[0]
+        desc_x = spot_x + 30 + max(420, title_w + 24)
+
+        b_title_color = (254, 240, 138) if spotlight_active else (244, 114, 182)
+        draw.text((spot_x + 30, b_y), title, fill=b_title_color, font=t_font)
+        draw.text((desc_x, b_y), desc, fill=(255, 255, 255), font=d_font)
+        b_y += 75
+
+    draw.rounded_rectangle([(spot_x, 970), (spot_x + spot_w, 1030)], radius=12, fill=(10, 15, 28))
+    draw.text((spot_x + 25, 985), "[ TOKYOFLOW 日语学院 ]  云希全中文深度拆解  •  tokyoflow.app 官网下载完整讲义", fill=(56, 189, 248), font=get_font(22))
+
+    return img
+
+def render_lower_third_story_overlay_zh(
+    chapter_num: int,
+    chapter_title: str,
+    title_main: str,
+    narration_text: str,
+    jlpt_level: str = "N/A"
+) -> Image.Image:
+    img = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+
+    draw_top_brand_bar_zh(draw, 1920, chapter_title, jlpt_level)
+
+    for y in range(700, 1080):
+        rel = (y - 700) / 380.0
+        alpha = int(230 * (rel ** 0.85))
+        draw.line([(0, y), (1920, y)], fill=(8, 12, 22, alpha))
+
+    box_x, box_y, box_w, box_h = 50, 770, 1820, 260
+    draw.rounded_rectangle([(box_x, box_y), (box_x + box_w, box_y + box_h)], radius=20, fill=(10, 15, 28, 235), outline=(56, 189, 248), width=2)
+
+    draw.text((box_x + 35, box_y + 20), f"[ 第{chapter_num}幕 • {title_main} ]", fill=(254, 240, 138), font=get_font(26))
+    draw.rounded_rectangle([(box_x + box_w - 380, box_y + 15), (box_x + box_w - 35, box_y + 55)], radius=10, fill=(225, 29, 72))
+    draw.text((box_x + box_w - 365, box_y + 22), "名师解说 • 云希", fill=(255, 255, 255), font=get_font(18))
+
+    draw.line([(box_x + 35, box_y + 65), (box_x + box_w - 35, box_y + 65)], fill=(51, 65, 85, 200), width=1)
+
+    font_body = get_font(28)
+    lines = [narration_text[i:i+45] for i in range(0, len(narration_text), 45)]
+    ty = box_y + 80
+    for line in lines[:3]:
+        draw.text((box_x + 35, ty), line, fill=(241, 245, 249), font=font_body)
+        ty += 46
+
+    draw.rounded_rectangle([(box_x + 35, box_y + box_h - 45), (box_x + box_w - 35, box_y + box_h - 10)], radius=8, fill=(15, 23, 42))
+    draw.text((box_x + 50, box_y + box_h - 38), "[ TOKYOFLOW 影视实景大课 ]  100% 东京原声原片 • 云希全中文名师精讲", fill=(56, 189, 248), font=get_font(18))
+
+    return img
+
+# ==========================================
+# 4K MASTER THUMBNAIL (AUTHENTIC MITSUSHIMA HIKARI HERO PHOTO)
 # ==========================================
 
 def render_master_thumbnail_zh(output_dir: str):
-    """Generates 16:9 1080p Masterclass YouTube Thumbnail in Chinese conforming to strict Zero Emoji Discipline."""
     thumb_out = os.path.join(output_dir, "thumbnail.jpg")
     width, height = 1920, 1080
 
@@ -686,11 +969,11 @@ def render_master_thumbnail_zh(output_dir: str):
     if os.path.exists(hero_frame_path):
         raw_img = Image.open(hero_frame_path).convert("RGB")
         base_img = Image.new("RGB", (width, height), (15, 23, 42))
+        # Place character dynamically on the right half exactly as English version
         base_img.paste(raw_img.resize((int(width * 1.1), int(height * 1.1)), Image.Resampling.LANCZOS), (80, -50))
     else:
         base_img = Image.new("RGB", (width, height), color=(10, 15, 28))
 
-    # Photographic Contrast / Smooth Left Fade
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw_ov = ImageDraw.Draw(overlay)
 
@@ -701,7 +984,6 @@ def render_master_thumbnail_zh(output_dir: str):
             alpha = int(248 * (0.5 * (1 + math.cos(rel * math.pi))))
             draw_ov.line([(x, 0), (x, height)], fill=(8, 12, 22, alpha))
 
-    # Bottom Vignette
     for y in range(850, height):
         rel = (y - 850) / 230.0
         alpha = int(220 * (rel ** 1.1))
@@ -712,14 +994,14 @@ def render_master_thumbnail_zh(output_dir: str):
 
     # 1. Top-Left Brand Pill
     draw.rounded_rectangle([(60, 45), (420, 105)], radius=18, fill=(255, 255, 255))
-    draw.text((85, 58), "TokyoFlow 日语实景", fill=(225, 29, 72), font=get_font(26))
+    draw.text((85, 58), "TokyoFlow 日语影视", fill=(225, 29, 72), font=get_font(26))
 
     # 2. Top-Right Badge (WL.01)
     badge_text = "【JLPT N5-N2】WL.01"
     draw.rounded_rectangle([(width - 380, 45), (width - 60, 105)], radius=18, fill=(225, 29, 72))
     draw.text((width - 350, 58), badge_text, fill=(255, 255, 255), font=get_font(26))
 
-    # 3. Giant 3D Yellow Hook (Left Aligned)
+    # 3. Giant 3D Solar Yellow Hook (Left Aligned)
     font_hook = get_font(96)
     hook_lines = ["2.7米/秒", "绝不停运？"]
     hy = 145
@@ -757,19 +1039,12 @@ def render_master_thumbnail_zh(output_dir: str):
     img.save(thumb_out, quality=95)
     print(f"  [OK] 保存 16:9 中文大封面: {thumb_out}")
 
-    # Also sync to assets/thumbnails
-    asset_sync = os.path.join("assets/thumbnails", "WL01-last-mile-masterclass_zh_thumb.jpg")
-    img.save(asset_sync, quality=95)
-    site_sync = os.path.join("site/assets/thumbnails", "WL01-last-mile-masterclass_zh_thumb.jpg")
-    os.makedirs(os.path.dirname(site_sync), exist_ok=True)
-    img.save(site_sync, quality=95)
-    docs_sync = os.path.join("docs/site/assets/thumbnails", "WL01-last-mile-masterclass_zh_thumb.jpg")
-    os.makedirs(os.path.dirname(docs_sync), exist_ok=True)
-    img.save(docs_sync, quality=95)
-    print(f"  [OK] 同步至站点封面库: {asset_sync}")
+    # Sync to assets
+    for target_dir in ["assets/thumbnails", "site/assets/thumbnails", "docs/site/assets/thumbnails"]:
+        os.makedirs(target_dir, exist_ok=True)
+        img.save(os.path.join(target_dir, "WL01-last-mile-masterclass_zh_thumb.jpg"), quality=95)
 
 def render_shorts_thumbnail_zh(output_dir: str):
-    """Generates 9:16 Shorts Cover in Chinese."""
     thumb_out = os.path.join(output_dir, "short_thumbnail.jpg")
     width, height = 1080, 1920
 
@@ -838,32 +1113,272 @@ def render_shorts_thumbnail_zh(output_dir: str):
 # AUDIO SYNTHESIS ENGINE (CHINESE EDITION)
 # ==========================================
 
-async def synthesize_audio_segment_zh(seg: dict, audio_dir: str):
-    seg_id = seg["seg_id"]
-    voice = seg["voice"]
-    content = seg["content"]
-    out_mp3 = os.path.join(audio_dir, f"seg_{seg_id}.mp3")
+def get_audio_duration(audio_path: str) -> float:
+    cmd = [
+        "ffprobe", "-v", "error", "-show_entries",
+        "format=duration", "-of", "default=noprint_wrappers=1:nokey=1",
+        audio_path
+    ]
+    res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    try:
+        return float(res.stdout.strip())
+    except Exception:
+        return 5.0
 
-    if os.path.exists(out_mp3) and os.path.getsize(out_mp3) > 1000:
-        return out_mp3
-
-    rate = "-5%" if seg.get("lang") == "ja" else "+0%"
-    communicate = edge_tts.Communicate(content, voice, rate=rate)
-    await communicate.save(out_mp3)
-    return out_mp3
+def normalize_speech_text_zh(text: str, lang: str = "zh") -> str:
+    """Normalizes JLPT levels and terms for clear TTS articulation in Chinese & Japanese."""
+    if not text:
+        return ""
+    if lang == "zh":
+        text = re.sub(r'JLPT\s*N([1-5])\s*至\s*N([1-5])', r'JLPT N \1 到 N \2', text, flags=re.IGNORECASE)
+        text = re.sub(r'JLPT\s*N([1-5])', r'JLPT N \1', text, flags=re.IGNORECASE)
+    elif lang == "ja":
+        text = re.sub(r'\bN([1-5])\b', r'エヌ\1', text)
+    return text
 
 async def synthesize_all_audio_tracks_zh(output_dir: str):
+    """Synthesizes high-fidelity Chinese and Japanese dual-language audio tracks."""
     audio_dir = os.path.join(output_dir, "audio")
     os.makedirs(audio_dir, exist_ok=True)
-    print("\n 合成双语配音音轨（Nanami 日语原声 + 云希 中文名师讲解）...")
 
-    tasks = []
+    print("\n--- 正在合成中文解说版音频轨道 (Nanami 日语原声 + 云希 中文名师) ---")
+
     for ch in CINEMA_SCREENPLAY_ZH:
         for seg in ch["segments"]:
-            tasks.append(synthesize_audio_segment_zh(seg, audio_dir))
+            seg_id = seg["seg_id"].replace(".", "_")
+            out_file = os.path.join(audio_dir, f"seg_{seg_id}.mp3")
+            seg["audio_file"] = out_file
 
-    await asyncio.gather(*tasks)
-    print(f"  [OK] 全部中文版音频合成完毕: {len(tasks)} 段音频")
+            if os.path.exists(out_file) and os.path.getsize(out_file) > 1000:
+                print(f"   [SKIP] 音频已存在: {os.path.basename(out_file)}")
+                continue
+
+            ref_sentence = seg.get("ref_sentence", "")
+            if ref_sentence and seg.get("lang") == "zh":
+                # Multi-voice breakdown: Nanami (JA sentence) -> Yunxi (ZH translation) -> Nanami+Yunxi (Vocab) -> Yunxi (Grammar)
+                audio_parts = []
+
+                # Part 1: Target Japanese Sentence
+                tmp_target_ja = out_file + ".t_ja.raw.mp3"
+                await edge_tts.Communicate(ref_sentence, "ja-JP-NanamiNeural", rate="-14%", pitch="+2Hz").save(tmp_target_ja)
+                dur_target_ja = get_audio_duration(tmp_target_ja)
+                audio_parts.append(tmp_target_ja)
+
+                meaning = seg.get("meaning", "")
+                if not meaning:
+                    for s in ch["segments"]:
+                        if s.get("lang") == "ja" and (ref_sentence in s.get("content", "") or s.get("content") in ref_sentence):
+                            meaning = s.get("meaning", "")
+                            break
+                if not meaning:
+                    meaning = "舟渡艾蕾娜强调核心运作原则。"
+
+                # Part 2: Chinese translation
+                tmp_target_zh = out_file + ".t_zh.raw.mp3"
+                spoken_trans = f"中文翻译：{meaning}"
+                await edge_tts.Communicate(spoken_trans, "zh-CN-YunxiNeural", rate="+2%", pitch="+0Hz").save(tmp_target_zh)
+                audio_parts.append(tmp_target_zh)
+
+                # Part 3: Vocab breakdown
+                vocab_list = seg.get("vocab", [])[:4]
+                for v_idx, v in enumerate(vocab_list):
+                    v_ja_file = out_file + f".v_{v_idx}_ja.raw.mp3"
+                    v_zh_file = out_file + f".v_{v_idx}_zh.raw.mp3"
+
+                    await edge_tts.Communicate(v.get("orig", ""), "ja-JP-NanamiNeural", rate="-14%", pitch="+2Hz").save(v_ja_file)
+                    spoken_meaning = f"{v.get('orig', '')}，含义是：{v.get('meaning', '')}"
+                    await edge_tts.Communicate(spoken_meaning, "zh-CN-YunxiNeural", rate="+2%", pitch="+0Hz").save(v_zh_file)
+                    audio_parts.extend([v_ja_file, v_zh_file])
+
+                # Part 4: Grammar Spotlight
+                tmp_spot_zh = out_file + ".spot.raw.mp3"
+                spoken_spot = seg.get("content", "")
+                await edge_tts.Communicate(spoken_spot, "zh-CN-YunxiNeural", rate="+2%", pitch="+0Hz").save(tmp_spot_zh)
+                audio_parts.append(tmp_spot_zh)
+
+                # Concat all audio parts with ffmpeg
+                n = len(audio_parts)
+                inputs = []
+                for p in audio_parts:
+                    inputs.extend(["-i", p])
+                filter_str = "".join([f"[{i}:a]" for i in range(n)]) + f"concat=n={n}:v=0:a=1[a]"
+                cmd_norm = [
+                    "ffmpeg", "-y"
+                ] + inputs + [
+                    "-filter_complex", filter_str,
+                    "-map", "[a]",
+                    "-c:a", "libmp3lame",
+                    "-b:a", "192k",
+                    "-ar", "44100",
+                    "-ac", "2",
+                    out_file
+                ]
+                subprocess.run(cmd_norm, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+                for tmp_p in audio_parts:
+                    if os.path.exists(tmp_p):
+                        os.remove(tmp_p)
+                print(f"   [OK] 中文多角色拆解音频生成完毕: {os.path.basename(out_file)}")
+            else:
+                voice = seg.get("voice", "zh-CN-YunxiNeural")
+                raw_text = seg.get("content", "")
+                text = normalize_speech_text_zh(raw_text, seg.get("lang", "zh"))
+
+                if seg.get("lang") == "ja":
+                    rate = "-16%"
+                    pitch = "+2Hz"
+                    if "drill" in seg.get("type", ""):
+                        rate = "-22%"
+                else:
+                    rate = "+2%"
+                    pitch = "+0Hz"
+
+                tmp_raw = out_file + ".raw.mp3"
+                comm = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
+                await comm.save(tmp_raw)
+
+                cmd_norm = [
+                    "ffmpeg", "-y",
+                    "-i", tmp_raw,
+                    "-c:a", "libmp3lame",
+                    "-b:a", "192k",
+                    "-ar", "44100",
+                    "-ac", "2",
+                    out_file
+                ]
+                subprocess.run(cmd_norm, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+                if os.path.exists(tmp_raw):
+                    os.remove(tmp_raw)
+                print(f"   [OK] 单轨音频生成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
+
+    print(" [OK] 全部中文版音频轨道生成完毕！")
+
+# ==========================================
+# MASTER VIDEO RENDERING (AUTHENTIC MOVIE FOOTAGE)
+# ==========================================
+
+def render_full_master_video_zh(output_dir: str):
+    """Renders 1080p master video using authentic Last Mile film clips and real-time Chinese RGBA HUD."""
+    print("\n--- 正在使用《最后的里程》正片原素材渲染 1080p 中文大师课视频 ---")
+    tmp_vid_dir = "tmp/videogen/cinema_ep01_zh"
+    os.makedirs(tmp_vid_dir, exist_ok=True)
+
+    audio_dir = os.path.join(output_dir, "audio")
+    segment_mp4s = []
+    total_duration = 0.0
+    fps = 30
+
+    for ch in CINEMA_SCREENPLAY_ZH:
+        ch_id = ch["chapter_id"]
+        ch_title = ch["chapter_title"]
+        scene_clip = ch.get("scene_clip", "scene_01_warehouse")
+
+        for seg in ch["segments"]:
+            seg_id = seg["seg_id"]
+            audio_path = os.path.join(audio_dir, f"seg_{seg_id}.mp3")
+            if not os.path.exists(audio_path):
+                audio_path = os.path.join(audio_dir, f"seg_{seg_id.replace('_', '.')}.mp3")
+            if not os.path.exists(audio_path):
+                print(f"  [WARN] Missing audio for seg_{seg_id}: {audio_path}")
+                continue
+
+            out_mp4 = os.path.join(tmp_vid_dir, f"clip_{seg_id.replace('.', '_')}.mp4")
+
+            unique_mp4 = f"tmp/videogen/unique_movie_clips/seg_{seg_id.replace('.', '_')}.mp4"
+            if os.path.exists(unique_mp4):
+                clean_mp4 = unique_mp4
+            else:
+                clean_mp4 = f"tmp/videogen/clean_movie_clips/{scene_clip}.mp4"
+
+            duration = get_audio_duration(audio_path)
+            total_duration += duration + 0.2
+            total_frames = int((duration + 0.2) * fps)
+            seg_type = seg.get("type", "")
+
+            cmd = [
+                "ffmpeg", "-y",
+                "-stream_loop", "-1", "-i", clean_mp4,
+                "-f", "rawvideo",
+                "-vcodec", "rawvideo",
+                "-s", "1920x1080",
+                "-pix_fmt", "rgba",
+                "-r", str(fps),
+                "-i", "-",
+                "-i", audio_path,
+                "-filter_complex",
+                "[0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080[bg];[bg][1:v]overlay=0:0:shortest=1[v]",
+                "-map", "[v]",
+                "-map", "2:a",
+                "-c:v", "libx264",
+                "-preset", "ultrafast",
+                "-pix_fmt", "yuv420p",
+                "-r", str(fps),
+                "-c:a", "aac",
+                "-b:a", "192k",
+                "-ar", "44100",
+                "-ac", "2",
+                "-t", str(duration + 0.2),
+                out_mp4
+            ]
+
+            proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
+            try:
+                for f_idx in range(total_frames):
+                    t = f_idx / fps
+
+                    if seg.get("lang") == "ja":
+                        frame = render_dialogue_karaoke_frame_zh(
+                            tokens=seg.get("tokens", [{"orig": seg.get("content", ""), "kana": seg.get("furi", ""), "romaji": seg.get("romaji", "")}]),
+                            category_label=ch_title,
+                            title_label=f"场景 {seg['seg_id']} • {seg.get('character')}",
+                            chinese_meaning=seg.get("meaning", ""),
+                            grammar_text=seg.get("grammar", ""),
+                            current_time=t,
+                            total_duration=duration,
+                            jlpt_level=seg.get("jlpt", "N3")
+                        )
+                    elif "breakdown" in seg_type or "lesson" in seg_type or "cultural" in seg_type:
+                        frame = render_breakdown_frame_zh(
+                            sentence_ja=seg.get("ref_sentence", seg.get("content", "")),
+                            vocab_list=seg.get("vocab", []),
+                            grammar_title=seg.get("grammar_title", "JLPT 核心语法与文化背景"),
+                            grammar_bullets=seg.get("grammar_bullets", []),
+                            current_time=t,
+                            total_duration=duration,
+                            chapter_title=ch_title,
+                            jlpt_level=seg.get("jlpt", "N3")
+                        )
+                    else:
+                        frame = render_lower_third_story_overlay_zh(
+                            chapter_num=ch_id,
+                            chapter_title=ch_title,
+                            title_main=f"场景 {seg['seg_id']} • {ch_title}",
+                            narration_text=seg.get("content", ""),
+                            jlpt_level=seg.get("jlpt", "N/A")
+                        )
+
+                    proc.stdin.write(frame.tobytes())
+            except Exception:
+                pass
+            finally:
+                try:
+                    proc.stdin.close()
+                except Exception:
+                    pass
+                proc.wait()
+
+            segment_mp4s.append(out_mp4)
+
+    concat_txt = os.path.join(tmp_vid_dir, "concat_list.txt")
+    with open(concat_txt, "w", encoding="utf-8") as f:
+        for cf in segment_mp4s:
+            f.write(f"file '{os.path.abspath(cf)}'\n")
+
+    final_master_mp4 = os.path.join(output_dir, "video.mp4")
+    subprocess.run([
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0",
+        "-i", concat_txt, "-c", "copy", final_master_mp4
+    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+    print(f"  [OK] WL.01 电影原片 1080p 中文大师课视频合成完毕: {final_master_mp4}")
 
 # ==========================================
 # MAIN ENTRYPOINT
@@ -871,27 +1386,24 @@ async def synthesize_all_audio_tracks_zh(output_dir: str):
 
 async def main_async():
     print("================================================================================")
-    print(" TOKYOFLOW JAPANESE: WL.01《最后的里程》影视大课【中文解说版】生产管线")
+    print(" TOKYOFLOW JAPANESE: WL.01《最后的里程》电影级大课【中文复刻版】生产管线")
     print(f" 编号: {EPISODE_METADATA_ZH['episode_code']} • 预估时长: {EPISODE_METADATA_ZH['target_duration_mins']} 分钟")
     print("================================================================================")
 
     output_dir = os.path.join("docs/youtube_releases", "WL01-last-mile-masterclass-v1.0-zh")
     os.makedirs(output_dir, exist_ok=True)
 
-    # 1. 渲染中文字幕封面 (16:9 & 9:16)
+    # 1. 渲染 4K 满岛光专属封面
     render_master_thumbnail_zh(output_dir)
     render_shorts_thumbnail_zh(output_dir)
 
-    # 2. 生成中文元数据与剧本文件
-    build_metadata_md_zh(output_dir)
-    build_script_json_zh(output_dir)
-
-    # 3. 合成中文配音与原声音轨
+    # 2. 合成中文与东京原声音频
     await synthesize_all_audio_tracks_zh(output_dir)
 
-    print("\n================================================================================")
-    print(f" WL.01 中文版发布套件全部生成完成: {output_dir}")
-    print("================================================================================")
+    # 3. 合成电影原片 1080p 视频
+    render_full_master_video_zh(output_dir)
+
+    print(f"\n[OK] WL.01 中文电影复刻版生成完成: {output_dir}")
 
 def main():
     asyncio.run(main_async())
