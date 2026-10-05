@@ -570,7 +570,11 @@ async def synthesize_all_audio_tracks_zh(output_dir: str):
             else:
                 speech_chunks = seg.get("speech_chunks")
                 if speech_chunks:
-                    await synthesize_seamless_bilingual_audio(speech_chunks, out_file)
+                    chunk_timings = await synthesize_seamless_bilingual_audio(speech_chunks, out_file)
+                    CINEMA_ALIGNMENT_STORE[seg_id] = {
+                        "chunk_timings": chunk_timings,
+                        "total_dur": get_audio_duration(out_file)
+                    }
                     print(f"   [OK] 无缝多语言混读合成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
                 else:
                     lang = seg.get("lang", "zh")
@@ -579,7 +583,11 @@ async def synthesize_all_audio_tracks_zh(output_dir: str):
                         chunks = [{"lang": "ja", "text": text}]
                     else:
                         chunks = [{"lang": "zh", "text": text}]
-                    await synthesize_seamless_bilingual_audio(chunks, out_file)
+                    chunk_timings = await synthesize_seamless_bilingual_audio(chunks, out_file)
+                    CINEMA_ALIGNMENT_STORE[seg_id] = {
+                        "chunk_timings": chunk_timings,
+                        "total_dur": get_audio_duration(out_file)
+                    }
                     print(f"   [OK] 单语言音频合成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
 
     align_json_path = os.path.join(output_dir, "alignment_cache.json")
@@ -862,9 +870,11 @@ def render_breakdown_frame_zh(
     grammar_title: str,
     grammar_bullets: list,
     chapter_title: str,
-    jlpt_level: str
+    jlpt_level: str,
+    current_time: float = 0.0,
+    chunk_timings: list = None
 ) -> Image.Image:
-    """Renders high-contrast Glassmorphic breakdown card with vocab grid and grammar spotlight."""
+    """Renders high-contrast Glassmorphic breakdown card with dynamic real-time vocab & grammar highlighting."""
     img = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
 
@@ -873,6 +883,42 @@ def render_breakdown_frame_zh(
     draw.text((1400, 18), f"【{jlpt_level}】• {chapter_title}", fill=(244, 114, 182), font=get_font(22))
 
     card_x, card_w = 50, 1820
+
+    # Determine active chunk, active vocab card, and active grammar bullet
+    active_chunk = None
+    if chunk_timings:
+        for c in chunk_timings:
+            if c.get("start", 0.0) <= current_time <= c.get("end", 0.0):
+                active_chunk = c
+                break
+
+    active_text = active_chunk.get("text", "") if active_chunk else ""
+    active_lang = active_chunk.get("lang", "") if active_chunk else ""
+
+    active_vocab_idx = -1
+    active_bullet_idx = -1
+
+    if active_text:
+        # 1. Check vocab cards
+        for i, v in enumerate(vocab_list):
+            orig = v.get("orig", "")
+            kana = v.get("kana", "")
+            if orig and (orig in active_text or active_text in orig):
+                active_vocab_idx = i
+                break
+            elif kana and (kana in active_text or active_text in kana):
+                active_vocab_idx = i
+                break
+
+        # 2. Check grammar bullets
+        if grammar_bullets:
+            for b_i, (b_hdr, b_det) in enumerate(grammar_bullets):
+                if active_lang == "ja" and (active_text in b_hdr or active_text in b_det):
+                    active_bullet_idx = b_i
+                    break
+                elif active_text in b_hdr:
+                    active_bullet_idx = b_i
+                    break
 
     # Target Sentence Banner
     draw.rounded_rectangle([(card_x, 90), (card_x + card_w, 165)], radius=16, fill=(15, 23, 42, 240), outline=(56, 189, 248), width=2)
@@ -888,16 +934,35 @@ def render_breakdown_frame_zh(
     for i in range(n_cards):
         v = vocab_list[i] if i < len(vocab_list) else {}
         cx = card_x + i * (cw + 20)
-        draw.rounded_rectangle([(cx, grid_y), (cx + cw, grid_y + ch_h)], radius=16, fill=(10, 15, 28, 235), outline=(51, 65, 85, 200), width=2)
+        is_card_active = (i == active_vocab_idx)
 
-        pos_str = f" {v.get('pos', '重点词汇')} "
-        draw.rounded_rectangle([(cx + 20, grid_y + 15), (cx + cw - 20, grid_y + 50)], radius=8, fill=(30, 41, 59))
-        draw.text((cx + 30, grid_y + 20), pos_str, fill=(56, 189, 248), font=get_font(18))
+        if is_card_active:
+            # Active Glowing Gold & Indigo Card
+            draw.rounded_rectangle([(cx - 3, grid_y - 3), (cx + cw + 3, grid_y + ch_h + 3)], radius=18, outline=(250, 204, 21), width=4)
+            draw.rounded_rectangle([(cx, grid_y), (cx + cw, grid_y + ch_h)], radius=16, fill=(30, 41, 59, 255), outline=(254, 240, 138), width=3)
 
-        draw.text((cx + 25, grid_y + 65), v.get("orig", ""), fill=(254, 240, 138), font=get_font(30))
-        draw.text((cx + 25, grid_y + 115), f"{v.get('kana', '')} ({v.get('romaji', '')})", fill=(148, 163, 184), font=get_font(18))
-        draw.line([(cx + 20, grid_y + 155), (cx + cw - 20, grid_y + 155)], fill=(51, 65, 85, 180), width=1)
-        draw.text((cx + 25, grid_y + 175), v.get("meaning", ""), fill=(241, 245, 249), font=get_font(20))
+            pos_str = f" [语音精讲] {v.get('pos', '重点词汇')} "
+            draw.rounded_rectangle([(cx + 15, grid_y + 12), (cx + cw - 15, grid_y + 48)], radius=8, fill=(225, 29, 72))
+            draw.text((cx + 25, grid_y + 18), pos_str, fill=(255, 255, 255), font=get_font(18))
+
+            draw.text((cx + 25, grid_y + 60), v.get("orig", ""), fill=(254, 240, 138), font=get_font(34))
+            dot_x = cx + cw - 35
+            draw.ellipse([(dot_x - 8, grid_y + 70), (dot_x + 8, grid_y + 86)], fill=(225, 29, 72), outline=(254, 240, 138), width=2)
+
+            draw.text((cx + 25, grid_y + 115), f"{v.get('kana', '')} ({v.get('romaji', '')})", fill=(250, 204, 21), font=get_font(19))
+            draw.line([(cx + 15, grid_y + 152), (cx + cw - 15, grid_y + 152)], fill=(250, 204, 21), width=2)
+            draw.text((cx + 25, grid_y + 172), v.get("meaning", ""), fill=(255, 255, 255), font=get_font(22))
+        else:
+            draw.rounded_rectangle([(cx, grid_y), (cx + cw, grid_y + ch_h)], radius=16, fill=(10, 15, 28, 235), outline=(51, 65, 85, 200), width=2)
+
+            pos_str = f" {v.get('pos', '重点词汇')} "
+            draw.rounded_rectangle([(cx + 20, grid_y + 15), (cx + cw - 20, grid_y + 50)], radius=8, fill=(30, 41, 59))
+            draw.text((cx + 30, grid_y + 20), pos_str, fill=(56, 189, 248), font=get_font(18))
+
+            draw.text((cx + 25, grid_y + 65), v.get("orig", ""), fill=(254, 240, 138), font=get_font(30))
+            draw.text((cx + 25, grid_y + 115), f"{v.get('kana', '')} ({v.get('romaji', '')})", fill=(148, 163, 184), font=get_font(18))
+            draw.line([(cx + 20, grid_y + 155), (cx + cw - 20, grid_y + 155)], fill=(51, 65, 85, 180), width=1)
+            draw.text((cx + 25, grid_y + 175), v.get("meaning", ""), fill=(241, 245, 249), font=get_font(20))
 
     # Spotlight Box
     box_y = 445
@@ -908,9 +973,16 @@ def render_breakdown_frame_zh(
     draw.text((card_x + 35, box_y + 15), f"[ 语法与职场文化要点 ] {grammar_title}", fill=(254, 240, 138), font=get_font(26))
 
     by = box_y + 85
-    for header, detail in grammar_bullets:
-        draw.text((card_x + 35, by), header, fill=(244, 114, 182), font=get_font(24))
-        draw.text((card_x + 40, by + 36), detail, fill=(241, 245, 249), font=get_font(24))
+    for b_i, (header, detail) in enumerate(grammar_bullets):
+        is_b_active = (b_i == active_bullet_idx)
+        if is_b_active:
+            draw.rounded_rectangle([(card_x + 20, by - 6), (card_x + card_w - 20, by + 78)], radius=12, fill=(30, 41, 59, 250), outline=(250, 204, 21), width=2)
+            draw.ellipse([(card_x + 32, by + 12), (card_x + 44, by + 24)], fill=(225, 29, 72))
+            draw.text((card_x + 55, by), header, fill=(250, 204, 21), font=get_font(25))
+            draw.text((card_x + 55, by + 38), detail, fill=(255, 255, 255), font=get_font(24))
+        else:
+            draw.text((card_x + 35, by), header, fill=(244, 114, 182), font=get_font(24))
+            draw.text((card_x + 40, by + 36), detail, fill=(241, 245, 249), font=get_font(24))
         by += 90
 
     # Bottom Tag
@@ -1047,13 +1119,17 @@ def render_full_master_video_zh(output_dir: str):
                             stage_label=stg_lbl
                         )
                     elif seg_type == "breakdown":
+                        align_data = CINEMA_ALIGNMENT_STORE.get(seg_id, {})
+                        c_timings = align_data.get("chunk_timings", [])
                         frame = render_breakdown_frame_zh(
                             ref_sentence=seg.get("ref_sentence", seg.get("content", "")),
                             vocab_list=seg.get("vocab", []),
                             grammar_title=seg.get("grammar_title", "JLPT 核心语法与职场文化"),
                             grammar_bullets=seg.get("grammar_bullets", []),
                             chapter_title=ch_title,
-                            jlpt_level=seg.get("jlpt", "N3")
+                            jlpt_level=seg.get("jlpt", "N3"),
+                            current_time=t,
+                            chunk_timings=c_timings
                         )
                     else:
                         frame = render_story_narration_frame_zh(

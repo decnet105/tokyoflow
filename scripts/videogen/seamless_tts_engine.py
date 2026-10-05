@@ -101,15 +101,18 @@ async def synthesize_chunk_audio(chunk: dict, tmp_path: str):
     comm = edge_tts.Communicate(spoken_text, voice, rate=rate, pitch=pitch)
     await comm.save(tmp_path)
 
-async def synthesize_seamless_bilingual_audio(speech_chunks: list, output_mp3: str, temp_dir: str = "tmp/tts_chunks"):
+async def synthesize_seamless_bilingual_audio(speech_chunks: list, output_mp3: str, temp_dir: str = "tmp/tts_chunks") -> list:
     """
     Synthesizes each language chunk with its native voice model and performs
     micro-smooth acoustic crossfade & splicing into a single seamless broadcast file.
+    Returns chunk_timings list with exact start and end timestamps in seconds.
     """
     os.makedirs(temp_dir, exist_ok=True)
     base_name = Path(output_mp3).stem
     
     chunk_files = []
+    chunk_timings = []
+    current_time_offset = 0.0
     
     for idx, chunk in enumerate(speech_chunks):
         chunk_raw = os.path.join(temp_dir, f"{base_name}_c{idx}_{chunk.get('lang', 'zh')}.raw.mp3")
@@ -134,6 +137,17 @@ async def synthesize_seamless_bilingual_audio(speech_chunks: list, output_mp3: s
             chunk_norm
         ]
         subprocess.run(cmd_norm, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+        
+        norm_dur = get_audio_duration(chunk_norm)
+        chunk_timings.append({
+            "idx": idx,
+            "lang": chunk.get("lang", "zh"),
+            "text": chunk.get("text", ""),
+            "start": current_time_offset,
+            "end": current_time_offset + norm_dur,
+            "duration": norm_dur
+        })
+        current_time_offset += norm_dur
         chunk_files.append(chunk_norm)
         
         if os.path.exists(chunk_raw):
@@ -168,6 +182,8 @@ async def synthesize_seamless_bilingual_audio(speech_chunks: list, output_mp3: s
     for cf in chunk_files:
         if os.path.exists(cf):
             os.remove(cf)
+            
+    return chunk_timings
 
 def get_audio_duration(audio_path: str) -> float:
     """Returns exact duration in seconds using ffprobe."""
