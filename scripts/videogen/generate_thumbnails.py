@@ -375,10 +375,7 @@ def process_release_dir(rdir: str, sh_num: int = None):
         ep_num = 1
         
     if sh_num is None:
-        if ep_num == 13 or "E13" in dir_name:
-            sh_num = 9
-        else:
-            sh_num = ep_num
+        sh_num = ep_num
 
     out_16_9 = str(rdir_path / "thumbnail.jpg")
     out_9_16 = str(rdir_path / "short_thumbnail.jpg")

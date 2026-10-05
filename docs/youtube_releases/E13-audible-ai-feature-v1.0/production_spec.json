@@ -1,0 +1,194 @@
+{
+  "date": "2026-10-05",
+  "ep_num": 13,
+  "slug": "audible-ai-feature",
+  "topic_title": "Amazon Audible's New AI Feature",
+  "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "target_jlpt_level": "JLPT N5",
+  "district": "Tokyo Pop Culture",
+  "dramatic_hook": "Fans are buzzing about Audible's new feature that lets you talk to book characters!",
+  "news_broadcast": {
+    "headline_ja": "【速報】アマゾン「Audible」、AIで本の登場人物と会話可能に",
+    "anchor_speech_ja": "アマゾンのオーディオブックサービス「Audible」が、AIを活用して本の登場人物と会話できる新機能を発表しました。東京のユーザーたちもこの新機能に注目しています。",
+    "location_tag": "TOKYO POP CULTURE"
+  },
+  "long_form": {
+    "yt_title": "[JLPT N5] EP.13 Talk to Book Characters with Audible's New AI! | Real Japanese Breakdown",
+    "english_hook": "TALK TO CHARACTERS",
+    "japanese_key_phrase": "本を聞きます",
+    "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\n\nTIMESTAMPS AND CHAPTERS:\n00:00 - 01. Breaking Trend Immersion\n00:06 - 02. Vocabulary & Grammar Breakdown\n00:45 - 03. Situational Practice Drill\n00:52 - 04. Shadowing Drill & Outro\n\nKEY PHRASES COVERED:\n- 本を聞きます\n- AIを使います\n\nRECOMMENDED PRACTICE:\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\n\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "tags": [
+      "LearnJapanese",
+      "TokyoFlow",
+      "JLPTN5",
+      "AnimeJapanese",
+      "JapaneseShadowing",
+      "TokyoPopCulture"
+    ],
+    "slides": [
+      {
+        "type": "follow_along",
+        "chapter": "01. Breaking Trend Immersion",
+        "spoken_text": "アマゾンのAudibleで本を聞きます。",
+        "en": "I listen to books on Amazon's Audible.",
+        "tip": "Use で to indicate the means or method.",
+        "tokens": [
+          {
+            "orig": "本",
+            "kana": "ほん",
+            "romaji": "hon",
+            "pos": "Noun",
+            "meaning": "book"
+          },
+          {
+            "orig": "聞きます",
+            "kana": "ききます",
+            "romaji": "kikimasu",
+            "pos": "Verb",
+            "meaning": "listen"
+          }
+        ]
+      },
+      {
+        "type": "breakdown_teamwork",
+        "chapter": "02. Breakdown & Cultural Insight",
+        "words": [
+          {
+            "orig": "AI",
+            "kana": "エーアイ",
+            "romaji": "ēai",
+            "pos": "Noun",
+            "meaning": "AI"
+          },
+          {
+            "orig": "使います",
+            "kana": "つかいます",
+            "romaji": "tsukaimasu",
+            "pos": "Verb",
+            "meaning": "use"
+          },
+          {
+            "orig": "新しい",
+            "kana": "あたらしい",
+            "romaji": "atarashii",
+            "pos": "Adjective",
+            "meaning": "new"
+          }
+        ],
+        "grammar": {
+          "title": "Using で for Means or Method",
+          "bullets": [
+            [
+              "1. Core JLPT Pattern:",
+              "Use で to indicate the means or method by which an action is performed."
+            ],
+            [
+              "2. Tokyo Cultural Insight:",
+              "Audible's new feature is a hot topic in Tokyo's tech-savvy circles, highlighting the city's embrace of AI innovations."
+            ],
+            [
+              "3. Practical Daily Life:",
+              "Locals often discuss new tech features using simple verbs like 使います (to use)."
+            ]
+          ]
+        },
+        "audio_cues": [
+          {
+            "speaker": "en",
+            "text": "Let's break down today's key words and cultural nuance."
+          },
+          {
+            "speaker": "ja",
+            "text": "AI",
+            "card_idx": 0
+          },
+          {
+            "speaker": "en",
+            "text": "AI stands for Artificial Intelligence.",
+            "card_idx": 0
+          },
+          {
+            "speaker": "ja",
+            "text": "使います",
+            "card_idx": 1
+          },
+          {
+            "speaker": "en",
+            "text": "This means 'to use'.",
+            "card_idx": 1
+          },
+          {
+            "speaker": "ja",
+            "text": "新しい",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "This means 'new'.",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Using で, you can express how you do something, like listening to books on Audible.",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "ja",
+            "text": "アマゾンのAudibleで本を聞きます。",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "en",
+            "text": "Keep practicing and you'll master these phrases in no time!",
+            "is_spotlight": true
+          }
+        ]
+      },
+      {
+        "type": "follow_along",
+        "chapter": "03. Fan & Audience Reaction",
+        "spoken_text": "AIを使って新しい体験をします。",
+        "en": "I have a new experience using AI.",
+        "tip": "Use て form to connect actions.",
+        "tokens": [
+          {
+            "orig": "体験",
+            "kana": "たいけん",
+            "romaji": "taiken",
+            "pos": "Noun",
+            "meaning": "experience"
+          }
+        ]
+      }
+    ]
+  },
+  "shorts": {
+    "yt_short_title": "[JLPT N5] SH.13 Talk to Characters with Audible! #Shorts #LearnJapanese",
+    "hook_title": "TALK TO BOOK CHARACTERS!\nNEW AUDIBLE FEATURE!",
+    "hook_audio_en": "Discover Audible's exciting new feature that lets you talk to book characters using AI!",
+    "jp_sentence": "本を聞きます。",
+    "kana_sentence": "ほんをききます。",
+    "romaji_sentence": "Hon o kikimasu.",
+    "en_translation": "I listen to books.",
+    "tokens": [
+      {
+        "orig": "本",
+        "kana": "ほん",
+        "romaji": "hon",
+        "meaning": "book"
+      },
+      {
+        "orig": "聞きます",
+        "kana": "ききます",
+        "romaji": "kikimasu",
+        "meaning": "listen"
+      }
+    ],
+    "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
+    "pro_tip_body": "Use で to indicate the means or method of an action, like listening to books on Audible.",
+    "pro_tip_audio_en": "Remember, で is your go-to particle for expressing means or methods in Japanese.",
+    "interactive_poll": "Do you prefer listening to books or reading them?",
+    "pinned_comment": "Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!\nPoll: Do you prefer listening to books or reading them? A: Listening B: Reading\nDownload TokyoFlow App on iOS for real-time speech pitch scoring!"
+  }
+}
