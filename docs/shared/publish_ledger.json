@@ -1,67 +1,164 @@
 {
   "published": {
-    "WL01-last-mile-masterclass-v1.0-zh_video": {
-      "video_id": "Gk-tcCnryuM",
-      "video_url": "https://youtu.be/Gk-tcCnryuM",
-      "title": "【JLPT N5-N2】电影《最后的里程》影视沉浸精讲（WL.01）| 满岛光×冈田将生 2024票房冠军超长深度解析",
-      "uploaded_at": "2026-10-05T04:55:53.471635-04:00",
-      "is_short": false,
-      "notify_subscribers": false
+    "E09_en_long": {
+      "id": "fXJMz9_CGCs",
+      "title": "[JLPT N5] EP.09 Anime Studio Opens Real Sauna in Tokyo! | Japanese Listening & Speaking Practice",
+      "publishAt": "2026-10-05T12:00:00Z",
+      "status": "public",
+      "lang": "en",
+      "format": "long"
     },
-    "WL01-last-mile-masterclass-v1.0-zh_short": {
-      "video_id": "XVbg-f8s7F0",
-      "video_url": "https://youtu.be/XVbg-f8s7F0",
-      "title": "【JLPT N3】电影《最后的里程》高光台词跟读！2.7m/s绝不停运？（WS.01） #Shorts",
-      "uploaded_at": "2026-10-05T04:55:53.471706-04:00",
-      "is_short": true,
-      "notify_subscribers": false
+    "E09_en_short": {
+      "id": "nLSoKy3DFFI",
+      "title": "[JLPT N5] SH.09 Anime Studio Made a Sauna in Tokyo?! #Shorts",
+      "publishAt": "2026-10-05T12:00:00Z",
+      "status": "public",
+      "lang": "en",
+      "format": "short"
     },
-    "WM01-weekday_survival_mega_compilation-v1.0-zh_video": {
-      "video_id": "D99vmCoeymc",
-      "video_url": "https://youtu.be/D99vmCoeymc",
-      "title": "【JLPT N5-N3】WL.02 周一到周五东京生活全景大合集 | 电车·便利店·居酒屋·秋叶原·拉面·温泉全场景28分钟精讲",
-      "uploaded_at": "2026-10-05T07:17:55.462103-04:00",
-      "is_short": false,
-      "notify_subscribers": false
+    "E09_zh_long": {
+      "id": "z4FQ4-nqXeM",
+      "title": "【JLPT N5】动漫公司去开桑拿？身心彻底放松「整う」流行语精讲（EP.09）",
+      "publishAt": "2026-10-06T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "long"
     },
-    "WM01-weekday_survival_mega_compilation-v1.0-zh_short": {
-      "video_id": "PSynUxU1zy4",
-      "video_url": "https://youtu.be/PSynUxU1zy4",
-      "title": "【JLPT N4】听懂山手线站台广播！黄色盲道退后提示与自谦语精讲（WS.02） #Shorts",
-      "uploaded_at": "2026-10-05T04:55:53.471713-04:00",
-      "is_short": true,
-      "notify_subscribers": false
+    "E09_zh_short": {
+      "id": "EHnxZQyZCJY",
+      "title": "【JLPT N5】动漫公司开桑拿？身心放松「整う」流行语跟读（EP.09） #Shorts",
+      "publishAt": "2026-10-06T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "short"
     },
-    "E13-audible-ai-feature-v1.0_video": {
-      "video_id": "weLfE_7aHMk",
-      "video_url": "https://youtu.be/weLfE_7aHMk",
+    "E10_en_long": {
+      "id": "CCUSAjlHbYQ",
+      "title": "[JLPT N5] EP.10 Ayase Haruka's Natural Charm at Tokyo Press Stage! | Real Japanese Breakdown",
+      "publishAt": "2026-10-06T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "long"
+    },
+    "E10_en_short": {
+      "id": "gkl9fCKjkyQ",
+      "title": "[JLPT N5] SH.10 Ayase Haruka's Natural Charm in Tokyo! #Shorts",
+      "publishAt": "2026-10-06T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "short"
+    },
+    "E10_zh_long": {
+      "id": "CqFWvV-si0o",
+      "title": "【JLPT N5】绫濑遥天然呆发言引全场爆笑！日综反差萌流行语精讲（EP.10）",
+      "publishAt": "2026-10-07T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "long"
+    },
+    "E10_zh_short": {
+      "id": "7QO41aDb5dU",
+      "title": "【JLPT N5】绫濑遥天然呆引爆笑！日综反差萌流行语跟读（EP.10） #Shorts",
+      "publishAt": "2026-10-07T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "short"
+    },
+    "E11_en_long": {
+      "id": "tIFJcJFxSi4",
+      "title": "[JLPT N5] EP.11 Tokyo Shabu-Ya Cat Robot Waiter Drama! | Real Japanese Breakdown",
+      "publishAt": "2026-10-07T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "long"
+    },
+    "E11_en_short": {
+      "id": "DiGmCYF_ZNI",
+      "title": "[JLPT N5] SH.11 Shabu-ya Robot Drama! #Shorts #LearnJapanese",
+      "publishAt": "2026-10-07T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "short"
+    },
+    "E11_zh_long": {
+      "id": "NklG01lJ6As",
+      "title": "【JLPT N4】涩谷AI机器人短剧爆火！科技科幻与社交网络热点精讲（EP.11）",
+      "publishAt": "2026-10-08T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "long"
+    },
+    "E11_zh_short": {
+      "id": "zoFHEf-Ir2c",
+      "title": "【JLPT N4】涩谷AI机器人微剧爆火！近未来科技热点跟读（EP.11） #Shorts",
+      "publishAt": "2026-10-08T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "short"
+    },
+    "E12_en_long": {
+      "id": "nVD1G__Yj6U",
+      "title": "[JLPT N5] EP.12 Apple's Suicide Prevention Request | Real Japanese Breakdown",
+      "publishAt": "2026-10-08T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "long"
+    },
+    "E12_en_short": {
+      "id": "HnjKOw0GiSs",
+      "title": "[JLPT N5] SH.12 Apple's New Feature Request! #Shorts #LearnJapanese",
+      "publishAt": "2026-10-08T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "short"
+    },
+    "E12_zh_long": {
+      "id": "cvkA1_8i8Z0",
+      "title": "【JLPT N5】日本政府向苹果提要求！防止自杀新功能与要请语法精讲（EP.12）",
+      "publishAt": "2026-10-09T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "long"
+    },
+    "E12_zh_short": {
+      "id": "gwOYWAznvzY",
+      "title": "【JLPT N5】SH.12-zh 政府向苹果提要求 #Shorts",
+      "publishAt": "2026-10-09T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "short"
+    },
+    "E13_en_long": {
+      "id": "weLfE_7aHMk",
       "title": "[JLPT N5] EP.13 Talk to Book Characters with Audible's New AI! | Real Japanese Breakdown",
-      "publish_at_est": "2026-10-24T08:00:00-04:00",
-      "uploaded_at": "2026-10-05T08:04:04.363441-04:00",
-      "is_short": false,
-      "notify_subscribers": true
+      "publishAt": "2026-10-09T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "long"
     },
-    "E13-audible-ai-feature-v1.0_short": {
-      "video_id": "S4_l9-GNBOk",
-      "video_url": "https://youtu.be/S4_l9-GNBOk",
+    "E13_en_short": {
+      "id": "S4_l9-GNBOk",
       "title": "[JLPT N5] SH.13 Talk to Characters with Audible! #Shorts",
-      "publish_at_est": "2026-10-24T08:00:00-04:00",
-      "uploaded_at": "2026-10-05T08:04:12.282915-04:00",
-      "is_short": true,
-      "notify_subscribers": true
+      "publishAt": "2026-10-09T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "short"
+    },
+    "E13_zh_long": {
+      "id": "TQP4Ko2kEBE",
+      "title": "【JLPT N5】亚马逊Audible重大更新！用AI与书中人物对话口语精讲（EP.13）",
+      "publishAt": "2026-10-10T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "long"
+    },
+    "E13_zh_short": {
+      "id": "ZeLWDBwn4Rs",
+      "title": "【JLPT N5】SH.13-zh Audible重大AI更新 #Shorts",
+      "publishAt": "2026-10-10T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "short"
     }
-  },
-  "slots": [],
-  "playlists": {
-    "playlist_en_long": "PLHUEYGzrBe-s",
-    "playlist_en_short": "PLVxXRTmSmcAM"
-  },
-  "WL01-last-mile-masterclass-v1.0-zh_video": {
-    "video_id": "qVNR2duZWqQ",
-    "video_url": "https://youtu.be/qVNR2duZWqQ",
-    "title": "【JLPT N3-N2】WL.01《最后的里程》满岛光原声台词精讲 | 2024日本票房冠军悬疑神作25分钟深度拆解",
-    "uploaded_at": "2026-10-05T09:03:12.555022-04:00",
-    "is_short": false,
-    "notify_subscribers": false
   }
 }

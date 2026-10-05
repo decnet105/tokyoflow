@@ -2,18 +2,15 @@
 """
 TokyoFlow Japanese - Chinese YouTube Shorts Master Factory
 ============================================================
-Produces 9:16 vertical videos (1080x1920) for Chinese Edition (EP.01 ~ EP.11):
+Produces 9:16 vertical videos (1080x1920) for Chinese Edition (WS.01, WS.02, EP.01 ~ EP.11):
 1. Frame 0-5: First-Frame Master Cover Injection (for 100% YouTube Shorts Thumbnail Auto-Capture)
 2. Stage 0: Scenario Introduction & Hook (zh-CN-YunxiNeural)
 3. Stage 1: STEP 1 Native Tokyo Speed Blind Listening + Millisecond Ruby Karaoke (ja-JP-NanamiNeural)
-4. Stage 2: STEP 2 Slow Breakdown (0.8x) + Culture/Grammar Pro-Tip (Yunxi)
-5. Stage 3: STEP 3 YOUR TURN Shadow Out Loud (3-2-1 Beep + Dynamic Mic Waveform + User Gap)
-6. Stage 4: STEP 4 AI Pitch Match Scoring (98.6% MATCH) + TokyoFlow App CTA
+4. Stage 2: STEP 2 Seamless In-Line Bilingual Breakdown (Yunxi Chinese + Nanami Tokyo Japanese)
+5. Stage 3: STEP 3 YOUR TURN Shadow Out Loud (3-2-1 Beep + Nanami Practice Drill Voice + Live Glowing Karaoke)
+6. Stage 4: STEP 4 AI Pitch Match Scoring (98.6% MATCH) + Masterclass Funnel CTA / App CTA
 
-Outputs:
-- docs/youtube_releases/EXX-...-zh/short.mp4
-- docs/youtube_releases/EXX-...-zh/short_metadata.md
-- docs/youtube_releases/EXX-...-zh/short_thumbnail.jpg
+Strict Zero Emoji Discipline is enforced across all operations.
 """
 
 import os
@@ -28,6 +25,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from timing_engine import align_sentence_tokens_with_audio
+from seamless_tts_engine import synthesize_seamless_bilingual_audio
 
 FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 
@@ -44,7 +42,10 @@ def get_audio_duration(audio_path: str) -> float:
         audio_path
     ]
     res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    return float(res.stdout.strip())
+    try:
+        return float(res.stdout.strip())
+    except Exception:
+        return 5.0
 
 async def synth_audio(text: str, voice: str, out_path: str, rate: str = "+0%", pitch: str = "+0Hz"):
     communicate = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
@@ -58,16 +59,76 @@ def generate_beep(freq: int, duration: float, out_path: str):
     ]
     subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
-def generate_silence(duration: float, out_path: str):
-    cmd = [
-        "ffmpeg", "-y", "-f", "lavfi",
-        "-i", f"anullsrc=r=44100:cl=stereo",
-        "-t", str(duration),
-        "-c:a", "libmp3lame", out_path
-    ]
-    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
-
 CHINESE_SHORTS_CONFIGS = [
+    # -------------------------------------------------------------------------
+    # WS.01: 《最后的里程》电影高光台词 (JLPT N3) - WL.01 Funnel
+    # -------------------------------------------------------------------------
+    {
+        "ep_num": 101,
+        "shorts_code": "WS.01",
+        "folder": "WL01-last-mile-masterclass-v1.0-zh",
+        "jlpt_level": "JLPT N3",
+        "district": "关东物流中心 • 满岛光 2024 大片",
+        "category": "影视沉浸 • 悬疑剧情",
+        "hook_title": "2.7米/秒 绝不停运？\n《最后的里程》高光台词",
+        "hook_audio_zh": "在2024日本现象级悬疑大片《最后的里程》中，这句话决定了整座物流中心的生死！",
+        "jp_sentence": "ベルトコンベアを止めるわけにはいきません。",
+        "kana_sentence": "べるとこんべあをとめるわけにはいきません",
+        "romaji_sentence": "Beruto konbea o tomeru wake ni wa ikimasen.",
+        "zh_translation": "「我们绝不能停下传送带。」",
+        "tokens": [
+            {"orig": "ベルトコンベアを", "kana": "べるとこんべあを", "romaji": "beruto konbea o", "meaning": "传送带"},
+            {"orig": "止める", "kana": "とめる", "romaji": "tomeru", "meaning": "停下"},
+            {"orig": "わけには", "kana": "わけには", "romaji": "wake ni wa", "meaning": "由于责任约束"},
+            {"orig": "いきません", "kana": "いきません", "romaji": "ikimasen", "meaning": "绝不能"}
+        ],
+        "pro_tip_title": "影视名师语法 Pro-Tip",
+        "pro_tip_body": "注意「~わけにはいかない」！表示在道德责任或社会契约约束下“绝不能做某事”，是 JLPT N3 职场必考高频句型。",
+        "speech_chunks_tip": [
+            {"lang": "zh", "text": "注意核心语法"},
+            {"lang": "ja", "text": "わけにはいかない"},
+            {"lang": "zh", "text": "！表示在道德责任或社会契约约束下的绝不能，是 JLPT N3 职场必考高频句型。"}
+        ],
+        "yt_short_title": "【JLPT N3】电影《最后的里程》高光台词跟读！2.7m/s绝不停运？（WS.01） #Shorts",
+        "slug": "last_mile_climax_zh",
+        "is_funnel": True,
+        "funnel_target": "WL.01《最后的里程》25分钟影视沉浸大课"
+    },
+    # -------------------------------------------------------------------------
+    # WS.02: 山手线电车站台广播 (JLPT N4) - WL.02 Funnel
+    # -------------------------------------------------------------------------
+    {
+        "ep_num": 102,
+        "shorts_code": "WS.02",
+        "folder": "WM01-weekday_survival_mega_compilation-v1.0-zh",
+        "jlpt_level": "JLPT N4",
+        "district": "新宿站 • JR山手线站台",
+        "category": "东京日常 • 站台广播",
+        "hook_title": "听懂东京电车站\n广播高频神句！",
+        "hook_audio_zh": "在东京电车和地铁站，每天必听的这一句高频神句，你听懂了吗？",
+        "jp_sentence": "黄色い点字ブロックの内側までお下がりください。",
+        "kana_sentence": "きいろいてんじぶろっくのうちがわまでおさがりください",
+        "romaji_sentence": "Kiiroi tenji burokku no uchigawa made osagari kudasai.",
+        "zh_translation": "「请退到黄色盲道安全线以内。」",
+        "tokens": [
+            {"orig": "黄色い", "kana": "きいろい", "romaji": "kiiroi", "meaning": "黄色的"},
+            {"orig": "点字ブロックの", "kana": "てんじぶろっくの", "romaji": "tenji burokku no", "meaning": "盲道提示砖"},
+            {"orig": "内側まで", "kana": "うちがわまで", "romaji": "uchigawa made", "meaning": "内侧位置"},
+            {"orig": "お下がり", "kana": "おさがり", "romaji": "osagari", "meaning": "退后/等候"},
+            {"orig": "ください", "kana": "ください", "romaji": "kudasai", "meaning": "请……"}
+        ],
+        "pro_tip_title": "JR 东京电车名师 Pro-Tip",
+        "pro_tip_body": "注意「お下がりください」！「お + 动词连用形 + ください」是全日本公共交通最标准的礼貌敬语祈使句式。",
+        "speech_chunks_tip": [
+            {"lang": "zh", "text": "注意核心敬语"},
+            {"lang": "ja", "text": "お下がりください"},
+            {"lang": "zh", "text": "。お加动词连用形加ください，是全日本公共交通最标准的礼貌祈使句式。"}
+        ],
+        "yt_short_title": "【JLPT N4】听懂东京山手线报站！1分钟实景原声跟读挑战（WS.02） #Shorts",
+        "slug": "yamanote_transit_mega_zh",
+        "is_funnel": True,
+        "funnel_target": "WL.02 周一到周五东京生活全景大合集（28分钟）"
+    },
     # -------------------------------------------------------------------------
     # EP.01: 山手线报站 (JLPT N4)
     # -------------------------------------------------------------------------
@@ -92,7 +153,11 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "JR 东京电车名师 Pro-Tip",
         "pro_tip_body": "注意「お下がりください」！「お + 动词连用形 + ください」是日本公共交通最标准的礼貌敬语祈使句式。",
-        "pro_tip_audio_zh": "注意お下がりください。お加动词连用形加ください，是全日本公共交通最标准的礼貌祈使句式。",
+        "speech_chunks_tip": [
+            {"lang": "zh", "text": "注意核心敬语"},
+            {"lang": "ja", "text": "お下がりください"},
+            {"lang": "zh", "text": "。お加动词连用形加ください，是全日本公共交通最标准的礼貌祈使句式。"}
+        ],
         "yt_short_title": "【JLPT N4】听懂东京山手线报站！1分钟实景原声跟读挑战（EP.01） #Shorts",
         "slug": "yamanote_transit_zh"
     },
@@ -120,7 +185,14 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "便利店秒回礼貌秘籍",
         "pro_tip_body": "「袋は大丈夫です」是日本最温和礼貌的拒绝方式！想加热回答「お願いします」，不加热回答「大丈夫です」。",
-        "pro_tip_audio_zh": "袋は大丈夫です是极具礼貌的拒绝表达。想加热回答お願いします，不加热回答大丈夫です即可。",
+        "speech_chunks_tip": [
+            {"lang": "ja", "text": "袋は大丈夫です"},
+            {"lang": "zh", "text": "是极具礼貌的拒绝表达。想加热回答"},
+            {"lang": "ja", "text": "お願いします"},
+            {"lang": "zh", "text": "，不加热回答"},
+            {"lang": "ja", "text": "大丈夫です"},
+            {"lang": "zh", "text": "即可。"}
+        ],
         "yt_short_title": "【JLPT N5】去日本便利店买便当必听！收银台原声跟读挑战（EP.02） #Shorts",
         "slug": "kombini_checkout_zh"
     },
@@ -141,14 +213,17 @@ CHINESE_SHORTS_CONFIGS = [
         "zh_translation": "「先来生啤，麻烦上两杯啤酒！」",
         "tokens": [
             {"orig": "とりあえず", "kana": "とりあえず", "romaji": "toriaezu", "meaning": "首先/先来"},
-            {"orig": "生で", "kana": "なまで", "romaji": "nama de", "meaning": "生啤酒"},
+            {"orig": "生で", "kana": "な制作で", "romaji": "nama de", "meaning": "生啤酒"},
             {"orig": "ビールを", "kana": "びーるを", "romaji": "biiru o", "meaning": "啤酒"},
             {"orig": "二つ", "kana": "ふたつ", "romaji": "futatsu", "meaning": "两杯"},
             {"orig": "お願いします", "kana": "おねがいします", "romaji": "onegaishimasu", "meaning": "拜托了"}
         ],
         "pro_tip_title": "居酒屋黄金文化 Pro-Tip",
         "pro_tip_body": "「とりあえず生で」是全日本通用的开场暗号！数量词点单公式：物品 + を + 数量（ひとつ/ふたつ）+ お願いします。",
-        "pro_tip_audio_zh": "とりあえず生で是居酒屋通用的开场暗号。先点生啤干杯，是日本职场最经典的聚会礼仪。",
+        "speech_chunks_tip": [
+            {"lang": "ja", "text": "とりあえず生で"},
+            {"lang": "zh", "text": "是居酒屋通用的开场暗号。先点生啤干杯，是日本职场最经典的聚会礼仪。"}
+        ],
         "yt_short_title": "【JLPT N5】像本地人一样进居酒屋！先来生啤原声跟读挑战（EP.03） #Shorts",
         "slug": "izakaya_night_zh"
     },
@@ -175,7 +250,11 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "日本购物免税规则",
         "pro_tip_body": "单店消费满 5000 日元即可办理免税！「~できますか」是初学者最高频实用的能力与许可疑问句。",
-        "pro_tip_audio_zh": "单店消费满5000日元即可出示护照退税。できますか是询问是否支持该项服务的最常用句型。",
+        "speech_chunks_tip": [
+            {"lang": "zh", "text": "单店消费满5000日元即可出示护照退税。"},
+            {"lang": "ja", "text": "できますか"},
+            {"lang": "zh", "text": "是询问是否支持该项服务的最常用句型。"}
+        ],
         "yt_short_title": "【JLPT N5】秋叶原淘手办必学！免税退税1分钟原声跟读（EP.04） #Shorts",
         "slug": "akiba_pilgrimage_zh"
     },
@@ -203,7 +282,10 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "地铁出行精算机 Pro-Tip",
         "pro_tip_body": "「精算機（せいさんき）」是日本闸机旁的黄色补票机，放入西瓜卡补齐差价后即可顺畅出闸。",
-        "pro_tip_audio_zh": "精算機是日本地铁闸机旁的补票机。插入西瓜卡补齐差额后，就可以顺利刷卡出闸了。",
+        "speech_chunks_tip": [
+            {"lang": "ja", "text": "精算機"},
+            {"lang": "zh", "text": "是日本地铁闸机旁的补票机。插入西瓜卡补齐差额后，就可以顺利刷卡出闸了。"}
+        ],
         "yt_short_title": "【JLPT N4】东京地铁坐过站/余额不足？精算机补票跟读精讲（EP.05） #Shorts",
         "slug": "tokyo_subway_rush_zh"
     },
@@ -230,7 +312,11 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "便利店冷热咖啡差异",
         "pro_tip_body": "点单公式：物品 + の + 尺寸（R / L）+ を + 数量 + ください。热咖啡在收银台拿纸杯，冰咖啡必须先在冷冻柜自取冰杯！",
-        "pro_tip_audio_zh": "记住公式：物品加の加尺寸加を加数量加ください。热咖啡在柜台拿杯，冰咖啡先在冷柜拿冰杯。",
+        "speech_chunks_tip": [
+            {"lang": "zh", "text": "记住公式：物品加の加尺寸加を加数量加"},
+            {"lang": "ja", "text": "ください"},
+            {"lang": "zh", "text": "。热咖啡在柜台拿杯，冰咖啡先在冷柜拿冰杯。"}
+        ],
         "yt_short_title": "【JLPT N5】日本便利店冰咖啡怎么买？冷柜取杯与点单跟读（EP.06） #Shorts",
         "slug": "kombini_coffee_atm_zh"
     },
@@ -257,7 +343,15 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "东京拉面定制三剑客",
         "pro_tip_body": "面条口感：硬め（katame）/ 普通（futsuu）；汤头浓度：濃いめ（koime）/ 薄め（usume）；追加面条：替玉（kaedama）！",
-        "pro_tip_audio_zh": "拉面老饕三剑客：硬め面偏硬，濃いめ汤偏浓，替玉是吃完后续加一份面。",
+        "speech_chunks_tip": [
+            {"lang": "zh", "text": "拉面老饕三剑客："},
+            {"lang": "ja", "text": "硬め"},
+            {"lang": "zh", "text": "面偏硬，"},
+            {"lang": "ja", "text": "濃いめ"},
+            {"lang": "zh", "text": "汤偏浓，"},
+            {"lang": "ja", "text": "替玉"},
+            {"lang": "zh", "text": "是吃完后续加一份面。"}
+        ],
         "yt_short_title": "【JLPT N5】像老饕一样吃拉面！面硬汤浓加面口诀原声跟读（EP.07） #Shorts",
         "slug": "ramen_ticket_vending_zh"
     },
@@ -284,7 +378,10 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "试衣间礼仪与请求句式",
         "pro_tip_body": "「~てもいいですか」是初级日语最核心的许可请求句式！在日本试衣前务必脱鞋踩在地毯上。",
-        "pro_tip_audio_zh": "てもいいですか表示可以做某事吗。在日本进试衣间前一定要脱鞋踩在地毯上保持干净。",
+        "speech_chunks_tip": [
+            {"lang": "ja", "text": "てもいいですか"},
+            {"lang": "zh", "text": "表示可以做某事吗。在日本进试衣间前一定要脱鞋踩在地毯上保持干净。"}
+        ],
         "yt_short_title": "【JLPT N5】银座买衣服优雅试穿！试衣间许可请求跟读（EP.08） #Shorts",
         "slug": "ginza_taxfree_shopping_zh"
     },
@@ -311,7 +408,10 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "流行语「整う」深度解析",
         "pro_tip_body": "「ととのう」在桑拿文化中特指桑拿与冷水浴交替后，脑内分泌多巴胺带来的极度舒适感与治愈状态。",
-        "pro_tip_audio_zh": "ととのう在桑拿文化中特指桑拿与冷水浴交替后，身心进入极度放松与治愈的神奇状态。",
+        "speech_chunks_tip": [
+            {"lang": "ja", "text": "ととのう"},
+            {"lang": "zh", "text": "在桑拿文化中特指桑拿与冷水浴交替后，身心进入极度放松与治愈的神奇状态。"}
+        ],
         "yt_short_title": "【JLPT N5】动漫公司开桑拿？身心放松「整う」流行语跟读（EP.09） #Shorts",
         "slug": "anime_sauna_trend_zh"
     },
@@ -338,7 +438,14 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "语法精讲：使役态表达",
         "pro_tip_body": "「笑わせる」是动词「笑う」的使役态，意为“让……笑、逗笑某人”。「天然（てんねん）」常用来夸赞可爱不做作的性格。",
-        "pro_tip_audio_zh": "笑わせる是笑う的使役态，意思是逗笑全场。天然常用来形容纯真可爱、不做作的性格魅力。",
+        "speech_chunks_tip": [
+            {"lang": "ja", "text": "笑わせる"},
+            {"lang": "zh", "text": "是"},
+            {"lang": "ja", "text": "笑う"},
+            {"lang": "zh", "text": "的使役态，意思是逗笑全场。"},
+            {"lang": "ja", "text": "天然"},
+            {"lang": "zh", "text": "常用来形容纯真可爱、不做作的性格魅力。"}
+        ],
         "yt_short_title": "【JLPT N5】绫濑遥天然呆引爆笑！日综反差萌流行语跟读（EP.10） #Shorts",
         "slug": "ayase_haruka_tennen_zh"
     },
@@ -366,7 +473,11 @@ CHINESE_SHORTS_CONFIGS = [
         ],
         "pro_tip_title": "愿望句型：~てみたいです",
         "pro_tip_body": "「动词て形 + みたいです」表示“想尝试做某事看看”，是表达旅行心愿与体验愿望的最地道句型。",
-        "pro_tip_audio_zh": "动词て形加みたいです表示想尝试做某事看看，表达旅游向往与愿望时非常地道。",
+        "speech_chunks_tip": [
+            {"lang": "zh", "text": "动词て形加"},
+            {"lang": "ja", "text": "みたいです"},
+            {"lang": "zh", "text": "表示想尝试做某事看看，表达旅游向往与愿望时非常地道。"}
+        ],
         "yt_short_title": "【JLPT N4】涩谷AI机器人微剧爆火！近未来科技热点跟读（EP.11） #Shorts",
         "slug": "shabuya_robot_drama_zh"
     }
@@ -392,7 +503,8 @@ def render_chinese_interactive_frame(
     draw.rectangle([(0, 0), (width, 270)], fill=(18, 25, 42))
 
     # 2. Header Brand Capsule (Top JLPT Badge)
-    header_str = f"TokyoFlow  •  [{conf.get('jlpt_level', 'JLPT N5')}] SH.{conf['ep_num']:02d}"
+    code_str = conf.get("shorts_code", f"SH.{conf['ep_num']:02d}")
+    header_str = f"TokyoFlow  •  [{conf.get('jlpt_level', 'JLPT N5')}] {code_str}"
     font_brand = get_font(24)
     bbox_hdr = draw.textbbox((0, 0), header_str, font=font_brand)
     hdr_w = bbox_hdr[2] - bbox_hdr[0]
@@ -443,9 +555,9 @@ def render_chinese_interactive_frame(
     draw.line([(card_x + 30, card_y + 64), (card_x + card_w - 30, card_y + 64)], fill=(51, 65, 85), width=2)
 
     # 3-Tier Ruby Tokens
-    font_jp = get_font(48)
-    font_kana = get_font(23)
-    font_meaning = get_font(21)
+    font_jp = get_font(44)
+    font_kana = get_font(21)
+    font_meaning = get_font(20)
 
     tokens = conf["tokens"]
     lines = []
@@ -478,75 +590,60 @@ def render_chinese_interactive_frame(
             if is_active:
                 pill_bg = (251, 191, 36) if not is_shadow_stage else (239, 68, 68)
                 pill_outline = (245, 158, 11) if not is_shadow_stage else (255, 255, 255)
-                draw.rounded_rectangle(
-                    [(start_x - 6, start_y - 6), (start_x + tok_w + 6, start_y + 124)],
-                    radius=14,
-                    fill=pill_bg,
-                    outline=pill_outline,
-                    width=3
-                )
-                dot_cx = start_x + tok_w // 2
-                draw.ellipse([(dot_cx - 6, start_y - 18), (dot_cx + 6, start_y - 6)], fill=(239, 68, 68) if not is_shadow_stage else (250, 204, 21))
+                draw.rounded_rectangle([(start_x - 6, start_y - 6), (start_x + tok_w + 6, start_y + 140)], radius=14, fill=pill_bg, outline=pill_outline, width=3)
                 
-                kana_color = (15, 23, 42) if not is_shadow_stage else (255, 255, 255)
-                jp_color = (15, 23, 42) if not is_shadow_stage else (255, 255, 255)
-                meaning_color = (67, 20, 7) if not is_shadow_stage else (254, 202, 202)
+                # Bouncing mora dot
+                dot_cx = start_x + tok_w // 2
+                draw.ellipse([(dot_cx - 6, start_y - 18), (dot_cx + 6, start_y - 6)], fill=(225, 29, 72) if not is_shadow_stage else (254, 240, 138))
+
+                c_k = (146, 64, 14) if not is_shadow_stage else (255, 255, 255)
+                c_j = (15, 23, 42) if not is_shadow_stage else (255, 255, 255)
+                c_m = (146, 64, 14) if not is_shadow_stage else (254, 240, 138)
             else:
-                kana_color = (56, 189, 248)
-                jp_color = (255, 255, 255)
-                meaning_color = (148, 163, 184)
+                c_k = (148, 163, 184)
+                c_j = (255, 255, 255)
+                c_m = (148, 163, 184)
 
-            if tok.get("kana"):
-                bbox_k = draw.textbbox((0, 0), tok["kana"], font=font_kana)
-                kw = bbox_k[2] - bbox_k[0]
-                kx = start_x + (tok_w - kw) // 2
-                draw.text((kx, start_y), tok["kana"], fill=kana_color, font=font_kana)
+            # Kana
+            bbox_k = draw.textbbox((0, 0), tok.get("kana", ""), font=font_kana)
+            kw = bbox_k[2] - bbox_k[0]
+            draw.text((start_x + (tok_w - kw) // 2, start_y), tok.get("kana", ""), fill=c_k, font=font_kana)
 
-            bbox_t = draw.textbbox((0, 0), tok["orig"], font=font_jp)
-            tw = bbox_t[2] - bbox_t[0]
-            tx = start_x + (tok_w - tw) // 2
-            draw.text((tx, start_y + 28), tok["orig"], fill=jp_color, font=font_jp)
+            # Kanji
+            bbox_j = draw.textbbox((0, 0), tok["orig"], font=font_jp)
+            jw = bbox_j[2] - bbox_j[0]
+            draw.text((start_x + (tok_w - jw) // 2, start_y + 32), tok["orig"], fill=c_j, font=font_jp)
 
+            # Meaning
             if tok.get("meaning"):
                 bbox_m = draw.textbbox((0, 0), tok["meaning"], font=font_meaning)
                 mw = bbox_m[2] - bbox_m[0]
-                mx = start_x + (tok_w - mw) // 2
-                draw.text((mx, start_y + 92), tok["meaning"], fill=meaning_color, font=font_meaning)
+                draw.text((start_x + (tok_w - mw) // 2, start_y + 92), tok["meaning"], fill=c_m, font=font_meaning)
 
             start_x += tok_w + 12
+        start_y += 155
 
-        start_y += 138
+    # Target Full Romaji & Translation Sub-block inside Central Card
+    draw.line([(card_x + 30, card_y + 440), (card_x + card_w - 30, card_y + 440)], fill=(51, 65, 85), width=2)
+    font_sub_ro = get_font(23)
+    draw.text((card_x + 40, card_y + 460), f"罗马音：{conf['romaji_sentence']}", fill=(244, 114, 182), font=font_sub_ro)
+    
+    font_sub_zh = get_font(26)
+    draw.text((card_x + 40, card_y + 510), f"中文释义：{conf['zh_translation']}", fill=(254, 240, 138), font=font_sub_zh)
 
-    # Romaji Subtitle inside card
-    font_romaji = get_font(24)
-    bbox_r = draw.textbbox((0, 0), conf["romaji_sentence"], font=font_romaji)
-    rw = bbox_r[2] - bbox_r[0]
-    rx = card_x + (card_w - rw) // 2
-    draw.text((rx, card_y + 395), conf["romaji_sentence"], fill=(254, 240, 138), font=font_romaji)
+    # Studio micro-ribbon inside card
+    draw.rounded_rectangle([(card_x + 30, card_y + 565), (card_x + card_w - 30, card_y + 605)], radius=8, fill=(15, 23, 42))
+    draw.text((card_x + 45, card_y + 574), "[ TOKYOFLOW 官方口语金句 ] 100% 东京原声 • 毫秒级音拍卡拉OK对齐", fill=(56, 189, 248), font=get_font(18))
 
-    # Chinese Translation Box inside card
-    draw.rounded_rectangle(
-        [(card_x + 24, card_y + 445), (card_x + card_w - 24, card_y + 595)],
-        radius=16,
-        fill=(15, 23, 42),
-        outline=(51, 65, 85),
-        width=2
-    )
-    font_zh = get_font(28)
-    bbox_zh = draw.textbbox((0, 0), conf["zh_translation"], font=font_zh)
-    zh_w = bbox_zh[2] - bbox_zh[0]
-    zh_x = card_x + (card_w - zh_w) // 2
-    draw.text((zh_x, card_y + 495), conf["zh_translation"], fill=(248, 250, 252), font=font_zh)
-
-    # 6. Interactive Middle Interactive Zone (y=960..1520, height=560)
+    # 6. LOWER INTERACTIVE PANEL (y=960..1520, height=560)
     mid_x, mid_y, mid_w, mid_h = 50, 960, width - 100, 560
 
-    if stage_num == 3: # ACTIVE SHADOWING / SPEAKING MODE
-        draw.rounded_rectangle([(mid_x, mid_y), (mid_x + mid_w, mid_y + mid_h)], radius=24, fill=(35, 14, 20), outline=(239, 68, 68), width=3)
+    if stage_num == 3: # STAGE 3: SHADOWING PRACTICE
+        draw.rounded_rectangle([(mid_x, mid_y), (mid_x + mid_w, mid_y + mid_h)], radius=24, fill=(45, 15, 25), outline=(239, 68, 68), width=4)
         
         # Header
-        draw.text((mid_x + 30, mid_y + 24), "[REC] 麦克风已开启 • 请大声开口跟读！", fill=(248, 113, 113), font=get_font(28))
-        draw.line([(mid_x + 24, mid_y + 64), (mid_x + mid_w - 24, mid_y + 64)], fill=(85, 30, 40), width=2)
+        draw.text((mid_x + 30, mid_y + 24), "【STEP 3】跟着原声大声开口跟读！", fill=(239, 68, 68), font=get_font(28))
+        draw.line([(mid_x + 24, mid_y + 64), (mid_x + mid_w - 24, mid_y + 64)], fill=(127, 29, 29), width=2)
 
         # Big pulsing indicator
         mic_cx = mid_x + mid_w // 2
@@ -560,7 +657,7 @@ def render_chinese_interactive_frame(
 
         # Prompt text
         font_mic_prompt = get_font(30)
-        prompt_txt = "大声朗读！模仿东京原声语调与语速"
+        prompt_txt = "大声朗读！跟随纯正东京原声同步开口"
         bbox_p = draw.textbbox((0, 0), prompt_txt, font=font_mic_prompt)
         pw = bbox_p[2] - bbox_p[0]
         draw.text((mid_x + (mid_w - pw) // 2, mid_y + 215), prompt_txt, fill=(255, 255, 255), font=font_mic_prompt)
@@ -582,17 +679,17 @@ def render_chinese_interactive_frame(
 
         # Speaking Progress Bar inside Shadow Card
         prog_bar_y = mid_y + 380
-        draw.text((mid_x + 30, prog_bar_y), "跟读时间倒计时：", fill=(203, 213, 225), font=get_font(22))
+        draw.text((mid_x + 30, prog_bar_y), "跟读进度倒计时：", fill=(203, 213, 225), font=get_font(22))
         draw.rounded_rectangle([(mid_x + 30, prog_bar_y + 34), (mid_x + mid_w - 30, prog_bar_y + 64)], radius=12, fill=(15, 23, 42), outline=(71, 85, 105), width=2)
         sp_fill_w = int((mid_w - 60) * max(0.0, min(1.0, speaking_prog)))
         if sp_fill_w > 0:
             draw.rounded_rectangle([(mid_x + 30, prog_bar_y + 34), (mid_x + 30 + sp_fill_w, prog_bar_y + 64)], radius=12, fill=(239, 68, 68))
         
         # Helper coaching text
-        draw.text((mid_x + 40, mid_y + 465), "技巧：跟随上方红色发光单词节奏开口跟读", fill=(254, 240, 138), font=get_font(22))
+        draw.text((mid_x + 40, mid_y + 465), "技巧：跟随上方红色发光卡拉OK胶囊开口跟读", fill=(254, 240, 138), font=get_font(22))
         draw.text((mid_x + 40, mid_y + 500), "保持声调起伏平稳，音拍节奏与东京原声保持一致。", fill=(203, 213, 225), font=get_font(20))
 
-    elif stage_num == 4: # AI SCORING & TOKYOFLOW APP RESULT
+    elif stage_num == 4: # AI SCORING & TOKYOFLOW APP / MASTERCLASS RESULT
         draw.rounded_rectangle([(mid_x, mid_y), (mid_x + mid_w, mid_y + mid_h)], radius=24, fill=(16, 44, 87), outline=(56, 189, 248), width=3)
         draw.text((mid_x + 30, mid_y + 24), "AI 声调发音智能评估报告", fill=(56, 189, 248), font=get_font(28))
         draw.line([(mid_x + 24, mid_y + 64), (mid_x + mid_w - 24, mid_y + 64)], fill=(30, 58, 138), width=2)
@@ -616,10 +713,15 @@ def render_chinese_interactive_frame(
         draw.text((mid_x + 40, mid_y + 305), "- 高低音调起伏（High-Low Pattern）：接近母语者", fill=(241, 245, 249), font=get_font(23))
         draw.text((mid_x + 40, mid_y + 345), "- 音拍连贯性（Mora Cadence）：0.12s 标准音程", fill=(241, 245, 249), font=get_font(23))
 
-        # App Recommendation Pill
-        draw.rounded_rectangle([(mid_x + 40, mid_y + 400), (mid_x + mid_w - 40, mid_y + 510)], radius=18, fill=(15, 23, 42), outline=(52, 211, 153), width=2)
-        draw.text((mid_x + 60, mid_y + 420), "欢迎在 TokyoFlow App 中进行录音跟读", fill=(52, 211, 153), font=get_font(25))
-        draw.text((mid_x + 60, mid_y + 460), "10,000+ JLPT 核心高频词与东京全实景会话练习", fill=(203, 213, 225), font=get_font(20))
+        # App / Masterclass Recommendation Pill
+        if conf.get("is_funnel"):
+            draw.rounded_rectangle([(mid_x + 40, mid_y + 400), (mid_x + mid_w - 40, mid_y + 510)], radius=18, fill=(225, 29, 72), outline=(254, 240, 138), width=2)
+            draw.text((mid_x + 60, mid_y + 420), f"完整长视频大课已上线！点击下方链接", fill=(255, 255, 255), font=get_font(25))
+            draw.text((mid_x + 60, mid_y + 460), f"掌握全场景 80+ 真实口语句型与深度文化潜台词", fill=(254, 240, 138), font=get_font(20))
+        else:
+            draw.rounded_rectangle([(mid_x + 40, mid_y + 400), (mid_x + mid_w - 40, mid_y + 510)], radius=18, fill=(15, 23, 42), outline=(52, 211, 153), width=2)
+            draw.text((mid_x + 60, mid_y + 420), "欢迎在 TokyoFlow App 中进行录音跟读", fill=(52, 211, 153), font=get_font(25))
+            draw.text((mid_x + 60, mid_y + 460), "10,000+ JLPT 核心高频词与东京全实景会话练习", fill=(203, 213, 225), font=get_font(20))
 
     else: # PRO-TIP & VALUE MODE (stage 1 & 2)
         draw.rounded_rectangle([(mid_x, mid_y), (mid_x + mid_w, mid_y + mid_h)], radius=24, fill=(30, 41, 59), outline=(52, 211, 153) if stage_num==2 else (51, 65, 85), width=3 if stage_num==2 else 2)
@@ -655,8 +757,8 @@ def render_chinese_interactive_frame(
         # Step indicator guide inside pro tip card
         draw.rounded_rectangle([(mid_x + 30, mid_y + 360), (mid_x + mid_w - 30, mid_y + 510)], radius=16, fill=(15, 23, 42))
         draw.text((mid_x + 50, mid_y + 380), "3步影子跟读法高效练习：", fill=(250, 204, 21), font=get_font(22))
-        draw.text((mid_x + 50, mid_y + 420), "1. 盲听原声  2. 句型拆解  3. 开口跟读", fill=(203, 213, 225), font=get_font(21))
-        draw.text((mid_x + 50, mid_y + 458), "听到「3-2-1」提示音后，请立即开口大声复述！", fill=(244, 114, 182), font=get_font(21))
+        draw.text((mid_x + 50, mid_y + 420), "1. 盲听原声  2. 名师拆解  3. 开口跟读", fill=(203, 213, 225), font=get_font(21))
+        draw.text((mid_x + 50, mid_y + 458), "听到「3-2-1」提示音后，跟随原声大声复述！", fill=(244, 114, 182), font=get_font(21))
 
     # 7. Dynamic 4-Step Floating Progress Status Badge (y=1545..1625)
     status_x, status_y, status_w, status_h = 50, 1545, width - 100, 75
@@ -689,15 +791,23 @@ def render_chinese_interactive_frame(
     draw.rounded_rectangle([(cta_x, cta_y), (cta_x + cta_w, cta_y + cta_h)], radius=22, fill=(15, 23, 42), outline=(51, 65, 85), width=2)
 
     font_cta_app = get_font(24)
-    draw.text((cta_x + 30, cta_y + 20), "TokyoFlow 日语口语伴侣 (iOS App)", fill=(56, 189, 248), font=font_cta_app)
-    
-    font_cta_sub = get_font(20)
-    draw.text((cta_x + 30, cta_y + 56), "AI声调精准打分 • 10,000+ JLPT 高频词实景原声跟读", fill=(203, 213, 225), font=font_cta_sub)
+    if conf.get("is_funnel"):
+        draw.text((cta_x + 30, cta_y + 20), "TokyoFlow 日语大师课 • 完整精讲已上线", fill=(56, 189, 248), font=font_cta_app)
+        font_cta_sub = get_font(20)
+        draw.text((cta_x + 30, cta_y + 56), conf.get("funnel_target", "点击下方关联视频观看完整25分钟大课"), fill=(203, 213, 225), font=font_cta_sub)
+        # Action Subscribe Pill
+        draw.rounded_rectangle([(cta_x + 24, cta_y + 105), (cta_x + cta_w - 24, cta_y + 195)], radius=16, fill=(225, 29, 72))
+        font_sub_btn = get_font(28)
+        btn_text = "点击下方关联视频 • 观看完整大课"
+    else:
+        draw.text((cta_x + 30, cta_y + 20), "TokyoFlow 日语口语伴侣 (iOS App)", fill=(56, 189, 248), font=font_cta_app)
+        font_cta_sub = get_font(20)
+        draw.text((cta_x + 30, cta_y + 56), "AI声调精准打分 • 10,000+ JLPT 高频词实景原声跟读", fill=(203, 213, 225), font=font_cta_sub)
+        # Action Subscribe Pill
+        draw.rounded_rectangle([(cta_x + 24, cta_y + 105), (cta_x + cta_w - 24, cta_y + 195)], radius=16, fill=(225, 29, 72))
+        font_sub_btn = get_font(28)
+        btn_text = "订阅频道 • 每日 60 秒东京原声跟读"
 
-    # Action Subscribe Pill
-    draw.rounded_rectangle([(cta_x + 24, cta_y + 105), (cta_x + cta_w - 24, cta_y + 195)], radius=16, fill=(225, 29, 72))
-    font_sub_btn = get_font(28)
-    btn_text = "订阅频道 • 每日 60 秒东京原声跟读"
     bbox_btn = draw.textbbox((0, 0), btn_text, font=font_sub_btn)
     btn_w = bbox_btn[2] - bbox_btn[0]
     draw.text((cta_x + (cta_w - btn_w) // 2, cta_y + 130), btn_text, fill=(255, 255, 255), font=font_sub_btn)
@@ -715,13 +825,14 @@ async def generate_single_chinese_short(conf: dict):
     release_dir = os.path.join("docs", "youtube_releases", folder_name)
     os.makedirs(release_dir, exist_ok=True)
 
-    tmp_dir = os.path.join("/tmp", f"tokyoflow_zh_short_ep{ep_num:02d}")
+    tmp_dir = os.path.join("tmp", f"tokyoflow_zh_short_ep{ep_num:02d}")
     if os.path.exists(tmp_dir):
         shutil.rmtree(tmp_dir)
     os.makedirs(tmp_dir, exist_ok=True)
 
+    code_lbl = conf.get("shorts_code", f"EP.{ep_num:02d}")
     print(f"\n==========================================")
-    print(f"Building Chinese Interactive Short EP.{ep_num:02d}: {conf['yt_short_title']}")
+    print(f"Building Chinese Interactive Short [{code_lbl}]: {conf['yt_short_title']}")
     print(f"==========================================")
 
     # 1. Synthesize Audio Tracks
@@ -733,9 +844,14 @@ async def generate_single_chinese_short(conf: dict):
     jp_audio_norm = os.path.join(tmp_dir, "02_jp_norm.mp3")
     await synth_audio(conf["jp_sentence"], "ja-JP-NanamiNeural", jp_audio_norm, rate="-4%", pitch="+2Hz")
 
-    # 1.3 Yunxi Pro-tip & Grammar note
+    # 1.3 Seamless Bilingual In-Line Speech for Pro-Tip (Yunxi + Nanami)
     tip_audio = os.path.join(tmp_dir, "03_tip.mp3")
-    await synth_audio(conf["pro_tip_audio_zh"], "zh-CN-YunxiNeural", tip_audio, rate="+4%")
+    speech_chunks_tip = conf.get("speech_chunks_tip")
+    if speech_chunks_tip:
+        await synthesize_seamless_bilingual_audio(speech_chunks_tip, tip_audio, temp_dir=os.path.join(tmp_dir, "chunks"))
+    else:
+        tip_text = conf.get("pro_tip_audio_zh", conf["pro_tip_body"])
+        await synth_audio(tip_text, "zh-CN-YunxiNeural", tip_audio, rate="+4%")
 
     # 1.4 Yunxi Countdown Prompt
     shadow_cue_audio = os.path.join(tmp_dir, "04_shadow_cue.mp3")
@@ -747,26 +863,30 @@ async def generate_single_chinese_short(conf: dict):
     beep_high = os.path.join(tmp_dir, "beep_high.mp3")
     generate_beep(1600, 0.25, beep_high)
 
-    # 1.6 Silent Shadowing Duration (Sentence length + 1.2s buffer)
-    dur_jp_norm = get_audio_duration(jp_audio_norm)
-    shadow_silence_dur = dur_jp_norm + 1.2
-    shadow_silence_audio = os.path.join(tmp_dir, "05_shadow_silence.mp3")
-    generate_silence(shadow_silence_dur, shadow_silence_audio)
+    # 1.6 Nanami Native Practice Drill Voice for Shadowing (Stage 3)
+    jp_audio_drill = os.path.join(tmp_dir, "05_jp_drill.mp3")
+    await synth_audio(conf["jp_sentence"], "ja-JP-NanamiNeural", jp_audio_drill, rate="-10%", pitch="+2Hz")
 
-    # 1.7 Chime Success + Yunxi Outro Feedback & App CTA
+    # 1.7 Chime Success + Outro Feedback & CTA
     chime_audio = os.path.join(tmp_dir, "chime.mp3")
     generate_beep(1200, 0.25, chime_audio)
     outro_audio = os.path.join(tmp_dir, "06_outro.mp3")
-    await synth_audio("太棒了！快下载 TokyoFlow App 体验实时声调发音打分吧！", "zh-CN-YunxiNeural", outro_audio, rate="+4%")
+    if conf.get("is_funnel"):
+        await synth_audio("太棒了！下方已关联完整长视频大课，快点击观看吧！", "zh-CN-YunxiNeural", outro_audio, rate="+4%")
+    else:
+        await synth_audio("太棒了！快下载 TokyoFlow App 体验实时声调发音打分吧！", "zh-CN-YunxiNeural", outro_audio, rate="+4%")
 
-    # 2. Extract Token Timings with Whisper for Normal Speed
-    print("Aligning tokens with Whisper for precise karaoke glow...")
+    # 2. Extract Token Timings with Whisper
+    print("Aligning tokens with Whisper for precise karaoke glow (Normal & Practice Drill)...")
     token_objs = conf["tokens"]
-    aligned_tokens = align_sentence_tokens_with_audio(jp_audio_norm, token_objs)
+    aligned_tokens_norm = align_sentence_tokens_with_audio(jp_audio_norm, token_objs)
+    aligned_tokens_drill = align_sentence_tokens_with_audio(jp_audio_drill, token_objs)
 
     dur_hook = get_audio_duration(hook_audio)
+    dur_jp_norm = get_audio_duration(jp_audio_norm)
     dur_tip = get_audio_duration(tip_audio)
     dur_cue = get_audio_duration(shadow_cue_audio)
+    dur_drill = get_audio_duration(jp_audio_drill)
     dur_out = get_audio_duration(outro_audio)
 
     audio_segments = [
@@ -777,7 +897,7 @@ async def generate_single_chinese_short(conf: dict):
         {"file": beep_low, "dur": 0.12, "pause": 0.25},
         {"file": beep_low, "dur": 0.12, "pause": 0.25},
         {"file": beep_high, "dur": 0.25, "pause": 0.2},
-        {"file": shadow_silence_audio, "dur": shadow_silence_dur, "pause": 0.2},
+        {"file": jp_audio_drill, "dur": dur_drill, "pause": 0.3},
         {"file": chime_audio, "dur": 0.25, "pause": 0.2},
         {"file": outro_audio, "dur": dur_out, "pause": 0.4}
     ]
@@ -799,7 +919,7 @@ async def generate_single_chinese_short(conf: dict):
     t_tip = t_listen + dur_tip + 0.35
     t_countdown = t_tip + dur_cue + 0.15 + (0.12+0.25)*2 + 0.25 + 0.2
     t_shadow_start = t_countdown
-    t_shadow_end = t_shadow_start + shadow_silence_dur + 0.2
+    t_shadow_end = t_shadow_start + dur_drill + 0.3
     t_score_end = total_duration
 
     # 3. Load Short Cover Thumbnail for First-Frame Injection
@@ -845,7 +965,7 @@ async def generate_single_chinese_short(conf: dict):
             stg = 1
             rel_t = cur_t - t_hook
             active_tok = -1
-            for tok_i, tok in enumerate(aligned_tokens):
+            for tok_i, tok in enumerate(aligned_tokens_norm):
                 st = tok.get("start", 0.0) - 0.08
                 et = tok.get("end", 0.0)
                 if st <= rel_t <= et:
@@ -883,15 +1003,15 @@ async def generate_single_chinese_short(conf: dict):
         elif cur_t < t_shadow_end:
             stg = 3
             rel_spk_t = cur_t - t_shadow_start
-            spk_prog = rel_spk_t / shadow_silence_dur
+            spk_prog = rel_spk_t / max(0.1, dur_drill)
             active_tok = -1
-            for tok_i, tok in enumerate(aligned_tokens):
-                st = tok.get("start", 0.0)
+            for tok_i, tok in enumerate(aligned_tokens_drill):
+                st = tok.get("start", 0.0) - 0.05
                 et = tok.get("end", 0.0)
                 if st <= rel_spk_t <= et:
                     active_tok = tok_i
                     break
-            stg_title = "[STEP 3] 轮到你开口大声跟读！"
+            stg_title = "[STEP 3] 跟着原声开口大声跟读！"
             stg_sub = "大声开口"
             frame_img = render_chinese_interactive_frame(
                 1080, 1920, conf,
@@ -942,7 +1062,7 @@ async def generate_single_chinese_short(conf: dict):
     ]
     subprocess.run(cmd_ffmpeg, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
-    # 6. Output short_metadata.md (Zero Emojis)
+    # 6. Output short_metadata.md (Strict Zero Emoji Discipline)
     meta_path = os.path.join(release_dir, "short_metadata.md")
     tokens_txt = "\n".join([f"- {t['orig']} ({t['kana']}) : {t.get('meaning', '')}" for t in conf["tokens"]])
     
@@ -950,9 +1070,9 @@ async def generate_single_chinese_short(conf: dict):
 # {conf['yt_short_title']}
 
 ## 发布基本信息
-- 剧集：EP. {conf['ep_num']:02d} ({conf['folder']})
+- 剧集：{code_lbl} ({conf['folder']})
 - 格式：9:16 竖屏短视频 (1080x1920, 30 fps)
-- 跟读引擎：4阶段沉浸式跟读训练（盲听 -> 句型精讲 -> 3-2-1 麦克风录音 -> AI声调打分）
+- 跟读引擎：4阶段沉浸式跟读训练（盲听 -> 名师拆解 -> 3-2-1 原声领读录音 -> AI声调打分）
 - 视频文件：short.mp4
 - 竖屏封面：short_thumbnail.jpg
 - 视频时长：{total_duration:.1f}秒
@@ -990,7 +1110,7 @@ async def generate_single_chinese_short(conf: dict):
 【3步跟读法】
 1. 盲听原声：感受母语者自然发音与节奏。
 2. 语法拆解：掌握句型公式与场景文化。
-3. 开口复述：在 3-2-1 倒计时后大声跟读，校准声调。
+3. 开口复述：在 3-2-1 倒计时后跟随原声大声跟读，校准声调。
 
 【练习推荐】
 欢迎在 App Store 下载 TokyoFlow - 日语口语伴侣 App，体验精准 AI 声调打分与 10,000+ 实景原声练习！
@@ -1013,18 +1133,18 @@ shorts, 学日语, 日语口语, 东京日语, jlpt, {conf.get('jlpt_level', 'JL
 
     # Clean tmp dir
     shutil.rmtree(tmp_dir, ignore_errors=True)
-    print(f"Completed Chinese Interactive Short for EP.{ep_num:02d} -> {release_dir}/short.mp4")
+    print(f"Completed Chinese Interactive Short for [{code_lbl}] -> {release_dir}/short.mp4")
 
 async def generate_all_chinese_shorts():
     print("==================================================")
     print("Starting Batch Chinese YouTube Shorts Producer (First-Frame Cover Injected)")
-    print(f"Target Queue: {len(CHINESE_SHORTS_CONFIGS)} Shorts (EP.01 ~ EP.11)")
+    print(f"Target Queue: {len(CHINESE_SHORTS_CONFIGS)} Shorts (WS.01, WS.02, EP.01 ~ EP.11)")
     print("==================================================")
     
     for conf in CHINESE_SHORTS_CONFIGS:
         await generate_single_chinese_short(conf)
         
-    print("\nALL 11 CHINESE INTERACTIVE SHORTS SUCCESSFULLY GENERATED WITH FIRST-FRAME COVERS!")
+    print("\nALL CHINESE INTERACTIVE SHORTS SUCCESSFULLY GENERATED WITH FIRST-FRAME COVERS & BILINGUAL AUDIO!")
 
 if __name__ == "__main__":
     asyncio.run(generate_all_chinese_shorts())

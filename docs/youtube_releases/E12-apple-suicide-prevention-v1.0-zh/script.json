@@ -1,0 +1,250 @@
+{
+  "episode_number": 12,
+  "folder_name": "E12-apple-suicide-prevention-v1.0-zh",
+  "slug": "apple_suicide_prevention_zh",
+  "locale": "zh",
+  "title": "日本政府要求苹果搭载自杀预防功能精讲",
+  "yt_title": "【JLPT N5】日本政府向苹果提要求！防止自杀新功能与要请语法精讲（EP.12）",
+  "category": "东京科技 • 政策热点",
+  "level": "JLPT N5",
+  "district": "东京流行文化",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/shared/assets/backgrounds/E12_japan_gov_apple.jpg",
+  "cover": {
+    "hook": "政府向苹果提要求",
+    "sub_hook": "AI时代自杀预防新功能",
+    "jp_line1": "高市首相はAppleに、",
+    "jp_line2": "自殺防止機能を要請！",
+    "grammar_tag": "JLPT N5 语法：~に要請する（向……提出请求/要请）",
+    "translation": "「高市首相向苹果公司提出搭载自杀预防功能的要请！」",
+    "context_note": "生成式AI咨询量激增，日本政府出面推动科技巨头强化心理干预",
+    "location_tag": "场景：东京首相官邸 • 科技伦理发布会",
+    "tag": "🇯🇵 日本科技时事精讲 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 首相官邸科技要请速报",
+      "spoken_text": "高市首相はAppleに対して、自殺防止機能の搭載を要請しました。",
+      "meaning": "高市首相向苹果公司正式提出要请，要求搭载防止自杀的新功能。",
+      "tip": "「〜に対して/〜に要請する」是向对象机构提出正式请求的标准表达。",
+      "tokens": [
+        {
+          "orig": "高市首相は",
+          "kana": "たかいちしゅしょうは",
+          "romaji": "takaichi shushou wa",
+          "pos": "专有名词+主格",
+          "meaning": "高市首相"
+        },
+        {
+          "orig": "Appleに",
+          "kana": "アップルに",
+          "romaji": "appuru ni",
+          "pos": "专有名词+对象",
+          "meaning": "向苹果公司"
+        },
+        {
+          "orig": "自殺防止の",
+          "kana": "じさつぼうしの",
+          "romaji": "jisatsu boushi no",
+          "pos": "名词+助词",
+          "meaning": "防止自杀的"
+        },
+        {
+          "orig": "機能を",
+          "kana": "きのうを",
+          "romaji": "kinou o",
+          "pos": "名词+宾格",
+          "meaning": "功能"
+        },
+        {
+          "orig": "要請しました。",
+          "kana": "ようせいしました",
+          "romaji": "yousei shimashita.",
+          "pos": "动词过去式",
+          "meaning": "提出了要请"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 时事新闻与要请语法拆解",
+      "sentence_ja": "高市首相はAppleに対して、自殺防止機能の搭載を要請しました。",
+      "vocab": [
+        {
+          "orig": "首相",
+          "kana": "しゅしょう",
+          "romaji": "shushou",
+          "pos": "名词",
+          "meaning": "内阁总理大臣/首相"
+        },
+        {
+          "orig": "自殺防止",
+          "kana": "じさつぼうし",
+          "romaji": "jisatsu boushi",
+          "pos": "复合名词",
+          "meaning": "防止自杀/心理干预"
+        },
+        {
+          "orig": "機能",
+          "kana": "きのう",
+          "romaji": "kinou",
+          "pos": "名词",
+          "meaning": "系统功能"
+        },
+        {
+          "orig": "搭載",
+          "kana": "とうさい",
+          "romaji": "tousai",
+          "pos": "名词",
+          "meaning": "搭载/内置安装"
+        },
+        {
+          "orig": "要請",
+          "kana": "ようせい",
+          "romaji": "yousei",
+          "pos": "名词/动词",
+          "meaning": "请求/要请"
+        }
+      ],
+      "grammar_title": "重要句型：名词 + に要請する（向某方提出正式请求）",
+      "grammar_bullets": [
+        [
+          "1. 助词用法：",
+          "「A に B を要請する」表示向 A 机构/个人提出关于 B 的正式要求或呼吁."
+        ],
+        [
+          "2. 词汇辨析：",
+          "「要請（ようせい）」比普通的「頼む / お願い」更具公信力与正式严肃性."
+        ],
+        [
+          "3. 社会背景：",
+          "随着生成式AI广泛普及，日本政府重点关注青少年心理健康与AI伦理."
+        ],
+        [
+          "4. 动词变化：",
+          "「要請する」->「要請しました（过去式，已提出请求）」."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解这条受到全球科技界关注的日本政府要请报道。"
+        },
+        {
+          "speaker": "ja",
+          "text": "首相",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 shushou，内阁总理大臣、首相。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "自殺防止",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "复合名词：防止自杀、心理危机干预。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "機能",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 kinou，电子设备系统功能。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "搭載",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 tousai，在系统中搭载安装。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "要請しました",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词敬体过去式：提出了正式要请与呼吁。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：向科技企业提出功能搭载要请的标准句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "自殺防止機能の搭載を要請しました。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是正式提出搭载防自杀功能的要请，时事新闻高频表达。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 科技向善与大众期待",
+      "spoken_text": "多くの人が、テクノロジーによる命の保護を期待しています。",
+      "meaning": "许多民众都期待着通过科技手段来更好地守护生命。",
+      "tip": "「〜を期待しています（期待着……）」是表达对未来积极变革憧憬的常用句。",
+      "tokens": [
+        {
+          "orig": "多くの",
+          "kana": "おおくの",
+          "romaji": "ooku no",
+          "pos": "连体词",
+          "meaning": "许多的"
+        },
+        {
+          "orig": "人が、",
+          "kana": "ひとが",
+          "romaji": "hito ga,",
+          "pos": "名词+主格",
+          "meaning": "人们"
+        },
+        {
+          "orig": "命の",
+          "kana": "いのちの",
+          "romaji": "inochi no",
+          "pos": "名词+助词",
+          "meaning": "生命的"
+        },
+        {
+          "orig": "保護を",
+          "kana": "ほごを",
+          "romaji": "hogo o",
+          "pos": "名词+宾格",
+          "meaning": "保护守护"
+        },
+        {
+          "orig": "期待しています。",
+          "kana": "きたいしています",
+          "romaji": "kitai shite imasu.",
+          "pos": "动词进行时",
+          "meaning": "充满期待"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "04. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

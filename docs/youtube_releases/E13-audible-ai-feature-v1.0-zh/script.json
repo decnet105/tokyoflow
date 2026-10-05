@@ -1,0 +1,271 @@
+{
+  "episode_number": 13,
+  "folder_name": "E13-audible-ai-feature-v1.0-zh",
+  "slug": "audible_ai_feature_zh",
+  "locale": "zh",
+  "title": "亚马逊Audible推出AI互动新功能精讲",
+  "yt_title": "【JLPT N5】亚马逊Audible重大更新！用AI与书中人物对话口语精讲（EP.13）",
+  "category": "东京科技 • 流行文化",
+  "level": "JLPT N5",
+  "district": "东京流行文化",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_assets/scene_backgrounds/E13_audible_ai.jpg",
+  "cover": {
+    "hook": "Audible重大AI更新",
+    "sub_hook": "与书中角色实时对话",
+    "jp_line1": "Audibleで本を聞いて、",
+    "jp_line2": "AIと楽しく会話します！",
+    "grammar_tag": "JLPT N5 语法：~で（手段工具）& ~と会話する（与……对话）",
+    "translation": "「在Audible上听有声书，还能与AI角色开心对话！」",
+    "context_note": "亚马逊有声书在日本推出生成式AI互动新功能引发读者热议",
+    "location_tag": "场景：东京书店与数字阅读生活",
+    "tag": "🇯🇵 日本科技文化精讲 • 影子跟读"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 有声书与AI对话新体验",
+      "spoken_text": "アマゾンのAudibleで本を聞いて、AIと会話ができます。",
+      "meaning": "在亚马逊的Audible上听书，还可以与AI进行互动对话。",
+      "tip": "「〜で（手段/工具）」表示通过某种平台或工具实现某事。",
+      "tokens": [
+        {
+          "orig": "アマゾンの",
+          "kana": "あまぞんの",
+          "romaji": "amazon no",
+          "pos": "专有名词+助词",
+          "meaning": "亚马逊的"
+        },
+        {
+          "orig": "Audibleで",
+          "kana": "オーディブルで",
+          "romaji": "oodiburu de",
+          "pos": "专有名词+手段",
+          "meaning": "在Audible上"
+        },
+        {
+          "orig": "本を",
+          "kana": "ほんを",
+          "romaji": "hon o",
+          "pos": "名词+宾格",
+          "meaning": "书本"
+        },
+        {
+          "orig": "聞いて、",
+          "kana": "きいて",
+          "romaji": "kiite,",
+          "pos": "动词て形",
+          "meaning": "倾听并"
+        },
+        {
+          "orig": "AIと",
+          "kana": "えーあいと",
+          "romaji": "eeai to",
+          "pos": "外来语+对象",
+          "meaning": "与AI"
+        },
+        {
+          "orig": "会話が",
+          "kana": "かいわが",
+          "romaji": "kaiwa ga",
+          "pos": "名词+主格",
+          "meaning": "对话"
+        },
+        {
+          "orig": "できます。",
+          "kana": "できます",
+          "romaji": "dekimasu.",
+          "pos": "可能态动词",
+          "meaning": "可以进行"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 数字阅读与可能态语法拆解",
+      "sentence_ja": "アマゾンのAudibleで本を聞いて、AIと会話ができます。",
+      "vocab": [
+        {
+          "orig": "Audible",
+          "kana": "オーディブル",
+          "romaji": "oodiburu",
+          "pos": "专有名词",
+          "meaning": "亚马逊有声书服务"
+        },
+        {
+          "orig": "本を聞く",
+          "kana": "ほんをきく",
+          "romaji": "hon o kiku",
+          "pos": "短语",
+          "meaning": "听有声书"
+        },
+        {
+          "orig": "AI",
+          "kana": "えーあい",
+          "romaji": "eeai",
+          "pos": "外来语",
+          "meaning": "人工智能"
+        },
+        {
+          "orig": "会話",
+          "kana": "かいわ",
+          "romaji": "kaiwa",
+          "pos": "名词",
+          "meaning": "会话/交流对话"
+        },
+        {
+          "orig": "できる",
+          "kana": "できる",
+          "romaji": "dekiru",
+          "pos": "可能动词",
+          "meaning": "能够/可以做到"
+        }
+      ],
+      "grammar_title": "基础句型：名词 + ができる（能够做某事/具备某能力）",
+      "grammar_bullets": [
+        [
+          "1. 格助词用法：",
+          "「名词 + ができる」表示能力或客观条件的允许，比如「会話ができる（能对话）」."
+        ],
+        [
+          "2. 手段助词 で：",
+          "「Audible で本を聞く（通过有声书软件听书）」表达实现动作的工具和媒介."
+        ],
+        [
+          "3. 登场人物对话：",
+          "新功能允许读者直接向小说里的「登場人物（とうじょうじんぶつ）」实时提问."
+        ],
+        [
+          "4. 动词连用：",
+          "「聞いて（听了之后）... できます（还能进行互动）」."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解这条关于现代数字阅读与AI技术融合的热门报道。"
+        },
+        {
+          "speaker": "ja",
+          "text": "Audible",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "专有名词读作 oodiburu，亚马逊旗下的有声书平台。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "本を聞く",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "常用短语：听书、收听有声读物。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "AI",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "外来语：人工智能。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "会話",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 kaiwa，会话、对话交流。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "できます",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "可能态动词敬体：能够做到、可以实现。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：表达通过某种新工具实现全新互动能力的经典句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "AIと会話ができます。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是能够与AI进行实时对话交流，日常高频表达。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 全新读书体验与读者感悟",
+      "spoken_text": "新しい機能を使って、読書がもっと楽しくなりますね！",
+      "meaning": "使用这项新功能，读书也变得更加有趣了呢！",
+      "tip": "「〜くなる/〜になる」表示状态发生积极转变（变得更加……）。",
+      "tokens": [
+        {
+          "orig": "新しい",
+          "kana": "あたらしい",
+          "romaji": "atarashii",
+          "pos": "形容词",
+          "meaning": "全新的"
+        },
+        {
+          "orig": "機能を",
+          "kana": "きのうを",
+          "romaji": "kinou o",
+          "pos": "名词+宾格",
+          "meaning": "功能"
+        },
+        {
+          "orig": "使って、",
+          "kana": "つかって",
+          "romaji": "tsukatte,",
+          "pos": "动词て形",
+          "meaning": "使用并"
+        },
+        {
+          "orig": "読書が",
+          "kana": "どくしょが",
+          "romaji": "dokusho ga",
+          "pos": "名词+主格",
+          "meaning": "阅读/读书"
+        },
+        {
+          "orig": "もっと",
+          "kana": "もっと",
+          "romaji": "motto",
+          "pos": "副词",
+          "meaning": "更加"
+        },
+        {
+          "orig": "楽しくなりますね！",
+          "kana": "たのしくなりますね",
+          "romaji": "tanoshiku narimasu ne!",
+          "pos": "变化句型",
+          "meaning": "变得开心有趣呢！"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "04. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}
