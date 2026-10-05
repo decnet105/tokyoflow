@@ -23,10 +23,19 @@ import sys
 import json
 import asyncio
 import subprocess
+from pathlib import Path
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 import edge_tts
 import pykakasi
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT / "scripts" / "videogen"))
+from seamless_tts_engine import (
+    synthesize_seamless_bilingual_audio,
+    normalize_chinese_speech_text,
+    get_audio_duration
+)
 
 FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 kakasi_inst = pykakasi.kakasi()
@@ -67,8 +76,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "欢迎来到 TokyoFlow 日语周末大合集特辑。今天，我们将周一到周五的完整东京生活实景口语，浓缩进这堂28分钟的全景深度精讲课中。无论你正在备考 JLPT，还是计划前往日本旅行与生活，本期视频都将成为你最实用的随身日语指南。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "欢迎来到 TokyoFlow 日语周末大合集特辑。今天，我们将周一到周五的完整东京生活实景口语，浓缩进这堂28分钟的全景深度精讲课中。无论你正在备考 JLPT，还是计划前往日本旅行与生活，本期视频都将成为你最实用的随身日语指南。"}
+                ],
                 "duration_est": 21.0,
                 "jlpt": "导览"
             },
@@ -77,8 +88,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "在接下来的28分钟里，我们将精讲七大核心生活场景：山手线乘车报站、便利店收银结账、居酒屋点单交流、秋叶原免税购物、拉面食券定制、温泉钱汤礼仪以及神社寺庙参拜。同时，我们还将深入剖析电车静音模式、鞠躬礼节、零小费原则与极致款待文化。让我们从第一天：山手线电车开始！",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "在接下来的28分钟里，我们将精讲七大核心生活场景：山手线乘车报站、便利店收银结账、居酒屋点单交流、秋叶原免税购物、拉面食券定制、温泉钱汤礼仪以及神社寺庙参拜。同时，我们还将深入剖析电车静音模式、鞠躬礼节、零小费原则与极致款待文化。让我们从第一天：山手线电车开始！"}
+                ],
                 "duration_est": 27.0,
                 "jlpt": "课程大纲"
             }
@@ -98,8 +111,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "周一清晨，东京的脉搏从山手线开始跳动。在站台与车厢内，你最常听到的就是标准广播提示。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "周一清晨，东京的脉搏从山手线开始跳动。在站台与车厢内，你最常听到的就是标准广播提示。"}
+                ],
                 "duration_est": 10.0,
                 "jlpt": "场景引入"
             },
@@ -108,21 +123,35 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "audio_phrase",
                 "character": "七海",
                 "lang": "ja",
-                "voice": "ja-JP-NanamiNeural",
                 "content": "まもなく、二番線に電車がまいります。黄色い点字ブロックの内側までお下がりください。",
                 "furi": "まもなく、 にばんせん に でんしゃ が まいります。 きいろい てんじ ぶろっく の うちがわ まで おさがり ください。",
                 "romaji": "Mamonaku, nibansen ni densha ga mairimasu. Kiiroi tenji burokku no uchigawa made osagari kudasai.",
                 "meaning": "列车即将到达2号站台，请退至黄色盲道内侧等候。",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "まもなく、二番線に電車がまいります。黄色い点字ブロックの内側までお下がりください。"}
+                ],
                 "jlpt": "N4",
                 "duration_est": 8.5
             },
             {
                 "seg_id": "1_3_breakdown",
                 "type": "narration",
-                "character": "云希",
-                "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
+                "character": "云希 / 七海",
+                "lang": "bilingual",
                 "content": "请注意动词 'mairimasu'，这是 'kimasu'（来）的自谦语，体现了铁道公司的极高服务敬意；'osagari kudasai' 则是 'o + 动词连用形 + kudasai' 的高频敬语祈使句型。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "请注意动词"},
+                    {"lang": "ja", "text": "まいります"},
+                    {"lang": "zh", "text": "，这是"},
+                    {"lang": "ja", "text": "きます"},
+                    {"lang": "zh", "text": "（来）的自谦语，体现了铁道公司的极高服务敬意；而"},
+                    {"lang": "ja", "text": "お下がりください"},
+                    {"lang": "zh", "text": "则是"},
+                    {"lang": "ja", "text": "お"},
+                    {"lang": "zh", "text": "加动词连用形加"},
+                    {"lang": "ja", "text": "ください"},
+                    {"lang": "zh", "text": "的高频敬语祈使句型。"}
+                ],
                 "duration_est": 15.0,
                 "jlpt": "N4 语法精讲"
             }
@@ -142,8 +171,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "周二走进街头随处可见的 7-Eleven 或全家便利店。在收银台前，店员会连续询问便当加热与塑料袋需求。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "周二走进街头随处可见的 7-Eleven 或全家便利店。在收银台前，店员会连续询问便当加热与塑料袋需求。"}
+                ],
                 "duration_est": 11.0,
                 "jlpt": "场景引入"
             },
@@ -152,21 +183,31 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "audio_phrase",
                 "character": "七海",
                 "lang": "ja",
-                "voice": "ja-JP-NanamiNeural",
                 "content": "お弁当温めますか？レジ袋はご利用になりますか？",
                 "furi": "おべんとう あたためます か？ れじぶくろ は ごりよう に なります か？",
                 "romaji": "Obentou atatamemasu ka? Rejibukuro wa goriyou ni narimasu ka?",
                 "meaning": "便当需要加热吗？需要使用塑料袋吗？",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "お弁当温めますか？レジ袋はご利用になりますか？"}
+                ],
                 "jlpt": "N5",
                 "duration_est": 7.5
             },
             {
                 "seg_id": "2_3_breakdown",
                 "type": "narration",
-                "character": "云希",
-                "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
+                "character": "云希 / 七海",
+                "lang": "bilingual",
                 "content": "如果需要加热，直接回答 'Onegaishimasu'；如果不需要塑料袋，最地道的回答是 'Fukuro wa daijoubu desu'（不用了，谢谢）。'Daijoubu desu' 在这里巧妙表达了礼貌拒绝。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "如果需要加热，直接回答"},
+                    {"lang": "ja", "text": "お願いします"},
+                    {"lang": "zh", "text": "；如果不需要塑料袋，最地道的回答是"},
+                    {"lang": "ja", "text": "袋は大丈夫です"},
+                    {"lang": "zh", "text": "（不用了，谢谢）。这里的"},
+                    {"lang": "ja", "text": "大丈夫です"},
+                    {"lang": "zh", "text": "巧妙表达了礼貌拒绝。"}
+                ],
                 "duration_est": 16.0,
                 "jlpt": "N5 实战应答"
             }
@@ -186,8 +227,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "周三夜晚，步入烟火气十足的东京居酒屋。入座后第一件事不是看菜单，而是先点第一杯饮料。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "周三夜晚，步入烟火气十足的东京居酒屋。入座后第一件事不是看菜单，而是先点第一杯饮料。"}
+                ],
                 "duration_est": 11.0,
                 "jlpt": "场景引入"
             },
@@ -196,21 +239,28 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "audio_phrase",
                 "character": "七海",
                 "lang": "ja",
-                "voice": "ja-JP-NanamiNeural",
                 "content": "とりあえず生ビール二つと、枝豆をお願いします。",
                 "furi": "とりあえず なまびーる ふたつ と、 えだまめ を おねがい します。",
                 "romaji": "Toriaezu nama biiru futatsu to, edamame o onegai shimasu.",
                 "meaning": "先来两杯生啤酒和一份毛豆，谢谢。",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "とりあえず生ビール二つと、枝豆をお願いします。"}
+                ],
                 "jlpt": "N5",
                 "duration_est": 7.0
             },
             {
                 "seg_id": "3_3_breakdown",
                 "type": "narration",
-                "character": "云希",
-                "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
-                "content": "'Toriaezu' 是居酒屋黄金副词，意思是'总之先来……'。同时请注意桌上主动端上的小菜 'Otoushi'，这是日本居酒屋不成文的席位费文化，通常为300到500日元。",
+                "character": "云希 / 七海",
+                "lang": "bilingual",
+                "content": "'Toriaezu' 是居酒屋黄金副词，意思是'总之先来……'。同时请注意桌上主动端上的席位小菜 'Otoushi'，这是日本居酒屋不成文的席位费文化，通常为300到500日元。",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "とりあえず"},
+                    {"lang": "zh", "text": "是居酒屋黄金副词，意思是总之先来。同时请注意桌上主动端上的席位小菜"},
+                    {"lang": "ja", "text": "お通し"},
+                    {"lang": "zh", "text": "，这是日本居酒屋不成文的席位费文化，通常为300到500日元。"}
+                ],
                 "duration_est": 17.0,
                 "jlpt": "文化与高频副词"
             }
@@ -230,8 +280,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "周四来到动漫圣地秋叶原。在友都八喜或手办店结账时，免税是外国游客最核心的交流诉求。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "周四来到动漫圣地秋叶原。在友都八喜或手办店结账时，免税是外国游客最核心的交流诉求。"}
+                ],
                 "duration_est": 11.0,
                 "jlpt": "场景引入"
             },
@@ -240,21 +292,28 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "audio_phrase",
                 "character": "七海",
                 "lang": "ja",
-                "voice": "ja-JP-NanamiNeural",
                 "content": "免税手続きをお願いできますか？パスポートはこちらです。",
                 "furi": "めんぜい てつづき を おねがい できます か？ ぱすぽーと は こちら です。",
                 "romaji": "Menzei tetsuzuki o onegai dekimasu ka? Pasupooto wa kochira desu.",
                 "meaning": "请问可以办理免税手续吗？这是我的护照。",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "免税手続きをお願いできますか？パスポートはこちらです。"}
+                ],
                 "jlpt": "N4",
                 "duration_est": 7.5
             },
             {
                 "seg_id": "4_3_breakdown",
                 "type": "narration",
-                "character": "云希",
-                "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
+                "character": "云希 / 七海",
+                "lang": "bilingual",
                 "content": "'~o onegai dekimasu ka' 是比 '~kudasai' 更具礼貌色彩的可能形请求句型。日本消费税为10%，单笔消费满5000日元即可出示护照享受当场免税。",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "をお願いできますか"},
+                    {"lang": "zh", "text": "是比"},
+                    {"lang": "ja", "text": "ください"},
+                    {"lang": "zh", "text": "更具礼貌色彩的可能形请求句型。日本消费税为10%，单笔消费满5000日元即可出示护照享受当场免税。"}
+                ],
                 "duration_est": 16.0,
                 "jlpt": "N4 购物敬语"
             }
@@ -274,8 +333,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "周五深夜，来到一兰或家系拉面店。在食券机前买好票后，店员会询问你对口味与面条硬度的详细偏好。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "周五深夜，来到一兰或家系拉面店。在食券机前买好票后，店员会询问你对口味与面条硬度的详细偏好。"}
+                ],
                 "duration_est": 11.0,
                 "jlpt": "场景引入"
             },
@@ -284,21 +345,33 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "audio_phrase",
                 "character": "七海",
                 "lang": "ja",
-                "voice": "ja-JP-NanamiNeural",
                 "content": "麺は硬めで、味は濃いめでお願いします。替え玉を一つください。",
                 "furi": "めん は かため で、 あじ は こいめ で おねがい します。 かえだま を ひとつ ください。",
                 "romaji": "Men wa katame de, aji wa koime de onegai shimasu. Kaedama o hitotsu kudasai.",
                 "meaning": "面条要偏硬一点，汤头要浓郁一点，谢谢。请再加一份面。",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "麺は硬めで、味は濃いめでお願いします。替え玉を一つください。"}
+                ],
                 "jlpt": "N5",
                 "duration_est": 8.0
             },
             {
                 "seg_id": "5_3_breakdown",
                 "type": "narration",
-                "character": "云希",
-                "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
+                "character": "云希 / 七海",
+                "lang": "bilingual",
                 "content": "后缀 '~me'（目）表示程度偏向，例如 'katame'（偏硬）、'koime'（偏浓）。博多豚骨拉面中的加面叫做 'Kaedama'，记得留半碗汤再呼叫店员哦。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "后缀"},
+                    {"lang": "ja", "text": "目"},
+                    {"lang": "zh", "text": "表示程度偏向，例如"},
+                    {"lang": "ja", "text": "硬め"},
+                    {"lang": "zh", "text": "（偏硬）、"},
+                    {"lang": "ja", "text": "濃いめ"},
+                    {"lang": "zh", "text": "（偏浓）。博多豚骨拉面中的加面叫做"},
+                    {"lang": "ja", "text": "替え玉"},
+                    {"lang": "zh", "text": "，记得留半碗汤再呼叫店员哦。"}
+                ],
                 "duration_est": 16.0,
                 "jlpt": "饮食定制表达"
             }
@@ -318,8 +391,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "周末放松时刻，体验日本传统的钱汤与温泉。入浴前必须严格遵守'先洗净身体再入池'与'毛巾绝不浸入温泉水'等传统规矩。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "周末放松时刻，体验日本传统的钱汤与温泉。入浴前必须严格遵守先洗净身体再入池与毛巾绝不浸入温泉水等传统规矩。"}
+                ],
                 "duration_est": 12.0,
                 "jlpt": "文化导入"
             },
@@ -328,11 +403,13 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "audio_phrase",
                 "character": "七海",
                 "lang": "ja",
-                "voice": "ja-JP-NanamiNeural",
                 "content": "湯船に入る前に、必ず体を綺麗に洗ってください。タオルは湯に入れないでください。",
                 "furi": "ゆぶね に はいる まえ に、 かならず からだ を きれい に あらって ください。 たおる は ゆ に いれないで ください。",
                 "romaji": "Yubune ni hairu mae ni, kanarazu karada o kirei ni aratte kudasai. Taoru wa yu ni irenaide kudasai.",
                 "meaning": "进入浴池之前，请务必将身体彻底清洗干净。毛巾请勿浸入浴池中。",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "湯船に入る前に、必ず体を綺麗に洗ってください。タオルは湯に入れないでください。"}
+                ],
                 "jlpt": "N4",
                 "duration_est": 9.0
             }
@@ -350,10 +427,14 @@ MEGA_SCREENPLAY_ZH = [
             {
                 "seg_id": "7_1_intro",
                 "type": "narration",
-                "character": "云希",
-                "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
+                "character": "云希 / 七海",
+                "lang": "bilingual",
                 "content": "漫步浅草寺或明治神宫。参拜神道教神社的标准仪式是'二礼二拍手一礼'，投币时推荐使用5日元硬币（音同'有缘'）。",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "漫步浅草寺或明治神宫。参拜神道教神社的标准仪式是"},
+                    {"lang": "ja", "text": "二礼二拍手一礼"},
+                    {"lang": "zh", "text": "，投币时推荐使用5日元硬币（音同'有缘'）。"}
+                ],
                 "duration_est": 13.0,
                 "jlpt": "文化导入"
             },
@@ -362,11 +443,13 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "audio_phrase",
                 "character": "七海",
                 "lang": "ja",
-                "voice": "ja-JP-NanamiNeural",
                 "content": "お賽銭を入れて、二礼二拍手一礼の作法で参拝します。",
                 "furi": "おさいせん を いれて、 にれい にはくしゅ いちれい の さほう で さんぱい します。",
-                "romaji": "Osaisen o irete, nirei nihakushu ichirei no sahou de sanpai shimasu.",
+                "romaji": "Osaisen o irete, nirei nihakushu ichirei no saほう de sanpai shimasu.",
                 "meaning": "投入香油钱后，按照两次鞠躬、两次击掌、最后一次鞠躬的礼法进行参拜。",
+                "speech_chunks": [
+                    {"lang": "ja", "text": "お賽銭を入れて、二礼二拍手一礼の作法で参拝します。"}
+                ],
                 "jlpt": "N3",
                 "duration_est": 8.5
             }
@@ -386,8 +469,10 @@ MEGA_SCREENPLAY_ZH = [
                 "type": "narration",
                 "character": "云希",
                 "lang": "zh",
-                "voice": "zh-CN-YunxiNeural",
                 "content": "恭喜你完成了整整28分钟的东京生活全景精讲特训！从电车到便利店，从居酒屋到温泉神宫，你已经系统掌握了东京日常所需的全部核心口语与文化礼节。欢迎访问 TokyoFlow 官网下载完整词汇讲义。点赞订阅，开启你的地道日语之旅！",
+                "speech_chunks": [
+                    {"lang": "zh", "text": "恭喜你完成了整整28分钟的东京生活全景精讲特训！从电车到便利店，从居酒屋到温泉神宫，你已经系统掌握了东京日常所需的全部核心口语与文化礼节。欢迎访问 TokyoFlow 官网下载完整词汇讲义。点赞订阅，开启你的地道日语之旅！"}
+                ],
                 "duration_est": 22.0,
                 "jlpt": "结语"
             }
@@ -395,62 +480,35 @@ MEGA_SCREENPLAY_ZH = [
     }
 ]
 
-def get_audio_duration(audio_path: str) -> float:
-    cmd = [
-        "ffprobe", "-v", "error", "-show_entries",
-        "format=duration", "-of", "default=noprint_wrappers=1:nokey=1",
-        audio_path
-    ]
-    res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    try:
-        return float(res.stdout.strip())
-    except Exception:
-        return 5.0
-
 async def synthesize_all_audio_tracks_zh(output_dir: str):
-    """Synthesizes all Japanese and Chinese audio segments for WL.02 mega-compilation."""
+    """
+    Synthesizes all audio tracks with seamless bilingual code-switching,
+    flawless Japanese pitch accent, and contextual polyphone/brand normalization.
+    """
     audio_dir = os.path.join(output_dir, "audio")
     os.makedirs(audio_dir, exist_ok=True)
-    print("\n--- 正在合成 WL.02 中文大合集音频轨道 (Nanami 日语原声 + 云希 中文解说) ---")
+    print("\n--- 正在合成 WL.02 中文大合集音频轨道 (Nanami 日语原声 + 云希 中文解说 • 无缝多语言混读) ---")
 
     for ch in MEGA_SCREENPLAY_ZH:
         for seg in ch["segments"]:
             seg_id = seg["seg_id"]
             out_file = os.path.join(audio_dir, f"seg_{seg_id}.mp3")
 
-            if os.path.exists(out_file) and os.path.getsize(out_file) > 1000:
-                continue
-
-            voice = seg.get("voice", "zh-CN-YunxiNeural")
-            text = seg.get("content", "")
-            lang = seg.get("lang", "zh")
-
-            if lang == "ja":
-                rate = "-14%"
-                pitch = "+2Hz"
+            speech_chunks = seg.get("speech_chunks")
+            if speech_chunks:
+                await synthesize_seamless_bilingual_audio(speech_chunks, out_file)
+                print(f"   [OK] 无缝多语言混读合成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
             else:
-                rate = "+2%"
-                pitch = "+0Hz"
+                lang = seg.get("lang", "zh")
+                text = seg.get("content", "")
+                if lang == "ja":
+                    chunks = [{"lang": "ja", "text": text}]
+                else:
+                    chunks = [{"lang": "zh", "text": text}]
+                await synthesize_seamless_bilingual_audio(chunks, out_file)
+                print(f"   [OK] 单语言音频合成完毕 [{seg.get('character')}]: {os.path.basename(out_file)}")
 
-            tmp_raw = out_file + ".raw.mp3"
-            comm = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
-            await comm.save(tmp_raw)
-
-            cmd_norm = [
-                "ffmpeg", "-y",
-                "-i", tmp_raw,
-                "-c:a", "libmp3lame",
-                "-b:a", "192k",
-                "-ar", "44100",
-                "-ac", "2",
-                out_file
-            ]
-            subprocess.run(cmd_norm, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
-            if os.path.exists(tmp_raw):
-                os.remove(tmp_raw)
-            print(f"   [OK] 合成音频 [{seg.get('character', '云希')}]: {os.path.basename(out_file)}")
-
-    print(" [OK] WL.02 全部音频轨道合成完毕！")
+    print(" [OK] WL.02 全部音频轨道无缝混读合成完毕！")
 
 # ==========================================
 # METADATA GENERATION

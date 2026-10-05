@@ -1125,15 +1125,18 @@ def get_audio_duration(audio_path: str) -> float:
     except Exception:
         return 5.0
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT / "scripts" / "videogen"))
+from seamless_tts_engine import normalize_chinese_speech_text, normalize_japanese_speech_text
+
 def normalize_speech_text_zh(text: str, lang: str = "zh") -> str:
-    """Normalizes JLPT levels and terms for clear TTS articulation in Chinese & Japanese."""
+    """Normalizes JLPT levels, brand names and polyphones for clear TTS articulation."""
     if not text:
         return ""
     if lang == "zh":
-        text = re.sub(r'JLPT\s*N([1-5])\s*至\s*N([1-5])', r'JLPT N \1 到 N \2', text, flags=re.IGNORECASE)
-        text = re.sub(r'JLPT\s*N([1-5])', r'JLPT N \1', text, flags=re.IGNORECASE)
+        return normalize_chinese_speech_text(text)
     elif lang == "ja":
-        text = re.sub(r'\bN([1-5])\b', r'エヌ\1', text)
+        return normalize_japanese_speech_text(text)
     return text
 
 async def synthesize_all_audio_tracks_zh(output_dir: str):
