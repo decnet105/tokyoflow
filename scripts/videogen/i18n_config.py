@@ -44,6 +44,10 @@ LOCALES = {
         ],
         "outro_app_cta": "[ iOS APP STORE ]  Download 'TokyoFlow - Japanese Speaking' Free on App Store",
         "outro_app_sub": "Pair with iOS App for Speech Shadowing Scoring, Kana Mastery & SRS Flashcards",
+        "outro_passcode_badge": "[ STUDY PASSCODE ]",
+        "outro_passcode_title": "OFFICIAL STUDY WORKBOOK UNLOCK CODE:",
+        "outro_passcode_subtitle": "Download full JLPT N5-N3 Study Workbook PDF in description with this code",
+        "outro_passcode_spoken_template": "Great job today! Download this episode's complete JLPT study workbook in the description below using unlock passcode {passcode}. Remember to subscribe to TokyoFlow for daily Tokyo immersion masterclasses!",
         
         # Thumbnail & Cover Labels
         "thumb_brand": "TokyoFlow Japanese",
@@ -88,6 +92,10 @@ LOCALES = {
         ],
         "outro_app_cta": "【 iOS App Store 】  免费下载「TokyoFlow - 沉浸式日语口语」",
         "outro_app_sub": "搭配 iOS App 体验：AI 实时发音评测打分、五十音图速记与 SRS 遗忘曲线闪卡",
+        "outro_passcode_badge": "【 讲义解锁密码 】",
+        "outro_passcode_title": "本期 JLPT 配套研习讲义官方解锁口令：",
+        "outro_passcode_subtitle": "在置顶评论区获取网盘链接，输入本密码免费下载完整 A4 复习手册",
+        "outro_passcode_spoken_template": "今天的实景跟读训练完成！欢迎在视频简介栏和置顶评论区获取本期 JLPT 配套研习讲义，输入解锁密码 {passcode} 即可免费下载。记得点击订阅开启每日跟读！",
         
         # Thumbnail & Cover Labels
         "thumb_brand": "TokyoFlow 日语",

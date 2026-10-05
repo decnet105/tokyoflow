@@ -422,31 +422,51 @@ def render_breakdown_frame(
 
     return img
 
-def render_outro_frame(ep_label: str, locale_cfg: dict, jlpt_level: str = "JLPT N4") -> Image.Image:
+def render_outro_frame(ep_label: str, locale_cfg: dict, jlpt_level: str = "JLPT N4", passcode: str = None) -> Image.Image:
     width, height = 1920, 1080
     img = Image.new("RGB", (width, height), color=(248, 250, 252))
     draw = ImageDraw.Draw(img)
 
+    if not passcode:
+        clean_ep = ep_label.upper().replace(".", "").replace("-", "").replace(" ", "")
+        passcode = f"TOKYOFLOW-{clean_ep}"
+
     draw_top_brand_bar(draw, width, "Outro & Practice", ep_label, locale_cfg, jlpt_level=jlpt_level)
 
-    draw.rectangle([(160, 150), (width - 160, height - 110)], fill=(255, 255, 255), outline=(226, 232, 240), width=4)
-    font_hero = get_font(50)
-    draw.text((220, 205), locale_cfg["outro_hero"], fill=(220, 38, 38), font=font_hero)
+    # Main Card
+    draw.rectangle([(120, 140), (width - 120, height - 100)], fill=(255, 255, 255), outline=(226, 232, 240), width=3)
     
-    font_sub = get_font(32)
-    draw.text((220, 290), locale_cfg["outro_sub"], fill=(30, 41, 59), font=font_sub)
+    font_hero = get_font(44)
+    draw.text((180, 180), locale_cfg["outro_hero"], fill=(220, 38, 38), font=font_hero)
     
-    font_bullets = get_font(26)
-    b_y = 380
+    font_sub = get_font(28)
+    draw.text((180, 245), locale_cfg["outro_sub"], fill=(30, 41, 59), font=font_sub)
+    
+    # Left Column: Features
+    font_bullets = get_font(23)
+    b_y = 315
     for bullet_text in locale_cfg["outro_bullets"]:
-        draw.text((220, b_y), bullet_text, fill=(71, 85, 105), font=font_bullets)
-        b_y += 65
+        draw.text((180, b_y), bullet_text, fill=(71, 85, 105), font=font_bullets)
+        b_y += 50
+
+    # Right Column / Middle Box: Scheme D Passcode Card
+    draw.rectangle([(180, 485), (width - 180, 715)], fill=(254, 243, 199), outline=(217, 119, 6), width=3)
+    draw.rectangle([(180, 485), (width - 180, 545)], fill=(253, 230, 138))
     
-    draw.rectangle([(220, 620), (width - 220, 825)], fill=(239, 246, 255), outline=(191, 219, 254), width=3)
-    font_app = get_font(30)
-    draw.text((260, 655), locale_cfg["outro_app_cta"], fill=(37, 99, 235), font=font_app)
-    font_app_sub = get_font(23)
-    draw.text((260, 725), locale_cfg["outro_app_sub"], fill=(100, 116, 139), font=font_app_sub)
+    p_badge = locale_cfg.get("outro_passcode_badge", "[ STUDY PASSCODE ]")
+    p_title = locale_cfg.get("outro_passcode_title", "OFFICIAL STUDY WORKBOOK UNLOCK CODE:")
+    p_sub = locale_cfg.get("outro_passcode_subtitle", "Download full JLPT N5-N3 Study Workbook PDF in description with this code")
+    
+    draw.text((210, 502), f"{p_badge}  {p_title}", fill=(146, 64, 14), font=get_font(24))
+    draw.text((210, 570), passcode, fill=(180, 83, 9), font=get_font(56))
+    draw.text((210, 660), p_sub, fill=(13, 148, 136), font=get_font(22))
+    
+    # Bottom App CTA Card
+    draw.rectangle([(180, 745), (width - 180, 890)], fill=(239, 246, 255), outline=(191, 219, 254), width=2)
+    font_app = get_font(27)
+    draw.text((210, 770), locale_cfg["outro_app_cta"], fill=(37, 99, 235), font=font_app)
+    font_app_sub = get_font(22)
+    draw.text((210, 830), locale_cfg["outro_app_sub"], fill=(100, 116, 139), font=font_app_sub)
 
     return img
 
@@ -964,7 +984,13 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
             video_segments.append(seg_video_path)
 
         elif stype == "outro":
-            spoken_text = slide["spoken_text"]
+            clean_ep = ep_label.upper().replace(".", "").replace("-", "").replace(" ", "")
+            passcode = f"TOKYOFLOW-{clean_ep}"
+            
+            # Use localized passcode spoken template if available
+            spoken_template = locale_cfg.get("outro_passcode_spoken_template")
+            spoken_text = spoken_template.format(passcode=passcode) if spoken_template else slide.get("spoken_text", "")
+            
             audio_path = os.path.join(tmp_dir, f"audio_slide_{idx:02d}_outro.mp3")
             
             # Explainer says outro in native language
@@ -977,7 +1003,7 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
             )
             audio_dur = get_audio_duration(audio_path)
 
-            outro_img = render_outro_frame(ep_label, locale_cfg, jlpt_level=jlpt_level)
+            outro_img = render_outro_frame(ep_label, locale_cfg, jlpt_level=jlpt_level, passcode=passcode)
             render_static_video_clip(
                 img=outro_img,
                 audio_path=audio_path,

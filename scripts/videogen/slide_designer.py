@@ -273,29 +273,45 @@ def render_breakdown_frame(
 
     return img
 
-def render_outro_frame(ep_label: str) -> Image.Image:
+def render_outro_frame(ep_label: str, passcode: str = None) -> Image.Image:
     width, height = 1920, 1080
     img = Image.new("RGB", (width, height), color=(248, 250, 252))
     draw = ImageDraw.Draw(img)
 
+    if not passcode:
+        clean_ep = ep_label.upper().replace(".", "").replace("-", "").replace(" ", "")
+        passcode = f"TOKYOFLOW-{clean_ep}"
+
     draw_top_brand_bar(draw, width, "Outro & Practice", ep_label)
 
-    draw.rectangle([(160, 150), (width - 160, height - 110)], fill=(255, 255, 255), outline=(226, 232, 240), width=4)
-    font_hero = get_font(52)
-    draw.text((220, 205), "Subscribe to TokyoFlow Japanese on YouTube", fill=(220, 38, 38), font=font_hero)
-    font_sub = get_font(34)
-    draw.text((220, 290), "Learn Natural Tokyo Japanese Through Real-Life Scenarios", fill=(30, 41, 59), font=font_sub)
+    # Main Card
+    draw.rectangle([(120, 140), (width - 120, height - 100)], fill=(255, 255, 255), outline=(226, 232, 240), width=3)
     
-    font_bullets = get_font(28)
-    draw.text((220, 385), "• Real Tokyo Life Scenarios (Transit, Kombini, Izakaya, Akiba...)", fill=(71, 85, 105), font=font_bullets)
-    draw.text((220, 455), "• 14,000+ Native VoiceBank Audio & Pitch Accent Intonation Guides", fill=(71, 85, 105), font=font_bullets)
-    draw.text((220, 525), "• 10,000+ JLPT N5-N1 Vocabulary & Interactive Drills", fill=(71, 85, 105), font=font_bullets)
+    font_hero = get_font(44)
+    draw.text((180, 180), "Subscribe to TokyoFlow Japanese on YouTube", fill=(220, 38, 38), font=font_hero)
     
-    draw.rectangle([(220, 620), (width - 220, 825)], fill=(239, 246, 255), outline=(191, 219, 254), width=3)
-    font_app = get_font(32)
-    draw.text((260, 655), "[ iOS APP STORE ]  Download 'TokyoFlow - Japanese Speaking' Free on App Store", fill=(37, 99, 235), font=font_app)
-    font_app_sub = get_font(24)
-    draw.text((260, 725), "Pair with iOS App for Speech Shadowing Scoring, Kana Mastery & SRS Flashcards", fill=(100, 116, 139), font=font_app_sub)
+    font_sub = get_font(28)
+    draw.text((180, 245), "Learn Natural Tokyo Japanese Through Real-Life Scenarios", fill=(30, 41, 59), font=font_sub)
+    
+    # Feature Bullets
+    font_bullets = get_font(23)
+    draw.text((180, 315), "• Real Tokyo Life Scenarios (Transit, Kombini, Izakaya, Akiba...)", fill=(71, 85, 105), font=font_bullets)
+    draw.text((180, 365), "• 14,000+ Native VoiceBank Audio & Pitch Accent Intonation Guides", fill=(71, 85, 105), font=font_bullets)
+    draw.text((180, 415), "• 10,000+ JLPT N5-N1 Vocabulary & Interactive Drills", fill=(71, 85, 105), font=font_bullets)
+    
+    # Passcode Card Box
+    draw.rectangle([(180, 485), (width - 180, 715)], fill=(254, 243, 199), outline=(217, 119, 6), width=3)
+    draw.rectangle([(180, 485), (width - 180, 545)], fill=(253, 230, 138))
+    draw.text((210, 502), "[ STUDY PASSCODE ]  OFFICIAL STUDY WORKBOOK UNLOCK CODE:", fill=(146, 64, 14), font=get_font(24))
+    draw.text((210, 570), passcode, fill=(180, 83, 9), font=get_font(56))
+    draw.text((210, 660), "Download full JLPT N5-N3 Study Workbook PDF in description with this code", fill=(13, 148, 136), font=get_font(22))
+
+    # Bottom App CTA Card
+    draw.rectangle([(180, 745), (width - 180, 890)], fill=(239, 246, 255), outline=(191, 219, 254), width=2)
+    font_app = get_font(27)
+    draw.text((210, 770), "[ iOS APP STORE ]  Download 'TokyoFlow - Japanese Speaking' Free on App Store", fill=(37, 99, 235), font=font_app)
+    font_app_sub = get_font(22)
+    draw.text((210, 830), "Pair with iOS App for Speech Shadowing Scoring, Kana Mastery & SRS Flashcards", fill=(100, 116, 139), font=font_app_sub)
 
     return img
 

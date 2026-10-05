@@ -125,13 +125,18 @@ Canvas resolution: `1920x1080 Full HD`, `30.0 fps`, `yuv420p`.
   - Highlights with blue outline (`#4F46E5`) when the team reaches the grammar explanation and example sentence.
 - Footer: `[ TOKYOFLOW ACADEMY ] Practice interactive word drills and pitch accent scoring in the TokyoFlow iOS App!`.
 
-### 4. Outro Card Standard
-- App Name: `TokyoFlow - Japanese Speaking`
-- Feature Bullets:
-  - `Real Tokyo Life Scenarios (Transit, Kombini, Izakaya, Akiba...)`
-  - `14,000+ Native VoiceBank Audio & Pitch Accent Intonation Guides`
-  - `10,000+ JLPT N5-N1 Vocabulary & Interactive Drills`
-- Duration: 3.4 to 3.5s (Audio plays completely to the end with a 0.35s natural visual padding, zero audio clipping).
+### 4. Outro Card & Scheme D Passcode Standard (片尾完播密码与讲义分发规范)
+- **Visual Scheme D Passcode Card**:
+  - Outro frame MUST render a high-contrast amber/gold Passcode Card (`[ STUDY PASSCODE: TOKYOFLOW-EPXX ]`).
+  - Subtitle / Instruction Box: `[SUBSCRIBER REWARD] Download the full JLPT N5-N3 Study Workbook PDF from the Google Drive link in description using this passcode.`
+- **Mandatory Spoken Vocal Announcement**:
+  - Explainer voice (Andrew EN / Yunxi ZH) MUST speak the passcode announcement aloud:
+    - English: `"Great job today! Download this episode's complete JLPT study workbook in the description below using unlock passcode TOKYOFLOW-EPXX. Remember to subscribe for daily Tokyo immersion!"`
+    - Chinese: `"今天的实景跟读训练完成！欢迎在视频简介栏和置顶评论区获取本期 JLPT 配套研习讲义，输入解锁密码 TOKYOFLOW-EPXX 即可免费下载。记得点击订阅开启每日跟读！"`
+- **App & Channel Features**:
+  - `TokyoFlow - Japanese Speaking | Real Tokyo Scenarios | 10,000+ JLPT Vocab`
+- **Audio Padding**:
+  - Duration: 4.5s to 6.0s (Full natural speech without clipping + 0.5s visual tail).
 
 ---
 

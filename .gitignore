@@ -12,3 +12,9 @@ build/
 build_sim/
 *.xcuserstate
 tmp/
+
+# Rendered Video & Audio Output
+output/**/*.mp4
+output/**/*.m4a
+test.mp3
+test_norm.mp3

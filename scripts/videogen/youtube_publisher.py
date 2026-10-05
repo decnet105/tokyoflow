@@ -198,7 +198,8 @@ def upload_video_asset(youtube, video_path: Path, thumbnail_path: Path, meta: di
     print(f" Notify Subscribers: {notify_subscribers}")
     
     # Append #Shorts to title and description if it's a short
-    title = meta["title"]
+    title = meta["title"].replace("<", "").replace(">", "").strip()
+    description = meta["description"].replace("<", "").replace(">", "").strip()
     if is_short and "#Shorts" not in title and "#shorts" not in title:
         if len(title) + 8 <= 100:
             title = f"{title} #Shorts"
@@ -206,7 +207,7 @@ def upload_video_asset(youtube, video_path: Path, thumbnail_path: Path, meta: di
     body = {
         "snippet": {
             "title": title,
-            "description": meta["description"],
+            "description": description,
             "tags": meta["tags"],
             "categoryId": "27", # 27 = Education
             "defaultLanguage": "en",

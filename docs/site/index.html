@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>TokyoFlow — 東京を、生きる日本語。| 真实东京高语境日语学习系统</title>
-  <meta name="description" content="打破生硬脱节的语法教科书。TokyoFlow 是专为日本生活与深度文化探索打造的场景驱动日语学习系统。内置 4,170+ 本地真人原声、山手线站台广播、便利店极速收银、居酒屋点单与漫画拟声词。">
-  <meta name="keywords" content="TokyoFlow, 拾得, 日语学习, 东京日语, 山手线广播, 声调走向图, 日本生活日语, 日语口语影子跟读, 漫画拟声词, JLPT, Shide App, Japanese Fluency">
+  <title>TokyoFlow — 東京を、生きる日本語。| 真实东京高语境日语学习系统与影视学院</title>
+  <meta name="description" content="打破生硬脱节的语法教科书。TokyoFlow 是专为日本生活与深度文化探索打造的场景驱动日语学习系统。内置 4,170+ 本地真人原声、山手线站台广播、便利店极速收银、居酒屋点单、声调走向图谱与 365 日年间进阶路线。">
+  <meta name="keywords" content="TokyoFlow, 拾得, 日语学习, 东京日语, 山手线广播, 声调走向图, 日本生活日语, 日语口语影子跟读, 漫画拟声词, JLPT N5 N4 N3 N2 N1, YouTube 日语学习, Japanese Fluency">
   <meta name="author" content="TokyoFlow Team">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#F8F6F0">
@@ -17,12 +17,12 @@
   <link rel="alternate" hreflang="en" href="https://tokyoflow.app/en/">
   <link rel="alternate" hreflang="x-default" href="https://tokyoflow.app/">
 
-  <!-- Open Graph / Facebook / WeChat -->
+  <!-- Open Graph / WeChat / Social Meta -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TokyoFlow">
   <meta property="og:url" content="https://tokyoflow.app/">
   <meta property="og:title" content="TokyoFlow · 東京を、生きる日本語。">
-  <meta property="og:description" content="在 4,170+ 真实东京真人原声与生活场景中，掌握真正鲜活的高语境日语。">
+  <meta property="og:description" content="在 4,170+ 真实东京真人原声与生活场景中，掌握真正鲜活的高语境日语。涵盖山手线广播、7-Eleven收银、居酒屋点单与全量视频影视库。">
   <meta property="og:image" content="https://tokyoflow.app/assets/app_icon.jpg">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
@@ -30,7 +30,7 @@
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="TokyoFlow — Master Real-World Tokyo Japanese">
-  <meta name="twitter:description" content="Immerse in authentic Tokyo situations. 4,170+ native human voices, pitch accent curves, and scenario drills.">
+  <meta name="twitter:description" content="Immerse in authentic Tokyo situations. 4,170+ native human voices, pitch accent curves, video masterclasses, and scenario drills.">
   <meta name="twitter:image" content="https://tokyoflow.app/assets/app_icon.jpg">
 
   <!-- Favicon & Typography -->
@@ -44,53 +44,361 @@
 
   <!-- JSON-LD Structured Data for Google SEO & GEO -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://tokyoflow.app/#organization",
-        "name": "TokyoFlow",
-        "url": "https://tokyoflow.app/",
-        "logo": "https://tokyoflow.app/assets/app_icon.jpg",
-        "sameAs": [
-          "https://www.youtube.com/@TokyoFlowJapan"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://tokyoflow.app/#organization",
+      "name": "TokyoFlow",
+      "alternateName": [
+        "TokyoFlow Japanese",
+        "東京フロウ"
+      ],
+      "url": "https://tokyoflow.app/",
+      "logo": "https://tokyoflow.app/assets/app_icon.jpg",
+      "sameAs": [
+        "https://www.youtube.com/@TokyoFlowJapan"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tokyoflow.app/#website",
+      "url": "https://tokyoflow.app/",
+      "name": "TokyoFlow Japanese",
+      "publisher": {
+        "@id": "https://tokyoflow.app/#organization"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://tokyoflow.app/#website",
-        "url": "https://tokyoflow.app/",
-        "name": "TokyoFlow",
-        "publisher": { "@id": "https://tokyoflow.app/#organization" },
-        "inLanguage": ["zh-Hans", "en"]
+      "inLanguage": [
+        "zh-Hans",
+        "en"
+      ]
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://tokyoflow.app/#app",
+      "name": "TokyoFlow - Japanese Speaking",
+      "operatingSystem": "iOS 17.0 or later",
+      "applicationCategory": "EducationalApplication",
+      "publisher": {
+        "@id": "https://tokyoflow.app/#organization"
       },
-      {
-        "@type": "MobileApplication",
-        "@id": "https://tokyoflow.app/#app",
-        "name": "TokyoFlow",
-        "alternateName": ["TokyoFlow Japanese", "東京フロウ"],
-        "url": "https://tokyoflow.app/",
-        "operatingSystem": "iOS 17.0 or later",
-        "applicationCategory": "EducationalApplication",
-        "publisher": { "@id": "https://tokyoflow.app/#organization" },
-        "image": "https://tokyoflow.app/assets/app_icon.jpg",
-        "description": "Tokyo context-driven Japanese mastery system featuring 4,170+ native audio tracks, pitch accent visualization, and high-context scenario simulations.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
-      },
-      {
-        "@type": "Course",
-        "@id": "https://tokyoflow.app/#course",
-        "name": "Tokyo Situational Japanese Mastery",
-        "description": "Comprehensive Japan Foundation (CEFR-J A1 to B1) contextual Japanese living course.",
-        "provider": { "@id": "https://tokyoflow.app/#organization" }
+      "image": "https://tokyoflow.app/assets/app_icon.jpg",
+      "description": "Tokyo context-driven Japanese mastery system featuring 4,170+ native audio tracks, pitch accent curves, and scenario simulations.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://tokyoflow.app/#course",
+      "name": "东京实景高语境日语大师课",
+      "description": "Master living Japanese in Tokyo's authentic atmosphere with 20+ scenarios, 4,170+ native audio tracks, and JLPT N5-N1 vocabulary.",
+      "provider": {
+        "@id": "https://tokyoflow.app/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tokyoflow.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "TokyoFlow 和传统教科书（如《大家日语》《新标日》）有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "传统教科书多采用孤立脱节的句型和生硬的人造录音，缺少真实日本高语境（Ba）的空气感。TokyoFlow 采用东京实景驱动体系，内置 4,170+ 本地真人原声、山手线站台发车音乐、便利店3秒极速收银、居酒屋点单、声调高低走向图谱及 3-tier 振假名卡拉OK高亮，帮助学习者建立自然脱口而出的听说直觉。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "TokyoFlow 的视频剧集和学习路径是如何规划的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TokyoFlow 遵循 Japan Foundation (CEFR-J A1 至 B2) 与 JLPT N5 至 N1 标准，构建了 365 日年间独立生活进阶路线。内容涵盖 16:9 长篇影视化深度精讲（Micro-lessons）、9:16 沉浸影子跟读（Shorts）、超长生活全景合集（Mega-compilations）与院线电影沉浸精析，并在官方 YouTube 频道（@TokyoFlowJapan）保持稳定更新。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么是东京标准声调走向图谱（Pitch Accent）？为什么对听说极其重要？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "日语是典型的音高重音（Pitch Accent）语言。相同的假名组合（如「雨 ame」和「飴 ame」），音调高低走向不同含义完全相反。TokyoFlow 将头高型、中高型、尾高型和平板型声调全部视觉化为平滑高低曲线，并配合本地原声示范，彻底根除外国学习者的平调发音。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何通过 YouTube 频道与 TokyoFlow App 进行高效结合学习？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在 YouTube 频道观看 16:9 长视频精读文化背景与语法拆解，使用 9:16 短视频进行每日 1 分钟原声影子跟读（Shadowing）；随后在 TokyoFlow App 中进行 SuperMemo SM-2 科学间隔复习、声调比对与实景任务闯关，实现快速听说飞跃。"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://tokyoflow.app/#videolist",
+      "name": "TokyoFlow Japanese Video Academy Episodes",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.01 • 听懂东京山手线报站！新宿站发车音与盲道提示",
+            "description": "深度拆解新宿站早高峰发车音乐、黄色盲道安全广播、内外环线区分及找站务员极速问路黄金句。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E01-Yamanote_Transit_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/6JRuW-U_KsQ",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/6JRuW-U_KsQ",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.02 • 听懂东京7-Eleven结账！便利店3秒极速收银全通关",
+            "description": "秒懂东京便利店收银台连环问：便当加热、筷子餐具、塑料袋尺寸选择、发票与Suica刷卡支付。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E02-Kombini_Checkout_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/SweaDZEQlpo",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/SweaDZEQlpo",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.03 • 像东京本地人一样进居酒屋！先来生啤开场与烤串点单",
+            "description": "掌握先来杯生啤（とりあえず生）、开胃小菜（お通し）规矩、盐烤与酱烤区别及顺畅买单手势。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E03-Izakaya_Night_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/P9wLC803VF4",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/P9wLC803VF4",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.04 • 秋叶原淘手办必学！免税退税与找未开封新品实用口语",
+            "description": "逛遍秋叶原无线电会馆与二手神店，向店员询问未开封箱规、办理免税退税手续并掌握原版漫画口吻。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E04-Akiba_Pilgrimage_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/Hf8aLBN1iEw",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Hf8aLBN1iEw",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.05 • 东京地铁坐过站或余额不足？精算机补票与快速换乘实景精讲",
+            "description": "搞懂急行与各停列车区别、IC卡出站余额不足精算机补票流程及早高峰换乘指引。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E05-Tokyo_Subway_Rush_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/odIHpboH1A0",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/odIHpboH1A0",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.06 • 便利店咖啡怎么买？冷柜取冰杯与ATM国际取现全流程精讲",
+            "description": "冷柜自取冰杯结账、咖啡机操作全步骤，以及在便利店ATM使用海外银行卡提取日元现金。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E06-Kombini_Coffee_ATM_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/C9qHbhafnqc",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/C9qHbhafnqc",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.07 • 像老饕一样吃拉面！食券机点餐与面硬汤浓定制精讲",
+            "description": "熟练操作拉面食券机、定制面条软硬度与汤头浓淡度口诀，并顺畅追加替玉（加面）。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E07-Ramen_Ticket_Vending_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/ipyktZrqHgQ",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/ipyktZrqHgQ",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.08 • 银座购物优雅试衣！试穿许可与询问尺码精品店日语精讲",
+            "description": "掌握试衣间许可请求、询问其他尺码与颜色、确认库存及办理商场退税柜台手续。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E08-Ginza_TaxFree_Shopping_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/WQ1mqBP0gN0",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/WQ1mqBP0gN0",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.09 • 动漫公司开桑拿？身心彻底放松「整う」流行语精讲",
+            "description": "拆解东京热门文化资讯：知名动漫制作社在神田打造芬兰式桑拿房，学习极度放松流行语「整う」及日常语法。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E09-anime_sauna_trend_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/28N9m0VcL50",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/28N9m0VcL50",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.10 • 绫濑遥天然呆发言引全场爆笑！日综反差萌流行语精讲",
+            "description": "精读东京新片发布会现场原声，深入理解日本独特的「天然（呆）」性格概念与综艺访谈应答。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E10-ayase_haruka_tennen_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/y1zQQA0Tmfs",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/y1zQQA0Tmfs",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.11 • 涩谷AI机器人短剧爆火！科技科幻与现代餐饮热点精讲",
+            "description": "探讨涩谷全自动配餐机器人送餐热点，掌握前沿科技词汇、餐饮动词与短剧对话。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E11-shabuya-robot-drama_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/OkPi4X-K8u4",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/OkPi4X-K8u4",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "VideoObject",
+            "name": "EP.12 • 苹果系统防自杀提示更新 | 科技社会热点精讲",
+            "description": "精读科技热点官方公告，学习公共咨询窗口求助表达与规范书面语表达。",
+            "thumbnailUrl": "https://tokyoflow.app/assets/thumbnails/E12-apple-suicide-prevention_thumb.jpg",
+            "uploadDate": "2026-10-01T08:00:00+09:00",
+            "contentUrl": "https://youtu.be/nVD1G__Yj6U",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/nVD1G__Yj6U",
+            "publisher": {
+              "@type": "Organization",
+              "name": "TokyoFlow",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://tokyoflow.app/assets/app_icon.jpg"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -99,7 +407,7 @@
   <header class="navbar">
     <div class="container nav-inner">
       <a href="/" class="brand-mark">
-        <img src="/assets/app_icon.jpg" alt="TokyoFlow Icon" class="brand-icon">
+        <img src="/assets/app_icon.jpg" alt="TokyoFlow Icon" class="brand-icon" width="38" height="38">
         <div class="brand-text-group">
           <div class="brand-title">TOKYO<span>FLOW</span></div>
           <span class="brand-kanji">東京・文脈主導の日本語</span>
@@ -107,27 +415,35 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#showcase">/01 场景显影</a></li>
-        <li><a href="#philosophy">/02 教学范式</a></li>
+        <li><a href="#showcase">/01 现场实境</a></li>
+        <li><a href="#academy">/02 影视专区</a></li>
         <li><a href="#pillars">/03 四大体系</a></li>
-        <li><a href="#academy">/04 影视总览</a></li>
-        <li><a href="#curriculum">/05 年间路线</a></li>
+        <li><a href="#curriculum">/04 年间路线</a></li>
+        <li><a href="#materials">/05 学习材料</a></li>
+        <li><a href="#faq">/06 常见问题</a></li>
       </ul>
 
       <div class="nav-actions">
         <!-- Language Switcher -->
-        <a href="/en/" class="lang-switch-btn" title="Switch to English">
-          <span>🌐 EN</span>
+        <a href="/en/" class="lang-switch-btn" title="Switch to English Edition">
+          <span class="lang-code-tag">[EN]</span>
+          <span>English</span>
         </a>
 
         <div class="tokyo-live-badge">
           <span class="pulse-dot"></span>
           <span id="tokyo-clock">TOKYO --:-- JST</span>
         </div>
+
+        <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" rel="noopener" class="btn-nav-yt" title="前往 YouTube 官方频道">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>YouTube 频道</span>
+        </a>
+
         <a href="#download" class="btn-nav-primary">
-          <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.58.67-1.08 1.74-.95 2.78 1.07.08 2.14-.58 2.73-1.34z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.58.67-1.08 1.74-.95 2.78 1.07.08 2.14-.58 2.73-1.34z"/></svg>
           <span>下载 App</span>
-          <span style="font-size: 0.9em; opacity: 0.85;">›</span>
+          <span class="arrow-glyph">›</span>
         </a>
       </div>
     </div>
@@ -148,18 +464,23 @@
         </h2>
 
         <p class="hero-description">
-          从山手线发车铃声与站台广播，到深夜居酒屋的热气与漫画拟声词。4,170+ 原声声库、标准声调高低曲线与真实生活任务，重塑你的日语直觉。
+          从山手线发车铃声与站台广播，到深夜居酒屋的热气与漫画拟声词。4,170+ 原声声库、标准声调高低走向图谱、全景视频精讲与真实生活任务，全面重塑你的日语直觉。
         </p>
 
         <div class="hero-cta-group">
-          <a href="#download" class="btn-hero-appstore">
-            <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.58.67-1.08 1.74-.95 2.78 1.07.08 2.14-.58 2.73-1.34z"/></svg>
-            <span>立即下载 iOS 版</span>
+          <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" rel="noopener" class="btn-hero-yt">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>订阅 YouTube 官方频道 (每日更新)</span>
           </a>
 
-          <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" class="btn-hero-yt">
-            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            <span>订阅 YouTube 频道</span>
+          <a href="#academy" class="btn-hero-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v12H4z M2 4v16h20V4H2z M10 9v6l5-3z"/></svg>
+            <span>浏览影视教学专区</span>
+          </a>
+
+          <a href="#download" class="btn-hero-appstore">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.58.67-1.08 1.74-.95 2.78 1.07.08 2.14-.58 2.73-1.34z"/></svg>
+            <span>下载 iOS 版 App</span>
           </a>
         </div>
 
@@ -170,23 +491,27 @@
             <span class="metric-label">东京真人原声音频</span>
           </div>
           <div class="metric-item">
-            <span class="metric-num">20+</span>
-            <span class="metric-label">真实生活场景模拟</span>
+            <span class="metric-num">21+ 专集</span>
+            <span class="metric-label">影视长视频精讲</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-num">20+ 实景</span>
+            <span class="metric-label">高语境生活任务模拟</span>
           </div>
           <div class="metric-item">
             <span class="metric-num">N5 → N1</span>
-            <span class="metric-label">JLPT 核心高频词库</span>
+            <span class="metric-label">JLPT 10,000+ 核心词库</span>
           </div>
           <div class="metric-item">
             <span class="metric-num">365 日</span>
-            <span class="metric-label">独立生活进阶体系</span>
+            <span class="metric-label">CEFR-J 独立生活进阶</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Showcase -->
+  <!-- Interactive Scenario Showcase -->
   <section id="showcase" class="showcase-section">
     <div class="container">
       <div class="showcase-wrapper">
@@ -195,20 +520,20 @@
         <div class="showcase-info">
           <div class="section-label-group">
             <span class="section-stamp">现场实境</span>
-            <span class="mono-tag">实境与声调实验室</span>
+            <span class="mono-tag">实境与声调走向实验室</span>
           </div>
 
           <h3 class="showcase-title">
             随时置身于东京的空气与声音中。
           </h3>
           <p class="showcase-desc">
-            点击下方不同场景，实时在右侧 iPhone 体验标准声调高低走向（平板/头高/中高/尾高）、敬语与口语语域切换及发音节奏。
+            点击下方不同场景，实时在右侧模拟机体验标准声调走向（平板/头高/中高/尾高）、敬语与口语语域切换及原生语速节奏。
           </p>
 
           <div class="scenario-selector">
             <div class="scenario-tab active" data-scenario="densha" onclick="switchScenario('densha')">
               <div class="tab-left">
-                <div class="tab-icon-box">🚇</div>
+                <div class="tab-icon-box">[电车]</div>
                 <div class="tab-title-wrap">
                   <div class="tab-title">山手线站台广播</div>
                   <div class="tab-subtitle">新宿站 • 2号站台发车与黄线提示</div>
@@ -219,7 +544,7 @@
 
             <div class="scenario-tab" data-scenario="kombini" onclick="switchScenario('kombini')">
               <div class="tab-left">
-                <div class="tab-icon-box">🍱</div>
+                <div class="tab-icon-box">[便利店]</div>
                 <div class="tab-title-wrap">
                   <div class="tab-title">便利店3秒极速收银</div>
                   <div class="tab-subtitle">涩谷中心街 • 加热与袋子选择</div>
@@ -230,10 +555,10 @@
 
             <div class="scenario-tab" data-scenario="izakaya" onclick="switchScenario('izakaya')">
               <div class="tab-left">
-                <div class="tab-icon-box">🍺</div>
+                <div class="tab-icon-box">[酒场]</div>
                 <div class="tab-title-wrap">
                   <div class="tab-title">回忆横丁居酒屋点单</div>
-                  <div class="tab-subtitle">昭和小巷 • 烤鸡串与干杯</div>
+                  <div class="tab-subtitle">昭和小巷 • 烤鸡串与生啤开场</div>
                 </div>
               </div>
               <span class="tab-tag">日常 · 口语</span>
@@ -241,7 +566,7 @@
 
             <div class="scenario-tab" data-scenario="akiba" onclick="switchScenario('akiba')">
               <div class="tab-left">
-                <div class="tab-icon-box">🎮</div>
+                <div class="tab-icon-box">[动漫]</div>
                 <div class="tab-title-wrap">
                   <div class="tab-title">秋叶原模型与漫画拟声词</div>
                   <div class="tab-subtitle">无线电会馆 • 展柜询问与原版阅读</div>
@@ -262,13 +587,13 @@
 
             <div class="phone-screen" id="phoneScreen">
               <div class="app-top-header">
-                <span class="app-badge-level" id="appLevel">JLPT A2 • 交通实境</span>
+                <span class="app-badge-level" id="appLevel">JLPT N4-N3 • 交通实境</span>
                 <span class="app-register-tag" id="appRegister">敬语（Keigo）</span>
               </div>
 
               <div class="app-scenario-card">
                 <div class="app-district-row">
-                  <span id="appDistrictIcon">📍</span>
+                  <span class="district-marker">[地点]</span>
                   <span id="appDistrictName">新宿站 • 2号站台</span>
                 </div>
 
@@ -315,10 +640,10 @@
                 <div class="wave-bar"></div>
               </div>
 
-              <!-- Button -->
+              <!-- Play Button -->
               <button class="app-play-button" id="appPlayBtn" onclick="playActiveScenarioAudio()">
                 <span id="appPlayIcon">▶</span>
-                <span id="appPlayLabel">试听真人原声音频</span>
+                <span id="appPlayLabel">试听东京真人原声音频</span>
               </button>
             </div>
           </div>
@@ -328,83 +653,1166 @@
     </div>
   </section>
 
-  <!-- Editorial Section -->
-  <section id="philosophy" class="editorial-section">
+  <!-- YouTube Academy & Playlist Hub -->
+  <section id="academy" class="academy-section">
     <div class="container">
-      <div class="editorial-header">
-        <div class="mono-tag">[ 教学范式与生活蓝图 ]</div>
-        <h2 class="editorial-heading">教科書を越えて、現場の空気へ。</h2>
-        <p class="hero-description">
-          传统翻译背诵往往让人在真实的东京街头不知所措，而高语境生活驱动能直接重塑你的听说反射。
-        </p>
-      </div>
-
-      <div class="editorial-grid">
-        <div class="editorial-col fail">
-          <span class="editorial-badge">传统教科书的脱节之处</span>
-          <div class="editorial-points">
-            <div class="point-item">
-              <span class="point-num">01</span>
-              <div class="point-content">
-                <h4>机械的人造句式翻译</h4>
-                <p>孤立地翻译荒谬语法句，完全无法应对日本高度依赖“场（Ba）”的生活高语境。</p>
-              </div>
-            </div>
-
-            <div class="point-item">
-              <span class="point-num">02</span>
-              <div class="point-content">
-                <h4>模糊的人际语域界限</h4>
-                <p>混淆敬语、礼貌语与朋友间的自然口语，在真实交往中极易造成失礼或尴尬的距离感。</p>
-              </div>
-            </div>
-
-            <div class="point-item">
-              <span class="point-num">03</span>
-              <div class="point-content">
-                <h4>扁平的机械合成声</h4>
-                <p>忽视东京音调起伏，造成外国学习者常有的“平调发音”，令当地人难以快速理解。</p>
-              </div>
-            </div>
+      
+      <!-- YouTube Channel Spotlight Banner -->
+      <div class="yt-channel-banner">
+        <div class="yt-banner-left">
+          <div class="yt-live-pill">
+            <span class="pulse-dot"></span>
+            <span>YOUTUBE 官方频道 · 每日双更</span>
+          </div>
+          <h2 class="yt-banner-title">TokyoFlow 日语实景影视专区</h2>
+          <p class="yt-banner-desc">
+            全网首创东京实景影视级教学。结合 4K 真实街景、标准东京原声与 3-tier 卡拉OK字幕，每天 1 篇长视频精讲 + 1 篇跟读短剧。
+          </p>
+          <div class="yt-schedule-tags">
+            <span class="sched-tag">美东 08:00 AM / 北京 20:00 全球同步</span>
+            <span class="sched-tag">1080p 60fps 原画</span>
+            <span class="sched-tag">3-Tier 振假名对照</span>
           </div>
         </div>
-
-        <div class="editorial-col solution">
-          <span class="editorial-badge">TOKYOFLOW 的语境解法</span>
-          <div class="editorial-points">
-            <div class="point-item">
-              <span class="point-num">01</span>
-              <div class="point-content">
-                <h4>生活任务实境模拟</h4>
-                <p>直击真实任务：车票购买、便当加热选择、居酒屋点单与结账、看懂原版漫画对话气泡。</p>
-              </div>
-            </div>
-
-            <div class="point-item">
-              <span class="point-num">02</span>
-              <div class="point-content">
-                <h4>清晰的语域层级标注</h4>
-                <p>明确标注敬语（Keigo）、礼貌语（Teineigo）、朋友随和口语（Tameguchi）与漫画俗语。</p>
-              </div>
-            </div>
-
-            <div class="point-item">
-              <span class="point-num">03</span>
-              <div class="point-content">
-                <h4>可视化的音调走向图谱</h4>
-                <p>提供清晰的音调起伏走向标注（頭高、中高、尾高、平板），搭配 4,170+ 本地真人原声。</p>
-              </div>
-            </div>
-          </div>
+        <div class="yt-banner-right">
+          <a href="https://www.youtube.com/@TokyoFlowJapan?sub_confirmation=1" target="_blank" rel="noopener" class="btn-yt-subscribe">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>一键订阅 YouTube 频道</span>
+          </a>
         </div>
       </div>
+
+      <!-- Playlist Filter Bar -->
+      <div class="playlist-filter-bar">
+        <button class="filter-pill active" data-filter="all" onclick="filterAcademy('all')">全部专集 (21)</button>
+        <button class="filter-pill" data-filter="transit" onclick="filterAcademy('transit')">交通出行 [山手线/地铁/新干线]</button>
+        <button class="filter-pill" data-filter="daily" onclick="filterAcademy('daily')">生活便利 [便利店/快递/超市/药妆]</button>
+        <button class="filter-pill" data-filter="food" onclick="filterAcademy('food')">美食酒场 [居酒屋/拉面/吉野家/咖啡]</button>
+        <button class="filter-pill" data-filter="culture" onclick="filterAcademy('culture')">文化兴趣 [秋叶原/银座/桑拿/钱汤]</button>
+        <button class="filter-pill" data-filter="compilation" onclick="filterAcademy('compilation')">全景合辑 & 电影大师课</button>
+      </div>
+
+      <!-- Masterclasses Grid -->
+      <div class="video-cards-grid" id="videoGrid">
+
+        <article class="video-card-item" data-category="transit">
+          <a href="https://youtu.be/6JRuW-U_KsQ" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.01 • 听懂东京山手线报站！新宿站发车音与盲道提示">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E01-Yamanote_Transit_thumb.jpg" alt="EP.01 • 听懂东京山手线报站！新宿站发车音与盲道提示" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N4-N3】</span>
+                <span class="badge-duration">12 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 新宿站 (2号站台) ]</span>
+                <span class="ep-tag">E01</span>
+              </div>
+              <h3 class="video-item-title">EP.01 • 听懂东京山手线报站！新宿站发车音与盲道提示</h3>
+              <p class="video-item-desc">深度拆解新宿站早高峰发车音乐、黄色盲道安全广播、内外环线区分及找站务员极速问路黄金句。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">黄色い点字ブロックの内側までお下がりください。</div>
+                <div class="takeaway-trans">请退至黄色盲道内侧等候列车进站。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="daily">
+          <a href="https://youtu.be/SweaDZEQlpo" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.02 • 听懂东京7-Eleven结账！便利店3秒极速收银全通关">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E02-Kombini_Checkout_thumb.jpg" alt="EP.02 • 听懂东京7-Eleven结账！便利店3秒极速收银全通关" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">10 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 涩谷中心街 7-Eleven ]</span>
+                <span class="ep-tag">E02</span>
+              </div>
+              <h3 class="video-item-title">EP.02 • 听懂东京7-Eleven结账！便利店3秒极速收银全通关</h3>
+              <p class="video-item-desc">秒懂东京便利店收银台连环问：便当加热、筷子餐具、塑料袋尺寸选择、发票与Suica刷卡支付。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">お弁当温めますか？レジ袋はご利用ですか？</div>
+                <div class="takeaway-trans">便当需要帮您加热吗？需要使用塑料购物袋吗？</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="food">
+          <a href="https://youtu.be/P9wLC803VF4" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.03 • 像东京本地人一样进居酒屋！先来生啤开场与烤串点单">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E03-Izakaya_Night_thumb.jpg" alt="EP.03 • 像东京本地人一样进居酒屋！先来生啤开场与烤串点单" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">14 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 回忆横丁 居酒屋小巷 ]</span>
+                <span class="ep-tag">E03</span>
+              </div>
+              <h3 class="video-item-title">EP.03 • 像东京本地人一样进居酒屋！先来生啤开场与烤串点单</h3>
+              <p class="video-item-desc">掌握先来杯生啤（とりあえず生）、开胃小菜（お通し）规矩、盐烤与酱烤区别及顺畅买单手势。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">とりあえず生二つ、焼き鳥盛り合わせ塩で！</div>
+                <div class="takeaway-trans">先来两杯生啤酒，再来一份盐烤烤鸡串拼盘！</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="culture">
+          <a href="https://youtu.be/Hf8aLBN1iEw" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.04 • 秋叶原淘手办必学！免税退税与找未开封新品实用口语">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E04-Akiba_Pilgrimage_thumb.jpg" alt="EP.04 • 秋叶原淘手办必学！免税退税与找未开封新品实用口语" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">15 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 秋叶原 无线电会馆 ]</span>
+                <span class="ep-tag">E04</span>
+              </div>
+              <h3 class="video-item-title">EP.04 • 秋叶原淘手办必学！免税退税与找未开封新品实用口语</h3>
+              <p class="video-item-desc">逛遍秋叶原无线电会馆与二手神店，向店员询问未开封箱规、办理免税退税手续并掌握原版漫画口吻。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">すみません、この限定フィギュアの未開封品は在庫ありますか？</div>
+                <div class="takeaway-trans">请问这款限定手办的未开封新品还有库存吗？</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="transit">
+          <a href="https://youtu.be/odIHpboH1A0" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.05 • 东京地铁坐过站或余额不足？精算机补票与快速换乘实景精讲">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E05-Tokyo_Subway_Rush_thumb.jpg" alt="EP.05 • 东京地铁坐过站或余额不足？精算机补票与快速换乘实景精讲" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N4-N3】</span>
+                <span class="badge-duration">11 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 大手町 / 银座 地铁枢纽 ]</span>
+                <span class="ep-tag">E05</span>
+              </div>
+              <h3 class="video-item-title">EP.05 • 东京地铁坐过站或余额不足？精算机补票与快速换乘实景精讲</h3>
+              <p class="video-item-desc">搞懂急行与各停列车区别、IC卡出站余额不足精算机补票流程及早高峰换乘指引。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">精算機で乗り越し精算をしたいのですが、どこですか？</div>
+                <div class="takeaway-trans">我想在精算机办理坐过站补票，请问机器在哪里？</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="daily">
+          <a href="https://youtu.be/C9qHbhafnqc" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.06 • 便利店咖啡怎么买？冷柜取冰杯与ATM国际取现全流程精讲">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E06-Kombini_Coffee_ATM_thumb.jpg" alt="EP.06 • 便利店咖啡怎么买？冷柜取冰杯与ATM国际取现全流程精讲" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">10 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 六本木 便利店与ATM ]</span>
+                <span class="ep-tag">E06</span>
+              </div>
+              <h3 class="video-item-title">EP.06 • 便利店咖啡怎么买？冷柜取冰杯与ATM国际取现全流程精讲</h3>
+              <p class="video-item-desc">冷柜自取冰杯结账、咖啡机操作全步骤，以及在便利店ATM使用海外银行卡提取日元现金。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">アイスコーヒーのレギュラーサイズをお願いします。</div>
+                <div class="takeaway-trans">请给我一杯常规杯型（R）的冰咖啡。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="food">
+          <a href="https://youtu.be/ipyktZrqHgQ" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.07 • 像老饕一样吃拉面！食券机点餐与面硬汤浓定制精讲">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E07-Ramen_Ticket_Vending_thumb.jpg" alt="EP.07 • 像老饕一样吃拉面！食券机点餐与面硬汤浓定制精讲" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">12 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 池袋 激战区拉面店 ]</span>
+                <span class="ep-tag">E07</span>
+              </div>
+              <h3 class="video-item-title">EP.07 • 像老饕一样吃拉面！食券机点餐与面硬汤浓定制精讲</h3>
+              <p class="video-item-desc">熟练操作拉面食券机、定制面条软硬度与汤头浓淡度口诀，并顺畅追加替玉（加面）。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">麺硬め、味濃いめ、油少なめでお願いします。替え玉も！</div>
+                <div class="takeaway-trans">面要硬一些、汤头浓郁、少放油，再加一份替玉（加面）！</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="culture">
+          <a href="https://youtu.be/WQ1mqBP0gN0" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.08 • 银座购物优雅试衣！试穿许可与询问尺码精品店日语精讲">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E08-Ginza_TaxFree_Shopping_thumb.jpg" alt="EP.08 • 银座购物优雅试衣！试穿许可与询问尺码精品店日语精讲" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">13 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 银座 百货与品牌店 ]</span>
+                <span class="ep-tag">E08</span>
+              </div>
+              <h3 class="video-item-title">EP.08 • 银座购物优雅试衣！试穿许可与询问尺码精品店日语精讲</h3>
+              <p class="video-item-desc">掌握试衣间许可请求、询问其他尺码与颜色、确认库存及办理商场退税柜台手续。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">試着してみてもいいですか？ワンサイズ大きいものはありますか？</div>
+                <div class="takeaway-trans">请问可以试穿一下吗？有再大一个号的尺码吗？</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="culture">
+          <a href="https://youtu.be/28N9m0VcL50" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.09 • 动漫公司开桑拿？身心彻底放松「整う」流行语精讲">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E09-anime_sauna_trend_thumb.jpg" alt="EP.09 • 动漫公司开桑拿？身心彻底放松「整う」流行语精讲" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">10 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 神田 动漫桑拿会馆 ]</span>
+                <span class="ep-tag">E09</span>
+              </div>
+              <h3 class="video-item-title">EP.09 • 动漫公司开桑拿？身心彻底放松「整う」流行语精讲</h3>
+              <p class="video-item-desc">拆解东京热门文化资讯：知名动漫制作社在神田打造芬兰式桑拿房，学习极度放松流行语「整う」及日常语法。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">サウナに入って心身ともに整いました。</div>
+                <div class="takeaway-trans">泡完桑拿后，身心彻底进入了放松通透的绝佳状态。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="culture">
+          <a href="https://youtu.be/y1zQQA0Tmfs" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.10 • 绫濑遥天然呆发言引全场爆笑！日综反差萌流行语精讲">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E10-ayase_haruka_tennen_thumb.jpg" alt="EP.10 • 绫濑遥天然呆发言引全场爆笑！日综反差萌流行语精讲" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">11 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 六本木 电影发布会 ]</span>
+                <span class="ep-tag">E10</span>
+              </div>
+              <h3 class="video-item-title">EP.10 • 绫濑遥天然呆发言引全场爆笑！日综反差萌流行语精讲</h3>
+              <p class="video-item-desc">精读东京新片发布会现场原声，深入理解日本独特的「天然（呆）」性格概念与综艺访谈应答。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">天然な性格でみんなを笑顔にさせました。</div>
+                <div class="takeaway-trans">她那天然萌的可爱性格让全场观众都露出了笑容。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="culture">
+          <a href="https://youtu.be/OkPi4X-K8u4" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.11 • 涩谷AI机器人短剧爆火！科技科幻与现代餐饮热点精讲">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E11-shabuya-robot-drama_thumb.jpg" alt="EP.11 • 涩谷AI机器人短剧爆火！科技科幻与现代餐饮热点精讲" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">10 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 涩谷 智能餐饮店 ]</span>
+                <span class="ep-tag">E11</span>
+              </div>
+              <h3 class="video-item-title">EP.11 • 涩谷AI机器人短剧爆火！科技科幻与现代餐饮热点精讲</h3>
+              <p class="video-item-desc">探讨涩谷全自动配餐机器人送餐热点，掌握前沿科技词汇、餐饮动词与短剧对话。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">配膳ロボットが席までお肉を運んできました。</div>
+                <div class="takeaway-trans">智能送餐机器人把新鲜肉品直接送到了我们的座位上。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="culture">
+          <a href="https://youtu.be/nVD1G__Yj6U" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.12 • 苹果系统防自杀提示更新 | 科技社会热点精讲">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E12-apple-suicide-prevention_thumb.jpg" alt="EP.12 • 苹果系统防自杀提示更新 | 科技社会热点精讲" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">10 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 东京 科技与社会 ]</span>
+                <span class="ep-tag">E12</span>
+              </div>
+              <h3 class="video-item-title">EP.12 • 苹果系统防自杀提示更新 | 科技社会热点精讲</h3>
+              <p class="video-item-desc">精读科技热点官方公告，学习公共咨询窗口求助表达与规范书面语表达。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">相談窓口への案内機能が追加されました。</div>
+                <div class="takeaway-trans">系统中已新增引导用户联系官方心理咨询窗口的支持功能。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="food">
+          <a href="https://youtu.be/JoM1Ht4rsm0" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.13 • 吉野家点单达人！汁多（つゆだく）与套餐定制技巧">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E13-Gyudon_Customization_thumb.jpg" alt="EP.13 • 吉野家点单达人！汁多（つゆだく）与套餐定制技巧" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">11 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 新桥 吉野家牛肉饭 ]</span>
+                <span class="ep-tag">E13</span>
+              </div>
+              <h3 class="video-item-title">EP.13 • 吉野家点单达人！汁多（つゆだく）与套餐定制技巧</h3>
+              <p class="video-item-desc">掌握经典牛肉饭点单暗号：汁多（つゆだく）、葱多、生鸡蛋小菜套餐及快节奏出餐应答。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">牛丼並盛、つゆだくで生卵とお新香セットをつけてください。</div>
+                <div class="takeaway-trans">来一份中碗牛肉饭，要多汁（つゆだく），加一份生鸡蛋和腌菜套餐。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="daily">
+          <a href="https://youtu.be/hMpbydnmDzE" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.14 • 日本邮政不在票处理！再投递申请全流程攻略">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E14-JapanPost_Redelivery_thumb.jpg" alt="EP.14 • 日本邮政不在票处理！再投递申请全流程攻略" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N4-N3】</span>
+                <span class="badge-duration">12 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 中野 日本邮政物流 ]</span>
+                <span class="ep-tag">E14</span>
+              </div>
+              <h3 class="video-item-title">EP.14 • 日本邮政不在票处理！再投递申请全流程攻略</h3>
+              <p class="video-item-desc">看懂日本快递不在联络票关键信息、手机扫码预约指定时间段再投递与签收礼仪。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">ご不在連絡票の追跡番号で再配達をお願いしたいです。</div>
+                <div class="takeaway-trans">我想用不在联络票上的单号申请重新预约配送。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="daily">
+          <a href="https://youtu.be/SYTMgRcyycQ" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.15 • 东京超市晚8点半价大作战！便当刺身抢购法则">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E15-Supermarket_HalfPrice_Rush_thumb.jpg" alt="EP.15 • 东京超市晚8点半价大作战！便当刺身抢购法则" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">12 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 高圆寺 社区生鲜超市 ]</span>
+                <span class="ep-tag">E15</span>
+              </div>
+              <h3 class="video-item-title">EP.15 • 东京超市晚8点半价大作战！便当刺身抢购法则</h3>
+              <p class="video-item-desc">识别超市降价贴纸（半額、2割引）、掌握晚间贴标折扣规律与生鲜食品地道词汇。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">このお刺身、半額シールが貼ってありますね！</div>
+                <div class="takeaway-trans">你看，这份生鱼片已经贴上了半价折扣标签！</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="daily">
+          <a href="https://youtu.be/jOlIP0S4TJI" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.16 • 东京药妆店救急！止痛药选购与症状准确描述">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E16-Drugstore_Medicine_thumb.jpg" alt="EP.16 • 东京药妆店救急！止痛药选购与症状准确描述" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">12 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 新宿 松本清药妆店 ]</span>
+                <span class="ep-tag">E16</span>
+              </div>
+              <h3 class="video-item-title">EP.16 • 东京药妆店救急！止痛药选购与症状准确描述</h3>
+              <p class="video-item-desc">准确向药剂师描述头痛、发热、胃痛症状，选购温和不伤胃的止痛药与常备药。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">頭痛がひどいので、胃に優しい鎮痛薬を探しています。</div>
+                <div class="takeaway-trans">我头痛得厉害，想找一种不刺激胃的温和止痛药。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="culture">
+          <a href="https://youtu.be/NvxHyVZ0XSY" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.17 • 东京钱汤与温泉礼仪！入浴清洗与毛巾规范">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E17-Onsen_Sento_Etiquette_thumb.jpg" alt="EP.17 • 东京钱汤与温泉礼仪！入浴清洗与毛巾规范" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">13 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 浅草 传统日式钱汤 ]</span>
+                <span class="ep-tag">E17</span>
+              </div>
+              <h3 class="video-item-title">EP.17 • 东京钱汤与温泉礼仪！入浴清洗与毛巾规范</h3>
+              <p class="video-item-desc">掌握传统钱汤番台购票、鞋柜钥匙、入池前淋浴冲洗（かけ湯）规范及更衣室礼仪。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">湯船に入る前に、かけ湯で体を綺麗に洗いましょう。</div>
+                <div class="takeaway-trans">进入温泉汤池之前，请务必先冲洗身体清洁干净。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="food">
+          <a href="https://youtu.be/rY3KT6Lk1uA" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.18 • 东京咖啡馆个性定制！外带与换奶定制指南">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E18-Tokyo_Cafe_Ordering_thumb.jpg" alt="EP.18 • 东京咖啡馆个性定制！外带与换奶定制指南" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N4】</span>
+                <span class="badge-duration">11 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 表参道 / 代官山 精品咖啡馆 ]</span>
+                <span class="ep-tag">E18</span>
+              </div>
+              <h3 class="video-item-title">EP.18 • 东京咖啡馆个性定制！外带与换奶定制指南</h3>
+              <p class="video-item-desc">精品咖啡手冲点单、更换燕麦奶或低脂奶、指定少冰及区分店内享用与外带消费税。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">オーツミルクに変更で、持ち帰りでお願いします。</div>
+                <div class="takeaway-trans">请帮我换成燕麦奶，这杯麻烦打包带走。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="transit">
+          <a href="https://youtu.be/OeVMipTfon0" target="_blank" rel="noopener" class="video-card-link" aria-label="EP.19 • 新干线订票指南！指定席与富士山侧选座技巧">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/E19-Shinkansen_BulletTrain_Tickets_thumb.jpg" alt="EP.19 • 新干线订票指南！指定席与富士山侧选座技巧" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N4-N3】</span>
+                <span class="badge-duration">13 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 东京站 新干线绿色窗口 ]</span>
+                <span class="ep-tag">E19</span>
+              </div>
+              <h3 class="video-item-title">EP.19 • 新干线订票指南！指定席与富士山侧选座技巧</h3>
+              <p class="video-item-desc">在绿色窗口购买希望号/光号车票、挑选E排靠窗富士山景观位及大件行李预约规则。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">富士山が見える側の指定席を一枚予約したいのですが。</div>
+                <div class="takeaway-trans">我想预订一张能看到富士山那一侧的靠窗指定席车票。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="compilation">
+          <a href="https://youtu.be/-KFRtoLDNVU" target="_blank" rel="noopener" class="video-card-link" aria-label="WL.01 • 电影《最后的里程》影视沉浸精讲 | 电影级高语境深度解析">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/WL01-last-mile-masterclass_thumb.jpg" alt="WL.01 • 电影《最后的里程》影视沉浸精讲 | 电影级高语境深度解析" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N2】</span>
+                <span class="badge-duration">18 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 日本院线电影沉浸 ]</span>
+                <span class="ep-tag">WL01</span>
+              </div>
+              <h3 class="video-item-title">WL.01 • 电影《最后的里程》影视沉浸精讲 | 电影级高语境深度解析</h3>
+              <p class="video-item-desc">18分钟深度解析2024年日本现象级电影《Last Mile》：物流社会学、职场潜台词、敬语反转与纯正语调。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">映画のリアルなセリフから高コンテクストな日本語を深く学ぶ。</div>
+                <div class="takeaway-trans">从真实电影台词中深度汲取高语境地道日语与社会文化精髓。</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+
+        <article class="video-card-item" data-category="compilation">
+          <a href="https://youtu.be/mV7J6OKutj0" target="_blank" rel="noopener" class="video-card-link" aria-label="WM.01 • 周一到周五东京生活全景大合集（28分钟超长沉浸精讲）">
+            <div class="video-thumb-wrap">
+              <img src="/assets/thumbnails/WM01-weekday_survival_mega_compilation_thumb.jpg" alt="WM.01 • 周一到周五东京生活全景大合集（28分钟超长沉浸精讲）" class="video-thumb-img" loading="lazy" width="640" height="360">
+              <div class="video-badge-group">
+                <span class="badge-jlpt">【JLPT N5-N3】</span>
+                <span class="badge-duration">28 Min</span>
+              </div>
+              <div class="video-play-overlay">
+                <div class="play-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-content-body">
+              <div class="video-location-row">
+                <span class="loc-tag">[ 东京全景生活大合集 ]</span>
+                <span class="ep-tag">WM01</span>
+              </div>
+              <h3 class="video-item-title">WM.01 • 周一到周五东京生活全景大合集（28分钟超长沉浸精讲）</h3>
+              <p class="video-item-desc">28分钟东京独立生活终极合集：涵盖电车、便利店、居酒屋、秋叶原、拉面机、钱汤等10大核心实景。</p>
+              
+              <div class="video-takeaway-box">
+                <div class="takeaway-label">核心实景金句</div>
+                <div class="takeaway-jp">月曜日から金曜日までの東京リアル生活を完全攻略！</div>
+                <div class="takeaway-trans">一站式通关周一到周五东京独立生活全部核心口语与高频语法！</div>
+              </div>
+
+              <div class="video-yt-action">
+                <span class="yt-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>在 YouTube 观看精讲</span>
+                  <span class="arrow-icon">›</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+      </div>
+
+      <!-- Shorts Shadowing Showcase -->
+      <div class="shorts-section-wrap">
+        <div class="shorts-header">
+          <div>
+            <div class="section-stamp">快速跟读</div>
+            <h3 class="shorts-title">9:16 竖屏影子跟读挑战（Shorts）</h3>
+            <p class="shorts-desc">每天 30 秒，跟随东京原声极速跟读，校准音调与脱口直觉。</p>
+          </div>
+          <a href="https://www.youtube.com/@TokyoFlowJapan/shorts" target="_blank" rel="noopener" class="btn-shorts-all">
+            <span>浏览全部 YouTube Shorts</span>
+            <span>›</span>
+          </a>
+        </div>
+
+        <div class="shorts-grid">
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/luY_kYPz5Bo" target="_blank" rel="noopener" class="short-card-link" aria-label="听懂东京山手线报站！1分钟实景原声跟读挑战">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N4】</span>
+              <span class="short-ep">SH.01</span>
+            </div>
+            <h4 class="short-title">听懂东京山手线报站！1分钟实景原声跟读挑战</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">山手线发车音与盲道黄线</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/npUV2_Ilid8" target="_blank" rel="noopener" class="short-card-link" aria-label="便利店买便当必听！收银台原声跟读挑战">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.02</span>
+            </div>
+            <h4 class="short-title">便利店买便当必听！收银台原声跟读挑战</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">便当加热与购物袋选择</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/9gMYd5lRwtI" target="_blank" rel="noopener" class="short-card-link" aria-label="像本地人一样进居酒屋！先来生啤原声跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.03</span>
+            </div>
+            <h4 class="short-title">像本地人一样进居酒屋！先来生啤原声跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">先来生啤与烤串拼盘</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/GerQ2oL84o8" target="_blank" rel="noopener" class="short-card-link" aria-label="秋叶原淘手办必学！免税退税1分钟原声跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.04</span>
+            </div>
+            <h4 class="short-title">秋叶原淘手办必学！免税退税1分钟原声跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">免税退税与未开封正品</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/K8E-XXJFu3I" target="_blank" rel="noopener" class="short-card-link" aria-label="东京地铁坐过站/余额不足？精算机补票跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N4】</span>
+              <span class="short-ep">SH.05</span>
+            </div>
+            <h4 class="short-title">东京地铁坐过站/余额不足？精算机补票跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">精算机补票与换乘指引</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/fj-Yto1FF3U" target="_blank" rel="noopener" class="short-card-link" aria-label="日本便利店冰咖啡怎么买？冷柜取杯与点单跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.06</span>
+            </div>
+            <h4 class="short-title">日本便利店冰咖啡怎么买？冷柜取杯与点单跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">冷柜自取冰杯与咖啡机</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/4nH8UUKeEDA" target="_blank" rel="noopener" class="short-card-link" aria-label="像老饕一样吃拉面！面硬汤浓加面口诀原声跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.07</span>
+            </div>
+            <h4 class="short-title">像老饕一样吃拉面！面硬汤浓加面口诀原声跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">面硬汤浓定制口诀与替玉</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/O2FjmMOFWgM" target="_blank" rel="noopener" class="short-card-link" aria-label="银座买衣服优雅试穿！试衣间许可请求跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.08</span>
+            </div>
+            <h4 class="short-title">银座买衣服优雅试穿！试衣间许可请求跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">试衣间许可与尺码询问</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/aXDKg4hwK2I" target="_blank" rel="noopener" class="short-card-link" aria-label="吉野家牛肉饭点单暗号！汁多与套餐口诀跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.13</span>
+            </div>
+            <h4 class="short-title">吉野家牛肉饭点单暗号！汁多与套餐口诀跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">汁多暗号与生鸡蛋套餐</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/0RcrIeiBurg" target="_blank" rel="noopener" class="short-card-link" aria-label="东京超市晚8点半价大作战！半价贴标抢购跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.15</span>
+            </div>
+            <h4 class="short-title">东京超市晚8点半价大作战！半价贴标抢购跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">半价贴纸与生鲜刺身</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/YDptABMYPxw" target="_blank" rel="noopener" class="short-card-link" aria-label="日本温泉与钱汤入浴礼仪！毛巾规范与清洗跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N5】</span>
+              <span class="short-ep">SH.17</span>
+            </div>
+            <h4 class="short-title">日本温泉与钱汤入浴礼仪！毛巾规范与清洗跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">淋浴冲洗与温泉汤池规范</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="short-card-item">
+          <a href="https://youtu.be/9b5UwiqG4o8" target="_blank" rel="noopener" class="short-card-link" aria-label="新干线订票技巧！富士山景观席与指定席跟读">
+            <div class="short-top-bar">
+              <span class="short-badge">【JLPT N4】</span>
+              <span class="short-ep">SH.19</span>
+            </div>
+            <h4 class="short-title">新干线订票技巧！富士山景观席与指定席跟读</h4>
+            <div class="short-focus-box">
+              <span class="short-focus-label">跟读要点:</span>
+              <span class="short-focus-text">绿色窗口与富士山靠窗席</span>
+            </div>
+            <div class="short-btn-bar">
+              <span class="short-action-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>跟读挑战</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Four Core Pillars -->
+  <!-- Four Core Learning Pillars -->
   <section id="pillars" class="pillars-section">
     <div class="container">
-      <div class="editorial-header" style="margin-bottom: 2rem;">
+      <div class="editorial-header">
         <div class="mono-tag">[ 四大核心学习体系 ]</div>
         <h2 class="editorial-heading">TokyoFlow 四大学习体系</h2>
         <p class="hero-description">专为真正掌握日本实用口语与文化融入设计的四大核心支柱。</p>
@@ -414,18 +1822,18 @@
         <div class="pillar-card">
           <div class="pillar-top">
             <span class="pillar-number">体系 01</span>
-            <span class="pillar-icon-symbol">🎙️</span>
+            <span class="pillar-stamp">[声库走向]</span>
           </div>
           <div>
-            <div class="pillar-title-jp">4,170+ 本地真人原声库</div>
-            <div class="pillar-title-en">东京本地真人高保真声库</div>
+            <div class="pillar-title-jp">4,170+ 本地真人原声与声调走向图</div>
+            <div class="pillar-title-en">东京本地真人高保真声库与 Pitch Accent 可视化</div>
             <p class="pillar-desc">
-              每一个词汇与生活对话均由东京本地人录制，配合精确到假名音节的高低音走向图谱。
+              每一个词汇与生活对话均由东京本地人录制，配合精确到假名音节的高低音走向图谱（頭高、中高、尾高、平板），彻底根除外国学习者的平调发音。
             </p>
           </div>
           <div class="pillar-tags">
             <span class="pillar-tag">东京标准音调</span>
-            <span class="pillar-tag">声调曲线</span>
+            <span class="pillar-tag">高低走向曲线</span>
             <span class="pillar-tag">毫秒级卡拉OK高亮</span>
           </div>
         </div>
@@ -433,13 +1841,13 @@
         <div class="pillar-card">
           <div class="pillar-top">
             <span class="pillar-number">体系 02</span>
-            <span class="pillar-icon-symbol">📻</span>
+            <span class="pillar-stamp">[电台影子]</span>
           </div>
           <div>
-            <div class="pillar-title-jp">NHK 新闻与电台影子跟读</div>
-            <div class="pillar-title-en">真实广播流与影子跟读</div>
+            <div class="pillar-title-jp">NHK 新闻与电台影子跟读播放器</div>
+            <div class="pillar-title-en">真实广播流与多档变速影子跟读</div>
             <p class="pillar-desc">
-              沉浸式听取地道新闻广播。词词对照的振假名标注、点击即查释义与听力理解诊断。
+              沉浸式听取地道新闻广播。词词对照的振假名标注、点击即查释义与 0.8x 至 1.5x 多档变速听力理解诊断。
             </p>
           </div>
           <div class="pillar-tags">
@@ -452,13 +1860,13 @@
         <div class="pillar-card">
           <div class="pillar-top">
             <span class="pillar-number">体系 03</span>
-            <span class="pillar-icon-symbol">💥</span>
+            <span class="pillar-stamp">[漫画拟声]</span>
           </div>
           <div>
             <div class="pillar-title-jp">漫画拟声词与拟态语实验室</div>
-            <div class="pillar-title-en">漫画拟声拟态与文化音效</div>
+            <div class="pillar-title-en">500+ 漫画拟声拟态与文化音效互动板</div>
             <p class="pillar-desc">
-              收录 500+ 漫画情感与动作音效（ドキドキ、ざわ…、ドドド），轻松读懂原版单行本。
+              收录 500+ 漫画情感与动作音效（ドキドキ、ざわ…、ドドド），轻松读懂少年、青年原版单行本与动画台词。
             </p>
           </div>
           <div class="pillar-tags">
@@ -471,100 +1879,21 @@
         <div class="pillar-card">
           <div class="pillar-top">
             <span class="pillar-number">体系 04</span>
-            <span class="pillar-icon-symbol">🗂️</span>
+            <span class="pillar-stamp">[记忆算法]</span>
           </div>
           <div>
-            <div class="pillar-title-jp">JLPT N5〜N1 科学记忆引擎</div>
-            <div class="pillar-title-en">SM-2 科学间隔遗忘曲线</div>
+            <div class="pillar-title-jp">JLPT [N5-N1] SuperMemo SM-2 记忆引擎</div>
+            <div class="pillar-title-en">10,000+ 核心词汇与科学间隔遗忘曲线</div>
             <p class="pillar-desc">
-              基于 SuperMemo SM-2 算法的闪卡复习系统，智能捕捉弱项词汇并自动安排回捞复习。
+              基于 SuperMemo SM-2 算法的闪卡复习系统，智能捕捉弱项词汇并自动安排回捞复习，汉字笔顺动画一应俱全。
             </p>
           </div>
           <div class="pillar-tags">
             <span class="pillar-tag">N5-N1 全量词库</span>
             <span class="pillar-tag">汉字笔顺演示</span>
-            <span class="pillar-tag">间隔遗忘曲线</span>
+            <span class="pillar-tag">SM-2 遗忘曲线</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Academy Gallery -->
-  <section id="academy" class="academy-section">
-    <div class="container">
-      <div class="editorial-header">
-        <div class="mono-tag">[ 影视化教学剧集 ]</div>
-        <h2 class="editorial-heading">TokyoFlow 影视化教学剧集</h2>
-        <p class="hero-description">
-          结合真实东京街景、站台广播与生活对话的高清教学视频，沉浸式拆解语法与生活文化。
-        </p>
-      </div>
-
-      <div class="academy-grid">
-        <a href="https://youtu.be/yN6dTC-LBz8" target="_blank" class="video-editorial-card">
-          <div class="video-thumb-container">
-            <img src="/assets/ep01_yamanote_transit_thumb.jpg" alt="Episode 1 Thumbnail" class="video-thumb-img">
-            <span class="video-badge-overlay">第 1 集 • 12 分钟</span>
-            <div class="video-play-btn-circle">▶</div>
-          </div>
-          <div class="video-meta-body">
-            <div class="video-district-tag">新宿 • 山手线与地铁</div>
-            <h3 class="video-card-title">东京地铁与电车站台广播全解析</h3>
-            <p class="video-card-desc">
-              拆解黄色盲道警示、车门关闭提醒声、换乘指引与常用问路表达。
-            </p>
-            <div class="video-card-action">前往 YouTube 观看 <span>→</span></div>
-          </div>
-        </a>
-
-        <a href="https://youtu.be/6er1tWAH_oQ" target="_blank" class="video-editorial-card">
-          <div class="video-thumb-container">
-            <img src="/assets/ep02_kombini_checkout_thumb.jpg" alt="Episode 2 Thumbnail" class="video-thumb-img">
-            <span class="video-badge-overlay">第 2 集 • 10 分钟</span>
-            <div class="video-play-btn-circle">▶</div>
-          </div>
-          <div class="video-meta-body">
-            <div class="video-district-tag">涩谷 • 便利店实况</div>
-            <h3 class="video-card-title">便利店生存：3秒极速收银应对指南</h3>
-            <p class="video-card-desc">
-              秒懂微波加热、筷子餐具、塑料袋分类、积分卡与 Suica 刷卡对话。
-            </p>
-            <div class="video-card-action">前往 YouTube 观看 <span>→</span></div>
-          </div>
-        </a>
-
-        <a href="https://youtu.be/B4sN_BkLcOw" target="_blank" class="video-editorial-card">
-          <div class="video-thumb-container">
-            <img src="/assets/ep03_izakaya_night_thumb.jpg" alt="Episode 3 Thumbnail" class="video-thumb-img">
-            <span class="video-badge-overlay">第 3 集 • 14 分钟</span>
-            <div class="video-play-btn-circle">▶</div>
-          </div>
-          <div class="video-meta-body">
-            <div class="video-district-tag">回忆横丁 • 居酒屋之夜</div>
-            <h3 class="video-card-title">居酒屋达人：昭和酒场点单与干杯礼仪</h3>
-            <p class="video-card-desc">
-              先来杯生啤（とりあえず生）、开胃小菜文化、盐烤与酱烤区别及顺畅买单。
-            </p>
-            <div class="video-card-action">前往 YouTube 观看 <span>→</span></div>
-          </div>
-        </a>
-
-        <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" class="video-editorial-card">
-          <div class="video-thumb-container">
-            <img src="/assets/ep04_akiba_pilgrimage_thumb.jpg" alt="Episode 4 Thumbnail" class="video-thumb-img">
-            <span class="video-badge-overlay">第 4 集 • 15 分钟</span>
-            <div class="video-play-btn-circle">▶</div>
-          </div>
-          <div class="video-meta-body">
-            <div class="video-district-tag">秋叶原 • 动漫文化</div>
-            <h3 class="video-card-title">秋叶原圣地巡礼：手办淘宝与热血漫画拟声词</h3>
-            <p class="video-card-desc">
-              逛遍复古模型店、向店员询问未开封新品，并掌握少年漫画语气与音效。
-            </p>
-            <div class="video-card-action">前往 YouTube 观看 <span>→</span></div>
-          </div>
-        </a>
       </div>
     </div>
   </section>
@@ -581,8 +1910,8 @@
       <div class="roadmap-grid">
         <div class="roadmap-card">
           <span class="roadmap-q-badge">第一季度 • DAYS 1–90</span>
-          <div class="roadmap-level-title">JF A1 : 入门生活</div>
-          <div class="roadmap-level-sub">东京生存必备</div>
+          <div class="roadmap-level-title">JF A1 • [JLPT N5]</div>
+          <div class="roadmap-level-sub">东京生存必备 · 抵日安居</div>
           <ul class="roadmap-list">
             <li>交通：Suica 充值与闸机应对</li>
             <li>便利店：便当加热与购物袋选择</li>
@@ -593,36 +1922,36 @@
 
         <div class="roadmap-card">
           <span class="roadmap-q-badge">第二季度 • DAYS 91–180</span>
-          <div class="roadmap-level-title">JF A2 : 城市探索</div>
-          <div class="roadmap-level-sub">日常交往与生活习惯</div>
+          <div class="roadmap-level-title">JF A2 • [JLPT N4]</div>
+          <div class="roadmap-level-sub">城市探索 · 日常交往与生活习惯</div>
           <ul class="roadmap-list">
             <li>百货：试衣、退税与尺码咨询</li>
-            <li>出行：LUUP 电动滑板车与共享单车</li>
-            <li>咖啡：席位预约与忌口说明</li>
-            <li>漫画：恋爱与日常对话气泡</li>
+            <li>出行：地铁各停急行与精算机补票</li>
+            <li>咖啡：席位预约与换奶定制</li>
+            <li>物流：日本邮政不在票再投递</li>
           </ul>
         </div>
 
         <div class="roadmap-card">
           <span class="roadmap-q-badge">第三季度 • DAYS 181–270</span>
-          <div class="roadmap-level-title">JF A2-B1 : 深度融入</div>
-          <div class="roadmap-level-sub">公共办事与职场文化</div>
+          <div class="roadmap-level-title">JF A2-B1 • [JLPT N3]</div>
+          <div class="roadmap-level-sub">深度融入 · 公共办事与社交文化</div>
           <ul class="roadmap-list">
-            <li>区役所：住民票办理与办事窗口</li>
-            <li>物流：快递不在票再投递申请</li>
-            <li>职场：常用寒暄与敬语分寸</li>
-            <li>漫画：青年漫画与深度俚语</li>
+            <li>居酒屋：烤串生啤开场与顺畅买单</li>
+            <li>公共：传统钱汤与温泉入浴礼仪</li>
+            <li>交通：新干线富士山侧指定席订票</li>
+            <li>医疗：药妆店止痛药与症状描述</li>
           </ul>
         </div>
 
         <div class="roadmap-card">
           <span class="roadmap-q-badge">第四季度 • DAYS 271–365</span>
-          <div class="roadmap-level-title">JF B1 : 独立自如</div>
-          <div class="roadmap-level-sub">文化共鸣与深度理解</div>
+          <div class="roadmap-level-title">JF B1-B2 • [JLPT N2-N1]</div>
+          <div class="roadmap-level-sub">独立自如 · 影视鉴赏与深度理解</div>
           <ul class="roadmap-list">
-            <li>医疗：诊所就医与紧急电话 (119)</li>
-            <li>租房：租约续签与水电签约</li>
-            <li>节日：祭典参与与邻里闲谈</li>
+            <li>影视：院线电影深度台词鉴赏</li>
+            <li>新闻：NHK 原生广播与时事速递</li>
+            <li>职场：常用商务寒暄与敬语分寸</li>
             <li>漫画：无振假名单行本顺畅通读</li>
           </ul>
         </div>
@@ -630,7 +1959,119 @@
     </div>
   </section>
 
-  <!-- Download CTA Section -->
+  <!-- Study Materials Section -->
+  <section id="materials" class="materials-section">
+    <div class="container">
+      <div class="editorial-header">
+        <div class="mono-tag">[ 学习材料与核心资源 ]</div>
+        <h2 class="editorial-heading">TokyoFlow 学习资料与精讲包</h2>
+        <p class="hero-description">配合 YouTube 剧集与 App 的核心学习材料，提供完整的假名对照与声调走向图。</p>
+      </div>
+
+      <div class="materials-grid">
+        <div class="material-card">
+          <div class="material-tag">[PDF 讲义]</div>
+          <h3 class="material-title">东京实景对话精讲台本 (EP.01 - EP.19)</h3>
+          <p class="material-desc">包含 19 个实景对话的 3-tier 振假名、罗马音、语法剖析与词汇清单。</p>
+          <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" rel="noopener" class="btn-material-link">
+            <span>在 YouTube 视频简介区查看</span>
+            <span>›</span>
+          </a>
+        </div>
+
+        <div class="material-card">
+          <div class="material-tag">[音调图谱]</div>
+          <h3 class="material-title">东京标准声调走向核心手册 (4大模式)</h3>
+          <p class="material-desc">头高型、中高型、尾高型与平板型完整走向规律与真人发音比对表。</p>
+          <a href="#showcase" class="btn-material-link">
+            <span>在上方模拟器体验</span>
+            <span>›</span>
+          </a>
+        </div>
+
+        <div class="material-card">
+          <div class="material-tag">[词库体系]</div>
+          <h3 class="material-title">JLPT N5-N1 10,000+ 高频词库闪卡</h3>
+          <p class="material-desc">基于 SM-2 科学间隔曲线，包含例句真人音频、汉字笔顺动画与高频考点。</p>
+          <a href="#download" class="btn-material-link">
+            <span>在 TokyoFlow App 中复习</span>
+            <span>›</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (GEO / SEO Schema Rich Snippets) -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="editorial-header">
+        <div class="mono-tag">[ 常见问题解答 ]</div>
+        <h2 class="editorial-heading">关于 TokyoFlow 的常见疑问</h2>
+        <p class="hero-description">了解高语境学习法、声调走向图与影视化学习的核心原理。</p>
+      </div>
+
+      <div class="faq-container">
+
+        <details class="faq-item" open>
+          <summary class="faq-question">
+            <span class="faq-q-text">TokyoFlow 和传统教科书（如《大家的日语》《新标日》）有什么核心区别？</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>传统教科书主要围绕语法规则和人造例句展开，缺少真实日本高语境（Ba）的空气感与即时反应。TokyoFlow 采用东京实景驱动体系，内置 4,170+ 本地真人原声、山手线发车铃声与站台广播、便利店3秒极速收银、居酒屋点单、声调高低走向图谱及 3-tier 假名卡拉OK高亮，帮助学习者直接建立肌肉记忆与脱口而出的听说反射。</p>
+          </div>
+        </details>
+        
+
+        <details class="faq-item" >
+          <summary class="faq-question">
+            <span class="faq-q-text">TokyoFlow 的视频剧集和学习路径是如何规划的？</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>TokyoFlow 遵循 Japan Foundation (CEFR-J A1 至 B2) 与 JLPT N5 至 N1 标准，构建了 365 日年间独立生活进阶路线。内容涵盖 16:9 长篇影视化深度精讲（Micro-lessons）、9:16 沉浸影子跟读（Shorts）、超长生活全景合集（Mega-compilations）与院线电影沉浸精析，并在官方 YouTube 频道（@TokyoFlowJapan）保持稳定更新。</p>
+          </div>
+        </details>
+        
+
+        <details class="faq-item" >
+          <summary class="faq-question">
+            <span class="faq-q-text">什么是东京标准声调走向图谱（Pitch Accent）？为什么对听说极其重要？</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>日语是典型的音高重音（Pitch Accent）语言。相同的假名组合（如「雨 ame」和「飴 ame」），音调高低走向不同含义完全相反。TokyoFlow 将头高型、中高型、尾高型和平板型声调全部视觉化为平滑高低曲线，并配合本地真人原声示范，彻底根除外国学习者的平调发音。</p>
+          </div>
+        </details>
+        
+
+        <details class="faq-item" >
+          <summary class="faq-question">
+            <span class="faq-q-text">零基础学习者可以从 TokyoFlow 开始学习吗？</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>完全可以。TokyoFlow 提供从五十音图发音、汉字笔顺动画到 JLPT N5 基础生活实景（电车刷卡、便利店购物、拉面食券机点单）的阶梯式教学，每句对话均配有 3-tier 振假名、罗马音及精准中文翻译，零基础亦能轻松跟读入门。</p>
+          </div>
+        </details>
+        
+
+        <details class="faq-item" >
+          <summary class="faq-question">
+            <span class="faq-q-text">如何结合 YouTube 视频与 TokyoFlow App 进行高效复习？</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>建议在 YouTube 频道观看 16:9 长视频精读文化背景与语法拆解，使用 9:16 短视频进行每日 1 分钟原声影子跟读（Shadowing）；随后在 TokyoFlow App 中进行 SuperMemo SM-2 科学间隔复习、声调比对与实景任务闯关，实现快速听说飞跃。</p>
+          </div>
+        </details>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Download & Subscribe Dual CTA Section -->
   <section id="download" class="download-section">
     <div class="container">
       <div class="download-box">
@@ -638,18 +2079,18 @@
           <div class="section-stamp" style="display: inline-block; margin-bottom: 1.5rem;">TOKYOFLOW</div>
           <h2 class="download-box-title">東京の息遣いを、あなたの手の中に。</h2>
           <p class="download-box-p">
-            前往 Apple App Store 免费下载 TokyoFlow。在 4,170+ 本地真人原声与真实场景中，开启鲜活的日语之旅。
+            前往 Apple App Store 下载 TokyoFlow，并在 YouTube 订阅每日视频更新。在 4,170+ 本地真人原声与真实东京场景中，开启鲜活的日语之旅。
           </p>
 
           <div class="download-actions-wrap">
-            <a href="#" class="btn-hero-appstore">
-              <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.58.67-1.08 1.74-.95 2.78 1.07.08 2.14-.58 2.73-1.34z"/></svg>
-              <span>立即下载 iOS 版</span>
+            <a href="https://www.youtube.com/@TokyoFlowJapan?sub_confirmation=1" target="_blank" rel="noopener" class="btn-hero-yt">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span>订阅 YouTube 频道</span>
             </a>
 
-            <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" class="btn-hero-yt">
-              <svg width="20" height="20" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              <span>订阅 YouTube 频道</span>
+            <a href="#" class="btn-hero-appstore">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.58.67-1.08 1.74-.95 2.78 1.07.08 2.14-.58 2.73-1.34z"/></svg>
+              <span>下载 iOS App</span>
             </a>
           </div>
         </div>
@@ -663,21 +2104,21 @@
       <div class="footer-inner">
         <div class="footer-brand-info">
           <div class="footer-brand-title">TokyoFlow · 東京フロウ</div>
-          <div class="footer-brand-tagline">东京高语境实景日语学习体系</div>
+          <div class="footer-brand-tagline">东京高语境实景日语学习体系 · 影视教学专区</div>
         </div>
 
         <div class="footer-links-group">
           <a href="/privacy/">隐私政策</a>
           <a href="/terms/">服务条款</a>
           <a href="/support/">技术支持</a>
-          <a href="/en/">English</a>
-          <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank">YouTube 频道</a>
+          <a href="/en/">English Edition</a>
+          <a href="https://www.youtube.com/@TokyoFlowJapan" target="_blank" rel="noopener">YouTube 频道</a>
           <a href="mailto:support@tokyoflow.app">联系我们</a>
         </div>
 
         <div class="footer-copyright">
           <span>© 2026 TokyoFlow. 传承 · 创新 · 语境驱动</span>
-          <span>1980–2026 Tokyo Cultural Living Japanese</span>
+          <span>Tokyo Cultural Living Japanese & Video Academy</span>
         </div>
       </div>
     </div>

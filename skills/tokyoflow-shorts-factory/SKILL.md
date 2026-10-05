@@ -85,6 +85,7 @@ Every vertical Short must execute a tight 4-phase psychological retention loop:
 - Bottom Call to Action (`y=1610..1860`):
   - App Showcase Card: `TokyoFlow - Japanese Speaking (iOS)`
   - `Subscribe for Daily Tokyo Japanese!`
+  - Description / Pinned Comment: Include Scheme D Google Drive Workbook Link + Passcode.
   - Bottom Millisecond Progress Line (`y=1900..1910`)
 
 ---

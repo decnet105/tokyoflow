@@ -1,0 +1,561 @@
+{
+  "published": {
+    "E00-Chinese_Launch_Teaser-v1.0-zh_short": {
+      "video_id": "XUWDCPU0Tog",
+      "video_url": "https://youtu.be/XUWDCPU0Tog",
+      "title": "【TokyoFlow 中文首发】告别死板教科书！每天1分钟搞定东京地道实景日语 #Shorts",
+      "status": "public",
+      "uploaded_at": "2026-10-04T13:47:23-04:00",
+      "is_short": true
+    },
+    "E01-Yamanote_Transit-v1.0_video": {
+      "video_id": "yN6dTC-LBz8",
+      "video_url": "https://youtu.be/yN6dTC-LBz8",
+      "title": "[JLPT N4] EP.01 Tokyo Train Station Announcements Decoded! Yamanote Line Immersion",
+      "status": "public_manual"
+    },
+    "E02-Kombini_Checkout-v1.0_video": {
+      "video_id": "6er1tWAH_oQ",
+      "video_url": "https://youtu.be/6er1tWAH_oQ",
+      "title": "[JLPT N5] EP.02 Survive Tokyo 7-Eleven Checkout! Rapid Register Japanese Decoded",
+      "status": "public_manual"
+    },
+    "E03-Izakaya_Night-v1.0_video": {
+      "video_id": "B4sN_BkLcOw",
+      "video_url": "https://youtu.be/B4sN_BkLcOw",
+      "title": "[JLPT N5] EP.03 Order Like a Tokyo Local at an Izakaya! Toriaezu Nama Explained",
+      "status": "public_manual"
+    },
+    "E04-Akiba_Pilgrimage-v1.0_video": {
+      "video_id": "iaGo6ey75Ws",
+      "video_url": "https://youtu.be/iaGo6ey75Ws",
+      "title": "[JLPT N5] EP.04 Akihabara Anime and Manga Shopping Japanese! Tax-Free and Rare Merch",
+      "status": "public_manual"
+    },
+    "E01-Yamanote_Transit-v1.0_short": {
+      "video_id": "luY_kYPz5Bo",
+      "video_url": "https://youtu.be/luY_kYPz5Bo",
+      "title": "[JLPT N4] SH.01 What Tokyo Train Stations ACTUALLY Announce! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-09-30T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:30:39.501261-04:00",
+      "is_short": true
+    },
+    "E02-Kombini_Checkout-v1.0_short": {
+      "video_id": "npUV2_Ilid8",
+      "video_url": "https://youtu.be/npUV2_Ilid8",
+      "title": "[JLPT N5] SH.02 How to Survive Tokyo 7-Eleven Checkout in 30s #Shorts #LearnJapanese",
+      "publish_at_est": "2026-09-30T09:30:00-04:00",
+      "uploaded_at": "2026-09-29T21:30:45.659216-04:00",
+      "is_short": true
+    },
+    "E03-Izakaya_Night-v1.0_short": {
+      "video_id": "9gMYd5lRwtI",
+      "video_url": "https://youtu.be/9gMYd5lRwtI",
+      "title": "[JLPT N5] SH.03 How Locals Order at a Tokyo Izakaya #Shorts #LearnJapanese",
+      "publish_at_est": "2026-09-30T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:30:50.773003-04:00",
+      "is_short": true
+    },
+    "E04-Akiba_Pilgrimage-v1.0_short": {
+      "video_id": "GerQ2oL84o8",
+      "video_url": "https://youtu.be/GerQ2oL84o8",
+      "title": "[JLPT N5] SH.04 How to Buy Anime Figures in Akihabara Tax-Free! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-09-30T18:30:00-04:00",
+      "uploaded_at": "2026-09-29T21:30:58.224620-04:00",
+      "is_short": true
+    },
+    "E05-Tokyo_Subway_Rush-v1.0_video": {
+      "video_id": "71K0XIHNZLs",
+      "video_url": "https://youtu.be/71K0XIHNZLs",
+      "title": "[JLPT N4] EP.05 Survive the Tokyo Subway! Rapid vs Local and Fare Adjustment",
+      "publish_at_est": "2026-10-01T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:03.898108-04:00",
+      "is_short": false
+    },
+    "E05-Tokyo_Subway_Rush-v1.0_short": {
+      "video_id": "K8E-XXJFu3I",
+      "video_url": "https://youtu.be/K8E-XXJFu3I",
+      "title": "[JLPT N4] SH.05 Never Get Lost on the Tokyo Subway! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-01T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:08.571678-04:00",
+      "is_short": true
+    },
+    "E06-Kombini_Coffee_ATM-v1.0_video": {
+      "video_id": "kPXKS2r3o8w",
+      "video_url": "https://youtu.be/kPXKS2r3o8w",
+      "title": "[JLPT N5] EP.06 Order Coffee Like a Tokyo Local! Kombini Machine and ATM Hacks",
+      "publish_at_est": "2026-10-01T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:12.787619-04:00",
+      "is_short": false
+    },
+    "E06-Kombini_Coffee_ATM-v1.0_short": {
+      "video_id": "fj-Yto1FF3U",
+      "video_url": "https://youtu.be/fj-Yto1FF3U",
+      "title": "[JLPT N5] SH.06 How to Order Coffee at Japanese Convenience Stores #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-01T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:17.720561-04:00",
+      "is_short": true
+    },
+    "E07-Ramen_Ticket_Vending-v1.0_video": {
+      "video_id": "jB4I3CicHrs",
+      "video_url": "https://youtu.be/jB4I3CicHrs",
+      "title": "[JLPT N5] EP.07 Order Ramen Like a Pro in Tokyo! Ticket Machine and Broth Hacks",
+      "publish_at_est": "2026-10-02T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:22.964788-04:00",
+      "is_short": false
+    },
+    "E07-Ramen_Ticket_Vending-v1.0_short": {
+      "video_id": "4nH8UUKeEDA",
+      "video_url": "https://youtu.be/4nH8UUKeEDA",
+      "title": "[JLPT N5] SH.07 How to Order Ramen Like a Tokyo Master #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-02T08:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:27.472500-04:00",
+      "is_short": true
+    },
+    "E08-Ginza_TaxFree_Shopping-v1.0_video": {
+      "video_id": "9GOBcaATRjE",
+      "video_url": "https://youtu.be/9GOBcaATRjE",
+      "title": "[JLPT N5] EP.08 Shop Like a Tokyo Stylist! Fitting Room and Tax-Free Hacks",
+      "publish_at_est": "2026-10-02T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:32.400528-04:00",
+      "is_short": false
+    },
+    "E08-Ginza_TaxFree_Shopping-v1.0_short": {
+      "video_id": "O2FjmMOFWgM",
+      "video_url": "https://youtu.be/O2FjmMOFWgM",
+      "title": "[JLPT N5] SH.08 How to Shop Clothes in Tokyo Ginza! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-02T17:00:00-04:00",
+      "uploaded_at": "2026-09-29T21:31:39.745079-04:00",
+      "is_short": true
+    },
+    "E09-anime_sauna_trend-v1.0_video": {
+      "video_id": "fXJMz9_CGCs",
+      "video_url": "https://youtu.be/fXJMz9_CGCs",
+      "title": "[JLPT N5] EP.09 Anime Company Made a Real Sauna in Tokyo! | Real Japanese Breakdown",
+      "publish_at_est": "2026-10-05T08:00:00-04:00",
+      "uploaded_at": "2026-10-01T22:40:17.734800-04:00",
+      "is_short": false
+    },
+    "E09-anime_sauna_trend-v1.0_short": {
+      "video_id": "nLSoKy3DFFI",
+      "video_url": "https://youtu.be/nLSoKy3DFFI",
+      "title": "[JLPT N5] SH.09 Anime Studio Made a SAUNA in Tokyo?! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-05T17:00:00-04:00",
+      "uploaded_at": "2026-10-01T22:40:22.394080-04:00",
+      "is_short": true
+    },
+    "E10-ayase_haruka_tennen-v1.0_video": {
+      "video_id": "CCUSAjlHbYQ",
+      "video_url": "https://youtu.be/CCUSAjlHbYQ",
+      "title": "[JLPT N5] EP.10 Ayase Haruka's Natural Charm | Real Japanese Breakdown",
+      "publish_at_est": "2026-10-06T08:00:00-04:00",
+      "uploaded_at": "2026-10-02T12:37:23.298991-04:00",
+      "is_short": false
+    },
+    "E10-ayase_haruka_tennen-v1.0_short": {
+      "video_id": "gkl9fCKjkyQ",
+      "video_url": "https://youtu.be/gkl9fCKjkyQ",
+      "title": "[JLPT N5] SH.10 Ayase Haruka's Natural Charm! #Shorts",
+      "publish_at_est": "2026-10-06T17:00:00-04:00",
+      "uploaded_at": "2026-10-02T12:37:30.488549-04:00",
+      "is_short": true
+    },
+    "E11-shabuya-robot-drama-v1.0_video": {
+      "video_id": "tIFJcJFxSi4",
+      "video_url": "https://youtu.be/tIFJcJFxSi4",
+      "title": "[JLPT N5] EP.11 Shabu-ya Robot Drama | Real Japanese Breakdown",
+      "publish_at_est": "2026-10-07T08:00:00-04:00",
+      "uploaded_at": "2026-10-03T08:02:27.567987-04:00",
+      "is_short": false
+    },
+    "E11-shabuya-robot-drama-v1.0_short": {
+      "video_id": "DiGmCYF_ZNI",
+      "video_url": "https://youtu.be/DiGmCYF_ZNI",
+      "title": "[JLPT N5] SH.11 Shabu-ya Robot Drama! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-07T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T14:45:17Z",
+      "is_short": true,
+      "notify_subscribers": true
+    },
+    "WL01-last-mile-masterclass-v1.0_video": {
+      "video_id": "-KFRtoLDNVU",
+      "video_url": "https://youtu.be/-KFRtoLDNVU",
+      "title": "[JLPT N5-N2] WL.01 Last Mile () Full Breakdown | Learn Real Japanese Through Cinema",
+      "publish_at_est": "2026-10-03T17:00:00-04:00",
+      "uploaded_at": "2026-10-03T10:49:59.550893-04:00",
+      "is_short": false
+    },
+    "WL01-last-mile-masterclass-v1.0_short": {
+      "video_id": "NWe3LKOFmz8",
+      "video_url": "https://youtu.be/NWe3LKOFmz8",
+      "title": "[JLPT N5-N2] WS.01 2.7m/s OR DIE? The Darkest Phrase in Japanese Cinema (Last Mile) #Shorts",
+      "publish_at_est": "2026-10-03T17:00:00-04:00",
+      "uploaded_at": "2026-10-03T10:50:06.587442-04:00",
+      "is_short": true
+    },
+    "WM01-weekday_survival_mega_compilation-v1.0_video": {
+      "video_id": "mV7J6OKutj0",
+      "video_url": "https://youtu.be/mV7J6OKutj0",
+      "title": "[JLPT N5-N3] WM.01 Mon-Fri Tokyo Survival All-in-One + Japanese Culture & Travel Masterclass",
+      "publish_at_est": "2026-10-04T17:00:00-04:00",
+      "uploaded_at": "2026-10-03T16:24:09.195980-04:00",
+      "is_short": false
+    },
+    "WM01-weekday_survival_mega_compilation-v1.0_short": {
+      "video_id": "XSXTI3XjpOs",
+      "video_url": "https://youtu.be/XSXTI3XjpOs",
+      "title": "[JLPT N5-N3] WS.01 Monday to Friday Tokyo Survival All-in-One! #Shorts",
+      "publish_at_est": "2026-10-04T17:00:00-04:00",
+      "uploaded_at": "2026-10-03T16:24:17.675377-04:00",
+      "is_short": true
+    },
+    "E01-Yamanote_Transit-v1.0-zh_video": {
+      "video_id": "6JRuW-U_KsQ",
+      "video_url": "https://youtu.be/6JRuW-U_KsQ",
+      "title": "【JLPT N4】听懂东京山手线报站！新宿站实景原声精讲（EP.01）",
+      "publish_at_est": "2026-10-05T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:26:33.761457-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E01-Yamanote_Transit-v1.0-zh_short": {
+      "video_id": "7CPqE_Y4nYA",
+      "video_url": "https://youtu.be/7CPqE_Y4nYA",
+      "title": "【JLPT N4】听懂东京山手线报站！1分钟实景原声跟读挑战（EP.01） #Shorts",
+      "publish_at_est": "2026-10-06T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:26:41.678118-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E02-Kombini_Checkout-v1.0-zh_video": {
+      "video_id": "SweaDZEQlpo",
+      "video_url": "https://youtu.be/SweaDZEQlpo",
+      "title": "【JLPT N5】听懂东京7-Eleven结账！便利店实用口语实景精讲（EP.02）",
+      "publish_at_est": "2026-10-07T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:26:49.550217-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E02-Kombini_Checkout-v1.0-zh_short": {
+      "video_id": "qnW1x0AMq5Y",
+      "video_url": "https://youtu.be/qnW1x0AMq5Y",
+      "title": "【JLPT N5】去日本便利店买便当必听！收银台原声跟读挑战（EP.02） #Shorts",
+      "publish_at_est": "2026-10-08T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:26:54.560983-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E03-Izakaya_Night-v1.0-zh_video": {
+      "video_id": "P9wLC803VF4",
+      "video_url": "https://youtu.be/P9wLC803VF4",
+      "title": "【JLPT N5】像东京本地人一样点单！居酒屋生啤开场实景精讲（EP.03）",
+      "publish_at_est": "2026-10-09T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:26:57.599373-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E03-Izakaya_Night-v1.0-zh_short": {
+      "video_id": "RdE2fQdcQnw",
+      "video_url": "https://youtu.be/RdE2fQdcQnw",
+      "title": "【JLPT N5】像本地人一样进居酒屋！先来生啤原声跟读挑战（EP.03） #Shorts",
+      "publish_at_est": "2026-10-12T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:00.748021-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E04-Akiba_Pilgrimage-v1.0-zh_video": {
+      "video_id": "Hf8aLBN1iEw",
+      "video_url": "https://youtu.be/Hf8aLBN1iEw",
+      "title": "【JLPT N5】秋叶原淘手办必学！免税退税与查库存实用口语（EP.04）",
+      "publish_at_est": "2026-10-13T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:03.608773-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E04-Akiba_Pilgrimage-v1.0-zh_short": {
+      "video_id": "Sxb_NET07Io",
+      "video_url": "https://youtu.be/Sxb_NET07Io",
+      "title": "【JLPT N5】秋叶原淘手办必学！免税退税1分钟原声跟读（EP.04） #Shorts",
+      "publish_at_est": "2026-10-14T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:06.585739-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E05-Tokyo_Subway_Rush-v1.0-zh_video": {
+      "video_id": "odIHpboH1A0",
+      "video_url": "https://youtu.be/odIHpboH1A0",
+      "title": "【JLPT N4】东京地铁坐过站/余额不足？精算机补票实景精讲（EP.05）",
+      "publish_at_est": "2026-10-15T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:09.705963-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E05-Tokyo_Subway_Rush-v1.0-zh_short": {
+      "video_id": "DqzlmsrCWO4",
+      "video_url": "https://youtu.be/DqzlmsrCWO4",
+      "title": "【JLPT N4】东京地铁坐过站/余额不足？精算机补票跟读精讲（EP.05） #Shorts",
+      "publish_at_est": "2026-10-16T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:13.355738-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E06-Kombini_Coffee_ATM-v1.0-zh_video": {
+      "video_id": "C9qHbhafnqc",
+      "video_url": "https://youtu.be/C9qHbhafnqc",
+      "title": "【JLPT N5】便利店咖啡怎么买？冷柜取杯与ATM取现全流程精讲（EP.06）",
+      "publish_at_est": "2026-10-19T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:16.067406-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E06-Kombini_Coffee_ATM-v1.0-zh_short": {
+      "video_id": "8Whu9ozLB6Y",
+      "video_url": "https://youtu.be/8Whu9ozLB6Y",
+      "title": "【JLPT N5】日本便利店冰咖啡怎么买？冷柜取杯与点单跟读（EP.06） #Shorts",
+      "publish_at_est": "2026-10-20T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:18.623457-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E07-Ramen_Ticket_Vending-v1.0-zh_video": {
+      "video_id": "ipyktZrqHgQ",
+      "video_url": "https://youtu.be/ipyktZrqHgQ",
+      "title": "【JLPT N5】像老饕一样吃拉面！食券机点餐与面硬汤浓定制精讲（EP.07）",
+      "publish_at_est": "2026-10-21T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:22.019707-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E07-Ramen_Ticket_Vending-v1.0-zh_short": {
+      "video_id": "jCqHgSzkYNY",
+      "video_url": "https://youtu.be/jCqHgSzkYNY",
+      "title": "【JLPT N5】像老饕一样吃拉面！面硬汤浓加面口诀原声跟读（EP.07） #Shorts",
+      "publish_at_est": "2026-10-22T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:25.271544-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E08-Ginza_TaxFree_Shopping-v1.0-zh_video": {
+      "video_id": "WQ1mqBP0gN0",
+      "video_url": "https://youtu.be/WQ1mqBP0gN0",
+      "title": "【JLPT N5】银座购物优雅试衣！试穿与询问尺码精品店日语精讲（EP.08）",
+      "publish_at_est": "2026-10-23T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:28.532806-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E08-Ginza_TaxFree_Shopping-v1.0-zh_short": {
+      "video_id": "tOwEtT7ftMA",
+      "video_url": "https://youtu.be/tOwEtT7ftMA",
+      "title": "【JLPT N5】银座买衣服优雅试穿！试衣间许可请求跟读（EP.08） #Shorts",
+      "publish_at_est": "2026-10-26T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:34.344702-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E09-anime_sauna_trend-v1.0-zh_video": {
+      "video_id": "28N9m0VcL50",
+      "video_url": "https://youtu.be/28N9m0VcL50",
+      "title": "【JLPT N5】动漫公司去开桑拿？身心彻底放松「整う」流行语精讲（EP.09）",
+      "publish_at_est": "2026-10-27T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:38.505657-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E09-anime_sauna_trend-v1.0-zh_short": {
+      "video_id": "EHnxZQyZCJY",
+      "video_url": "https://youtu.be/EHnxZQyZCJY",
+      "title": "【JLPT N5】动漫公司开桑拿？身心放松「整う」流行语跟读（EP.09） #Shorts",
+      "publish_at_est": "2026-10-28T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:41.216681-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E10-ayase_haruka_tennen-v1.0-zh_video": {
+      "video_id": "y1zQQA0Tmfs",
+      "video_url": "https://youtu.be/y1zQQA0Tmfs",
+      "title": "【JLPT N5】绫濑遥天然呆发言引全场爆笑！日综反差萌流行语精讲（EP.10）",
+      "publish_at_est": "2026-10-29T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:44.171647-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E10-ayase_haruka_tennen-v1.0-zh_short": {
+      "video_id": "7QO41aDb5dU",
+      "video_url": "https://youtu.be/7QO41aDb5dU",
+      "title": "【JLPT N5】绫濑遥天然呆引爆笑！日综反差萌流行语跟读（EP.10） #Shorts",
+      "publish_at_est": "2026-10-30T20:00:00-04:00",
+      "uploaded_at": "2026-10-03T18:27:46.884609-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E11-shabuya-robot-drama-v1.0-zh_video": {
+      "video_id": "OkPi4X-K8u4",
+      "video_url": "https://youtu.be/OkPi4X-K8u4",
+      "title": "【JLPT N4】涩谷AI机器人短剧爆火！科技科幻与社交网络热点精讲（EP.11）",
+      "publish_at_est": "2026-11-02T20:00:00-05:00",
+      "uploaded_at": "2026-10-03T18:27:49.791164-04:00",
+      "is_short": false,
+      "notify_subscribers": false
+    },
+    "E11-shabuya-robot-drama-v1.0-zh_short": {
+      "video_id": "zoFHEf-Ir2c",
+      "video_url": "https://youtu.be/zoFHEf-Ir2c",
+      "title": "【JLPT N4】涩谷AI机器人微剧爆火！近未来科技热点跟读（EP.11） #Shorts",
+      "publish_at_est": "2026-11-03T20:00:00-05:00",
+      "uploaded_at": "2026-10-03T18:27:52.681857-04:00",
+      "is_short": true,
+      "notify_subscribers": false
+    },
+    "E12-apple-suicide-prevention-v1.0_video": {
+      "video_id": "nVD1G__Yj6U",
+      "video_url": "https://youtu.be/nVD1G__Yj6U",
+      "title": "[JLPT N5] EP.12 Apple's Suicide Prevention Request | Real Japanese Breakdown",
+      "publish_at_est": "2026-10-08T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T12:02:20Z",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E12-apple-suicide-prevention-v1.0_short": {
+      "video_id": "HnjKOw0GiSs",
+      "video_url": "https://youtu.be/HnjKOw0GiSs",
+      "title": "[JLPT N5] SH.12 Apple's New Feature Request! #Shorts #LearnJapanese",
+      "publish_at_est": "2026-10-08T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T12:02:29Z",
+      "is_short": true,
+      "notify_subscribers": true
+    },
+    "E13-Gyudon_Customization-v1.0_video": {
+      "video_id": "JoM1Ht4rsm0",
+      "video_url": "https://youtu.be/JoM1Ht4rsm0",
+      "title": "[JLPT N5] EP.13 Order Gyudon Like a Tokyo Local! Yoshinoya Tsuyudaku and Set Hacks",
+      "publish_at_est": "2026-10-09T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:01:38.166455-04:00",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E13-Gyudon_Customization-v1.0_short": {
+      "video_id": "aXDKg4hwK2I",
+      "video_url": "https://youtu.be/aXDKg4hwK2I",
+      "title": "[JLPT N5] SH.13 How to Order Gyudon at Yoshinoya Like a Pro #Shorts",
+      "publish_at_est": "2026-10-09T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:01:46.217309-04:00",
+      "is_short": true,
+      "notify_subscribers": true
+    },
+    "E14-JapanPost_Redelivery-v1.0_video": {
+      "video_id": "hMpbydnmDzE",
+      "video_url": "https://youtu.be/hMpbydnmDzE",
+      "title": "[JLPT N4] EP.14 Never Miss Japanese Mail! Japan Post Redelivery Slip and Delivery Hacks",
+      "publish_at_est": "2026-10-12T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:01:52.219870-04:00",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E14-JapanPost_Redelivery-v1.0_short": {
+      "video_id": "DHvBcMloh2Y",
+      "video_url": "https://youtu.be/DHvBcMloh2Y",
+      "title": "[JLPT N4] SH.14 How to Redeliver Packages in Japan #Shorts",
+      "publish_at_est": "2026-10-12T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:01:59.381377-04:00",
+      "is_short": true,
+      "notify_subscribers": true
+    },
+    "E15-Supermarket_HalfPrice_Rush-v1.0_video": {
+      "video_id": "SYTMgRcyycQ",
+      "video_url": "https://youtu.be/SYTMgRcyycQ",
+      "title": "[JLPT N5] EP.15 Tokyo Supermarket 8 PM Half-Price Hunt! Hangaku Bento and Sashimi Hacks",
+      "publish_at_est": "2026-10-13T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:02:24.476894-04:00",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E15-Supermarket_HalfPrice_Rush-v1.0_short": {
+      "video_id": "0RcrIeiBurg",
+      "video_url": "https://youtu.be/0RcrIeiBurg",
+      "title": "[JLPT N5] SH.15 How to Hunt Half-Price Bento in Tokyo #Shorts",
+      "publish_at_est": "2026-10-13T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:02:30.454699-04:00",
+      "is_short": true,
+      "notify_subscribers": true
+    },
+    "E16-Drugstore_Medicine-v1.0_video": {
+      "video_id": "jOlIP0S4TJI",
+      "video_url": "https://youtu.be/jOlIP0S4TJI",
+      "title": "[JLPT N5] EP.16 Tokyo Drugstore Survival! Buying Painkillers and Explaining Symptoms",
+      "publish_at_est": "2026-10-14T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:02:37.158550-04:00",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E16-Drugstore_Medicine-v1.0_short": {
+      "video_id": "vbmND9BSBNs",
+      "video_url": "https://youtu.be/vbmND9BSBNs",
+      "title": "[JLPT N5] SH.16 How to Buy Painkillers in Tokyo Drugstores #Shorts",
+      "publish_at_est": "2026-10-14T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:02:42.827636-04:00",
+      "is_short": true,
+      "notify_subscribers": true
+    },
+    "E17-Onsen_Sento_Etiquette-v1.0_video": {
+      "video_id": "NvxHyVZ0XSY",
+      "video_url": "https://youtu.be/NvxHyVZ0XSY",
+      "title": "[JLPT N5] EP.17 Tokyo Public Bath and Onsen Etiquette! Washing Rules and Towel Protocol",
+      "publish_at_est": "2026-10-15T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:02:49.217993-04:00",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E17-Onsen_Sento_Etiquette-v1.0_short": {
+      "video_id": "YDptABMYPxw",
+      "video_url": "https://youtu.be/YDptABMYPxw",
+      "title": "[JLPT N5] SH.17 Onsen Bath Etiquette in Tokyo in 30s! #Shorts",
+      "publish_at_est": "2026-10-15T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:02:54.989223-04:00",
+      "is_short": true,
+      "notify_subscribers": true
+    },
+    "E18-Tokyo_Cafe_Ordering-v1.0_video": {
+      "video_id": "rY3KT6Lk1uA",
+      "video_url": "https://youtu.be/rY3KT6Lk1uA",
+      "title": "[JLPT N5] EP.18 Order Coffee and Custom Drinks in Tokyo! Takeout and Milk Hacks",
+      "publish_at_est": "2026-10-16T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:03:07.200078-04:00",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E18-Tokyo_Cafe_Ordering-v1.0_short": {
+      "video_id": "HGE_GQdenvc",
+      "video_url": "https://youtu.be/HGE_GQdenvc",
+      "title": "[JLPT N5] SH.18 How to Order Coffee at Tokyo Cafes #Shorts",
+      "publish_at_est": "2026-10-16T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:03:12.580487-04:00",
+      "is_short": true,
+      "notify_subscribers": true
+    },
+    "E19-Shinkansen_BulletTrain_Tickets-v1.0_video": {
+      "video_id": "OeVMipTfon0",
+      "video_url": "https://youtu.be/OeVMipTfon0",
+      "title": "[JLPT N4] EP.19 Book Shinkansen Bullet Train Tickets! Reserved Seats and Green Car Hacks",
+      "publish_at_est": "2026-10-19T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:03:21.782704-04:00",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E19-Shinkansen_BulletTrain_Tickets-v1.0_short": {
+      "video_id": "9b5UwiqG4o8",
+      "video_url": "https://youtu.be/9b5UwiqG4o8",
+      "title": "[JLPT N4] SH.19 How to Book Shinkansen Tickets with Mt. Fuji View #Shorts",
+      "publish_at_est": "2026-10-19T08:00:00-04:00",
+      "uploaded_at": "2026-10-04T11:03:28.824684-04:00",
+      "is_short": true,
+      "notify_subscribers": true
+    }
+  },
+  "playlists": {
+    "playlist_zh_long": "PLVchR4TmK56E",
+    "playlist_zh_short": "PLTpb6FPYqYC4",
+    "playlist_en_long": "PLHUEYGzrBe-s",
+    "playlist_en_short": "PLVxXRTmSmcAM"
+  }
+}
