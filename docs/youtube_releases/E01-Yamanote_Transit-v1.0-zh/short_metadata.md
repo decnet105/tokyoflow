@@ -1,0 +1,65 @@
+# YouTube Short 发布包：E01-Yamanote_Transit-v1.0-zh
+# 【JLPT N4】听懂东京山手线报站！1分钟实景原声跟读挑战（EP.01） #Shorts
+
+## 发布基本信息
+- 剧集：EP.01 (E01-Yamanote_Transit-v1.0-zh)
+- 格式：9:16 竖屏短视频 (1080x1920, 30 fps)
+- 跟读引擎：4阶段沉浸式跟读训练（盲听 -> 名师拆解 -> 3-2-1 原声领读录音 -> AI声调打分）
+- 视频文件：short.mp4
+- 竖屏封面：short_thumbnail.jpg
+- 视频时长：38.4秒
+
+---
+
+## YouTube Shorts 标题 (Title)
+
+```
+【JLPT N4】听懂东京山手线报站！1分钟实景原声跟读挑战（EP.01） #Shorts
+```
+
+---
+
+## YouTube Shorts 简介栏 (Description)
+
+```markdown
+【JLPT N4】听懂东京山手线报站！1分钟实景原声跟读挑战（EP.01） #Shorts
+
+东京真实生活场景沉浸式短视频跟读精讲，30秒掌握日本高频地道实用口语。
+
+【日语句子】
+黄色い点字ブロックの内側までお下がりください。
+Kiiroi tenji burokku no uchigawa made osagari kudasai.
+
+【中文翻译】
+「请退到黄色盲道安全线以内。」
+
+【词汇拆解】
+- 黄色い (きいろい) : 黄色的
+- 点字ブロックの (てんじぶろっくの) : 盲道提示砖
+- 内側まで (うちがわまで) : 内侧位置
+- お下がり (おさがり) : 退后/等候
+- ください (ください) : 请……
+
+【名师语法精讲与避坑指南】
+注意「お下がりください」！「お + 动词连用形 + ください」是日本公共交通最标准的礼貌敬语祈使句式。
+
+【3步跟读法】
+1. 盲听原声：感受母语者自然发音与节奏。
+2. 语法拆解：掌握句型公式与场景文化。
+3. 开口复述：在 3-2-1 倒计时后跟随原声大声跟读，校准声调。
+
+【练习推荐】
+欢迎在 App Store 下载 TokyoFlow - 日语口语伴侣 App，体验精准 AI 声调打分与 10,000+ 实景原声练习！
+
+订阅 TokyoFlow 日语频道，每天 1 分钟轻松提升日语听力与口语。
+
+#Shorts #学日语 #日语口语 #东京日语 #JLPT #JLPTN4 #日语跟读 #TokyoFlow #yamanote_transit_zh
+```
+
+---
+
+## YouTube 标签 (Tags)
+
+```
+shorts, 学日语, 日语口语, 东京日语, jlpt, jlptn4, 日语跟读, tokyoflow, yamanote_transit_zh
+```

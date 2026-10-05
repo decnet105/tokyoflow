@@ -31,6 +31,10 @@ from youtube_auth import get_authenticated_service
 EST_TZ = zoneinfo.ZoneInfo("America/New_York")
 
 OLD_VIDEO_IDS = [
+    ("WL.01 Masterclass (Recent)", "qVNR2duZWqQ"),
+    ("WS.01 Short (Recent)", "XVbg-f8s7F0"),
+    ("WL.02 Masterclass (Recent)", "D99vmCoeymc"),
+    ("WS.02 Short (Recent)", "PSynUxU1zy4"),
     ("WL.01 Masterclass (Old)", "AaWSZ4J2fSI"),
     ("WS.01 Short (Old)", "vMM1KrOG4j4"),
     ("WL.02 Masterclass (Old)", "jFEtdDNpvlg"),
