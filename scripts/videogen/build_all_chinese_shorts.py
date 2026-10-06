@@ -483,6 +483,54 @@ CHINESE_SHORTS_CONFIGS = [
     }
 ]
 
+def prepare_shorts_background(bg_path: str, width: int = 1080, height: int = 1920) -> Image.Image:
+    """Prepares an authentic scene photograph base canvas for 9:16 vertical shorts."""
+    if bg_path and os.path.exists(bg_path):
+        try:
+            raw_img = Image.open(bg_path).convert("RGB")
+            src_w, src_h = raw_img.size
+            target_ratio = width / height
+            src_ratio = src_w / src_h
+
+            if src_ratio > target_ratio:
+                new_w = int(src_h * target_ratio)
+                center_x = int(src_w * 0.50)
+                left = max(0, min(src_w - new_w, center_x - new_w // 2))
+                raw_img = raw_img.crop((left, 0, left + new_w, src_h))
+            else:
+                new_h = int(src_w / target_ratio)
+                top = max(0, (src_h - new_h) // 2)
+                raw_img = raw_img.crop((0, top, src_w, top + new_h))
+
+            base_img = raw_img.resize((width, height), Image.Resampling.LANCZOS)
+            from PIL import ImageEnhance
+            base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
+            base_img = ImageEnhance.Color(base_img).enhance(1.15)
+        except Exception:
+            base_img = Image.new("RGB", (width, height), (12, 17, 29))
+    else:
+        base_img = Image.new("RGB", (width, height), (12, 17, 29))
+
+    overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_ov = ImageDraw.Draw(overlay)
+
+    # 1. Dark atmospheric overlay across whole screen
+    draw_ov.rectangle([(0, 0), (width, height)], fill=(10, 14, 23, 140))
+
+    # 2. Top header gradient (y=0..320)
+    for y in range(320):
+        rel = (320 - y) / 320.0
+        alpha = int(180 * (rel ** 1.2))
+        draw_ov.line([(0, y), (width, y)], fill=(8, 12, 22, alpha))
+
+    # 3. Bottom footer gradient (y=1450..1920)
+    for y in range(1450, height):
+        rel = (y - 1450) / 470.0
+        alpha = int(220 * (rel ** 1.1))
+        draw_ov.line([(0, y), (width, y)], fill=(6, 10, 18, alpha))
+
+    return Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+
 def render_chinese_interactive_frame(
     width: int,
     height: int,
@@ -493,16 +541,13 @@ def render_chinese_interactive_frame(
     stage_subtext: str,
     speaking_prog: float,
     total_progress: float,
-    frame_idx: int
+    frame_idx: int,
+    base_canvas: Image.Image = None
 ) -> Image.Image:
-    img = Image.new("RGB", (width, height), color=(10, 14, 23))
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(12, 17, 29))
     draw = ImageDraw.Draw(img)
 
-    # 1. Dark Modern Background
-    draw.rectangle([(0, 0), (width, height)], fill=(12, 17, 29))
-    draw.rectangle([(0, 0), (width, 270)], fill=(18, 25, 42))
-
-    # 2. Header Brand Capsule (Top JLPT Badge)
+    # 1. Top Header Brand Capsule (Top JLPT Badge)
     code_str = conf.get("shorts_code", f"SH.{conf['ep_num']:02d}")
     header_str = f"TokyoFlow  •  [{conf.get('jlpt_level', 'JLPT N5')}] {code_str}"
     font_brand = get_font(24)
@@ -952,6 +997,19 @@ async def generate_single_chinese_short(conf: dict):
         except Exception:
             cover_frame_img = None
 
+    # Discover authentic base scene image for background canvas
+    bg_cand = os.path.join(release_dir, "news_bg.jpg")
+    if not os.path.exists(bg_cand):
+        bg_cand = os.path.join(release_dir, "thumbnail.jpg")
+    if not os.path.exists(bg_cand):
+        scene_dir = "docs/youtube_assets/scene_backgrounds"
+        if os.path.exists(scene_dir):
+            for f in os.listdir(scene_dir):
+                if f.startswith(f"E{conf['ep_num']:02d}") or f.startswith(f"E{conf['ep_num']}"):
+                    bg_cand = os.path.join(scene_dir, f)
+                    break
+    base_canvas_9_16 = prepare_shorts_background(bg_cand)
+
     # 4. Render Video Frames
     frames_dir = os.path.join(tmp_dir, "frames")
     os.makedirs(frames_dir, exist_ok=True)
@@ -980,7 +1038,8 @@ async def generate_single_chinese_short(conf: dict):
                 stage_subtext=stg_sub,
                 speaking_prog=spk_prog,
                 total_progress=prog,
-                frame_idx=frame_idx
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
             )
         elif cur_t < t_listen:
             stg = 1
@@ -1003,7 +1062,8 @@ async def generate_single_chinese_short(conf: dict):
                 stage_subtext=stg_sub,
                 speaking_prog=spk_prog,
                 total_progress=prog,
-                frame_idx=frame_idx
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
             )
         elif cur_t < t_countdown:
             stg = 2
@@ -1019,7 +1079,8 @@ async def generate_single_chinese_short(conf: dict):
                 stage_subtext=stg_sub,
                 speaking_prog=spk_prog,
                 total_progress=prog,
-                frame_idx=frame_idx
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
             )
         elif cur_t < t_shadow_end:
             stg = 3
@@ -1042,7 +1103,8 @@ async def generate_single_chinese_short(conf: dict):
                 stage_subtext=stg_sub,
                 speaking_prog=spk_prog,
                 total_progress=prog,
-                frame_idx=frame_idx
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
             )
         else:
             stg = 4
@@ -1058,7 +1120,8 @@ async def generate_single_chinese_short(conf: dict):
                 stage_subtext=stg_sub,
                 speaking_prog=spk_prog,
                 total_progress=prog,
-                frame_idx=frame_idx
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
             )
 
         frame_file = os.path.join(frames_dir, f"frame_{frame_idx:05d}.jpg")
@@ -1156,16 +1219,43 @@ shorts, 学日语, 日语口语, 东京日语, jlpt, {conf.get('jlpt_level', 'JL
     shutil.rmtree(tmp_dir, ignore_errors=True)
     print(f"Completed Chinese Interactive Short for [{code_lbl}] -> {release_dir}/short.mp4")
 
-async def generate_all_chinese_shorts():
-    print("==================================================")
-    print("Starting Batch Chinese YouTube Shorts Producer (First-Frame Cover Injected)")
-    print(f"Target Queue: {len(CHINESE_SHORTS_CONFIGS)} Shorts (WS.01, WS.02, EP.01 ~ EP.11)")
-    print("==================================================")
-    
-    for conf in CHINESE_SHORTS_CONFIGS:
-        await generate_single_chinese_short(conf)
-        
-    print("\nALL CHINESE INTERACTIVE SHORTS SUCCESSFULLY GENERATED WITH FIRST-FRAME COVERS & BILINGUAL AUDIO!")
+async def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="TokyoFlow Chinese YouTube Shorts Master Factory")
+    parser.add_argument("--ep", "--episode", type=int, help="Target episode number to generate (e.g. 1)")
+    parser.add_argument("--code", type=str, help="Target shorts code (e.g. WS.01, WS.02, EP.01)")
+    parser.add_argument("--all", action="store_true", help="Explicitly regenerate all configured Chinese shorts")
+    args = parser.parse_args()
+
+    if args.ep:
+        targets = [c for c in CHINESE_SHORTS_CONFIGS if c["ep_num"] == args.ep]
+        if not targets:
+            print(f"[ERROR] No Chinese short configuration found for EP.{args.ep:02d}")
+            return
+        for conf in targets:
+            await generate_single_chinese_short(conf)
+    elif args.code:
+        code_upper = args.code.upper().strip()
+        targets = [c for c in CHINESE_SHORTS_CONFIGS if c.get("shorts_code", "").upper() == code_upper or f"EP.{c['ep_num']:02d}" == code_upper]
+        if not targets:
+            print(f"[ERROR] No Chinese short configuration found for code: {args.code}")
+            return
+        for conf in targets:
+            await generate_single_chinese_short(conf)
+    elif args.all:
+        print("==================================================")
+        print("Starting Batch Chinese YouTube Shorts Producer (First-Frame Cover Injected)")
+        print(f"Target Queue: {len(CHINESE_SHORTS_CONFIGS)} Shorts (WS.01, WS.02, EP.01 ~ EP.11)")
+        print("==================================================")
+        for conf in CHINESE_SHORTS_CONFIGS:
+            await generate_single_chinese_short(conf)
+        print("\nAll Chinese interactive shorts successfully generated.")
+    else:
+        print("[INFO] No target specified. Use --ep <NUM>, --code <CODE>, or --all to process shorts.")
+        codes = [c.get("shorts_code", f"EP.{c['ep_num']:02d}") for c in CHINESE_SHORTS_CONFIGS]
+        print(f"Available codes: {codes}")
 
 if __name__ == "__main__":
-    asyncio.run(generate_all_chinese_shorts())
+    asyncio.run(main())
+
+

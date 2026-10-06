@@ -159,6 +159,38 @@
       "status": "private",
       "lang": "zh",
       "format": "short"
+    },
+    "E14_en_long": {
+      "id": "WPVwUYTGjhM",
+      "title": "[JLPT N5] EP.14 Suica's New Payment Service 'teppay' | Real Japanese Breakdown",
+      "publishAt": "2026-10-10T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "long"
+    },
+    "E14_en_short": {
+      "id": "QblxNJbGUnE",
+      "title": "[JLPT N5] SH.14 Suica's 'teppay' Revolution! #Shorts #LearnJapanese",
+      "publishAt": "2026-10-10T12:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "short"
+    },
+    "E14_zh_long": {
+      "id": "KAjiRA6YAK0",
+      "title": "【JLPT N5】JR东日本Suica重大升级！全新扫码支付与宾格语法精讲（EP.14）",
+      "publishAt": "2026-10-11T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "long"
+    },
+    "E14_zh_short": {
+      "id": "GwaexaTCzfA",
+      "title": "【JLPT N5】SH.14-zh Suica全新扫码支付",
+      "publishAt": "2026-10-11T00:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "short"
     }
   }
 }

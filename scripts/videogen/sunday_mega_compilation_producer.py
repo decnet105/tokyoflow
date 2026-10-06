@@ -1561,7 +1561,6 @@ def render_full_master_video(output_dir: str):
     print("\n--- RENDERING 1080P MASTER VIDEO (1920x1080 @ 30FPS) ---")
     tmp_vid_dir = "tmp/videogen/sunday_mega_wm01"
     os.makedirs(tmp_vid_dir, exist_ok=True)
-    os.makedirs("output/videos", exist_ok=True)
 
     audio_dir = os.path.join(output_dir, "audio")
     segment_mp4s = []
@@ -1667,7 +1666,6 @@ def render_full_master_video(output_dir: str):
             f.write(f"file '{os.path.abspath(v)}'\n")
 
     final_master_mp4 = os.path.join(output_dir, "video.mp4")
-    published_mp4 = "output/videos/tokyoflow_wm01_weekday_mega_compilation.mp4"
 
     print(f"\nConcatenating {len(segment_mp4s)} clips into Final 1080p Master Video...")
     cmd_concat = [
@@ -1679,10 +1677,7 @@ def render_full_master_video(output_dir: str):
     ]
     subprocess.run(cmd_concat, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
-    import shutil
-    shutil.copyfile(final_master_mp4, published_mp4)
     print(f"  [OK] Master Video: {final_master_mp4}")
-    print(f"  [OK] Channel Video: {published_mp4}")
     print(f"  [OK] Total Video Duration: {total_rendered_duration/60.0:.2f} minutes ({total_rendered_duration:.1f}s)")
 
 # ==========================================
@@ -1849,19 +1844,33 @@ def render_sunday_teaser_short(output_dir: str):
     ]
 
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    
+    cover_frame_img = None
+    short_thumb_path = os.path.join(output_dir, "short_thumbnail.jpg")
+    if os.path.exists(short_thumb_path):
+        try:
+            cover_frame_img = Image.open(short_thumb_path).convert("RGB").resize((width, height), Image.Resampling.LANCZOS)
+        except Exception:
+            cover_frame_img = None
+
     try:
         for f_idx in range(total_frames):
             t = f_idx / fps
-            img = base.copy()
-            draw = ImageDraw.Draw(img)
+            
+            # First-Frame Injection: Frames 0..7 (first ~0.26s) use the exact 9:16 master cover
+            if f_idx < 8 and cover_frame_img is not None:
+                img = cover_frame_img
+            else:
+                img = base.copy()
+                draw = ImageDraw.Draw(img)
 
-            draw.rounded_rectangle([(40, 50), (width - 40, 150)], radius=16, fill=(15, 23, 42, 230))
-            draw.text((70, 75), "TokyoFlow - [JLPT N5-N3] WS.01", fill=(244, 114, 182), font=get_font(28))
+                draw.rounded_rectangle([(40, 50), (width - 40, 150)], radius=16, fill=(15, 23, 42, 230))
+                draw.text((70, 75), "TokyoFlow - [JLPT N5-N3] WS.01", fill=(244, 114, 182), font=get_font(28))
 
-            draw.rounded_rectangle([(40, 200), (width - 40, 420)], radius=20, fill=(15, 23, 42, 240), outline=(250, 204, 21), width=3)
-            draw.text((70, 230), "TOKYO SURVIVAL GYM", fill=(250, 204, 21), font=get_font(32))
-            draw.text((70, 290), "Sunday Mega-Compilation Teaser", fill=(255, 255, 255), font=get_font(36))
-            draw.text((70, 350), "Transit • Kombini • Izakaya • Akiba • Sento", fill=(148, 163, 184), font=get_font(24))
+                draw.rounded_rectangle([(40, 200), (width - 40, 420)], radius=20, fill=(15, 23, 42, 240), outline=(250, 204, 21), width=3)
+                draw.text((70, 230), "TOKYO SURVIVAL GYM", fill=(250, 204, 21), font=get_font(32))
+                draw.text((70, 290), "Sunday Mega-Compilation Teaser", fill=(255, 255, 255), font=get_font(36))
+                draw.text((70, 350), "Transit • Kombini • Izakaya • Akiba • Sento", fill=(148, 163, 184), font=get_font(24))
 
             draw.rounded_rectangle([(40, 460), (width - 40, 1180)], radius=24, fill=(10, 15, 28, 245), outline=(56, 189, 248), width=3)
             draw.text((70, 500), "[ LIVE SHADOWING DRILL ]", fill=(56, 189, 248), font=get_font(24))

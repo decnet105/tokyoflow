@@ -48,3 +48,17 @@
 - The YouTube Data API does NOT support setting custom thumbnails for YouTube Shorts (it only applies to 16:9 long videos).
 - For all 9:16 vertical Shorts, the master cover (`short_thumbnail.jpg`) MUST ALWAYS be generated first and burned into the video stream as the first 8-10 frames (approx 0.25s ~ 0.33s at 30fps).
 - This ensures YouTube's automatic thumbnail capture on upload displays the full-contrast, serialized 9:16 cover across all mobile feeds, carousels, and search results without requiring manual mobile app intervention.
+
+## 7. Mandatory Authentic Scene Photo & Video Background Retention Rule (Last Mile Standard)
+- All long-form masterclass videos (16:9) and vertical shorts (9:16) across both English and Chinese editions MUST retain an authentic background photo (`news_bg.jpg` / 4K Tokyo scene photograph) or authentic video clip as the persistent bottom background canvas, following the Last Mile masterclass production standard.
+- Strictly PROHIBITED: Plain solid/flat blank canvas (e.g., solid gray/white `(248, 250, 252)` or flat dark rectangle `(12, 17, 29)`) without authentic photographic/video imagery.
+- 16:9 Long-Form: 58% center-right subject crop, dark cosine vignette / multi-stop alpha gradient (dark left side for high-contrast card/subtitle readability, authentic scene visible on right and throughout), translucent frosted-glass HUD cards (`fill=(255, 255, 255, 235)` or dark frosted glass).
+- 9:16 Shorts: 9:16 vertical crop, cinematic dark vignette overlay, floating translucent cards with glowing karaoke ruby tokens.
+- Dynamic Video Clips: When cinema action clips or scenario video loops are available, composite smooth looped/action video with transparent RGBA HUD pipe overlays via FFmpeg (`overlay=0:0`).
+
+## 8. Selective Target Execution Discipline (No Blanket Batch Re-renders)
+- When modifying code, styling, typography, pipelines, or fixing bugs, NEVER re-render, regenerate, or overwrite all historical video packages across the channel unless the user explicitly instructs: "re-render all" / "全量重新生成".
+- Always target only the specific active episode (`--ep X`, `--dir <PATH>`, or single package directory) for verification and testing.
+- All production scripts MUST require explicit `--all` flags for full batch operations and default to single-target filtering, strictly protecting existing release assets in `docs/youtube_releases/` from accidental blanket overwriting.
+
+

@@ -1688,7 +1688,6 @@ def render_full_master_video(output_dir: str):
     
     tmp_vid_dir = "tmp/videogen/cinema_ep01"
     os.makedirs(tmp_vid_dir, exist_ok=True)
-    os.makedirs("output/videos", exist_ok=True)
 
     audio_dir = os.path.join(output_dir, "audio")
     segment_mp4s = []
@@ -1834,8 +1833,7 @@ def render_full_master_video(output_dir: str):
         for v in segment_mp4s:
             f.write(f"file '{os.path.abspath(v)}'\n")
 
-    final_master_mp4 = os.path.join(output_dir, "last_mile_cinema_masterclass_full.mp4")
-    published_mp4 = "output/videos/tokyoflow_cinema_wl01_last_mile.mp4"
+    final_master_mp4 = os.path.join(output_dir, "video.mp4")
 
     print(f"\n Concatenating {len(segment_mp4s)} Full-Motion Smooth clips into Final Master Video...")
     cmd_concat = [
@@ -1847,11 +1845,7 @@ def render_full_master_video(output_dir: str):
     ]
     subprocess.run(cmd_concat, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
-    import shutil
-    shutil.copyfile(final_master_mp4, published_mp4)
-
     print(f" Master 1080p Cinema Video Ready: {final_master_mp4}")
-    print(f" Channel Publish Video Ready: {published_mp4}")
     print(f" Total Video Duration: {total_duration / 60.0:.2f} minutes")
 
 # ==========================================
@@ -1864,7 +1858,7 @@ async def main_async():
     print(f" Episode: WL.01 {EPISODE_METADATA['movie_title_en']} ({EPISODE_METADATA['movie_title_ja']}) [Shorts Lead: WS.01]")
     print("================================================================================")
 
-    output_dir = "output/cinema_masterclass/wl01_last_mile"
+    output_dir = "docs/youtube_releases/WL01-last-mile-masterclass-v1.0"
     os.makedirs(output_dir, exist_ok=True)
 
     # 1. Build Machine-Readable Spec

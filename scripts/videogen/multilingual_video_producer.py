@@ -188,6 +188,53 @@ def draw_category_pill(draw: ImageDraw.Draw, text: str, x: int = 120, y: int = 1
     draw.text((x + 24, y + 10), text, fill=(79, 70, 229), font=font_cat)
     return pill_w
 
+def prepare_16_9_background_canvas(bg_image_path: str = "", width: int = 1920, height: int = 1080) -> Image.Image:
+    """Prepares an authentic scene photograph base canvas with cinematic dark gradient shading."""
+    if bg_image_path and os.path.exists(bg_image_path):
+        try:
+            raw_img = Image.open(bg_image_path).convert("RGB")
+            src_w, src_h = raw_img.size
+            target_ratio = width / height
+            src_ratio = src_w / src_h
+
+            if src_ratio > target_ratio:
+                new_w = int(src_h * target_ratio)
+                center_x = int(src_w * 0.58)
+                left = max(0, min(src_w - new_w, center_x - new_w // 2))
+                raw_img = raw_img.crop((left, 0, left + new_w, src_h))
+            else:
+                new_h = int(src_w / target_ratio)
+                top = max(0, (src_h - new_h) // 2)
+                raw_img = raw_img.crop((0, top, src_w, top + new_h))
+
+            base_img = raw_img.resize((width, height), Image.Resampling.LANCZOS)
+            base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
+            base_img = ImageEnhance.Color(base_img).enhance(1.18)
+        except Exception:
+            base_img = Image.new("RGB", (width, height), (15, 23, 42))
+    else:
+        base_img = Image.new("RGB", (width, height), (15, 23, 42))
+
+    overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_ov = ImageDraw.Draw(overlay)
+
+    # 1. Subtle dark tint across whole screen (alpha=130) so white HUD cards pop
+    draw_ov.rectangle([(0, 0), (width, height)], fill=(10, 15, 26, 130))
+
+    # 2. Left-side gradient shading for title & HUD card area
+    for x in range(1200):
+        rel = x / 1200.0
+        alpha = int(140 * (0.5 * (1 + math.cos(rel * math.pi))))
+        draw_ov.line([(x, 0), (x, height)], fill=(8, 12, 22, alpha))
+
+    # 3. Bottom vignette
+    for y in range(850, height):
+        rel = (y - 850) / 230.0
+        alpha = int(180 * (rel ** 1.1))
+        draw_ov.line([(0, y), (width, y)], fill=(6, 10, 18, alpha))
+
+    return Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+
 def render_follow_along_frame(
     tokens: list,
     category_label: str,
@@ -199,10 +246,11 @@ def render_follow_along_frame(
     ep_label: str,
     locale_cfg: dict,
     jlpt_level: str = "JLPT N4",
-    explainer_window: tuple = (0.0, 0.0)
+    explainer_window: tuple = (0.0, 0.0),
+    base_canvas: Image.Image = None
 ) -> Image.Image:
     width, height = 1920, 1080
-    img = Image.new("RGB", (width, height), color=(248, 250, 252))
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(15, 23, 42))
     draw = ImageDraw.Draw(img)
 
     # 1. Top Ribbon with Standardized JLPT Badge
@@ -312,10 +360,11 @@ def render_breakdown_frame(
     locale_cfg: dict,
     jlpt_level: str = "JLPT N4",
     current_time: float = 0.0,
-    timings: dict = None
+    timings: dict = None,
+    base_canvas: Image.Image = None
 ) -> Image.Image:
     width, height = 1920, 1080
-    img = Image.new("RGB", (width, height), color=(248, 250, 252))
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(15, 23, 42))
     draw = ImageDraw.Draw(img)
 
     # 1. Top Brand Ribbon with Standardized JLPT Badge
@@ -422,9 +471,9 @@ def render_breakdown_frame(
 
     return img
 
-def render_outro_frame(ep_label: str, locale_cfg: dict, jlpt_level: str = "JLPT N4", passcode: str = None) -> Image.Image:
+def render_outro_frame(ep_label: str, locale_cfg: dict, jlpt_level: str = "JLPT N4", passcode: str = None, base_canvas: Image.Image = None) -> Image.Image:
     width, height = 1920, 1080
-    img = Image.new("RGB", (width, height), color=(248, 250, 252))
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(15, 23, 42))
     draw = ImageDraw.Draw(img)
 
     if not passcode:
@@ -487,7 +536,8 @@ def render_follow_along_video_clip(
     locale_cfg: dict,
     jlpt_level: str = "JLPT N4",
     fps: int = 30,
-    explainer_window: tuple = (0.0, 0.0)
+    explainer_window: tuple = (0.0, 0.0),
+    base_canvas: Image.Image = None
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
@@ -527,7 +577,8 @@ def render_follow_along_video_clip(
                 ep_label=ep_label,
                 locale_cfg=locale_cfg,
                 jlpt_level=jlpt_level,
-                explainer_window=explainer_window
+                explainer_window=explainer_window,
+                base_canvas=base_canvas
             )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
@@ -553,7 +604,8 @@ def render_breakdown_video_clip(
     out_mp4_path: str,
     locale_cfg: dict,
     jlpt_level: str = "JLPT N4",
-    fps: int = 30
+    fps: int = 30,
+    base_canvas: Image.Image = None
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
@@ -593,7 +645,8 @@ def render_breakdown_video_clip(
                 locale_cfg=locale_cfg,
                 jlpt_level=jlpt_level,
                 current_time=t,
-                timings=timings
+                timings=timings,
+                base_canvas=base_canvas
             )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
@@ -900,10 +953,31 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
     jlpt_level = script_data.get("level", "JLPT N4")
     category_label = script_data.get("category", "Tokyo Transit")
 
+    # Discover authentic base scene image
+    bg_img = script_data.get("cover", {}).get("bg_image", "")
+    if not bg_img or not os.path.exists(bg_img):
+        cand_rel = os.path.join(output_dir, "news_bg.jpg")
+        if os.path.exists(cand_rel):
+            bg_img = cand_rel
+        else:
+            cand_thumb = os.path.join(output_dir, "thumbnail.jpg")
+            if os.path.exists(cand_thumb):
+                bg_img = cand_thumb
+            else:
+                scene_dir = "docs/youtube_assets/scene_backgrounds"
+                if os.path.exists(scene_dir):
+                    for f in os.listdir(scene_dir):
+                        if f.startswith(f"E{ep_num:02d}") or f.startswith(f"E{ep_num}"):
+                            bg_img = os.path.join(scene_dir, f)
+                            break
+
+    base_canvas_16_9 = prepare_16_9_background_canvas(bg_img)
+
     print(f"\n>> Starting Multi-Language Production: EP.{ep_num:02d} [{locale_cfg['name']}]")
     print(f"   Target Release Folder: {output_dir}")
     print(f"   Explainer Voice: {locale_cfg['explainer_voice']} ({locale_cfg['explainer_name']})")
     print(f"   JLPT Level Standard: {jlpt_level}")
+    print(f"   Authentic Background Base: {bg_img or '[Scene Ambient Fallback]'}")
 
     video_segments = []
 
@@ -946,7 +1020,8 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
                 out_mp4_path=seg_video_path,
                 locale_cfg=locale_cfg,
                 jlpt_level=jlpt_level,
-                fps=30
+                fps=30,
+                base_canvas=base_canvas_16_9
             )
             video_segments.append(seg_video_path)
 
@@ -979,7 +1054,8 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
                 out_mp4_path=seg_video_path,
                 locale_cfg=locale_cfg,
                 jlpt_level=jlpt_level,
-                fps=30
+                fps=30,
+                base_canvas=base_canvas_16_9
             )
             video_segments.append(seg_video_path)
 
@@ -1003,7 +1079,7 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
             )
             audio_dur = get_audio_duration(audio_path)
 
-            outro_img = render_outro_frame(ep_label, locale_cfg, jlpt_level=jlpt_level, passcode=passcode)
+            outro_img = render_outro_frame(ep_label, locale_cfg, jlpt_level=jlpt_level, passcode=passcode, base_canvas=base_canvas_16_9)
             render_static_video_clip(
                 img=outro_img,
                 audio_path=audio_path,

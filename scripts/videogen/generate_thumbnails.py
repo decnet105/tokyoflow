@@ -504,7 +504,7 @@ def process_release_dir(rdir: str, sh_num: int = None):
             jlpt_level=level,
             bg_image_path=bg_9_16
         )
-    print(f"✅ Finished updating cover for {dir_name} (Short: SH.{sh_num:02d})")
+    print(f"[OK] Finished updating cover for {dir_name} (Short: SH.{sh_num:02d})")
 
 if __name__ == "__main__":
     import argparse
@@ -529,12 +529,13 @@ if __name__ == "__main__":
         release_dirs = sorted(glob.glob("docs/youtube_releases/E*"))
         for rdir in release_dirs:
             process_release_dir(rdir)
-        print("✅ All release thumbnails synchronized!")
+        print("[OK] All release thumbnails synchronized.")
     else:
         # Default single target: latest release (E11)
         latest_dir = "docs/youtube_releases/E11-shabuya-robot-drama-v1.0"
         if os.path.exists(latest_dir):
-            print(f"ℹ️ No flags passed. Running incremental single-target on latest release: {latest_dir}")
+            print(f"[INFO] No flags passed. Running incremental single-target on latest release: {latest_dir}")
             process_release_dir(latest_dir, sh_num=11)
         else:
             print("Please specify --dir <PATH>, --episode <NUM>, or --all")
+

@@ -20,7 +20,7 @@ Standardized Master Production Engine (EP.01 / SH.01 Grade):
 5. Difficulty Quota & Badges:
    - 70% JLPT N5 (Beginner / Zero prerequisite).
    - Mandatory `[JLPT N5]` title prefix and on-screen difficulty badge.
-6. Unified Release Packaging in both `docs/youtube_releases/` and `output/scheduled_releases/`.
+6. Unified Release Packaging in `docs/youtube_releases/`.
 """
 
 import os
@@ -63,9 +63,10 @@ VOICE_MALE_EN = "en-US-AndrewNeural"
 VOICE_FEMALE_JA = "ja-JP-NanamiNeural"
 VOICE_NEWS_ANCHOR_JA = "ja-JP-KeitaNeural"
 
-def get_font(size: int):
+def get_font(size: int, is_en: bool = False):
+    font_file = FONT_PATH if not is_en else "/System/Library/Fonts/Helvetica.ttc"
     try:
-        return ImageFont.truetype(FONT_PATH, size)
+        return ImageFont.truetype(font_file, size)
     except Exception:
         return ImageFont.load_default()
 
@@ -100,26 +101,9 @@ def generate_silence(duration: float, out_path: str):
     subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
 def get_next_episode_number() -> int:
-    """Scans existing releases across output/en/masterclasses, docs/youtube_releases, and publish ledgers to find the next sequential English episode number."""
+    """Scans active publish ledger to find the next sequential episode number."""
     ep_numbers = []
     
-    # Check output/en/masterclasses
-    en_dir = os.path.join(PROJECT_ROOT, "output", "en", "masterclasses")
-    if os.path.exists(en_dir):
-        for item in os.listdir(en_dir):
-            m = re.match(r"^E(\d+)", item)
-            if m:
-                ep_numbers.append(int(m.group(1)))
-                
-    # Check docs/youtube_releases
-    releases_dir = os.path.join(PROJECT_ROOT, "docs", "youtube_releases")
-    if os.path.exists(releases_dir):
-        for item in os.listdir(releases_dir):
-            m = re.match(r"^E(\d+)", item)
-            if m:
-                ep_numbers.append(int(m.group(1)))
-                
-    # Check publish ledgers
     for ledger_file in [
         os.path.join(PROJECT_ROOT, "docs", "shared", "publish_ledger.json"),
         os.path.join(PROJECT_ROOT, "docs", "youtube_releases", "publish_ledger.json")
@@ -136,12 +120,8 @@ def get_next_episode_number() -> int:
                 pass
 
     if ep_numbers:
-        # Focus on active daily release sequence (E01..E12)
-        valid_eps = [n for n in ep_numbers if n <= 19]
-        if 12 in valid_eps:
-            return 13
-        return max(valid_eps) + 1
-    return 13
+        return max(ep_numbers) + 1
+    return 14
 
 async def build_teamwork_breakdown_audio(cues: list, out_final_path: str, tmp_dir: str) -> dict:
     """

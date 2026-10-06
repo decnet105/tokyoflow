@@ -1,0 +1,250 @@
+{
+  "episode_number": 14,
+  "folder_name": "E14-suica-teppay-launch-v1.0-zh",
+  "slug": "suica_teppay_launch_zh",
+  "locale": "zh",
+  "title": "JR东日本Suica推出全新扫码支付服务精讲",
+  "yt_title": "【JLPT N5】JR东日本Suica重大升级！全新扫码支付与宾格语法精讲（EP.14）",
+  "category": "东京交通 • 科技支付",
+  "level": "JLPT N5",
+  "district": "东京流行文化",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E14-suica-teppay-launch-v1.0/news_bg.jpg",
+  "cover": {
+    "hook": "Suica全新扫码支付",
+    "sub_hook": "突破2万日元限额新变革",
+    "jp_line1": "Suicaの新サービスを使って、",
+    "jp_line2": "もっと便利に支払います！",
+    "grammar_tag": "JLPT N5 语法：~を使って（使用某种工具）& 宾格助词 を",
+    "translation": "「使用Suica全新支付服务，出行与消费变得更便利！」",
+    "context_note": "JR东日本正式推出扫码支付服务，打破实体西瓜卡储值上限",
+    "location_tag": "场景：JR东京站 • 移动智能支付",
+    "tag": "[日本交通科技精讲 • 影子跟读]"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. Suica移动支付新升级",
+      "spoken_text": "JR東日本は、Suicaの新しい決済サービスを発表しました。",
+      "meaning": "JR东日本公司发布了Suica的全新结算支付服务。",
+      "tip": "「〜を発表しました」是新闻发布高频句型，表示官方正式发布某项服务或成果。",
+      "tokens": [
+        {
+          "orig": "JR東日本は、",
+          "kana": "じぇいあーるひがしにほんは",
+          "romaji": "jeiaaru higashinihon wa,",
+          "pos": "专有名词+主格",
+          "meaning": "JR东日本"
+        },
+        {
+          "orig": "Suicaの",
+          "kana": "すいかの",
+          "romaji": "suika no",
+          "pos": "专有名词+助词",
+          "meaning": "Suica西瓜卡的"
+        },
+        {
+          "orig": "新しい",
+          "kana": "あたらしい",
+          "romaji": "atarashii",
+          "pos": "形容词",
+          "meaning": "全新的"
+        },
+        {
+          "orig": "決済サービスを",
+          "kana": "けっさいさーびすを",
+          "romaji": "kessai saabisu o",
+          "pos": "复合名词+宾格",
+          "meaning": "结算支付服务"
+        },
+        {
+          "orig": "発表しました。",
+          "kana": "はっぴょうしました",
+          "romaji": "happyou shimashita.",
+          "pos": "动词过去式",
+          "meaning": "正式发布了"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 交通科技与宾格助词拆解",
+      "sentence_ja": "JR東日本は、Suicaの新しい決済サービスを発表しました。",
+      "vocab": [
+        {
+          "orig": "JR東日本",
+          "kana": "じぇいあーるひがしにほん",
+          "romaji": "jeiaaru higashinihon",
+          "pos": "专有名词",
+          "meaning": "东日本旅客铁道"
+        },
+        {
+          "orig": "Suica",
+          "kana": "すいか",
+          "romaji": "suika",
+          "pos": "专有名词",
+          "meaning": "西瓜卡/交通IC卡"
+        },
+        {
+          "orig": "新しい",
+          "kana": "あたらしい",
+          "romaji": "atarashii",
+          "pos": "一类形容词",
+          "meaning": "新的"
+        },
+        {
+          "orig": "決済",
+          "kana": "けっさい",
+          "romaji": "kessai",
+          "pos": "名词",
+          "meaning": "结账/支付结算"
+        },
+        {
+          "orig": "発表",
+          "kana": "はっぴょう",
+          "romaji": "happyou",
+          "pos": "动词/名词",
+          "meaning": "公布/发表"
+        }
+      ],
+      "grammar_title": "基础语法：名词 + を + 动词（动作涉及的对象）",
+      "grammar_bullets": [
+        [
+          "1. 宾格助词 を：",
+          "提示后续动词的作用对象，比如「サービスを発表する（发布服务）」."
+        ],
+        [
+          "2. Suica 限额变革：",
+          "以往实体卡储值上限为2万日元，新服务支持更高额度的日常与商旅支付."
+        ],
+        [
+          "3. 形容词连用修饰：",
+          "「新しい（形容词）+ 名词（決済サービス）」修饰事物."
+        ],
+        [
+          "4. 动词敬体过去：",
+          "「発表します」->「発表しました（已完成发布）」."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解这条关于东京人每天必用的Suica交通卡的重大革新报道。"
+        },
+        {
+          "speaker": "ja",
+          "text": "JR東日本",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "专有名词：东日本旅客铁道公司。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "Suica",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "专有名词：日本最普及的交通IC卡西瓜卡。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "新しい",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "一类形容词读作 atarashii，全新的。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "決済",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 kessai，支付结算、结账买单。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "発表しました",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "动词过去式读作 happyou shimashita，正式发布。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：用助词 を 连接发布对象动作的标准句型。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "新しい決済サービスを発表しました。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是正式发布了全新支付服务，商务科技新闻高频表达。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 智慧出行与便捷支付",
+      "spoken_text": "スマホを使って、お買い物がもっと便利になりますね！",
+      "meaning": "使用智能手机，买东西也变得更加方便了呢！",
+      "tip": "「〜を使って（使用……）」表示借助某种现代化工具实现动作。",
+      "tokens": [
+        {
+          "orig": "スマホを",
+          "kana": "すまほを",
+          "romaji": "sumaho o",
+          "pos": "名词+宾格",
+          "meaning": "智能手机"
+        },
+        {
+          "orig": "使って、",
+          "kana": "つかって",
+          "romaji": "tsukatte,",
+          "pos": "动词て形",
+          "meaning": "使用并"
+        },
+        {
+          "orig": "お買い物が",
+          "kana": "おかいものが",
+          "romaji": "okaimono ga",
+          "pos": "美化语名词+主格",
+          "meaning": "购物买东西"
+        },
+        {
+          "orig": "もっと",
+          "kana": "もっと",
+          "romaji": "motto",
+          "pos": "副词",
+          "meaning": "更加"
+        },
+        {
+          "orig": "便利になりますね！",
+          "kana": "べんりになりますね",
+          "romaji": "benri ni narimasu ne!",
+          "pos": "变化句型",
+          "meaning": "变得便捷呢！"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "chapter": "04. 关注与练习",
+      "spoken_text": "关注 TokyoFlow 日语，欢迎下载 App 一起跟读练习！"
+    }
+  ]
+}

@@ -384,15 +384,13 @@ async def produce_funnel_short():
     print(" TOKYOFLOW JAPANESE CINEMA • 11-SECOND SHORTS FUNNEL PRODUCTION (WS.01)")
     print("================================================================================")
     
-    out_dir = "output/cinema_masterclass/wl01_last_mile"
+    out_dir = "docs/youtube_releases/WL01-last-mile-masterclass-v1.0"
     os.makedirs(out_dir, exist_ok=True)
-    os.makedirs("output/videos", exist_ok=True)
     
     audio_path = os.path.join(out_dir, "ws01_short_11s_audio.mp3")
-    short_mp4_master = os.path.join(out_dir, "ws01_short_11s.mp4")
-    short_mp4_published = "output/videos/tokyoflow_cinema_ws01_last_mile_short.mp4"
-    thumb_path = os.path.join(out_dir, "ws01_thumbnail.jpg")
-    meta_path = os.path.join(out_dir, "ws01_metadata.md")
+    short_mp4_master = os.path.join(out_dir, "short.mp4")
+    thumb_path = os.path.join(out_dir, "short_thumbnail.jpg")
+    meta_path = os.path.join(out_dir, "short_metadata.md")
     
     # 1. Generate Metadata & Thumbnail
     generate_shorts_metadata(meta_path)
@@ -442,10 +440,20 @@ async def produce_funnel_short():
     
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
     
+    cover_frame_rgba = None
+    if os.path.exists(thumb_path):
+        try:
+            cover_frame_rgba = Image.open(thumb_path).convert("RGBA").resize((1080, 1920), Image.Resampling.LANCZOS)
+        except Exception:
+            cover_frame_rgba = None
+
     try:
         for f_idx in range(total_frames):
             t = f_idx / fps
-            frame = render_vertical_funnel_frame(current_time=t, total_duration=12.0, timings=timings)
+            if f_idx < 8 and cover_frame_rgba is not None:
+                frame = cover_frame_rgba
+            else:
+                frame = render_vertical_funnel_frame(current_time=t, total_duration=12.0, timings=timings)
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
         pass
@@ -454,14 +462,8 @@ async def produce_funnel_short():
             proc.stdin.close()
         except Exception:
             pass
-        proc.wait()
-        
-    import shutil
-    shutil.copyfile(short_mp4_master, short_mp4_published)
-    
     print("\n================================================================================")
-    print(f" 12-SECOND SHORTS FUNNEL READY: {short_mp4_published}")
-    print(f" Master Deliverable inside: {short_mp4_master}")
+    print(f" 12-SECOND SHORTS FUNNEL READY: {short_mp4_master}")
     print("================================================================================")
 
 def main():

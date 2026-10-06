@@ -251,6 +251,54 @@ SHORTS_CONFIGS = [
     }
 ]
 
+def prepare_shorts_background(bg_path: str, width: int = 1080, height: int = 1920) -> Image.Image:
+    """Prepares an authentic scene photograph base canvas for 9:16 vertical shorts."""
+    if bg_path and os.path.exists(bg_path):
+        try:
+            raw_img = Image.open(bg_path).convert("RGB")
+            src_w, src_h = raw_img.size
+            target_ratio = width / height
+            src_ratio = src_w / src_h
+
+            if src_ratio > target_ratio:
+                new_w = int(src_h * target_ratio)
+                center_x = int(src_w * 0.50)
+                left = max(0, min(src_w - new_w, center_x - new_w // 2))
+                raw_img = raw_img.crop((left, 0, left + new_w, src_h))
+            else:
+                new_h = int(src_w / target_ratio)
+                top = max(0, (src_h - new_h) // 2)
+                raw_img = raw_img.crop((0, top, src_w, top + new_h))
+
+            base_img = raw_img.resize((width, height), Image.Resampling.LANCZOS)
+            from PIL import ImageEnhance
+            base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
+            base_img = ImageEnhance.Color(base_img).enhance(1.15)
+        except Exception:
+            base_img = Image.new("RGB", (width, height), (12, 17, 29))
+    else:
+        base_img = Image.new("RGB", (width, height), (12, 17, 29))
+
+    overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_ov = ImageDraw.Draw(overlay)
+
+    # 1. Dark atmospheric overlay across whole screen
+    draw_ov.rectangle([(0, 0), (width, height)], fill=(10, 14, 23, 140))
+
+    # 2. Top header gradient (y=0..320)
+    for y in range(320):
+        rel = (320 - y) / 320.0
+        alpha = int(180 * (rel ** 1.2))
+        draw_ov.line([(0, y), (width, y)], fill=(8, 12, 22, alpha))
+
+    # 3. Bottom footer gradient (y=1450..1920)
+    for y in range(1450, height):
+        rel = (y - 1450) / 470.0
+        alpha = int(220 * (rel ** 1.1))
+        draw_ov.line([(0, y), (width, y)], fill=(6, 10, 18, alpha))
+
+    return Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+
 def render_interactive_frame(
     width: int,
     height: int,
@@ -261,17 +309,14 @@ def render_interactive_frame(
     stage_subtext: str,
     speaking_prog: float, # 0.0 to 1.0 during shadow
     total_progress: float,
-    frame_idx: int
+    frame_idx: int,
+    base_canvas: Image.Image = None
 ) -> Image.Image:
-    img = Image.new("RGB", (width, height), color=(9, 13, 22))
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(12, 17, 29))
     draw = ImageDraw.Draw(img)
 
-    # 1. Dark Neon Background
-    draw.rectangle([(0, 0), (width, height)], fill=(12, 17, 29))
-    draw.rectangle([(0, 0), (width, 270)], fill=(18, 25, 42))
-
-    # 2. Header Brand Capsule (y=65..118 - Auto-measured, zero overflow)
-    header_str = f"TokyoFlow 🇯🇵  •  [{conf.get('jlpt_level', 'JLPT N5')}] SH.{conf['ep_num']:02d}"
+    # 1. Top Header Brand Capsule (y=65..118 - Auto-measured, zero overflow)
+    header_str = f"TokyoFlow  •  [{conf.get('jlpt_level', 'JLPT N5')}] SH.{conf['ep_num']:02d}"
     font_brand = get_font(24)
     bbox_hdr = draw.textbbox((0, 0), header_str, font=font_brand)
     hdr_w = bbox_hdr[2] - bbox_hdr[0]
@@ -744,18 +789,46 @@ async def generate_single_short(conf: dict):
     thumb_img = create_shorts_cover(cover_dict)
     short_thumb_path = os.path.join(release_dir, "short_thumbnail.jpg")
     thumb_img.save(short_thumb_path, "JPEG", quality=95)
+    cover_frame_img = thumb_img.convert("RGB").resize((1080, 1920), Image.Resampling.LANCZOS)
+
+    # Discover authentic base scene image for background canvas
+    bg_cand = os.path.join(release_dir, "news_bg.jpg")
+    if not os.path.exists(bg_cand):
+        bg_cand = os.path.join(release_dir, "thumbnail.jpg")
+    if not os.path.exists(bg_cand):
+        scene_dir = "docs/youtube_assets/scene_backgrounds"
+        if os.path.exists(scene_dir):
+            for f in os.listdir(scene_dir):
+                if f.startswith(f"E{ep_num:02d}") or f.startswith(f"E{ep_num}"):
+                    bg_cand = os.path.join(scene_dir, f)
+                    break
+    base_canvas_9_16 = prepare_shorts_background(bg_cand)
 
     for frame_idx in range(total_frames):
         cur_t = frame_idx / fps
         prog = cur_t / total_duration
 
-        if cur_t < t_hook:
+        # First-Frame Injection: Frames 0..7 (first ~0.26s) use the exact 9:16 master cover
+        if frame_idx < 8 and cover_frame_img is not None:
+            frame_img = cover_frame_img
+        elif cur_t < t_hook:
             # Stage 0: Hook
             stg = 0
             active_tok = -1
             stg_title = " INTRO: SURVIVAL JAPANESE"
             stg_sub = "Scenario Context"
             spk_prog = 0.0
+            frame_img = render_interactive_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
+            )
         elif cur_t < t_listen:
             # Stage 1: Listen (Normal Speed)
             stg = 1
@@ -770,6 +843,17 @@ async def generate_single_short(conf: dict):
             stg_title = " STEP 1: LISTEN (Native Tokyo Speed)"
             stg_sub = "Listen carefully"
             spk_prog = 0.0
+            frame_img = render_interactive_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
+            )
         elif cur_t < t_countdown:
             # Stage 2: Breakdown & Pro-Tip
             stg = 2
@@ -777,6 +861,17 @@ async def generate_single_short(conf: dict):
             stg_title = " STEP 2: PRO-TIP & FORMULA"
             stg_sub = "Grammar & Nuance"
             spk_prog = 0.0
+            frame_img = render_interactive_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
+            )
         elif cur_t < t_shadow_end:
             # Stage 3: Shadowing / Speaking Mode
             stg = 3
@@ -792,6 +887,17 @@ async def generate_single_short(conf: dict):
                     break
             stg_title = "  YOUR TURN: SHADOW NOW!"
             stg_sub = "Speak out loud!"
+            frame_img = render_interactive_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
+            )
         else:
             # Stage 4: AI Scoring & App Outro
             stg = 4
@@ -799,17 +905,18 @@ async def generate_single_short(conf: dict):
             stg_title = " STEP 4: AI PITCH MATCH SCORING"
             stg_sub = "TokyoFlow App"
             spk_prog = 1.0
+            frame_img = render_interactive_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx,
+                base_canvas=base_canvas_9_16
+            )
 
-        frame_img = render_interactive_frame(
-            1080, 1920, conf,
-            active_token_idx=active_tok,
-            stage_num=stg,
-            stage_title=stg_title,
-            stage_subtext=stg_sub,
-            speaking_prog=spk_prog,
-            total_progress=prog,
-            frame_idx=frame_idx
-        )
         frame_file = os.path.join(frames_dir, f"frame_{frame_idx:05d}.jpg")
         frame_img.save(frame_file, "JPEG", quality=90)
 
@@ -904,10 +1011,28 @@ shorts, learn japanese, japanese speaking, tokyo japanese, jlpt, japanese shadow
     print(f" Completed Interactive Shadowing Short for EP.{ep_num:02d} -> {release_dir}")
 
 async def main():
-    print(" Starting Batch Generation of 8 Interactive Shadowing YouTube Shorts...")
-    for conf in SHORTS_CONFIGS:
-        await generate_single_short(conf)
-    print("\n ALL 8 INTERACTIVE SHADOWING SHORTS SUCCESSFULLY GENERATED!")
+    import argparse
+    parser = argparse.ArgumentParser(description="TokyoFlow Master YouTube Shorts Factory")
+    parser.add_argument("--ep", "--episode", type=int, help="Target episode number to generate (e.g. 1)")
+    parser.add_argument("--all", action="store_true", help="Explicitly regenerate all configured shorts")
+    args = parser.parse_args()
+
+    if args.ep:
+        targets = [c for c in SHORTS_CONFIGS if c["ep_num"] == args.ep]
+        if not targets:
+            print(f"[ERROR] No short configuration found for EP.{args.ep:02d}")
+            return
+        for conf in targets:
+            await generate_single_short(conf)
+    elif args.all:
+        print("Starting Batch Generation of all Interactive Shadowing YouTube Shorts...")
+        for conf in SHORTS_CONFIGS:
+            await generate_single_short(conf)
+        print("\nAll configured shorts successfully generated.")
+    else:
+        print("[INFO] No target specified. Use --ep <NUM> (e.g. --ep 1) or --all to process all shorts.")
+        print(f"Available episodes: {[c['ep_num'] for c in SHORTS_CONFIGS]}")
 
 if __name__ == "__main__":
     asyncio.run(main())
+

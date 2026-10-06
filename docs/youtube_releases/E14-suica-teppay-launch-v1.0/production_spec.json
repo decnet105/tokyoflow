@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-06",
+  "ep_num": 14,
+  "slug": "suica-teppay-launch",
+  "topic_title": "Suica's New Payment Service 'teppay'",
+  "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "target_jlpt_level": "JLPT N5",
+  "district": "Tokyo Pop Culture",
+  "dramatic_hook": "Suica's new payment service 'teppay' is set to revolutionize how Tokyoites manage their daily expenses!",
+  "news_broadcast": {
+    "headline_ja": "【速報】Suicaの新コード決済サービス「テッペイ」開始！",
+    "anchor_speech_ja": "JR東日本が新しいコード決済サービス「テッペイ」を発表しました。これにより、Suicaの利用限度額が2万円を超えることが可能になります。",
+    "location_tag": "TOKYO POP CULTURE"
+  },
+  "long_form": {
+    "yt_title": "[JLPT N5] EP.14 Suica's New Payment Service 'teppay' | Real Japanese Breakdown",
+    "english_hook": "SUICA PAYMENT REVOLUTION",
+    "japanese_key_phrase": "Suicaの新しいサービスを使います。",
+    "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\n\nTIMESTAMPS AND CHAPTERS:\n00:00 - 01. Breaking Trend Immersion\n00:06 - 02. Vocabulary & Grammar Breakdown\n00:45 - 03. Situational Practice Drill\n00:52 - 04. Shadowing Drill & Outro\n\nKEY PHRASES COVERED:\n- Suicaの新しいサービスを使います。\n- テッペイで支払います。\n\nRECOMMENDED PRACTICE:\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\n\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "tags": [
+      "LearnJapanese",
+      "TokyoFlow",
+      "JLPTN5",
+      "AnimeJapanese",
+      "JapaneseShadowing",
+      "TokyoPopCulture"
+    ],
+    "slides": [
+      {
+        "type": "follow_along",
+        "chapter": "01. Breaking Trend Immersion",
+        "spoken_text": "Suicaの新しいサービスを使います。",
+        "en": "I will use Suica's new service.",
+        "tip": "Use 'を' to indicate the direct object of the verb.",
+        "tokens": [
+          {
+            "orig": "Suica",
+            "kana": "スイカ",
+            "romaji": "Suika",
+            "pos": "Noun",
+            "meaning": "Suica"
+          },
+          {
+            "orig": "新しい",
+            "kana": "あたらしい",
+            "romaji": "atarashii",
+            "pos": "Adjective",
+            "meaning": "new"
+          },
+          {
+            "orig": "サービス",
+            "kana": "サービス",
+            "romaji": "saabisu",
+            "pos": "Noun",
+            "meaning": "service"
+          },
+          {
+            "orig": "使います",
+            "kana": "つかいます",
+            "romaji": "tsukaimasu",
+            "pos": "Verb",
+            "meaning": "use"
+          }
+        ]
+      },
+      {
+        "type": "breakdown_teamwork",
+        "chapter": "02. Breakdown & Cultural Insight",
+        "words": [
+          {
+            "orig": "Suica",
+            "kana": "スイカ",
+            "romaji": "Suika",
+            "pos": "Noun",
+            "meaning": "Suica"
+          },
+          {
+            "orig": "新しい",
+            "kana": "あたらしい",
+            "romaji": "atarashii",
+            "pos": "Adjective",
+            "meaning": "new"
+          },
+          {
+            "orig": "サービス",
+            "kana": "サービス",
+            "romaji": "saabisu",
+            "pos": "Noun",
+            "meaning": "service"
+          }
+        ],
+        "grammar": {
+          "title": "Using 'を' for Direct Objects",
+          "bullets": [
+            [
+              "1. Core JLPT Pattern:",
+              "'を' marks the direct object of an action."
+            ],
+            [
+              "2. Tokyo Cultural Insight:",
+              "Suica is a prepaid card used for transportation and small purchases in Tokyo."
+            ],
+            [
+              "3. Practical Daily Life:",
+              "Tokyoites use Suica for convenience in daily commutes and shopping."
+            ]
+          ]
+        },
+        "audio_cues": [
+          {
+            "speaker": "en",
+            "text": "Let's break down today's key words and cultural nuance."
+          },
+          {
+            "speaker": "ja",
+            "text": "Suica",
+            "card_idx": 0
+          },
+          {
+            "speaker": "en",
+            "text": "Suica is a prepaid card used in Tokyo.",
+            "card_idx": 0
+          },
+          {
+            "speaker": "ja",
+            "text": "新しい",
+            "card_idx": 1
+          },
+          {
+            "speaker": "en",
+            "text": "New, as in a new service.",
+            "card_idx": 1
+          },
+          {
+            "speaker": "ja",
+            "text": "サービス",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Service, a common loanword in Japanese.",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Using 'を' for direct objects is essential in Japanese sentences.",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "ja",
+            "text": "Suicaの新しいサービスを使います。",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "en",
+            "text": "Keep practicing and you'll master these phrases in no time!",
+            "is_spotlight": true
+          }
+        ]
+      },
+      {
+        "type": "follow_along",
+        "chapter": "03. Fan & Audience Reaction",
+        "spoken_text": "テッペイで支払います。",
+        "en": "I will pay with Teppay.",
+        "tip": "Use 'で' to indicate the means or method of an action.",
+        "tokens": [
+          {
+            "orig": "テッペイ",
+            "kana": "テッペイ",
+            "romaji": "Teppei",
+            "pos": "Noun",
+            "meaning": "Teppay"
+          },
+          {
+            "orig": "支払います",
+            "kana": "しはらいます",
+            "romaji": "shiharaimasu",
+            "pos": "Verb",
+            "meaning": "pay"
+          }
+        ]
+      }
+    ]
+  },
+  "shorts": {
+    "yt_short_title": "[JLPT N5] SH.14 Suica's 'teppay' Revolution! #Shorts #LearnJapanese",
+    "hook_title": "SUICA'S NEW SERVICE\nTEPPAY LAUNCH!",
+    "hook_audio_en": "Discover how Suica's new 'teppay' service is changing the game in Tokyo!",
+    "jp_sentence": "Suicaの新しいサービスを使います。",
+    "kana_sentence": "スイカのあたらしいサービスをつかいます。",
+    "romaji_sentence": "Suika no atarashii saabisu o tsukaimasu.",
+    "en_translation": "I will use Suica's new service.",
+    "tokens": [
+      {
+        "orig": "Suica",
+        "kana": "スイカ",
+        "romaji": "Suika",
+        "meaning": "Suica"
+      },
+      {
+        "orig": "新しい",
+        "kana": "あたらしい",
+        "romaji": "atarashii",
+        "meaning": "new"
+      },
+      {
+        "orig": "サービス",
+        "kana": "サービス",
+        "romaji": "saabisu",
+        "meaning": "service"
+      },
+      {
+        "orig": "使います",
+        "kana": "つかいます",
+        "romaji": "tsukaimasu",
+        "meaning": "use"
+      }
+    ],
+    "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
+    "pro_tip_body": "Use 'を' to mark the direct object in a sentence, indicating what is being used or acted upon.",
+    "pro_tip_audio_en": "Remember, 'を' is crucial for marking the direct object in Japanese sentences.",
+    "interactive_poll": "Would you use 'teppay' for your daily commute? A: Yes B: No",
+    "pinned_comment": "Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!\nPoll: Would you use 'teppay' for your daily commute? A: Yes B: No\nDownload TokyoFlow App on iOS for real-time speech pitch scoring!"
+  }
+}

@@ -160,7 +160,6 @@ async def build_video_package(spec: dict):
     
     workdir = f"tmp/videogen/{video_id}"
     os.makedirs(workdir, exist_ok=True)
-    os.makedirs("output/videos", exist_ok=True)
     
     segment_videos = []
     
@@ -197,7 +196,7 @@ async def build_video_package(spec: dict):
         segment_videos.append(video_path)
         print(f"   Segment {idx+1}/{len(spec['slides'])} rendered ({duration:.1f}s)")
         
-    final_output = f"output/videos/{video_id}.mp4"
+    final_output = f"{workdir}/{video_id}.mp4"
     concat_videos(segment_videos, final_output)
     total_duration = sum(get_audio_duration(f"{workdir}/seg_{i:02d}.mp3") for i in range(len(spec["slides"])))
     print(f" Successfully produced full HD video: {final_output} (Total Length: {total_duration:.1f}s)\n")

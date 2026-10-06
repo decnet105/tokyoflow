@@ -1,0 +1,234 @@
+{
+  "date": "2026-10-06",
+  "ep_num": 14,
+  "slug": "showa_kishu_kanpu",
+  "topic_title": "昭和の奇習「乾布摩擦」",
+  "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "target_jlpt_level": "JLPT N5",
+  "district": "Tokyo Pop Culture",
+  "dramatic_hook": "Discover the bizarre Showa-era custom of 'Kanpu-masatsu' that left many young Japanese puzzled!",
+  "news_broadcast": {
+    "headline_ja": "【速報】昭和の奇習「乾布摩擦」が再び注目を集める",
+    "anchor_speech_ja": "昭和時代の健康法として知られる「乾布摩擦」が、令和の若者たちの間で話題になっています。この奇習は、冬の朝に裸で乾いたタオルを使って体をこするというものです。",
+    "location_tag": "TOKYO POP CULTURE"
+  },
+  "long_form": {
+    "yt_title": "[JLPT N5] EP.14 Showa-Era's Bizarre Custom | Real Japanese Breakdown",
+    "english_hook": "SHOWA ERA CUSTOM",
+    "japanese_key_phrase": "昭和の奇習「乾布摩擦」",
+    "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\n\nTIMESTAMPS AND CHAPTERS:\n00:00 - 01. Breaking Trend Immersion\n00:06 - 02. Vocabulary & Grammar Breakdown\n00:45 - 03. Situational Practice Drill\n00:52 - 04. Shadowing Drill & Outro\n\nKEY PHRASES COVERED:\n- 昭和の奇習\n- 乾布摩擦\n\nRECOMMENDED PRACTICE:\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\n\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "tags": [
+      "LearnJapanese",
+      "TokyoFlow",
+      "JLPTN5",
+      "AnimeJapanese",
+      "JapaneseShadowing",
+      "TokyoPopCulture"
+    ],
+    "slides": [
+      {
+        "type": "follow_along",
+        "chapter": "01. Breaking Trend Immersion",
+        "spoken_text": "昭和の奇習「乾布摩擦」が話題になっています。",
+        "en": "The Showa-era custom 'Kanpu-masatsu' is becoming a hot topic.",
+        "tip": "Use '話題になっています' to describe something becoming a topic.",
+        "tokens": [
+          {
+            "orig": "昭和",
+            "kana": "しょうわ",
+            "romaji": "shouwa",
+            "pos": "Noun",
+            "meaning": "Showa era"
+          },
+          {
+            "orig": "奇習",
+            "kana": "きしゅう",
+            "romaji": "kishuu",
+            "pos": "Noun",
+            "meaning": "bizarre custom"
+          },
+          {
+            "orig": "乾布摩擦",
+            "kana": "かんぷまさつ",
+            "romaji": "kanpu-masatsu",
+            "pos": "Noun",
+            "meaning": "dry towel rubbing"
+          },
+          {
+            "orig": "話題",
+            "kana": "わだい",
+            "romaji": "wadai",
+            "pos": "Noun",
+            "meaning": "topic"
+          },
+          {
+            "orig": "なっています",
+            "kana": "なっています",
+            "romaji": "natteimasu",
+            "pos": "Verb",
+            "meaning": "becoming"
+          }
+        ]
+      },
+      {
+        "type": "breakdown_teamwork",
+        "chapter": "02. Breakdown & Cultural Insight",
+        "words": [
+          {
+            "orig": "昭和",
+            "kana": "しょうわ",
+            "romaji": "shouwa",
+            "pos": "Noun",
+            "meaning": "Showa era"
+          },
+          {
+            "orig": "奇習",
+            "kana": "きしゅう",
+            "romaji": "kishuu",
+            "pos": "Noun",
+            "meaning": "bizarre custom"
+          },
+          {
+            "orig": "乾布摩擦",
+            "kana": "かんぷまさつ",
+            "romaji": "kanpu-masatsu",
+            "pos": "Noun",
+            "meaning": "dry towel rubbing"
+          }
+        ],
+        "grammar": {
+          "title": "Cultural Insight: Kanpu-masatsu",
+          "bullets": [
+            [
+              "1. Core JLPT Pattern:",
+              "Use '〜が話題です' to express something is a topic of discussion."
+            ],
+            [
+              "2. Tokyo Cultural Insight:",
+              "Kanpu-masatsu was a health practice in the Showa era involving rubbing the body with a dry towel for health benefits."
+            ],
+            [
+              "3. Practical Daily Life:",
+              "While not common today, it reflects historical health practices in Japan."
+            ]
+          ]
+        },
+        "audio_cues": [
+          {
+            "speaker": "en",
+            "text": "Let's break down today's key words and cultural nuance."
+          },
+          {
+            "speaker": "ja",
+            "text": "昭和",
+            "card_idx": 0
+          },
+          {
+            "speaker": "en",
+            "text": "Showa era, a period in Japanese history.",
+            "card_idx": 0
+          },
+          {
+            "speaker": "ja",
+            "text": "奇習",
+            "card_idx": 1
+          },
+          {
+            "speaker": "en",
+            "text": "Bizarre custom, something unusual or strange.",
+            "card_idx": 1
+          },
+          {
+            "speaker": "ja",
+            "text": "乾布摩擦",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Kanpu-masatsu, a dry towel rubbing practice.",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Kanpu-masatsu was a health practice in the Showa era involving rubbing the body with a dry towel for health benefits.",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "ja",
+            "text": "昭和の奇習「乾布摩擦」が話題になっています。",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "en",
+            "text": "Remember, cultural practices can tell us a lot about history!",
+            "is_spotlight": true
+          }
+        ]
+      },
+      {
+        "type": "follow_along",
+        "chapter": "03. Fan & Audience Reaction",
+        "spoken_text": "若者たちは「乾布摩擦」を知りませんでした。",
+        "en": "Young people didn't know about 'Kanpu-masatsu'.",
+        "tip": "Use '知りませんでした' to express not knowing something in the past.",
+        "tokens": [
+          {
+            "orig": "若者",
+            "kana": "わかもの",
+            "romaji": "wakamono",
+            "pos": "Noun",
+            "meaning": "young people"
+          },
+          {
+            "orig": "知りませんでした",
+            "kana": "しりませんでした",
+            "romaji": "shirimasen deshita",
+            "pos": "Verb",
+            "meaning": "didn't know"
+          }
+        ]
+      }
+    ]
+  },
+  "shorts": {
+    "yt_short_title": "[JLPT N5] SH.14 Showa's Bizarre Custom! #Shorts #LearnJapanese",
+    "hook_title": "昭和の奇習\n「乾布摩擦」",
+    "hook_audio_en": "Have you heard of the Showa-era's bizarre custom, Kanpu-masatsu?",
+    "jp_sentence": "昭和の奇習「乾布摩擦」が話題です。",
+    "kana_sentence": "しょうわのきしゅう「かんぷまさつ」がわだいです。",
+    "romaji_sentence": "Shouwa no kishuu 'kanpu-masatsu' ga wadai desu.",
+    "en_translation": "The Showa-era custom 'Kanpu-masatsu' is a hot topic.",
+    "tokens": [
+      {
+        "orig": "昭和",
+        "kana": "しょうわ",
+        "romaji": "shouwa",
+        "meaning": "Showa era"
+      },
+      {
+        "orig": "奇習",
+        "kana": "きしゅう",
+        "romaji": "kishuu",
+        "meaning": "bizarre custom"
+      },
+      {
+        "orig": "乾布摩擦",
+        "kana": "かんぷまさつ",
+        "romaji": "kanpu-masatsu",
+        "meaning": "dry towel rubbing"
+      },
+      {
+        "orig": "話題",
+        "kana": "わだい",
+        "romaji": "wadai",
+        "meaning": "topic"
+      }
+    ],
+    "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
+    "pro_tip_body": "Use '〜が話題です' to express something is a topic of discussion.",
+    "pro_tip_audio_en": "Andrew English voice explaining rule",
+    "interactive_poll": "Do you think Kanpu-masatsu is a good health practice? A: Yes B: No",
+    "pinned_comment": "Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!\nPoll: Do you think Kanpu-masatsu is a good health practice? A: Yes B: No\nDownload TokyoFlow App on iOS for real-time speech pitch scoring!"
+  }
+}

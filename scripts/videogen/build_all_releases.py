@@ -850,11 +850,6 @@ async def package_episode(ep: dict):
     target_video = os.path.join(release_dir, "video.mp4")
     concat_videos_seamless(segment_videos, target_video)
     
-    # Mirror to output/videos/
-    os.makedirs("output/videos", exist_ok=True)
-    shutil.copyfile(target_video, f"output/videos/{folder_name}.mp4")
-    shutil.copyfile(target_video, f"output/videos/tokyoflow_v{ep_num:02d}_{ep['slug']}.mp4")
-    
     final_duration = get_audio_duration(target_video)
     print(f"   Full HD 1080p video assembled: {target_video} ({final_duration:.1f}s)")
 
@@ -887,9 +882,26 @@ async def package_episode(ep: dict):
     print(f"   Script manifest written: {target_script}")
 
 async def main():
-    for ep in EPISODES:
-        await package_episode(ep)
-    print("\n All 4 Episodes successfully upgraded with Bilingual Teamwork & Natural Tokyo Nanami Voice!")
+    import argparse
+    parser = argparse.ArgumentParser(description="TokyoFlow Release Packager")
+    parser.add_argument("--ep", "--episode", type=int, help="Target episode number to package")
+    parser.add_argument("--all", action="store_true", help="Explicitly package all episodes")
+    args = parser.parse_args()
+
+    if args.ep:
+        targets = [ep for ep in EPISODES if ep.get("episode_number") == args.ep]
+        if not targets:
+            print(f"[ERROR] No episode found for EP.{args.ep:02d}")
+            return
+        for ep in targets:
+            await package_episode(ep)
+    elif args.all:
+        for ep in EPISODES:
+            await package_episode(ep)
+        print("\nAll configured episodes successfully packaged.")
+    else:
+        print("[INFO] No target specified. Use --ep <NUM> or --all to process episodes.")
 
 if __name__ == "__main__":
     asyncio.run(main())
+

@@ -149,8 +149,8 @@ async def build_episode(spec: dict):
     print(f"==========================================")
 
     workdir = f"tmp/videogen/{ep_id}"
-    os.makedirs(workdir, exist_ok=True)
-    os.makedirs("output/videos", exist_ok=True)
+    release_dir = f"docs/youtube_releases/E{ep_num:02d}-{spec['slug']}-v1.0"
+    os.makedirs(release_dir, exist_ok=True)
     os.makedirs("docs/youtube_assets/thumbnails", exist_ok=True)
 
     # 1. Render all segments
@@ -181,7 +181,7 @@ async def build_episode(spec: dict):
         segment_videos.append(video_path)
         print(f"   Segment {idx+1}/{len(spec['slides'])} rendered ({duration:.1f}s)")
 
-    final_video = f"output/videos/{ep_id}.mp4"
+    final_video = f"{release_dir}/video.mp4"
     concat_videos(segment_videos, final_video)
     print(f" Final MP4 ready: {final_video}")
 

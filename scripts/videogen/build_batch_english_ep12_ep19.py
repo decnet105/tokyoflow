@@ -284,10 +284,17 @@ def render_interactive_short_frame(
 # -------------------------------------------------------------------------
 # Short Video Audio & Frame Pipeline
 # -------------------------------------------------------------------------
-async def generate_single_short_video(conf: dict, out_video_path: str, tmp_dir: str):
+async def generate_single_short_video(conf: dict, out_video_path: str, tmp_dir: str, short_thumb_path: str = None):
     os.makedirs(tmp_dir, exist_ok=True)
     frames_dir = os.path.join(tmp_dir, "frames")
     os.makedirs(frames_dir, exist_ok=True)
+
+    cover_frame_img = None
+    if short_thumb_path and os.path.exists(short_thumb_path):
+        try:
+            cover_frame_img = Image.open(short_thumb_path).convert("RGB").resize((1080, 1920), Image.Resampling.LANCZOS)
+        except Exception:
+            cover_frame_img = None
 
     # 1. Synthesize Audio Clips
     f_hook = os.path.join(tmp_dir, "01_hook.mp3")
@@ -367,12 +374,25 @@ async def generate_single_short_video(conf: dict, out_video_path: str, tmp_dir: 
         cur_t = frame_idx / fps
         prog = cur_t / total_duration
 
-        if cur_t < t_hook:
+        # First-Frame Injection: Frames 0..7 (first ~0.26s) use the exact 9:16 master cover
+        if frame_idx < 8 and cover_frame_img is not None:
+            frame_img = cover_frame_img
+        elif cur_t < t_hook:
             stg = 0
             active_tok = -1
             stg_title = "[ INTRO ]  SURVIVAL JAPANESE"
             stg_sub = "Scenario Context"
             spk_prog = 0.0
+            frame_img = render_interactive_short_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx
+            )
         elif cur_t < t_listen:
             stg = 1
             rel_t = cur_t - t_hook
@@ -386,18 +406,48 @@ async def generate_single_short_video(conf: dict, out_video_path: str, tmp_dir: 
             stg_title = "[ STEP 1 ]  LISTEN (Native Tokyo Speed)"
             stg_sub = "Listen carefully"
             spk_prog = 0.0
+            frame_img = render_interactive_short_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx
+            )
         elif cur_t < t_tip:
             stg = 2
             active_tok = -1
             stg_title = "[ STEP 2 ]  FORMULA & PRO-TIP"
             stg_sub = "Grammar & Nuance"
             spk_prog = 0.0
+            frame_img = render_interactive_short_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx
+            )
         elif cur_t < t_countdown:
             stg = 3
             active_tok = -1
             stg_title = "[ 3-2-1 READY ]  PREPARE TO SPEAK"
             stg_sub = "Countdown"
             spk_prog = 0.0
+            frame_img = render_interactive_short_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx
+            )
         elif cur_t < t_shadow_end:
             stg = 3
             rel_spk_t = cur_t - t_shadow_start
@@ -411,23 +461,33 @@ async def generate_single_short_video(conf: dict, out_video_path: str, tmp_dir: 
                     break
             stg_title = "[ YOUR TURN ]  SHADOW NOW!"
             stg_sub = "Speak out loud!"
+            frame_img = render_interactive_short_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx
+            )
         else:
             stg = 4
             active_tok = -1
             stg_title = "[ STEP 4 ]  AI PITCH MATCH SCORING"
             stg_sub = "TokyoFlow App"
             spk_prog = 1.0
+            frame_img = render_interactive_short_frame(
+                1080, 1920, conf,
+                active_token_idx=active_tok,
+                stage_num=stg,
+                stage_title=stg_title,
+                stage_subtext=stg_sub,
+                speaking_prog=spk_prog,
+                total_progress=prog,
+                frame_idx=frame_idx
+            )
 
-        frame_img = render_interactive_short_frame(
-            1080, 1920, conf,
-            active_token_idx=active_tok,
-            stage_num=stg,
-            stage_title=stg_title,
-            stage_subtext=stg_sub,
-            speaking_prog=spk_prog,
-            total_progress=prog,
-            frame_idx=frame_idx
-        )
         frame_file = os.path.join(frames_dir, f"frame_{frame_idx:05d}.jpg")
         frame_img.save(frame_file, "JPEG", quality=90)
 
@@ -1277,7 +1337,7 @@ async def produce_all_english_batch():
             locale_code="en"
         )
 
-        # 3. Produce 9:16 Interactive Shadowing Short & 9:16 Cover
+        # 3. Produce 9:16 Interactive Shadowing Short & 9:16 Cover (First-Frame Cover Injected)
         print(f"\n--- [2/3] Generating 9:16 Interactive Shadowing Short Video ---")
         shorts_spec = ep["shorts"]
         shorts_spec["ep_num"] = ep_num
@@ -1285,11 +1345,7 @@ async def produce_all_english_batch():
         shorts_spec["district"] = ep["district"]
         shorts_spec["category"] = ep["category"]
 
-        short_mp4 = str(release_dir / "short.mp4")
-        short_tmp = str(PROJECT_ROOT / "tmp" / f"shorts_render_ep{ep_num:02d}")
-        await generate_single_short_video(shorts_spec, short_mp4, short_tmp)
-
-        # Generate Dedicated 9:16 Cover
+        # Generate Dedicated 9:16 Cover FIRST for video burning
         short_thumb_path = str(release_dir / "short_thumbnail.jpg")
         cover_dict = {
             "ep_num": ep_num,
@@ -1308,6 +1364,10 @@ async def produce_all_english_batch():
         cover_img = create_shorts_cover(cover_dict)
         cover_img.save(short_thumb_path, "JPEG", quality=95)
         print(f"[OK] Saved 9:16 Short Cover: {short_thumb_path}")
+
+        short_mp4 = str(release_dir / "short.mp4")
+        short_tmp = str(PROJECT_ROOT / "tmp" / f"shorts_render_ep{ep_num:02d}")
+        await generate_single_short_video(shorts_spec, short_mp4, short_tmp, short_thumb_path)
 
         # 4. Save Clean Metadata Files
         print(f"\n--- [3/3] Packaging Clean Metadata & Schedule Kits ---")

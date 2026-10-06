@@ -77,14 +77,14 @@ Subscribe to @TokyoFlowJapan for daily Tokyo immersion.
 
 ---
 
-## 3.  3 
+## 3. Launch Video Packages
 
- 1080p [`output/videos/`](file:///Users/kilvonwu/Documents/UseCaseDrivenJapanese/output/videos)
+Release packages are located under `docs/youtube_releases/`:
 
 ---
 
-###  Video 1: 
-- ****: `output/videos/tokyoflow_v01_yamanote_transit.mp4`
+### Video 1: Yamanote Transit
+- Video: `docs/youtube_releases/E01-Yamanote_Transit-v1.0/video.mp4`
 - ****: 34 () /  Shorts / Long-form
 
 #### Title ()
@@ -125,8 +125,8 @@ japanese listening, learn japanese, tokyo metro, yamanote line, japanese train a
 
 ---
 
-###  Video 2: 
-- ****: `output/videos/tokyoflow_v02_kombini_checkout.mp4`
+### Video 2: Kombini Checkout
+- Video: `docs/youtube_releases/E02-Kombini_Checkout-v1.0/video.mp4`
 - ****: 25
 
 #### Title ()
@@ -164,8 +164,8 @@ kombini japanese, 7 eleven japan, japanese checkout phrases, convenient store ja
 
 ---
 
-###  Video 3: 
-- ****: `output/videos/tokyoflow_v03_izakaya_night.mp4`
+### Video 3: Izakaya Night
+- Video: `docs/youtube_releases/E03-Izakaya_Night-v1.0/video.mp4`
 - ****: 26
 
 #### Title ()
@@ -358,9 +358,9 @@ Hit subscribe, turn on notifications, and let us know: Where in Tokyo do you wan
 ```mermaid
 flowchart TD
     A[" YouTube Studio"] --> B[" CREATE -> Upload videos"]
-    B --> C[" output/videos/  MP4 "]
+    B --> C[" docs/youtube_releases/ MP4 "]
     C --> D[" Title / Description / Tags"]
-    D --> E[" Thumbnail ( 1 )"]
+    D --> E[" Thumbnail "]
     E --> F[" Playlist "]
     F --> G[": No, it's not made for kids"]
     G --> H["Visibility : Public ()  Schedule ()"]
@@ -368,11 +368,11 @@ flowchart TD
     I --> J[" iOS App "]
 ```
 
-#### 
-1. ****
-   -  [studio.youtube.com](https://studio.youtube.com/)
-   -  **CREATE ()** -> **Upload videos ()**
-   -  `output/videos/tokyoflow_v01_yamanote_transit.mp4` 
+#### Steps
+1. Upload Video
+   - studio.youtube.com
+   - CREATE -> Upload videos
+   - Select `docs/youtube_releases/E01-Yamanote_Transit-v1.0/video.mp4` 
 2. ** (Metadata)**
    -  **Title**  **Description** 
    - **Thumbnail ()**

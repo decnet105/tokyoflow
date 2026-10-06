@@ -10,8 +10,9 @@ Renders high-definition (1920x1080) slides with:
 """
 
 import os
+import math
 import subprocess
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 
 FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 
@@ -42,6 +43,50 @@ def draw_category_pill(draw: ImageDraw.Draw, text: str, x: int = 120, y: int = 1
     draw.text((x + 24, y + 10), text, fill=(79, 70, 229), font=font_cat)
     return pill_w
 
+def prepare_16_9_background_canvas(bg_image_path: str = "", width: int = 1920, height: int = 1080) -> Image.Image:
+    """Prepares an authentic scene photograph base canvas with cinematic dark gradient shading."""
+    if bg_image_path and os.path.exists(bg_image_path):
+        try:
+            raw_img = Image.open(bg_image_path).convert("RGB")
+            src_w, src_h = raw_img.size
+            target_ratio = width / height
+            src_ratio = src_w / src_h
+
+            if src_ratio > target_ratio:
+                new_w = int(src_h * target_ratio)
+                center_x = int(src_w * 0.58)
+                left = max(0, min(src_w - new_w, center_x - new_w // 2))
+                raw_img = raw_img.crop((left, 0, left + new_w, src_h))
+            else:
+                new_h = int(src_w / target_ratio)
+                top = max(0, (src_h - new_h) // 2)
+                raw_img = raw_img.crop((0, top, src_w, top + new_h))
+
+            base_img = raw_img.resize((width, height), Image.Resampling.LANCZOS)
+            base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
+            base_img = ImageEnhance.Color(base_img).enhance(1.18)
+        except Exception:
+            base_img = Image.new("RGB", (width, height), (15, 23, 42))
+    else:
+        base_img = Image.new("RGB", (width, height), (15, 23, 42))
+
+    overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_ov = ImageDraw.Draw(overlay)
+
+    draw_ov.rectangle([(0, 0), (width, height)], fill=(10, 15, 26, 130))
+
+    for x in range(1200):
+        rel = x / 1200.0
+        alpha = int(140 * (0.5 * (1 + math.cos(rel * math.pi))))
+        draw_ov.line([(x, 0), (x, height)], fill=(8, 12, 22, alpha))
+
+    for y in range(850, height):
+        rel = (y - 850) / 230.0
+        alpha = int(180 * (rel ** 1.1))
+        draw_ov.line([(0, y), (width, y)], fill=(6, 10, 18, alpha))
+
+    return Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+
 def render_follow_along_frame(
     tokens: list,
     category_label: str,
@@ -51,10 +96,11 @@ def render_follow_along_frame(
     current_time: float,
     chapter_label: str,
     ep_label: str,
-    en_window: tuple = (0.0, 0.0)
+    en_window: tuple = (0.0, 0.0),
+    base_canvas: Image.Image = None
 ) -> Image.Image:
     width, height = 1920, 1080
-    img = Image.new("RGB", (width, height), color=(248, 250, 252))
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(15, 23, 42))
     draw = ImageDraw.Draw(img)
 
     # 1. Top Ribbon
@@ -165,10 +211,11 @@ def render_breakdown_frame(
     chapter_label: str,
     ep_label: str,
     current_time: float = 0.0,
-    timings: dict = None
+    timings: dict = None,
+    base_canvas: Image.Image = None
 ) -> Image.Image:
     width, height = 1920, 1080
-    img = Image.new("RGB", (width, height), color=(248, 250, 252))
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(15, 23, 42))
     draw = ImageDraw.Draw(img)
 
     # Top Brand Ribbon
