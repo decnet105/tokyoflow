@@ -38,24 +38,45 @@ def extract_tokens_from_text(sentence: str, custom_tokens: list = None) -> list:
         })
     return tokens
 
-def align_sentence_tokens_with_audio(audio_path: str, tokens: list) -> list:
+def align_sentence_tokens_with_audio(audio_path: str, tokens: list, sentence_prompt: str = "") -> list:
     """
     Transcribes audio with Whisper word timestamps and aligns each token
-    with an anticipatory 80ms lead time for crisp visual synchronization.
+    with millisecond precision and an anticipatory lead time.
     """
+    if not tokens:
+        return []
+        
+    if not sentence_prompt:
+        sentence_prompt = "".join([t.get("orig", "") for t in tokens])
+        
     model = get_whisper_model()
-    transcription = model.transcribe(audio_path, word_timestamps=True, language="ja")
+    transcription = model.transcribe(
+        audio_path,
+        word_timestamps=True,
+        language="ja",
+        initial_prompt=sentence_prompt
+    )
     
+    full_clean_sentence = re.sub(r"[\s、。！？・「」『』（）,\.!\?]", "", sentence_prompt)
     whisper_words = []
+    accum_text = ""
     for seg in transcription.get("segments", []):
-        whisper_words.extend(seg.get("words", []))
+        for w in seg.get("words", []):
+            clean_w = re.sub(r"[\s、。！？・「」『』（）,\.!\?]", "", w.get("word", ""))
+            if clean_w:
+                whisper_words.append(w)
+                accum_text += clean_w
+                if len(accum_text) >= len(full_clean_sentence):
+                    break
+        if len(accum_text) >= len(full_clean_sentence):
+            break
         
     w_idx = 0
     total_w = len(whisper_words)
     aligned_tokens = []
     
     for tok in tokens:
-        orig = tok["orig"]
+        orig = tok.get("orig", "")
         clean_orig = re.sub(r"[\s、。！？・「」『』（）,\.!\?]", "", orig)
         
         if not clean_orig:
@@ -72,7 +93,7 @@ def align_sentence_tokens_with_audio(audio_path: str, tokens: list) -> list:
         
         while w_idx < total_w:
             w_item = whisper_words[w_idx]
-            w_text = re.sub(r"[\s、。！？・「」『』（）,\.!\?]", "", w_item["word"])
+            w_text = re.sub(r"[\s、。！？・「」『』（）,\.!\?]", "", w_item.get("word", ""))
             matched_words.append(w_item)
             matched_chars += w_text
             w_idx += 1
@@ -80,9 +101,9 @@ def align_sentence_tokens_with_audio(audio_path: str, tokens: list) -> list:
                 break
                 
         if matched_words:
-            # 80ms anticipatory lead offset for instant audio-visual sync
-            start_t = max(0.0, float(matched_words[0]["start"]) - 0.08)
-            end_t = float(matched_words[-1]["end"]) + 0.05
+            # 60ms anticipatory lead offset for instant audio-visual sync
+            start_t = max(0.0, float(matched_words[0]["start"]) - 0.06)
+            end_t = float(matched_words[-1]["end"]) + 0.04
         else:
             prev_end = aligned_tokens[-1]["end"] if aligned_tokens else 0.0
             start_t = prev_end

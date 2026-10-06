@@ -260,7 +260,9 @@ def render_follow_along_frame(
     jlpt_clean = jlpt_level.strip() if jlpt_level.startswith("JLPT") else f"JLPT {jlpt_level}"
     full_cat = f"[ {jlpt_clean} ]  {category_label}"
     draw_category_pill(draw, full_cat, x=120, y=115)
-    draw.text((120, 180), title_label, fill=(15, 23, 42), font=get_font(36))
+    title_font = get_font(36)
+    draw.text((122, 182), title_label, fill=(10, 15, 26), font=title_font)
+    draw.text((120, 180), title_label, fill=(254, 240, 138), font=title_font)
 
     # 3. Main 3-Tier Dialogue Card
     card_x, card_y, card_w, card_h = 120, 250, width - 240, 445
@@ -395,13 +397,14 @@ def render_breakdown_frame(
         if sp_start <= current_time <= sp_end:
             spotlight_active = True
 
-    # Sentence Bar
     sent_text = f"{locale_cfg['sentence_label']}  {sentence_ja}"
+    sent_font = get_font(34)
     if spotlight_active and active_vocab_idx is None:
         draw.rounded_rectangle([(110, 168), (width - 110, 222)], radius=12, fill=(238, 242, 255), outline=(99, 102, 241), width=2)
-        draw.text((124, 178), sent_text, fill=(67, 56, 202), font=get_font(34))
+        draw.text((124, 178), sent_text, fill=(67, 56, 202), font=sent_font)
     else:
-        draw.text((120, 180), sent_text, fill=(15, 23, 42), font=get_font(34))
+        draw.text((122, 182), sent_text, fill=(10, 15, 26), font=sent_font)
+        draw.text((120, 180), sent_text, fill=(254, 240, 138), font=sent_font)
 
     for i in range(num_cards):
         v = vocab_list[i]

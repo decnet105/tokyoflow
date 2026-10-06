@@ -97,9 +97,18 @@ def generate_silence(duration: float, out_path: str):
         "ffmpeg", "-y", "-f", "lavfi",
         "-i", f"anullsrc=r=44100:cl=stereo",
         "-t", str(duration),
-        "-c:a", "libmp3lame", out_path
+        "-c:a", "libmp3lame",
+        "-b:a", "192k",
+        out_path
     ]
     subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+
+def get_or_create_silence(duration: float, tmp_dir: str) -> str:
+    sil_name = f"silence_{int(round(duration * 1000))}ms.mp3"
+    sil_path = os.path.join(tmp_dir, sil_name)
+    if not os.path.exists(sil_path):
+        generate_silence(duration, sil_path)
+    return sil_path
 
 def get_next_episode_number() -> int:
     """Scans active publish ledger to find the next sequential episode number."""
@@ -609,9 +618,10 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
     generate_beep(1600, 0.25, beep_high)
 
     dur_jp_norm = get_audio_duration(jp_audio_norm)
-    shadow_silence_dur = dur_jp_norm + 1.2
-    shadow_silence_audio = os.path.join(tmp_dir, "05_shadow_silence.mp3")
-    generate_silence(shadow_silence_dur, shadow_silence_audio)
+    
+    # 1.5 Practice Drill Voice for Shadowing (Stage 3)
+    jp_audio_drill = os.path.join(tmp_dir, "05_jp_drill.mp3")
+    await synth_audio(conf["jp_sentence"], VOICE_FEMALE_JA, jp_audio_drill, rate="-12%", pitch="+2Hz")
 
     chime_audio = os.path.join(tmp_dir, "chime.mp3")
     generate_beep(1200, 0.25, chime_audio)
@@ -620,43 +630,84 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
 
     # 2. Whisper Token Alignment
     token_objs = conf["tokens"]
-    aligned_tokens = align_sentence_tokens_with_audio(jp_audio_norm, token_objs)
+    jp_sentence = conf.get("jp_sentence", "")
+    aligned_tokens_norm = align_sentence_tokens_with_audio(jp_audio_norm, token_objs, jp_sentence)
+    aligned_tokens_drill = align_sentence_tokens_with_audio(jp_audio_drill, token_objs, jp_sentence)
 
     dur_hook = get_audio_duration(hook_audio)
     dur_tip = get_audio_duration(tip_audio)
     dur_cue = get_audio_duration(shadow_cue_audio)
+    dur_beep_low = get_audio_duration(beep_low)
+    dur_beep_high = get_audio_duration(beep_high)
+    dur_drill = get_audio_duration(jp_audio_drill)
+    dur_chime = get_audio_duration(chime_audio)
     dur_out = get_audio_duration(outro_audio)
 
-    audio_segments = [
-        {"file": hook_audio, "dur": dur_hook, "pause": 0.25},
-        {"file": jp_audio_norm, "dur": dur_jp_norm, "pause": 0.35},
-        {"file": tip_audio, "dur": dur_tip, "pause": 0.35},
-        {"file": shadow_cue_audio, "dur": dur_cue, "pause": 0.15},
-        {"file": beep_low, "dur": 0.12, "pause": 0.25},
-        {"file": beep_low, "dur": 0.12, "pause": 0.25},
-        {"file": beep_high, "dur": 0.25, "pause": 0.2},
-        {"file": shadow_silence_audio, "dur": shadow_silence_dur, "pause": 0.2},
-        {"file": chime_audio, "dur": 0.25, "pause": 0.2},
-        {"file": outro_audio, "dur": dur_out, "pause": 0.4}
-    ]
+    # Build linear audio timeline with explicit silence clips for 100% millisecond precision
+    audio_timeline = []
+    
+    # Stage 0: Hook
+    audio_timeline.append((hook_audio, dur_hook))
+    sil_hook = get_or_create_silence(0.25, tmp_dir)
+    audio_timeline.append((sil_hook, 0.25))
+    t_listen_start = sum(d for _, d in audio_timeline)
+
+    # Stage 1: Listen
+    audio_timeline.append((jp_audio_norm, dur_jp_norm))
+    t_listen_end = sum(d for _, d in audio_timeline)
+    sil_listen = get_or_create_silence(0.35, tmp_dir)
+    audio_timeline.append((sil_listen, 0.35))
+    t_tip_start = sum(d for _, d in audio_timeline)
+
+    # Stage 2: Tip & Countdown
+    audio_timeline.append((tip_audio, dur_tip))
+    sil_tip = get_or_create_silence(0.35, tmp_dir)
+    audio_timeline.append((sil_tip, 0.35))
+
+    audio_timeline.append((shadow_cue_audio, dur_cue))
+    sil_cue = get_or_create_silence(0.15, tmp_dir)
+    audio_timeline.append((sil_cue, 0.15))
+
+    audio_timeline.append((beep_low, dur_beep_low))
+    sil_b1 = get_or_create_silence(0.25, tmp_dir)
+    audio_timeline.append((sil_b1, 0.25))
+
+    audio_timeline.append((beep_low, dur_beep_low))
+    sil_b2 = get_or_create_silence(0.25, tmp_dir)
+    audio_timeline.append((sil_b2, 0.25))
+
+    audio_timeline.append((beep_high, dur_beep_high))
+    sil_b3 = get_or_create_silence(0.20, tmp_dir)
+    audio_timeline.append((sil_b3, 0.20))
+    t_shadow_start = sum(d for _, d in audio_timeline)
+
+    # Stage 3: Shadowing Drill
+    audio_timeline.append((jp_audio_drill, dur_drill))
+    t_shadow_end = sum(d for _, d in audio_timeline)
+    sil_drill = get_or_create_silence(0.30, tmp_dir)
+    audio_timeline.append((sil_drill, 0.30))
+
+    audio_timeline.append((chime_audio, dur_chime))
+    sil_chime = get_or_create_silence(0.20, tmp_dir)
+    audio_timeline.append((sil_chime, 0.20))
+    t_outro_start = sum(d for _, d in audio_timeline)
+
+    # Stage 4: Outro
+    audio_timeline.append((outro_audio, dur_out))
+    sil_out = get_or_create_silence(0.40, tmp_dir)
+    audio_timeline.append((sil_out, 0.40))
+    t_total_end = sum(d for _, d in audio_timeline)
 
     full_audio_path = os.path.join(tmp_dir, "full_shadow_audio.mp3")
-    concat_filter = "".join([f"[{i}:a]" for i in range(len(audio_segments))]) + f"concat=n={len(audio_segments)}:v=0:a=1[outa]"
+    concat_filter = "".join([f"[{i}:a]" for i in range(len(audio_timeline))]) + f"concat=n={len(audio_timeline)}:v=0:a=1[outa]"
     cmd_audio = ["ffmpeg", "-y"]
-    for seg in audio_segments:
-        cmd_audio.extend(["-i", seg["file"]])
-    cmd_audio.extend(["-filter_complex", concat_filter, "-map", "[outa]", "-c:a", "libmp3lame", full_audio_path])
+    for f_path, _ in audio_timeline:
+        cmd_audio.extend(["-i", f_path])
+    cmd_audio.extend(["-filter_complex", concat_filter, "-map", "[outa]", "-c:a", "libmp3lame", "-b:a", "192k", full_audio_path])
     subprocess.run(cmd_audio, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
     total_duration = get_audio_duration(full_audio_path)
-
-    # Time boundaries
-    t_hook = dur_hook + 0.25
-    t_listen = t_hook + dur_jp_norm + 0.35
-    t_tip = t_listen + dur_tip + 0.35
-    t_countdown = t_tip + dur_cue + 0.15 + (0.12+0.25)*2 + 0.25 + 0.2
-    t_shadow_start = t_countdown
-    t_shadow_end = t_shadow_start + shadow_silence_dur + 0.2
+    print(f"Total English Short Duration: {total_duration:.2f}s (Timeline: Listen @ {t_listen_start:.2f}s, Shadow @ {t_shadow_start:.2f}s)")
 
     # Load 9:16 Cover Thumbnail for First-Frame Auto-Capture Injection
     cover_frame_img = None
@@ -703,7 +754,7 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
             # First-Frame Injection: Frames 0..7 (first ~0.25s) use the exact 9:16 master cover
             if f_i < 8 and cover_frame_img is not None:
                 frame = cover_frame_img
-            elif cur_t < t_hook:
+            elif cur_t < t_listen_start:
                 stg = 0
                 active_tok = -1
                 stg_title = "[INTRO] HOT TOPIC BREAKDOWN"
@@ -720,14 +771,12 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     frame_idx=f_i,
                     base_canvas=base_canvas_9_16
                 )
-            elif cur_t < t_listen:
+            elif cur_t < t_tip_start:
                 stg = 1
-                rel_t = cur_t - t_hook
+                rel_t = cur_t - t_listen_start
                 active_tok = -1
-                for tok_i, tok in enumerate(aligned_tokens):
-                    st = tok.get("start", 0.0) - 0.08
-                    et = tok.get("end", 0.0)
-                    if st <= rel_t <= et:
+                for tok_i, tok in enumerate(aligned_tokens_norm):
+                    if tok.get("start", 0.0) <= rel_t <= tok.get("end", 0.0):
                         active_tok = tok_i
                         break
                 stg_title = "[STEP 1] LISTEN (Native Tokyo Speed)"
@@ -744,7 +793,7 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     frame_idx=f_i,
                     base_canvas=base_canvas_9_16
                 )
-            elif cur_t < t_countdown:
+            elif cur_t < t_shadow_start:
                 stg = 2
                 active_tok = -1
                 stg_title = "[STEP 2] PRO-TIP AND FORMULA"
@@ -761,15 +810,13 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     frame_idx=f_i,
                     base_canvas=base_canvas_9_16
                 )
-            elif cur_t < t_shadow_end:
+            elif cur_t < t_outro_start:
                 stg = 3
                 rel_shadow_t = cur_t - t_shadow_start
-                spk_prog = min(1.0, max(0.0, rel_shadow_t / shadow_silence_dur))
+                spk_prog = min(1.0, max(0.0, rel_shadow_t / max(0.1, dur_drill)))
                 active_tok = -1
-                for tok_i, tok in enumerate(aligned_tokens):
-                    st = tok.get("start", 0.0) - 0.08
-                    et = tok.get("end", 0.0)
-                    if st <= rel_shadow_t <= et:
+                for tok_i, tok in enumerate(aligned_tokens_drill):
+                    if tok.get("start", 0.0) <= rel_shadow_t <= tok.get("end", 0.0):
                         active_tok = tok_i
                         break
                 stg_title = "[STEP 3] YOUR TURN: SHADOW OUT LOUD"
@@ -1232,7 +1279,7 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
             tokens = sl.get("tokens", [])
             if not tokens:
                 tokens = extract_tokens_from_text(spoken_text)
-            aligned_toks = align_sentence_tokens_with_audio(fn_ja, tokens)
+            aligned_toks = align_sentence_tokens_with_audio(fn_ja, tokens, spoken_text)
             
             render_follow_along_video_clip(
                 tokens=aligned_toks,

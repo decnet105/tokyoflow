@@ -59,6 +59,24 @@ def generate_beep(freq: int, duration: float, out_path: str):
     ]
     subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
+def generate_silence(duration: float, out_path: str):
+    cmd = [
+        "ffmpeg", "-y", "-f", "lavfi",
+        "-i", "anullsrc=r=44100:cl=stereo",
+        "-t", f"{duration:.3f}",
+        "-c:a", "libmp3lame",
+        "-b:a", "192k",
+        out_path
+    ]
+    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+
+def get_or_create_silence(duration: float, tmp_dir: str) -> str:
+    sil_name = f"silence_{int(round(duration * 1000))}ms.mp3"
+    sil_path = os.path.join(tmp_dir, sil_name)
+    if not os.path.exists(sil_path):
+        generate_silence(duration, sil_path)
+    return sil_path
+
 CHINESE_SHORTS_CONFIGS = [
     # -------------------------------------------------------------------------
     # WS.01: 《最后的里程》电影高光台词 (JLPT N3) - WL.01 Funnel
@@ -924,48 +942,85 @@ async def generate_single_chinese_short(conf: dict):
     # 2. Extract Token Timings with Whisper
     print("Aligning tokens with Whisper for precise karaoke glow (Normal & Practice Drill)...")
     token_objs = conf["tokens"]
-    aligned_tokens_norm = align_sentence_tokens_with_audio(jp_audio_norm, token_objs)
-    aligned_tokens_drill = align_sentence_tokens_with_audio(jp_audio_drill, token_objs)
+    jp_sentence = conf.get("jp_sentence", "")
+    aligned_tokens_norm = align_sentence_tokens_with_audio(jp_audio_norm, token_objs, jp_sentence)
+    aligned_tokens_drill = align_sentence_tokens_with_audio(jp_audio_drill, token_objs, jp_sentence)
 
     dur_hook = get_audio_duration(hook_audio)
     dur_jp_norm = get_audio_duration(jp_audio_norm)
     dur_tip = get_audio_duration(tip_audio)
     dur_cue = get_audio_duration(shadow_cue_audio)
+    dur_beep_low = get_audio_duration(beep_low)
+    dur_beep_high = get_audio_duration(beep_high)
     dur_drill = get_audio_duration(jp_audio_drill)
+    dur_chime = get_audio_duration(chime_audio)
     dur_out = get_audio_duration(outro_audio)
 
-    audio_segments = [
-        {"file": hook_audio, "dur": dur_hook, "pause": 0.25},
-        {"file": jp_audio_norm, "dur": dur_jp_norm, "pause": 0.35},
-        {"file": tip_audio, "dur": dur_tip, "pause": 0.35},
-        {"file": shadow_cue_audio, "dur": dur_cue, "pause": 0.15},
-        {"file": beep_low, "dur": 0.12, "pause": 0.25},
-        {"file": beep_low, "dur": 0.12, "pause": 0.25},
-        {"file": beep_high, "dur": 0.25, "pause": 0.2},
-        {"file": jp_audio_drill, "dur": dur_drill, "pause": 0.3},
-        {"file": chime_audio, "dur": 0.25, "pause": 0.2},
-        {"file": outro_audio, "dur": dur_out, "pause": 0.4}
-    ]
+    # Build linear audio timeline with explicit silence clips to ensure 100% audio-visual lock
+    audio_timeline = []
+    
+    # Stage 0: Hook
+    audio_timeline.append((hook_audio, dur_hook))
+    sil_hook = get_or_create_silence(0.25, tmp_dir)
+    audio_timeline.append((sil_hook, 0.25))
+    t_listen_start = sum(d for _, d in audio_timeline)
+
+    # Stage 1: Listen
+    audio_timeline.append((jp_audio_norm, dur_jp_norm))
+    t_listen_end = sum(d for _, d in audio_timeline)
+    sil_listen = get_or_create_silence(0.35, tmp_dir)
+    audio_timeline.append((sil_listen, 0.35))
+    t_tip_start = sum(d for _, d in audio_timeline)
+
+    # Stage 2: Tip & Countdown
+    audio_timeline.append((tip_audio, dur_tip))
+    sil_tip = get_or_create_silence(0.35, tmp_dir)
+    audio_timeline.append((sil_tip, 0.35))
+
+    audio_timeline.append((shadow_cue_audio, dur_cue))
+    sil_cue = get_or_create_silence(0.15, tmp_dir)
+    audio_timeline.append((sil_cue, 0.15))
+
+    audio_timeline.append((beep_low, dur_beep_low))
+    sil_b1 = get_or_create_silence(0.25, tmp_dir)
+    audio_timeline.append((sil_b1, 0.25))
+
+    audio_timeline.append((beep_low, dur_beep_low))
+    sil_b2 = get_or_create_silence(0.25, tmp_dir)
+    audio_timeline.append((sil_b2, 0.25))
+
+    audio_timeline.append((beep_high, dur_beep_high))
+    sil_b3 = get_or_create_silence(0.20, tmp_dir)
+    audio_timeline.append((sil_b3, 0.20))
+    t_shadow_start = sum(d for _, d in audio_timeline)
+
+    # Stage 3: Shadowing Drill
+    audio_timeline.append((jp_audio_drill, dur_drill))
+    t_shadow_end = sum(d for _, d in audio_timeline)
+    sil_drill = get_or_create_silence(0.30, tmp_dir)
+    audio_timeline.append((sil_drill, 0.30))
+
+    audio_timeline.append((chime_audio, dur_chime))
+    sil_chime = get_or_create_silence(0.20, tmp_dir)
+    audio_timeline.append((sil_chime, 0.20))
+    t_outro_start = sum(d for _, d in audio_timeline)
+
+    # Stage 4: Outro
+    audio_timeline.append((outro_audio, dur_out))
+    sil_out = get_or_create_silence(0.40, tmp_dir)
+    audio_timeline.append((sil_out, 0.40))
+    t_total_end = sum(d for _, d in audio_timeline)
 
     full_audio_path = os.path.join(tmp_dir, "full_shadow_audio.mp3")
-    concat_filter = "".join([f"[{i}:a]" for i in range(len(audio_segments))]) + f"concat=n={len(audio_segments)}:v=0:a=1[outa]"
+    concat_filter = "".join([f"[{i}:a]" for i in range(len(audio_timeline))]) + f"concat=n={len(audio_timeline)}:v=0:a=1[outa]"
     cmd_audio = ["ffmpeg", "-y"]
-    for seg in audio_segments:
-        cmd_audio.extend(["-i", seg["file"]])
-    cmd_audio.extend(["-filter_complex", concat_filter, "-map", "[outa]", "-c:a", "libmp3lame", full_audio_path])
+    for f_path, _ in audio_timeline:
+        cmd_audio.extend(["-i", f_path])
+    cmd_audio.extend(["-filter_complex", concat_filter, "-map", "[outa]", "-c:a", "libmp3lame", "-b:a", "192k", full_audio_path])
     subprocess.run(cmd_audio, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
     total_duration = get_audio_duration(full_audio_path)
-    print(f"Total Chinese Short Duration: {total_duration:.2f}s")
-
-    # Time boundaries calculation
-    t_hook = dur_hook + 0.25
-    t_listen = t_hook + dur_jp_norm + 0.35
-    t_tip = t_listen + dur_tip + 0.35
-    t_countdown = t_tip + dur_cue + 0.15 + (0.12+0.25)*2 + 0.25 + 0.2
-    t_shadow_start = t_countdown
-    t_shadow_end = t_shadow_start + dur_drill + 0.3
-    t_score_end = total_duration
+    print(f"Total Chinese Short Duration: {total_duration:.2f}s (Timeline: Listen @ {t_listen_start:.2f}s, Shadow @ {t_shadow_start:.2f}s)")
 
     # 3. Load or Generate Short Cover Thumbnail for First-Frame Injection
     short_thumb_path = os.path.join(release_dir, "short_thumbnail.jpg")
@@ -1024,7 +1079,7 @@ async def generate_single_chinese_short(conf: dict):
         # First-Frame Injection: Frames 0..7 (first ~0.26s) use the exact 9:16 master cover
         if frame_idx < 8 and cover_frame_img is not None:
             frame_img = cover_frame_img
-        elif cur_t < t_hook:
+        elif cur_t < t_listen_start:
             stg = 0
             active_tok = -1
             stg_title = "[场景引入] 真实东京日常口语"
@@ -1041,14 +1096,12 @@ async def generate_single_chinese_short(conf: dict):
                 frame_idx=frame_idx,
                 base_canvas=base_canvas_9_16
             )
-        elif cur_t < t_listen:
+        elif cur_t < t_tip_start:
             stg = 1
-            rel_t = cur_t - t_hook
+            rel_t = cur_t - t_listen_start
             active_tok = -1
             for tok_i, tok in enumerate(aligned_tokens_norm):
-                st = tok.get("start", 0.0) - 0.08
-                et = tok.get("end", 0.0)
-                if st <= rel_t <= et:
+                if tok.get("start", 0.0) <= rel_t <= tok.get("end", 0.0):
                     active_tok = tok_i
                     break
             stg_title = "[STEP 1] 东京原声原速盲听"
@@ -1065,7 +1118,7 @@ async def generate_single_chinese_short(conf: dict):
                 frame_idx=frame_idx,
                 base_canvas=base_canvas_9_16
             )
-        elif cur_t < t_countdown:
+        elif cur_t < t_shadow_start:
             stg = 2
             active_tok = -1
             stg_title = "[STEP 2] 名师语法与文化拆解"
@@ -1082,15 +1135,13 @@ async def generate_single_chinese_short(conf: dict):
                 frame_idx=frame_idx,
                 base_canvas=base_canvas_9_16
             )
-        elif cur_t < t_shadow_end:
+        elif cur_t < t_outro_start:
             stg = 3
             rel_spk_t = cur_t - t_shadow_start
-            spk_prog = rel_spk_t / max(0.1, dur_drill)
+            spk_prog = min(1.0, max(0.0, rel_spk_t / max(0.1, dur_drill)))
             active_tok = -1
             for tok_i, tok in enumerate(aligned_tokens_drill):
-                st = tok.get("start", 0.0) - 0.05
-                et = tok.get("end", 0.0)
-                if st <= rel_spk_t <= et:
+                if tok.get("start", 0.0) <= rel_spk_t <= tok.get("end", 0.0):
                     active_tok = tok_i
                     break
             stg_title = "[STEP 3] 跟着原声开口大声跟读！"
