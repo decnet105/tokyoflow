@@ -320,9 +320,15 @@ def render_breakdown_frame(
 
     return img
 
-def render_outro_frame(ep_label: str, passcode: str = None) -> Image.Image:
+def render_outro_frame(ep_label: str, passcode: str = None, base_canvas: Image.Image = None, bg_image_path: str = "") -> Image.Image:
     width, height = 1920, 1080
-    img = Image.new("RGB", (width, height), color=(248, 250, 252))
+    if base_canvas is None:
+        if bg_image_path:
+            base_canvas = prepare_16_9_background_canvas(bg_image_path)
+        else:
+            base_canvas = Image.new("RGB", (width, height), color=(15, 23, 42))
+
+    img = base_canvas.copy()
     draw = ImageDraw.Draw(img)
 
     if not passcode:
@@ -331,8 +337,9 @@ def render_outro_frame(ep_label: str, passcode: str = None) -> Image.Image:
 
     draw_top_brand_bar(draw, width, "Outro & Practice", ep_label)
 
-    # Main Card
-    draw.rectangle([(120, 140), (width - 120, height - 100)], fill=(255, 255, 255), outline=(226, 232, 240), width=3)
+    # Main Frosted Translucent Card
+    card_x, card_y, card_w, card_h = 120, 140, width - 240, height - 240
+    draw.rounded_rectangle([(card_x, card_y), (card_x + card_w, card_y + card_h)], radius=24, fill=(255, 255, 255), outline=(226, 232, 240), width=3)
     
     font_hero = get_font(44)
     draw.text((180, 180), "Subscribe to TokyoFlow Japanese on YouTube", fill=(220, 38, 38), font=font_hero)
@@ -347,14 +354,14 @@ def render_outro_frame(ep_label: str, passcode: str = None) -> Image.Image:
     draw.text((180, 415), "• 10,000+ JLPT N5-N1 Vocabulary & Interactive Drills", fill=(71, 85, 105), font=font_bullets)
     
     # Passcode Card Box
-    draw.rectangle([(180, 485), (width - 180, 715)], fill=(254, 243, 199), outline=(217, 119, 6), width=3)
-    draw.rectangle([(180, 485), (width - 180, 545)], fill=(253, 230, 138))
+    draw.rounded_rectangle([(180, 485), (width - 180, 715)], radius=18, fill=(254, 243, 199), outline=(217, 119, 6), width=3)
+    draw.rounded_rectangle([(180, 485), (width - 180, 545)], radius=18, fill=(253, 230, 138))
     draw.text((210, 502), "[ STUDY PASSCODE ]  OFFICIAL STUDY WORKBOOK UNLOCK CODE:", fill=(146, 64, 14), font=get_font(24))
     draw.text((210, 570), passcode, fill=(180, 83, 9), font=get_font(56))
     draw.text((210, 660), "Download full JLPT N5-N3 Study Workbook PDF in description with this code", fill=(13, 148, 136), font=get_font(22))
 
     # Bottom App CTA Card
-    draw.rectangle([(180, 745), (width - 180, 890)], fill=(239, 246, 255), outline=(191, 219, 254), width=2)
+    draw.rounded_rectangle([(180, 745), (width - 180, 890)], radius=18, fill=(239, 246, 255), outline=(191, 219, 254), width=2)
     font_app = get_font(27)
     draw.text((210, 770), "[ iOS APP STORE ]  Download 'TokyoFlow - Japanese Speaking' Free on App Store", fill=(37, 99, 235), font=font_app)
     font_app_sub = get_font(22)
@@ -374,10 +381,15 @@ def render_follow_along_video_clip(
     duration: float,
     out_mp4_path: str,
     fps: int = 30,
-    en_window: tuple = (0.0, 0.0)
+    en_window: tuple = (0.0, 0.0),
+    base_canvas: Image.Image = None,
+    bg_image_path: str = ""
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
+
+    if base_canvas is None and bg_image_path:
+        base_canvas = prepare_16_9_background_canvas(bg_image_path)
 
     cmd = [
         "ffmpeg", "-y",
@@ -413,7 +425,8 @@ def render_follow_along_video_clip(
                 current_time=t,
                 chapter_label=chapter_label,
                 ep_label=ep_label,
-                en_window=en_window
+                en_window=en_window,
+                base_canvas=base_canvas
             )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
@@ -424,6 +437,124 @@ def render_follow_along_video_clip(
         except Exception:
             pass
         proc.wait()
+
+def render_breakdown_frame(
+    sentence_ja: str,
+    vocab_list: list,
+    grammar_title: str,
+    grammar_bullets: list,
+    category_label: str,
+    chapter_label: str,
+    ep_label: str,
+    current_time: float = 0.0,
+    timings: dict = None,
+    base_canvas: Image.Image = None
+) -> Image.Image:
+    width, height = 1920, 1080
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(15, 23, 42))
+    draw = ImageDraw.Draw(img)
+
+    # 1. Top Brand Ribbon
+    draw_top_brand_bar(draw, width, chapter_label, ep_label)
+
+    # 2. Category Pill & Title
+    draw_category_pill(draw, category_label, x=120, y=115)
+    
+    # Vocab Grid Cards
+    grid_x = 120
+    grid_y = 240
+    num_cards = min(5, len(vocab_list))
+    gap = 20
+    card_w = (width - 240 - (num_cards - 1) * gap) // num_cards
+    card_h = 240
+
+    active_vocab_idx = None
+    spotlight_active = False
+
+    if timings:
+        for idx, (st, et) in timings.get("active_vocab_idx", {}).items():
+            if st <= current_time <= et:
+                active_vocab_idx = idx
+                break
+        sp_start, sp_end = timings.get("spotlight_window", (9999.0, 9999.0))
+        if sp_start <= current_time <= sp_end:
+            spotlight_active = True
+
+    # Sentence Bar (with active highlight during full sentence repeat)
+    if spotlight_active and active_vocab_idx is None:
+        draw.rounded_rectangle([(110, 168), (width - 110, 222)], radius=12, fill=(238, 242, 255), outline=(99, 102, 241), width=2)
+        draw.text((124, 178), f"Sentence:  {sentence_ja}", fill=(67, 56, 202), font=get_font(34))
+    else:
+        draw.text((120, 180), f"Sentence:  {sentence_ja}", fill=(15, 23, 42), font=get_font(34))
+
+    for i in range(num_cards):
+        v = vocab_list[i]
+        x = grid_x + i * (card_w + gap)
+        y = grid_y
+        is_active = (active_vocab_idx == i)
+
+        if is_active:
+            # Active highlighted card (Warm Gold / Blue Glow)
+            draw.rounded_rectangle([(x, y), (x + card_w, y + card_h)], radius=18, fill=(254, 249, 195), outline=(245, 158, 11), width=3)
+            # Active Indicator Dot (Pinned cleanly to top edge)
+            draw.ellipse([(x + card_w // 2 - 7, y - 7), (x + card_w // 2 + 7, y + 7)], fill=(220, 38, 38))
+            pos_fill = (254, 240, 138)
+            pos_color = (180, 83, 9)
+            kana_color = (180, 83, 9)
+        else:
+            draw.rounded_rectangle([(x, y), (x + card_w, y + card_h)], radius=18, fill=(255, 255, 255), outline=(226, 232, 240), width=2)
+            pos_fill = (241, 245, 249)
+            pos_color = (100, 116, 139)
+            kana_color = (79, 70, 229)
+
+        # POS Pill
+        draw.rounded_rectangle([(x + 14, y + 14), (x + min(card_w - 14, 150), y + 44)], radius=8, fill=pos_fill)
+        draw.text((x + 20, y + 20), v.get("pos", "Word"), fill=pos_color, font=get_font(17))
+
+        # Japanese Main
+        draw.text((x + 14, y + 54), v.get("orig", ""), fill=(15, 23, 42), font=get_font(30))
+
+        # Kana & Romaji
+        kana_ro = f"{v.get('kana', '')} • {v.get('romaji', '')}"
+        draw.text((x + 14, y + 105), kana_ro, fill=kana_color, font=get_font(19))
+
+        # Meaning
+        draw.text((x + 14, y + 145), v.get("meaning", ""), fill=(51, 65, 85), font=get_font(20))
+
+    # Grammar & Nuance Spotlight Card (Bottom Half)
+    spot_x = 120
+    spot_y = 510
+    spot_w = width - 240
+    spot_h = 375
+
+    if spotlight_active:
+        draw.rounded_rectangle([(spot_x, spot_y), (spot_x + spot_w, spot_y + spot_h)], radius=22, fill=(255, 255, 255), outline=(79, 70, 229), width=4)
+        draw.rounded_rectangle([(spot_x, spot_y), (spot_x + spot_w, spot_y + 60)], radius=22, fill=(224, 231, 255))
+        draw.text((spot_x + 30, spot_y + 16), f"[ GRAMMAR SPOTLIGHT ]  {grammar_title}", fill=(67, 56, 202), font=get_font(26))
+    else:
+        draw.rounded_rectangle([(spot_x, spot_y), (spot_x + spot_w, spot_y + spot_h)], radius=22, fill=(255, 255, 255), outline=(226, 232, 240), width=3)
+        draw.rounded_rectangle([(spot_x, spot_y), (spot_x + spot_w, spot_y + 60)], radius=22, fill=(238, 242, 255))
+        draw.text((spot_x + 30, spot_y + 16), f"[ GRAMMAR SPOTLIGHT ]  {grammar_title}", fill=(67, 56, 202), font=get_font(26))
+
+    b_y = spot_y + 80
+    for bullet in grammar_bullets:
+        if isinstance(bullet, (list, tuple)) and len(bullet) >= 2:
+            title, desc = bullet[0], bullet[1]
+        elif isinstance(bullet, str) and ":" in bullet:
+            parts = bullet.split(":", 1)
+            title, desc = parts[0].strip(), parts[1].strip()
+        else:
+            title, desc = "• Rule", str(bullet)
+        bullet_title_color = (220, 38, 38) if spotlight_active else (185, 28, 28)
+        draw.text((spot_x + 30, b_y), title, fill=bullet_title_color, font=get_font(22))
+        draw.text((spot_x + 330, b_y), desc, fill=(30, 41, 59), font=get_font(22))
+        b_y += 62
+
+    # Bottom App CTA
+    draw.rounded_rectangle([(120, 915), (width - 120, 1020)], radius=18, fill=(241, 245, 249), outline=(226, 232, 240), width=2)
+    draw.text((160, 945), "[ TOKYOFLOW ACADEMY ]  Practice interactive word drills & pitch accent scoring in the TokyoFlow iOS App!", fill=(51, 65, 85), font=get_font(25))
+
+    return img
 
 def render_breakdown_video_clip(
     sentence_ja: str,
@@ -437,10 +568,15 @@ def render_breakdown_video_clip(
     audio_path: str,
     duration: float,
     out_mp4_path: str,
-    fps: int = 30
+    fps: int = 30,
+    base_canvas: Image.Image = None,
+    bg_image_path: str = ""
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
+
+    if base_canvas is None and bg_image_path:
+        base_canvas = prepare_16_9_background_canvas(bg_image_path)
 
     cmd = [
         "ffmpeg", "-y",
@@ -476,7 +612,8 @@ def render_breakdown_video_clip(
                 chapter_label=chapter_label,
                 ep_label=ep_label,
                 current_time=t,
-                timings=timings
+                timings=timings,
+                base_canvas=base_canvas
             )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):

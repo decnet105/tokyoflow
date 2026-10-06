@@ -49,6 +49,7 @@ from timing_engine import (
     align_sentence_tokens_with_audio
 )
 from slide_designer import (
+    prepare_16_9_background_canvas,
     render_follow_along_video_clip,
     render_breakdown_video_clip,
     render_static_video_clip,
@@ -215,6 +216,54 @@ def concat_videos_seamless(video_list: list, final_output_path: str, temp_dir: s
     ]
     subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
+def prepare_shorts_background(bg_path: str, width: int = 1080, height: int = 1920) -> Image.Image:
+    """Prepares an authentic scene photograph base canvas for 9:16 vertical shorts."""
+    if bg_path and os.path.exists(bg_path):
+        try:
+            raw_img = Image.open(bg_path).convert("RGB")
+            src_w, src_h = raw_img.size
+            target_ratio = width / height
+            src_ratio = src_w / src_h
+
+            if src_ratio > target_ratio:
+                new_w = int(src_h * target_ratio)
+                center_x = int(src_w * 0.50)
+                left = max(0, min(src_w - new_w, center_x - new_w // 2))
+                raw_img = raw_img.crop((left, 0, left + new_w, src_h))
+            else:
+                new_h = int(src_w / target_ratio)
+                top = max(0, (src_h - new_h) // 2)
+                raw_img = raw_img.crop((0, top, src_w, top + new_h))
+
+            from PIL import ImageEnhance
+            base_img = raw_img.resize((width, height), Image.Resampling.LANCZOS)
+            base_img = ImageEnhance.Contrast(base_img).enhance(1.15)
+            base_img = ImageEnhance.Color(base_img).enhance(1.15)
+        except Exception:
+            base_img = Image.new("RGB", (width, height), (12, 17, 29))
+    else:
+        base_img = Image.new("RGB", (width, height), (12, 17, 29))
+
+    overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_ov = ImageDraw.Draw(overlay)
+
+    # Dark atmospheric overlay across whole screen
+    draw_ov.rectangle([(0, 0), (width, height)], fill=(10, 14, 23, 140))
+
+    # Top header gradient (y=0..320)
+    for y in range(320):
+        rel = (320 - y) / 320.0
+        alpha = int(180 * (rel ** 1.2))
+        draw_ov.line([(0, y), (width, y)], fill=(8, 12, 22, alpha))
+
+    # Bottom footer gradient (y=1450..1920)
+    for y in range(1450, height):
+        rel = (y - 1450) / 470.0
+        alpha = int(220 * (rel ** 1.1))
+        draw_ov.line([(0, y), (width, y)], fill=(6, 10, 18, alpha))
+
+    return Image.alpha_composite(base_img.convert("RGBA"), overlay).convert("RGB")
+
 # -------------------------------------------------------------------------
 # 9:16 Shorts Interactive Frame Renderer (Millisecond Token Glow + 4 Stages)
 # -------------------------------------------------------------------------
@@ -227,16 +276,17 @@ def render_interactive_short_frame(
     stage_title: str,
     speaking_prog: float,
     total_progress: float,
-    frame_idx: int
+    frame_idx: int,
+    base_canvas: Image.Image = None
 ) -> Image.Image:
-    img = Image.new("RGB", (width, height), color=(12, 17, 29))
+    img = base_canvas.copy() if base_canvas is not None else Image.new("RGB", (width, height), color=(12, 17, 29))
     draw = ImageDraw.Draw(img)
 
     # 1. Dark Neon Background Header
-    draw.rectangle([(0, 0), (width, 270)], fill=(18, 25, 42))
+    draw.rectangle([(0, 0), (width, 270)], fill=(18, 25, 42, 180) if base_canvas is not None else (18, 25, 42))
 
     # 2. Header Brand Capsule (y=65..118 - Auto-measured, zero overflow)
-    header_str = f"TokyoFlow 🇯🇵  •  [{conf.get('jlpt_level', 'JLPT N5')}] SH.{conf['ep_num']:02d}"
+    header_str = f"TokyoFlow  •  [{conf.get('jlpt_level', 'JLPT N5')}] SH.{conf['ep_num']:02d}"
     font_brand = get_font(24)
     bbox_hdr = draw.textbbox((0, 0), header_str, font=font_brand)
     hdr_w = bbox_hdr[2] - bbox_hdr[0]
@@ -616,6 +666,10 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
         except Exception:
             cover_frame_img = None
 
+    # Prepare 9:16 Authentic Scene Background Base Canvas
+    bg_img_path = conf.get("bg_image_path", "")
+    base_canvas_9_16 = prepare_shorts_background(bg_img_path)
+
     # 3. Stream frames to ffmpeg at 30fps
     fps = 30
     total_frames = int(total_duration * fps)
@@ -663,7 +717,8 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     stage_title=stg_title,
                     speaking_prog=spk_prog,
                     total_progress=prog,
-                    frame_idx=f_i
+                    frame_idx=f_i,
+                    base_canvas=base_canvas_9_16
                 )
             elif cur_t < t_listen:
                 stg = 1
@@ -686,7 +741,8 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     stage_title=stg_title,
                     speaking_prog=spk_prog,
                     total_progress=prog,
-                    frame_idx=f_i
+                    frame_idx=f_i,
+                    base_canvas=base_canvas_9_16
                 )
             elif cur_t < t_countdown:
                 stg = 2
@@ -702,7 +758,8 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     stage_title=stg_title,
                     speaking_prog=spk_prog,
                     total_progress=prog,
-                    frame_idx=f_i
+                    frame_idx=f_i,
+                    base_canvas=base_canvas_9_16
                 )
             elif cur_t < t_shadow_end:
                 stg = 3
@@ -725,7 +782,8 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     stage_title=stg_title,
                     speaking_prog=spk_prog,
                     total_progress=prog,
-                    frame_idx=f_i
+                    frame_idx=f_i,
+                    base_canvas=base_canvas_9_16
                 )
             else:
                 stg = 4
@@ -741,7 +799,8 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     stage_title=stg_title,
                     speaking_prog=spk_prog,
                     total_progress=prog,
-                    frame_idx=f_i
+                    frame_idx=f_i,
+                    base_canvas=base_canvas_9_16
                 )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
@@ -808,16 +867,16 @@ def curate_single_best_topic(top_candidates: list, date_str: str, next_ep_num: i
 Your mission is to pick THE SINGLE BEST DAILY TRENDING TOPIC from today's fresh candidate events, prioritizing Playlist 1 (Anime, Manga, Film, TV, Pop Culture, Entertainment & Netizen Buzz), and construct a linked Long-Form Video and Shorts Funnel package.
 
 ### THE 4 CORE PILLARS PRODUCTION BIBLE & DIRECTOR CONTRACT (制作圣经与导演合同 - 核心竞争力):
-1. ⚡ RAPID TREND VELOCITY & GEO PRECISION (热点反应速度快 + 本地GEO定位):
+1. [SPEED] RAPID TREND VELOCITY & GEO PRECISION (热点反应速度快 + 本地GEO定位):
    - Fast reaction to today's trending Japanese entertainment / anime / netizen buzz.
    - Embed specific Tokyo GEO locations (e.g. `Shinjuku`, `Shibuya`, `Akihabara`, `Ginza`, `Roppongi`, `Harajuku`, `Tokyo Dome`) and trending entity keywords in metadata, title, and tags.
-2. 🎭 VIRAL ENTERTAINMENT & LIVE NEWS IMMERSION (话题好玩 + 真实新闻镜头与原声速报):
+2. [IMMERSION] VIRAL ENTERTAINMENT & LIVE NEWS IMMERSION (话题好玩 + 真实新闻镜头与原声速报):
    - Make topics culturally intriguing, funny, relatable, or dramatic (e.g., natural airhead reactions '天然呆', anime bathhouse collabs, bizarre kombini foods, train manners).
    - Generate an authentic Japanese breaking news anchor opening (`news_broadcast`) for Live TV broadcast immersion.
-3. 🎯 STRICT JLPT LEVEL ALIGNMENT (能学到对应级别JLPT内容):
+3. [JLPT] STRICT JLPT LEVEL ALIGNMENT (能学到对应级别JLPT内容):
    - Strictly 70% JLPT N5 (zero prerequisite) / 20% N4-N3 / 10% N2-N1.
    - Downscale complex news headlines into crystal-clear Subject-Object-Verb spoken sentences.
-4. 🧠 FRICTIONLESS LEARNING EASE (容易学 + 慢速发音 + 30fps逐词发光卡拉OK):
+4. [PEDAGOGY] FRICTIONLESS LEARNING EASE (容易学 + 慢速发音 + 30fps逐词发光卡拉OK):
    - Synthesize slowed-down native Japanese audio for easy phoneme recognition.
    - 100% English explanations by Andrew, 100% Tokyo Japanese by Nanami/Keita.
 
@@ -972,35 +1031,35 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
         date_str = datetime.now().strftime("%Y-%m-%d")
         
     print(f"\n==================================================================")
-    print(f"🚀 TOKYOFLOW MASTER DUAL-VOICE & KARAOKE DAILY PIPELINE ({date_str})")
+    print(f"TOKYOFLOW MASTER DUAL-VOICE & KARAOKE DAILY PIPELINE ({date_str})")
     print(f"==================================================================")
     
     # 1. Detect next episode number
     next_ep_num = get_next_episode_number()
-    print(f"🔢 Target Episode Number: EP.{next_ep_num:02d} / SH.{next_ep_num:02d}")
+    print(f"Target Episode Number: EP.{next_ep_num:02d} / SH.{next_ep_num:02d}")
     
     # 2. Scan and score Japanese feeds
-    print(f"📡 [1/5] Scanning Japanese feeds across 15+ channels...")
+    print(f"[1/5] Scanning Japanese feeds across 15+ channels...")
     items = fetch_all_sources(timeout=8)
     candidates = rank_and_filter_candidates(items)
     print(f"✓ Found {len(candidates)} clustered trending topics.")
     
     if dry_run:
-        print("⚡ Dry-run mode: Stopping after scan and score.")
+        print("[DRY-RUN] Dry-run mode: Stopping after scan and score.")
         return
         
     # 3. Curate single best topic
-    print(f"🤖 [2/5] AI Editorial Director curating Top-1 Topic (Entertainment/Anime first)...")
+    print(f"[2/5] AI Editorial Director curating Top-1 Topic (Entertainment/Anime first)...")
     spec = curate_single_best_topic(candidates, date_str, next_ep_num)
     
     slug = spec.get("slug", "daily_trend")
     folder_name = f"E{next_ep_num:02d}-{slug}-v1.0"
     topic_title = spec.get("topic_title", "Japan Daily Trend")
     jlpt_level = spec.get("target_jlpt_level", "JLPT N5")
-    playlist_badge = spec.get("matched_playlist", "Playlist 1: 🎬 动漫·影视·娱乐·流行文化")
+    playlist_badge = spec.get("matched_playlist", "Playlist 1: 动漫·影视·娱乐·流行文化")
     
     print(f"✓ Selected Topic: {topic_title} [{jlpt_level}] ({playlist_badge})")
-    print(f"📁 Release Target: {folder_name}")
+    print(f"Release Target: {folder_name}")
     
     # Setup directories (Single Source of Truth: docs/youtube_releases)
     official_release_dir = os.path.join(PROJECT_ROOT, "docs", "youtube_releases", folder_name)
@@ -1013,7 +1072,7 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
         json.dump(spec, f, ensure_ascii=False, indent=2)
         
     # 4. Render Long-Form 16:9 Video (Frame-by-Frame True Karaoke Follow-Along & Teamwork Breakdown)
-    print(f"🎬 [3/5] Rendering 1080p 16:9 Long-Form Video (Live News Immersion + Frame-by-Frame Karaoke)...")
+    print(f"[3/5] Rendering 1080p 16:9 Long-Form Video (Live News Immersion + Frame-by-Frame Karaoke)...")
     long_spec = spec["long_form"]
     ep_label = f"[{jlpt_level}] EP.{next_ep_num:02d}"
     
@@ -1063,12 +1122,13 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
 
     bg_image_path = news_bg_candidate if os.path.exists(news_bg_candidate) else os.path.join(scene_bg_dir, "scene_tokyo_skyline.jpg")
     news_bg_image = bg_image_path
+    base_canvas_16_9 = prepare_16_9_background_canvas(news_bg_image)
 
     rendered_clips = []
 
     # Guarantee authentic Japanese news headline (never English title)
     headline_jp = long_spec.get("japanese_key_phrase") or spec.get("jp_sentence") or topic_title
-    news_headline = f"【芸能速報】{headline_jp}" if ("1" in playlist_badge or "芸能" in playlist_badge or "流行" in playlist_badge) else f"【速報】{headline_jp}"
+    news_headline = f"【芸能速报】{headline_jp}" if ("1" in playlist_badge or "芸能" in playlist_badge or "流行" in playlist_badge) else f"【速报】{headline_jp}"
     
     news_speech = f"ニュース速報です。{headline_jp}に関する最新情報をお伝えします。"
     first_slide_text = long_spec.get("slides", [{}])[0].get("spoken_text", "")
@@ -1186,7 +1246,9 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
                 duration=total_dur,
                 out_mp4_path=clip_mp4,
                 fps=30,
-                en_window=(dur_ja + 0.3, total_dur)
+                en_window=(dur_ja + 0.3, total_dur),
+                base_canvas=base_canvas_16_9,
+                bg_image_path=news_bg_image
             )
             rendered_clips.append(clip_mp4)
             print(f"✓ Dual-Voice Follow-Along Clip Rendered ({total_dur:.1f}s: Nanami JA + Andrew EN)")
@@ -1228,7 +1290,9 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
                 audio_path=audio_bd_path,
                 duration=dur,
                 out_mp4_path=clip_mp4,
-                fps=30
+                fps=30,
+                base_canvas=base_canvas_16_9,
+                bg_image_path=news_bg_image
             )
             rendered_clips.append(clip_mp4)
             print(f"✓ Bilingual Breakdown Clip Rendered ({dur:.1f}s)")
@@ -1237,7 +1301,7 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
     outro_audio = os.path.join(temp_dir, "outro_speech.mp3")
     await synth_audio("Subscribe to TokyoFlow Japanese, and practice interactive speaking drills in the TokyoFlow app!", VOICE_MALE_EN, outro_audio, rate="+2%")
     dur_out = get_audio_duration(outro_audio)
-    outro_img = render_outro_frame(ep_label)
+    outro_img = render_outro_frame(ep_label, base_canvas=base_canvas_16_9, bg_image_path=news_bg_image)
     outro_clip_mp4 = os.path.join(temp_dir, "clip_outro.mp4")
     render_static_video_clip(outro_img, outro_audio, dur_out, outro_clip_mp4, fps=30)
     rendered_clips.append(outro_clip_mp4)
@@ -1393,8 +1457,8 @@ Practice speaking and pitch accent scoring in TokyoFlow - Japanese Speaking on i
         json.dump(schedule_kit, f, ensure_ascii=False, indent=2)
         
     print(f"✓ Saved YouTube Schedule Kit: {os.path.join(official_release_dir, 'youtube_schedule_kit.json')}")
-    print(f"\n🎉 Daily Dual-Voice & Karaoke Pipeline Completed Successfully!")
-    print(f"📁 Unified Release Package: {official_release_dir}")
+    print(f"\n[DONE] Daily Dual-Voice & Karaoke Pipeline Completed Successfully!")
+    print(f"Unified Release Package: {official_release_dir}")
 
 def main():
     parser = argparse.ArgumentParser(description="TokyoFlow Autonomous Daily Trend Producer (EP.01/SH.01 Standard)")

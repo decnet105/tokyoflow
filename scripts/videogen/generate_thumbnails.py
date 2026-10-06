@@ -34,8 +34,14 @@ ASSETS_DIR = PROJECT_ROOT / "docs" / "youtube_assets" / "thumbnails"
 FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 FONT_EN_HEAVY = "/System/Library/Fonts/Helvetica.ttc"
 
-def get_font(size: int, is_en: bool = False):
-    font_file = FONT_PATH if not is_en else FONT_EN_HEAVY
+def has_cjk(text: str) -> bool:
+    return any(ord(c) > 0x2E80 for c in text)
+
+def get_font(size: int, is_en: bool = False, text: str = ""):
+    if is_en and text and not has_cjk(text):
+        font_file = FONT_EN_HEAVY
+    else:
+        font_file = FONT_PATH
     try:
         return ImageFont.truetype(font_file, size)
     except Exception:
@@ -67,6 +73,18 @@ def generate_serialized_thumbnail(
     width, height = 1920, 1080
     
     # 1. Background Image Loading & Proportional Crop
+    if not (bg_image_path and os.path.exists(bg_image_path)):
+        scene_bg_dir = PROJECT_ROOT / "docs" / "youtube_assets" / "scene_backgrounds"
+        if scene_bg_dir.exists():
+            for f in os.listdir(str(scene_bg_dir)):
+                if f.startswith(f"E{ep_num:02d}") or f.startswith(f"E{ep_num}"):
+                    bg_image_path = str(scene_bg_dir / f)
+                    break
+            if not (bg_image_path and os.path.exists(bg_image_path)):
+                cand_sky = str(scene_bg_dir / "scene_tokyo_skyline.jpg")
+                if os.path.exists(cand_sky):
+                    bg_image_path = cand_sky
+
     if bg_image_path and os.path.exists(bg_image_path):
         raw_img = Image.open(bg_image_path).convert("RGB")
         src_w, src_h = raw_img.size
@@ -148,7 +166,7 @@ def generate_serialized_thumbnail(
 
     # Pink Sub-Hook
     clean_sub_hook = sub_hook.upper() if sub_hook else "POP CULTURE TREND"
-    draw.text((65, 385), clean_sub_hook, fill=(244, 114, 182), font=get_font(34, is_en=True))
+    draw.text((65, 385), clean_sub_hook, fill=(244, 114, 182), font=get_font(34, is_en=True, text=clean_sub_hook))
 
     # 6. Japanese Learning Card (Glassmorphic dark navy with Sky Cyan border)
     quote_box_w = 860
@@ -172,7 +190,7 @@ def generate_serialized_thumbnail(
     else:
         jp_l1, jp_l2 = jp_full, ""
 
-    font_jp = get_font(38)
+    font_jp = get_font(38, text=jp_l1)
     draw.text((90, quote_box_y + 70), jp_l1, fill=(255, 255, 255), font=font_jp)
     if jp_l2:
         draw.text((90, quote_box_y + 125), jp_l2, fill=(254, 240, 138), font=font_jp)
@@ -181,16 +199,16 @@ def generate_serialized_thumbnail(
         text_offset_y = -35
     
     tag_str = grammar_tag if grammar_tag else f"{jlpt_level} Grammar • Key Pattern"
-    draw.text((90, quote_box_y + 200 + text_offset_y), tag_str, fill=(244, 114, 182), font=get_font(23))
+    draw.text((90, quote_box_y + 200 + text_offset_y), tag_str, fill=(244, 114, 182), font=get_font(23, text=tag_str))
     
     en_str = en_translation if en_translation else f'"{english_hook.title()}"'
-    draw.text((90, quote_box_y + 245 + text_offset_y), en_str, fill=(226, 232, 240), font=get_font(24, is_en=True))
+    draw.text((90, quote_box_y + 245 + text_offset_y), en_str, fill=(226, 232, 240), font=get_font(24, is_en=True, text=en_str))
     
     note_str = context_note if context_note else f"Daily spoken Tokyo Japanese for real situations"
-    draw.text((90, quote_box_y + 300 + text_offset_y), note_str, fill=(148, 163, 184), font=get_font(20, is_en=True))
+    draw.text((90, quote_box_y + 300 + text_offset_y), note_str, fill=(148, 163, 184), font=get_font(20, is_en=True, text=note_str))
     
     loc_str = location_tag if location_tag else f"Setting: Tokyo, Japan • {jlpt_level} Mastery"
-    draw.text((90, quote_box_y + 345 + text_offset_y), loc_str, fill=(56, 189, 248), font=get_font(20, is_en=True))
+    draw.text((90, quote_box_y + 345 + text_offset_y), loc_str, fill=(56, 189, 248), font=get_font(20, is_en=True, text=loc_str))
 
     # 7. Full-Width Crimson Conversion Ribbon
     draw.rounded_rectangle([(60, height - 120), (width - 60, height - 45)], radius=16, fill=(225, 29, 72))

@@ -16,8 +16,14 @@ ASSETS_DIR = PROJECT_ROOT / "docs" / "youtube_assets" / "thumbnails"
 FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 FONT_EN_HEAVY = "/System/Library/Fonts/Helvetica.ttc"
 
-def get_font(size: int, is_en: bool = False):
-    font_file = FONT_PATH if not is_en else FONT_EN_HEAVY
+def has_cjk(text: str) -> bool:
+    return any(ord(c) > 0x2E80 for c in text)
+
+def get_font(size: int, is_en: bool = False, text: str = ""):
+    if is_en and text and not has_cjk(text):
+        font_file = FONT_EN_HEAVY
+    else:
+        font_file = FONT_PATH
     try:
         return ImageFont.truetype(font_file, size)
     except Exception:
@@ -28,10 +34,23 @@ def create_shorts_cover(item: dict) -> Image.Image:
     W, H = 1080, 1920
     bg_image_path = item.get("bg_image_path", "")
     
-    if not bg_image_path and item.get("folder"):
+    if not (bg_image_path and os.path.exists(bg_image_path)) and item.get("folder"):
         cand = RELEASES_DIR / item["folder"] / "news_bg.jpg"
         if cand.exists():
             bg_image_path = str(cand)
+
+    if not (bg_image_path and os.path.exists(bg_image_path)):
+        scene_bg_dir = PROJECT_ROOT / "docs" / "youtube_assets" / "scene_backgrounds"
+        ep_num = item.get("ep_num", 1)
+        if scene_bg_dir.exists():
+            for f in os.listdir(str(scene_bg_dir)):
+                if f.startswith(f"E{ep_num:02d}") or f.startswith(f"E{ep_num}"):
+                    bg_image_path = str(scene_bg_dir / f)
+                    break
+            if not (bg_image_path and os.path.exists(bg_image_path)):
+                cand_sky = str(scene_bg_dir / "scene_tokyo_skyline.jpg")
+                if os.path.exists(cand_sky):
+                    bg_image_path = cand_sky
 
     # 1. Base Image Setup
     if bg_image_path and os.path.exists(bg_image_path):
@@ -111,7 +130,7 @@ def create_shorts_cover(item: dict) -> Image.Image:
         hy += 88
 
     # Pink Sub-Hook
-    draw.text((55, hy + 5), hook_sub.upper(), fill=(244, 114, 182), font=get_font(28, is_en=True))
+    draw.text((55, hy + 5), hook_sub.upper(), fill=(244, 114, 182), font=get_font(28, is_en=True, text=hook_sub))
 
     # 5. Center/Bottom Learning Card
     card_x, card_y = 40, 1150
@@ -128,26 +147,26 @@ def create_shorts_cover(item: dict) -> Image.Image:
     # Japanese Target Sentence
     full_jp = item.get("jp_phrase", "").strip()
     jp_size = 46
-    font_jp = get_font(jp_size)
+    font_jp = get_font(jp_size, text=full_jp)
     bbox_jp = draw.textbbox((0, 0), full_jp, font=font_jp)
     while (bbox_jp[2] - bbox_jp[0]) > (card_w - 70) and jp_size > 34:
         jp_size -= 2
-        font_jp = get_font(jp_size)
+        font_jp = get_font(jp_size, text=full_jp)
         bbox_jp = draw.textbbox((0, 0), full_jp, font=font_jp)
     draw.text((card_x + 35, card_y + 100), full_jp, fill=(255, 255, 255), font=font_jp)
 
     # Romaji
-    draw.text((card_x + 35, card_y + 168), item.get("romaji", ""), fill=(254, 240, 138), font=get_font(25, is_en=True))
+    draw.text((card_x + 35, card_y + 168), item.get("romaji", ""), fill=(254, 240, 138), font=get_font(25, is_en=True, text=item.get("romaji", "")))
     
     # English Translation
     en_meaning = item.get("en_meaning", "")
     en_clean = en_meaning if en_meaning.startswith('"') else f'"{en_meaning}"'
-    draw.text((card_x + 35, card_y + 215), en_clean, fill=(226, 232, 240), font=get_font(25, is_en=True))
+    draw.text((card_x + 35, card_y + 215), en_clean, fill=(226, 232, 240), font=get_font(25, is_en=True, text=en_clean))
 
     # Grammar Tag Pill inside card
     tag_clean = item.get("grammar_tag", f"{level_str} Spoken Japanese Pattern")
     draw.rounded_rectangle([(card_x + 35, card_y + 280), (card_x + card_w - 35, card_y + 345)], radius=12, fill=(15, 23, 42, 220), outline=(244, 114, 182), width=2)
-    draw.text((card_x + 55, card_y + 298), tag_clean, fill=(244, 114, 182), font=get_font(21))
+    draw.text((card_x + 55, card_y + 298), tag_clean, fill=(244, 114, 182), font=get_font(21, text=tag_clean))
 
     # 6. CTA Action Banner at Bottom of Card
     cta_x = card_x + 30
