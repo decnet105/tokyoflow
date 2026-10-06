@@ -61,4 +61,24 @@
 - Always target only the specific active episode (`--ep X`, `--dir <PATH>`, or single package directory) for verification and testing.
 - All production scripts MUST require explicit `--all` flags for full batch operations and default to single-target filtering, strictly protecting existing release assets in `docs/youtube_releases/` from accidental blanket overwriting.
 
+## 9. Strict Dual-Language Playlist Isolation Policy (Zero Cross-Contamination)
+- English videos and Chinese videos MUST ONLY be categorized into their respective language playlists. Cross-contamination is strictly prohibited.
+- English Column A:
+  - Long Masterclass: `PLHUEYGzrBe-s` (TokyoFlow Japanese Masterclass [English Edition])
+  - Vertical Shorts: `PLVxXRTmSmcAM` (TokyoFlow Japanese Shorts [English Edition])
+  - JLPT Levels: `PLY_ZLcqTrnU8` (N5), `PLIiV1gnNj8Ms` (N4), `PLFBaqxuiTcbo` (N3), `PLeb_7jP3fQ2M` (N2-N1)
+  - Scenarios: `PLAUUBQzM_liE` (Transit), `PLBhQ4N46ef1k` (Kombini), `PLA-JfaJhOu2E` (Dining), `PLPigp6inTnV8` (Shopping), `PLHPFg4RJy4Po` (News)
+- Chinese Column B:
+  - Long Masterclass: `PLVchR4TmK56E` (TokyoFlow 日语实景精讲【中文解说版】)
+  - Vertical Shorts: `PLTpb6FPYqYC4` (TokyoFlow 日语短视频跟读【中文解说版】)
+  - JLPT Levels: `PLPBpfF_GX60Q` (N5), `PLNFRI1RlIvIU` (N4), `PLHeOP0in6rRg` (N3), `PLRh0i-oZUcq8` (N2-N1)
+  - Scenarios: `PLdc0-MFoSiCc` (东京出行), `PLPDcqCSXjUWc` (街头生存), `PLRNRaN1g4Jac` (美食点单), `PLdgqOJf2bv54` (流行文化), `PLMIm06SWP2NE` (时事新闻)
+
+## 10. Scheme D Password-Protected Study Companion & Google Drive Synchronization
+- Every episode and weekly compilation must have high-resolution 300 DPI A4 print-friendly study companion PDFs generated in both English and Chinese.
+- Security: Encrypt each PDF with standard AES user password using the episode/compilation passcode (e.g. `TOKYOFLOW-EP14`, `TOKYOFLOW-WEEK1`).
+- Storage: Upload all companion PDFs to official Google Drive under `TokyoFlow_Academy_Resources/Weekly_Master_Workbooks_PDF` with public read permissions.
+- Discovery: Embed verified Google Drive download links and unlock passcodes into the YouTube video description box and pinned comment for every upload.
+
+
 
