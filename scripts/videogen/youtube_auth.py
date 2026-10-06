@@ -18,7 +18,8 @@ TOKEN_FILE = AUTH_DIR / "token.json"
 SCOPES = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube",
-    "https://www.googleapis.com/auth/youtubepartner"
+    "https://www.googleapis.com/auth/youtubepartner",
+    "https://www.googleapis.com/auth/youtube.force-ssl"
 ]
 
 def get_authenticated_service():
