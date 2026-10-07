@@ -191,6 +191,60 @@
       "status": "private",
       "lang": "zh",
       "format": "short"
+    },
+    "WL02_en_long": {
+      "id": "AScaa7XPZEk",
+      "title": "[JLPT N5] Complete Hiragana Masterclass: All 46 Characters Pronounced Twice with Words & Sentences | TokyoFlow Japanese",
+      "publishAt": "2026-10-07T14:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "long"
+    },
+    "WL02_en_short": {
+      "id": "oNnvO-tt0lM",
+      "title": "[JLPT N5] Master Japanese Hiragana: 5 Core Vowels with Words & Sentences! #Shorts #LearnJapanese",
+      "publishAt": "2026-10-07T14:00:00Z",
+      "status": "private",
+      "lang": "en",
+      "format": "short"
+    },
+    "WL02_zh_long": {
+      "id": "GGKDKiYl61c",
+      "title": "【JLPT N5】五十音图平假名全量精讲合集：46个假名原声读2遍+高频词汇+实景例句精讲 | TokyoFlow 日语",
+      "publishAt": "2026-10-07T21:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "long"
+    },
+    "WL02_zh_short": {
+      "id": "l3TmLPQ362g",
+      "title": "【JLPT N5】零基础必学！日语平假名5大核心元音（あいうえお）原声跟读 #Shorts",
+      "publishAt": "2026-10-07T21:00:00Z",
+      "status": "private",
+      "lang": "zh",
+      "format": "short"
+    },
+    "E15-tower_records_misdo-v1.0_video": {
+      "video_id": "UG47_pAF_gg",
+      "video_url": "https://youtu.be/UG47_pAF_gg",
+      "title": "[JLPT N5] EP.15 Why Some Brands Thrive in Japan | Real Japanese Breakdown",
+      "publish_at_est": "2026-10-08T08:00:00-04:00",
+      "uploaded_at": "2026-10-07T08:44:35.009372-04:00",
+      "is_short": false,
+      "notify_subscribers": true
+    },
+    "E15-tower_records_misdo-v1.0_short": {
+      "video_id": "Id12GHpooNM",
+      "video_url": "https://youtu.be/Id12GHpooNM",
+      "title": "[JLPT N5] SH.15 Why Brands Thrive in Japan! #Shorts",
+      "publish_at_est": "2026-10-09T08:00:00-04:00",
+      "uploaded_at": "2026-10-07T08:44:41.214281-04:00",
+      "is_short": true,
+      "notify_subscribers": true
     }
+  },
+  "playlists": {
+    "playlist_en_long": "PLHUEYGzrBe-s",
+    "playlist_en_short": "PLVxXRTmSmcAM"
   }
 }

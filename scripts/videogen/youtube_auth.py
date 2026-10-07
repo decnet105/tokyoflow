@@ -35,16 +35,22 @@ def get_authenticated_service():
         creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
 
     if not creds or not creds.valid:
+        refreshed = False
         if creds and creds.expired and creds.refresh_token:
-            print(" Refreshing existing YouTube OAuth access token...")
-            creds.refresh(Request())
-        else:
+            try:
+                print(" Refreshing existing YouTube OAuth access token...")
+                creds.refresh(Request())
+                refreshed = True
+            except Exception as e:
+                print(f" Refresh token expired or revoked ({e}). Initiating fresh OAuth flow...")
+                refreshed = False
+        
+        if not refreshed:
             print(" Initiating new YouTube OAuth Flow...")
             flow = InstalledAppFlow.from_client_secrets_file(
                 str(CLIENT_SECRETS_FILE),
                 SCOPES
             )
-            # Try running local server
             try:
                 creds = flow.run_local_server(port=8080, prompt="consent", access_type="offline")
             except Exception as e:

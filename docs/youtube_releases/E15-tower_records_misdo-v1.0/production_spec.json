@@ -1,0 +1,241 @@
+{
+  "date": "2026-10-07",
+  "ep_num": 15,
+  "slug": "tower_records_misdo",
+  "topic_title": "Why Some Brands Thrive in Japan",
+  "matched_playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "target_jlpt_level": "JLPT N5",
+  "district": "Tokyo Pop Culture",
+  "dramatic_hook": "Discover why brands like Tower Records and Mister Donut thrive in Japan despite declining elsewhere.",
+  "news_broadcast": {
+    "headline_ja": "【速報】タワレコやミスド、なぜ日本で元気？",
+    "anchor_speech_ja": "タワーレコードやミスタードーナツが本国で衰退する中、日本で元気に営業を続ける理由が話題になっています。これについて詳しく見ていきましょう。",
+    "location_tag": "TOKYO POP CULTURE"
+  },
+  "long_form": {
+    "yt_title": "[JLPT N5] EP.15 Why Some Brands Thrive in Japan | Real Japanese Breakdown",
+    "english_hook": "BRANDS THRIVE IN JAPAN",
+    "japanese_key_phrase": "日本で人気があります",
+    "bottom_tag": "[JLPT N5] Native Audio - Pop Culture Trend",
+    "description": "Learn natural Tokyo Japanese through today's trending entertainment news!\n\nTIMESTAMPS AND CHAPTERS:\n00:00 - 01. Breaking Trend Immersion\n00:06 - 02. Vocabulary & Grammar Breakdown\n00:45 - 03. Situational Practice Drill\n00:52 - 04. Shadowing Drill & Outro\n\nKEY PHRASES COVERED:\n- 日本で人気があります\n- なぜ日本で成功するのか\n\nRECOMMENDED PRACTICE:\nPair this lesson with TokyoFlow - Japanese Speaking on iOS for real-time speech shadowing scoring!\n\n#TokyoFlow #LearnJapanese #JapaneseSpeaking #JLPT #Anime",
+    "tags": [
+      "LearnJapanese",
+      "TokyoFlow",
+      "JLPTN5",
+      "AnimeJapanese",
+      "JapaneseShadowing",
+      "TokyoPopCulture"
+    ],
+    "slides": [
+      {
+        "type": "follow_along",
+        "chapter": "01. Breaking Trend Immersion",
+        "spoken_text": "タワーレコードは日本で人気があります。",
+        "en": "Tower Records is popular in Japan.",
+        "tip": "Use '人気があります' to express popularity.",
+        "tokens": [
+          {
+            "orig": "タワーレコード",
+            "kana": "たわーれこーど",
+            "romaji": "tawārekōdo",
+            "pos": "Noun",
+            "meaning": "Tower Records"
+          },
+          {
+            "orig": "日本",
+            "kana": "にほん",
+            "romaji": "nihon",
+            "pos": "Noun",
+            "meaning": "Japan"
+          },
+          {
+            "orig": "人気",
+            "kana": "にんき",
+            "romaji": "ninki",
+            "pos": "Noun",
+            "meaning": "popularity"
+          },
+          {
+            "orig": "あります",
+            "kana": "あります",
+            "romaji": "arimasu",
+            "pos": "Verb",
+            "meaning": "exists"
+          }
+        ]
+      },
+      {
+        "type": "breakdown_teamwork",
+        "chapter": "02. Breakdown & Cultural Insight",
+        "words": [
+          {
+            "orig": "人気",
+            "kana": "にんき",
+            "romaji": "ninki",
+            "pos": "Noun",
+            "meaning": "popularity"
+          },
+          {
+            "orig": "日本",
+            "kana": "にほん",
+            "romaji": "nihon",
+            "pos": "Noun",
+            "meaning": "Japan"
+          },
+          {
+            "orig": "成功",
+            "kana": "せいこう",
+            "romaji": "seikou",
+            "pos": "Noun",
+            "meaning": "success"
+          }
+        ],
+        "grammar": {
+          "title": "Expressing Popularity",
+          "bullets": [
+            [
+              "1. Core JLPT Pattern:",
+              "'人気があります' means 'is popular'."
+            ],
+            [
+              "2. Tokyo Cultural Insight:",
+              "Brands like Tower Records thrive in Japan due to unique marketing and cultural adaptation."
+            ],
+            [
+              "3. Practical Daily Life:",
+              "Locals often use '人気があります' to describe popular places or items."
+            ]
+          ]
+        },
+        "audio_cues": [
+          {
+            "speaker": "en",
+            "text": "Let's break down today's key words and cultural nuance."
+          },
+          {
+            "speaker": "ja",
+            "text": "人気",
+            "card_idx": 0
+          },
+          {
+            "speaker": "en",
+            "text": "Popularity, often used to describe something well-liked.",
+            "card_idx": 0
+          },
+          {
+            "speaker": "ja",
+            "text": "日本",
+            "card_idx": 1
+          },
+          {
+            "speaker": "en",
+            "text": "Japan, the country where these brands thrive.",
+            "card_idx": 1
+          },
+          {
+            "speaker": "ja",
+            "text": "成功",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Success, achieved by adapting to local culture.",
+            "card_idx": 2
+          },
+          {
+            "speaker": "en",
+            "text": "Brands like Tower Records adapt to local tastes, making them popular in Japan.",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "ja",
+            "text": "タワーレコードは日本で人気があります。",
+            "is_spotlight": true
+          },
+          {
+            "speaker": "en",
+            "text": "Keep practicing and you'll master these phrases!",
+            "is_spotlight": true
+          }
+        ]
+      },
+      {
+        "type": "follow_along",
+        "chapter": "03. Fan & Audience Reaction",
+        "spoken_text": "なぜ日本で成功するのか。",
+        "en": "Why do they succeed in Japan?",
+        "tip": "Use 'なぜ' to ask 'why'.",
+        "tokens": [
+          {
+            "orig": "なぜ",
+            "kana": "なぜ",
+            "romaji": "naze",
+            "pos": "Adverb",
+            "meaning": "why"
+          },
+          {
+            "orig": "成功",
+            "kana": "せいこう",
+            "romaji": "seikou",
+            "pos": "Noun",
+            "meaning": "success"
+          },
+          {
+            "orig": "する",
+            "kana": "する",
+            "romaji": "suru",
+            "pos": "Verb",
+            "meaning": "to do"
+          },
+          {
+            "orig": "日本",
+            "kana": "にほん",
+            "romaji": "nihon",
+            "pos": "Noun",
+            "meaning": "Japan"
+          }
+        ]
+      }
+    ]
+  },
+  "shorts": {
+    "yt_short_title": "[JLPT N5] SH.15 Why Brands Thrive in Japan! #Shorts #LearnJapanese",
+    "hook_title": "BRANDS THRIVE\nIN JAPAN",
+    "hook_audio_en": "Why do some brands thrive in Japan while struggling elsewhere? Let's find out!",
+    "jp_sentence": "タワーレコードは日本で人気があります。",
+    "kana_sentence": "たわーれこーどはにほんでにんきがあります。",
+    "romaji_sentence": "Tawārekōdo wa Nihon de ninki ga arimasu.",
+    "en_translation": "Tower Records is popular in Japan.",
+    "tokens": [
+      {
+        "orig": "タワーレコード",
+        "kana": "たわーれこーど",
+        "romaji": "tawārekōdo",
+        "meaning": "Tower Records"
+      },
+      {
+        "orig": "日本",
+        "kana": "にほん",
+        "romaji": "nihon",
+        "meaning": "Japan"
+      },
+      {
+        "orig": "人気",
+        "kana": "にんき",
+        "romaji": "ninki",
+        "meaning": "popularity"
+      },
+      {
+        "orig": "あります",
+        "kana": "あります",
+        "romaji": "arimasu",
+        "meaning": "exists"
+      }
+    ],
+    "pro_tip_title": " LOCAL JLPT N5 PRO-TIP",
+    "pro_tip_body": "Use '人気があります' to talk about something popular. It's a common phrase in daily conversations.",
+    "pro_tip_audio_en": "Use 'ninki ga arimasu' to express that something is popular in Japanese. It's a handy phrase for daily conversations.",
+    "interactive_poll": "Do you think local adaptation is key to success? A: Yes B: No",
+    "pinned_comment": "Full Deep-Dive Video Available Now! Click the linked video above for cultural insight & grammar drill!\nPoll: Do you think local adaptation is key to success? A: Yes B: No\nDownload TokyoFlow App on iOS for real-time speech pitch scoring!"
+  }
+}
