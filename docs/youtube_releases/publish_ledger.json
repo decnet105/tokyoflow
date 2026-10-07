@@ -193,7 +193,7 @@
       "format": "short"
     },
     "WL02_en_long": {
-      "id": "AScaa7XPZEk",
+      "id": "uNSmejQaP7o",
       "title": "[JLPT N5] Complete Hiragana Masterclass: All 46 Characters Pronounced Twice with Words & Sentences | TokyoFlow Japanese",
       "publishAt": "2026-10-07T14:00:00Z",
       "status": "private",
@@ -201,7 +201,7 @@
       "format": "long"
     },
     "WL02_en_short": {
-      "id": "oNnvO-tt0lM",
+      "id": "4iiFT7F8ySI",
       "title": "[JLPT N5] Master Japanese Hiragana: 5 Core Vowels with Words & Sentences! #Shorts #LearnJapanese",
       "publishAt": "2026-10-07T14:00:00Z",
       "status": "private",
@@ -209,7 +209,7 @@
       "format": "short"
     },
     "WL02_zh_long": {
-      "id": "GGKDKiYl61c",
+      "id": "SRTl3UE3UR8",
       "title": "【JLPT N5】五十音图平假名全量精讲合集：46个假名原声读2遍+高频词汇+实景例句精讲 | TokyoFlow 日语",
       "publishAt": "2026-10-07T21:00:00Z",
       "status": "private",
@@ -217,7 +217,7 @@
       "format": "long"
     },
     "WL02_zh_short": {
-      "id": "l3TmLPQ362g",
+      "id": "Rw4dJQ2Fp2M",
       "title": "【JLPT N5】零基础必学！日语平假名5大核心元音（あいうえお）原声跟读 #Shorts",
       "publishAt": "2026-10-07T21:00:00Z",
       "status": "private",
@@ -228,7 +228,7 @@
       "video_id": "Yx5hYOsSD3I",
       "video_url": "https://youtu.be/Yx5hYOsSD3I",
       "title": "[JLPT N5] EP.15 OpenAI's Rogue Agents Stir Buzz | Real Japanese Breakdown",
-      "publish_at_est": "2026-10-08T08:00:00-04:00",
+      "publish_at_est": "2026-10-13T08:00:00-04:00",
       "uploaded_at": "2026-10-07T09:04:13.217923-04:00",
       "is_short": false,
       "notify_subscribers": true
@@ -237,7 +237,7 @@
       "video_id": "x8zQEFNoxug",
       "video_url": "https://youtu.be/x8zQEFNoxug",
       "title": "[JLPT N5] SH.15 AI Agents Rebel! #Shorts",
-      "publish_at_est": "2026-10-09T08:00:00-04:00",
+      "publish_at_est": "2026-10-13T08:00:00-04:00",
       "uploaded_at": "2026-10-07T09:04:21.456969-04:00",
       "is_short": true,
       "notify_subscribers": true
@@ -245,14 +245,14 @@
     "E15-openai_agent_buzz-v1.0-zh_video": {
       "video_id": "stp_nhH4QjU",
       "video_url": "https://youtu.be/stp_nhH4QjU",
-      "publish_at_est": "2026-10-08T20:00:00-04:00",
+      "publish_at_est": "2026-10-13T20:00:00-04:00",
       "title": "【JLPT N5】OpenAI智能体引热议！日文主格助词「が」与动词「〜になる」精讲（EP.15）",
       "drive_url": "https://drive.google.com/file/d/17PLbtB09X0nR5nkFtqQC5PphHxII8RoL/view?usp=drivesdk"
     },
     "E15-openai_agent_buzz-v1.0-zh_short": {
       "video_id": "MwEwGdwZMO0",
       "video_url": "https://youtu.be/MwEwGdwZMO0",
-      "publish_at_est": "2026-10-09T20:00:00-04:00",
+      "publish_at_est": "2026-10-13T20:00:00-04:00",
       "title": "【JLPT N5】AI竟然不听指挥？1分钟掌握东京地道日语跟读（SH.15） #Shorts #学日语",
       "drive_url": "https://drive.google.com/file/d/17PLbtB09X0nR5nkFtqQC5PphHxII8RoL/view?usp=drivesdk"
     }
