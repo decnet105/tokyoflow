@@ -85,5 +85,14 @@
 - Storage: Upload all companion PDFs to official Google Drive under `TokyoFlow_Academy_Resources/Weekly_Master_Workbooks_PDF` with public read permissions.
 - Discovery: Embed verified Google Drive download links and unlock passcodes into the YouTube video description box and pinned comment for every upload.
 
+## 11. Mandatory Native Japanese Audio Playback in Shorts Follow-Along Drill (Zero Silence Discipline)
+- In all 9:16 Shorts (both English Column A and Chinese Column B), Stage 3 (Follow-Along / Shadowing Drill) MUST directly play the native Tokyo standard Japanese audio (`ja-JP-NanamiNeural`) rather than empty silence or blank recording gaps.
+- Rationale: Since pre-recorded video viewers cannot receive interactive microphone feedback, silence creates dead air. Playing the native pronunciation again enables the user to listen to authentic Japanese pronunciation a second time while reading along, significantly enhancing immersion and learning effectiveness.
+- Cue Narration:
+  - English: `"Now your turn! Read along with native audio in 3, 2, 1, go!"`
+  - Chinese: `"轮到你跟读啦！跟着东京原声一起大声读，3、2、1，开口！"`
+- Visual Synchronization: Stage 3 glowing karaoke tokens must be synchronized with the drill audio (`05_jp_drill.mp3`) via Whisper millisecond word alignment.
+
+
 
 

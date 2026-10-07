@@ -610,7 +610,7 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
     await synth_audio(conf["pro_tip_audio_en"], VOICE_MALE_EN, tip_audio, rate="+4%")
 
     shadow_cue_audio = os.path.join(tmp_dir, "04_shadow_cue.mp3")
-    await synth_audio("Now your turn! Shadow out loud in 3, 2, 1, go!", VOICE_MALE_EN, shadow_cue_audio, rate="+6%")
+    await synth_audio("Now your turn! Read along with native audio in 3, 2, 1, go!", VOICE_MALE_EN, shadow_cue_audio, rate="+6%")
 
     beep_low = os.path.join(tmp_dir, "beep_low.mp3")
     generate_beep(800, 0.12, beep_low)
@@ -819,7 +819,7 @@ async def generate_trend_short_video(conf: dict, out_video_path: str, out_thumb_
                     if tok.get("start", 0.0) <= rel_shadow_t <= tok.get("end", 0.0):
                         active_tok = tok_i
                         break
-                stg_title = "[STEP 3] YOUR TURN: SHADOW OUT LOUD"
+                stg_title = "[STEP 3] YOUR TURN: READ ALONG WITH NATIVE AUDIO"
                 frame = render_interactive_short_frame(
                     width=1080,
                     height=1920,
