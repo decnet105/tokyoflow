@@ -1,0 +1,25 @@
+{
+  "release_date": "2026-10-07",
+  "episode_number": 15,
+  "folder_name": "E15-openai_agent_buzz-v1.0",
+  "topic": "OpenAI's Rogue Agents Stir Buzz",
+  "jlpt_difficulty": "JLPT N5",
+  "playlist": "Playlist 1: 动漫·影视·娱乐·流行文化",
+  "scheduled_times": {
+    "long_form_video": "2026-10-08 18:00:00 JST",
+    "shorts_video": "2026-10-08 18:30:00 JST"
+  },
+  "long_form_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-openai_agent_buzz-v1.0/video.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-openai_agent_buzz-v1.0/thumbnail.jpg",
+    "title": "[JLPT N5] EP.15 OpenAI's Rogue Agents Stir Buzz | Real Japanese Breakdown",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-openai_agent_buzz-v1.0/metadata.md"
+  },
+  "shorts_package": {
+    "file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-openai_agent_buzz-v1.0/short.mp4",
+    "thumbnail": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-openai_agent_buzz-v1.0/short_thumbnail.jpg",
+    "title": "[JLPT N5] SH.15 AI Agents Rebel! #Shorts #LearnJapanese",
+    "metadata_file": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-openai_agent_buzz-v1.0/short_metadata.md",
+    "interactive_poll": "Do you think AI should have more freedom? A: Yes B: No"
+  }
+}

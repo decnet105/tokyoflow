@@ -1073,7 +1073,7 @@ Return strict, valid JSON with this exact schema:
 # -------------------------------------------------------------------------
 # Master Autonomous Production Pipeline
 # -------------------------------------------------------------------------
-async def produce_daily_package(date_str: str = None, dry_run: bool = False):
+async def produce_daily_package(date_str: str = None, dry_run: bool = False, ep_num: int = None):
     if not date_str:
         date_str = datetime.now().strftime("%Y-%m-%d")
         
@@ -1082,7 +1082,7 @@ async def produce_daily_package(date_str: str = None, dry_run: bool = False):
     print(f"==================================================================")
     
     # 1. Detect next episode number
-    next_ep_num = get_next_episode_number()
+    next_ep_num = ep_num if ep_num is not None else get_next_episode_number()
     print(f"Target Episode Number: EP.{next_ep_num:02d} / SH.{next_ep_num:02d}")
     
     # 2. Scan and score Japanese feeds
@@ -1510,10 +1510,11 @@ Practice speaking and pitch accent scoring in TokyoFlow - Japanese Speaking on i
 def main():
     parser = argparse.ArgumentParser(description="TokyoFlow Autonomous Daily Trend Producer (EP.01/SH.01 Standard)")
     parser.add_argument("--date", type=str, default=datetime.now().strftime("%Y-%m-%d"), help="Target date YYYY-MM-DD")
+    parser.add_argument("--ep", type=int, default=None, help="Explicit target episode number (e.g. 15)")
     parser.add_argument("--dry-run", action="store_true", help="Scan and score only without rendering")
     args = parser.parse_args()
     
-    asyncio.run(produce_daily_package(args.date, args.dry_run))
+    asyncio.run(produce_daily_package(args.date, args.dry_run, args.ep))
 
 if __name__ == "__main__":
     main()

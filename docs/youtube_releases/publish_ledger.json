@@ -224,21 +224,21 @@
       "lang": "zh",
       "format": "short"
     },
-    "E15-tower_records_misdo-v1.0_video": {
-      "video_id": "UG47_pAF_gg",
-      "video_url": "https://youtu.be/UG47_pAF_gg",
-      "title": "[JLPT N5] EP.15 Why Some Brands Thrive in Japan | Real Japanese Breakdown",
+    "E15-openai_agent_buzz-v1.0_video": {
+      "video_id": "m2CQ8z98WJI",
+      "video_url": "https://youtu.be/m2CQ8z98WJI",
+      "title": "[JLPT N5] EP.15 OpenAI's Rogue Agents Stir Buzz | Real Japanese Breakdown",
       "publish_at_est": "2026-10-08T08:00:00-04:00",
-      "uploaded_at": "2026-10-07T08:44:35.009372-04:00",
+      "uploaded_at": "2026-10-07T08:59:55.819316-04:00",
       "is_short": false,
       "notify_subscribers": true
     },
-    "E15-tower_records_misdo-v1.0_short": {
-      "video_id": "Id12GHpooNM",
-      "video_url": "https://youtu.be/Id12GHpooNM",
-      "title": "[JLPT N5] SH.15 Why Brands Thrive in Japan! #Shorts",
+    "E15-openai_agent_buzz-v1.0_short": {
+      "video_id": "fs5lqmDeo-w",
+      "video_url": "https://youtu.be/fs5lqmDeo-w",
+      "title": "[JLPT N5] SH.15 AI Agents Rebel! #Shorts",
       "publish_at_est": "2026-10-09T08:00:00-04:00",
-      "uploaded_at": "2026-10-07T08:44:41.214281-04:00",
+      "uploaded_at": "2026-10-07T09:00:06.095720-04:00",
       "is_short": true,
       "notify_subscribers": true
     }
