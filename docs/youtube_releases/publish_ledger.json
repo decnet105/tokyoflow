@@ -225,20 +225,20 @@
       "format": "short"
     },
     "E15-openai_agent_buzz-v1.0_video": {
-      "video_id": "m2CQ8z98WJI",
-      "video_url": "https://youtu.be/m2CQ8z98WJI",
+      "video_id": "Yx5hYOsSD3I",
+      "video_url": "https://youtu.be/Yx5hYOsSD3I",
       "title": "[JLPT N5] EP.15 OpenAI's Rogue Agents Stir Buzz | Real Japanese Breakdown",
       "publish_at_est": "2026-10-08T08:00:00-04:00",
-      "uploaded_at": "2026-10-07T08:59:55.819316-04:00",
+      "uploaded_at": "2026-10-07T09:04:13.217923-04:00",
       "is_short": false,
       "notify_subscribers": true
     },
     "E15-openai_agent_buzz-v1.0_short": {
-      "video_id": "fs5lqmDeo-w",
-      "video_url": "https://youtu.be/fs5lqmDeo-w",
+      "video_id": "x8zQEFNoxug",
+      "video_url": "https://youtu.be/x8zQEFNoxug",
       "title": "[JLPT N5] SH.15 AI Agents Rebel! #Shorts",
       "publish_at_est": "2026-10-09T08:00:00-04:00",
-      "uploaded_at": "2026-10-07T09:00:06.095720-04:00",
+      "uploaded_at": "2026-10-07T09:04:21.456969-04:00",
       "is_short": true,
       "notify_subscribers": true
     }
