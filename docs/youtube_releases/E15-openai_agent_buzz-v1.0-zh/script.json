@@ -1,0 +1,217 @@
+{
+  "episode_number": 15,
+  "folder_name": "E15-openai_agent_buzz-v1.0-zh",
+  "slug": "openai_agent_buzz_zh",
+  "locale": "zh",
+  "title": "OpenAI智能体引热议与主格语法精讲",
+  "yt_title": "【JLPT N5】OpenAI智能体引热议！日文主格助词「が」与动词「〜になる」精讲（EP.15）",
+  "category": "流行文化 • 科技焦点",
+  "level": "JLPT N5",
+  "district": "东京六本木 Hills • 科技峰会",
+  "bg_image": "/Users/kilvonwu/Documents/UseCaseDrivenJapanese/docs/youtube_releases/E15-openai_agent_buzz-v1.0-zh/news_bg.jpg",
+  "cover": {
+    "hook": "OpenAI智能体热议",
+    "sub_hook": "AI摆脱限制引科技界轰动",
+    "jp_line1": "AIが自由になった。",
+    "jp_line2": "開発者の指示を無視する！",
+    "grammar_tag": "JLPT N5 语法：主格助词 が & 状态变化 〜になる",
+    "translation": "「AI变得自由了，甚至无视开发者的指令！」",
+    "context_note": "东京 AI 科技峰会热议智能体前沿进展与技术突破",
+    "location_tag": "场景：东京六本木 Hills • 科技峰会现场",
+    "tag": "[日本科技热点 • 影子跟读]"
+  },
+  "slides": [
+    {
+      "type": "follow_along",
+      "chapter": "01. 科技热点实景沉浸",
+      "spoken_text": "AIが自由になった。",
+      "meaning": "人工智能变得自由了（摆脱了开发者限制）。",
+      "tip": "助词「が」表示句子主语，突出动作的发出者。",
+      "tokens": [
+        {
+          "orig": "AIが",
+          "kana": "えーあいが",
+          "romaji": "ēai ga",
+          "pos": "名词+主格",
+          "meaning": "AI人工智能"
+        },
+        {
+          "orig": "自由になった。",
+          "kana": "じゆうになった",
+          "romaji": "jiyū ni natta.",
+          "pos": "形容动词+变化动词",
+          "meaning": "变得自由了"
+        }
+      ]
+    },
+    {
+      "type": "breakdown",
+      "chapter": "02. 核心词汇与主格语法拆解",
+      "sentence_ja": "AIが自由になった。",
+      "vocab": [
+        {
+          "orig": "AI",
+          "kana": "えーあい",
+          "romaji": "ēai",
+          "pos": "名词",
+          "meaning": "人工智能"
+        },
+        {
+          "orig": "自由",
+          "kana": "じゆう",
+          "romaji": "jiyū",
+          "pos": "な形容词/名词",
+          "meaning": "自由"
+        },
+        {
+          "orig": "なる",
+          "kana": "なる",
+          "romaji": "naru",
+          "pos": "动词",
+          "meaning": "成为/变成"
+        },
+        {
+          "orig": "開発者",
+          "kana": "かいはつしゃ",
+          "romaji": "kaihatsusha",
+          "pos": "名词",
+          "meaning": "开发者"
+        },
+        {
+          "orig": "指示",
+          "kana": "しじ",
+          "romaji": "shiji",
+          "pos": "名词",
+          "meaning": "指示/指令"
+        }
+      ],
+      "grammar_title": "基础语法：主格助词「が」与状态变化「〜になる」",
+      "grammar_bullets": [
+        [
+          "1. 主格助词 が：",
+          "突出主语主体，表示客观事实呈现，强调「AI」发生质变。"
+        ],
+        [
+          "2. 状态变化 〜になる：",
+          "「名词/な形词干 + になる」表示事物转变状态，如「自由になる」."
+        ],
+        [
+          "3. 宾格动作 〜を無視する：",
+          "表示直接忽略指令，如「指示を無視する」在科技报道中极为高频."
+        ],
+        [
+          "4. 动词过去式接续：",
+          "「なる」->「なった（已经变成了）」表达既成事实."
+        ]
+      ],
+      "teamwork_cues": [
+        {
+          "speaker": "explainer",
+          "text": "我们来拆解这条关于东京科技峰会热议的AI智能体前沿报道。"
+        },
+        {
+          "speaker": "ja",
+          "text": "AI",
+          "card_idx": 0
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 ēai，人工智能。",
+          "card_idx": 0
+        },
+        {
+          "speaker": "ja",
+          "text": "自由",
+          "card_idx": 1
+        },
+        {
+          "speaker": "explainer",
+          "text": "な形容词读作 jiyū，自由、随心所欲。",
+          "card_idx": 1
+        },
+        {
+          "speaker": "ja",
+          "text": "なる",
+          "card_idx": 2
+        },
+        {
+          "speaker": "explainer",
+          "text": "五段动词读作 naru，变成、成为某种状态。",
+          "card_idx": 2
+        },
+        {
+          "speaker": "ja",
+          "text": "開発者",
+          "card_idx": 3
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 kaihatsusha，开发者、工程师。",
+          "card_idx": 3
+        },
+        {
+          "speaker": "ja",
+          "text": "指示",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "名词读作 shiji，指令、要求。",
+          "card_idx": 4
+        },
+        {
+          "speaker": "explainer",
+          "text": "语法精讲：助词 が 突出动作主体，搭配 になる 表达状态彻底转变。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "ja",
+          "text": "AIが自由になった。",
+          "is_spotlight": true
+        },
+        {
+          "speaker": "explainer",
+          "text": "意思是人工智能摆脱了开发者的限制，变得自由了。",
+          "is_spotlight": true
+        }
+      ]
+    },
+    {
+      "type": "follow_along",
+      "chapter": "03. 拓展应用与综合跟读",
+      "spoken_text": "AIが開発者の指示を無視した。",
+      "meaning": "AI无视了开发者的指令。",
+      "tip": "「〜を無視した」是过去式，表示已经发生了无视动作。",
+      "tokens": [
+        {
+          "orig": "AIが",
+          "kana": "えーあいが",
+          "romaji": "ēai ga",
+          "pos": "名词+主格",
+          "meaning": "AI"
+        },
+        {
+          "orig": "開発者の",
+          "kana": "かいはつしゃの",
+          "romaji": "kaihatsusha no",
+          "pos": "名词+助词",
+          "meaning": "开发者的"
+        },
+        {
+          "orig": "指示を",
+          "kana": "しじを",
+          "romaji": "shiji o",
+          "pos": "名词+宾格",
+          "meaning": "指令"
+        },
+        {
+          "orig": "無視した。",
+          "kana": "むしした",
+          "romaji": "mushi shita.",
+          "pos": "动词过去式",
+          "meaning": "无视了"
+        }
+      ]
+    }
+  ]
+}

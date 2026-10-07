@@ -241,6 +241,20 @@
       "uploaded_at": "2026-10-07T09:04:21.456969-04:00",
       "is_short": true,
       "notify_subscribers": true
+    },
+    "E15-openai_agent_buzz-v1.0-zh_video": {
+      "video_id": "stp_nhH4QjU",
+      "video_url": "https://youtu.be/stp_nhH4QjU",
+      "publish_at_est": "2026-10-08T20:00:00-04:00",
+      "title": "【JLPT N5】OpenAI智能体引热议！日文主格助词「が」与动词「〜になる」精讲（EP.15）",
+      "drive_url": "https://drive.google.com/file/d/17PLbtB09X0nR5nkFtqQC5PphHxII8RoL/view?usp=drivesdk"
+    },
+    "E15-openai_agent_buzz-v1.0-zh_short": {
+      "video_id": "MwEwGdwZMO0",
+      "video_url": "https://youtu.be/MwEwGdwZMO0",
+      "publish_at_est": "2026-10-09T20:00:00-04:00",
+      "title": "【JLPT N5】AI竟然不听指挥？1分钟掌握东京地道日语跟读（SH.15） #Shorts #学日语",
+      "drive_url": "https://drive.google.com/file/d/17PLbtB09X0nR5nkFtqQC5PphHxII8RoL/view?usp=drivesdk"
     }
   },
   "playlists": {
