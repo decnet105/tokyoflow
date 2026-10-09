@@ -14,7 +14,11 @@ import math
 import subprocess
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 
-FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
+FONT_PATH = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+if not os.path.exists(FONT_PATH):
+    FONT_PATH = "/Library/Fonts/Arial Unicode.ttf"
+if not os.path.exists(FONT_PATH):
+    FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 
 def get_font(size: int):
     try:
@@ -387,7 +391,8 @@ def render_follow_along_video_clip(
     fps: int = 30,
     en_window: tuple = (0.0, 0.0),
     base_canvas: Image.Image = None,
-    bg_image_path: str = ""
+    bg_image_path: str = "",
+    cover_frame: Image.Image = None
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
@@ -419,19 +424,23 @@ def render_follow_along_video_clip(
 
     try:
         for f_idx in range(total_frames):
-            t = f_idx / fps
-            frame = render_follow_along_frame(
-                tokens=tokens,
-                category_label=category_label,
-                title_label=title_label,
-                english_meaning=english_meaning,
-                pro_tip=pro_tip,
-                current_time=t,
-                chapter_label=chapter_label,
-                ep_label=ep_label,
-                en_window=en_window,
-                base_canvas=base_canvas
-            )
+            # First-Frame Master Cover Injection: Frames 0..7 (~0.26s) use the exact 16:9 master cover
+            if f_idx < 8 and cover_frame is not None:
+                frame = cover_frame
+            else:
+                t = f_idx / fps
+                frame = render_follow_along_frame(
+                    tokens=tokens,
+                    category_label=category_label,
+                    title_label=title_label,
+                    english_meaning=english_meaning,
+                    pro_tip=pro_tip,
+                    current_time=t,
+                    chapter_label=chapter_label,
+                    ep_label=ep_label,
+                    en_window=en_window,
+                    base_canvas=base_canvas
+                )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
         pass
@@ -556,9 +565,9 @@ def render_breakdown_frame(
         draw.text((spot_x + 330, b_y), desc, fill=(30, 41, 59), font=get_font(22))
         b_y += 62
 
-    # Bottom App CTA
+    # Bottom Academy Banner
     draw.rounded_rectangle([(120, 915), (width - 120, 1020)], radius=18, fill=(241, 245, 249), outline=(226, 232, 240), width=2)
-    draw.text((160, 945), "[ TOKYOFLOW ACADEMY ]  Practice interactive word drills & pitch accent scoring in the TokyoFlow iOS App!", fill=(51, 65, 85), font=get_font(25))
+    draw.text((160, 945), "[ TOKYOFLOW JAPANESE ACADEMY ]  Real-life Tokyo Japanese immersion masterclass • Practice shadowing with native audio", fill=(51, 65, 85), font=get_font(25))
 
     return img
 
@@ -576,7 +585,8 @@ def render_breakdown_video_clip(
     out_mp4_path: str,
     fps: int = 30,
     base_canvas: Image.Image = None,
-    bg_image_path: str = ""
+    bg_image_path: str = "",
+    cover_frame: Image.Image = None
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
@@ -608,19 +618,23 @@ def render_breakdown_video_clip(
 
     try:
         for f_idx in range(total_frames):
-            t = f_idx / fps
-            frame = render_breakdown_frame(
-                sentence_ja=sentence_ja,
-                vocab_list=vocab_list,
-                grammar_title=grammar_title,
-                grammar_bullets=grammar_bullets,
-                category_label=category_label,
-                chapter_label=chapter_label,
-                ep_label=ep_label,
-                current_time=t,
-                timings=timings,
-                base_canvas=base_canvas
-            )
+            # First-Frame Master Cover Injection: Frames 0..7 (~0.26s) use the exact 16:9 master cover
+            if f_idx < 8 and cover_frame is not None:
+                frame = cover_frame
+            else:
+                t = f_idx / fps
+                frame = render_breakdown_frame(
+                    sentence_ja=sentence_ja,
+                    vocab_list=vocab_list,
+                    grammar_title=grammar_title,
+                    grammar_bullets=grammar_bullets,
+                    category_label=category_label,
+                    chapter_label=chapter_label,
+                    ep_label=ep_label,
+                    current_time=t,
+                    timings=timings,
+                    base_canvas=base_canvas
+                )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
         pass

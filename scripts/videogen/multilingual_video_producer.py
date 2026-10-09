@@ -32,12 +32,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n_config import get_locale_config, LOCALES
 from timing_engine import align_sentence_tokens_with_audio
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
+FONT_PATH = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+if not os.path.exists(FONT_PATH):
+    FONT_PATH = "/Library/Fonts/Arial Unicode.ttf"
+if not os.path.exists(FONT_PATH):
+    FONT_PATH = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 FONT_EN_HEAVY = "/System/Library/Fonts/Helvetica.ttc"
 
 def get_font(size: int, is_en: bool = False):
-    font_file = FONT_PATH if not is_en else FONT_EN_HEAVY
+    font_file = FONT_EN_HEAVY if is_en else FONT_PATH
     try:
         return ImageFont.truetype(font_file, size)
     except Exception:
@@ -540,7 +543,8 @@ def render_follow_along_video_clip(
     jlpt_level: str = "JLPT N4",
     fps: int = 30,
     explainer_window: tuple = (0.0, 0.0),
-    base_canvas: Image.Image = None
+    base_canvas: Image.Image = None,
+    cover_frame: Image.Image = None
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
@@ -568,21 +572,25 @@ def render_follow_along_video_clip(
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
     try:
         for f_idx in range(total_frames):
-            t = f_idx / fps
-            frame = render_follow_along_frame(
-                tokens=tokens,
-                category_label=category_label,
-                title_label=title_label,
-                meaning_text=meaning_text,
-                pro_tip=pro_tip,
-                current_time=t,
-                chapter_label=chapter_label,
-                ep_label=ep_label,
-                locale_cfg=locale_cfg,
-                jlpt_level=jlpt_level,
-                explainer_window=explainer_window,
-                base_canvas=base_canvas
-            )
+            # First-Frame Master Cover Injection: Frames 0..7 (~0.26s) use the exact 16:9 master cover
+            if f_idx < 8 and cover_frame is not None:
+                frame = cover_frame
+            else:
+                t = f_idx / fps
+                frame = render_follow_along_frame(
+                    tokens=tokens,
+                    category_label=category_label,
+                    title_label=title_label,
+                    meaning_text=meaning_text,
+                    pro_tip=pro_tip,
+                    current_time=t,
+                    chapter_label=chapter_label,
+                    ep_label=ep_label,
+                    locale_cfg=locale_cfg,
+                    jlpt_level=jlpt_level,
+                    explainer_window=explainer_window,
+                    base_canvas=base_canvas
+                )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
         pass
@@ -608,7 +616,8 @@ def render_breakdown_video_clip(
     locale_cfg: dict,
     jlpt_level: str = "JLPT N4",
     fps: int = 30,
-    base_canvas: Image.Image = None
+    base_canvas: Image.Image = None,
+    cover_frame: Image.Image = None
 ):
     total_duration = duration + 0.3
     total_frames = int(total_duration * fps)
@@ -636,21 +645,25 @@ def render_breakdown_video_clip(
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
     try:
         for f_idx in range(total_frames):
-            t = f_idx / fps
-            frame = render_breakdown_frame(
-                sentence_ja=sentence_ja,
-                vocab_list=vocab_list,
-                grammar_title=grammar_title,
-                grammar_bullets=grammar_bullets,
-                category_label=category_label,
-                chapter_label=chapter_label,
-                ep_label=ep_label,
-                locale_cfg=locale_cfg,
-                jlpt_level=jlpt_level,
-                current_time=t,
-                timings=timings,
-                base_canvas=base_canvas
-            )
+            # First-Frame Master Cover Injection: Frames 0..7 (~0.26s) use the exact 16:9 master cover
+            if f_idx < 8 and cover_frame is not None:
+                frame = cover_frame
+            else:
+                t = f_idx / fps
+                frame = render_breakdown_frame(
+                    sentence_ja=sentence_ja,
+                    vocab_list=vocab_list,
+                    grammar_title=grammar_title,
+                    grammar_bullets=grammar_bullets,
+                    category_label=category_label,
+                    chapter_label=chapter_label,
+                    ep_label=ep_label,
+                    locale_cfg=locale_cfg,
+                    jlpt_level=jlpt_level,
+                    current_time=t,
+                    timings=timings,
+                    base_canvas=base_canvas
+                )
             proc.stdin.write(frame.tobytes())
     except (BrokenPipeError, IOError):
         pass
@@ -976,6 +989,51 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
 
     base_canvas_16_9 = prepare_16_9_background_canvas(bg_img)
 
+    # 1. Generate Thumbnails Ahead of Time for Master Cover Injection
+    cover_data = script_data.get("cover", {})
+    thumb_path = os.path.join(output_dir, "thumbnail.jpg")
+    short_thumb_path = os.path.join(output_dir, "short_thumbnail.jpg")
+
+    jp_full = f"{cover_data.get('jp_line1', '')}\n{cover_data.get('jp_line2', '')}".strip()
+    if not jp_full:
+        jp_full = cover_data.get("jp", "まもなく参ります")
+
+    generate_localized_thumbnail(
+        ep_num=ep_num,
+        hook_text=cover_data.get("hook", "山手线报站秘籍"),
+        sub_hook=cover_data.get("sub_hook", locale_cfg["thumb_default_sub_hook"]),
+        jp_phrase=jp_full,
+        jlpt_level=script_data.get("level", "JLPT N4"),
+        bg_image_path=bg_img,
+        output_path=thumb_path,
+        locale_cfg=locale_cfg,
+        grammar_tag=cover_data.get("grammar_tag", "JLPT N4 语法精讲"),
+        translation=cover_data.get("translation", "「请退到黄色盲道安全线内侧。」"),
+        context_note=cover_data.get("context_note", "JR 东京车站高频广播"),
+        location_tag=cover_data.get("location_tag", "场景：JR 新宿站 • 山手线")
+    )
+
+    generate_localized_shorts_thumbnail(
+        sh_num=ep_num,
+        hook_text=cover_data.get("hook", "山手线报站秘籍"),
+        sub_hook=cover_data.get("sub_hook", locale_cfg["thumb_default_sub_hook"]),
+        jp_phrase=jp_full.replace("\n", " "),
+        jlpt_level=script_data.get("level", "JLPT N4"),
+        bg_image_path=bg_img,
+        output_path=short_thumb_path,
+        locale_cfg=locale_cfg,
+        grammar_tag=cover_data.get("grammar_tag", "JLPT N4 语法精讲"),
+        translation=cover_data.get("translation", "「请退到黄色盲道安全线内侧。」"),
+        context_note=cover_data.get("context_note", "JR 东京车站高频广播")
+    )
+
+    cover_frame_16_9 = None
+    if os.path.exists(thumb_path):
+        try:
+            cover_frame_16_9 = Image.open(thumb_path).convert("RGB").resize((1920, 1080), Image.Resampling.LANCZOS)
+        except Exception:
+            cover_frame_16_9 = None
+
     print(f"\n>> Starting Multi-Language Production: EP.{ep_num:02d} [{locale_cfg['name']}]")
     print(f"   Target Release Folder: {output_dir}")
     print(f"   Explainer Voice: {locale_cfg['explainer_voice']} ({locale_cfg['explainer_name']})")
@@ -988,6 +1046,7 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
         stype = slide["type"]
         chapter_label = slide.get("chapter", f"0{idx+1}")
         seg_video_path = os.path.join(tmp_dir, f"segment_{idx:02d}_{stype}.mp4")
+        slide_cover = cover_frame_16_9 if idx == 0 else None
 
         print(f"\n--- [Slide {idx+1}/{len(script_data['slides'])}] Type: {stype} | Chapter: {chapter_label} ---")
 
@@ -997,18 +1056,67 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
             pro_tip = slide.get("tip", "")
             title_label = spoken_text
 
-            audio_path = os.path.join(tmp_dir, f"audio_slide_{idx:02d}.mp3")
+            fa_tmp = os.path.join(tmp_dir, f"fa_{idx:02d}")
+            os.makedirs(fa_tmp, exist_ok=True)
+            
+            # 1. Native Japanese Audio
+            fn_ja = os.path.join(fa_tmp, "nanami_ja.mp3")
             await synthesize_speech(
                 spoken_text,
-                audio_path,
+                fn_ja,
                 voice="ja-JP-NanamiNeural",
                 rate="-6%",
                 pitch="+3Hz"
             )
-            audio_dur = get_audio_duration(audio_path)
+            dur_ja = get_audio_duration(fn_ja)
+
+            # 2. Explainer Voice (Translation + Tip)
+            exp_text = meaning_text
+            if pro_tip:
+                exp_text += f" {pro_tip}"
+            fn_exp = os.path.join(fa_tmp, "explainer.mp3")
+            await synthesize_speech(
+                exp_text,
+                fn_exp,
+                voice=locale_cfg["explainer_voice"],
+                rate=locale_cfg["explainer_rate"],
+                pitch=locale_cfg["explainer_pitch"]
+            )
+            dur_exp = get_audio_duration(fn_exp)
+
+            # 3. Concat JA + Silence (0.4s) + Explainer
+            fn_sil = os.path.join(fa_tmp, "sil.mp3")
+            cmd_sil = [
+                "ffmpeg", "-y", "-f", "lavfi",
+                "-i", "anullsrc=r=44100:cl=stereo",
+                "-t", "0.4",
+                "-c:a", "libmp3lame", "-b:a", "192k",
+                fn_sil
+            ]
+            subprocess.run(cmd_sil, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+
+            concat_txt = os.path.join(fa_tmp, "concat.txt")
+            with open(concat_txt, "w") as f:
+                f.write(f"file '{os.path.abspath(fn_ja)}'\n")
+                f.write(f"file '{os.path.abspath(fn_sil)}'\n")
+                f.write(f"file '{os.path.abspath(fn_exp)}'\n")
+
+            audio_path = os.path.join(tmp_dir, f"audio_slide_{idx:02d}.mp3")
+            cmd_cat = [
+                "ffmpeg", "-y",
+                "-f", "concat", "-safe", "0",
+                "-i", concat_txt,
+                "-c:a", "libmp3lame",
+                "-b:a", "192k",
+                "-ar", "44100",
+                "-ac", "2",
+                audio_path
+            ]
+            subprocess.run(cmd_cat, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+            total_audio_dur = get_audio_duration(audio_path)
 
             raw_tokens = slide.get("tokens", [])
-            aligned_tokens = align_sentence_tokens_with_audio(audio_path, raw_tokens)
+            aligned_tokens = align_sentence_tokens_with_audio(fn_ja, raw_tokens)
 
             render_follow_along_video_clip(
                 tokens=aligned_tokens,
@@ -1019,12 +1127,14 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
                 chapter_label=chapter_label,
                 ep_label=ep_label,
                 audio_path=audio_path,
-                duration=audio_dur,
+                duration=total_audio_dur,
                 out_mp4_path=seg_video_path,
                 locale_cfg=locale_cfg,
                 jlpt_level=jlpt_level,
                 fps=30,
-                base_canvas=base_canvas_16_9
+                explainer_window=(dur_ja + 0.4, total_audio_dur),
+                base_canvas=base_canvas_16_9,
+                cover_frame=slide_cover
             )
             video_segments.append(seg_video_path)
 
@@ -1058,7 +1168,8 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
                 locale_cfg=locale_cfg,
                 jlpt_level=jlpt_level,
                 fps=30,
-                base_canvas=base_canvas_16_9
+                base_canvas=base_canvas_16_9,
+                cover_frame=slide_cover
             )
             video_segments.append(seg_video_path)
 
@@ -1117,46 +1228,7 @@ async def produce_multilingual_episode(script_path: str, output_dir: str, locale
     total_dur = get_audio_duration(final_video_path)
     print(f"[OK] Master Video Rendered! Duration: {total_dur:.1f}s -> {final_video_path}")
 
-    # 5. Generate Thumbnails & Metadata
-    cover_data = script_data.get("cover", {})
-    bg_img = script_data.get("bg_image", "")
-    thumb_path = os.path.join(output_dir, "thumbnail.jpg")
-    short_thumb_path = os.path.join(output_dir, "short_thumbnail.jpg")
-
-    jp_full = f"{cover_data.get('jp_line1', '')}\n{cover_data.get('jp_line2', '')}".strip()
-    if not jp_full:
-        jp_full = cover_data.get("jp", "まもなく参ります")
-
-    generate_localized_thumbnail(
-        ep_num=ep_num,
-        hook_text=cover_data.get("hook", "山手线报站秘籍"),
-        sub_hook=cover_data.get("sub_hook", locale_cfg["thumb_default_sub_hook"]),
-        jp_phrase=jp_full,
-        jlpt_level=script_data.get("level", "JLPT N4"),
-        bg_image_path=bg_img,
-        output_path=thumb_path,
-        locale_cfg=locale_cfg,
-        grammar_tag=cover_data.get("grammar_tag", "JLPT N4 语法精讲"),
-        translation=cover_data.get("translation", "「请退到黄色盲道安全线内侧。」"),
-        context_note=cover_data.get("context_note", "JR 东京车站高频广播"),
-        location_tag=cover_data.get("location_tag", "场景：JR 新宿站 • 山手线")
-    )
-
-    generate_localized_shorts_thumbnail(
-        sh_num=ep_num,
-        hook_text=cover_data.get("hook", "山手线报站秘籍"),
-        sub_hook=cover_data.get("sub_hook", locale_cfg["thumb_default_sub_hook"]),
-        jp_phrase=jp_full.replace("\n", " "),
-        jlpt_level=script_data.get("level", "JLPT N4"),
-        bg_image_path=bg_img,
-        output_path=short_thumb_path,
-        locale_cfg=locale_cfg,
-        grammar_tag=cover_data.get("grammar_tag", "JLPT N4 语法精讲"),
-        translation=cover_data.get("translation", "「请退到黄色盲道安全线内侧。」"),
-        context_note=cover_data.get("context_note", "JR 东京车站高频广播")
-    )
-
-    # 6. Generate Metadata Markdown
+    # 5. Generate Metadata Markdown
     meta_path = os.path.join(output_dir, "metadata.md")
     with open(meta_path, "w", encoding="utf-8") as f:
         f.write(f"# {script_data['yt_title']}\n\n")
